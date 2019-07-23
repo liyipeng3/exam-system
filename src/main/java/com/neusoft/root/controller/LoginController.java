@@ -30,7 +30,7 @@ public class LoginController {
 			return "ok";
 		}
 		else{
-			return "用户名、密码错误";
+			return "用户名或密码错误";
 		}
 	}
 }
