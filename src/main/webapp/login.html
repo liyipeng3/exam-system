@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://www.com/account/login/140092 -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <title>考试云平台</title>
+
+    <script async="" src="./js/tingyun-rum-home.js"></script>
+    <script async="" src="./js/gio.js"></script>
+    <script type="text/javascript" src="./js/ksx_probe.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        //添加gio
+        ksxProbe.gioInit(opts);
+        //添加tingyun
+        ksxProbe.tingyun();
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="shortcut icon" href="img/logo.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login-reg-style.css">
+</head>
+<body>
+<!-- loading -->
+<div class="spinner-wrapper hidden" id="spinnerLoading">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<div class="login-wrap">
+    <div class="bg-pic">
+        <img class="img-bg" src="./img/login-bg-small.jpg">
+    </div>
+    <div class="login-content-wrap">
+        <div class="login-content">
+            <form action="https://www.com/account/login" name="form_wm" class="login-form" id="loginForm">
+                <img src="./img/logo.png" alt="logo" class="logo">
+                <div class="main-error-tips" id="errormsg"></div>
+
+                <div class="username">
+                    <em class="icon icon-a_landing_account"></em>
+                    <span>|</span>
+                    <input type="text" name="username" id="username" placeholder="账号" class="userNameInput">
+                </div>
+                <div class="password">
+                    <em class="icon icon-a_landing_password"></em>
+                    <span>|</span>
+                    <input type="password" name="password" id="userTypePwd" placeholder="密码" class="passwordInput">
+                </div>
+                <div class="remember">
+                    <label for="saveUsername" class="hidden"><input type="checkbox" id="saveUsername" name="autoLogin">7天自动登录</label>
+                    <a href="https://www.com/account/find_pwd/140092" class="forget-password">忘记密码</a>
+                </div>
+                <a href="javascript:void(0);" class="btn btn-login btn-primary" id="loginBtn">登录</a>
+
+                <a href="./register.html" class="btn-regist btn-examinee-reg">注册考生账号</a>
+
+                <div class="login-content-footer">
+
+                    <div class="mobile-register">
+                        <a href="javascript:void(0);"
+                           class="btn btn-default mobile-btn-regist btn-examinee-reg">注册考生账号</a>
+                    </div>
+
+                    <div id="switchLang" class="switchLang">
+                        <em class="icon icon-a_landing_english"></em>
+                        <span class="ch">HIT</span>
+                    </div>
+                </div>
+            </form>
+            <div id="loginWechet" class="reg-form loginWechet weChatBind" style="display: none;">
+                <div class="reg-tips finish-tips">登录成功！</div>
+                <em class="icon icon-a_circle_check"></em>
+                <div class="finish-text">绑定微信，即可扫码一键登录</div>
+                <a href="javascript:void(0);" class="btn btn-goto-bind all-right btn-primary">立即绑定微信</a>
+                <a href="javascript:void(0);" class="btn btn-goto-login">先不绑定，直接登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="userOverModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">贵公司可注册用户数已达上限，请联系公司管理员...</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message modal-logout" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">您是否要退出登录？</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="confirmLogoutBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    var companyId = ""; //公司id
+    $(function () {
+        //页面加载loading
+        $("#spinnerLoading").addClass("hidden");
+
+        // ajaxstart with loading shown
+        $(document).ajaxStart(function () {
+            $("#spinnerLoading").removeClass("hidden");
+        });
+        // ajaxstop with loading hidden
+        $(document).ajaxStop(function () {
+            $("#spinnerLoading").addClass("hidden");
+        });
+
+
+        //读取用户自定义LOGO
+        if ($("#companyLogo").length > 0) {
+            var _this = $("#companyLogo");
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                dataType: "json",
+                url: "/admin/modify_get_logo",
+                success: function (msg) {
+                    if (msg.success) {
+                        var logo_url = msg.bizContent.logoUrl;
+                        var img = '<img class="icon-logo logo-ksx" src="' + logo_url + '" />';
+                        $(_this).append(img);
+                    }
+                }
+            });
+        }
+
+        // 退出登录(清空cookie,session&&sessionId)
+        $("#logoutBtn").click(function (e) {
+            e.preventDefault();
+
+            $("#logoutModal").modal();
+        });
+
+        //确认退出登录
+        $("#confirmLogoutBtn").click(function () {
+            $.ajax({
+                type: "POST",
+                cache: false,
+                dataType: "json",
+                url: "/account/logout",
+                success: function (msg) {
+                    var jump_url = msg.bizContent.url;
+                    window.location.href = jump_url;
+
+                }
+            });
+        });
+
+        //第三方需求，隐藏logo和退出，返回
+        $(function () {
+            //获取cookie
+            var thirdParty = getCookie('thirdParty');
+
+            if (thirdParty == 'true') {
+                $("#logoutBtn, .back-icon").addClass("hidden");
+            }
+        });
+    });
+
+    // set cookie
+    function setCookie(cookieName, cookieValue, expiresTime) {
+        $("#spinnerLoading").addClass("hide");
+
+        $.ajax({
+            type: "post",
+            url: "/account/set_cookie",
+            dataType: "json",
+            data: "cookieName=" + cookieName + "&cookieValue=" + cookieValue + "&expiresTime=" + expiresTime,
+            success: function (msg) {
+                $("#spinnerLoading").removeClass("hide");
+                return msg;
+            },
+            error: function (msg) {
+                $("#spinnerLoading").removeClass("hide");
+            }
+        });
+
+    }
+
+
+    // get cookie
+    function getCookie(c_name) {
+        if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=")
+            if (c_start != -1) {
+                c_start = c_start + c_name.length + 1;
+                c_end = document.cookie.indexOf(";", c_start);
+                if (c_end == -1) {
+                    c_end = document.cookie.length
+                }
+                return unescape(document.cookie.substring(c_start, c_end));
+            }
+        }
+        return "";
+    }
+</script>
+<script src="./js/jquery.qrcode.min.js"></script>
+<script type="text/javascript">
+    $(".qr-codes").qrcode({
+        size: 100,
+        minVersion: 3,
+        fill: "#000",
+        background: "#fff",
+        text: window.location.href,
+        radius: 0,
+        quiet: 2,
+    });
+
+</script>
+<script>
+    var domain = "";
+
+    domain = "140092";
+
+    $(".userNameInput,.passwordInput").on("focus", function () {
+        $(this).parent().addClass("focus");
+    });
+    $(".userNameInput,.passwordInput").on("blur", function () {
+        $(this).parent().removeClass("focus");
+    });
+</script>
+<script type="text/javascript" src="./js/md5.min.js"></script>
+<script type="text/javascript" src="./js/login.js"></script>
+
+
+</body>
+</html>
