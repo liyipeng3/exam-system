@@ -105,13 +105,13 @@ function userLogin() {
                 url: "/sm/login/checkAccount",
                 data: dataForm,
                 success: function (msg) {
-                    if (msg==="success") {
+                    if (msg==="ok") {
                         {
                             window.location.href = "/sm/index.html";
                         }
                     } else {
                         $("#loginBtn").removeClass("disabled");
-                        $("#errormsg").text(msg.desc);
+                        $("#errormsg").text(msg);
                     }
                 },
                 error:function(msg){
@@ -136,11 +136,11 @@ function userLogin() {
                     url: "/sm/login/checkAccount",
                     data: dataForm,
                     success: function (msg) {
-                        if (msg==="success") {
+                        if (msg==="ok") {
                             window.location.href = "/sm/index.html";
                         } else {
                             $("#loginBtn").removeClass("disabled");
-                            $("#errormsg").text(msg.desc);
+                            $("#errormsg").text(msg);
                         }
                     },
                 })
