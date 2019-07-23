@@ -107,7 +107,7 @@ function userLogin() {
                 success: function (msg) {
                     if (msg==="ok") {
                         {
-                            window.location.href = "/sm/index.html";
+                            window.location.href = "/sm/index";
                         }
                     } else {
                         $("#loginBtn").removeClass("disabled");
@@ -137,7 +137,7 @@ function userLogin() {
                     data: dataForm,
                     success: function (msg) {
                         if (msg==="ok") {
-                            window.location.href = "/sm/index.html";
+                            window.location.href = "/sm/index";
                         } else {
                             $("#loginBtn").removeClass("disabled");
                             $("#errormsg").text(msg);
