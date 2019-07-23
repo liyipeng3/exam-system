@@ -5,12 +5,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	@RequestMapping(value="checkAccount", method=RequestMethod.POST)
+	@RequestMapping(value="checkAccount")
 	public String checkAccount(HttpServletRequest req, String username, String password) {
 		System.out.println("用户名：" + username + "密    码：" + password);
 		if(username != null && password != null){

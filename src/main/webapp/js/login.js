@@ -105,7 +105,7 @@ function userLogin() {
                 var expiresTime = "86400";
 
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     cache: "false",
                     headers: {"cache-control": "no-cache"},
                     async: false,
@@ -118,7 +118,7 @@ function userLogin() {
             }
             $("#loginBtn").addClass("disabled");
             $.ajax({
-                type: "POST",
+                type: "GET",
                 cache: "false",
                 headers: {"cache-control": "no-cache"},
                 dataType: "json",
@@ -147,15 +147,15 @@ function userLogin() {
             if (filter2.test(username) || filter3.test(username) || (/^\d{11}$/.test(username))) {
                 $("#loginBtn").addClass("disabled");
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     cache: "false",
                     headers: {"cache-control": "no-cache"},
                     dataType: "json",
                     url: "/sm/login/checkAccount",
                     data: dataForm,
                     success: function (msg) {
-                        if (msg.success) {
-
+                        if (msg==='success') {
+                            
                             window.location.href = "/index.html";
 
                         } else {
