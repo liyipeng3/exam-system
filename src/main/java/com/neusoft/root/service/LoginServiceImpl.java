@@ -1,5 +1,8 @@
 package com.neusoft.root.service;
 
-public class LoginServiceImpl {
+import org.springframework.stereotype.Service;
 
+@Service
+public class LoginServiceImpl implements LoginService{
+	
 }
