@@ -113,7 +113,7 @@ function userLogin() {
                         $("#loginBtn").removeClass("disabled");
                         $("#errormsg").text(msg.desc);
                     }
-                },
+                }
             })
         } else {
             //公共入口
