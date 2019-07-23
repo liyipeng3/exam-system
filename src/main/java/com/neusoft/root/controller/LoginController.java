@@ -21,10 +21,10 @@ public class LoginController {
 			//建立会话对象，存储登录状态
 			HttpSession session = req.getSession();
 			session.setAttribute("flag",username);
-			return "success";
+			return "ok";
 		}
 		else{
-			return "wrong";
+			return "密码错误";
 		}
 	}
 }
