@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://exam.com/exam -->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
+    <meta name="description" content="一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="author" content="">
+    <script async="" src="./js/tingyun-rum-exam.js"></script>
+    <script async="" src="./js/gio.js"></script>
+    <script type="text/javascript" src="./js/ksx_probe.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '东北大学软件园';
+        opts.rightsGrade = '8';
+
+        //添加gio
+        ksxProbe.gioInit(opts);
+        //添加tingyun
+        ksxProbe.tingyun();
+    </script>
+
+    <title>考试云平台</title>
+
+    <link rel="shortcut icon" href="img/logo.ico">
+
+
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+
+    <link rel="stylesheet" type="text/css" href="./css/exam_base.css">
+    <style>
+        #payModal #payCode {
+            display: none;
+            font-size: 20px;
+        }
+
+        #payModal #payCode .pay-tip {
+            font-size: 14px;
+            color: #B4B6BD;
+            margin-top: 10px;
+        }
+
+        #payModal.modal-payment #payCode {
+            display: block;
+        }
+
+        #payModal #payCode .code-img {
+            margin-top: 15px;
+            height: 80px;
+            text-align: center;
+        }
+
+        #payModal #payCode .code-img canvas {
+            width: 80px;
+        }
+
+        #payModal .modal-title {
+            font-size: 20px;
+            color: #6D717C;
+        }
+
+        #payModal .modal-title span {
+            color: #FE8545;
+            font-size: 16px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        #payModal .modal-title span#examPrice {
+            font-size: 30px;
+        }
+
+        .modal-payment .modal-footer {
+            display: none;
+        }
+
+        #jumpProess {
+            text-decoration: underline;
+            width: 170px;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+    <style>
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item .show-num {
+            position: absolute;
+            left: 76px;
+            top: 3px;
+            display: none;
+            background: #FF4B50;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="viewFrameWork sidebar-full" id="viewFrameWork">
+
+    <div class="viewFrameWork-statusbar">
+
+        <a href="https://exam.com/exam" class="status-left status-item company-logo" title="logo" id="companyLogo">
+            <!--对有没有logo进行判断-->
+            <img class="icon-logo logo-ksx" src="./img/logo.png"></a>
+
+
+        <div class="status-right">
+            <div class="status-item item-search">
+                <form id="searchForm" action="https://exam.com/exam/search/" method="get">
+                    <i class="icon item-icon icon-p_top_search"></i>
+                    <input type="text" class="item-input item-key-input animate" name="name" placeholder="请输入搜索关键词"
+                           value="">
+                    <span class="item-label" id="searchBtn">搜索</span>
+                </form>
+            </div>
+
+            <div class="status-item item-mine">
+                <div class="item-arrow-group">
+                    <span class="item-icon">
+                        
+                        <img class="item-img character-img" src="./img/p_img_default_head.png">
+                    </span>
+                    <i class="icon icon-a_arrow_down"></i>
+                </div>
+                <div class="dropdown-menu bottom panel-mine">
+                    <div class="arrow"></div>
+
+                    <ul class="menu-items">
+                        <li>
+                            <span class="menu-item" id="userInfoBtn">个人信息</span>
+                        </li>
+                        <li>
+                            <span class="menu-item" id="setPasswordBtn">修改密码</span>
+                        </li>
+                    </ul>
+
+                    <div class="split"></div>
+
+                    <div class="menu-items">
+                        <span class="menu-item" id="logoutBtn">退出</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="viewFrameWork-main">
+        <!-- viewFrameWork-sidebar -->
+        <div class="viewFrameWork-sidebar">
+
+            <div class="sidebar-inner">
+
+                <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
+                     data-container="body" title="" data-original-title="收起导航">
+                    <i class="icons8 icons8-icon"></i>
+                </div>
+
+
+                <div class="sidebar-nav">
+                    <ul class="sidebar-trans">
+
+                        <li class="nav-item nav-item-exam  nav-item-active">
+                            <a href="https://exam.com/exam" data-toggle="tooltip" data-placement="right"
+                               data-container="body" title="" data-original-title="考试">
+                                <div class="nav-icon">
+                                    <i class="icon icon-p_leftnav_exam icon-exam"></i>
+                                </div>
+                                <span class="nav-title">
+                                        考试
+                                       <span class="show-num exam-num-box" style="left: 74px; display: inline;">1</span>
+                                    </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-item-process">
+                            <a href="https://v.com/exam/pc/customprocess/#/list" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="任务">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_icon_nav_process"></i>
+                                </div>
+                                <span class="nav-title">
+                                        任务
+                                        <span class="show-num process-num-box"
+                                              style="left: 74px; display: none;">---</span>
+                                    </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-item-certificate">
+                            <a href="https://exam.com/certificate/certificate_mine" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="证书">
+                                <div class="nav-icon">
+                                    <i class="icon icon-p_leftnav_certification icon-certificate"></i>
+                                </div>
+                                <span class="nav-title">证书</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-item-application">
+                            <a href="https://v.com/exam/pc/application/#/list" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="报名审核">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_nav_sign_up icon-application"></i>
+                                </div>
+                                <span class="nav-title">报名审核</span>
+                                <img class="mark-beta" src="./img/a_nav_beta.svg">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="sidebar-bottom sidebar-btn">
+                <ul class="sidebar-trans">
+                    <li class="nav-item nav-item-user">
+                        <a class="sidebar-bottom-wrap" href="./index.html">
+                            <div class="nav-icon">
+                                <i class="icon icon-p_leftnav_return icon-admin"></i>
+                            </div>
+                            <span class="nav-title">管理员入口</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- viewFrameWork-body -->
+        <div class="viewFrameWork-body">
+            <!-- loading -->
+            <div class="spinner-wrapper hidden" id="spinnerLoading">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <div class="header-tab active">
+                        <a href="https://exam.com/exam">当前考试</a>
+                    </div>
+                    <div class="header-tab">
+                        <a href="https://exam.com/exam/history">历史考试</a>
+                    </div>
+                    <div class="header-tab">
+                        <a href="https://exam.com/exam/wrong_topic">错题本</a>
+                    </div>
+                </div>
+                <div class="header-filter">
+                    <div class="filter-item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="currentClassify">全部考试</span>
+                        <i class="icon icon-a_arrow_down"></i>
+                    </div>
+
+                    <div class="dropdown-menu bottom panel-classify" aria-labelledby="dLabel">
+                        <div class="menu-items">
+                            <a href="https://exam.com/exam" class="menu-item">全部</a>
+                        </div>
+
+                        <div class="split"></div>
+
+                        <ul class="menu-items">
+
+                            <li>
+                                <a class="menu-item ellipsis" data-id="236915"
+                                   href="https://exam.com/exam?id=236915">示例</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="split"></div>
+
+            <div class="body-wrapper">
+                <div class="item-wrapper item-exam-wrapper clearfix">
+
+
+                    <div class="item item-exam item-normal animate" data-time="2019-07-22 17:50" data-verifycount="0">
+
+                        <div class="item-title" data-container="body" data-toggle="popover" data-trigger="hover"
+                             data-placement="top" data-content="考试示例" data-original-title="" title="">
+                            考试示例
+                        </div>
+
+                        <div class="item-row item-end-time">
+                            <div class="item-label">考试时间：</div>
+                            <div class="item-data">2019-07-22 17:50～2019-07-25 17:50</div>
+                        </div>
+
+
+                        <div class="item-row item-row-time ">
+                            <div class="item-label">考试时长：</div>
+                            <div class="item-data">60分钟
+
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-primary btn-item-exam" data-id="293974" data-set-ip="0" data-price="">
+                            开始
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <nav class="pagination-middle">
+                    <ul class="pagination pagination">
+
+                        <li class="disabled"><a class="first" href="https://exam.com/exam#"><i
+                                class="icon icon-a_first_page"></i></a></li>
+
+                        <li class="disabled"><a class="prev" href="https://exam.com/exam#"><i
+                                class="icon icon-a_previous_page"></i></a></li>
+
+                        <li class="active"><a href="https://exam.com/exam?id=0&amp;page=1">1</a></li>
+
+                        <li class="disabled"><a class="next" href="https://exam.com/exam#"><i
+                                class="icon icon-a_next_page"></i></a></li>
+
+                        <li class="disabled"><a class="last" href="https://exam.com/exam#"><i
+                                class="icon icon-a_last_page"></i></a></li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-user-info" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="user-header">
+                    <div class="character">
+                        <div class="img-wrapper">
+
+                            <img class="img character-img" src="./img/default-picture.png">
+                        </div>
+                        <div class="icon-capture" data-toggle="tooltip" data-placement="right" data-container="body"
+                             title="" data-original-title="150*200,小于100KB,png/jpg/jpeg/bmp">
+                            <form id="characterForm" enctype="multipart/form-data" method="post"
+                                  target="characterIframe" action="https://exam.com/account/user/upload_picture">
+                                <i class="icon icon-p_personal_camera"></i>
+                                <input type="file" name="picture" id="characterUpload">
+                                <iframe name="characterIframe" id="characterIframe" class="hidden"
+                                        src="./saved_resource.html"></iframe>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="icon-operation icon-edit" id="userEditBtn">
+                        <i class="icon icon-p_personal_edit"></i>
+                    </div>
+                    <div class="icon-operation icon-cancel" id="cancelEditBtn">
+                        <i class="icon icon-p_personal_cancel"></i>
+                    </div>
+                    <div class="icon-operation icon-save" id="saveEditBtn">
+                        <i class="icon icon-p_personal_determine"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="items">
+                    <form id="userInfoForm" class="user_info_form">
+                        <div class="item item-static">
+                            <div class="item-label">账号：</div>
+                            <div class="item-data">18800418032</div>
+                        </div>
+                        <div class="item item-static">
+                            <div class="item-label">部门：</div>
+                            <div class="item-data">
+                                <span class="item-data item_dept">部门分类</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item-label">姓名：</div>
+                            <div class="item-data">
+                                <span class="item-value">东北大学软件园</span>
+                            </div>
+                            <input class="item-input" type="text" name="user" value="东北大学软件园" placeholder="请输入姓名">
+                            <i class="icon item-icon icon-m_exam_error"></i>
+                        </div>
+                        <div class="item">
+                            <div class="item-label">性别：</div>
+                            <div class="item-data" id="userSex">男</div>
+                            <div class="item-radio">
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="1" checked=""> 男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="0"> 女
+                                </label>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item-label">手机：</div>
+                            <div class="item-data">
+                                <span class="item-value">18800418032</span>
+                            </div>
+
+                            <input class="item-input" type="text" name="tel" readonly="" value="18800418032"
+                                   placeholder="请输入手机号">
+                            <i class="icon item-icon icon-m_exam_error"></i>
+                        </div>
+                        <div class="item item-static">
+                            <div class="item-label">微信：</div>
+                            <div class="item-data">
+                                <button type="button" class="btn btn-default btn-wechat unbind">绑定微信</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item-label">邮箱：</div>
+                            <div class="item-data">
+                                <span class="item-value"></span>
+                                <button type="button" class="btn btn-default btn-email" id="checkEmailBtn">验证邮箱</button>
+                            </div>
+                            <input class="item-input" type="text" name="mail" value="" placeholder="请输入邮箱">
+                            <i class="icon item-icon icon-m_exam_error"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="setPasswordModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-440 modal-set-password" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="title">修改密码</div>
+                <form id="setPwdForm">
+                    <div class="items">
+                        <div class="item item-input-group">
+                            <div class="item-label">原密码：</div>
+                            <input class="item-input" type="password" name="oldPassword" id="oldPassword"
+                                   placeholder="请输入原密码">
+                            <i class="icon item-icon icon-m_exam_error"></i>
+                        </div>
+                        <div class="item item-input-group">
+                            <div class="item-label">新密码：</div>
+                            <input class="item-input" type="password" name="newPassword" id="newPassword"
+                                   placeholder="新密码为6-20位数字、字母或符号的任意组合">
+                            <i class="icon item-icon icon-m_exam_error"></i>
+                        </div>
+                        <div class="item item-input-group">
+                            <div class="item-label">确认密码：</div>
+                            <input class="item-input" type="password" name="reNewPassword" id="reNewPassword"
+                                   placeholder="请再次输入新密码">
+                            <i class="icon item-icon icon-m_exam_error"></i>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="error-info hidden" id="errorInfoPwd"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" id="cancelSetPwdBtn" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="savePasswordBtn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="payModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">该考试为付费考试，您需要支付<br><span id="examPrice"></span><span>元</span></div>
+                <div id="payCode">
+                    <div class="code-img"></div>
+                    <div class="pay-tip">请使用微信扫描二维码付款</div>
+                </div>
+            </div>
+            <div class="modal-footer modal-footer-tab1">
+                <button type="button" class="btn btn-primary" id="examPayBtn">
+                    <i class="icon icon-a_landing_wechat_1 btn-icon-left"></i>
+                    支付
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ipModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="tipModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body">
+                <div class="modal-title">正在组卷中，请耐心等待...</div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message modal-logout" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">您是否要退出登录？</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="confirmLogoutBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/md5.min.js"></script>
+<script>
+    // these are global constant
+    var companyId = "140092"; //公司id
+    //微信绑定url
+    var weBindUrl = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx3dbf3a23e8456f1a&redirect_uri=https://www.com/account/personal_center_wechat_bind/7387836&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
+    var userId = '7387836';
+
+    $.ajax({
+        url: '/exam/number_hint',
+        type: 'POST',
+        success: function (res) {
+            var data = JSON.parse(res);
+            var exam = data.bizContent.exam > 9 ? '9+' : data.bizContent.exam;
+            var course = data.bizContent.course > 9 ? '9+' : data.bizContent.course;
+            var process = data.bizContent.process > 9 ? '9+' : data.bizContent.process;
+
+            common(exam, 'exam')
+            common(course, 'course')
+            common(process, 'process')
+
+        }
+    })
+
+    function common(target, name) {
+
+        if (target === 0) {
+
+            $('.' + name + '-num-box').hide()
+        } else {
+
+            $('.' + name + '-num-box').text(target).show();
+        }
+    }
+
+    $('.sidebar-nav .nav-item').each(function () { //根据导航菜单名的字数调整消息数字的位置
+        var font_size = $(this).find('a').attr('title').length;//字数
+        var left_px = 38 + 18 * font_size; //每个字数大约偏移18px，最初偏移为38px;
+        $(this).find('.show-num').css('left', left_px.toString() + 'px');
+    });
+</script>
+<script type="text/javascript" src="./js/exam-base.js"></script>
+<script type="text/javascript" src="./js/user.js"></script>
+<script src="./js/jquery.qrcode.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var queryInterval;
+        var payTimer; //支付状态定时查询
+        var getStaticUrlPrefix = 'https://v.com';
+
+
+        $(function () {
+            // 倒计时
+            var now_time_left = '1563852163962';//返回距 1970年1月1日之间的毫秒数
+            //  开考前15分钟显示倒计时
+            $(".item-waitting").each(function (index, element) {
+                var _this = $(this);
+                var verifyCount = $(_this).attr("data-verifyCount");
+                if (verifyCount != 1) {
+                    var time_obj = $(_this).find(".btn-item-exam");
+                    var start_time = $(_this).attr("data-time");
+                    var start_time_left = Date.parse(start_time);//返回距1970年1月1日到指定时间的毫秒数
+                    var time_left = parseInt((start_time_left - now_time_left) / 1000);//剩余时间秒为单位
+
+                    if (0 < time_left && time_left < 15 * 60) {
+                        $(time_obj).show();
+
+                        var time_count = setInterval(function () {
+                            if (time_left > 0) {
+                                var minutes = Math.floor(time_left / 60);
+                                var seconds = time_left % 60;
+
+                                $(time_obj).text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+                            } else {
+                                // 清除倒计时，并开始考试
+                                clearInterval(time_count);
+                                $(_this).removeClass("item-waitting").addClass("item-normal");
+                                $(time_obj).text("开始");
+                            }
+                            time_left--;
+                        }, 1000)
+                    }
+                }
+
+            });
+        });
+
+        $("#payModal").on("hide.bs.modal", function (e) {
+            //模态框隐藏时，清除定时器
+            clearInterval(payTimer);
+        });
+
+        //标记当前分类
+        $(function () {
+            var classify_id = getQueryString("id");
+            var current_name = '全部' + '考试';
+
+            if (classify_id != '') {
+                var current_item = $(".panel-classify .menu-item[data-id=" + classify_id + "]");
+                current_name = $(current_item).text();
+
+                $(".panel-classify .menu-item").removeClass("menu-item-active");
+                $(current_item).addClass("menu-item-active");
+            }
+            $("#currentClassify").text(current_name);
+        });
+
+
+        //进入考试
+        $("body").on("click", ".item-normal .btn-item-exam", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            var _this = $(this);
+            var _parent = $(_this).parents(".item-normal");
+            var exam_id = $(_this).attr("data-id");
+            var set_ip = $(_this).attr("data-set-ip");
+
+            //有考前说明或有考试密码或排行榜均进入考前说明页
+            if ($(_parent).hasClass("item-notice") || $(_parent).hasClass("item-password") || $(_parent).hasClass("item-ranking-list")) {
+                window.location.href = "/exam/before_answer_notice/" + exam_id;
+                return;
+            } else if ($(_parent).hasClass("item-verify")) {
+                //考前身份认证直接进考试url，后端校验
+                window.location.href = "/exam/exam_start/" + exam_id;
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                data: {"examId": exam_id, "setIpRange": set_ip},
+                url: "/exam/check_hard_over_count",
+                dataType: 'json',
+                success: function (msg) {
+                    if (msg.success) {
+                        //success表示检查不通过
+                        $("#ipModal .modal-body .modal-title").text(msg.desc);
+                        $("#ipModal").modal();
+                    } else {
+                        $("#tipModal").modal({
+                            backdrop: "static",
+                            keyboard: false
+                        });
+                        var url;
+                        if (msg.bizContent) {
+                            url = msg.bizContent;
+                        }
+                        //定时
+                        queryInterval = setInterval(function () {
+                            checkOrgnization(exam_id, url)
+                        }, 2000);
+                        //立即执行一次
+                        checkOrgnization(exam_id, url);
+                    }
+                }
+            });
+
+        });
+
+        //进入考试(继续考试)
+        $("body").on("click", ".item-ongoing .btn-item-exam", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            var exam_id = $(this).attr("data-id");
+
+            $("#spinnerLoading").removeClass("hidden");
+            window.location.href = "/exam/exam_start/" + exam_id;
+        });
+
+        //考试付费-modal
+        $("body").on("click", ".item-unpaid .btn-item-exam", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            var price = $(this).attr("data-price");
+
+            $("#examPrice").text(price);
+            $("#examPayBtn").attr("data-id", $(this).attr("data-id"));
+            $("#payModal").modal("show").removeClass("modal-payment");
+        });
+
+        //考试付费-支付
+        $("#examPayBtn").click(function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            var exam_id = $(this).attr("data-id");
+
+            $.ajax({
+                type: "POST",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/exam/pay/",
+                data: {"examInfoId": exam_id},
+                error: function (msg) {
+                    if (msg.responseText == 'yiji_state_error') {
+                        alert('收款账户状态错误，请联系管理员');
+                        return 0;
+                    } else if (msg.responseText == 'dont_need_pay') {
+                        alert('管理员没有打开支付功能');
+                        return 1;
+                    }
+                    $("#payModal").modal('hide').removeClass("modal-payment");
+                },
+                success: function (msg) {
+                    if (msg.success) {
+                        var yijifu = document.createElement("form");
+                        yijifu.id = "hahahaha";
+                        yijifu.method = "post";
+                        yijifu.name = "yijifu";
+                        yijifu.action = "https://api.yiji.com";
+                        document.body.appendChild(yijifu);
+                        //处理错误信息
+                        var content = msg.bizContent;
+                        if (content.payInfo) {
+                            var payInfo = JSON.parse(content.payInfo);
+                            if (payInfo.errMsg) {
+                                $("#payModal").modal('hide');
+                                alert(payInfo.errMsg);
+                                return false;
+                            }
+                            $("#payModal").addClass("modal-payment");
+                            $("#payCode .code-img").html("").qrcode({
+                                width: 150,
+                                height: 150,
+                                text: payInfo.codeUrl,
+                                background: "#FFF"
+                            });
+                            setTimeout(function () {
+                                clearInterval(payTimer);
+                                $("#spinnerLoading").hide();
+                                payTimer = setInterval(function () {
+                                    $.ajax({
+                                        type: "POST",
+                                        cache: false,
+                                        headers: {"cache-control": "no-cache"},
+                                        dataType: "text",
+                                        url: "/exam/wechat/pay_result",
+                                        data: {"examInfoId": exam_id},
+                                        success: function (msg) {
+                                            if (msg == "SUCCESS") {
+                                                clearInterval(payTimer);
+                                                alert("支付成功！");
+                                                window.location.reload();
+                                            }
+                                        },
+                                        error: function (err) {
+                                            if (err.responseText == "SUCCESS") {
+                                                clearInterval(payTimer);
+                                                alert("支付成功！");
+                                                window.location.reload();
+                                            }
+                                        }
+                                    });
+                                }, 2000);
+                            }, 5000);
+                            return false;
+                        }
+                        for (x in content) {
+                            var input = document.createElement("input");
+                            input.type = "text";
+                            input.name = x;
+                            input.value = content[x];
+                            yijifu.appendChild(input);
+                        }
+                        $("#hahahaha").css('display', 'none');
+                        yijifu.submit();
+                    } else {
+                        alert(msg.desc);
+                        $("#payModal").modal('hide').removeClass("modal-payment");
+                    }
+                }
+            });
+        });
+
+        //检查组卷是否完成
+        function checkOrgnization(exam_id, url) {
+            $("#spinnerLoading").addClass("hide");
+            $.ajax({
+                type: "POST",
+                data: {"examId": exam_id},
+                url: "/exam/test_complete",
+                async: false,
+                success: function (msg) {
+                    if (msg == 'true') {
+                        clearInterval(queryInterval);
+                        if (typeof url != "undefined") {
+                            window.location.href = url;
+                        } else {
+                            window.location.href = "/exam/exam_start/" + exam_id;
+                        }
+                    }
+                },
+                error: function () {
+                    $("#spinnerLoading").removeClass("hide");
+                    clearInterval(queryInterval);
+                    $("#tipModal").modal('hide');
+                }
+            });
+        }
+    });
+</script>
+
+
+</body>
+</html>

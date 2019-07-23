@@ -1,0 +1,510 @@
+html, body{
+    height: 100%;
+    min-height: 100%;
+    background: #eff3f7;
+}
+/*split the frame of the backstadge*/
+.viewFrameWork {
+    padding-top: 70px;
+    width: 100%;
+    height: 100%;
+}
+.viewFrameWork .viewFrameWork-statusbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 70px;
+    line-height: 70px;
+    width: 100%;
+    padding-right: 60px;
+    padding-left: 160px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 4px 0 rgba(58,62,81,0.20);
+}
+.viewFrameWork .viewFrameWork-main{
+    padding-left: 160px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.viewFrameWork .viewFrameWork-sidebar {
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 160px;
+    background-color: #3A3E51;
+    padding-bottom: 90px;
+}
+.viewFrameWork .viewFrameWork-body {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/*viewFrameWork-status*/
+/*logo*/
+.viewFrameWork-statusbar .status-left.company-logo{
+    display: inline-block;
+    height: 70px;
+    width: 160px;
+    line-height: 70px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.viewFrameWork-statusbar .status-left.company-logo .icon-logo{
+    max-height: 90%;
+    max-width: 70%;
+}
+
+.viewFrameWork-statusbar .status-middle{
+    width: 100%;
+    padding: 0 18px 0 30px;
+}
+
+.viewFrameWork-statusbar .status-right{
+    height: 100%;
+    line-height: 70px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    font-size: 0;
+}
+.viewFrameWork-statusbar .status-right .status-item{
+    height: 100%;
+    display: inline-block;
+    font-size: 20px;
+    color: #3A3E51;
+    position: relative;
+}
+.viewFrameWork-statusbar .status-right .status-item .item-icon{
+    display: inline-block;
+    line-height: inherit;
+}
+/*消息组件*/
+.viewFrameWork-statusbar .status-right .status-item.item-notification{
+    position: relative;
+}
+.viewFrameWork-statusbar .status-right .status-item.item-notification .item-icon{
+    cursor: pointer;
+}
+.viewFrameWork-statusbar .status-right .status-item.item-notification .item-icon:hover{
+    color: #1A8DFF;
+}
+.viewFrameWork-statusbar .status-right .status-item.item-notification .message-count{
+    position: absolute;
+    background: #ff0000;
+    font-size: 12px;
+    border-radius: 100px;
+    line-height: 17px;
+    text-align: center;
+    color: #fff;
+    top: 17px;
+    left: 10px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+
+/*****viewFrameWork-sidebar start*******/
+
+.viewFrameWork-sidebar .sidebar-inner {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+/*折叠标记*/
+.viewFrameWork-sidebar .sidebar-inner .sidebar-fold {
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    text-align: right;
+    padding-right: 20px;
+    color: #B4B7BD;;
+    background: #3A3E51;
+
+}
+/*导航主体*/
+.viewFrameWork-sidebar .sidebar-inner .sidebar-nav {
+    width: 100%;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans,
+.sidebar-bottom .sidebar-trans {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans .nav-item a,
+.sidebar-bottom .sidebar-trans .nav-item > a {
+    border-left: 4px solid #3A3E51;
+    line-height: 38px;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 38px;
+    padding-left: 42px;
+    position: relative;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans .nav-item > a .nav-icon,
+.sidebar-bottom .sidebar-trans .nav-item > a .nav-icon {
+    font-size: 16px;
+    width: 36px;
+    text-align: center;
+    color: #B4B6BD;
+    position: absolute;
+    left: 10px;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans .nav-item a .nav-title,
+.sidebar-bottom .sidebar-trans .nav-item > a .nav-title {
+    display: block;
+    overflow: hidden;
+    width: 110px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #B4B6BD;
+    font-size: 14px;
+    font-weight: 400;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans .nav-item > a .mark-beta{
+    position: absolute;
+    right: 13px;
+    top: 1px;
+}
+
+/*🈶️有二级导航的一级导航*/
+.sidebar-inner .sidebar-nav .sidebar-trans .has-sub-menu .sub-menu{
+    padding: 0;
+    height: 0;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans .has-sub-menu.open .sub-menu{
+    padding: 5px 0;
+}
+/*二级导航*/
+.sidebar-inner .sidebar-nav .sidebar-trans .sub-menu{
+    padding: 5px 0;
+    overflow: hidden;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans .sub-menu .sub-nav-item{
+    padding-left: 0;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans .sub-menu .sub-nav-item > a{
+    padding-left: 46px;
+}
+.sidebar-inner .sidebar-nav .sidebar-trans .sub-menu .sub-nav-item >a .nav-title{
+    font-size: 12px;
+}
+
+
+
+/*导航鼠标悬停或被选中状态*/
+.sidebar-inner .sidebar-nav .nav-item >a:hover,
+.sidebar-bottom .nav-item >a:hover{
+    border-left: 4px solid #2E3140;
+    background: #2E3140;
+    color: #fff;
+}
+.sidebar-inner .sidebar-nav .nav-item.nav-item-active >a,
+.sidebar-bottom .nav-item.nav-item-active >a{
+    border-left: 4px solid #1A8CFE;
+    background: #2E3140;
+    color: #fff;
+}
+
+.sidebar-inner .sidebar-nav .nav-item >a:hover > *,
+.sidebar-bottom .nav-item >a:hover > *,
+.sidebar-inner .sidebar-nav .nav-item.nav-item-active > a > *,
+.sidebar-bottom .nav-item.nav-item-active >a > * {
+    color: #fff!important;
+}
+
+
+/*导航底部*/
+.viewFrameWork-sidebar .sidebar-bottom {
+    position: absolute;
+    bottom: 15px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    color: #fff;
+    background: #3A3E51;
+}
+
+/*导航底部*/
+.viewFrameWork-sidebar .sidebar-bottom {
+    position: absolute;
+    bottom: 15px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    color: #fff;
+    background: #3A3E51;
+}
+
+
+
+/*fold sidebar status*/
+.viewFrameWork.sidebar-min .viewFrameWork-main{
+    padding-left: 60px;
+}
+.viewFrameWork.sidebar-min .viewFrameWork-sidebar {
+    width: 60px;
+}
+.viewFrameWork.sidebar-min .viewFrameWork-sidebar .nav-item> a .nav-title,
+.viewFrameWork.sidebar-min .viewFrameWork-sidebar .nav-item> a .mark-beta,
+.viewFrameWork.sidebar-min .viewFrameWork-sidebar .sidebar-bottom .nav-item> a .nav-title {
+    display: none;
+}
+.viewFrameWork.sidebar-min .viewFrameWork-sidebar .sidebar-bottom > * {
+    line-height: inherit;
+    text-align: center;
+}
+
+
+
+
+/*帮助*/
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel {
+    height: 109px;
+    width: 300px!important;
+    color: #3A3E51;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .icon{
+    width: 45px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel p{
+    width: 235px;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-help{
+    height: 42px;
+    position: relative;
+    padding-left: 45px;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-help a{
+    color: #3A3E51;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-help a:hover{
+    color: #1A8CFE;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-help i{
+    line-height: 42px;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-help p{
+    height: 41px;
+    /*border-bottom: 1px solid #DEDEDE;*/
+    line-height: 41px;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-service{
+    height: 66px;
+    position: relative;
+    padding-left: 45px;
+    line-height: 30px;
+    padding-top: 5px;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-service a:hover{
+    text-decoration: underline;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-service i{
+    line-height: 30px;
+    top: 5px;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-service p{
+    height: 33px;
+    line-height: 16px;
+}
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel .btn-service p span{
+    color: #FF7E3B;
+}
+/*帮助*/
+.viewFrameWork-sidebar .sidebar-bottom .person-servers-panel {
+    line-height: 90px;
+    left: 100%;
+    margin-left: 20px;
+    bottom: 10px;
+    top: initial;
+    width: 420px;
+    margin-top: 0;
+    border-left: 4px solid #1A8CFE;
+    border-right: none;
+    border-radius: 0 2px 2px 0;
+}
+/*左下角 用户信息*/
+.viewFrameWork-sidebar .sidebar-bottom .user-info-panel {
+    left: 100%;
+    margin-left: 10px;
+    bottom: -5px;
+    top: initial;
+    width: 281px;
+    margin-top: 0;
+    border-left: 4px solid #1A8CFE;
+    border-right: none;
+    border-radius: 0 2px 2px 0;
+    cursor: default;
+}
+    /*版本信息*/
+.user-info-panel .version-info {
+    position: absolute;
+    right: 0;
+    top: -20px;
+    padding-left: 8px;
+    background: #FF7E3B;
+    line-height: 20px;
+    font-size: 12px;
+    color: #FFF;
+    border-radius: 4px 4px 0px 0px;
+}
+    /*个人信息，包括头像、用户名、公司名称*/
+.user-info-panel .user-info {
+    padding: 12px;
+    position: relative;
+}
+.user-info-panel .user-info .info-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+}
+.user-info-panel .user-info .info-img img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+}
+.user-info-panel .user-info .info-detail {
+    height: 60px;
+    margin-left: 72px;
+}
+.user-info-panel .user-info .info-detail .user {
+    color: #494949;
+    line-height: 21px;
+    margin-bottom: 4px;
+    font-size: 0;
+    margin-top: 10px;
+}
+.user-info-panel .user-info .info-detail .user .user-surname {
+    max-width: 140px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+    color: #494949;
+}
+.user-info-panel .user-info .info-detail .user .edit-info {
+    color: #1A8CFE;
+    font-size: 18px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+.user-info-panel .user-info .info-detail .company {
+    font-size: 12px;
+    color: #999;
+    line-height: 16px;
+}
+    /*企业信息，包括用户数量和存储空间*/
+.user-info-panel .company-info {
+    padding: 0 12px 12px;
+    border-bottom: 1px solid #D8D8D8;
+}
+.user-info-panel .company-info .nav-state-online {
+    font-size: 0;
+}
+.user-info-panel .company-info .nav-state-store {
+    margin-top: 10px;
+}
+.user-info-panel .company-info .progress {
+    width: 100%;
+    height: 4px;
+    background: #e1e3e4;
+    margin-bottom: 5px;
+}
+.user-info-panel .company-info .progress .progress-bar {
+    height: 100%;
+}
+.user-info-panel .company-info .state-title,
+.user-info-panel .company-info .state-user-count,
+.user-info-panel .company-info .state-online-store,
+.user-info-panel .company-info .state-flow
+{
+    font-size: 12px;
+    color: #9B9B9B;
+    line-height: 17px;
+    display: inline-block;
+}
+.user-info-panel .company-info .state-title {
+    margin-right: 10px;
+}
+    /*按钮*/
+.user-info-panel .operate-group {
+    width: 100%;
+    padding: 13px 0;
+}
+.user-info-panel .operate-group .operate-item {
+    width: 100%;
+    height: 44px;
+    display: block;
+    font-size: 14px;
+    color: #3A3E51;
+    line-height: 44px;
+    padding: 0 12px;
+}
+.user-info-panel .operate-group .operate-item:hover {
+    background: #F7F8FA;
+}
+.user-info-panel .operate-group .operate-item .operate-icon {
+    font-size: 16px;
+    vertical-align: text-bottom;
+    display: inline-block;
+    margin-right: 15px;
+}
+.user-info-panel .operate-group .operate-item .operate-right-icon {
+    color: #B4B6BD;
+    font-size: 12px;
+    float: right;
+    margin-right: 2px;
+    line-height: 44px;
+}
+    /*******viewFrameWork-body body-content start**********/
+.viewFrameWork-body .body-wrapper {
+    position: relative;
+    padding: 20px 30px;
+}
+.viewFrameWork-body .body-wrapper .body-content{
+    position: relative;
+    background: #fff;
+    border-radius: 4px;
+}
+/*******viewFrameWork-body body-content end**********/
+
+/*隐藏商桥链接*/
+#newBridge {
+    display: none!important;
+}

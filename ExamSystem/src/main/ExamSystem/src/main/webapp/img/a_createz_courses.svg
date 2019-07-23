@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="58px" viewBox="0 0 58 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>a_createz_courses</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="72.8265725%" y1="10.9047642%" x2="15.0973268%" y2="86.4069354%" id="linearGradient-1">
+            <stop stop-color="#96E066" offset="0%"></stop>
+            <stop stop-color="#85BA39" offset="100%"></stop>
+        </linearGradient>
+        <path d="M15.7271006,22.4719527 L15.7271006,6.27881657 C15.5907692,2.77964497 17.2115976,1.35573964 20.1654438,0.810414201 C22.4376331,0.401420118 24.7552663,0.280236686 27.3910059,0.0075739645 C27.3910059,6.73325444 27.375858,19.1394083 27.375858,19.1394083 L27.3910059,20.7450888 C27.3910059,20.7450888 21.4227219,20.275503 15.7271006,22.4719527 Z M14.363787,22.4719527 L14.363787,6.27881657 C14.5001183,2.77964497 12.8792899,1.35573964 9.92544379,0.810414201 C7.65325444,0.401420118 5.3356213,0.280236686 2.69988166,0.0075739645 C2.69988166,6.73325444 2.71502959,19.1394083 2.71502959,19.1394083 L2.69988166,20.7450888 C2.69988166,20.7450888 8.66816568,20.275503 14.363787,22.4719527 Z" id="path-2"></path>
+        <filter x="-24.3%" y="-26.7%" width="148.6%" height="153.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.454325263   0 0 0 0 0.69013074   0 0 0 0 0.14693598  0 0 0 0.501019022 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M16.287574,23.6080473 C20.5332182,22.9162478 24.7796906,22.2295412 29.0269822,21.547929 L29.0269822,3.05230769 L29.9964497,3.05230769 L29.9964497,22.3507692 C29.9813018,23.1536095 29.1178698,24.5775148 28.6028402,24.6078107 L17.0752663,24.6078107 C16.7571598,24.5926627 16.287574,23.6080473 16.287574,23.6080473 Z M13.6972781,23.6080473 C13.6972781,23.6080473 13.2428402,24.5926627 12.9095858,24.6078107 L1.44260355,24.6078107 C0.942721893,24.5775148 0.0186982249,23.1536095 0.00355029586,22.3507692 L0.00355029586,3.05230769 L1.01846154,3.05230769 L1.01846154,21.547929 C5.53254438,22.2750296 9.60733728,22.9415385 13.6972781,23.6080473 Z" id="path-4"></path>
+        <filter x="-20.0%" y="-27.8%" width="140.0%" height="155.7%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.454325263   0 0 0 0 0.69013074   0 0 0 0 0.14693598  0 0 0 0.501019022 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="图标使用规范" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-643.000000, -2781.000000)">
+        <g id="a_createz_courses" transform="translate(643.000000, 2781.000000)">
+            <circle id="Oval-3-Copy-2" fill="url(#linearGradient-1)" cx="29" cy="29" r="29"></circle>
+            <g id="课程_2" transform="translate(14.000000, 17.000000)">
+                <g id="Shape" fill-rule="nonzero">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="#F9FFF4" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+                <g id="Combined-Shape">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                    <use fill="#C7EAB1" fill-rule="evenodd" xlink:href="#path-4"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>哈工大－在线考试系统云平台</title>
+    <script async="" src="./js/tingyun-rum-home.js"></script>
+    <script async="" src="./js/gio.js"></script>
+    <script type="text/javascript" src="./js/ksx_probe.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        //添加gio
+        ksxProbe.gioInit(opts);
+        //添加tingyun
+        ksxProbe.tingyun();
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="在线考试系统,安全知识竞赛,考试系统,在线模拟考试系统,
+    考试管理系统,企业考试系统,微信考试,知识竞赛,竞赛系统,考试预约系统,在线考试平台,手机考试,
+    网上考试系统,在线考试系统模块,安全知识竞赛">
+    <meta name="description" content="一款免费，简单快速上手的考试系统，可以用手机考试，支持多种平台">
+    <link rel="shortcut icon" href="img/logo.ico">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.min.css">
+    <link rel="stylesheet" href="./css/website-regist.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style(1).css">
+</head>
+
+<body>
+<header class="site-header">
+    <nav class="navbar">
+        <a href="https://www.kaoshixing.com/">
+            <div class="logo-wrap"></div>
+        </a>
+    </nav>
+</header>
+<div class="page_content">
+    <div class="page1">
+        <div class="text1">考试系统在线注册</div>
+        <span class="text2">请确保信息真实有效</span>
+    </div>
+
+    <div class="page2 clearfix">
+        <form action="https://www.kaoshixing.com/account/regist" method="post" id="subForm" name="form">
+            <div class="step-tab1">
+                <div class="field phone-filed">
+                    <label for="admin_phone">
+                        <img src="./img/regist_user.png">
+                    </label>
+                    <input type="text" name="phone" id="admin_phone" placeholder="请输入姓名" value="">
+                    <span class="tip"></span>
+                </div>
+                <div class="field captcha-filed hidden">
+                    <label for="verify_code">
+                        <img src="./img/regist_verify.png">
+                    </label>
+                    <input type="text" name="captchaText" id="captchaText" placeholder="请输入学号">
+                    <span class="tip"></span>
+                    <img class="captcha-img" src="https://www.kaoshixing.com/account/regist" id="captchaImg">
+                </div>
+
+                <div class="field">
+                    <label for="verify_code">
+                        <img src="./img/regist_verify.png">
+                    </label>
+                    <input type="text" name="verifyCode" id="verify_code" placeholder="请输入学号">
+                    <span class="tip"></span>
+                </div>
+            </div>
+            <div class="step-tab2">
+                <div class="field company-filed">
+                    <label for="company_name">
+                        <img src="./img/regist_company.png">
+                    </label>
+                    <input type="text" name="companyName" id="company_name" placeholder="请输入学校名称">
+
+                    <input type="text" name="preventDefault" class="hidden">
+                    <span class="tip"></span>
+                </div>
+                <div class="field password-filed">
+                    <label for="admin_password">
+                        <img src="./img/regist_lock.png">
+                    </label>
+
+                    <input type="password" name="preventDefault"
+                           style="position: absolute;height: 0;padding: 0;border: 0;">
+                    <input type="password" name="password" id="admin_password" placeholder="请输入密码(至少6位字符)">
+                    <span class="tip"></span>
+                </div>
+                <div class="field inviteCode-filed">
+                    <label for="admin_inviteCode">
+                        <img src="./img/regist_invite_code.png">
+                    </label>
+                    <input type="text" name="invitationCode" id="admin_inviteCode" placeholder="请输入邀请码">
+                    <span class="tip"></span>
+                </div>
+                <div class="field btn-field">
+                    <button type="button" class="btn compl-step">提交注册</button>
+                </div>
+                <div class="go-to-login">已有账号？点击<a target="_blank"
+                                                   href="./login.html">登录</a></div>
+                <div class="slogan"><span class="line left-line"></span>哈工大·让考试更简单<span class="line right-line"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="examerModal" class="reveal-modal examerModal">
+        <div class="modal_main modal_dialog">
+            <div class="modal-wrapper">
+                <div class="icon-wrapper">
+                    <i class="icon icon-a_warning"></i>
+                </div>
+                <div class="prompt-content">
+                    如需注册考生 <br>
+                    请联系考试负责人获取注册链接
+                </div>
+                <div class="button-footer">
+                    <a href="https://www.kaoshixing.com/account/regist#" class="btn-known" id="examer-close">知道了</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="reveal-modal">
+        <div class="modal_main modal_dialog">
+            <div class="title1">注册成功！</div>
+            <div class="title2"></div>
+            <br>
+            <a href="https://www.kaoshixing.com/account/regist#" class="btnBack" style="cursor:pointer">确定</a>
+        </div>
+    </div>
+    <div id="failModal" class="reveal-modal">
+        <div class="modal_main modal_dialog">
+            <div class="title1">抱歉...网络开小差了～</div>
+            <div class="title2"></div>
+            <br>
+            <a class="btnBack" style="cursor:pointer">确定</a>
+        </div>
+    </div>
+
+    <div id="timeoutModal" class="reveal-modal">
+        <div class="modal_main modal_dialog">
+            <div class="title1">网络不给力哦，请重试～</div>
+            <div class="title2"></div>
+            <br>
+            <a class="btnBack" style="cursor:pointer">知道了</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/md5.min.js"></script>
+<script type="text/javascript" src="./js/register.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var registPageInfo = ksxProbe.gioGetRegistPageInfo();
+
+        //浏览注册页，向growing-io推送一条数据
+        ksxProbe.gioTrack('viewRegisterPage', 1, {
+            'registerFromPage_var': registPageInfo.url,
+            'registerFromPosition_var': registPageInfo.postion,
+            'registerFromPageName_var': registPageInfo.name
+        });
+
+    });
+</script>
+
+
+</body>
+</html>
