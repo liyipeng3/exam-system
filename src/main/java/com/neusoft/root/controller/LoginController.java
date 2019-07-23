@@ -23,6 +23,7 @@ public class LoginController {
 	public String checkAccount(HttpServletRequest req, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		System.out.println("用户名：" + username + "  密    码：" + password);
 		String password_md5 = MD5.toString("123");
+		System.out.println(password_md5);
 		if(username.equals("admin") && password.equals(password_md5)){
 			//建立会话对象，存储登录状态
 			HttpSession session = req.getSession();
