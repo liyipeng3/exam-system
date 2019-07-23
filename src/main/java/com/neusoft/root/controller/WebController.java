@@ -17,4 +17,12 @@ public class WebController {
 	public String index() {
 		return "/index.html";
 	}
+	@RequestMapping("/student")
+	public String student() {
+		return "/student.html";
+	}
+	@RequestMapping("/saved_source")
+	public String saved_source() {
+		return "/saved_source.html";
+	}
 }
