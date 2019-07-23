@@ -122,7 +122,7 @@ function userLogin() {
                 cache: "false",
                 headers: {"cache-control": "no-cache"},
                 dataType: "json",
-                url: "/login/checkAccount",
+                url: "/sm/login/checkAccount",
                 data: dataForm,
                 success: function (msg) {
                     if (msg.success) {
@@ -151,7 +151,7 @@ function userLogin() {
                     cache: "false",
                     headers: {"cache-control": "no-cache"},
                     dataType: "json",
-                    url: "/login/checkAccount",
+                    url: "/sm/login/checkAccount",
                     data: dataForm,
                     success: function (msg) {
                         if (msg.success) {
