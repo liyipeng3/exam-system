@@ -22,14 +22,10 @@ public class LoginController {
 			//建立会话对象，存储登录状态
 			HttpSession session = req.getSession();
 			session.setAttribute("flag",username);
-			JSONObject json = new JSONObject();
-			json.put("success", "true");
-			return json.toJSONString();
+			return "success";
 		}
 		else{
-			JSONObject json = new JSONObject();
-			json.put("success", "false");
-			return json.toJSONString();
+			return "error";
 		}
 	}
 }
