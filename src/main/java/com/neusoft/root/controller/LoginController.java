@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import net.minidev.json.JSONObject;
+
 
 @Controller
 @RequestMapping("/login")
@@ -20,10 +22,14 @@ public class LoginController {
 			//建立会话对象，存储登录状态
 			HttpSession session = req.getSession();
 			session.setAttribute("flag",username);
-			return "{'success':'true'}";
+			JSONObject json = new JSONObject();
+			json.put("success", "true");
+			return json.toJSONString();
 		}
 		else{
-			return "{'success':'false'}";
+			JSONObject json = new JSONObject();
+			json.put("success", "false");
+			return json.toJSONString();
 		}
 	}
 }

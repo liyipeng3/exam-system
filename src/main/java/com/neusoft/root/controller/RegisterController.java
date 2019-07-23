@@ -11,9 +11,11 @@ public class RegisterController {
 	@RequestMapping(value="/checkAccount", method=RequestMethod.POST)
 	@ResponseBody
 	public String checkAccount(String account) {
-		if(account.equals("admin")){
-			
+		if(account.equals("admin")) {
+			return "{'success':'false'}";
 		}
-		return "{'success':'true'}";
+		else{
+			return "{'success':'true'}";
+		}
 	}
 }
