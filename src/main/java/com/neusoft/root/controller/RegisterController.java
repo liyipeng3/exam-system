@@ -1,5 +1,10 @@
 package com.neusoft.root.controller;
 
-public class RegisterController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/register")
+public class RegisterController {
+	
 }

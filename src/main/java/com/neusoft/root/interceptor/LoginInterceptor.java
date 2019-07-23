@@ -13,7 +13,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 			throws Exception {
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("flag");
-		System.out.println("LoginInterceptor preHandle");
 		if(username != null){
 			System.out.println("LoginInterceptor preHandle true:" + username);
 			return true;
