@@ -18,6 +18,7 @@ public class RegisterController {
 			return "用户名被占用";
 		}
 	}
+	@RequestMapping(value="/commitAccount")
 	public String commitAccount() {
 		return "ok";
 	}
