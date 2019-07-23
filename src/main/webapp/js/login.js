@@ -133,7 +133,6 @@ function userLogin() {
                     url: "/sm/login/checkAccount",
                     data: dataForm,
                     success: function (msg) {
-                        console.log(msg);
                         if (msg.success) {
                             window.location.href = "/sm/index.html";
                         } else {
