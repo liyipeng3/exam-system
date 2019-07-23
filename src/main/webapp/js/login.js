@@ -101,11 +101,11 @@ function userLogin() {
                 type: "POST",
                 cache: "false",
                 headers: {"cache-control": "no-cache"},
-                dataType: "text",
+                dataType: "json",
                 url: "/sm/login/checkAccount",
                 data: dataForm,
                 success: function (msg) {
-                    if (msg==="success") {
+                    if (msg.success) {
                         {
                             window.location.href = "/sm/index.html";
                         }
@@ -129,13 +129,13 @@ function userLogin() {
                     type: "POST",
                     cache: "false",
                     headers: {"cache-control": "no-cache"},
-                    dataType: "text",
+                    dataType: "json",
                     url: "/sm/login/checkAccount",
                     data: dataForm,
                     success: function (msg) {
                         console.log(msg);
-                        if (msg === 'success') {
-                            window.location.href = "/index.html";
+                        if (msg.success) {
+                            window.location.href = "/sm/index.html";
                         } else {
                             $("#loginBtn").removeClass("disabled");
                             $("#errormsg").text(msg.desc);
