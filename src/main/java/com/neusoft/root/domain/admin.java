@@ -1,6 +1,8 @@
 package com.neusoft.root.domain;
 
 public class admin {
+	
+	private String admin_password;
 	private  String admin_id;
 	private String admin_name;
 	@Override
@@ -66,7 +68,7 @@ public class admin {
 	public void setAdmin_password(String admin_password) {
 		this.admin_password = admin_password;
 	}
-	private String admin_password;
+	
 
 
 

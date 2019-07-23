@@ -6,6 +6,8 @@ public class student {
 	private String student_password;
 	private String student_academy;
 	private String student_major;
+	private String student_school;
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -15,6 +17,7 @@ public class student {
 		result = prime * result + ((student_major == null) ? 0 : student_major.hashCode());
 		result = prime * result + ((student_name == null) ? 0 : student_name.hashCode());
 		result = prime * result + ((student_password == null) ? 0 : student_password.hashCode());
+		result = prime * result + ((student_school == null) ? 0 : student_school.hashCode());
 		return result;
 	}
 	@Override
@@ -51,16 +54,28 @@ public class student {
 				return false;
 		} else if (!student_password.equals(other.student_password))
 			return false;
+		if (student_school == null) {
+			if (other.student_school != null)
+				return false;
+		} else if (!student_school.equals(other.student_school))
+			return false;
 		return true;
 	}
 	public student(String student_id, String student_name, String student_password, String student_academy,
-			String student_major) {
+			String student_major, String student_school) {
 		super();
 		this.student_id = student_id;
 		this.student_name = student_name;
 		this.student_password = student_password;
 		this.student_academy = student_academy;
 		this.student_major = student_major;
+		this.student_school = student_school;
+	}
+	public String getStudent_school() {
+		return student_school;
+	}
+	public void setStudent_school(String student_school) {
+		this.student_school = student_school;
 	}
 	public student() {
 		super();

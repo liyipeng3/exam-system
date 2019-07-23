@@ -1,10 +1,10 @@
 package com.neusoft.root.domain;
 
-public class Class {
+public class class1 {
 	private String class_id;
 	private String class_name;
 	private int class_seats;
-	public Class(String class_id, String class_name, int class_seats) {
+	public class1(String class_id, String class_name, int class_seats) {
 		super();
 		this.class_id = class_id;
 		this.class_name = class_name;
@@ -16,7 +16,7 @@ public class Class {
 	public void setClass_id(String class_id) {
 		this.class_id = class_id;
 	}
-	public Class() {
+	public class1() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -46,7 +46,7 @@ public class Class {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Class other = (Class) obj;
+		class1 other = (class1) obj;
 		if (class_id == null) {
 			if (other.class_id != null)
 				return false;
