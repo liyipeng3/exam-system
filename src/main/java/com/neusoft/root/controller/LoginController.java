@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/login")
 public class LoginController {
 
-	@RequestMapping(value="checkAccount", method=RequestMethod.GET)
+	@RequestMapping(value="checkAccount")
 	@ResponseBody
 	public String checkAccount(HttpServletRequest req, String username, String password) {
 		System.out.println("用户名：" + username + "密    码：" + password);
