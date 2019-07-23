@@ -12,10 +12,14 @@ public class RegisterController {
 	@ResponseBody
 	public String checkAccount(String account) {
 		if(account.equals("admin")) {
-			return "{'success':'false'}";
+			return "success";
 		}
 		else{
-			return "{'success':'true'}";
+			return "wrong";
 		}
 	}
+	public String commitAccount() {
+		return "success";
+	}
+	
 }

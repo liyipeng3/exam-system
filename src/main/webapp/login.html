@@ -155,7 +155,7 @@
             var _this = $("#companyLogo");
 
             $.ajax({
-                type: "GET",
+                type: "POST",
                 cache: false,
                 dataType: "json",
                 url: "/admin/modify_get_logo",
@@ -207,7 +207,7 @@
         $("#spinnerLoading").addClass("hide");
 
         $.ajax({
-            type: "post",
+            type: "POST",
             url: "/account/set_cookie",
             dataType: "json",
             data: "cookieName=" + cookieName + "&cookieValue=" + cookieValue + "&expiresTime=" + expiresTime,
