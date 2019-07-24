@@ -20,7 +20,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		else{
 			//response.sendRedirect("url");
 			System.out.println("LoginInterceptor preHandle false:" + username);
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/login").forward(request, response);
 			return false;
 		}
 	}

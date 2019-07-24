@@ -25,4 +25,8 @@ public class WebController {
 	public String saved_source() {
 		return "/saved_source.html";
 	}
+	@RequestMapping("/exam_mgr_new")
+	public String exam_mgr_new() {
+		return "/exam_mgr_new.html";
+	}
 }
