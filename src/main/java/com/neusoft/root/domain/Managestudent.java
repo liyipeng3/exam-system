@@ -3,6 +3,7 @@ package com.neusoft.root.domain;
 import java.sql.Date;
 
 public class Managestudent {
+
 	private String classId;
 	private String studentId;
 	private String courseId;

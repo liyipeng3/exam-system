@@ -1,13 +1,15 @@
 package com.neusoft.root.domain;
 
 import java.sql.Date;
-public class Log {
-	private String logId;
-	private String opId;
-	private Date opDate;
-	private String opType;
-	private String opMsg;
-	private String opResult;
+public class Log 
+{
+	private String logId;  //日志id
+	private String opId; //操作者ID
+	private Date opDate; //操作时间
+	private String opType; //操作类型
+	private String opMsg; // 操作具体内容
+	private String opResult; // 操作结果
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

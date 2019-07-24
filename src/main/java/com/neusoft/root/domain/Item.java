@@ -1,18 +1,17 @@
 package com.neusoft.root.domain;
 
+//试题
 public class Item {
-	private String itemId;
-	private String itemCourseType;
-	private String itemType;
-	private Double itemIndex;
-	private String itemQuestion;
-	private String itemOption;
-	private String itemAnswer;
-	private String itemPicture;
-	private Double itemScore;
-	private String getitemId() {
-		return itemId;
-	}
+	private String itemId; //题目ID
+	private String itemCourseType;  // 题目类型，java，c++
+	private String itemType; //题目类型，多选题，单选题，填空题，主观题
+	private Double itemIndex; //试题难度 
+	private String itemQuestion; //试题题干
+	private String itemOption; //试题问题
+	private String itemAnswer; //试题答案
+	private String itemPicture; //试题路径
+	private Double itemScore; //提示分数 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
