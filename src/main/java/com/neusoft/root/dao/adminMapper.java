@@ -1,5 +1,7 @@
 package com.neusoft.root.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.mysql.cj.protocol.Message;
@@ -19,66 +21,53 @@ import com.neusoft.root.domain.Teacher;
 @Mapper
 public interface adminMapper 
 {
-	//增加管理员
+	//管理员
 	public void AddAdmin(Admin pAdmin);
-	//删除管理员
 	public void DeleteAdmin(Admin pAdmin);
-	//更新管理员
-	public void UpdateAdmin(Admin pAdmin);
-	//查询管理员
+	public void UpdateAdmin(Map<String ,Object> pAdmin);
 	public Admin QueryAdmin(Admin pAdmin);
-	//增加学生
+	
+	//学生
 	public void AddStudent(Student pStudent);
-	//删除学生
 	public void DeleteStudent(Student pStudent);
-	//更新学生
-	public void UpdateStudent(Student pStudent);
-	//查询学生
+	public void UpdateStudent(Map<String ,Object> pStudent);
 	public Student QueryStudent(Student pStudent);
-	//增加班级
+	
+	//班级
 	public void AddClass(Class1 pclasss);
-	//删除班级
 	public void DeleteClass(Class1 pclass);
-	//更新班级
-	public void UpdateClass(Class1 pclass);
-	//查询班级
+	public void UpdateClass(Map<String ,Object> pclass);
 	public Class1 QueryClass(Class1 pClass1);
-	//增加老师
+	
+	//老师
 	public void Addteacher(Teacher pteacher);
-	//删除老师
 	public void Deleteteacher(Teacher pteacher);
-	//更新老师
-	public void Updateteacher(Teacher pteacher);
-	//查询老师
+	public void Updateteacher(Map<String ,Object> pteacher);
 	public Teacher Queryteacher(Teacher pTeacher);
-	//增加课程
+	
+	//课程
 	public void AddCource(Course pcourse);
-	//删除课程
 	public void DeleteteCourse(Course pcourse);
-	//更新课程
-	public void UpdateCourse(Course pcourse);
-	//查询课程
+	public void UpdateCourse(Map<String ,Object> pcourse);
 	public Course Querycourse(Course pCourse);
-	//增加记录
+	
+	//记录
 	public void  AddLog(Log plog);
-	//删除记录
 	public void DeleteLog(Log plog);
-	//更新记录
-	public void UpdateLog(Log plog);
-	//查询log
+	public void UpdateLog(Map<String ,Object> plog);
 	public Log QueryLog(Log plog);
 	
 	
 	//学生安排考试表的增删改查
 	public void  AddManagestudent(Managestudent pmanagestudent);
 	public void DeleteManagestudent(Managestudent pmanagestudent);
-	public void UpdateManagestudent(Managestudent pmanagestudent);
+	public void UpdateManagestudent(Map<String ,Object> pmanagestudent);
 	public Managestudent QueryManagestudent(Managestudent pmanagestudent);
 	
 	//老师安排考试表的增删改查
 	public void  AddManageteacher(Manageteacher pManageteacher);
 	public void DeleteManageteacher(Manageteacher pManageteacher);
-	public void UpdateManageteacher(Manageteacher pManageteacher);
+	public void UpdateManageteacher(Map<String ,Object> pManageteacher);
 	public Item QueryManageteacher(Manageteacher pManageteacher);
 	
 	//对消息进行增删查操作
