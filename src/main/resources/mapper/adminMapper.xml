@@ -28,6 +28,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</update>
 	
-	<select id="QueryAdmin">
+	<select id="QueryAdmin" parameterType="Admin" resultMap="myAdmin">
+		select *
+		from admin_table
+		<where>
+			<if test="adminId!=null and adminId!=''">
+				and admin_id = #{adminId}
+			</if>
+			<if test="adminName!=null and adminName=''">
+				and admin_name = #{adminName}
+			</if>
+		</where>
 	</select>
+	
+	<resultMap type="Admin" id="myAdmin">
+		<id column="admin_id" property="adminId" />
+		<result column="admin_name" property="adminName" />
+		<result column="admin_password" property="adminPassword" />
+	</resultMap>
 </mapper>

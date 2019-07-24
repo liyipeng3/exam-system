@@ -15,7 +15,7 @@ public interface adminMapper
 	public void AddAdmin(Admin pAdmin);
 	public void DeleteAdmin(Admin pAdmin);
 	public void UpdateAdmin(Admin pAdmin);
-	public Admin QueryAdmin(String pid);
+	public Admin QueryAdmin(Admin pAdmin);
 	public void AddStudent(Student pStudent);
 	public void DeleteStudent(Student pStudent);
 	public void UpdateStudent(Student pStudent);
