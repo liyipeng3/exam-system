@@ -15,13 +15,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**","/login*", "/register*", "/html/**");/*
-		registry.addInterceptor(new StudentInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/teacher", "/index");
-		registry.addInterceptor(new TeacherInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/student", "/index");
-		registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/index");*/
+				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**");
+		
 	}
 
 }
