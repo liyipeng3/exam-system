@@ -17,11 +17,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
 				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**");
 		registry.addInterceptor(new StudentInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/student");
+				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/teacher", "/index");
 		registry.addInterceptor(new TeacherInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/teacher");
+				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/student", "/index");
 		registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/index");
+				"/fonts/**", "/img/**", "/login/**", "/register/**", "/html/**", "/student", "/teacher");
 	}
 
 }
