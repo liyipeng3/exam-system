@@ -35,7 +35,7 @@ public interface AdminMapper
 	public void updateStudent(Map<String ,Object> pStudent);
 	public List<Object> queryStudent(Student pStudent);
 	
-	//班级
+	//教室
 	public void addClass(Class1 pclasss);
 	public void deleteClass(Class1 pclass);
 	public void updateClass(Map<String ,Object> pclass);

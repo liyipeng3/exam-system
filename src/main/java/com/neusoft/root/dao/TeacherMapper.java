@@ -20,7 +20,7 @@ public interface TeacherMapper {
 	public void addCheck(Check pCheck);
 	public void deleteCheck(Check pCheck);
 	public void updateCheck(Map<String, Object> pCheck);
-	public List<Object> queryCheck(Check pCheck);
+	public List<Check> queryCheck(Check pCheck);
 	
 	//对班级信息进行查询
 	public List<Object> queryClass(Class1 pClass1);
@@ -58,7 +58,7 @@ public interface TeacherMapper {
 	public void addPaper(Paper paper);
 	public void deletePaper(Paper paper);
 	public void updatePaper(Map<String,Object> paper);
-	public List<Object> queryPaper(Paper paper);
+	public List<Paper> queryPaper(Paper paper);
 	
 	//老师
 	//改密码
