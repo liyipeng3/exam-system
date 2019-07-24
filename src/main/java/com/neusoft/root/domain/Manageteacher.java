@@ -1,32 +1,33 @@
 package com.neusoft.root.domain;
 
 public class Manageteacher {
-	private String class_id;
-	private String teacher_id;
-	private String course_id;
-	public String getClass_id() {
-		return class_id;
+	private String classId;
+	private String teacherId;
+	private String courseId;
+	
+	public String getClassId() {
+		return classId;
 	}
-	public void setClass_id(String class_id) {
-		this.class_id = class_id;
+	public void setClassId(String classId) {
+		this.classId = classId;
 	}
-	public String getTeacher_id() {
-		return teacher_id;
+	public String getTeacherId() {
+		return teacherId;
 	}
-	public void setTeacher_id(String teacher_id) {
-		this.teacher_id = teacher_id;
+	public void setTeacherId(String teacherId) {
+		this.teacherId = teacherId;
 	}
-	public String getCourse_id() {
-		return course_id;
+	public String getCourseId() {
+		return courseId;
 	}
-	public void setCourse_id(String course_id) {
-		this.course_id = course_id;
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
-	public Manageteacher(String class_id, String teacher_id, String course_id) {
+	public Manageteacher(String classId, String teacherId, String courseId) {
 		super();
-		this.class_id = class_id;
-		this.teacher_id = teacher_id;
-		this.course_id = course_id;
+		this.classId = classId;
+		this.teacherId = teacherId;
+		this.courseId = courseId;
 	}
 	public Manageteacher() {
 		super();
@@ -36,9 +37,9 @@ public class Manageteacher {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((class_id == null) ? 0 : class_id.hashCode());
-		result = prime * result + ((course_id == null) ? 0 : course_id.hashCode());
-		result = prime * result + ((teacher_id == null) ? 0 : teacher_id.hashCode());
+		result = prime * result + ((classId == null) ? 0 : classId.hashCode());
+		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
+		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
 	@Override
@@ -50,20 +51,20 @@ public class Manageteacher {
 		if (getClass() != obj.getClass())
 			return false;
 		Manageteacher other = (Manageteacher) obj;
-		if (class_id == null) {
-			if (other.class_id != null)
+		if (classId == null) {
+			if (other.classId != null)
 				return false;
-		} else if (!class_id.equals(other.class_id))
+		} else if (!classId.equals(other.classId))
 			return false;
-		if (course_id == null) {
-			if (other.course_id != null)
+		if (courseId == null) {
+			if (other.courseId != null)
 				return false;
-		} else if (!course_id.equals(other.course_id))
+		} else if (!courseId.equals(other.courseId))
 			return false;
-		if (teacher_id == null) {
-			if (other.teacher_id != null)
+		if (teacherId == null) {
+			if (other.teacherId != null)
 				return false;
-		} else if (!teacher_id.equals(other.teacher_id))
+		} else if (!teacherId.equals(other.teacherId))
 			return false;
 		return true;
 	}

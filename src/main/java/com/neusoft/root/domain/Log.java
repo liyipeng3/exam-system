@@ -2,22 +2,22 @@ package com.neusoft.root.domain;
 
 import java.sql.Date;
 public class Log {
-	private String log_id;
-	private String op_id;
-	private Date op_date;
-	private String op_type;
-	private String op_msg;
-	private String op_result;
+	private String logId;
+	private String opId;
+	private Date opDate;
+	private String opType;
+	private String opMsg;
+	private String opResult;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((log_id == null) ? 0 : log_id.hashCode());
-		result = prime * result + ((op_date == null) ? 0 : op_date.hashCode());
-		result = prime * result + ((op_id == null) ? 0 : op_id.hashCode());
-		result = prime * result + ((op_msg == null) ? 0 : op_msg.hashCode());
-		result = prime * result + ((op_result == null) ? 0 : op_result.hashCode());
-		result = prime * result + ((op_type == null) ? 0 : op_type.hashCode());
+		result = prime * result + ((logId == null) ? 0 : logId.hashCode());
+		result = prime * result + ((opDate == null) ? 0 : opDate.hashCode());
+		result = prime * result + ((opId == null) ? 0 : opId.hashCode());
+		result = prime * result + ((opMsg == null) ? 0 : opMsg.hashCode());
+		result = prime * result + ((opResult == null) ? 0 : opResult.hashCode());
+		result = prime * result + ((opType == null) ? 0 : opType.hashCode());
 		return result;
 	}
 	@Override
@@ -29,85 +29,86 @@ public class Log {
 		if (getClass() != obj.getClass())
 			return false;
 		Log other = (Log) obj;
-		if (log_id == null) {
-			if (other.log_id != null)
+		if (logId == null) {
+			if (other.logId != null)
 				return false;
-		} else if (!log_id.equals(other.log_id))
+		} else if (!logId.equals(other.logId))
 			return false;
-		if (op_date == null) {
-			if (other.op_date != null)
+		if (opDate == null) {
+			if (other.opDate != null)
 				return false;
-		} else if (!op_date.equals(other.op_date))
+		} else if (!opDate.equals(other.opDate))
 			return false;
-		if (op_id == null) {
-			if (other.op_id != null)
+		if (opId == null) {
+			if (other.opId != null)
 				return false;
-		} else if (!op_id.equals(other.op_id))
+		} else if (!opId.equals(other.opId))
 			return false;
-		if (op_msg == null) {
-			if (other.op_msg != null)
+		if (opMsg == null) {
+			if (other.opMsg != null)
 				return false;
-		} else if (!op_msg.equals(other.op_msg))
+		} else if (!opMsg.equals(other.opMsg))
 			return false;
-		if (op_result == null) {
-			if (other.op_result != null)
+		if (opResult == null) {
+			if (other.opResult != null)
 				return false;
-		} else if (!op_result.equals(other.op_result))
+		} else if (!opResult.equals(other.opResult))
 			return false;
-		if (op_type == null) {
-			if (other.op_type != null)
+		if (opType == null) {
+			if (other.opType != null)
 				return false;
-		} else if (!op_type.equals(other.op_type))
+		} else if (!opType.equals(other.opType))
 			return false;
 		return true;
 	}
-	public Log(String log_id, String op_id, Date op_date, String op_type, String op_msg, String op_result) {
+	public Log(String logId, String opId, Date opDate, String opType, String opMsg, String opResult) {
 		super();
-		this.log_id = log_id;
-		this.op_id = op_id;
-		this.op_date = op_date;
-		this.op_type = op_type;
-		this.op_msg = op_msg;
-		this.op_result = op_result;
+		this.logId = logId;
+		this.opId = opId;
+		this.opDate = opDate;
+		this.opType = opType;
+		this.opMsg = opMsg;
+		this.opResult = opResult;
 	}
 	public Log() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public String getLog_id() {
-		return log_id;
+	public String getLogId() {
+		return logId;
 	}
-	public void setLog_id(String log_id) {
-		this.log_id = log_id;
+	public void setLogId(String logId) {
+		this.logId = logId;
 	}
-	public String getOp_id() {
-		return op_id;
+	public String getOpId() {
+		return opId;
 	}
-	public void setOp_id(String op_id) {
-		this.op_id = op_id;
+	public void setOpId(String opId) {
+		this.opId = opId;
 	}
-	public Date getOp_date() {
-		return op_date;
+	public Date getOpDate() {
+		return opDate;
 	}
-	public void setOp_date(Date op_date) {
-		this.op_date = op_date;
+	public void setOpDate(Date opDate) {
+		this.opDate = opDate;
 	}
-	public String getOp_type() {
-		return op_type;
+	public String getOpType() {
+		return opType;
 	}
-	public void setOp_type(String op_type) {
-		this.op_type = op_type;
+	public void setOpType(String opType) {
+		this.opType = opType;
 	}
-	public String getOp_msg() {
-		return op_msg;
+	public String getOpMsg() {
+		return opMsg;
 	}
-	public void setOp_msg(String op_msg) {
-		this.op_msg = op_msg;
+	public void setOpMsg(String opMsg) {
+		this.opMsg = opMsg;
 	}
-	public String getOp_result() {
-		return op_result;
+	public String getOpResult() {
+		return opResult;
 	}
-	public void setOp_result(String op_result) {
-		this.op_result = op_result;
+	public void setOpResult(String opResult) {
+		this.opResult = opResult;
 	}
+	
 }
