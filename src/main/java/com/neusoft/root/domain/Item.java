@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 
-//试题
+//题库
 public class Item {
 	private String itemId; //题目ID
 	private String itemCourseType;  // 题目类型，java，c++
