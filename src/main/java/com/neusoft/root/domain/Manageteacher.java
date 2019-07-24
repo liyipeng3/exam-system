@@ -1,10 +1,19 @@
 package com.neusoft.root.domain;
 
+import java.sql.Date;
+
 public class Manageteacher {
 	private String classId;
 	private String teacherId;
 	private String courseId;
+	private Date examDate;
 	
+	public Date getExamDate() {
+		return examDate;
+	}
+	public void setExamDate(Date examDate) {
+		this.examDate = examDate;
+	}
 	public String getClassId() {
 		return classId;
 	}
@@ -33,12 +42,20 @@ public class Manageteacher {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Manageteacher(String classId, String teacherId, String courseId, Date examDate) {
+		super();
+		this.classId = classId;
+		this.teacherId = teacherId;
+		this.courseId = courseId;
+		this.examDate = examDate;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((classId == null) ? 0 : classId.hashCode());
 		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
+		result = prime * result + ((examDate == null) ? 0 : examDate.hashCode());
 		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
@@ -61,6 +78,11 @@ public class Manageteacher {
 				return false;
 		} else if (!courseId.equals(other.courseId))
 			return false;
+		if (examDate == null) {
+			if (other.examDate != null)
+				return false;
+		} else if (!examDate.equals(other.examDate))
+			return false;
 		if (teacherId == null) {
 			if (other.teacherId != null)
 				return false;
@@ -68,5 +90,6 @@ public class Manageteacher {
 			return false;
 		return true;
 	}
+
 	
 }
