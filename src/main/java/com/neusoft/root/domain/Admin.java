@@ -6,7 +6,8 @@ public class Admin {
 	private  String admin_id;
 	private String admin_name;
 	@Override
-	public int hashCode() {
+	public int hashCode() 
+	{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((admin_id == null) ? 0 : admin_id.hashCode());
