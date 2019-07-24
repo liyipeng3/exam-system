@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neusoft.root.domain.Item;
-import com.neusoft.root.domain.Student;
+import com.neusoft.root.domain.Subjects;
 
 @Controller
 @RequestMapping("/exam")
@@ -18,10 +18,13 @@ public class PaperGeneratorController {
 	public Set<Item> paperSettings(String paper_name, String paper_type, String method) {
 		return null;
 	}
-	@RequestMapping(value="/get_paper_class", method=RequestMethod.GET)
+	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
-	public Student getPaper(){
-		Student st = new Student("1", "1", "1", "1", "1", "1");
-		return st;
+	public Subjects getPaperSubjects(){
+		Subjects subjects = new Subjects();
+		subjects.add("语文");
+		subjects.add("数学");
+		subjects.add("英语");
+		return subjects;
 	}
 }
