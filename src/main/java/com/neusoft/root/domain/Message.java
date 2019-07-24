@@ -10,6 +10,14 @@ public class Message {
 	private String msgType;
 	private String msgContext;
 	private String msgRole;//发送方接收方，二值性
+	public String getMsgRole() {
+		return msgRole;
+	}
+	public void setMsgRole(String msgRole) {
+		this.msgRole = msgRole;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -17,6 +25,7 @@ public class Message {
 		result = prime * result + ((msgContext == null) ? 0 : msgContext.hashCode());
 		result = prime * result + ((msgDate == null) ? 0 : msgDate.hashCode());
 		result = prime * result + ((msgId == null) ? 0 : msgId.hashCode());
+		result = prime * result + ((msgRole == null) ? 0 : msgRole.hashCode());
 		result = prime * result + ((msgType == null) ? 0 : msgType.hashCode());
 		result = prime * result + ((senderId == null) ? 0 : senderId.hashCode());
 		result = prime * result + ((targetId == null) ? 0 : targetId.hashCode());
@@ -46,6 +55,11 @@ public class Message {
 				return false;
 		} else if (!msgId.equals(other.msgId))
 			return false;
+		if (msgRole == null) {
+			if (other.msgRole != null)
+				return false;
+		} else if (!msgRole.equals(other.msgRole))
+			return false;
 		if (msgType == null) {
 			if (other.msgType != null)
 				return false;
@@ -63,7 +77,8 @@ public class Message {
 			return false;
 		return true;
 	}
-	public Message(String msgId, Date msgDate, String senderId, String targetId, String msgType, String msgContext) {
+	public Message(String msgId, Date msgDate, String senderId, String targetId, String msgType, String msgContext,
+			String msgRole) {
 		super();
 		this.msgId = msgId;
 		this.msgDate = msgDate;
@@ -71,6 +86,7 @@ public class Message {
 		this.targetId = targetId;
 		this.msgType = msgType;
 		this.msgContext = msgContext;
+		this.msgRole = msgRole;
 	}
 	public Message() {
 		super();

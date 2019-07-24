@@ -1,5 +1,5 @@
 package com.neusoft.root.domain;
-
+//学生答题结果
 public class Result {
 	private String studentId;
 	private String paperId;

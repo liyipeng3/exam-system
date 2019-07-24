@@ -4,12 +4,15 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.mysql.cj.protocol.Message;
 import com.neusoft.root.domain.Admin;
+import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
+import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Item;
 import com.neusoft.root.domain.Log;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
+import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
@@ -31,7 +34,7 @@ public interface adminMapper
 	//更新学生
 	public void UpdateStudent(Student pStudent);
 	//查询学生
-	public Student QueryStudent(String pid);
+	public Student QueryStudent(Student pStudent);
 	//增加班级
 	public void AddClass(Class1 pclasss);
 	//删除班级
@@ -39,7 +42,7 @@ public interface adminMapper
 	//更新班级
 	public void UpdateClass(Class1 pclass);
 	//查询班级
-	public Class1 QueryClass(String pid);
+	public Class1 QueryClass(Class1 pClass1);
 	//增加老师
 	public void Addteacher(Teacher pteacher);
 	//删除老师
@@ -47,7 +50,7 @@ public interface adminMapper
 	//更新老师
 	public void Updateteacher(Teacher pteacher);
 	//查询老师
-	public Teacher Queryteacher(String pid);
+	public Teacher Queryteacher(Teacher pTeacher);
 	//增加课程
 	public void AddCource(Course pcourse);
 	//删除课程
@@ -55,7 +58,7 @@ public interface adminMapper
 	//更新课程
 	public void UpdateCourse(Course pcourse);
 	//查询课程
-	public Course Querycourse(String pid);
+	public Course Querycourse(Course pCourse);
 	//增加记录
 	public void  AddLog(Log plog);
 	//删除记录
@@ -82,4 +85,17 @@ public interface adminMapper
 	public void AddMessage(Message pMessage);
 	public void DeleteMessage(Message pMessage);
 	public Message QueryMessage(Message pMessage);
+	
+	//学生答题结果
+	public void AddResult(Result pResult);
+	public Result QueryResult(Result pResult);
+	
+	//论坛帖子的增加删除查询
+	public void AddForum(Forum pForum);
+	public void DeleteForum(Forum pForum);
+	public Forum QueryForum(Forum pForum);
+	
+	//老师批卷结果的查询
+	public Check QueryCheck(Check pCheck);
+	
 }

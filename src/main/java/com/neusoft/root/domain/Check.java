@@ -1,5 +1,5 @@
 package com.neusoft.root.domain;
-
+//老师批卷最后的表
 public class Check {
 	private String studentId;
 	public Check(String studentId, String paperId, String teacherId, String choiceScore, String fillScore,
