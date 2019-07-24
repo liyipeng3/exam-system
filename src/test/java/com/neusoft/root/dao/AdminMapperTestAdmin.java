@@ -21,15 +21,20 @@ public class AdminMapperTestAdmin
 	@Test
 	public void testAddAdmin() 
 	{
-		try 
+		/*try 
 		{
 			System.out.println(1);
 			am.addAdmin(new Admin("1234", "zyc", "123"));
 			System.out.println(1);
 		} catch (Exception e) {
 			System.out.println(e);
-		}
+		}*/
 	}
 	
+	@Test
+	public void testDeleteAdmin()
+	{
+		Admin admin = new Admin("123","","");
+	}
 	
 }
