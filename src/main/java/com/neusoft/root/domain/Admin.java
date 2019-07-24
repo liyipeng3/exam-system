@@ -6,7 +6,8 @@ public class Admin {
 	private  String adminId;
 	private String adminName;
 	@Override
-	public int hashCode() {
+	public int hashCode() 
+	{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adminId == null) ? 0 : adminId.hashCode());
@@ -67,6 +68,10 @@ public class Admin {
 	}
 	public void setAdminName(String adminName) {
 		this.adminName = adminName;
+	}
+	@Override
+	public String toString() {
+		return "Admin [adminPassword=" + adminPassword + ", adminId=" + adminId + ", adminName=" + adminName + "]";
 	}
 
 

@@ -32,11 +32,9 @@
 		e.stopPropagation();
 		e.preventDefault();
         var v = $(this).text();
-        if (v == "抽题组卷") {
-            type = "2";
+        if (v == "选题组卷") {
+            type = "0";
         } else if (v == "随机组卷") {
-            type = "3";
-        } else {
             type = "1";
         }
 		$("#paper_type_select").val(type).change();
@@ -124,33 +122,7 @@
 			},500);
 		}
     });
-    // //传递 考试相关数据 到第三步
-    // $("#nextStep").click(function(e) {
-	// 	if($("input[name=classification]").val()==""){
-	// 		alert("请选择试题分类");
-	// 		return;
-	// 	}
-    //     $("input[name=add_style]").val("manual");
-    //     manualInputTest("/admin/paper_manual_add", "1");
-    // });
 
-	// //传递 选题、随机、抽题组卷 到第三步
-	// $("#nextStep_2").click(function(e) {
-    //     $("input[name=add_style]").val("select");
-    //     $("input[name=classification]").val("");
-	// 	var type = $("#paper_type_select").val(); //试卷类型
-    //     manualInputTest("/admin/paper_manual_add", type);
-    // });
-
-	 // 限制每题时长
-     $("input[name=limitQtime]").click(function () {
-		 $(this).toggleClass('checked');
-         if ($("input[name=limitQtime]").hasClass("checked")) {
-             $(this).val("1")
-         }else {
-             $(this).val("0")
-		 }
-     });
 
     //预览
 	$("#previewBtn").click(function(e) {
@@ -225,65 +197,6 @@
         window.location.href = "/admin/paper/update/"+id;
     });
 
-
-    // //引导内容
-    // if(isVisitFirst == 'true'){
-    //     //判断有无alert
-    //     var alertFun=window.alert;
-    //     window.alert=function(str)
-    //     {
-    //         flag=false;
-    //         alertFun(str);
-    //     };
-    //
-    //     var guide=$(".guide");
-    //     if(guide.length!=0){
-    //         var step=parseInt($(guide).attr("step"));
-    //         guide=$(".guide[step="+step+"]");
-    //         $(guide).addClass("guide-step");
-    //
-    //         var guide_width=$(guide).width();
-    //         var guide_height=$(guide).height();
-    //         var guide_top=$(guide).offset().top;
-    //         var guide_left=$(guide).offset().left;
-    //         guidePosition(step);
-    //         $(".guide-layer").css("top",guide_top+guide_height+adjust_t).css("left",guide_left+guide_width+adjust_l);
-    //         $(".guide-layer").show();
-    //     }
-    //     $(".guide-layer .next-step").click(function (e) {
-    //         e.stopPropagation();
-    //         e.preventDefault();
-    //         if(guide.length>0){
-    //             if($(".guide").length==1){
-    //                 $(".guide-btn").click();
-    //             }else {
-    //                 $(guide).find(".guide-btn").click();
-    //                 if(flag==false){
-    //                     return false;
-    //                 }else {
-    //                     step=step+1;
-    //                     if(step>6) return false;
-    //                     guide=$(".guide[step="+step+"]");
-    //                     $(".guide-step").removeClass("guide-step");
-    //
-    //                     $(guide).addClass("guide-step");
-    //                     guide_width=$(guide).width();
-    //                     guide_height=$(guide).height();
-    //                     guide_top=$(guide).offset().top;
-    //                     guide_left=$(guide).offset().left;
-    //                     guidePosition(step);
-    //                     $(".guide-layer").css("top",guide_top+guide_height+adjust_t).css("left",guide_left+guide_width+adjust_l);
-    //                 }
-    //             }
-    //         }
-    //     });
-    //     $(".guide-layer .get").click(function (e) {
-    //         e.preventDefault();
-    //         e.stopPropagation();
-    //         $(".guide-layer").hide();
-    //     });
-    //
-    // }
 
 });
 //计算总分
@@ -706,29 +619,6 @@ function savePaperFn(url,type){
 		}
 	});
 }
-//创建空白试卷手工录入试题fn
-// function createPaperFn(url,type){
-//         var paperName = $("input[name=paper_name]").val();
-//         var paperStyle = $("input[name=paper_style]").val();
-// 	$.ajax({
-// 		type: "POST",
-// 		cache : false,
-// 		headers: { "cache-control": "no-cache" },
-// 		dataType: "json",
-// 		url: url,
-// 		data: { paper_style: paperStyle, paper_name: paperName, paper_type: type },
-// 		success: function(msg){
-// 			if(msg.msg=="True"){
-// 					//$("#jumpToExamPublish").attr("paper_info_id",msg.id);
-// 					//$("#jumpToUpdate").attr("paper_id",msg.id);
-// 					$("#nextStep").attr("paper_info_id",msg.id);
-// 					manualInputTest("/admin/paper_manual_add", type);
-// 			}else{
-// 				alert("操作失败，请联系管理员！");
-// 			}
-// 		}
-// 	});
-// }
 //显示选择分类对话框
 function showJumpDialog(){
 	$('#jumpDialog').modal({
@@ -752,7 +642,6 @@ function manualInputTest(url, type){
 		   // .replace(/\+/g,"%2B");//替换URL中有特殊含义的字符
        var paper_style = $("input[name=paper_style]").val();
        var add_style = $("input[name=add_style]").val();
-    var limit_q_time = $('input[name="limitQtime"]').val(); //限制每题时长
     window.location.href = "/admin/paper_manual_add?"+
                               "&paper_name="+escapeHTML( paper_name )+"&paper_style="+paper_style+"&paper_type="+type+"&add_style="+add_style +"&perTimeRestrict="+limit_q_time;
 }
@@ -761,49 +650,3 @@ function manualInputTest(url, type){
      return text.replace(/\%/g,"%25")
 		 		.replace(/\+/g,"%2B");
  }
-
-// //引导内容
-// function guidePosition(n){
-// 	switch(n)
-// 	{
-// 	case 1:
-// 	adjust_t=10;
-// 	adjust_l=10;
-// 	$(".into").html("<span>第一步：创建试卷</span>");
-// 	 break;
-// 	case 2:
-// 	adjust_t=-141;
-// 	adjust_l=-285;
-// 	$(".into").html("<span>第二步：</span><br/><span>填写试卷名称，并选择试卷分类</span>");
-// 	  break;
-// 	case 3:
-// 	adjust_t=-131;
-// 	adjust_l=-285;
-// 	$(".into").html("<span>第三步：选取组卷方式</span>");
-// 	break;
-// 	case 4:
-// 	adjust_t=-40;
-// 	adjust_l=-1190;
-// 	$(".into").html("<span>第四步：创建题目</span><br />"+
-// 	"<span>1.创建新的大题，选取题型</span><br />"+
-// 	"<span>2.填写大题名称和每题分数</span><br />"+
-// 	"<span>3.选择试题</span><br />"+
-// 	"<span>4.重复以上步骤，保存并发布</span>");
-// 	break;
-// 	case 5:
-// 	adjust_t=-900;
-// 	adjust_l=300;
-// 	$(".into").html("<span>第五步：</span><br/><span>设置（可选）并发布试卷</span>");
-// 	$(".cont-r").animate({scrollTop:$("#saveBtn").offset().top},200);
-// 	break;
-// 	case 6:
-// 	adjust_t=200;
-// 	adjust_l=800;
-// 	$(".into").html("<span>恭喜你完成新手引导！</span>");
-// 	$(".guide-layer").css("z-index",9999);
-// 	$(".guide-layer .next-step").html('赶紧考一次');
-// 	$(".guide-layer .get").html('不了，谢谢');
-// 	break;
-// 	default:
-// 	}
-// }

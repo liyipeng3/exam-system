@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<!-- saved from url=(0191)https://admin.com/admin/paper_manual_add?&paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&paper_style=270070&paper_type=1&add_style=select&perTimeRestrict=0 -->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
+    <meta name="description" content="考试星是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="author" content="">
+    <script async="" src="../../js/tingyun-rum-admin.js"></script>
+    <script async="" src="../../js/gio.js"></script>
+    <script type="text/javascript" src="../../js/ksx_probe.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '东北大学软件园';
+        opts.rightsGrade = '8';
+
+        //添加gio
+        ksxProbe.gioInit(opts);
+        //添加tingyun
+        ksxProbe.tingyun();
+    </script>
+    <title>考试云平台</title>
+
+
+    <link rel="shortcut icon" href="https://s0.com/static/base/images/new_logo.ico">
+
+
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/admin_base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.bootgrid.css">
+    <link rel="stylesheet" type="text/css" href="../../css/paper_manual_add.css">
+    <script src="../../js/entrance.js" id="zhichiScript" class="zhiCustomBtn"></script>
+    <script>
+        //初始化智齿咨询组件实例
+        var zhiManager = (getzhiSDKInstance());
+        //再调用load方法
+        zhiManager.on("load", function () {
+            zhiManager.initBtnDOM();
+        });
+        //设置入口方位//按钮将显示在右下角 默认显示在右下角
+        zhiManager.set('location', 1);
+        //设置悬浮窗的水平位置
+        //true 自定义咨询按钮 废弃系统默认按钮
+        zhiManager.set('customBtn', 'true');
+        //设置自动强制发起会话
+        //    setTimeout(function(){
+        //        zhiManager.expand();
+        ////      zhiManager.set('autoExpand', true);
+        //    },5000);
+        //默认：当为左下时，则水平距离左边100px。当为右下时，则水平距离右边100px
+        zhiManager.set('customMargin', 30);
+        //    zhiManager.set('horizontal', 0);
+
+        zhiManager.set('manTrace', true); //开启收集用户方访问轨迹 默认不收集
+    </script>
+
+    <style type="text/css">  .JColResizer {
+        table-layout: fixed;
+    }
+
+    .JColResizer > tbody > tr > td, .JColResizer > tbody > tr > th {
+        overflow: hidden;
+    }
+
+    .JCLRgrips {
+        height: 0px;
+        position: relative;
+    }
+
+    .JCLRgrip {
+        margin-left: -5px;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .JCLRgrip .JColResizer {
+        position: absolute;
+        background-color: red;
+        filter: alpha(opacity=1);
+        opacity: 0;
+        width: 10px;
+        height: 100%;
+        cursor: col-resize;
+        top: 0px
+    }
+
+    .JCLRLastGrip {
+        position: absolute;
+        width: 1px;
+    }
+
+    .JCLRgripDrag {
+        border-left: 1px dotted black;
+    }
+
+    .JCLRFlex {
+        width: auto !important;
+    }
+
+    .JCLRgrip.JCLRdisabledGrip .JColResizer {
+        cursor: default;
+        display: none;
+    }</style>
+    <style></style>
+</head>
+
+
+<body>
+<div class="viewFrameWork sidebar-full" id="viewFrameWork">
+
+    <div class="viewFrameWork-statusbar">
+
+        <a href="https://admin.com/account/admin/index" class="status-left company-logo" title="logo"
+           id="companyLogo">
+            <!--对有没有logo进行判断-->
+            <img class="icon-logo logo-ksx" src="../../img/logo.png"></a>
+
+
+        <div class="status-middle toolbar">
+            <!-- top operation area -->
+            <!-- toolbar delayed on given pages, dropdown and search-section are changable -->
+            <div class="body-toolbar clearfix">
+                <div class="body-toolbar-left pull-left toolbar-left-nav">
+
+                    <button type="button" class="btn btn-default" id="previewBtn"><i class="icons8-eye"></i>预览</button>
+                    <button type="button" class="btn btn-default" id="downloadBtn"><i class="icons8-icon-7"></i>下载
+                    </button>
+
+                </div>
+                <div class="body-toolbar-right pull-right toolbar-right-operation">
+
+                    <button type="button" class="btn btn-primary " id="savePaperBtn">下一步</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="status-right">
+            <div class="status-item item-notification" id="stateMessage">
+                <i class="icon item-icon icon-p_top_message"></i>
+                <span class="message-count hidden"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="viewFrameWork-main">
+
+        <div class="viewFrameWork-sidebar">
+            <div class="sidebar-inner">
+
+                <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
+                     data-container="body" title="" data-original-title="收起导航">
+                    <i class="icons8 icons8-icon"></i>
+                </div>
+
+
+                <div class="sidebar-nav">
+                    <ul class="sidebar-trans" id="ksxAdminSidebar">
+
+                        <li class="nav-item nav-item-index" id="navItemIndex">
+                            <a href="https://admin.com/account/admin/index/" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="首页">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_nav_home icon-index"></i>
+                                </div>
+                                <span class="nav-title">首页</span>
+                            </a>
+                        </li>
+                        <li class="nav-item has-sub-menu open" id="navItemExam"><a
+                                href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="考试管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
+                            <span class="nav-title">考试管理</span></a>
+                            <ul class="sub-menu animate" style="height: 238px;">
+                                <li class="nav-item sub-nav-item nav-item-active" id="subNavItemExamMgr"><a
+                                        href="https://admin.com/admin/exam_mgr_new"><span class="nav-title">考试信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
+                                        href="https://v.com/admin/testQuestions/#/list"><span
+                                        class="nav-title">试题库</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
+                                        href="https://admin.com/admin/paper_mgr_new"><span class="nav-title">试卷库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
+                                        href="https://admin.com/admin/result/mgr_new"><span
+                                        class="nav-title">成绩查询批改</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
+                                        href="https://new.com/ae/results/analysis/exam"><span
+                                        class="nav-title">分析考试</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
+                                        href="https://new.com/ae/results/analysis/person"><span
+                                        class="nav-title">分析考生</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemUser"><a
+                                href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="人员管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
+                            <span class="nav-title">人员管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
+                                        href="https://v.com/admin/user/#/list"><span
+                                        class="nav-title">考生信息</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
+                                        href="https://admin.com/admin/user_reg"><span
+                                        class="nav-title">注册设置</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemCourse"><a
+                                href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="学习">
+                            <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
+                            <span class="nav-title">学习</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
+                                        href="https://admin.com/admin/file/manager"><span class="nav-title">知识库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
+                                        href="https://admin.com/course/course_mgr"><span class="nav-title">课程管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
+                                        href="https://admin.com/course/study_record_mgr/course"><span
+                                        class="nav-title">学习记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item " id="navItemCustomProcess"><a
+                                href="https://v.com/admin/customprocess/" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="自定义任务">
+                            <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
+                            <span class="nav-title">自定义任务</span><img class="mark-beta" src="../../img/a_nav_beta.svg"></a>
+                        </li>
+                        <li class="nav-item " id="navItemCertification"><a
+                                href="https://admin.com/certificate/certificate_center" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
+                            <div class="nav-icon"><i class="icon icon-p_leftnav_certification"></i></div>
+                            <span class="nav-title">认证中心</span></a></li>
+                        <li class="nav-item " id="navItemApplication"><a
+                                href="https://v.com/admin/application/#/list" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="报名审核">
+                            <div class="nav-icon"><i class="icon icon-a_nav_sign_up"></i></div>
+                            <span class="nav-title">报名审核</span></a></li>
+                        <li class="nav-item has-sub-menu" id="navItemPay"><a
+                                href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="支付中心">
+                            <div class="nav-icon"><i class="icon icon-a_nav_pay"></i></div>
+                            <span class="nav-title">支付中心</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemPayCenter"><a
+                                        href="https://admin.com/account/admin_pay_center"><span
+                                        class="nav-title">充值</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaySet"><a
+                                        href="https://admin.com/admin/user_pay_set"><span class="nav-title">支付设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemConsumeRecord"><a
+                                        href="https://admin.com/account/admin_consume_record"><span
+                                        class="nav-title">消费记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOrderRecord"><a
+                                        href="https://admin.com/account/admin_order_record"><span
+                                        class="nav-title">充值记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPayRecord"><a
+                                        href="https://admin.com/account/examinee_pay_record"><span
+                                        class="nav-title">考生付费记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemSystem"><a
+                                href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="系统管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
+                            <span class="nav-title">系统管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
+                                        href="https://admin.com/admin/sub_admin_mgr"><span class="nav-title">子管理员设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
+                                        href="https://admin.com/admin/app_set"><span
+                                        class="nav-title">App设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemModify"><a
+                                        href="https://admin.com/admin/modify"><span
+                                        class="nav-title">个性化设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
+                                        href="https://admin.com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
+                                        href="https://admin.com/admin/dev_info_mgr"><span class="nav-title">开发者信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
+                                        href="https://admin.com/account/admin_op_record"><span
+                                        class="nav-title">管理员操作记录</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="sidebar-bottom sidebar-btn">
+                <ul class="sidebar-trans">
+                    <li class="nav-item">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_help"></i>
+                            </div>
+                            <span class="nav-title">帮助
+                            <img class="new-svg" src="../../img/a_nav_new.svg" alt="">
+                        </span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel person-servers-panel">
+                            <div class="btn-help">
+                                <i class="icon icon-a_help_document"></i>
+                                <p><a href="https://www.kancloud.cn/exam-star/ksxhelp_1/974046">帮助文档</a></p>
+                            </div>
+                            <div class="btn-service">
+                                <i class="icon icon-a_help_service"></i>
+                                <span>人工客服</span>
+                                <p>
+                                    可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
+                                        href="javascript:;">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-user">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_my"></i>
+                            </div>
+                            <span class="nav-title">东北大学软件园</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel user-info-panel">
+
+                            <div class="user-info">
+                                <div class="info-img">
+                                    <img src="../../img/default-pic.png" class="user_img" alt="">
+                                </div>
+                                <div class="info-detail clearfix">
+                                    <div class="user" id="user">
+                                        <span class="user-surname">东北大学软件园</span>
+                                        <i data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                           data-original-title="编辑信息">
+                                        </i>
+                                    </div>
+                                    <div class="company">
+                                        东北大学软件园
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="operate-group">
+                                <a class="operate-item exam-entrance" href="https://exam.com/exam">
+                                    <i class="operate-icon icon-a_personal_switch"></i>
+                                    切换至考生端
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item exam-entrance"
+                                   href="https://admin.com/admin/admin_information">
+                                    <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
+                                       data-placement="top" data-container="body" title="" data-original-title="编辑信息">
+
+                                        <i class="unread-notice"></i>
+
+                                    </i>
+                                    修改个人信息
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item btn-exit" id="logoutBtn">
+                                    <i class="operate-icon icon-a_personal_exit"></i>
+                                    退出
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="viewFrameWork-body">
+            <!-- loading -->
+            <div class="spinner-wrapper hidden" id="spinnerLoading">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+
+            <div class="body-wrapper">
+                <div class="body-content">
+                    <div class="cont-r">
+                        <div role="tabpanel" class="tab-area tab-col4">
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="step1">
+                                    <a href="https://admin.com/admin/paper_add_new">
+                                        第一步:创建试卷
+                                    </a>
+                                </li>
+                                <li role="presentation" class="active step3">
+                                    <a href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#createTest3"
+                                       aria-controls="create3" role="tab" data-toggle="tab">
+                                        第二步:<span id="tabTitleText">选题组卷</span>
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#createTest4"
+                                       aria-controls="create4" role="tab" data-toggle="">
+                                        第三步:发布考试
+                                    </a>
+                                </li>
+                            </ul>
+
+
+                            <div class="line"></div>
+
+                            <!-- Tab panes -->
+                            <form action="https://admin.com/admin/addtestqm" name="form" method="post"
+                                  id="subForm">
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="manualInput">
+                                        <div class="input-questions-area clearfix">
+                                            <div class="info-board">
+                                                <div class="total">
+                                                    <p>总题数：<span class="test_total">0</span>题</p>
+                                                    <p>当前总分：<span class="total_score">0</span>分</p>
+
+                                                </div>
+                                            </div>
+                                            <div class="questions-board">
+                                                <h3><input class="edit-paper-name form-control" type="text"
+                                                           name="edit_paper_name" value="试题名称" placeholder="点击输入试卷名称">
+                                                </h3>
+                                                <p class="emptyTip">当前试卷还是空空如也，点击下方添加新题型！</p>
+                                                <div class="group_main"></div>
+
+                                                <div class="ipt-questions-box ipt-questions-box-w com-drop buttonLeft default_create_q_model"
+                                                     style="display: inline-block;">
+                                                    <div class="create_q_contain">
+                                                        <div class="create_q_group_icon">
+                                                            <span>+</span>
+                                                        </div>
+                                                        <br>
+                                                        <span class="create_q_group_text">创建新的大题</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ipt-questions-box ipt-questions-box-w com-drop buttonLeft type_create_q_model"
+                                                     style="display: none;">
+                                                    <div class="create_q_contain">
+                                                        <button type="button" class="q_type_btn questionType_add"
+                                                                num="1"><span>单选题</span></button>
+                                                        <button type="button" class="q_type_btn questionType_add"
+                                                                num="2"><span>多选题</span></button>
+                                                        <button type="button" class="q_type_btn questionType_add"
+                                                                num="3"><span>判断题</span></button>
+                                                        <button type="button" class="q_type_btn questionType_add"
+                                                                num="4"><span>填空题</span></button>
+                                                        <button type="button" class="q_type_btn questionType_add"
+                                                                num="5"><span>问答题</span></button>
+                                                        <button type="button" class="q_type_btn questionType_add"
+                                                                num="6"><span>组合题</span></button>
+                                                        <button type="button" class="q_type_btn questionType_add"
+                                                                num="7"><span>录音题</span></button>
+                                                    </div>
+                                                    <div class="btn-group">
+
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li>
+                                                                <a href="javascript:void(0)" ;=""
+                                                                   class="questionType_add" num="1">单选题</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" ;=""
+                                                                   class="questionType_add" num="2">多选题</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" ;=""
+                                                                   class="questionType_add" num="3">判断题</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" ;=""
+                                                                   class="questionType_add" num="4">填空题</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" ;=""
+                                                                   class="questionType_add" num="5">问答题</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="javascript:void(0)" ;=""
+                                                                   class="questionType_add" num="6">组合题</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="javascript:void(0)" ;=""
+                                                                   class="questionType_add" num="7">录音题</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="batchInput">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="group_simple" id="group_simple">
+                            <div class="questions-group group_title">
+                                <h4>
+                                    <input type="text" class="q-ipt q-ipt-t-s" name="test_tittle">
+                                    <span class="inline-ite" hidden="">每题分数<input type="text"
+                                                                                  name="test_peer_score">分</span>
+                                    <span class="inline-ite" hidden="">每题答题时长<input type="text" name="test_peer_time">秒</span>
+                                    <span class="right_disoeder">
+                        <input class="disorder question-disorder" type="checkbox" name="question_disorder">
+                        <span class="disorder question-disorder" name="selection">试题乱序</span>
+                        <input class="disorder options-disorder" type="checkbox" name="options_disorder">
+                        <span class="disorder options-disorder" name="selection">选项乱序
+                            <i class="icons8-help tooltip-disorder" data-toggle="tooltip" data-placement="top" title=""
+                               data-original-title="打开选项乱序后，每个考生的选项排序均不完全相同，减少抄袭可能性。"></i>
+                        </span>
+                    </span>
+
+                                    <div id="selection_score" style="display:none" data-placement="bottom"
+                                         title="漏选按正确选项个数计算分数，错选不给分">
+                                        <input type="checkbox" name="less_choice_confirm">
+                                        <span name="selection" class="disorder options-disorder">漏选给分
+                            <i class="icons8-help tooltip-disorder" data-toggle="tooltip" data-placement="top"
+                               data-original-title="打开漏选给分后，考生仅选中部分正确选项时，将根据选项数/正确选项总数计算该考生的本题得分。选中错误选项将不得分"></i>
+                        </span>
+                                        <span name="vacant" class="hidden">按空给分</span>
+                                        <span class="inline-ite" name="option_peer_score_show"
+                                              style="display:none;margin-left: 10px;"><span name="selection">每个选项</span>
+                        <span name="vacant">每空</span>
+                        <input type="text" name="option_peer_score"
+                               style="width: 36px;height: 28px;margin: 0 7px;">分</span>
+                                    </div>
+                                </h4>
+
+                                <div class="extract-box-tit">
+                                    <span class="questionTypeText"></span>
+                                    <div class="extract-box-btnDiv">
+                    <span class="t">
+                        <a class="btn btn-blue-border2 selQuestionLink" href="javascript:void(0)">
+
+                        <span>添加试题</span>
+                        </a>
+                    </span>
+                                    </div>
+                                    <input type="hidden" class="questions" name="test_ids" value="">
+                                </div>
+                            </div>
+                            <div class="diff_div">
+                                <div class="empty_q_tip">当前题型还是空空如也，点击按钮添加试题！</div>
+                                <span class="extract-info selDifficultLink_text"></span>
+                            </div>
+                            <div class="group_questionShow">
+                                <div class="empty_q_tip">当前题型还是空空如也，点击按钮添加试题！</div>
+                                <div class="manual-cont"></div>
+                            </div>
+
+                        </div>
+                        <!---->
+                        <div id="paperTpye1" style="display:none">
+                            <div class="extract-box-tit">
+                                <span class="questionTypeText"></span>
+                                <div class="extract-box-btnDiv">
+                    <span class="t">
+                        <a class="btn btn-blue-border2 selQuestionLink" href="javascript:void(0)">
+
+                        <span>添加试题</span>
+                        </a>
+                    </span>
+                                </div>
+                                <input type="hidden" class="questions" name="test_ids" value="">
+                            </div>
+                        </div>
+
+                        <div id="paperTpye2" style="display:none">
+                            <div class="extract-box-tit">
+                                <span class="questionTypeText"></span>
+                                <div class="extract-box-btnDiv">
+                <span class="t">
+                    <a class="btn btn-blue-border2 selQuestionsTypeLink" href="javascript:void(0)">
+                    <span>添加试题</span>
+                    </a>
+                </span>
+
+                                </div>
+
+                                <input type="hidden" name="test_classify_id" value="">
+                                <input type="hidden" class="checked_classify_ids" value="">
+                                <input type="hidden" name="test_label_id" value="">
+                                <input type="hidden" class="checked_label_ids" value="">
+                                <input type="hidden" class="" name="is_avgChk" value="">
+                                <input type="hidden" name="is_avg" value="">
+                                <input type="hidden" class="" name="hard" value="">
+                                <input type="hidden" class="" name="totelNum" value="">
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="add_style" value="select">
+
+                        <form id="asyncForm_question" style="display: none">
+                            <input type="hidden" name="id" value="">
+                            <input type="hidden" name="classification" value="0">
+                            <input type="hidden" name="label" value="">
+                            <input type="hidden" name="type" value="">
+                            <input type="hidden" name="tab_num" value="">
+                            <input type="hidden" name="status" value="enable">
+                            <input type="hidden" name="difficult" value="middle">
+                            <input type="hidden" name="encrypt" value="0">
+                            <textarea name="question"></textarea>
+                            <textarea name="analysis"></textarea>
+                            <input type="hidden" name="testTittle" value="">
+                            <input type="hidden" name="testPeerScore" value="">
+                            <input type="hidden" name="testPeerTime" value="">
+                            <div></div>
+                        </form>
+
+                        <form id="asyncForm_paper"
+                              action="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0"
+                              method="post" target="theWindow" style="display: none">
+                            <input type="hidden" name="paperName" value="试题名称">
+                            <input type="hidden" name="paperStyle" value="270070">
+                            <input type="hidden" name="paperType" value="1">
+                            <input type="hidden" name="paperSetNum" value="">
+                            <input type="hidden" name="totalScore" value="">
+                            <input type="hidden" name="totalTime" value="">
+                            <input type="hidden" name="paperStatus" value="0">
+                            <input type="hidden" name="perTimeRestrict" value="0">
+                            <div></div>
+                        </form>
+
+                        <div id="iframe-box"></div>
+
+                        <input type="hidden" name="paper_name" value="试题名称">
+                        <input type="hidden" name="paper_style" value="270070">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--超管后台新版本通知-->
+<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-600 change-log-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title"></div>
+                <div class="version"></div>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="getChangeBtn">知道了</button>
+                    <a href="https://www.com/change/log/" target="_blank" class="more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- updateModal -->
+
+
+<div class="modal fade" id="questionsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-large modal-iframe" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">选择试题</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="100%" name="selQuestionFrame" id="selQuestionFrame"
+                        src="../../html/saved_resource.html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="questionsModifyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">管理试题</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="400px" style="border:0px" name="modifyQuestionFrame"
+                        id="modifyQuestionFrame" src="../../html/saved_resource(1).html">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="questionsTypeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="z-index: 99999;">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">选择试题分类</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="400px" name="selQuestionsTypeModal" id="selQuestionsTypeModal"
+                        src="../../html/saved_resource(2).html">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="z-index: 99999;">
+    <div class="modal-dialog modal-small" role="document" style="width:500px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">试题标签</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="400px" name="selLabelModal" id="selLabelModal"
+                        src="../../html/saved_resource(3).html">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="difficultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="z-index: 9999;">
+    <div class="modal-dialog" role="document" style="margin-top:200px;width: 440px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">选择试题</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>试题分类：</label>
+                    <a href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#"
+                       id="selTypeLink">请选择</a>
+
+                </div>
+
+                <div class="form-group">
+                    <label>试题标签：</label>
+                    <a href="https://admin.com/admin/paper_manual_add?&amp;paper_name=%25E8%25AF%2595%25E9%25A2%2598%25E5%2590%258D%25E7%25A7%25B0&amp;paper_style=270070&amp;paper_type=1&amp;add_style=select&amp;perTimeRestrict=0#"
+                       id="selLabelLink">请选择</a>
+
+                </div>
+
+                <div class="form-group" style="margin-left: 20px;">
+                    <label>选题方式：</label>
+                    <div class="setDifficultContent">
+                        <p>
+                            简单
+                            <input type="text" class="difficult" name="difficult1" autocomplete="off" value="0">
+                            /
+                            <span class="difficult1_num">0</span>
+                            &nbsp;&nbsp;&nbsp;
+                        </p>
+                        <p>
+                            普通
+                            <input type="text" class="difficult" name="difficult2" autocomplete="off" value="0">
+                            /
+                            <span class="difficult2_num">0</span>
+                            &nbsp;&nbsp;&nbsp;
+                        </p>
+                        <p>
+                            困难
+                            <input type="text" class="difficult" name="difficult3" autocomplete="off" value="0">
+                            /
+                            <span class="difficult3_num">0</span>
+                            &nbsp;&nbsp;&nbsp;
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="cancelEndBtn" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="saveTextBtn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.bootgrid-ksx.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="../../js/colResizable-1.6.min.js"></script>
+<script type="text/javascript" src="../../js/admin-base.js"></script>
+<script>
+    // these are global constant
+    var LOCAL_URL = window.location.href;
+    var USER_ROLE = 'admin';
+    var rights = '8';
+    var surname = "东北大学软件园";
+    var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
+    var tool_html = '';//消息内容
+    var tool_count = 0;//消息数目
+    var user_id = "7387836";
+    var getAdminUrlPrefix = 'https://admin.com';
+    var getUrlPrefix = '';
+    var getAnalysisUrlPrefix = 'https://new.com';
+    var getStaticUrlPrefix = 'https://v.com';
+
+    //当前request返回页面对应导航id
+
+    var activeNavItem = 'subNavItemExamMgr';
+
+    // gio 在线咨询
+    $("body").on('click', '.gio-inquire-position', function () {
+        //推送咨询事件
+        ksxProbe.gioTrack('onlineInquire', 1, {
+            'inquireFromPage_var': window.location.href,
+            'inquireFromPageName_var': '管理员端',
+            'inquireFromPosition_var': $(this).attr('data-gio-position')
+        });
+    });
+
+
+    //智齿 官网右下角图标
+    $("body").on('click', '#zhichiBtnBox', function () {
+        var title = $(this).find('.zc-advice-icon-btn-title').text();
+
+        if (title == '收起') {
+            //推送咨询事件
+            ksxProbe.gioTrack('onlineInquire', 1, {
+                'inquireFromPage_var': window.location.href,
+                'inquireFromPageName_var': '管理员端',
+                'inquireFromPosition_var': '管理员端右下角咨询'
+            });
+        }
+    });
+
+    $(function () {
+
+
+        // 更新消息已读
+        $("#getChangeBtn").click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/admin/read_public',
+                type: 'get',
+                cache: false,
+                dataType: 'json',
+                success: function (msg) {
+                    $("#changeLogModal").modal('hide');
+                }
+            })
+        });
+
+    });
+
+
+    $(document).ready(function () {
+
+        // $("#user").click(function(){
+        //     window.location.href="/admin/admin_information";
+        //     $(".unread-notice").hide();
+        //
+        // });
+
+        //    自管理员点击添加考生，添加试题，创建考试时的权限判断
+        $("#staff,#test,#exam").on("click", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var type = $(this).prop("id");
+            var url = $(this).prop("href");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/admin/checkout_sub_admin_right",
+                data: "type=" + type,
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = url;
+                    } else {
+                        alert(msg.desc);
+                    }
+                }
+
+            })
+        });
+    });
+
+
+</script>
+<script>
+    $("#btn-first").on("click", function () {
+        $("#guide-first").hide();
+        $("#guide-second").show();
+    });
+    $("#btn-second").on("click", function () {
+        $("#guide-second").hide();
+        $.ajax({
+            type: 'GET',
+            cache: false,
+            headers: {"cache-control": "no-cache"},
+            dataType: "json",
+            url: "/account/update_first_visit?firstUrl=admin/paper_manual_add/",
+            success: function (msg) {
+            }
+        });
+    })
+    var is_first_visit = "";
+    $(".questionType_add").click(function () {
+        $("#manualInput .questions-board .com-drop ").addClass("buttonLeft");
+        $("#manualInput .questions-board .emptyTip").hide();
+    })
+    $(".tooltip-disorder").tooltip();
+
+    var scroll_now_idx = 0;//记录滚动到视野中的大题index
+    //视窗滚动事件
+    $(".viewFrameWork-body").scroll(function () {
+        var box_height = $("#viewFrameWork").height();
+        var left_height = $(".info-board").height();
+        var right_height = $(".questions-board").height();
+        $(".info-board .item").removeClass("item-active");
+        //当左侧侧边栏的高度小于页面高度时，侧边栏固定
+        if (left_height + 173 < box_height) {
+            $(".info-board").offset({
+                top: 173
+            });
+            //左侧侧边栏的高度大于页面高度的时候，与页面联动
+        } else {
+            for (var i = 0; i < $(".questions-board .group_simple").length; i++) {
+                var first_child = $(".questions-board .group_simple:eq(" + i + ") .group_title");
+                var last_child = $(".questions-board .group_simple:eq(" + i + ") .manual-cont");
+                if (last_child.children(".questions").length > 0) {
+                    last_child = last_child.children(".questions:last");
+                }
+                if (first_child.offset().top < 173 && last_child.offset().top > 100) {
+                    scroll_now_idx = i;
+                }
+            }
+            var scroll_distance = 0;
+            for (var i = 0; i < scroll_now_idx; i++) {
+                scroll_distance += ($(".info-board .item:eq(" + i + ")").height() - 50);
+            }
+            $(".info-board .item:eq(" + scroll_now_idx + ")").addClass("item-active");
+            if ($('.nav.nav-tabs').length != 0) { //判断上方是否存在'第一步'等步骤提示来决定偏移的不同，原来的计算在出现上方步骤提示时有偏差，现在分情况进行偏移
+                $(".info-board").offset({
+                    top: -scroll_distance + 173 - scroll_now_idx * 43 - 7.82
+                });
+            } else {
+                $(".info-board").offset({
+                    top: -scroll_distance + 130 - scroll_now_idx * 43 - 30 //新页面设计，需要去除顶部填充的30px顶部距离
+                });
+            }
+        }
+    });
+    //左侧item click事件
+    var leftItemClick = function (that) {
+        var box_height = $("#viewFrameWork").height();
+        var right_height = $(".questions-board").height();
+        var idx = $(that).index();
+        var click_distance = 0;
+        for (var i = 0; i < idx; i++) {
+            click_distance += $(".questions-board .group_simple:eq(" + i + ")").height();
+        }
+        if ($(".viewFrameWork-body").scrollTop() + box_height < right_height) {
+            $(".viewFrameWork-body").animate({
+                scrollTop: click_distance + 43 * idx + 120
+            }, 600);
+        }
+        $(".info-board .item").removeClass("item-active");
+        $(that).addClass("item-active");
+    }
+    $(".info-board .item").click(function () {
+        leftItemClick(this);
+    });
+</script>
+<script type="text/javascript" src="../../js/paper_manual.js"></script>
+
+
+<div id="zhichiBtnBox"
+     style="position: fixed; z-index: 2147483583; box-shadow: rgba(15, 66, 76, 0.25) 0px 0px 14px 0px; width: 60px; height: 60px; border-radius: 50%; background-color: rgb(60, 140, 252); background-image: url(&quot;//www.sobot.com/chat/frame/imgs/icon.png&quot;); background-repeat: no-repeat; background-position: 18px -58px; right: 40px; bottom: 20px; display: none;">
+    <a hidefocus="" id="zhichiBtn"
+       style="position:relative;text-decoration: none; outline: none; font-family: Microsoft Yahei, Arial, Helvetica; color: #fff; font-size: 16px; display: inline-block; margin: 0; padding: 0; border: none; line-height:43px; float:none;width:100%;height:100%;border-radius:50%;"><span
+            class="zc-advice-icon-btn-title"
+            style="box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px; border: 1px solid rgb(235, 239, 240); font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; color: rgb(85, 85, 86); font-size: 13px; margin: 0px; text-align: right; background: rgb(255, 255, 255); position: absolute; top: 15px; right: 70px; text-overflow: ellipsis; white-space: nowrap; word-break: normal; display: none; border-radius: 3px; padding: 0px 5px; height: 30px; line-height: 30px;">咨询在线客服</span></a><i
+        style="position:absolute;top:0px;right:0px;padding:1px;line-height:20px;text-align:center;color:#fff;font-weight:bold;height:18px;min-width:18px;background-color:#ed5c5c;border-radius:18px;font-size:12px;display:none;font-style:normal;"
+        id="zhichiCount"></i></div>
+</body>
+</html>
