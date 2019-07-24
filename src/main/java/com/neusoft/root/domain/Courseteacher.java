@@ -12,6 +12,10 @@ public class Courseteacher {
 		return result;
 	}
 	@Override
+	public String toString() {
+		return "Courseteacher [courseId=" + courseId + ", teacherId=" + teacherId + "]";
+	}
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

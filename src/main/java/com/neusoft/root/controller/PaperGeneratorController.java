@@ -3,6 +3,7 @@ package com.neusoft.root.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,14 +12,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.neusoft.root.domain.Paper;
 import com.neusoft.root.domain.Subjects;
+import com.neusoft.root.service.GetPaperCourseImpl;
 
 @Controller
 @RequestMapping("/exam")
 public class PaperGeneratorController {
+/*	@Autowired
+	private GetPaperCourseImpl getpapersubjects;*/
+	private String subject;
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
 	public String paperSettings(String paper_name, String subject, String method) {
-		
+		this.subject = subject;
 		return null;
 	}
 	@RequestMapping(value="/get_papers", method=RequestMethod.GET)
@@ -37,6 +42,7 @@ public class PaperGeneratorController {
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperSubjects(){
+		//Subjects subjects = getpapersubjects.getPaperCourse(this.subject);
 		Subjects subjects = new Subjects();
 		subjects.add("语文");
 		subjects.add("数学");
