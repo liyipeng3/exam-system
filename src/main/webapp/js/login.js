@@ -102,20 +102,20 @@ function userLogin() {
                 cache: "false",
                 headers: {"cache-control": "no-cache"},
                 dataType: "text",
-                url: "/sm/login/checkAccount",
+                url: "/login/checkAccount",
                 data: dataForm,
                 success: function (msg) {
                     if (msg === "admin") {
 
-                        window.location.href = "/sm/index";
+                        window.location.href = "/index";
 
                     } else if (msg === "teacher") {
 
-                        window.location.href = "/sm/teacher";
+                        window.location.href = "/teacher";
 
                     } else if (msg === "student") {
 
-                        window.location.href = "/sm/student";
+                        window.location.href = "/student";
 
                     } else {
                         $("#loginBtn").removeClass("disabled");
@@ -142,11 +142,11 @@ function userLogin() {
                     cache: "false",
                     headers: {"cache-control": "no-cache"},
                     dataType: "text",
-                    url: "/sm/login/checkAccount",
+                    url: "/login/checkAccount",
                     data: dataForm,
                     success: function (msg) {
                         if (msg === "ok") {
-                            window.location.href = "/sm/index";
+                            window.location.href = "/index";
                         } else {
                             $("#loginBtn").removeClass("disabled");
                             $("#errormsg").text(msg);

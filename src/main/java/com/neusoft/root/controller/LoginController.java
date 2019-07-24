@@ -18,7 +18,7 @@ import com.neusoft.root.MD5;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	@RequestMapping(value="checkAccount", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	@RequestMapping(value="/checkAccount", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public String checkAccount(HttpServletRequest req, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		System.out.println("用户名：" + username + "  密    码：" + password);
