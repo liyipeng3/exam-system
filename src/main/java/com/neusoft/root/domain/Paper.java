@@ -1,15 +1,15 @@
 package com.neusoft.root.domain;
 
 public class Paper {
-	private String paperId;
-	private String paperType;
-	private Double paperIndex;
-	private String choice_question;
-	private String fillQuestion;
-	private String subjectiveQuestion;
-	private Double paperScore;
-	private String paperSecrecy;
-	private String paperRemark;
+	private String paperId; //试卷ID，唯一
+	private String paperType; //试卷科目类型，例如JAVA, C++
+	private Double paperIndex; //试卷难度,由题目平均难度决定
+	private String choiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
+	private String fillQuestion; //填空题,格式为ID1,分数1# ID2,分数2#
+	private String subjectiveQuestion; //主观题格式为ID1,分数1# ID2,分数2#
+	private Double paperScore; //试卷总分 
+	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
+	private String paperRemark; // 试卷备注
 	
 	public String getPaperId() {
 		return paperId;
@@ -29,11 +29,11 @@ public class Paper {
 	public void setPaperIndex(Double paperIndex) {
 		this.paperIndex = paperIndex;
 	}
-	public String getChoice_question() {
-		return choice_question;
+	public String getChoiceQuestion() {
+		return choiceQuestion;
 	}
-	public void setChoice_question(String choice_question) {
-		this.choice_question = choice_question;
+	public void setChoiceQuestion(String choiceQuestion) {
+		this.choiceQuestion = choiceQuestion;
 	}
 	public String getFillQuestion() {
 		return fillQuestion;
@@ -65,13 +65,13 @@ public class Paper {
 	public void setPaperRemark(String paperRemark) {
 		this.paperRemark = paperRemark;
 	}
-	public Paper(String paperId, String paperType, Double paperIndex, String choice_question, String fillQuestion,
+	public Paper(String paperId, String paperType, Double paperIndex, String choiceQuestion, String fillQuestion,
 			String subjectiveQuestion, Double paperScore, String paperSecrecy, String paperRemark) {
 		super();
 		this.paperId = paperId;
 		this.paperType = paperType;
 		this.paperIndex = paperIndex;
-		this.choice_question = choice_question;
+		this.choiceQuestion = choiceQuestion;
 		this.fillQuestion = fillQuestion;
 		this.subjectiveQuestion = subjectiveQuestion;
 		this.paperScore = paperScore;
@@ -86,7 +86,7 @@ public class Paper {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((choice_question == null) ? 0 : choice_question.hashCode());
+		result = prime * result + ((choiceQuestion == null) ? 0 : choiceQuestion.hashCode());
 		result = prime * result + ((paperType == null) ? 0 : paperType.hashCode());
 		result = prime * result + ((fillQuestion == null) ? 0 : fillQuestion.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
@@ -106,10 +106,10 @@ public class Paper {
 		if (getClass() != obj.getClass())
 			return false;
 		Paper other = (Paper) obj;
-		if (choice_question == null) {
-			if (other.choice_question != null)
+		if (choiceQuestion == null) {
+			if (other.choiceQuestion != null)
 				return false;
-		} else if (!choice_question.equals(other.choice_question))
+		} else if (!choiceQuestion.equals(other.choiceQuestion))
 			return false;
 		if (paperType == null) {
 			if (other.paperType != null)

@@ -1,6 +1,7 @@
 package com.neusoft.root.domain;
 
-public class Managestudent {
+public class Managestudent 
+{
 	private String classId;
 	private String studentId;
 	private String courseId;

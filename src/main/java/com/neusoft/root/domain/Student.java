@@ -6,7 +6,7 @@ public class Student {
 	private String studentPassword;
 	private String studentAcademy;
 	private String studentMajor;
-	private String student_school;
+	private String studentSchool;
 	
 	@Override
 	public int hashCode() {
@@ -17,7 +17,7 @@ public class Student {
 		result = prime * result + ((studentMajor == null) ? 0 : studentMajor.hashCode());
 		result = prime * result + ((studentName == null) ? 0 : studentName.hashCode());
 		result = prime * result + ((studentPassword == null) ? 0 : studentPassword.hashCode());
-		result = prime * result + ((student_school == null) ? 0 : student_school.hashCode());
+		result = prime * result + ((studentSchool == null) ? 0 : studentSchool.hashCode());
 		return result;
 	}
 	@Override
@@ -54,22 +54,22 @@ public class Student {
 				return false;
 		} else if (!studentPassword.equals(other.studentPassword))
 			return false;
-		if (student_school == null) {
-			if (other.student_school != null)
+		if (studentSchool == null) {
+			if (other.studentSchool != null)
 				return false;
-		} else if (!student_school.equals(other.student_school))
+		} else if (!studentSchool.equals(other.studentSchool))
 			return false;
 		return true;
 	}
 	public Student(String studentId, String studentName, String studentPassword, String studentAcademy,
-			String studentMajor, String student_school) {
+			String studentMajor, String studentSchool) {
 		super();
 		this.studentId = studentId;
 		this.studentName = studentName;
 		this.studentPassword = studentPassword;
 		this.studentAcademy = studentAcademy;
 		this.studentMajor = studentMajor;
-		this.student_school = student_school;
+		this.studentSchool = studentSchool;
 	}
 	public String getStudentId() {
 		return studentId;
@@ -101,11 +101,11 @@ public class Student {
 	public void setStudentMajor(String studentMajor) {
 		this.studentMajor = studentMajor;
 	}
-	public String getStudent_school() {
-		return student_school;
+	public String getStudentSchool() {
+		return studentSchool;
 	}
-	public void setStudent_school(String student_school) {
-		this.student_school = student_school;
+	public void setStudentSchool(String studentSchool) {
+		this.studentSchool = studentSchool;
 	}
 	
 }
