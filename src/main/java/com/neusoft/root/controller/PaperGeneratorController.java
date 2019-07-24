@@ -18,12 +18,13 @@ public class PaperGeneratorController {
 	public Set<Item> paperSettings(String paper_name, String paper_type, String method) {
 		return null;
 	}
-	@RequestMapping(value="get_paper_class", method=RequestMethod.GET)
+	@RequestMapping(value="/get_paper_class", method=RequestMethod.GET)
 	@ResponseBody
-	public TestClass1 getPaper(){
+	public String getPaper(){
 		TestClass1 tc = new TestClass1();
 		tc.add("语文");
 		tc.add("数学");
-		return tc;
+		//return tc;
+		return "hhhhh";
 	}
 }
