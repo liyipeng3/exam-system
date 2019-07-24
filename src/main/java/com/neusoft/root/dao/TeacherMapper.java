@@ -17,51 +17,51 @@ import com.neusoft.root.domain.Teacher;
 
 public interface TeacherMapper {
 	//批阅试卷增删改查
-	public void addCheck(Check pCheck);
-	public void deleteCheck(Check pCheck);
-	public void updateCheck(Map<String, Object> pCheck);
-	public List<Object> queryCheck(Check pCheck);
+	public void addCheck(Check check);
+	public void deleteCheck(Check check);
+	public void updateCheck(Map<String, Object> check);
+	public List<Check> queryCheck(Check check);
 	
 	//对班级信息进行查询
-	public List<Object> queryClass(Class1 pClass1);
+	public List<Class1> queryClass(Class1 class1);
 	
 	//对课程进行查询
-	public List<Object> queryCourse(Course pCourse);
+	public List<Course> queryCourse(Course course);
 	
 	//对老师课程查询
-	public List<Object> queryCourseteacher(Courseteacher pCourseteacher);
+	public List<Courseteacher> queryCourseteacher(Courseteacher courseteacher);
 	
 	//对学生课程查询
-	public List<Object> queryCoursestudent(Coursetudent pCoursetudent);
+	public List<Coursetudent> queryCoursestudent(Coursetudent coursetudent);
 	
 	//论坛帖子的增加删除查询
-	public void addForum(Forum pForum);
-	public void deleteForum(Forum pForum);
-	public List<Object> queryForum(Forum pForum);
+	public void addForum(Forum forum);
+	public void deleteForum(Forum forum);
+	public List<Forum> queryForum(Forum forum);
 	
 	//题库的增删改查
-	public void addItem(Item pItem);
-	public void deleteItem(Item pItem);
-	public void updateItem(Map<String,Object> pItem);
-	public List<Object> queryItem(Item pItem);
+	public void addItem(Item item);
+	public void deleteItem(Item item);
+	public void updateItem(Map<String,Object> item);
+	public List<Item> queryItem(Item item);
 	
 	//log
-	public void  addLog(Log plog);
-	public List<Object> queryLog(Log plog);
+	public void  addLog(Log log);
+	public List<Log> queryLog(Log log);
 	
 	//对消息进行增删查操作
-	public void addMessage(Message pMessage);
-	public void deleteMessage(Message pMessage);
-	public List<Object> queryMessage(Message pMessage);
+	public void addMessage(Message message);
+	public void deleteMessage(Message message);
+	public List<Message> queryMessage(Message message);
 	
 	//试卷的增删改查
 	public void addPaper(Paper paper);
 	public void deletePaper(Paper paper);
 	public void updatePaper(Map<String,Object> paper);
-	public List<Object> queryPaper(Paper paper);
+	public List<Paper> queryPaper(Paper paper);
 	
 	//老师
 	//改密码
-	public void updateTeacherPassword(String id,String oldPassword,String newPassword);
-	public List<Object> queryteacher(Teacher pTeacher);
+	public void updateTeacherPassword(Teacher teacher);
+	public List<Teacher> queryteacher(Teacher teacher);
 }

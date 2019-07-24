@@ -2,6 +2,9 @@ package com.neusoft.root.dao;
 
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +37,29 @@ public class AdminMapperTestAdmin
 	@Test
 	public void testDeleteAdmin()
 	{
-		Admin admin = new Admin("123","","");
+		/*Admin admin = new Admin("123","","");
+		am.deleteAdmin(admin);*/
 	}
+	
+	@Test
+	public void testUpdateAdmin()
+	{
+		/*Map<String, Object> admins = new HashMap<>();
+		admins.put("ids", new String[]{"123","1234"});
+		admins.put("adminName", "zyc1");
+		admins.put("adminPassword", "zyc1");
+		am.updateAdmin(admins);*/
+	}
+	
+	@Test
+	public void testQueryAdmin()
+	{
+		List<Admin> list = am.queryAdmin(null);
+		for (Admin admin : list) 
+		{
+			System.out.println(admin);
+		}
+	}
+	
 	
 }
