@@ -3,7 +3,10 @@ package com.neusoft.root.dao;
 import com.neusoft.root.domain.admin;
 import com.neusoft.root.domain.class1;
 import com.neusoft.root.domain.course;
+import com.neusoft.root.domain.item;
 import com.neusoft.root.domain.log;
+import com.neusoft.root.domain.managestudent;
+import com.neusoft.root.domain.manageteacher;
 import com.neusoft.root.domain.student;
 import com.neusoft.root.domain.teacher;
 
@@ -32,5 +35,17 @@ public interface adminMapper {
 	public void DeleteLog(log plog);
 	public void UpdateLog(log plog);
 	public log QueryLog(log plog);
+	public void  AddItem(item pitem);
+	public void DeleteItem(item pitem);
+	public void UpdateItem(item pitem);
+	public item QueryItem(item pitem);
+	public void  AddManagestudent(managestudent pmanagestudent);
+	public void DeleteManagestudent(managestudent pmanagestudent);
+	public void UpdateManagestudent(managestudent pmanagestudent);
+	public managestudent QueryManagestudent(managestudent pmanagestudent);
+	public void  AddManageteacher(manageteacher pManageteacher);
+	public void DeleteManageteacher(manageteacher pManageteacher);
+	public void UpdateManageteacher(manageteacher pManageteacher);
+	public item QueryManageteacher(manageteacher pManageteacher);
 	
 }

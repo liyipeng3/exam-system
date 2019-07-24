@@ -2,7 +2,7 @@ package com.neusoft.root.domain;
 
 public class item {
 	private String item_id;
-	private String item_course;
+	private String item_course_type;
 	private String item_type;
 	private Double item_index;
 	private String item_question;
@@ -18,7 +18,7 @@ public class item {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((item_answer == null) ? 0 : item_answer.hashCode());
-		result = prime * result + ((item_course == null) ? 0 : item_course.hashCode());
+		result = prime * result + ((item_course_type == null) ? 0 : item_course_type.hashCode());
 		result = prime * result + ((item_id == null) ? 0 : item_id.hashCode());
 		result = prime * result + ((item_index == null) ? 0 : item_index.hashCode());
 		result = prime * result + ((item_option == null) ? 0 : item_option.hashCode());
@@ -42,10 +42,10 @@ public class item {
 				return false;
 		} else if (!item_answer.equals(other.item_answer))
 			return false;
-		if (item_course == null) {
-			if (other.item_course != null)
+		if (item_course_type == null) {
+			if (other.item_course_type != null)
 				return false;
-		} else if (!item_course.equals(other.item_course))
+		} else if (!item_course_type.equals(other.item_course_type))
 			return false;
 		if (item_id == null) {
 			if (other.item_id != null)
@@ -88,11 +88,11 @@ public class item {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public item(String item_id, String item_course, String item_type, Double item_index, String item_question,
+	public item(String item_id, String item_course_type, String item_type, Double item_index, String item_question,
 			String item_option, String item_answer, String item_picture, Double item_score) {
 		super();
 		this.item_id = item_id;
-		this.item_course = item_course;
+		this.item_course_type = item_course_type;
 		this.item_type = item_type;
 		this.item_index = item_index;
 		this.item_question = item_question;
@@ -104,11 +104,11 @@ public class item {
 	public void setItem_id(String item_id) {
 		this.item_id = item_id;
 	}
-	public String getItem_course() {
-		return item_course;
+	public String getitem_course_type() {
+		return item_course_type;
 	}
-	public void setItem_course(String item_course) {
-		this.item_course = item_course;
+	public void setitem_course_type(String item_course_type) {
+		this.item_course_type = item_course_type;
 	}
 	public String getItem_type() {
 		return item_type;
