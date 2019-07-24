@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.neusoft.root.interceptor.LoginInterceptor;
 
 @Configuration
-public class InterceptorConfig implements WebMvcConfigurer {
+public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
