@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.neusoft.root.domain.student;
+import com.neusoft.root.domain.Student;
 
 @Controller
 @RequestMapping("/register")
@@ -23,7 +23,7 @@ public class RegisterController {
 	}
 	@RequestMapping(value="/commitAccount", method=RequestMethod.POST)
 	@ResponseBody
-	public String commitAccount(@RequestBody student st) {
+	public String commitAccount(@RequestBody Student st) {
 		System.out.print("commmitAccount" + st);
 		return "ok";
 	}
