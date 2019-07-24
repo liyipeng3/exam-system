@@ -1,5 +1,7 @@
 package com.neusoft.root.dao;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.neusoft.root.domain.Admin;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
@@ -10,12 +12,13 @@ import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
+@Mapper
 public interface adminMapper 
 {
 	public void AddAdmin(Admin pAdmin);
 	public void DeleteAdmin(Admin pAdmin);
 	public void UpdateAdmin(Admin pAdmin);
-	public Admin QueryAdmin(String pid);
+	public Admin QueryAdmin(Admin pAdmin);
 	public void AddStudent(Student pStudent);
 	public void DeleteStudent(Student pStudent);
 	public void UpdateStudent(Student pStudent);
