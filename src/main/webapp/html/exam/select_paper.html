@@ -78,40 +78,6 @@
 
 <body>
 <form action="/admin/exam_sel_paper" name="form" method="get" id="subForm">
-    <div class="topSelDiv">
-        <div class="topContent">
-            <div>
-                <div class="form-group">
-                    <label>试卷名称：</label>
-                    <input type="text" class="modal_input input_nomal" name="paper_name">
-                </div>
-                <div class="form-group">
-                    <label>试卷分类：</label>
-                    <a href="#" id="selTypeLink"><span>选择分类</span> <img
-                            src="https://s4.kaoshixing.com/static/admin/images/icon6.gif"></a>
-                    <input type="hidden" class="" name="paper_style" value="">
-                </div>
-                <div class="form-group">
-                    <label>考试时间：</label>
-                    <div class="btn-group">
-                        <div class="calendar"><em></em><input name="start_time" type="text" id="dateForm" value="">
-                        </div>
-                        <span style="font-size: 12px;color: #494949">到</span>
-                        <div class="calendar"><em></em><input name="end_time" type="text" id="dateTo" value=""></div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="form-group" style="float: left;margin-left: 73px;">
-                    <label>试卷总分：</label>
-                    <input type="text" class="modal_input input_nomal" name="total_score">
-                </div>
-            </div>
-            <div class="toolbarBottom">
-                <a class="btn modal_btn_default btn_off" href="#" id="resetBtn">重置</a>
-                <a class="btn modal_btn_default btn_on" href="#" id="searchBtn">搜索</a>
-            </div>
-        </div>
         <div role="tabpanel" class="tab-area tab-col2">
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active">
@@ -243,18 +209,6 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <ul class="pagination">
-                                        <li class="first disabled" aria-disabled="true"><a href="#first" class="button"><i
-                                                class="icons8-icon"></i></a></li>
-                                        <li class="prev disabled" aria-disabled="true"><a href="#prev" class="button"><i
-                                                class="icons8-back-filled"></i></a></li>
-                                        <li class="page-1 active" aria-disabled="false" aria-selected="true"><a
-                                                href="#1" class="button">1</a></li>
-                                        <li class="next disabled" aria-disabled="true"><a href="#next" class="button"><i
-                                                class="icons8-forward-filled"></i></a></li>
-                                        <li class="last disabled" aria-disabled="true"><a href="#last" class="button"><i
-                                                class="icons8-icon-3"></i></a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
