@@ -13,5 +13,6 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
                 .maxAge(3600)
                 .allowCredentials(true);
+        
     }
 }
