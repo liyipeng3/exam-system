@@ -13,6 +13,12 @@ public class Check {
 		this.subjectiveScore = subjectiveScore;
 		this.sumScore = sumScore;
 	}
+	@Override
+	public String toString() {
+		return " studentId " + studentId + " paperId " + paperId + " teacherId " + teacherId + " choiceScore "
+				+ choiceScore + " fillScore " + fillScore + " subjectiveScore " + subjectiveScore + " sumScore "
+				+ sumScore ;
+	}
 	public Check() {
 		super();
 		// TODO Auto-generated constructor stub

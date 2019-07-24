@@ -4,6 +4,12 @@ import java.sql.Date;
 
 public class Message {
 	private String msgId;
+	private Date msgDate;
+	private String senderId;
+	private String targetId;
+	private String msgType;
+	private String msgContext;
+	private String msgRole;//发送方接收方，二值性
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -106,9 +112,5 @@ public class Message {
 	public void setMsgContext(String msgContext) {
 		this.msgContext = msgContext;
 	}
-	private Date msgDate;
-	private String senderId;
-	private String targetId;
-	private String msgType;
-	private String msgContext;
+	
 }
