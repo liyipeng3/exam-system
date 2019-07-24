@@ -10,7 +10,7 @@ public class Item {
 	private String itemOption; //试题问题
 	private String itemAnswer; //试题答案
 	private String itemPicture; //试题路径
-	private Double itemScore; //提示分数
+	private Double itemScore; //提示分数 
 	
 	@Override
 	public int hashCode() {
