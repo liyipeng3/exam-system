@@ -2,16 +2,16 @@ package com.neusoft.root.domain;
 
 public class Admin {
 	
-	private String admin_password;
-	private  String admin_id;
-	private String admin_name;
+	private String adminPassword;
+	private  String adminId;
+	private String adminName;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((admin_id == null) ? 0 : admin_id.hashCode());
-		result = prime * result + ((admin_name == null) ? 0 : admin_name.hashCode());
-		result = prime * result + ((admin_password == null) ? 0 : admin_password.hashCode());
+		result = prime * result + ((adminId == null) ? 0 : adminId.hashCode());
+		result = prime * result + ((adminName == null) ? 0 : adminName.hashCode());
+		result = prime * result + ((adminPassword == null) ? 0 : adminPassword.hashCode());
 		return result;
 	}
 	@Override
@@ -23,52 +23,52 @@ public class Admin {
 		if (getClass() != obj.getClass())
 			return false;
 		Admin other = (Admin) obj;
-		if (admin_id == null) {
-			if (other.admin_id != null)
+		if (adminId == null) {
+			if (other.adminId != null)
 				return false;
-		} else if (!admin_id.equals(other.admin_id))
+		} else if (!adminId.equals(other.adminId))
 			return false;
-		if (admin_name == null) {
-			if (other.admin_name != null)
+		if (adminName == null) {
+			if (other.adminName != null)
 				return false;
-		} else if (!admin_name.equals(other.admin_name))
+		} else if (!adminName.equals(other.adminName))
 			return false;
-		if (admin_password == null) {
-			if (other.admin_password != null)
+		if (adminPassword == null) {
+			if (other.adminPassword != null)
 				return false;
-		} else if (!admin_password.equals(other.admin_password))
+		} else if (!adminPassword.equals(other.adminPassword))
 			return false;
 		return true;
 	}
-	public Admin(String admin_id, String admin_name, String admin_password) {
+	public Admin(String adminId, String adminName, String adminPassword) {
 		super();
-		this.admin_id = admin_id;
-		this.admin_name = admin_name;
-		this.admin_password = admin_password;
+		this.adminId = adminId;
+		this.adminName = adminName;
+		this.adminPassword = adminPassword;
 	}
 	public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public String getAdmin_id() {
-		return admin_id;
+	public String getAdminPassword() {
+		return adminPassword;
 	}
-	public void setAdmin_id(String admin_id) {
-		this.admin_id = admin_id;
+	public void setAdminPassword(String adminPassword) {
+		this.adminPassword = adminPassword;
 	}
-	public String getAdmin_name() {
-		return admin_name;
+	public String getAdminId() {
+		return adminId;
 	}
-	public void setAdmin_name(String admin_name) {
-		this.admin_name = admin_name;
+	public void setAdminId(String adminId) {
+		this.adminId = adminId;
 	}
-	public String getAdmin_password() {
-		return admin_password;
+	public String getAdminName() {
+		return adminName;
 	}
-	public void setAdmin_password(String admin_password) {
-		this.admin_password = admin_password;
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
 	}
-	
+
 
 
 

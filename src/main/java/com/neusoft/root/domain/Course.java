@@ -1,14 +1,14 @@
 package com.neusoft.root.domain;
 
 public class Course {
-	private String course_id;
-	private String course_name;
+	private String courseId;
+	private String courseName;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((course_id == null) ? 0 : course_id.hashCode());
-		result = prime * result + ((course_name == null) ? 0 : course_name.hashCode());
+		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
+		result = prime * result + ((courseName == null) ? 0 : courseName.hashCode());
 		return result;
 	}
 	@Override
@@ -20,37 +20,38 @@ public class Course {
 		if (getClass() != obj.getClass())
 			return false;
 		Course other = (Course) obj;
-		if (course_id == null) {
-			if (other.course_id != null)
+		if (courseId == null) {
+			if (other.courseId != null)
 				return false;
-		} else if (!course_id.equals(other.course_id))
+		} else if (!courseId.equals(other.courseId))
 			return false;
-		if (course_name == null) {
-			if (other.course_name != null)
+		if (courseName == null) {
+			if (other.courseName != null)
 				return false;
-		} else if (!course_name.equals(other.course_name))
+		} else if (!courseName.equals(other.courseName))
 			return false;
 		return true;
 	}
-	public Course(String course_id, String course_name) {
+	public Course(String courseId, String courseName) {
 		super();
-		this.course_id = course_id;
-		this.course_name = course_name;
+		this.courseId = courseId;
+		this.courseName = courseName;
 	}
 	public Course() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public String getCourse_id() {
-		return course_id;
+	public String getCourseId() {
+		return courseId;
 	}
-	public void setCourse_id(String course_id) {
-		this.course_id = course_id;
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
-	public String getCourse_name() {
-		return course_name;
+	public String getCourseName() {
+		return courseName;
 	}
-	public void setCourse_name(String course_name) {
-		this.course_name = course_name;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
+
 }

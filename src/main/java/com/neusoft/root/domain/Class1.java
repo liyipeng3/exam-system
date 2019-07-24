@@ -1,41 +1,48 @@
 package com.neusoft.root.domain;
 
 public class Class1 {
-	private String class_id;
-	private String class_name;
-	private int class_seats;
-	public Class1(String class_id, String class_name, int class_seats) {
+	private String classId;
+	private String className;
+	private int classSeats;
+	public Class1(String classId, String className, int classSeats) {
 		super();
-		this.class_id = class_id;
-		this.class_name = class_name;
-		this.class_seats = class_seats;
+		this.classId = classId;
+		this.className = className;
+		this.classSeats = classSeats;
 	}
-	public String getClass_id() {
-		return class_id;
+	
+	public String getClassId() {
+		return classId;
 	}
-	public void setClass_id(String class_id) {
-		this.class_id = class_id;
+
+
+	public String getClassName() {
+		return className;
 	}
-	public Class1() {
-		super();
-		// TODO Auto-generated constructor stub
+
+	public void setClassName(String className) {
+		this.className = className;
 	}
-	public String getClass_name() {
-		return class_name;
+
+	public int getClassSeats() {
+		return classSeats;
 	}
-	public void setClass_name(String class_name) {
-		this.class_name = class_name;
+
+	public void setClassSeats(int classSeats) {
+		this.classSeats = classSeats;
 	}
-	public int getClass_seats() {
-		return class_seats;
+
+	public void setClassId(String classId) {
+		this.classId = classId;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((class_id == null) ? 0 : class_id.hashCode());
-		result = prime * result + ((class_name == null) ? 0 : class_name.hashCode());
-		result = prime * result + class_seats;
+		result = prime * result + ((classId == null) ? 0 : classId.hashCode());
+		result = prime * result + ((className == null) ? 0 : className.hashCode());
+		result = prime * result + classSeats;
 		return result;
 	}
 	@Override
@@ -47,22 +54,20 @@ public class Class1 {
 		if (getClass() != obj.getClass())
 			return false;
 		Class1 other = (Class1) obj;
-		if (class_id == null) {
-			if (other.class_id != null)
+		if (classId == null) {
+			if (other.classId != null)
 				return false;
-		} else if (!class_id.equals(other.class_id))
+		} else if (!classId.equals(other.classId))
 			return false;
-		if (class_name == null) {
-			if (other.class_name != null)
+		if (className == null) {
+			if (other.className != null)
 				return false;
-		} else if (!class_name.equals(other.class_name))
+		} else if (!className.equals(other.className))
 			return false;
-		if (class_seats != other.class_seats)
+		if (classSeats != other.classSeats)
 			return false;
 		return true;
 	}
-	public void setClass_seats(int class_seats) {
-		this.class_seats = class_seats;
-	}
+	
 	
 }

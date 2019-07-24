@@ -1,22 +1,22 @@
 package com.neusoft.root.domain;
 
 public class Student {
-	private String student_id;
-	private String student_name;
-	private String student_password;
-	private String student_academy;
-	private String student_major;
+	private String studentId;
+	private String studentName;
+	private String studentPassword;
+	private String studentAcademy;
+	private String studentMajor;
 	private String student_school;
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((student_academy == null) ? 0 : student_academy.hashCode());
-		result = prime * result + ((student_id == null) ? 0 : student_id.hashCode());
-		result = prime * result + ((student_major == null) ? 0 : student_major.hashCode());
-		result = prime * result + ((student_name == null) ? 0 : student_name.hashCode());
-		result = prime * result + ((student_password == null) ? 0 : student_password.hashCode());
+		result = prime * result + ((studentAcademy == null) ? 0 : studentAcademy.hashCode());
+		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
+		result = prime * result + ((studentMajor == null) ? 0 : studentMajor.hashCode());
+		result = prime * result + ((studentName == null) ? 0 : studentName.hashCode());
+		result = prime * result + ((studentPassword == null) ? 0 : studentPassword.hashCode());
 		result = prime * result + ((student_school == null) ? 0 : student_school.hashCode());
 		return result;
 	}
@@ -29,30 +29,30 @@ public class Student {
 		if (getClass() != obj.getClass())
 			return false;
 		Student other = (Student) obj;
-		if (student_academy == null) {
-			if (other.student_academy != null)
+		if (studentAcademy == null) {
+			if (other.studentAcademy != null)
 				return false;
-		} else if (!student_academy.equals(other.student_academy))
+		} else if (!studentAcademy.equals(other.studentAcademy))
 			return false;
-		if (student_id == null) {
-			if (other.student_id != null)
+		if (studentId == null) {
+			if (other.studentId != null)
 				return false;
-		} else if (!student_id.equals(other.student_id))
+		} else if (!studentId.equals(other.studentId))
 			return false;
-		if (student_major == null) {
-			if (other.student_major != null)
+		if (studentMajor == null) {
+			if (other.studentMajor != null)
 				return false;
-		} else if (!student_major.equals(other.student_major))
+		} else if (!studentMajor.equals(other.studentMajor))
 			return false;
-		if (student_name == null) {
-			if (other.student_name != null)
+		if (studentName == null) {
+			if (other.studentName != null)
 				return false;
-		} else if (!student_name.equals(other.student_name))
+		} else if (!studentName.equals(other.studentName))
 			return false;
-		if (student_password == null) {
-			if (other.student_password != null)
+		if (studentPassword == null) {
+			if (other.studentPassword != null)
 				return false;
-		} else if (!student_password.equals(other.student_password))
+		} else if (!studentPassword.equals(other.studentPassword))
 			return false;
 		if (student_school == null) {
 			if (other.student_school != null)
@@ -61,15 +61,45 @@ public class Student {
 			return false;
 		return true;
 	}
-	public Student(String student_id, String student_name, String student_password, String student_academy,
-			String student_major, String student_school) {
+	public Student(String studentId, String studentName, String studentPassword, String studentAcademy,
+			String studentMajor, String student_school) {
 		super();
-		this.student_id = student_id;
-		this.student_name = student_name;
-		this.student_password = student_password;
-		this.student_academy = student_academy;
-		this.student_major = student_major;
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.studentPassword = studentPassword;
+		this.studentAcademy = studentAcademy;
+		this.studentMajor = studentMajor;
 		this.student_school = student_school;
+	}
+	public String getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public String getStudentPassword() {
+		return studentPassword;
+	}
+	public void setStudentPassword(String studentPassword) {
+		this.studentPassword = studentPassword;
+	}
+	public String getStudentAcademy() {
+		return studentAcademy;
+	}
+	public void setStudentAcademy(String studentAcademy) {
+		this.studentAcademy = studentAcademy;
+	}
+	public String getStudentMajor() {
+		return studentMajor;
+	}
+	public void setStudentMajor(String studentMajor) {
+		this.studentMajor = studentMajor;
 	}
 	public String getStudent_school() {
 		return student_school;
@@ -77,38 +107,5 @@ public class Student {
 	public void setStudent_school(String student_school) {
 		this.student_school = student_school;
 	}
-	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public String getStudent_id() {
-		return student_id;
-	}
-	public void setStudent_id(String student_id) {
-		this.student_id = student_id;
-	}
-	public String getStudent_name() {
-		return student_name;
-	}
-	public void setStudent_name(String student_name) {
-		this.student_name = student_name;
-	}
-	public String getStudent_password() {
-		return student_password;
-	}
-	public void setStudent_password(String student_password) {
-		this.student_password = student_password;
-	}
-	public String getStudent_academy() {
-		return student_academy;
-	}
-	public void setStudent_academy(String student_academy) {
-		this.student_academy = student_academy;
-	}
-	public String getStudent_major() {
-		return student_major;
-	}
-	public void setStudent_major(String student_major) {
-		this.student_major = student_major;
-	}
+	
 }

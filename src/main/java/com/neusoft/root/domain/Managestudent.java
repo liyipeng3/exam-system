@@ -1,28 +1,17 @@
 package com.neusoft.root.domain;
 
 public class Managestudent {
-	private String class_id;
-	private String student_id;
-	private String course_id;
-	public String getClass_id() {
-		return class_id;
-	}
-	public void setClass_id(String class_id) {
-		this.class_id = class_id;
-	}
-	public String getStudent_id() {
-		return student_id;
-	}
-	public void setStudent_id(String student_id) {
-		this.student_id = student_id;
-	}
+	private String classId;
+	private String studentId;
+	private String courseId;
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((class_id == null) ? 0 : class_id.hashCode());
-		result = prime * result + ((course_id == null) ? 0 : course_id.hashCode());
-		result = prime * result + ((student_id == null) ? 0 : student_id.hashCode());
+		result = prime * result + ((classId == null) ? 0 : classId.hashCode());
+		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
+		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
 		return result;
 	}
 	@Override
@@ -34,34 +23,47 @@ public class Managestudent {
 		if (getClass() != obj.getClass())
 			return false;
 		Managestudent other = (Managestudent) obj;
-		if (class_id == null) {
-			if (other.class_id != null)
+		if (classId == null) {
+			if (other.classId != null)
 				return false;
-		} else if (!class_id.equals(other.class_id))
+		} else if (!classId.equals(other.classId))
 			return false;
-		if (course_id == null) {
-			if (other.course_id != null)
+		if (courseId == null) {
+			if (other.courseId != null)
 				return false;
-		} else if (!course_id.equals(other.course_id))
+		} else if (!courseId.equals(other.courseId))
 			return false;
-		if (student_id == null) {
-			if (other.student_id != null)
+		if (studentId == null) {
+			if (other.studentId != null)
 				return false;
-		} else if (!student_id.equals(other.student_id))
+		} else if (!studentId.equals(other.studentId))
 			return false;
 		return true;
 	}
-	public String getCourse_id() {
-		return course_id;
+
+	public String getClassId() {
+		return classId;
 	}
-	public void setCourse_id(String course_id) {
-		this.course_id = course_id;
+	public void setClassId(String classId) {
+		this.classId = classId;
 	}
-	public Managestudent(String class_id, String student_id, String course_id) {
+	public String getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
+	}
+	public String getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+	public Managestudent(String classId, String studentId, String courseId) {
 		super();
-		this.class_id = class_id;
-		this.student_id = student_id;
-		this.course_id = course_id;
+		this.classId = classId;
+		this.studentId = studentId;
+		this.courseId = courseId;
 	}
 	public Managestudent() {
 		super();

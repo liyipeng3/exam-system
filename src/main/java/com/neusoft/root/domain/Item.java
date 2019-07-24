@@ -1,31 +1,31 @@
 package com.neusoft.root.domain;
 
 public class Item {
-	private String item_id;
-	private String item_course_type;
-	private String item_type;
-	private Double item_index;
-	private String item_question;
-	private String item_option;
-	private String item_answer;
-	private String item_picture;
-	private Double item_score;
-	private String getItem_id() {
-		return item_id;
+	private String itemId;
+	private String itemCourseType;
+	private String itemType;
+	private Double itemIndex;
+	private String itemQuestion;
+	private String itemOption;
+	private String itemAnswer;
+	private String itemPicture;
+	private Double itemScore;
+	private String getitemId() {
+		return itemId;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((item_answer == null) ? 0 : item_answer.hashCode());
-		result = prime * result + ((item_course_type == null) ? 0 : item_course_type.hashCode());
-		result = prime * result + ((item_id == null) ? 0 : item_id.hashCode());
-		result = prime * result + ((item_index == null) ? 0 : item_index.hashCode());
-		result = prime * result + ((item_option == null) ? 0 : item_option.hashCode());
-		result = prime * result + ((item_picture == null) ? 0 : item_picture.hashCode());
-		result = prime * result + ((item_question == null) ? 0 : item_question.hashCode());
-		result = prime * result + ((item_score == null) ? 0 : item_score.hashCode());
-		result = prime * result + ((item_type == null) ? 0 : item_type.hashCode());
+		result = prime * result + ((itemAnswer == null) ? 0 : itemAnswer.hashCode());
+		result = prime * result + ((itemCourseType == null) ? 0 : itemCourseType.hashCode());
+		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
+		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
+		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
+		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
+		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
+		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
+		result = prime * result + ((itemType == null) ? 0 : itemType.hashCode());
 		return result;
 	}
 	@Override
@@ -37,50 +37,50 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		if (item_answer == null) {
-			if (other.item_answer != null)
+		if (itemAnswer == null) {
+			if (other.itemAnswer != null)
 				return false;
-		} else if (!item_answer.equals(other.item_answer))
+		} else if (!itemAnswer.equals(other.itemAnswer))
 			return false;
-		if (item_course_type == null) {
-			if (other.item_course_type != null)
+		if (itemCourseType == null) {
+			if (other.itemCourseType != null)
 				return false;
-		} else if (!item_course_type.equals(other.item_course_type))
+		} else if (!itemCourseType.equals(other.itemCourseType))
 			return false;
-		if (item_id == null) {
-			if (other.item_id != null)
+		if (itemId == null) {
+			if (other.itemId != null)
 				return false;
-		} else if (!item_id.equals(other.item_id))
+		} else if (!itemId.equals(other.itemId))
 			return false;
-		if (item_index == null) {
-			if (other.item_index != null)
+		if (itemIndex == null) {
+			if (other.itemIndex != null)
 				return false;
-		} else if (!item_index.equals(other.item_index))
+		} else if (!itemIndex.equals(other.itemIndex))
 			return false;
-		if (item_option == null) {
-			if (other.item_option != null)
+		if (itemOption == null) {
+			if (other.itemOption != null)
 				return false;
-		} else if (!item_option.equals(other.item_option))
+		} else if (!itemOption.equals(other.itemOption))
 			return false;
-		if (item_picture == null) {
-			if (other.item_picture != null)
+		if (itemPicture == null) {
+			if (other.itemPicture != null)
 				return false;
-		} else if (!item_picture.equals(other.item_picture))
+		} else if (!itemPicture.equals(other.itemPicture))
 			return false;
-		if (item_question == null) {
-			if (other.item_question != null)
+		if (itemQuestion == null) {
+			if (other.itemQuestion != null)
 				return false;
-		} else if (!item_question.equals(other.item_question))
+		} else if (!itemQuestion.equals(other.itemQuestion))
 			return false;
-		if (item_score == null) {
-			if (other.item_score != null)
+		if (itemScore == null) {
+			if (other.itemScore != null)
 				return false;
-		} else if (!item_score.equals(other.item_score))
+		} else if (!itemScore.equals(other.itemScore))
 			return false;
-		if (item_type == null) {
-			if (other.item_type != null)
+		if (itemType == null) {
+			if (other.itemType != null)
 				return false;
-		} else if (!item_type.equals(other.item_type))
+		} else if (!itemType.equals(other.itemType))
 			return false;
 		return true;
 	}
@@ -88,68 +88,72 @@ public class Item {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Item(String item_id, String item_course_type, String item_type, Double item_index, String item_question,
-			String item_option, String item_answer, String item_picture, Double item_score) {
+	public Item(String itemId, String itemCourseType, String itemType, Double itemIndex, String itemQuestion,
+			String itemOption, String itemAnswer, String itemPicture, Double itemScore) {
 		super();
-		this.item_id = item_id;
-		this.item_course_type = item_course_type;
-		this.item_type = item_type;
-		this.item_index = item_index;
-		this.item_question = item_question;
-		this.item_option = item_option;
-		this.item_answer = item_answer;
-		this.item_picture = item_picture;
-		this.item_score = item_score;
+		this.itemId = itemId;
+		this.itemCourseType = itemCourseType;
+		this.itemType = itemType;
+		this.itemIndex = itemIndex;
+		this.itemQuestion = itemQuestion;
+		this.itemOption = itemOption;
+		this.itemAnswer = itemAnswer;
+		this.itemPicture = itemPicture;
+		this.itemScore = itemScore;
 	}
-	public void setItem_id(String item_id) {
-		this.item_id = item_id;
+	public String getItemId() {
+		return itemId;
 	}
-	public String getitem_course_type() {
-		return item_course_type;
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
-	public void setitem_course_type(String item_course_type) {
-		this.item_course_type = item_course_type;
+	public String getItemCourseType() {
+		return itemCourseType;
 	}
-	public String getItem_type() {
-		return item_type;
+	public void setItemCourseType(String itemCourseType) {
+		this.itemCourseType = itemCourseType;
 	}
-	public void setItem_type(String item_type) {
-		this.item_type = item_type;
+	public String getItemType() {
+		return itemType;
 	}
-	public Double getItem_index() {
-		return item_index;
+	public void setItemType(String itemType) {
+		this.itemType = itemType;
 	}
-	public void setItem_index(Double item_index) {
-		this.item_index = item_index;
+	public Double getItemIndex() {
+		return itemIndex;
 	}
-	public String getItem_question() {
-		return item_question;
+	public void setItemIndex(Double itemIndex) {
+		this.itemIndex = itemIndex;
 	}
-	public void setItem_question(String item_question) {
-		this.item_question = item_question;
+	public String getItemQuestion() {
+		return itemQuestion;
 	}
-	public String getItem_option() {
-		return item_option;
+	public void setItemQuestion(String itemQuestion) {
+		this.itemQuestion = itemQuestion;
 	}
-	public void setItem_option(String item_option) {
-		this.item_option = item_option;
+	public String getItemOption() {
+		return itemOption;
 	}
-	public String getItem_answer() {
-		return item_answer;
+	public void setItemOption(String itemOption) {
+		this.itemOption = itemOption;
 	}
-	public void setItem_answer(String item_answer) {
-		this.item_answer = item_answer;
+	public String getItemAnswer() {
+		return itemAnswer;
 	}
-	public String getItem_picture() {
-		return item_picture;
+	public void setItemAnswer(String itemAnswer) {
+		this.itemAnswer = itemAnswer;
 	}
-	public void setItem_picture(String item_picture) {
-		this.item_picture = item_picture;
+	public String getItemPicture() {
+		return itemPicture;
 	}
-	public Double getItem_score() {
-		return item_score;
+	public void setItemPicture(String itemPicture) {
+		this.itemPicture = itemPicture;
 	}
-	public void setItem_score(Double item_score) {
-		this.item_score = item_score;
+	public Double getItemScore() {
+		return itemScore;
 	}
+	public void setItemScore(Double itemScore) {
+		this.itemScore = itemScore;
+	}
+	
 }

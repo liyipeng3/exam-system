@@ -1,32 +1,33 @@
 package com.neusoft.root.domain;
 
 public class Paper {
-	private String paper_id;
-	private String paper_type;
-	private Double paper_index;
+	private String paperId;
+	private String paperType;
+	private Double paperIndex;
 	private String choice_question;
-	private String fill_question;
-	private String subjective_question;
-	private Double paper_score;
-	private String paper_secrecy;
-	private String paper_remark;
-	public String getPaper_id() {
-		return paper_id;
+	private String fillQuestion;
+	private String subjectiveQuestion;
+	private Double paperScore;
+	private String paperSecrecy;
+	private String paperRemark;
+	
+	public String getPaperId() {
+		return paperId;
 	}
-	public void setPaper_id(String paper_id) {
-		this.paper_id = paper_id;
+	public void setPaperId(String paperId) {
+		this.paperId = paperId;
 	}
-	public String getpaper_type() {
-		return paper_type;
+	public String getPaperType() {
+		return paperType;
 	}
-	public void setpaper_type(String paper_type) {
-		this.paper_type = paper_type;
+	public void setPaperType(String paperType) {
+		this.paperType = paperType;
 	}
-	public Double getPaper_index() {
-		return paper_index;
+	public Double getPaperIndex() {
+		return paperIndex;
 	}
-	public void setPaper_index(Double paper_index) {
-		this.paper_index = paper_index;
+	public void setPaperIndex(Double paperIndex) {
+		this.paperIndex = paperIndex;
 	}
 	public String getChoice_question() {
 		return choice_question;
@@ -34,48 +35,48 @@ public class Paper {
 	public void setChoice_question(String choice_question) {
 		this.choice_question = choice_question;
 	}
-	public String getFill_question() {
-		return fill_question;
+	public String getFillQuestion() {
+		return fillQuestion;
 	}
-	public void setFill_question(String fill_question) {
-		this.fill_question = fill_question;
+	public void setFillQuestion(String fillQuestion) {
+		this.fillQuestion = fillQuestion;
 	}
-	public String getSubjective_question() {
-		return subjective_question;
+	public String getSubjectiveQuestion() {
+		return subjectiveQuestion;
 	}
-	public void setSubjective_question(String subjective_question) {
-		this.subjective_question = subjective_question;
+	public void setSubjectiveQuestion(String subjectiveQuestion) {
+		this.subjectiveQuestion = subjectiveQuestion;
 	}
-	public Double getPaper_score() {
-		return paper_score;
+	public Double getPaperScore() {
+		return paperScore;
 	}
-	public void setPaper_score(Double paper_score) {
-		this.paper_score = paper_score;
+	public void setPaperScore(Double paperScore) {
+		this.paperScore = paperScore;
 	}
-	public String getPaper_secrecy() {
-		return paper_secrecy;
+	public String getPaperSecrecy() {
+		return paperSecrecy;
 	}
-	public void setPaper_secrecy(String paper_secrecy) {
-		this.paper_secrecy = paper_secrecy;
+	public void setPaperSecrecy(String paperSecrecy) {
+		this.paperSecrecy = paperSecrecy;
 	}
-	public String getPaper_remark() {
-		return paper_remark;
+	public String getPaperRemark() {
+		return paperRemark;
 	}
-	public void setPaper_remark(String paper_remark) {
-		this.paper_remark = paper_remark;
+	public void setPaperRemark(String paperRemark) {
+		this.paperRemark = paperRemark;
 	}
-	public Paper(String paper_id, String paper_type, Double paper_index, String choice_question, String fill_question,
-			String subjective_question, Double paper_score, String paper_secrecy, String paper_remark) {
+	public Paper(String paperId, String paperType, Double paperIndex, String choice_question, String fillQuestion,
+			String subjectiveQuestion, Double paperScore, String paperSecrecy, String paperRemark) {
 		super();
-		this.paper_id = paper_id;
-		this.paper_type = paper_type;
-		this.paper_index = paper_index;
+		this.paperId = paperId;
+		this.paperType = paperType;
+		this.paperIndex = paperIndex;
 		this.choice_question = choice_question;
-		this.fill_question = fill_question;
-		this.subjective_question = subjective_question;
-		this.paper_score = paper_score;
-		this.paper_secrecy = paper_secrecy;
-		this.paper_remark = paper_remark;
+		this.fillQuestion = fillQuestion;
+		this.subjectiveQuestion = subjectiveQuestion;
+		this.paperScore = paperScore;
+		this.paperSecrecy = paperSecrecy;
+		this.paperRemark = paperRemark;
 	}
 	public Paper() {
 		super();
@@ -86,14 +87,14 @@ public class Paper {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((choice_question == null) ? 0 : choice_question.hashCode());
-		result = prime * result + ((paper_type == null) ? 0 : paper_type.hashCode());
-		result = prime * result + ((fill_question == null) ? 0 : fill_question.hashCode());
-		result = prime * result + ((paper_id == null) ? 0 : paper_id.hashCode());
-		result = prime * result + ((paper_index == null) ? 0 : paper_index.hashCode());
-		result = prime * result + ((paper_remark == null) ? 0 : paper_remark.hashCode());
-		result = prime * result + ((paper_score == null) ? 0 : paper_score.hashCode());
-		result = prime * result + ((paper_secrecy == null) ? 0 : paper_secrecy.hashCode());
-		result = prime * result + ((subjective_question == null) ? 0 : subjective_question.hashCode());
+		result = prime * result + ((paperType == null) ? 0 : paperType.hashCode());
+		result = prime * result + ((fillQuestion == null) ? 0 : fillQuestion.hashCode());
+		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
+		result = prime * result + ((paperIndex == null) ? 0 : paperIndex.hashCode());
+		result = prime * result + ((paperRemark == null) ? 0 : paperRemark.hashCode());
+		result = prime * result + ((paperScore == null) ? 0 : paperScore.hashCode());
+		result = prime * result + ((paperSecrecy == null) ? 0 : paperSecrecy.hashCode());
+		result = prime * result + ((subjectiveQuestion == null) ? 0 : subjectiveQuestion.hashCode());
 		return result;
 	}
 	@Override
@@ -110,45 +111,45 @@ public class Paper {
 				return false;
 		} else if (!choice_question.equals(other.choice_question))
 			return false;
-		if (paper_type == null) {
-			if (other.paper_type != null)
+		if (paperType == null) {
+			if (other.paperType != null)
 				return false;
-		} else if (!paper_type.equals(other.paper_type))
+		} else if (!paperType.equals(other.paperType))
 			return false;
-		if (fill_question == null) {
-			if (other.fill_question != null)
+		if (fillQuestion == null) {
+			if (other.fillQuestion != null)
 				return false;
-		} else if (!fill_question.equals(other.fill_question))
+		} else if (!fillQuestion.equals(other.fillQuestion))
 			return false;
-		if (paper_id == null) {
-			if (other.paper_id != null)
+		if (paperId == null) {
+			if (other.paperId != null)
 				return false;
-		} else if (!paper_id.equals(other.paper_id))
+		} else if (!paperId.equals(other.paperId))
 			return false;
-		if (paper_index == null) {
-			if (other.paper_index != null)
+		if (paperIndex == null) {
+			if (other.paperIndex != null)
 				return false;
-		} else if (!paper_index.equals(other.paper_index))
+		} else if (!paperIndex.equals(other.paperIndex))
 			return false;
-		if (paper_remark == null) {
-			if (other.paper_remark != null)
+		if (paperRemark == null) {
+			if (other.paperRemark != null)
 				return false;
-		} else if (!paper_remark.equals(other.paper_remark))
+		} else if (!paperRemark.equals(other.paperRemark))
 			return false;
-		if (paper_score == null) {
-			if (other.paper_score != null)
+		if (paperScore == null) {
+			if (other.paperScore != null)
 				return false;
-		} else if (!paper_score.equals(other.paper_score))
+		} else if (!paperScore.equals(other.paperScore))
 			return false;
-		if (paper_secrecy == null) {
-			if (other.paper_secrecy != null)
+		if (paperSecrecy == null) {
+			if (other.paperSecrecy != null)
 				return false;
-		} else if (!paper_secrecy.equals(other.paper_secrecy))
+		} else if (!paperSecrecy.equals(other.paperSecrecy))
 			return false;
-		if (subjective_question == null) {
-			if (other.subjective_question != null)
+		if (subjectiveQuestion == null) {
+			if (other.subjectiveQuestion != null)
 				return false;
-		} else if (!subjective_question.equals(other.subjective_question))
+		} else if (!subjectiveQuestion.equals(other.subjectiveQuestion))
 			return false;
 		return true;
 	}
