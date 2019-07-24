@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524 -->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
+    <meta name="description" content="考试星是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="author" content="">
+    <script async="" src="../../js/tingyun-rum-admin.js"></script>
+    <script async="" src="../../js/gio.js"></script>
+    <script type="text/javascript" src="../../js/ksx_probe.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '东北大学软件园';
+        opts.rightsGrade = '8';
+
+        //添加gio
+        ksxProbe.gioInit(opts);
+        //添加tingyun
+        ksxProbe.tingyun();
+    </script>
+    <title>考试云平台</title>
+
+
+    <link rel="shortcut icon" href="https://s0.kaoshixing.com/static/base/images/new_logo.ico">
+
+
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/admin_base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.bootgrid.css">
+    <link rel="stylesheet" href="../../css/honeySwitch.css">
+    <link rel="stylesheet" href="../../css/summernote.css">
+    <link rel="stylesheet" href="../../css/modal_content_style.css">
+    <link rel="stylesheet" href="../../css/exam_add.css">
+    <link rel="stylesheet" type="text/css" href="../../css/cannotlink_modal.css">
+    <style>
+        .exam-setting.normal-setting .form-group label.setProcess {
+            width: 130px;
+        }
+
+        input[name=joinStatus] {
+            cursor: pointer;
+        }
+
+        .more_settings_split {
+            height: 20px;
+            background-color: #f6f7fb;
+        }
+
+        .exam-setting.normal-setting {
+            border-bottom: unset;
+        }
+
+        .exam-setting.toolbar-setting a {
+            font-size: 16px;
+            color: #3A3E51;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .exam-setting.toolbar-setting .glyphicon {
+            color: #B4B6BD;
+            margin-right: unset;
+            margin-left: 5px;
+            font-size: 10px;
+            top: unset;
+        }
+    </style>
+    <script src="../../js/entrance.js" id="zhichiScript" class="zhiCustomBtn"></script>
+    <script>
+        //初始化智齿咨询组件实例
+        var zhiManager = (getzhiSDKInstance());
+        //再调用load方法
+        zhiManager.on("load", function () {
+            zhiManager.initBtnDOM();
+        });
+        //设置入口方位//按钮将显示在右下角 默认显示在右下角
+        zhiManager.set('location', 1);
+        //设置悬浮窗的水平位置
+        //true 自定义咨询按钮 废弃系统默认按钮
+        zhiManager.set('customBtn', 'true');
+        //设置自动强制发起会话
+        //    setTimeout(function(){
+        //        zhiManager.expand();
+        ////      zhiManager.set('autoExpand', true);
+        //    },5000);
+        //默认：当为左下时，则水平距离左边100px。当为右下时，则水平距离右边100px
+        zhiManager.set('customMargin', 30);
+        //    zhiManager.set('horizontal', 0);
+
+        zhiManager.set('manTrace', true); //开启收集用户方访问轨迹 默认不收集
+    </script>
+
+    <style type="text/css">  .JColResizer {
+        table-layout: fixed;
+    }
+
+    .JColResizer > tbody > tr > td, .JColResizer > tbody > tr > th {
+        overflow: hidden;
+    }
+
+    .JCLRgrips {
+        height: 0px;
+        position: relative;
+    }
+
+    .JCLRgrip {
+        margin-left: -5px;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .JCLRgrip .JColResizer {
+        position: absolute;
+        background-color: red;
+        filter: alpha(opacity=1);
+        opacity: 0;
+        width: 10px;
+        height: 100%;
+        cursor: col-resize;
+        top: 0px
+    }
+
+    .JCLRLastGrip {
+        position: absolute;
+        width: 1px;
+    }
+
+    .JCLRgripDrag {
+        border-left: 1px dotted black;
+    }
+
+    .JCLRFlex {
+        width: auto !important;
+    }
+
+    .JCLRgrip.JCLRdisabledGrip .JColResizer {
+        cursor: default;
+        display: none;
+    }</style>
+    <link type="text/css" rel="stylesheet" href="../../css/laydate.css">
+    <link type="text/css" rel="stylesheet" href="../../css/laydate(1).css" id="LayDateSkin">
+    <style></style>
+</head>
+
+
+<body>
+<div class="viewFrameWork sidebar-full" id="viewFrameWork">
+
+    <div class="viewFrameWork-statusbar">
+
+        <a href="https://admin.kaoshixing.com/account/admin/index" class="status-left company-logo" title="logo"
+           id="companyLogo">
+            <!--对有没有logo进行判断-->
+            <img class="icon-logo logo-ksx" src="../../img/logo.png"></a>
+
+
+        <div class="status-middle toolbar">
+            <div class="body-toolbar clearfix">
+                <div class="body-toolbar-right pull-right toolbar-right-operation guide">
+                    <button class="btn btn-warning guide-btn" id="saveBtn">发布考试</button>
+                    <!--<button type="submit" class="btn btn-default">发布考试</button>-->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="status-right">
+            <div class="status-item item-notification" id="stateMessage">
+                <i class="icon item-icon icon-p_top_message"></i>
+                <span class="message-count hidden"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="viewFrameWork-main">
+
+        <div class="viewFrameWork-sidebar">
+            <div class="sidebar-inner">
+
+                <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
+                     data-container="body" title="" data-original-title="收起导航">
+                    <i class="icons8 icons8-icon"></i>
+                </div>
+
+
+                <div class="sidebar-nav">
+                    <ul class="sidebar-trans" id="ksxAdminSidebar">
+
+                        <li class="nav-item nav-item-index" id="navItemIndex">
+                            <a href="https://admin.kaoshixing.com/account/admin/index/" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="首页">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_nav_home icon-index"></i>
+                                </div>
+                                <span class="nav-title">首页</span>
+                            </a>
+                        </li>
+                        <li class="nav-item has-sub-menu open" id="navItemExam"><a
+                                href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="考试管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
+                            <span class="nav-title">考试管理</span></a>
+                            <ul class="sub-menu animate" style="height: 238px;">
+                                <li class="nav-item sub-nav-item nav-item-active" id="subNavItemExamMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/exam_mgr_new"><span class="nav-title">考试信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
+                                        href="https://v.kaoshixing.com/admin/testQuestions/#/list"><span
+                                        class="nav-title">试题库</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/paper_mgr_new"><span class="nav-title">试卷库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/result/mgr_new"><span
+                                        class="nav-title">成绩查询批改</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
+                                        href="https://new.kaoshixing.com/ae/results/analysis/exam"><span
+                                        class="nav-title">分析考试</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
+                                        href="https://new.kaoshixing.com/ae/results/analysis/person"><span
+                                        class="nav-title">分析考生</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemUser"><a
+                                href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="人员管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
+                            <span class="nav-title">人员管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
+                                        href="https://v.kaoshixing.com/admin/user/#/list"><span
+                                        class="nav-title">考生信息</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
+                                        href="https://admin.kaoshixing.com/admin/user_reg"><span
+                                        class="nav-title">注册设置</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemCourse"><a
+                                href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="学习">
+                            <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
+                            <span class="nav-title">学习</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/file/manager"><span class="nav-title">知识库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
+                                        href="https://admin.kaoshixing.com/course/course_mgr"><span class="nav-title">课程管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
+                                        href="https://admin.kaoshixing.com/course/study_record_mgr/course"><span
+                                        class="nav-title">学习记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item " id="navItemCustomProcess"><a
+                                href="https://v.kaoshixing.com/admin/customprocess/" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="自定义任务">
+                            <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
+                            <span class="nav-title">自定义任务</span><img class="mark-beta"
+                                                                     src="../../img/a_nav_beta.svg"></a></li>
+                        <li class="nav-item " id="navItemCertification"><a
+                                href="https://admin.kaoshixing.com/certificate/certificate_center" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
+                            <div class="nav-icon"><i class="icon icon-p_leftnav_certification"></i></div>
+                            <span class="nav-title">认证中心</span></a></li>
+                        <li class="nav-item " id="navItemApplication"><a
+                                href="https://v.kaoshixing.com/admin/application/#/list" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="报名审核">
+                            <div class="nav-icon"><i class="icon icon-a_nav_sign_up"></i></div>
+                            <span class="nav-title">报名审核</span></a></li>
+                        <li class="nav-item has-sub-menu" id="navItemPay"><a
+                                href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="支付中心">
+                            <div class="nav-icon"><i class="icon icon-a_nav_pay"></i></div>
+                            <span class="nav-title">支付中心</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemPayCenter"><a
+                                        href="https://admin.kaoshixing.com/account/admin_pay_center"><span
+                                        class="nav-title">充值</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaySet"><a
+                                        href="https://admin.kaoshixing.com/admin/user_pay_set"><span class="nav-title">支付设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemConsumeRecord"><a
+                                        href="https://admin.kaoshixing.com/account/admin_consume_record"><span
+                                        class="nav-title">消费记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOrderRecord"><a
+                                        href="https://admin.kaoshixing.com/account/admin_order_record"><span
+                                        class="nav-title">充值记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPayRecord"><a
+                                        href="https://admin.kaoshixing.com/account/examinee_pay_record"><span
+                                        class="nav-title">考生付费记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemSystem"><a
+                                href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#"
+                                class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body"
+                                title="系统管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
+                            <span class="nav-title">系统管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/sub_admin_mgr"><span class="nav-title">子管理员设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
+                                        href="https://admin.kaoshixing.com/admin/app_set"><span
+                                        class="nav-title">App设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemModify"><a
+                                        href="https://admin.kaoshixing.com/admin/modify"><span
+                                        class="nav-title">个性化设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
+                                        href="https://admin.kaoshixing.com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/dev_info_mgr"><span class="nav-title">开发者信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
+                                        href="https://admin.kaoshixing.com/account/admin_op_record"><span
+                                        class="nav-title">管理员操作记录</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="sidebar-bottom sidebar-btn">
+                <ul class="sidebar-trans">
+                    <li class="nav-item">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_help"></i>
+                            </div>
+                            <span class="nav-title">帮助
+                            <img class="new-svg" src="../../img/a_nav_new.svg" alt="">
+                        </span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel person-servers-panel">
+                            <div class="btn-help">
+                                <i class="icon icon-a_help_document"></i>
+                                <p><a href="https://www.kancloud.cn/exam-star/ksxhelp_1/974046">帮助文档</a></p>
+                            </div>
+                            <div class="btn-service">
+                                <i class="icon icon-a_help_service"></i>
+                                <span>人工客服</span>
+                                <p>
+                                    可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
+                                        href="javascript:;">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-user">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_my"></i>
+                            </div>
+                            <span class="nav-title">东北大学软件园</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel user-info-panel">
+
+                            <div class="user-info">
+                                <div class="info-img">
+                                    <img src="../../img/default-pic.png" class="user_img" alt="">
+                                </div>
+                                <div class="info-detail clearfix">
+                                    <div class="user" id="user">
+                                        <span class="user-surname">东北大学软件园</span>
+                                        <i data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                           data-original-title="编辑信息">
+                                        </i>
+                                    </div>
+                                    <div class="company">
+                                        东北大学软件园
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="operate-group">
+                                <a class="operate-item exam-entrance" href="https://exam.kaoshixing.com/exam">
+                                    <i class="operate-icon icon-a_personal_switch"></i>
+                                    切换至考生端
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item exam-entrance"
+                                   href="https://admin.kaoshixing.com/admin/admin_information">
+                                    <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
+                                       data-placement="top" data-container="body" title="" data-original-title="编辑信息">
+
+                                        <i class="unread-notice"></i>
+
+                                    </i>
+                                    修改个人信息
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item btn-exit" id="logoutBtn">
+                                    <i class="operate-icon icon-a_personal_exit"></i>
+                                    退出
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="viewFrameWork-body">
+            <!-- loading -->
+            <div class="spinner-wrapper hidden" id="spinnerLoading">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+
+            <div class="body-wrapper">
+                <div class="body-content">
+                    <div class="cont-r">
+                        <input type="hidden" name="select_deps" value="">
+                        <div role="tabpanel" class="tab-area tab-col4">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="step1">
+                                    <a href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#createTest1"
+                                       aria-controls="create1" role="tab" data-toggle="tab">
+                                        第一步:创建试卷
+                                    </a>
+                                </li>
+                                <li role="presentation" class="step3">
+                                    <a href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#createTest3"
+                                       aria-controls="create3" role="tab" data-toggle="">
+                                        第二步:选题组卷
+                                    </a>
+                                </li>
+                                <li role="presentation" class="step4 active">
+                                    <a href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#createTest4"
+                                       aria-controls="create4" role="tab" data-toggle="">
+                                        第三步:发布考试
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="createTest4">
+                                    <div class="issue-area">
+                                        <form class="form-horizontal"
+                                              action="https://admin.kaoshixing.com/admin/exam_add" name="form"
+                                              method="post" id="subForm">
+                                            <div class="exam-setting normal-setting">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="examName"
+                                                                   class="col-sm-2 control-label">考试名称</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" name="examName"
+                                                                       class="form-control hasUsingFormDom"
+                                                                       id="examName" placeholder="请输入考试名称"
+                                                                       value="34234">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label">考试分类</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="hidden" class="" name="examStyle"
+                                                                       value="236914">
+                                                                <button type="button" class="btn btn-default btn-sm"
+                                                                        id="selTypeLink">
+                                                                    <span>考试分类</span>
+                                                                    <i class="icon icon-a_btn_classify btn-icon-right"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label">考试时间</label>
+                                                            <div class="col-sm-10">
+                                                                <div class="btn-group">
+                                                                    <div class="calendar-wrap">
+                                                                        <i class="icons8-calendar start"></i>
+                                                                        <input value="" name="examStartTime"
+                                                                               id="dateFrom" autocomplete="off">
+                                                                    </div>
+                                                                    <span>到</span>
+                                                                    <div class="calendar-wrap">
+                                                                        <i class="icons8-calendar end"></i>
+                                                                        <input value="" name="examEndTime" id="dateTo"
+                                                                               autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label setProcess">
+                                                                关联自定义任务
+                                                                <i class="icons8-help" data-container="body"
+                                                                   data-toggle="popover" data-placement="top"
+                                                                   data-trigger="hover"
+                                                                   data-content="开启后，需在自定义任务中添加该考试，考生方可进入。可考部门与可考人员请您前往任务页面进行设置"
+                                                                   data-original-title="" title=""></i>
+                                                            </label>
+
+                                                            <div class="col-sm-2">
+
+                                                                <span class="switch-off switch-hidden isProcess"
+                                                                      style="border-color: rgb(223, 223, 223); box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; background-color: rgb(255, 255, 255);"><span
+                                                                        class="slider"></span></span>
+                                                                <input type="hidden" value="" name="setProcess">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group loginWay process_hidden">
+                                                            <label class="col-sm-2 control-label">考生登录方式</label>
+                                                            <div class="col-sm-10 radio-group">
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="skipLogin" checked=""
+                                                                               value="0">账号密码登录
+                                                                    </label>
+                                                                </div>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="skipLogin" value="1">免登录考试
+                                                                    </label>
+                                                                </div>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="skipLogin" value="2">微信免登录考试
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group info-group hidden-group examInformation">
+                                                            <span>考前预留信息：姓名、手机号、邮箱等10项目</span>
+                                                            <button type="button" class="btn btn-default btn-sm"
+                                                                    id="loginAnswerLink">编辑
+                                                            </button>
+                                                        </div>
+                                                        <div class="form-group form-inline answerLimit">
+                                                            <label class="col-sm-2 control-label letter-s4">答题次数</label>
+                                                            <div class="col-sm-8 radio-group">
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="examTimesRestrict"
+                                                                               checked="" value="1"> 无限次
+                                                                    </label>
+                                                                </div>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="examTimesRestrict"
+                                                                               value="0"> 有限次
+                                                                        <input type="text"
+                                                                               class="form-control form-control-inline width-62 examTimes isHide"
+                                                                               name="examTimes" value="1">
+                                                                    </label>
+                                                                </div>
+                                                                <input type="hidden" name="examMode" value="1">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group answer-time">
+                                                            <label class="col-sm-2 control-label">答卷时长</label>
+                                                            <div class="col-sm-10 radio-group">
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="examTimeRestrict"
+                                                                               checked="" value="1">
+                                                                        <input type="text" value="60" name="examTime"
+                                                                               class="form-control form-control-inline width-62 fl hasUsingFormDom"><span> 分钟</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="examTimeRestrict"
+                                                                               value="0"> 不限时长
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <input type="hidden" value="0" name="perTimeRestrict">
+
+                                                        <div class="form-group">
+                                                            <label for="passMark"
+                                                                   class="col-sm-2 control-label">及格分数</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" name="passMark"
+                                                                       class="form-control form-control-inline width-62 fl hasUsingFormDom"
+                                                                       id="passMark" value="5">
+                                                            </div>
+                                                        </div>
+                                                        <div class="department-box">
+                                                            <div class="form-group party-person">
+                                                                <label class="col-sm-2 control-label">参与人员</label>
+                                                                <div class="col-sm-10 control-label">
+                                                                    <div class="radio-box">
+                                                                        <input type="radio" checked="" name="joinStatus"
+                                                                               value="0">&nbsp;&nbsp;全员参加
+                                                                        <input type="radio" style="margin-left:10px"
+                                                                               name="joinStatus" value="1">&nbsp;&nbsp;按部门/人员参与
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group selGroupLink process_hidden department-show"
+                                                                 style="display:none">
+                                                                <label class="col-sm-2 control-label letter-s4">可考部门</label>
+                                                                <div class="col-sm-8">
+
+                                                                    <button type="button" class="btn btn-default btn-sm"
+                                                                            id="selGroupLink">选择部门
+                                                                    </button>
+                                                                    <input class="hasSelectedDeptIds" type="hidden"
+                                                                           name="deptIds" value="">
+
+                                                                    <div class="label-wrap depsName">
+                                                                        <div class="label-list depNameLabel"
+                                                                             id="depName"></div>
+                                                                        <div class="collapse-label">
+                                                                            <span class="glyphicon-title">展开</span>
+                                                                            <span class="glyphicon glyphicon-triangle-bottom"
+                                                                                  aria-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group selUserLink process_hidden department-show"
+                                                                 style="display:none">
+                                                                <label class="col-sm-2 control-label letter-s4">可考人员</label>
+                                                                <div class="col-sm-8">
+                                                                    <button type="button" class="btn btn-default btn-sm"
+                                                                            id="selUserLink">选择人员
+                                                                    </button>
+                                                                    <button type="button"
+                                                                            class="btn btn-default btn-sm selectUsers"
+                                                                            id="selUsersLink">批量录入
+                                                                    </button>
+                                                                    <button type="button" disabled=""
+                                                                            class="btn btn-default btn-sm"
+                                                                            id="clearUsers">清空可考人员
+                                                                    </button>
+                                                                    <input class="hasSelectedUserIds" type="hidden"
+                                                                           name="userIds">
+
+                                                                    <div class="label-wrap usersName">
+                                                                        <div class="label-list userNameLabel"
+                                                                             id="usersName"></div>
+                                                                        <div class="collapse-label">
+                                                                            <span class="glyphicon-title">展开</span>
+                                                                            <span class="glyphicon glyphicon-triangle-bottom"
+                                                                                  aria-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="panel panel-default panel-paper" id="paperPanel">
+                                                            <div class="panel-heading clearfix">
+                                                                <div class="paper-title">
+                                                                    <span class="paper-name">34234</span>
+                                                                    <span class="paper-type">
+                                                        
+                                                                （选题组卷）
+                                                            
+                                                    </span>
+                                                                </div>
+                                                                <div class="paper-operation">
+                                                                    <a class="border-right" target="_blank"
+                                                                       href="https://admin.kaoshixing.com/admin/paper_preview/292524">预览试卷</a>
+                                                                    <a class="border-right"
+                                                                       href="https://admin.kaoshixing.com/admin/paper/update/292524"
+                                                                       target="_blank">编辑试卷</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <div class="form-row">
+                                                                    <span class="title">总分:</span>
+                                                                    <span class="content paper-total-score">9.0</span>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <span class="title">创建人:</span>
+                                                                    <span class="content paper-create-user-name">东北大学软件园</span>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <span class="title">试题数量:</span>
+                                                                    <span class="content paper-test-count">4</span>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <span class="title">创建日期:</span>
+                                                                    <span class="content paper-created-time">2019-07-24 22:00:46</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default panel-answer-notice">
+                                                            <div class="panel-heading clearfix">考试说明</div>
+                                                            <div class="panel-body">
+                                                                <textarea class="beforeAnswerNotice notice-textarea"
+                                                                          placeholder="请填写考试说明"
+                                                                          name="beforeAnswerNotice"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="more_settings_split"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--超管后台新版本通知-->
+<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-600 change-log-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title"></div>
+                <div class="version"></div>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="getChangeBtn">知道了</button>
+                    <a href="https://www.kaoshixing.com/change/log/" target="_blank" class="more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="typeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">选择考试分类</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="400px" name="selTypeModal" id="selTypeModal"
+                        src="./saved_resource.html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">指定考试部门</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="500px" name="selGroupModal" id="selGroupModal"
+                        src="./saved_resource(1).html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-large modal-iframe" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">指定特定考生</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="100%" name="selUserModal" id="selUserModal"
+                        src="./saved_resource(2).html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inputUsersModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">批量录入考生</h4>
+            </div>
+            <div class="modal-body">
+                <dl class="input-rules">
+                    <dt class="input-title">录入规则</dt>
+                    <dd>1. 请使用空格分割考生账号，输入至下列的文本框中
+                    </dd>
+                    <dd>2. 复制excel表格中账号信息至文本框中，可自动转换至上述样式</dd>
+                    <dd>3. 录入的账号信息需与您公司已注册的考生账号对应</dd>
+                </dl>
+                <div class="input-box">
+                    <textarea name="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-row text-center" style="margin-top:32px;">
+                    <button type="button" class="btn modal-btn-cancel" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn modal-btn-sure" id="saveUsers">录入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inputUsersResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">录入结果</h4>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li class="success">
+                        <i class="icon icon-a_success"></i>
+                        <p class="info">成功录入 <span>0</span> 名考生</p>
+                    </li>
+                    <li class="warning">
+                        <i class="icon icon-a_warning"></i>
+                        <p class="info"><span>0</span> 名考生已被选择，无法重复录入</p>
+                    </li>
+                    <li class="fail">
+                        <i class="icon icon-a_error"></i>
+                        <p class="info">录入失败 <span>0</span> 名考生</p>
+                    </li>
+                </ul>
+                <div class="form-row text-center">
+                    <button type="button" class="btn modal-btn-sure" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content" style="margin:auto;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">免登录信息设置</h4>
+            </div>
+            <div class="modal-body" style="padding:30px 0 20px 0;">
+                <iframe width="100%" height="420px" name="selLoginModal" id="selLoginModal"
+                        src="./saved_resource(3).html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="beatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-middle" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">击败设置</h4>
+            </div>
+            <div class="modal-body">
+                <form action="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524" name="form"
+                      method="post" id="beatForm">
+                    <div class="form-row" style="position: relative;margin-top: 38px;">
+                        <label class="beat-prompt" style="position: absolute;top: 10px;left: 90px;">设置内容：</label>
+                        <textarea class="show-beat" name="beat_title">已击败的挑战者</textarea>
+                    </div>
+                    <div class="form-row">
+                        <button class="btn btn-default btn-sm btn-default-content">默认内容</button>
+                    </div>
+                    <div class="form-row" style="position: relative">
+                        <label class="beat-prompt" style="position: absolute;left: 91px;">效果展示：</label>
+                        <div class="info-box clearfix">
+                            <div class="info-list">
+                                <div class="title">正确率</div>
+                                <div class="content">90.00%</div>
+                            </div>
+                            <div class="info-list">
+                                <div class="title" id="beat_title">已击败的挑战者</div>
+                                <div class="content">50%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row" style="margin-top:10px;text-align:center;margin-bottom: 40px;">
+                        <button class="btn btn-default modal_btn_default btn_off" id="cancelBeat" data-dismiss="modal">
+                            取消
+                        </button>
+                        <button class="btn btn-default modal_btn_default btn_on" id="saveBeat">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="deptModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">选择部门</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="500px" name="selDeptModal" id="selDeptModal"
+                        src="./saved_resource(4).html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade in" id="examBgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon-a_close"
+                                                                                                  aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title">自定义考试背景</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="exam-bg clearfix">
+
+                    <div class="custom">
+                        <div class="exam-title">网页端</div>
+                        <div class="exam-bg-box">
+                            <div class="show-exam-bg"
+                                 style="background-image: url(https://s0.kaoshixing.com/static/admin/images/customer/exam-bg.png)">
+                                <div class="cover-filter-bg"></div>
+                                <div class="bg-icon-content button-upload">
+                                    <a href="javascript:void(0);" class="logo-icon-style icons8-plus-filled "
+                                       data-toggle="tooltip" data-placement="top" title="" data-original-title="更改图片">
+                                        <input type="file" name="examFile" style="display: none;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tips bubble-tips">建议图片尺寸<span>&nbsp;1:2</span>，大小<span>&lt;500KB</span></div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="exam-title">网页端考前说明页-预览</div>
+                        <div class="wrap"
+                             style="background-image: url(https://s0.kaoshixing.com/static/admin/images/customer/exam-bg.png)">
+                            <img src="../../img/exam-header.png" class="img-exam-header">
+                            <img src="../../img/exam-modal.png" class="img-exam-modal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m-exam-bg clearfix">
+
+                    <div class="custom">
+                        <div class="exam-title">移动端</div>
+                        <div class="exam-bg-box">
+                            <div class="show-exam-bg"
+                                 style="background-image: url(https://s2.kaoshixing.com/static/admin/images/customer/m-exam-bg.png)">
+                                <div class="cover-filter-bg"></div>
+                                <div class="bg-icon-content button-upload">
+                                    <a href="javascript:void(0);" class="logo-icon-style icons8-plus-filled "
+                                       data-toggle="tooltip" data-placement="top" title="" data-original-title="更改图片">
+                                        <input type="file" name="mExamFile" style="display: none;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tips bubble-tips">建议图片尺寸<span>&nbsp;5:8</span>，大小<span>&lt;500KB</span></div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="exam-title">移动端考前说明页-预览</div>
+                        <div class="wrap"
+                             style="background-image: url(https://s2.kaoshixing.com/static/admin/images/customer/m-exam-bg.png)">
+                            <img src="../../img/m-exam-wx-heder.png" class="img-exam-header">
+                            <img src="../../img/before-exam-notice-modal.png" class="img-m-exam-modal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-blue" id="btnSetBg" data-dismiss="modal">确 定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="targetDepModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">指定部门</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="500px" src="./saved_resource(5).html" name="selTargetDepModal"
+                        id="selTargetDepModal"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 发布成功 -->
+<div class="modal fade" id="okModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-share" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">发布成功</h4>
+            </div>
+            <div class="modal-body">
+                <div class="qr-code">
+                    <div id="invite-link-qrcode" class="invite-link-qrcode"></div>
+                    <div class="download-qrcode">
+                        <p class="qrcode-prompt">微信扫码后可直接考试</p>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-download dropdown-toggle"
+                                    data-toggle="dropdown">
+                                下载<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a download-size="0" class="downloadImgLink"
+                                       href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#">小</a>
+                                </li>
+                                <li><a download-size="1" class="downloadImgLink"
+                                       href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#">中</a>
+                                </li>
+                                <li><a download-size="2" class="downloadImgLink"
+                                       href="https://admin.kaoshixing.com/admin/exam_add?paper_info_id=292524#">大</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <span id="small" style="display: none;"></span>
+                        <span id="medium" style="display: none;"></span>
+                        <span id="large" style="display: none;"></span>
+                    </div>
+                </div>
+                <div step="6" class="guide">
+                    <span class="address">考试地址：<span id="exam_url"></span></span>
+                    <button type="button" class="btn btn-default btn-copy" data-clipboard-target="#exam_url"
+                            id="copyUrlBtn">复制考试链接
+                    </button>
+                </div>
+                <div step="6" class="guide guide-pwd form-style hidden">
+                    <span class="address">考试密码：<span id="exam_password"></span></span>
+                    <button type="button" class="btn btn-default btn-copy" id="copyPasswordLink"
+                            data-clipboard-target="#exam_password">复制考试密码
+                    </button>
+                </div>
+
+                <div class="clear"></div>
+                <form action="https://admin.kaoshixing.com/admin/exam_email_notice/" name="form" method="post"
+                      id="sendForm" class="sendForm">
+                    发送考试通知:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="sendEmail" type="checkbox" id="email" class="email" value="1">
+                    邮件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="sendMessage" type="checkbox" id="message" class="message" value="1">
+                    短信
+                    <i class="help-tips">
+                        ?
+                        <div class="notificationTips">
+                            <h4>什么是"发送考试通知"?</h4>
+                            <p>
+                                将会发送考试的日期、时间、考试名称和考试链接给考生。支持对已验证邮箱的考生发送邮件,和对已预留手机号的考生发送短信,如无考生联系方式,将无法送达。发送短信时,第三方供应商将会收取一定的费用。<a
+                                    href="https://admin.kaoshixing.com/account/admin_pay_center">去充值-&gt;</a></p>
+                            <div>
+                                <img src="../../img/SMS_notification.png">
+                                <div class="notification">
+                                    <p class="notificationContent"></p>
+                                    <p class="notificationUrl"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </i>
+                </form>
+                <div class="btn-div">
+                    <button type="button" class="btn btn-primary btnOk" id="confirmOkBtn">确定</button>
+                    <button class="btn btn-warning" id="trialExamBtn" disabled=""></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--关联自定义任务时的弹窗-->
+<div class="modal fade cannotLinkModal" id="cannotLinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">考试链接</h4>
+            </div>
+            <div class="modal-body">
+                <div>本场考试已关联自定义任务，无法通过二维码、链接进入，请前往考生端参加本场考试</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sendAnimation">消息发送中...群发完成后您将在消息中心收到提醒</div>
+<div class="spinner-wrapper hidden" id="animationLoading">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+<!--编辑IP地址-->
+<div class="modal fade" id="editIP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-600 ip-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon icon-a_close"></i></span>
+                </button>
+                <div class="modal-title">可用IP设置</div>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="font-style">新增可用IP地址</div>
+                    </div>
+                    <div class="form-inline">
+                        <input type="text" name="ipStart" class="form-control" placeholder="可用IP段的开头" id="ip-start">
+                        <span>至</span>
+                        <input type="text" name="ipEnd" class="form-control" placeholder="可用IP段的结尾，如为单个地址可不填写"
+                               id="ip-end">
+                        <button type="button" class="btn btn-default btn-size" id="addBtn">添加</button>
+                    </div>
+                    <div class="add-content">
+                    </div>
+                </form>
+            </div>
+            <div class="buttonRows">
+                <button type="button" class="btn btn-gray btn_off" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-blue btn_on" id="btnOk" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade in" id="watermarkPreviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon-a_close"
+                                                                                                  aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title">水印预览</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确 定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.bootgrid-ksx.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="../../js/colResizable-1.6.min.js"></script>
+<script type="text/javascript" src="../../js/admin-base.js"></script>
+<script>
+    // these are global constant
+    var LOCAL_URL = window.location.href;
+    var USER_ROLE = 'admin';
+    var rights = '8';
+    var surname = "东北大学软件园";
+    var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
+    var tool_html = '';//消息内容
+    var tool_count = 0;//消息数目
+    var user_id = "7387836";
+    var getAdminUrlPrefix = 'https://admin.kaoshixing.com';
+    var getUrlPrefix = '';
+    var getAnalysisUrlPrefix = 'https://new.kaoshixing.com';
+    var getStaticUrlPrefix = 'https://v.kaoshixing.com';
+
+    //当前request返回页面对应导航id
+
+    var activeNavItem = 'subNavItemExamMgr';
+
+    // gio 在线咨询
+    $("body").on('click', '.gio-inquire-position', function () {
+        //推送咨询事件
+        ksxProbe.gioTrack('onlineInquire', 1, {
+            'inquireFromPage_var': window.location.href,
+            'inquireFromPageName_var': '管理员端',
+            'inquireFromPosition_var': $(this).attr('data-gio-position')
+        });
+    });
+
+
+    //智齿 官网右下角图标
+    $("body").on('click', '#zhichiBtnBox', function () {
+        var title = $(this).find('.zc-advice-icon-btn-title').text();
+
+        if (title == '收起') {
+            //推送咨询事件
+            ksxProbe.gioTrack('onlineInquire', 1, {
+                'inquireFromPage_var': window.location.href,
+                'inquireFromPageName_var': '管理员端',
+                'inquireFromPosition_var': '管理员端右下角咨询'
+            });
+        }
+    });
+
+    $(function () {
+
+
+        // 更新消息已读
+        $("#getChangeBtn").click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/admin/read_public',
+                type: 'get',
+                cache: false,
+                dataType: 'json',
+                success: function (msg) {
+                    $("#changeLogModal").modal('hide');
+                }
+            })
+        });
+
+    });
+
+
+    $(document).ready(function () {
+
+        // $("#user").click(function(){
+        //     window.location.href="/admin/admin_information";
+        //     $(".unread-notice").hide();
+        //
+        // });
+
+        //    自管理员点击添加考生，添加试题，创建考试时的权限判断
+        $("#staff,#test,#exam").on("click", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var type = $(this).prop("id");
+            var url = $(this).prop("href");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/admin/checkout_sub_admin_right",
+                data: "type=" + type,
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = url;
+                    } else {
+                        alert(msg.desc);
+                    }
+                }
+
+            })
+        });
+    });
+
+
+</script>
+<script src="../../js/jquery.qrcode.min.js"></script>
+<script src="../../js/clipboard.min.js"></script>
+<script>
+    //var hasUsing = "{{is_using}}";
+    var totalPoints = '9.0';
+    //试题数量
+    var questionCount_var = parseInt('4');
+    var userName = "18800418032@140092";
+    var domain = "140092";
+    var userId = 7387836;
+    var jwt = "{{ jwt_info }}";
+    var ksxCompanyId = "140092";
+
+    var shareTitle = "我参加了[考试名称]，得了[得分]分，你也来测测";
+    var sharePic = "http://file.kaoshixing.com/wx-logo.png";
+    var canOpenRedPack = false;
+
+    //        $(function(){
+    //            var clip_course=new ZeroClipboard($("#copyUrlBtn"));
+    //            //复制链接
+    //            clip_course.on("ready", function(readyEvent) {
+    //                clip_course.on("aftercopy", function(event) {
+    //                    alert("已复制链接：" + event.data["text/plain"]);
+    //                });
+    //            });
+    //            $("#copyUrlBtn").hover(
+    //                function(){
+    //                    $("this").addClass("zeroclipboard-is-hover");
+    //                }, function(){
+    //                    $("this").removeClass("zeroclipboard-is-hover");
+    //                }
+    //            );
+    //        })
+</script>
+
+
+<script type="text/javascript" src="../../js/admin_addExam.js"></script>
+<script src="../../js/honeySwitch.js"></script>
+<script type="text/javascript" src="../../js/summernote.js"></script>
+<script src="../../js/summernote-zh-CN.js"></script>
+<script type="text/javascript" src="../../js/laydate.js"></script>
+<script type="text/javascript">
+    var dateFrom = {
+        elem: "#dateFrom",
+        format: "YYYY-MM-DD hh:mm:ss",
+        min: "2010-01-01 00:00:00",
+        max: "2030-01-01 00:00:00",
+        istime: true
+        // choose: function(datas){
+        //      dateTo.min = datas; //开始日选好后，重置结束日的最小日期
+        //      dateTo.start = datas //将结束日的初始值设定为开始日
+        // }
+    };
+    var dateTo = {
+        elem: "#dateTo",
+        format: "YYYY-MM-DD hh:mm:ss",
+        min: "2010-01-01 00:00:00",
+        max: "2030-01-01 00:00:00",
+        istime: true
+        // choose: function(datas) {
+        //     dateFrom.max = datas;
+        // }
+    };
+    laydate(dateFrom);
+    laydate(dateTo);
+
+    var is_wechat_skipLogin = false;//是否是微信免登录考试
+
+    //免登录考试 hide 和 show 切换的方法
+    function switchSkipLoginFn(val) {
+        // 正常登录0 免登录1 微信免登录2
+        switch (val) {
+            case '0' :
+                $(".department-box, .answerLimit, .examPay, #verifyCount").show();
+                $(".examInformation").hide();
+                break;
+            case '1' :
+                is_wechat_skipLogin = false;
+                $(".department-box, .answerLimit, .examPay, .examPay .examAmount, #verifyCount, .answerLimit, #verifyCount").hide();//可考部门//可考人员//答题次数//考试付费//答题次数//考前身份认证
+                $(".examInformation").show();
+                $("input[name=userPayConfirm], #verifyCount input[name=verifyCount]").prop("checked", false);
+                $(".examPay .examAmount input").val("");
+                break;
+            case '2' :
+                is_wechat_skipLogin = true;
+                $(".department-box").hide();//可考部门//可考人员
+                $(".examInformation, .answerLimit, .examPay, #verifyCount").show();//答题次数//考试付费//考前身份认证
+                $("input[name=userPayConfirm], #verifyCount input[name=verifyCount]").prop("checked", false);//初始化考试付费状态//初始化考前身份认证状态
+                $(".examPay .examAmount input").val("");//初始化考试付费金额
+                $("input[name=userPayConfirm]").prop("checked", false);//考试付费 false
+                break;
+        }
+    }
+
+    //考生登录方式
+    $(".loginWay input[name=skipLogin]").change(function () {
+        var _val = $("input[name=skipLogin]:checked").val();
+        switchSkipLoginFn(_val);
+    });
+    //开关
+    $(".switch-all").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var switchStatus = $(this).prop("class");
+        if (switchStatus.indexOf("switch-on") == -1) {
+            if (!canOpenRedPack && $(this).hasClass("switch-redpack")) {
+                alert("微信红包为付费功能，请先开通该功能");
+                return false;
+            }
+            $(this).next().prop("checked", true);
+            if (switchStatus.indexOf("switch-hidden") != -1) {
+                $(this).parents(".form-group").next().show();
+                $(this).parents(".form-group").next().find("input").removeAttr("disabled");
+            }
+        } else if (switchStatus.indexOf("switch-on") != -1) {
+            $(this).next().prop("checked", false);
+            if (switchStatus.indexOf("switch-hidden") != -1) {
+                $(this).parents(".form-group").next().hide();
+                $(this).parents(".form-group").next().find("input").attr("disabled", true);//隐藏元素的子元素（表单不提交）
+            }
+        }
+    });
+    //关注公众号开关
+    $("#switch-followApp").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        if (!$(this).hasClass("switch-disabled")) {
+            var switchStatus = $(this).prop("class"); //通过class判断是off还是on
+
+            if (switchStatus.indexOf("switch-on") == -1) {
+                $(this).next().prop("checked", true);
+                $(this).parents(".form-group").next(".group-follow-app").show();
+            } else {
+                $(this).next().prop("checked", false);
+                $(this).parents(".form-group").next(".group-follow-app").hide();
+            }
+        }
+    });
+
+    //随机生成密码
+    function randomPwd() {
+        var str = "",
+            idx = 0,
+            arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+        // 随机产生
+        for (var i = 0; i < 6; i++) {
+            idx = Math.round(Math.random() * (arr.length - 1));
+            str += arr[idx];
+        }
+        return str;
+    }
+
+    $(".change-pwd-box input").val(randomPwd()).addClass("active-input first-input");
+
+    //考前校验密码开关
+    $("#switch-passSetting").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var switchStatus = $(this).prop("class"); //通过class判断是off还是on
+        var pwdStr;//用户修改的密码
+        if (switchStatus.indexOf("switch-off") != -1) {
+            $(".change-pwd-box").removeClass("hidden");
+            $(".change-pwd-box input").on({
+                "input": function () {
+                    //去掉所有空格
+                    pwdStr = $(this).val().replace(/\s/g, "");
+                    $(this).val(pwdStr);
+                    //不能输入中文
+                    if (/[^\x00-\xff]/i.test(pwdStr)) {
+                        $(".change-pwd-box .pwd-input-tips").addClass("error").html("密码不能包含中文字符");
+                        $(".change-pwd-box input").addClass("error-input");
+                    } else if (pwdStr.length < 6) {
+                        $(".change-pwd-box .pwd-input-tips").addClass("error").html("密码最少6位");
+                        $(".change-pwd-box input").addClass("error-input");
+                    } else if (pwdStr.length > 8) {
+                        $(".change-pwd-box .pwd-input-tips").addClass("error").html("密码最多8位");
+                        $(".change-pwd-box input").addClass("error-input");
+                    } else {
+                        $(".change-pwd-box .pwd-input-tips").removeClass("error").html("密码可以设置为6-8位的非中文字符组合");
+                        $(".change-pwd-box input").removeClass("error-input");
+                    }
+                },
+                "focus": function () {
+                    $(".change-pwd-box input").addClass("active-input");
+                },
+                "blur": function () {
+                    $(".change-pwd-box input").removeClass("active-input");
+                }
+            });
+            //如果用户第一次输入
+            if ($(".change-pwd-box input").hasClass("first-input")) {
+                $(".change-pwd-box input").focus().removeClass("first-input");
+            }
+            $('input[name=setExamPwd]').val(1); //开启后状态标注为1*/
+            //如果开启密码则在发布考试的时候显示考试密码，如果不开启不显示
+            // $(".form-style").removeClass('hidden');
+        } else {
+            $(".change-pwd-box").addClass("hidden");
+            $('input[name=setExamPwd]').val(0);//关闭后状态标注为0
+            // $(".form-style").addClass('hidden');
+        }
+    });
+
+    //考试迟到限时
+    $(".switch-late-time").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var switchStatus = $(this).prop("class"); //通过class判断是off还是on
+        var _this = $(this);
+        if (switchStatus.indexOf("switch-off") != -1) {
+            $(".late-time-box").show();
+            $("input.lateCheck").val(1); //开启后状态标注为1
+        } else {
+            $(".late-time-box").hide();
+            $("input.lateCheck").val(0);
+        }
+    });
+    //最短答题时长
+    $(".switch-min-time").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var switchStatus = $(this).prop("class"); //通过class判断是off还是on
+        var _this = $(this);
+        if (switchStatus.indexOf("switch-off") != -1) {
+            $(".min-time-box").show();
+            $("input.setMinExamTime").val(1); //开启后状态标注为1
+            $("input[name=practiceMode]").parents('.form-group').hide();//练习模式勾选隐藏
+            $("input[name=passMode]").parents('.form-group').hide();//闯关模式勾选隐藏
+            $("input[name=practiceMode]").removeProp('checked');//练习模式取消
+            $("input[name=passMode]").removeProp('checked');//闯关模式取消
+        } else {
+            $(".min-time-box").hide();
+            $("input.setMinExamTime").val(0);
+            $("input[name=practiceMode]").parents('.form-group').show();
+            $("input[name=passMode]").parents('.form-group').show();
+            $("input[name=passMode]").parents(".radio").next().css("display", "none");//答错机会填框先隐藏
+        }
+    });
+    //考前校验ip开关
+    $("#switch-ipSetting").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var switchStatus = $(this).prop("class"); //通过class判断是off还是on
+        if (switchStatus.indexOf("switch-off") != -1) {
+            $(this).next().val(1); //开启后状态标注为1*/
+            //如果开启密码则在发布考试的时候显示考试密码，如果不开启不显示
+            $(".ip-group").show();
+
+        } else {
+            $(this).next().val(0);//关闭后状态标注为0
+            $(".ip-group").hide();
+        }
+    });
+
+    //答题次数限制
+    $("input[name='examTimesRestrict']").on("click", function () {
+        if ($(this).val() == 1) {
+            $("input[name='examTimes']").hide();
+        } else {
+            $("input[name='examTimes']").show();
+        }
+    });
+
+    //防作弊设置
+    $(".preventCheat input[type=text]").on("input propertychange", function () {
+        if ($(this).val() != '') {
+            $(this).prev().prop("checked", true);
+        } else {
+            $(this).prev().prop("checked", false);
+        }
+
+    });
+
+    // 击败百分比设置
+    $(".switch-Beatratio").on("click", function () {
+        if ($(this).prop("class").indexOf("switch-on") == -1) {
+            $(".beatratio-content").show();
+        } else {
+            $(".beatratio-content").hide();
+        }
+    });
+    // 考试禁用启用
+    $(".exam-status-btn").on("click", function () {
+        var examStatus = $(this).text();
+        if (examStatus == '禁用考试') {
+            $(this).text("开启考试");
+            $(this).next().val(1);
+            $(this).prev().text("已禁止");
+            $(this).removeClass("btn-warning");
+            $(this).addClass("btn-default");
+        } else {
+            $(this).text("禁用考试");
+            $(this).next().val(0);
+            $(this).prev().text("已启用");
+            $(this).removeClass("btn-default");
+            $(this).addClass("btn-warning");
+        }
+    });
+
+
+    function changeReleaseWayVal() {
+        $("input[name=releaseWay]").change(function (e) {
+            var releaseWayVal = $("input[name='releaseWay']:checked").val();
+            $("#releaseWaySwitch").val(releaseWayVal);
+        })
+    }
+
+    $(function () {
+        changeReleaseWayVal();
+    })
+    //关闭考后成绩显示时，隐藏其他选项
+    $(".switch-exam").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var releaseWaySwitch = $("#releaseWaySwitch");
+        if ($(this).prop("class").indexOf("switch-on") == -1) {
+            $('.set_up_score').css('display', 'block');
+            $(".setScanPaper").show();
+            var releaseWayVal = $("input[name='releaseWay']:checked").val();
+            $(releaseWaySwitch).val(releaseWayVal);
+            $(".switch-exam-check").removeClass('switch-on').addClass('switch-off');
+        } else {
+            $('.set_up_score').css('display', 'none');
+            $('.switch_scan_paper').removeClass('switch-on').addClass('switch-off');
+            $(".setScanPaper").hide();
+            $('.set_up_paper').css('display', 'none');
+            $('.set_allow_answer').css('display', 'none');
+            $(releaseWaySwitch).val(3);
+        }
+    });
+
+
+    //当开启评语时，隐藏结束语
+    $(".setRemark .switch-all").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        if ($(this).hasClass("switch-off")) {
+            $(".releaseNotice").hide();
+            $(".setReleaseNotice").hide();
+        } else {
+            $(".releaseNotice").show();
+            $(".setReleaseNotice").show();
+        }
+    });
+
+    //允许查看试卷
+    $(".switch_scan_paper").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        if ($(this).prop("class").indexOf("switch-on") == -1) {
+            $('.set_allow_answer').css('display', 'inline-block');
+            $(".switch_scan_paper").removeClass('switch-on').addClass('switch-off');
+            $('.set_up_paper').css('display', 'block');
+        } else {
+            $('.set_allow_answer').css('display', 'none');
+            $('.set_up_paper').css('display', 'none');
+            $('.switch_scan_paper').addClass('switch-on');
+            $("input[name='setAllowsPaperAnswer']").eq(0).prop('checked', 'checked'); //默认勾选显示解析
+            $("input[name='is_paper_forever']").eq(0).prop('checked', 'checked'); //默认勾选永久查看
+            $("#allowsPaperDays").val(""); //查看天数（表单提交值）清空
+            $('#allow_p_a_days').val(""); //查看天数（填写框）清空
+        }
+    });
+
+    function setAllowsPaperDays() {//设置表单值，如果选择设置天数，则值为填写的天数 否则为永久查看
+        var allowsPaperDays = $("#allowsPaperDays");
+        if ($("input[name='is_paper_forever']:checked").val() == 1 && $('.switch_scan_paper').hasClass('switch-on')) {//开启了允许查看试卷且设置了天数
+            var days = $('#allow_p_a_days').val();
+            allowsPaperDays.val(days);
+        } else {
+            allowsPaperDays.val(0);
+        }
+    }
+
+    //IP设置点击添加按钮时，新增IP添加行
+    $("#addBtn").on('click', function (e) {
+        validate();
+        //清空ip地址输入框
+        $("input[name=ipStart]").val("");
+        $("input[name=ipEnd]").val("");
+    });
+
+    //删除ip地址
+    function itemRemove(item) {
+        $(item).parents("ul").empty();
+    }
+
+    //对IP地址进行校验
+    function validate() {
+        /* var reg = new RegExp("^\d+$");*/
+        var reg = new RegExp("^(\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5])(\\.(\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5])){3}$");
+        var start = $("input[name='ipStart']").val();
+        var end = $("input[name='ipEnd']").val();
+
+        if (start == "" || start == null) {
+            alert("ip段开头不能为空");
+        } else if (!reg.test(start)) {
+            alert("请输入规范的IP段开头地址");
+        } else if (end != "" && end != null && !reg.test(end)) {
+            alert("请输入规范的IP段结尾地址");
+        } else {
+            var start = $("input[name='ipStart']").val();
+            var end = $("input[name='ipEnd']").val();
+            if (end == "" || end == null) {
+                end = $("input[name='ipEnd']").val();
+                var node = $("<ul class='list-group'>" + "<li class='list-group-item'>" + start + end + "<i class='delete icon icon-a_circlr_close' onclick='itemRemove(this);'></i>" + "</li>" + "</ul>");
+                $(".add-content:last").append(node);
+                //为生成的dom结构添加方法
+            } else {
+                end = "~" + $("input[name='ipEnd']").val();
+                var node = $("<ul class='list-group'>" + "<li class='list-group-item'>" + start + end + "<i class='delete icon icon-a_circlr_close' onclick='itemRemove(this);'></i>" + "</li>" + "</ul>");
+                $(".add-content:last").append(node);
+                itemRemove(node);
+            }
+        }
+
+    }
+
+    //发布考试，复制链接和密码
+    //clipboard.js插件
+    var clipboard2 = new Clipboard('#exam_password', {
+        text: function () {
+            return "alex";
+        }
+    });
+    var clipboardPass = new Clipboard('#copyPasswordLink');
+    clipboardPass.on('success', function (e) {
+        // alert("复制成功!");
+    });
+
+    clipboardPass.on('error', function (e) {
+        alert("复制失败,请重试");
+    });
+
+    //ip地址范围模态框，点击确定时，遍历item
+    $("#btnOk").on('click', function () {
+        var items = $("ul.list-group").find("li.list-group-item"); //取得items;
+        var content;
+        var temp = "";
+        $(items).each(function (i, item) { //循环遍历数组items
+            content = $(this).text() + "#";//获取当前文本值
+            temp += content;
+            //console.log(item);//打印的是li
+        });
+        $("input[name='ipRange']").val(temp);
+        if (temp == "" || temp == null) {
+            $("span.ip-content").text("当前还未设置ip范围");
+        } else {
+            //console.log("运行了");
+            var newStr = temp.split("#")[0] + '等IP';
+            var str = $("span.ip-content").text(newStr);
+        }
+    });
+
+    $("#btn-first").on("click", function () {
+        $("#guide-first").hide();
+        $("#guide-second").show();
+    });
+    $("#btn-second").on("click", function () {
+        $("#guide-second").hide();
+        $("#guide-third").show();
+    });
+    $("#btn-third").on("click", function () {
+        $("#guide-third").hide();
+        $("#guide-fourth").show();
+    });
+    $("#btn-fourth").on("click", function () {
+        $.ajax({
+            type: 'GET',
+            cache: false,
+            headers: {"cache-control": "no-cache"},
+            dataType: "json",
+            url: "/account/update_first_visit?firstUrl=admin/exam_add",
+            success: function (msg) {
+            }
+        });
+        $("#guide-fourth").hide();
+    });
+    // 复制考试链接
+    var clipboard = new Clipboard('.btn-copy');
+
+    clipboard.on('success', function (e) {
+        alert("复制成功!");
+    });
+
+    clipboard.on('error', function (e) {
+        alert("复制失败,请重试");
+    });
+    //考前身份认证popover
+    $('#tryBtn').popover({
+        container: '#tryBtn',
+        html: true,
+        title: '',
+        trigger: 'hover',
+        placement: 'right',
+        delay: {"show": 0, "hide": 200},
+        content: function () {
+            var html = '<p class="question">什么是"考前身份认证"？</p>' +
+                '<p>考生提供身份证号及姓名，系统将会采集考生照片，并通过公安局数据库进行身份比对，比对身份信息与考生本人一致后，即可进入考试。每次比对需要收取一定的费用。</p>' +
+                '<a href="/account/admin_pay_center">去充值 &gt;</a>';
+            return html;
+        }
+    });
+
+    // 添加 switch 样式 用有样式的class是很麻烦的，因为会影响它的默认click事件添加的class的样式
+    function blueSwitch(dom) {
+        dom.css({
+            'border-color': 'rgb(77,143,225)',
+            'box-shadow': 'rgb(77,143,225) 0px 0px 0px 16px inset',
+            'background-color': 'rgb(77,143,225)'
+        });
+    }
+
+    function defaultSwitch(dom) {
+        dom.css({
+            'border-color': '#dfdfdf',
+            'box-shadow': 'rgb(223, 223, 223) 0px 0px 0px 0px inset',
+            'background-color': 'rgb(255, 255, 255)'
+        });
+    }
+
+    // 关联自定义任务
+    $('.isProcess').click(function () {
+        if ($('.isProcess').hasClass('switch-off')) {
+
+            $('.department-box').hide();
+            //
+            $('input[name=setProcess]').val('1');
+            $('.process_hidden').attr("hidden", 'true');
+            $(".examInformation").hide();
+            $(".answerLimit").show();
+            $("#verifyCount").show();
+            $(".examPay").show();
+            // 免登录考试关闭
+            var loginWay = $('.loginWay');
+            for (var i = 0; i < loginWay.length; i++) {
+                var span = loginWay[i].querySelector('span');
+                if ($(span).hasClass('switch-on')) {
+                    $(span).removeClass('switch-on').addClass('switch-off')
+                }
+            }
+        } else {
+            if ($('input[name=skipLogin]:checked').val() == 0) {
+                $('.department-box').show()
+            }
+            $('input[name=setProcess]').val('0');
+            $('.process_hidden').removeAttr('hidden');
+            $(".answerLimit").show();
+            $("#verifyCount").show();
+            if ($('input[name=skipLogin]:checked').val() != 0) {
+                $(".examInformation").show();
+            }
+            $(".examPay").show();
+        }
+    });
+    $('input[name=joinStatus]').click(function (e) {
+        var val = Number($(this).val());//获取选择的value
+        if (val === 1) {
+            $('.department-show').show()
+        } else {
+            $('.department-show').hide()
+
+        }
+    })
+
+    //免登录-指定部门
+    function showTargetDeptType(obj) { //弹出选择指定部门弹窗
+        selTargetDepModal.location.href = "/admin/tree/exam_sel_target_dep/";
+        $('#targetDepModal').modal({
+            backdrop: "static",
+            keyboard: false
+        });
+    }
+
+    //接受指定部门数据
+    function selTargetDep(id) {
+        $(window.frames["selLoginModal"].document).find("input[name=select_deps]").val(id);
+        $("input[name=select_deps]").val(id);
+    }
+
+    //关闭指定部门对话框
+    function hideSelTargetDep(obj) {
+        $('#targetDepModal').modal('hide');
+    }
+</script>
+
+
+<div id="zhichiBtnBox"
+     style="position: fixed; z-index: 2147483583; box-shadow: rgba(15, 66, 76, 0.25) 0px 0px 14px 0px; width: 60px; height: 60px; border-radius: 50%; background-color: rgb(60, 140, 252); background-image: url(&quot;//www.sobot.com/chat/frame/imgs/icon.png&quot;); background-repeat: no-repeat; background-position: 18px -58px; right: 40px; bottom: 20px; display: none;">
+    <a hidefocus="" id="zhichiBtn"
+       style="position:relative;text-decoration: none; outline: none; font-family: Microsoft Yahei, Arial, Helvetica; color: #fff; font-size: 16px; display: inline-block; margin: 0; padding: 0; border: none; line-height:43px; float:none;width:100%;height:100%;border-radius:50%;"><span
+            class="zc-advice-icon-btn-title"
+            style="box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px; border: 1px solid rgb(235, 239, 240); font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; color: rgb(85, 85, 86); font-size: 13px; margin: 0px; text-align: right; background: rgb(255, 255, 255); position: absolute; top: 15px; right: 70px; text-overflow: ellipsis; white-space: nowrap; word-break: normal; display: none; border-radius: 3px; padding: 0px 5px; height: 30px; line-height: 30px;">咨询在线客服</span></a><i
+        style="position:absolute;top:0px;right:0px;padding:1px;line-height:20px;text-align:center;color:#fff;font-weight:bold;height:18px;min-width:18px;background-color:#ed5c5c;border-radius:18px;font-size:12px;display:none;font-style:normal;"
+        id="zhichiCount"></i></div>
+</body>
+</html>

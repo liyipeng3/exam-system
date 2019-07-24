@@ -823,8 +823,8 @@
                 <h4 class="modal-title">选择试卷</h4>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="610px" name="selPaperModal" id="selPaperModal" security="restricted" sandbox=""
-                        src="./select_paper.html"></iframe>
+                <iframe width="100%" height="610px" name="selPaperModal" id="selPaperModal"
+                        src="paper_select.html"></iframe>
             </div>
         </div>
     </div>
@@ -1061,6 +1061,7 @@
             //传递 选题、随机、抽题组卷 到第三步
             $("input[name=add_style]").val("select");
             $("input[name=classification]").val("");
+            var type = "";
             manualInputTest("/exam/add_paper", type);
         });
 
