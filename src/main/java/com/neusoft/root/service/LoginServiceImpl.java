@@ -17,7 +17,7 @@ public class LoginServiceImpl implements LoginService{
 
 	@Override
 	public int querylogin(String id, String password) {
-		// TODO Auto-generated method stub
+		/*// TODO Auto-generated method stub
 		Admin pAdmin = new Admin(id, null, password);
 		Admin pAdmin2 = mapper.QueryAdmin(pAdmin);
 		Student pStudent = new Student(id, null, password, null, null, null);
@@ -36,9 +36,9 @@ public class LoginServiceImpl implements LoginService{
 		{
 			return 3;
 		}
-		else{
+		else{*/
 			return 0;
-		}
+		//}
 		
 	}
 
