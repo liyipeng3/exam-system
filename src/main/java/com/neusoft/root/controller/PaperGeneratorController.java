@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.neusoft.root.domain.Item;
 import com.neusoft.root.domain.Subjects;
 
@@ -20,11 +21,12 @@ public class PaperGeneratorController {
 	}
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
-	public Subjects getPaperSubjects(){
+	public String getPaperSubjects(){
 		Subjects subjects = new Subjects();
 		subjects.add("语文");
 		subjects.add("数学");
 		subjects.add("英语");
-		return subjects;
+		Gson gson = new Gson();
+		return gson.toJson(subjects);
 	}
 }
