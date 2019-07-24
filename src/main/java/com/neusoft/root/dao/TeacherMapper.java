@@ -10,9 +10,9 @@ import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Coursetudent;
 import com.neusoft.root.domain.Forum;
-import com.neusoft.root.domain.Item;
+import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.Log;
-import com.neusoft.root.domain.Paper;
+import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Teacher;
 
 public interface TeacherMapper {
@@ -40,10 +40,10 @@ public interface TeacherMapper {
 	public List<Forum> queryForum(Forum forum);
 	
 	//题库的增删改查
-	public void addItem(Item item);
-	public void deleteItem(Item item);
+	public void addItem(RawItem item);
+	public void deleteItem(RawItem item);
 	public void updateItem(Map<String,Object> item);
-	public List<Item> queryItem(Item item);
+	public List<RawItem> queryItem(RawItem item);
 	
 	//log
 	public void  addLog(Log log);
@@ -55,10 +55,10 @@ public interface TeacherMapper {
 	public List<Message> queryMessage(Message message);
 	
 	//试卷的增删改查
-	public void addPaper(Paper paper);
-	public void deletePaper(Paper paper);
+	public void addPaper(RawPaper paper);
+	public void deletePaper(RawPaper paper);
 	public void updatePaper(Map<String,Object> paper);
-	public List<Paper> queryPaper(Paper paper);
+	public List<RawPaper> queryPaper(RawPaper paper);
 	
 	//老师
 	//改密码

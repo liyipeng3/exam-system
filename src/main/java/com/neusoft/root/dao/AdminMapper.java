@@ -41,16 +41,16 @@ public interface AdminMapper
 	public List<Class1> queryClass(Class1 class1);
 	
 	//老师
-	public void addteacher(Teacher teacher);
-	public void deleteteacher(Teacher teacher);
-	public void updateteacher(Map<String ,Object> teacher);
-	public List<Teacher> queryteacher(Teacher teacher);
+	public void addTeacher(Teacher teacher);
+	public void deleteTeacher(Teacher teacher);
+	public void updateTeacher(Map<String ,Object> teacher);
+	public List<Teacher> queryTeacher(Teacher teacher);
 	
 	//课程
 	public void addCource(Course course);
 	public void deleteteCourse(Course course);
 	public void updateCourse(Map<String ,Object> course);
-	public List<Course> querycourse(Course course);
+	public List<Course> queryCourse(Course course);
 	
 	//记录
 	public void  addLog(Log log);
@@ -87,5 +87,4 @@ public interface AdminMapper
 	
 	//老师批卷结果的查询
 	public List<Check> queryCheck(Check check);
-	
 }

@@ -27,7 +27,7 @@ public class AdminMapperTestStudent
 	{
 		/*try 
 		{
-			Student student = new Student("117371", "zyc", "123", "CS", "SE", "HIT");
+			Student student = new Student("117373", "zyc", "123", "CS", "SE", "HIT");
 			am.addStudent(student);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -46,15 +46,34 @@ public class AdminMapperTestStudent
 		}*/
 	}
 	
+	@Test
 	public void testUpdateStudent()
 	{
-		try {
+		/*try {
 			Map<String, Object> students = new HashMap<>();
 			students.put("ids", new String[]{"117371","117372"});
 			students.put("studentName", "zyc2");
 			am.updateStudent(students);
 		} 
-		catch (Exception e) {
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}*/
+	}
+	
+	@Test
+	public void testQueryStudent()
+	{
+		try 
+		{
+			List<Student> list = am.queryStudent(null);
+			for (Student student : list) 
+			{
+				System.out.println(student);
+			}
+		} 
+		catch (Exception e) 
+		{
 			System.out.println(e);
 		}
 	}

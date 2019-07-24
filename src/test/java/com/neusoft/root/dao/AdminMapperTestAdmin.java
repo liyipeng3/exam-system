@@ -44,21 +44,20 @@ public class AdminMapperTestAdmin
 	@Test
 	public void testUpdateAdmin()
 	{
-		/*Map<String, Object> admins = new HashMap<>();
+		Map<String, Object> admins = new HashMap<>();
 		admins.put("ids", new String[]{"123","1234"});
-		admins.put("adminName", "zyc1");
-		admins.put("adminPassword", "zyc1");
-		am.updateAdmin(admins);*/
+		admins.put("adminName", "zyc2");
+		am.updateAdmin(admins);
 	}
 	
 	@Test
 	public void testQueryAdmin()
 	{
-		List<Admin> list = am.queryAdmin(null);
+		/*List<Admin> list = am.queryAdmin(null);
 		for (Admin admin : list) 
 		{
 			System.out.println(admin);
-		}
+		}*/
 	}
 	
 	
