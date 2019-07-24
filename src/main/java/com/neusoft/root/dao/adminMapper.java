@@ -1,5 +1,7 @@
 package com.neusoft.root.dao;
 
+
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -22,69 +24,69 @@ import com.neusoft.root.domain.Teacher;
 public interface adminMapper 
 {
 	//管理员
-	public void AddAdmin(Admin pAdmin);
-	public void DeleteAdmin(Admin pAdmin);
-	public void UpdateAdmin(Map<String ,Object> pAdmin);
-	public Admin QueryAdmin(Admin pAdmin);
+	public void addAdmin(Admin pAdmin);
+	public void deleteAdmin(Admin pAdmin);
+	public void updateAdmin(Map<String ,Object> pAdmin);
+	public List<Object> queryAdmin(Admin pAdmin);
 	
 	//学生
-	public void AddStudent(Student pStudent);
-	public void DeleteStudent(Student pStudent);
-	public void UpdateStudent(Map<String ,Object> pStudent);
-	public Student QueryStudent(Student pStudent);
+	public void addStudent(Student pStudent);
+	public void deleteStudent(Student pStudent);
+	public void updateStudent(Map<String ,Object> pStudent);
+	public List<Object> queryStudent(Student pStudent);
 	
 	//班级
-	public void AddClass(Class1 pclasss);
-	public void DeleteClass(Class1 pclass);
-	public void UpdateClass(Map<String ,Object> pclass);
-	public Class1 QueryClass(Class1 pClass1);
+	public void addClass(Class1 pclasss);
+	public void deleteClass(Class1 pclass);
+	public void updateClass(Map<String ,Object> pclass);
+	public List<Object> queryClass(Class1 pClass1);
 	
 	//老师
-	public void Addteacher(Teacher pteacher);
-	public void Deleteteacher(Teacher pteacher);
-	public void Updateteacher(Map<String ,Object> pteacher);
-	public Teacher Queryteacher(Teacher pTeacher);
+	public void addteacher(Teacher pteacher);
+	public void deleteteacher(Teacher pteacher);
+	public void updateteacher(Map<String ,Object> pteacher);
+	public List<Object> queryteacher(Teacher pTeacher);
 	
 	//课程
-	public void AddCource(Course pcourse);
-	public void DeleteteCourse(Course pcourse);
-	public void UpdateCourse(Map<String ,Object> pcourse);
-	public Course Querycourse(Course pCourse);
+	public void addCource(Course pcourse);
+	public void deleteteCourse(Course pcourse);
+	public void updateCourse(Map<String ,Object> pcourse);
+	public List<Object> querycourse(Course pCourse);
 	
 	//记录
-	public void  AddLog(Log plog);
-	public void DeleteLog(Log plog);
-	public void UpdateLog(Map<String ,Object> plog);
-	public Log QueryLog(Log plog);
+	public void  addLog(Log plog);
+	public void deleteLog(Log plog);
+	public void updateLog(Map<String ,Object> plog);
+	public List<Object> queryLog(Log plog);
 	
 	
 	//学生安排考试表的增删改查
-	public void  AddManagestudent(Managestudent pmanagestudent);
-	public void DeleteManagestudent(Managestudent pmanagestudent);
-	public void UpdateManagestudent(Map<String ,Object> pmanagestudent);
-	public Managestudent QueryManagestudent(Managestudent pmanagestudent);
+	public void  addManagestudent(Managestudent pmanagestudent);
+	public void deleteManagestudent(Managestudent pmanagestudent);
+	public void updateManagestudent(Map<String ,Object> pmanagestudent);
+	public List<Object> queryManagestudent(Managestudent pmanagestudent);
 	
 	//老师安排考试表的增删改查
-	public void  AddManageteacher(Manageteacher pManageteacher);
-	public void DeleteManageteacher(Manageteacher pManageteacher);
-	public void UpdateManageteacher(Map<String ,Object> pManageteacher);
-	public Item QueryManageteacher(Manageteacher pManageteacher);
+	public void  addManageteacher(Manageteacher pManageteacher);
+	public void deleteManageteacher(Manageteacher pManageteacher);
+	public void updateManageteacher(Map<String ,Object> pManageteacher);
+	public List<Object> queryManageteacher(Manageteacher pManageteacher);
 	
 	//对消息进行增删查操作
-	public void AddMessage(Message pMessage);
-	public void DeleteMessage(Message pMessage);
-	public Message QueryMessage(Message pMessage);
+	public void addMessage(Message pMessage);
+	public void deleteMessage(Message pMessage);
+	public List<Object> queryMessage(Message pMessage);
 	
 	//学生答题结果
-	public void AddResult(Result pResult);
-	public Result QueryResult(Result pResult);
+	public void addResult(Result pResult);
+	public List<Object> queryResult(Result pResult);
 	
 	//论坛帖子的增加删除查询
-	public void AddForum(Forum pForum);
-	public void DeleteForum(Forum pForum);
-	public Forum QueryForum(Forum pForum);
+	public void addForum(Forum pForum);
+	public void deleteForum(Forum pForum);
+	public List<Object> queryForum(Forum pForum);
 	
 	//老师批卷结果的查询
-	public Check QueryCheck(Check pCheck);
+	public List<Object> queryCheck(Check pCheck);
 	
 }
