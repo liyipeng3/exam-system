@@ -10,7 +10,8 @@ import com.neusoft.root.domain.manageteacher;
 import com.neusoft.root.domain.student;
 import com.neusoft.root.domain.teacher;
 
-public interface adminMapper {
+public interface adminMapper 
+{
 	public void AddAdmin(admin pAdmin);
 	public void DeleteAdmin(admin pAdmin);
 	public void UpdateAdmin(admin pAdmin);

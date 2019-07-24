@@ -12,7 +12,6 @@
     <script type="text/javascript" src="./js/ksx_probe.js"></script>
     <script type="text/javascript">
         var opts = {};
-
         //添加gio
         ksxProbe.gioInit(opts);
         //添加tingyun
@@ -51,9 +50,9 @@
     </div>
     <div class="login-content-wrap">
         <div class="login-content">
-            <form action="https://www.com/account/login" name="form_wm" class="login-form" id="loginForm">
+            <form action="/sm/login" name="form_wm" class="login-form" id="loginForm">
                 <img src="./img/logo.png" alt="logo" class="logo">
-                <div class="main-error-tips" id="errormsg"></div>
+                <div class="main-error-tips"></div>
 
                 <div class="username">
                     <em class="icon icon-a_landing_account"></em>
@@ -69,9 +68,10 @@
                     <label for="saveUsername" class="hidden"><input type="checkbox" id="saveUsername" name="autoLogin">7天自动登录</label>
                     <a href="https://www.com/account/find_pwd/140092" class="forget-password">忘记密码</a>
                 </div>
+                <div class="main-error-tips" id="errormsg"></div>
                 <a href="javascript:void(0);" class="btn btn-login btn-primary" id="loginBtn">登录</a>
 
-                <a href="./register.html" class="btn-regist btn-examinee-reg">注册考生账号</a>
+                <a href="./register" class="btn-regist btn-examinee-reg">注册考生账号</a>
 
                 <div class="login-content-footer">
 
@@ -155,7 +155,7 @@
             var _this = $("#companyLogo");
 
             $.ajax({
-                type: "GET",
+                type: "POST",
                 cache: false,
                 dataType: "json",
                 url: "/admin/modify_get_logo",
@@ -207,7 +207,7 @@
         $("#spinnerLoading").addClass("hide");
 
         $.ajax({
-            type: "post",
+            type: "POST",
             url: "/account/set_cookie",
             dataType: "json",
             data: "cookieName=" + cookieName + "&cookieValue=" + cookieValue + "&expiresTime=" + expiresTime,
@@ -253,9 +253,6 @@
 
 </script>
 <script>
-    var domain = "";
-
-    domain = "140092";
 
     $(".userNameInput,.passwordInput").on("focus", function () {
         $(this).parent().addClass("focus");

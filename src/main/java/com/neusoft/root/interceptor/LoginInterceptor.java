@@ -13,7 +13,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 			throws Exception {
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("flag");
-		System.out.println("LoginInterceptor preHandle");
 		if(username != null){
 			System.out.println("LoginInterceptor preHandle true:" + username);
 			return true;
@@ -21,7 +20,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		else{
 			//response.sendRedirect("url");
 			System.out.println("LoginInterceptor preHandle false:" + username);
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/login").forward(request, response);
 			return false;
 		}
 	}

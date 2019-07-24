@@ -84,94 +84,48 @@ function userLogin() {
         var dataForm, password;
         var nextUrl = getQueryString("nextUrl");
 
-        if (domain != "") {
-            //独立入口
-            if (filter1.test(username) || filter2.test(username)) {
-                $("#username_tran").val(username);
-            } else {
-                $("#username_tran").val(username + '@' + domain);
-            }
 
-            dataForm = $("#loginForm [type!=password]").serialize();
-            password = $("#loginForm [name=password]").val();
-
-            dataForm += "&password=" + md5(password) + "&nextUrl=" + nextUrl;
-
-            //默认为英文
-            if (domain == '46561') {
-
-                var cookieName = "language";
-                var cookieValue = "en";
-                var expiresTime = "86400";
-
-                $.ajax({
-                    type: "POST",
-                    cache: "false",
-                    headers: {"cache-control": "no-cache"},
-                    async: false,
-                    url: "/account/set_cookie",
-                    data: "cookieName=" + cookieName + "&cookieValue=" + cookieValue + "&expiresTime=" + expiresTime,
-                    success: function (msg) {
-                    }
-                })
-
-            }
-            $("#loginBtn").addClass("disabled");
-            $.ajax({
-                type: "POST",
-                cache: "false",
-                headers: {"cache-control": "no-cache"},
-                dataType: "json",
-                url: "/login/checkAccount",
-                data: dataForm,
-                success: function (msg) {
-                    if (msg.success) {
-                        {
-                            window.location.href = "/index.html";
-                        }
-                    } else {
-                        $("#loginBtn").removeClass("disabled");
-                        $("#errormsg").text(msg.desc);
-                    }
-                }
-            })
-        } else {
-            //公共入口
+        if (filter1.test(username) || filter2.test(username)) {
             $("#username_tran").val(username);
-
-            dataForm = $("#loginForm [type!=password]").serialize();
-            password = $("#loginForm [name=password]").val();
-
-            dataForm += "&password=" + md5(password);
-
-            if (filter2.test(username) || filter3.test(username) || (/^\d{11}$/.test(username))) {
-                $("#loginBtn").addClass("disabled");
-                $.ajax({
-                    type: "POST",
-                    cache: "false",
-                    headers: {"cache-control": "no-cache"},
-                    dataType: "json",
-                    url: "/login/checkAccount",
-                    data: dataForm,
-                    success: function (msg) {
-                        if (msg.success) {
-
-                            window.location.href = "/index.html";
-
-                        } else {
-                            $("#loginBtn").removeClass("disabled");
-                            $("#errormsg").text(msg.desc);
-                        }
-                    }
-                })
-            } else {
-                if (username == 'admin') {
-                    $("#errormsg").text('请补全账号后缀');
-                } else {
-                    $("#errormsg").text('非管理员请从机构独立入口登录，独立入口请联系组织者获取');
-                }
-            }
+        } else {
+            $("#username_tran").val(username + '@' + domain);
         }
+
+        dataForm = $("#loginForm [type!=password]").serialize();
+        password = $("#loginForm [name=password]").val();
+
+        dataForm += "&password=" + md5(password) + "&nextUrl=" + nextUrl;
+        $("#loginBtn").addClass("disabled");
+        $.ajax({
+            type: "POST",
+            cache: "false",
+            headers: {"cache-control": "no-cache"},
+            dataType: "text",
+            url: "/sm/login/checkAccount",
+            data: dataForm,
+            success: function (msg) {
+                if (msg === "admin") {
+
+                    window.location.href = "/sm/index";
+
+                } else if (msg === "student") {
+
+                    window.location.href = "/sm/student"
+
+                } else if (msg === "teacher") {
+
+                    window.location.href = "/sm/teacher"
+                    
+                } else {
+                    $("#loginBtn").removeClass("disabled");
+                    $("#errormsg").text(msg);
+                }
+            },
+            error: function (msg) {
+                console.log(msg)
+            }
+        })
+
     }
 }
 
