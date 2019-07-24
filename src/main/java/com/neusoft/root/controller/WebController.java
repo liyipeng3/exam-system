@@ -21,6 +21,10 @@ public class WebController {
 	public String student() {
 		return "/student.html";
 	}
+	@RequestMapping("/teacher")
+	public String teacher() {
+		return "/teacher.html";
+	}
 	@RequestMapping("/saved_source")
 	public String saved_source() {
 		return "/saved_source.html";
