@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
+    <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="author" content="">
+    <script async="" src="./js/tingyun-rum-admin.js"></script>
+    <script async="" src="./js/gio.js"></script>
+    <script type="text/javascript" src="./js/ksx_probe.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '在线考试平台管理系统';
+        opts.rightsGrade = '8';
+
+        //添加gio
+        ksxProbe.gioInit(opts);
+        //添加tingyun
+        ksxProbe.tingyun();
+    </script>
+    <title>考试云平台</title>
+
+
+    <link rel="shortcut icon" href="img/logo.ico">
+
+
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/admin_base.css">
+    <link rel="stylesheet" type="text/css" href="./css/ksx-base.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/jquery.bootgrid.css">
+    <link rel="stylesheet" type="text/css" href="./css/pikaday.css">
+    <link rel="stylesheet" type="text/css" href="./css/admin_index.css">
+    <link rel="stylesheet" type="text/css" href="./css/admin_index_add.css">
+    <link rel="stylesheet" type="text/css" href="./css/cannotlink_modal.css">
+    <script src="./js/entrance.js" id="zhichiScript" class="zhiCustomBtn"></script>
+    <script>
+        //初始化智齿咨询组件实例
+        var zhiManager = (getzhiSDKInstance());
+        //再调用load方法
+        zhiManager.on("load", function () {
+            zhiManager.initBtnDOM();
+        });
+        //设置入口方位//按钮将显示在右下角 默认显示在右下角
+        zhiManager.set('location', 1);
+        //设置悬浮窗的水平位置
+        //true 自定义咨询按钮 废弃系统默认按钮
+        zhiManager.set('customBtn', 'true');
+        //设置自动强制发起会话
+        //    setTimeout(function(){
+        //        zhiManager.expand();
+        ////      zhiManager.set('autoExpand', true);
+        //    },5000);
+        //默认：当为左下时，则水平距离左边100px。当为右下时，则水平距离右边100px
+        zhiManager.set('customMargin', 30);
+        //    zhiManager.set('horizontal', 0);
+        zhiManager.set('manTrace', true); //开启收集用户方访问轨迹 默认不收集
+    </script>
+
+    <style type="text/css">  .JColResizer {
+        table-layout: fixed;
+    }
+
+    .JColResizer > tbody > tr > td, .JColResizer > tbody > tr > th {
+        overflow: hidden;
+    }
+
+    .JCLRgrips {
+        height: 0px;
+        position: relative;
+    }
+
+    .JCLRgrip {
+        margin-left: -5px;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .JCLRgrip .JColResizer {
+        position: absolute;
+        background-color: red;
+        filter: alpha(opacity=1);
+        opacity: 0;
+        width: 10px;
+        height: 100%;
+        cursor: col-resize;
+        top: 0px
+    }
+
+    .JCLRLastGrip {
+        position: absolute;
+        width: 1px;
+    }
+
+    .JCLRgripDrag {
+        border-left: 1px dotted black;
+    }
+
+    .JCLRFlex {
+        width: auto !important;
+    }
+
+    .JCLRgrip.JCLRdisabledGrip .JColResizer {
+        cursor: default;
+        display: none;
+    }</style>
+    <style></style>
+</head>
+
+
+<body>
+<div class="viewFrameWork sidebar-full" id="viewFrameWork">
+
+    <div class="viewFrameWork-statusbar">
+
+        <a href="https://admi.com/account/admin/index" class="status-left company-logo" title="logo"
+           id="companyLogo">
+            <!--对有没有logo进行判断-->
+            <img class="icon-logo logo-ksx" src="./img/logo.png"></a>
+
+
+        <div class="status-middle toolbar">
+            <div class="body-toolbar">
+                <div class="nav-title pull-left">
+                    <div class="company-name">在线考试平台教师管理系统</div>
+
+                </div>
+                <div class="body-toolbar-right pull-right toolbar-right-operation">
+                    <div class="activity-btn hidden" id="activityBtn">
+                        <div class="activity-icon"></div>
+                        <div class="activity-title">查看党建内容平台</div>
+                    </div>
+                    <button type="button" class="btn btn-default" id="" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        考试登录地址
+                    </button>
+                    <div class="dropdown-menu login-info-panel">
+                        <div class="title">登录地址</div>
+                        <div class="qrcode" id="mobile_url_qrcode">
+                            <canvas width="100" height="100"></canvas>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <span id="login-link"
+                                  class="btn btn-default btn-url">https://ww.com/account/login/140092</span>
+                            <button class="btn btn-warning btn-copy" data-clipboard-target="#login-link"
+                                    id="copyUrlBtn">复制链接
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="status-right">
+            <div class="status-item item-notification" id="stateMessage">
+                <i class="icon item-icon icon-p_top_message"></i>
+                <span class="message-count hidden"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="viewFrameWork-main">
+
+        <div class="viewFrameWork-sidebar">
+            <div class="sidebar-inner">
+
+                <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
+                     data-container="body" title="" data-original-title="收起导航">
+                    <i class="icons8 icons8-icon"></i>
+                </div>
+
+
+                <div class="sidebar-nav">
+                    <ul class="sidebar-trans" id="ksxAdminSidebar">
+
+                        <li class="nav-item nav-item-index nav-item-active" id="navItemIndex">
+                            <a href="https://admi.com/account/admin/index/" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="首页">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_nav_home icon-index"></i>
+                                </div>
+                                <span class="nav-title">首页</span>
+                            </a>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemExam"><a
+                                href="https://admi.com/account/admin/index#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="考试管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
+                            <span class="nav-title">考试管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
+                                        href="/sm/html/exam/exam_mgr_new.html"><span class="nav-title">考试信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
+                                        href="https://.com/admin/testQuestions/#/list"><span
+                                        class="nav-title">试题库</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
+                                        href="https://admi.com/admin/paper_mgr_new"><span
+                                        class="nav-title">试卷库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
+                                        href="https://admi.com/admin/result/mgr_new"><span
+                                        class="nav-title">成绩查询批改</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
+                                        href="https://ne.com/ae/results/analysis/exam"><span
+                                        class="nav-title">分析考试</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
+                                        href="https://ne.com/ae/results/analysis/person"><span
+                                        class="nav-title">分析考生</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemUser"><a
+                                href="https://admi.com/account/admin/index#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="学生管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
+                            <span class="nav-title">学生管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
+                                        href="https://.com/admin/user/#/list"><span
+                                        class="nav-title">考生信息</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
+                                        href="https://admi.com/admin/user_reg"><span
+                                        class="nav-title">注册设置</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemCourse"><a
+                                href="https://admi.com/account/admin/index#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="学习">
+                            <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
+                            <span class="nav-title">学习</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
+                                        href="https://admi.com/admin/file/manager"><span
+                                        class="nav-title">知识库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
+                                        href="https://admi.com/course/course_mgr"><span
+                                        class="nav-title">课程管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
+                                        href="https://admi.com/course/study_record_mgr/course"><span
+                                        class="nav-title">学习记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item " id="navItemCertification"><a
+                                href="https://admi.com/certificate/certificate_center" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
+                            <div class="nav-icon"><i class="icon icon-p_leftnav_certification"></i></div>
+                            <span class="nav-title">认证中心</span></a></li>
+                        <li class="nav-item has-sub-menu" id="navItemPay"><a
+                                href="https://admi.com/account/admin/index#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="支付中心">
+                            <div class="nav-icon"><i class="icon icon-a_nav_pay"></i></div>
+                            <span class="nav-title">支付中心</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemPayCenter"><a
+                                        href="https://admi.com/account/admin_pay_center"><span
+                                        class="nav-title">充值</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaySet"><a
+                                        href="https://admi.com/admin/user_pay_set"><span
+                                        class="nav-title">支付设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemConsumeRecord"><a
+                                        href="https://admi.com/account/admin_consume_record"><span
+                                        class="nav-title">消费记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOrderRecord"><a
+                                        href="https://admi.com/account/admin_order_record"><span
+                                        class="nav-title">充值记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPayRecord"><a
+                                        href="https://admi.com/account/examinee_pay_record"><span
+                                        class="nav-title">考生付费记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemSystem"><a
+                                href="https://admi.com/account/admin/index#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="系统管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
+                            <span class="nav-title">系统管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
+                                        href="https://admi.com/admin/sub_admin_mgr"><span
+                                        class="nav-title">子管理员设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
+                                        href="https://admi.com/admin/app_set"><span
+                                        class="nav-title">App设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemModify"><a
+                                        href="https://admi.com/admin/modify"><span
+                                        class="nav-title">个性化设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
+                                        href="https://admi.com/admin/follow_app"><span
+                                        class="nav-title">关联公众号</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
+                                        href="https://admi.com/admin/dev_info_mgr"><span
+                                        class="nav-title">开发者信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
+                                        href="https://admi.com/account/admin_op_record"><span
+                                        class="nav-title">管理员操作记录</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="sidebar-bottom sidebar-btn">
+                <ul class="sidebar-trans">
+                    <li class="nav-item">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_help"></i>
+                            </div>
+                            <span class="nav-title">帮助</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel person-servers-panel">
+                            <div class="btn-help">
+                                <i class="icon icon-a_help_document"></i>
+                                <p><a href="https://www.kancloud.cn/exam-star/ksxhelp_1/974046">帮助文档</a></p>
+                            </div>
+                            <div class="btn-service">
+                                <i class="icon icon-a_help_service"></i>
+                                <span>人工客服</span>
+                                <p>
+                                    可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
+                                        href="javascript:;">在线咨询</a>或拔打电话<span>12580</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-user">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_my"></i>
+                            </div>
+                            <span class="nav-title">管理员</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel user-info-panel">
+
+                            <div class="user-info">
+                                <div class="info-img">
+                                    <img src="./img/default-pic.png" class="user_img" alt="">
+                                </div>
+                                <div class="info-detail clearfix">
+                                    <div class="user" id="user">
+                                        <span class="user-surname">东北大学软件园</span>
+                                        <i data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                           data-original-title="编辑信息">
+                                        </i>
+                                    </div>
+                                    <div class="company">
+                                        东北大学软件园
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="operate-group">
+                                <a class="operate-item exam-entrance" href="./student.html">
+                                    <i class="operate-icon icon-a_personal_switch"></i>
+                                    切换至考生端
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item exam-entrance"
+                                   href="https://admi.com/admin/admin_information">
+                                    <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
+                                       data-placement="top" data-container="body" title="" data-original-title="编辑信息">
+
+                                        <i class="unread-notice"></i>
+
+                                    </i>
+                                    修改个人信息
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item btn-exit" id="logoutBtn">
+                                    <i class="operate-icon icon-a_personal_exit"></i>
+                                    退出
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="viewFrameWork-body">
+            <!-- loading -->
+            <div class="spinner-wrapper hidden" id="spinnerLoading">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+
+            <div class="body-wrapper">
+                <div class="body-content">
+                    <div class="page_wrapper">
+
+                        <div class="company-status-wrapper">
+                            <div class="nav-state-icon nav-state-online progress-limit">
+                                <span class="state-online-title">在线人数</span>
+                                <span class="state-user-count" id="stateUserCount">0/25</span>
+                                <div class="progress">
+                                    <div class="progress-bar" id="stateUserCountBar" role="progressbar"
+                                         aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 0.0%;"></div>
+                                </div>
+                                <a href="https://ww.com/version" target="_blank"
+                                   class="go-version icon-a_circle_plus_outline"></a>
+                            </div>
+
+                            <div class="nav-state-icon nav-state-online progress-limit">
+                                <span class="state-online-title">注册人数</span>
+                                <span class="state-user-count" id="regUserCount">1/25</span>
+                                <div class="progress">
+                                    <div class="progress-bar" id="regUserCountBar" role="progressbar"
+                                         aria-valuenow="4.0" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 4.0%;"></div>
+                                </div>
+                                <a href="https://ww.com/version" target="_blank"
+                                   class="go-version icon-a_circle_plus_outline"></a>
+                            </div>
+
+                            <div class="nav-state-icon nav-state-online progress-limit">
+                                <span class="state-online-title">存储空间</span>
+                                <span class="state-online-store" id="stateOnlineStore">0.0/100.0MB</span>
+                                <div class="progress">
+                                    <div class="progress-bar" id="stateOnlineStoreBar" role="progressbar"
+                                         aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 0.0%;"></div>
+                                </div>
+                                <a href="https://ww.com/version" target="_blank"
+                                   class="go-version icon-a_circle_plus_outline"></a>
+                            </div>
+
+                            <div class="nav-state-icon nav-state-online progress-limit">
+                                <span class="state-online-title">消耗流量</span>
+                                <span class="state-flow" id="stateFlow">0.0/1.0GB</span>
+                                <div class="progress">
+                                    <div class="progress-bar" id="stateFlowBar" role="progressbar" aria-valuenow="0.0"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 0.0%;"></div>
+                                </div>
+                                <a href="https://ww.com/version" target="_blank"
+                                   class="go-version icon-a_circle_plus_outline"></a>
+                            </div>
+
+                        </div>
+
+                        <div class="quick-start-wrapper clearfix">
+
+                            <a href="javasrcipt:void(0);" class="item-wrapper add_exam"
+                               data-growing-title="item-add-exam">
+                                <div class="item item-add-exam animate">
+                                    <div class="icon">
+                                        <img src="./img/a_create_tests.svg">
+                                    </div>
+                                    <div class="title">创建考试</div>
+                                    <div class="intro">可选择创建新试卷，或从试卷库中选择一张试卷考试</div>
+                                </div>
+                            </a>
+
+                            <a href="https://admi.com/admin/online_import_html" class="item-wrapper"
+                               data-growing-title="item-add-question">
+                                <div class="item item-add-question animate">
+                                    <div class="icon">
+                                        <img src="./img/a_add_test_questions.svg">
+                                    </div>
+                                    <div class="title">添加试题</div>
+                                    <div class="intro">手动录入或批量录入试题，完善您的试题库</div>
+                                </div>
+                            </a>
+
+                            <a href="https://.com/admin/user/#/list?userAdd=1" class="item-wrapper"
+                               data-growing-title="item-add-user">
+                                <div class="item item-add-user animate">
+                                    <div class="icon">
+                                        <img src="./img/a_add_people.svg">
+                                    </div>
+                                    <div class="title">添加人员</div>
+                                    <div class="intro">填写账号信息及人员信息，添加人员至相关部门</div>
+                                </div>
+                            </a>
+
+                            <a href="https://admi.com/course/course_add" class="item-wrapper"
+                               data-growing-title="item-add-course">
+                                <div class="item item-add-course animate">
+                                    <div class="icon">
+                                        <img src="./img/a_createz_courses.svg">
+                                    </div>
+                                    <div class="title">创建课程</div>
+                                    <div class="intro">填写课程相关信息，并设置关联课件及可学人员</div>
+                                </div>
+                            </a>
+
+
+                        </div>
+
+
+                        <div class="exam_process_wrapper">
+                            <div class="top_wrapper">
+                                <div class="exam_process_top">
+                                    <h1 class="exam_process_title">正在进行的考试（1）</h1>
+                                    <span class="see_all">
+														<a data-toggle="collapse"
+                                                           href="https://admi.com/account/admin/index#collapseExaming"
+                                                           aria-expanded="false"
+                                                           aria-controls="collapseExaming" id="collapseExamingBtn">
+														展开<i class="icon-a_arrow_down"></i>
+													</a>
+												</span>
+                                </div>
+                                <div class="divide_line"></div>
+                            </div>
+
+
+                            <div class="item-wrapper clearfix">
+
+                                <div class="page_item animate">
+                                    <div class="page_item_main">
+                                        <div class="page_item_title">
+                                            <span class="common-title">考试示例</span>
+                                            <div class="user-handle disInBlock">
+                                                <span class="disInBlock">操作</span>
+                                                <span class="disInBlock icon-a_arrow_down handle-arrow-bottom"></span>
+                                                <div class="user-handle-menu drop-menu menu-hide">
+                                                    <p onclick="editExamLink(&#39;/admin/exam/update/293974&#39;)">
+                                                        <a href="javascript:void(0);">
+                                                            <span class="disInBlock l icons8-edit"></span>
+                                                            <span>编辑考试</span>
+                                                        </a>
+                                                    </p>
+                                                    <p class="linkExam">
+                                                        <a href="https://admi.com/account/admin/index#"
+                                                           examid="293974" examname="考试示例" setprocess="0">
+                                                            <span class="disInBlock l icons8-attach"></span>
+                                                            <span>分享链接</span>
+                                                        </a>
+                                                    </p>
+                                                    <p>
+                                                        <a href="https://admi.com/admin/result/mgr_new?examInfoId=293974">
+																	<span class="disInBlock l icon-a_operate_mark"
+                                                                          style="margin-top: 7px;"></span>
+                                                            <span>成绩查询批改</span>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="page_item_time">2019-07-22 17:50 至 2019-07-25 17:50</p>
+                                        <ul class="page_item_information">
+                                            <li>分数：100.0</li>
+                                            <li>方式：登录考试</li>
+                                            <li>类型：选题组卷</li>
+
+                                            <li>时长：60分钟</li>
+
+
+                                        </ul>
+                                        <p class="examer_total"><span style="color:#1A8CFE">0人</span>正在考试</p>
+                                    </div>
+                                    <img class="page-rect-icon" src="./img/rect_00.png" alt="">
+                                </div>
+
+                            </div>
+
+                            <div class="item-wrapper collapse" id="collapseExaming">
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 正在进行 结束 -->
+
+                        <!-- 正在进行的课程 开始 -->
+
+                        <div class="exam_near_wrapper">
+                            <div class="top_wrapper">
+                                <div class="exam_near_top">
+                                    <h1 class="exam_near_title">正在进行的课程（0）</h1>
+                                    <span class="see_all">
+												<a data-toggle="collapse"
+                                                   href="https://admi.com/account/admin/index#collapseCourse"
+                                                   aria-expanded="false" aria-controls="collapseCourse"
+                                                   id="collapseCourseBtn">
+												展开<i class="icon-a_arrow_down"></i>
+											</a>
+										</span>
+                                </div>
+                                <div class="divide_line"></div>
+                            </div>
+
+
+                            <div class="placeholder">
+                                还没有正在进行的课程，快去创建一堂课程吧～
+                            </div>
+
+
+                        </div>
+
+                        <!-- 最近添加 结束 -->
+
+                        <!-- 正在进行的任务 开始 -->
+
+                        <div class="exam_near_wrapper">
+                            <div class="top_wrapper">
+                                <div class="exam_near_top">
+                                    <h1 class="exam_near_title">正在进行的任务（0）</h1>
+                                    <span class="see_all">
+											<a data-toggle="collapse"
+                                               href="https://admi.com/account/admin/index#collapseTask"
+                                               aria-expanded="false" aria-controls="collapseTask" id="collapseTaskBtn">
+											展开<i class="icon-a_arrow_down"></i>
+										</a>
+									</span>
+                                </div>
+                                <div class="divide_line"></div>
+                            </div>
+
+
+                            <div class="placeholder">
+                                还没有正在进行的任务，快去创建一个自定义任务吧～
+                            </div>
+
+
+                        </div>
+
+                        <!-- 最近添加 结束 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--超管后台新版本通知-->
+<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-600 change-log-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title"></div>
+                <div class="version"></div>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="getChangeBtn">知道了</button>
+                    <a href="https://ww.com/change/log/" target="_blank" class="more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="okModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-share" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">考试链接</h4>
+            </div>
+            <div class="modal-body">
+                <div class="qr-code">
+                    <div id="invite-link-qrcode" class="invite-link-qrcode"></div>
+                    <div class="download-qrcode">
+                        <p class="qrcode-prompt">微信扫码后可直接考试</p>
+                        <!-- <a id="downloadImgLink"><img src="/admin/static/newVersion/images/download_erweima.png" style="margin:25px 0"></a> -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-download dropdown-toggle"
+                                    data-toggle="dropdown">
+                                下载<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a download-size="0" class="downloadImgLink"
+                                       href="https://admi.com/account/admin/index#">小</a></li>
+                                <li><a download-size="1" class="downloadImgLink"
+                                       href="https://admi.com/account/admin/index#">中</a></li>
+                                <li><a download-size="2" class="downloadImgLink"
+                                       href="https://admi.com/account/admin/index#">大</a></li>
+                            </ul>
+                        </div>
+                        <span id="small" style="display: none;"></span>
+                        <span id="medium" style="display: none;"></span>
+                        <span id="large" style="display: none;"></span>
+                    </div>
+                </div>
+                <div class="guide">
+                    <span class="address">考试地址：<span id="exam_url"></span></span>
+                    <button type="button" data-clipboard-target="#exam_url" class="btn btn-default btn-copy">复制链接
+                    </button>
+                </div>
+                <div step="6" class="guide guide-pwd hidden">
+                    <span class="address">考试密码：<span id="exam_password"></span></span>
+                    <button type="button" class="btn btn-default btn-copy" id="copyPasswordLink"
+                            data-clipboard-target="#exam_password">复制考试密码
+                    </button>
+                </div>
+                <form action="https://admi.com/admin/exam_notice/" name="form" method="post" id="sendForm"
+                      class="sendForm">
+                    发送考试通知:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="sendEmail" type="checkbox" id="email" class="email" value="1">
+                    邮件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="sendMessage" type="checkbox" id="message" class="message" value="1">
+                    短信
+                    <i class="help-tips">
+                        ?
+                        <div class="notificationTips">
+                            <h4>什么是"发送考试通知"?</h4>
+                            <p>
+                                将会发送考试的日期、时间、考试名称和考试链接给考生。支持对已验证邮箱的考生发送邮件,和对已预留手机号的考生发送短信,如无考生联系方式,将无法送达。发送短信时,第三方供应商将会收取一定的费用。<a
+                                    href="https://admi.com/account/admin_pay_center">去充值-&gt;</a></p>
+                            <div>
+                                <img src="./img/SMS_notification.png">
+                                <div class="notification">
+                                    <p class="notificationContent"></p>
+                                    <p class="notificationUrl"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </i>
+                </form>
+                <div class="btn-div">
+                    <button type="button" class="btn btn-primary btnOk" id="confirmOkBtn" data-dismiss="modal">确定
+                    </button>
+                    <button class="btn btn-warning" id="trialExamBtn" disabled=""></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--关联自定义任务时的弹窗-->
+<div class="modal fade cannotLinkModal" id="cannotLinkExamModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">考试链接</h4>
+            </div>
+            <div class="modal-body">
+                <div>本场考试已关联自定义任务，无法通过二维码、链接进入，请前往考生端参加本场考试</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--关联自定义任务时的弹窗-->
+<div class="modal fade cannotLinkModal" id="cannotLinkCourseModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">课程链接</h4>
+            </div>
+            <div class="modal-body">
+                <div>本门课程已关联自定义任务，无法通过二维码、链接进入，请前往考生端学习本门课程。</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sendAnimation">消息发送中...群发完成后您将在消息中心收到提醒</div>
+<div class="spinner-wrapper hidden" id="animationLoading">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="browserTipModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">为了您更佳的使用体验，<br>建议您通过以下浏览器访问考试星系统</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="browser browser-chrome">
+                    <img src="./img/logo_chrome.png" alt="">
+                    <span class="browser-name">Chrome浏览器</span>
+                    <span class="browser-support">支持win10/8/7、Mac等</span>
+                    <div class="download-src">
+                        <a href="https://www.google.cn/chrome/">下载链接</a>
+                    </div>
+                </div>
+                <div class="browser browser-360">
+                    <img src="./img/logo_360.png" alt="">
+                    <span class="browser-name">360极速浏览器</span>
+                    <span class="browser-support">支持win10/8/7／xp等</span>
+                    <div class="download-src">
+                        <a href="https://browser.360.cn/ee/">下载链接</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="partyBuildingModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="party-title">考试星党建云内容平台上线啦！</div>
+                <div class="party-desc">
+                    考试星联手权威专家团<br>
+                    打造党建学习+考试一站式内容平台<br>
+                    高效提升党建学习效率<br>
+                </div>
+                <div class="party-building-btn" id="partyBuildingBtn">去查看</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/jquery.bootgrid-ksx.js"></script>
+<script type="text/javascript" src="./js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="./js/colResizable-1.6.min.js"></script>
+<script type="text/javascript" src="./js/admin-base.js"></script>
+<script>
+    // these are global constant
+    var LOCAL_URL = window.location.href;
+    var USER_ROLE = 'admin';
+    var rights = '8';
+    var surname = "在线考试平台管理系统";
+    var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
+    var tool_html = '';//消息内容
+    var tool_count = 0;//消息数目
+    var user_id = "7387836";
+    var getAdminUrlPrefix = 'https://admi.com';
+    var getUrlPrefix = '';
+    var getAnalysisUrlPrefix = 'https://ne.com';
+    var getStaticUrlPrefix = 'https://.com';
+
+    //当前request返回页面对应导航id
+
+    var activeNavItem = 'navItemIndex';
+
+    // gio 在线咨询
+    $("body").on('click', '.gio-inquire-position', function () {
+        //推送咨询事件
+        ksxProbe.gioTrack('onlineInquire', 1, {
+            'inquireFromPage_var': window.location.href,
+            'inquireFromPageName_var': '管理员端',
+            'inquireFromPosition_var': $(this).attr('data-gio-position')
+        });
+    });
+
+
+    //智齿 官网右下角图标
+    $("body").on('click', '#zhichiBtnBox', function () {
+        var title = $(this).find('.zc-advice-icon-btn-title').text();
+
+        if (title == '收起') {
+            //推送咨询事件
+            ksxProbe.gioTrack('onlineInquire', 1, {
+                'inquireFromPage_var': window.location.href,
+                'inquireFromPageName_var': '管理员端',
+                'inquireFromPosition_var': '管理员端右下角咨询'
+            });
+        }
+    });
+
+    $(function () {
+
+
+        // 更新消息已读
+        $("#getChangeBtn").click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/admin/read_public',
+                type: 'get',
+                cache: false,
+                dataType: 'json',
+                success: function (msg) {
+                    $("#changeLogModal").modal('hide');
+                }
+            })
+        });
+
+    });
+
+
+    $(document).ready(function () {
+
+        // $("#user").click(function(){
+        //     window.location.href="/admin/admin_information";
+        //     $(".unread-notice").hide();
+        //
+        // });
+
+        //    自管理员点击添加考生，添加试题，创建考试时的权限判断
+        $("#staff,#test,#exam").on("click", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var type = $(this).prop("id");
+            var url = $(this).prop("href");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/admin/checkout_sub_admin_right",
+                data: "type=" + type,
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = url;
+                    } else {
+                        alert(msg.desc);
+                    }
+                }
+
+            })
+        });
+    });
+
+
+</script>
+<script type="text/javascript" src="./js/pikaday.js"></script>
+<script type="text/javascript" src="./js/pikaday.jquery.js"></script>
+<script src="./js/jquery.qrcode.min.js"></script>
+<script src="./js/clipboard.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //系统公告
+        $(".alert-close").click(function () {
+            $(".page_wrapper").removeClass("alert-content");
+        });
+
+        //查看全部／收起
+        function showMore(target) {
+
+            $('#' + target + '').on('hidden.bs.collapse', function () {
+                $("#" + target + "Btn").html('展开<i class="icon-a_arrow_down"></i>');
+            }).on('shown.bs.collapse', function () {
+                $("#" + target + "Btn").html('收起<i class="icon-a_arrow_up"></i>');
+            });
+
+        }
+
+        showMore('collapseExaming');
+        showMore('collapseCourse');
+        showMore('collapseTask');
+
+        //弹窗跳转逻辑优化
+        $('.item-wrapper.add_exam').click(function (e) { //创建考试
+            e.preventDefault();
+            e.stopPropagation();
+            window.localStorage.setItem('okModalExamRef', 'index'); //记下是从首页进入的创建，以便跳转回来
+            window.location.href = '/admin/paper_add_new';
+        });
+
+
+        // 生成二维码
+        $("#mobile_url_qrcode").qrcode({
+            size: 100,
+            text: "https://ww.com/account/login/140092",
+            background: "#FFF"
+        });
+
+        //显示考试链接
+        $(".linkExam").on("click", function (e) {
+            var examId = $(this).children("a").attr("examId");
+            var examName = $(this).children("a").attr("examName");
+            var setProcess = $(this).children("a").attr("setProcess");
+            e.stopPropagation();
+            e.preventDefault();
+            if (setProcess == 1) {
+                $("#cannotLinkExamModal").modal("show");
+            } else {
+                getExamUrl(examId, examName);
+            }
+        });
+        $('.linkCourse').click(function () {
+
+            var courseId = $(this).attr("courseId");
+            var _this = this;
+            $.ajax({
+                type: 'POST',
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/course/link_info",
+                data: "courseId=" + courseId,
+                success: function (msg) {
+                    if (msg.success) {
+                        $("#trialExamBtn").html('<span class="try-exam">学一下</span>');
+                        var notification = msg.bizContent.msgContent.split(',');
+                        $('.notification .notificationContent').text(notification[0]);
+                        $('.notification .notificationUrl').text(notification[1]);
+                        var setProcess = $(_this).attr("setProcess");
+                        if (setProcess == 1) {
+                            $("#cannotLinkCourseModal").modal("show");
+                        } else {
+                            showSelOk(courseId, msg.bizContent.courseLink, '', msg.bizContent.courseLink, 'course', 0);
+                        }
+                    } else {
+                        alert(msg.desc);
+                    }
+                },
+                error: function (error) {
+                    alert('获取链接失败，请重试');
+                }
+            })
+        })
+
+        function getExamUrl(examId, examName) {
+            //异步获取考试地址
+            $.ajax({
+                type: "GET",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/admin/exam/link_info/?examId=" + examId,
+                success: function (msg) {
+                    if (msg.success) {
+                        //管理员体验地址
+                        var url = msg.bizContent.trialUrl;
+                        $("#trialExamBtn").html('<span class="trial-link">考一下</span>');
+                        var notification = msg.bizContent.msgContent.split(',');
+                        $('.notification .notificationContent').text(notification[0]);
+                        $('.notification .notificationUrl').text(notification[1]);
+                        showSelOk(examId, msg.bizContent.examUrl, msg.bizContent.examPwd, url, 'exam', msg.bizContent.isSkipLogin)
+                    }
+                }
+            });
+        }
+
+
+        //显示下一步
+        $(".already_known").on("click", function () {
+            $(".create_new_wrapper").width(350);
+            $(".create_new_prompt").hide();
+            $("#guide-second").show();
+        });
+
+        $("#btn-second").on("click", function () {
+            $.ajax({
+                type: 'GET',
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/account/update_first_visit?firstUrl=account/admin/index",
+                success: function (msg) {
+                }
+            });
+            $("#guide-second").hide();
+        });
+
+    });
+
+    //复制链接到剪贴板
+    var clipboard = new Clipboard(".btn-copy");
+    clipboard.on('success', function (e) {
+        alert("复制成功!");
+    });
+
+    clipboard.on('error', function (e) {
+        alert("复制失败，请重试");
+    });
+
+    //版本小于10的IE浏览器进入考试星系统管理员页面时，弹出提示弹窗
+
+    // 判断浏览器是否支持placeholder属性
+    function isSupportPlaceholder() {
+        var input = document.createElement('input');
+        return 'placeholder' in input;
+    }
+
+    //判断是否是IE浏览器，包括Edge浏览器
+    function checkIEVersion() {
+        //取得浏览器的userAgent字符串
+        var userAgent = navigator.userAgent;
+        //判断是否IE浏览器
+        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+        if (isIE) {
+            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            reIE.test(userAgent);
+            var fIEVersion = parseFloat(RegExp["$1"]);
+            if (fIEVersion < 10 || !isSupportPlaceholder()) {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    function showBrowerModal() {
+        setCookie('adminBrowser', 1);
+        $("#browserTipModal").modal("show");
+    }
+
+    //如果是ie10以下
+    if (checkIEVersion()) {
+        //如果没有adminBrowser
+        if (!getCookie('adminBrowser')) {
+            showBrowerModal();
+        }
+    }
+
+    // 年终数据盘点
+    $(function () {
+        var companyIdCrypto;
+        var todaypartyBuilding = getCookie('partyBuilding');
+        var hasViewParty = getCookie('hasViewParty');
+        var hasTitle = "true";
+
+        //判断是否弹出 新功能推送弹窗，如果为true，则不主动弹出党建弹窗
+        if (hasTitle == "true") {
+            $.ajax({
+                type: 'GET',
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/check_annual_data/",
+                success: function (msg) {
+                    if (msg.success) {
+                        $("#activityBtn").removeClass("hidden");
+                        companyIdCrypto = msg.bizContent;
+
+                        if (todaypartyBuilding == '' && hasViewParty == '') {
+                            $("#partyBuildingModal").modal();
+
+                            //一天之内只显示一次
+                            var dateToday = new Date();
+                            dateToday.setTime(dateToday.getTime() + (7 * 24 * 60 * 60 * 1000));
+                            document.cookie = "partyBuilding=2018; expires=" + dateToday.toGMTString();
+                        }
+
+                        //活动二维码
+                        var activityUrl = window.location.protocol + '//' + window.location.host +
+                            '/annual_data_2018/' + companyIdCrypto;
+
+                        $("#activityQrcode").qrcode({
+                            size: 64,
+                            text: activityUrl,
+                            background: "#FFF"
+                        });
+
+                    }
+                }
+            });
+        }
+
+        //显示活动弹窗
+        $("#activityBtn").click(function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            $("#partyBuildingModal").modal();
+        });
+
+        //查看活动长图
+        $("#partyBuildingBtn").click(function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            var dateActivity = new Date(2019, 1, 1, 0, 0, 0);
+
+            dateActivity.setTime(dateActivity.getTime() + (31 * 24 * 60 * 60 * 1000));
+            document.cookie = "hasViewParty=true; expires=" + dateActivity.toGMTString();
+            window.open('https://ww.com/party_building', '_blank');
+        });
+
+
+    });
+
+
+    //首页修改
+    $('.user-handle').hover(function () {
+
+        $(this).find('.user-handle-menu').removeClass('menu-hide')
+
+    }, function () {
+
+        $(this).find('.user-handle-menu').addClass('menu-hide')
+    });
+
+    $('.user-handle-menu p').click(function (e) {
+        e.stopPropagation();
+        $(this).parent().addClass('menu-hide')
+
+    });
+
+    //编辑考试跳转
+    function editExamLink(url) {
+        window.open(url);
+    }
+</script>
+
+
+<div id="zhichiBtnBox"
+     style="position: fixed; z-index: 2147483583; box-shadow: rgba(15, 66, 76, 0.25) 0px 0px 14px 0px; width: 60px; height: 60px; border-radius: 50%; background-color: rgb(60, 140, 252); background-image: url(&quot;//www.sobot.com/chat/frame/imgs/icon.png&quot;); background-repeat: no-repeat; background-position: 18px -58px; right: 40px; bottom: 20px; display: none;">
+    <a hidefocus="" id="zhichiBtn"
+       style="position:relative;text-decoration: none; outline: none; font-family: Microsoft Yahei, Arial, Helvetica; color: #fff; font-size: 16px; display: inline-block; margin: 0; padding: 0; border: none; line-height:43px; float:none;width:100%;height:100%;border-radius:50%;"><span
+            class="zc-advice-icon-btn-title"
+            style="box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px; border: 1px solid rgb(235, 239, 240); font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; color: rgb(85, 85, 86); font-size: 13px; margin: 0px; text-align: right; background: rgb(255, 255, 255); position: absolute; top: 15px; right: 70px; text-overflow: ellipsis; white-space: nowrap; word-break: normal; display: none; border-radius: 3px; padding: 0px 5px; height: 30px; line-height: 30px;">咨询在线客服</span></a><i
+        style="position:absolute;top:0px;right:0px;padding:1px;line-height:20px;text-align:center;color:#fff;font-weight:bold;height:18px;min-width:18px;background-color:#ed5c5c;border-radius:18px;font-size:12px;display:none;font-style:normal;"
+        id="zhichiCount"></i></div>
+</body>
+</html>
