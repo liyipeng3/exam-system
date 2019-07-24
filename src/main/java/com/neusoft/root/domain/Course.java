@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 
-public class course {
+public class Course {
 	private String course_id;
 	private String course_name;
 	@Override
@@ -19,7 +19,7 @@ public class course {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		course other = (course) obj;
+		Course other = (Course) obj;
 		if (course_id == null) {
 			if (other.course_id != null)
 				return false;
@@ -32,12 +32,12 @@ public class course {
 			return false;
 		return true;
 	}
-	public course(String course_id, String course_name) {
+	public Course(String course_id, String course_name) {
 		super();
 		this.course_id = course_id;
 		this.course_name = course_name;
 	}
-	public course() {
+	public Course() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

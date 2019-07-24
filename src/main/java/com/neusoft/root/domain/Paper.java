@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 
-public class paper {
+public class Paper {
 	private String paper_id;
 	private String paper_type;
 	private Double paper_index;
@@ -64,7 +64,7 @@ public class paper {
 	public void setPaper_remark(String paper_remark) {
 		this.paper_remark = paper_remark;
 	}
-	public paper(String paper_id, String paper_type, Double paper_index, String choice_question, String fill_question,
+	public Paper(String paper_id, String paper_type, Double paper_index, String choice_question, String fill_question,
 			String subjective_question, Double paper_score, String paper_secrecy, String paper_remark) {
 		super();
 		this.paper_id = paper_id;
@@ -77,7 +77,7 @@ public class paper {
 		this.paper_secrecy = paper_secrecy;
 		this.paper_remark = paper_remark;
 	}
-	public paper() {
+	public Paper() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -104,7 +104,7 @@ public class paper {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		paper other = (paper) obj;
+		Paper other = (Paper) obj;
 		if (choice_question == null) {
 			if (other.choice_question != null)
 				return false;

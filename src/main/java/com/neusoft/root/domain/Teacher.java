@@ -1,16 +1,16 @@
 package com.neusoft.root.domain;
 
-public class teacher {
+public class Teacher {
 	private String teacher_id;
 	private String teacher_name;
 	private String teacher_password;
 	private String teacher_academy;
 	private String teacher_major;
-	public teacher() {
+	public Teacher() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public teacher(String teacher_id, String teacher_name, String teacher_password, String teacher_academy,
+	public Teacher(String teacher_id, String teacher_name, String teacher_password, String teacher_academy,
 			String teacher_major) {
 		super();
 		this.teacher_id = teacher_id;
@@ -38,7 +38,7 @@ public class teacher {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		teacher other = (teacher) obj;
+		Teacher other = (Teacher) obj;
 		if (teacher_academy == null) {
 			if (other.teacher_academy != null)
 				return false;

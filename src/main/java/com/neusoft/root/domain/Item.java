@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 
-public class item {
+public class Item {
 	private String item_id;
 	private String item_course_type;
 	private String item_type;
@@ -36,7 +36,7 @@ public class item {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		item other = (item) obj;
+		Item other = (Item) obj;
 		if (item_answer == null) {
 			if (other.item_answer != null)
 				return false;
@@ -84,11 +84,11 @@ public class item {
 			return false;
 		return true;
 	}
-	public item() {
+	public Item() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public item(String item_id, String item_course_type, String item_type, Double item_index, String item_question,
+	public Item(String item_id, String item_course_type, String item_type, Double item_index, String item_question,
 			String item_option, String item_answer, String item_picture, Double item_score) {
 		super();
 		this.item_id = item_id;

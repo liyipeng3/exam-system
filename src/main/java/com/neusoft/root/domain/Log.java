@@ -1,7 +1,7 @@
 package com.neusoft.root.domain;
 
 import java.sql.Date;
-public class log {
+public class Log {
 	private String log_id;
 	private String op_id;
 	private Date op_date;
@@ -28,7 +28,7 @@ public class log {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		log other = (log) obj;
+		Log other = (Log) obj;
 		if (log_id == null) {
 			if (other.log_id != null)
 				return false;
@@ -61,7 +61,7 @@ public class log {
 			return false;
 		return true;
 	}
-	public log(String log_id, String op_id, Date op_date, String op_type, String op_msg, String op_result) {
+	public Log(String log_id, String op_id, Date op_date, String op_type, String op_msg, String op_result) {
 		super();
 		this.log_id = log_id;
 		this.op_id = op_id;
@@ -70,7 +70,7 @@ public class log {
 		this.op_msg = op_msg;
 		this.op_result = op_result;
 	}
-	public log() {
+	public Log() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

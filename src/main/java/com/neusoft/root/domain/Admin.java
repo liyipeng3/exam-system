@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 
-public class admin {
+public class Admin {
 	
 	private String admin_password;
 	private  String admin_id;
@@ -22,7 +22,7 @@ public class admin {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		admin other = (admin) obj;
+		Admin other = (Admin) obj;
 		if (admin_id == null) {
 			if (other.admin_id != null)
 				return false;
@@ -40,13 +40,13 @@ public class admin {
 			return false;
 		return true;
 	}
-	public admin(String admin_id, String admin_name, String admin_password) {
+	public Admin(String admin_id, String admin_name, String admin_password) {
 		super();
 		this.admin_id = admin_id;
 		this.admin_name = admin_name;
 		this.admin_password = admin_password;
 	}
-	public admin() {
+	public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
