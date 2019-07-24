@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import com.neusoft.root.dao.Identification;
+import com.neusoft.root.dao.IdentificationMapper;
 
 @Service
 public class LoginServiceImpl implements LoginService{
 	@Autowired
-	private Identification identify;
+	private IdentificationMapper identify;
 
 	@Override
 	public int querylogin(String id, String password) {
