@@ -7,6 +7,11 @@ public class Result {
 	private String fillResult;
 	private String subjectiveResult;
 	@Override
+	public String toString() {
+		return "Result [studentId=" + studentId + ", paperId=" + paperId + ", choiceResult=" + choiceResult
+				+ ", fillResult=" + fillResult + ", subjectiveResult=" + subjectiveResult + "]";
+	}
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

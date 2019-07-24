@@ -10,6 +10,11 @@ public class Message {
 	private String msgType;
 	private String msgContext;
 	private String msgRole;//发送方接收方，二值性
+	@Override
+	public String toString() {
+		return "Message [msgId=" + msgId + ", msgDate=" + msgDate + ", senderId=" + senderId + ", targetId=" + targetId
+				+ ", msgType=" + msgType + ", msgContext=" + msgContext + ", msgRole=" + msgRole + "]";
+	}
 	public String getMsgRole() {
 		return msgRole;
 	}

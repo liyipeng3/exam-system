@@ -12,6 +12,10 @@ public class Coursetudent {
 	public String getTeacherId() {
 		return teacherId;
 	}
+	@Override
+	public String toString() {
+		return "Coursetudent [courseId=" + courseId + ", teacherId=" + teacherId + "]";
+	}
 	public void setTeacherId(String teacherId) {
 		this.teacherId = teacherId;
 	}

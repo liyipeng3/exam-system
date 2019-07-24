@@ -1,5 +1,7 @@
 package com.neusoft.root.dao;
 
+import java.util.Map;
+
 import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
@@ -7,12 +9,13 @@ import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Coursetudent;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Item;
+import com.neusoft.root.domain.Log;
 
 public interface teacherMapper {
 	//批阅试卷增删改查
 	public void AddCheck(Check pCheck);
 	public void DeleteCheck(Check pCheck);
-	public void UpdateCheck(Check pCheck);
+	public void UpdateCheck(Map<String, Object> pCheck);
 	public Check QueryCheck(Check pCheck);
 	
 	//对班级信息进行查询
@@ -35,9 +38,11 @@ public interface teacherMapper {
 	//题库的增删改查
 	public void AddItem(Item pItem);
 	public void DeleteItem(Item pItem);
-	public void UpdateItem(Item pItem);
+	public void UpdateItem(Map<String,Object> pItem);
 	public Item QueryItem(Item pItem);
 	
-	//
+	//log
+	public void  AddLog(Log plog);
+	public Log QueryLog(Log plog);
 	
 }

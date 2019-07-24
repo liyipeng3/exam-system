@@ -93,6 +93,11 @@ public class Teacher {
 	public String getTeacherMajor() {
 		return teacherMajor;
 	}
+	@Override
+	public String toString() {
+		return "Teacher [teacherId=" + teacherId + ", teacherName=" + teacherName + ", teacherPassword="
+				+ teacherPassword + ", teacherAcademy=" + teacherAcademy + ", teacherMajor=" + teacherMajor + "]";
+	}
 	public void setTeacherMajor(String teacherMajor) {
 		this.teacherMajor = teacherMajor;
 	}
