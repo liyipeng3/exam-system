@@ -13,10 +13,10 @@ import com.neusoft.root.domain.Admin;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class adminMapperTest 
+public class AdminMapperTestAdmin 
 {
 	@Autowired
-	private adminMapper am;
+	private AdminMapper am;
 	
 	@Test
 	public void testAddAdmin() 
@@ -24,10 +24,12 @@ public class adminMapperTest
 		try 
 		{
 			System.out.println(1);
-			am.addAdmin(new Admin("123", "zyc", "123"));
+			am.addAdmin(new Admin("1234", "zyc", "123"));
 			System.out.println(1);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
+	
+	
 }

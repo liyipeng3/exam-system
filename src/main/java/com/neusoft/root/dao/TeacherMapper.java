@@ -15,7 +15,7 @@ import com.neusoft.root.domain.Log;
 import com.neusoft.root.domain.Paper;
 import com.neusoft.root.domain.Teacher;
 
-public interface teacherMapper {
+public interface TeacherMapper {
 	//批阅试卷增删改查
 	public void addCheck(Check pCheck);
 	public void deleteCheck(Check pCheck);

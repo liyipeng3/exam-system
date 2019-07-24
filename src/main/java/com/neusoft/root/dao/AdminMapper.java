@@ -12,7 +12,6 @@ import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Forum;
-import com.neusoft.root.domain.Item;
 import com.neusoft.root.domain.Log;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
@@ -21,7 +20,7 @@ import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
 @Mapper
-public interface adminMapper 
+public interface AdminMapper 
 {
 	//管理员
 	public void addAdmin(Admin pAdmin);
