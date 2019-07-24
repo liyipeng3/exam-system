@@ -21,7 +21,7 @@ import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
 @Mapper
-public interface adminMapper 
+public interface AdminMapper 
 {
 	//管理员
 	public void addAdmin(Admin pAdmin);

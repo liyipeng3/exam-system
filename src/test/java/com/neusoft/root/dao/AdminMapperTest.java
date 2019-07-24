@@ -13,10 +13,10 @@ import com.neusoft.root.domain.Admin;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class adminMapperTest 
+public class AdminMapperTest 
 {
 	@Autowired
-	private adminMapper am;
+	private AdminMapper am;
 	
 	@Test
 	public void testAddAdmin() 
