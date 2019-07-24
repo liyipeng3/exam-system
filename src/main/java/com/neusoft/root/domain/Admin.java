@@ -2,10 +2,9 @@ package com.neusoft.root.domain;
 
 public class Admin {
 	
+	private String adminPassword;
 	private  String adminId;
 	private String adminName;
-	private String adminPassword;
-	
 	@Override
 	public int hashCode() 
 	{
