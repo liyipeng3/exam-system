@@ -24,7 +24,7 @@ public class adminMapperTest
 		try 
 		{
 			System.out.println(1);
-			am.AddAdmin(new Admin("123", "zyc", "123"));
+			am.addAdmin(new Admin("123", "zyc", "123"));
 			System.out.println(1);
 		} catch (Exception e) {
 			System.out.println(e);
