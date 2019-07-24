@@ -212,7 +212,7 @@ function mathTotalScore(){
 }
 //显示选择试卷对话框
 function showSelPaper(obj){
-    selPaperModal.location.href = "/admin/exam_sel_paper";
+    selPaperModal.location.href = "./select_paper.html";
     $('#paperModal').modal({
         backdrop:"static",
         keyboard:false
