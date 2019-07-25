@@ -1052,15 +1052,6 @@ function savePaperFn(url) {
                 };
                 var examLoginType_var = loginTypeJson[examLoginType];
 
-                ksxProbe.gioTrack('publishExamSuccess', 1, {
-                    'examId_var': examId_var,
-                    'examType_var': examType_var,
-                    'examDuration_var': examDuration_var,
-                    'examLoginType_var': examLoginType_var,
-                    'questionCount_var': questionCount_var
-                });
-
-
             } else {
                 alert("操作失败，请联系管理员！");
             }

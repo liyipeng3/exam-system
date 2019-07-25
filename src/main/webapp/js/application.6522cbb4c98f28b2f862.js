@@ -305,23 +305,12 @@ webpackJsonp([1], {
                         e.logout()
                     }).catch(function () {
                     })
-                }, initZhichi: function () {
-                    this.zhiManager = getzhiSDKInstance(), this.zhiManager.on("load", function () {
-                        this.zhiManager.initBtnDOM()
-                    }), this.zhiManager.set("location", 1), this.zhiManager.set("customBtn", "true"), this.zhiManager.set("customMargin", 30), this.zhiManager.set("manTrace", !0)
-                }, showZhichi: function () {
-                    this.zhiManager.expand(), ksxProbe.gioTrack("onlineInquire", 1, {
-                        inquireFromPage_var: window.location.href,
-                        inquireFromPageName_var: "vue项目内",
-                        inquireFromPosition_var: "管理端帮助在线咨询"
-                    })
                 }
             }),
             beforeCreate: function () {
                 this.$store.commit("START_LOADING"), this.$store.dispatch("getAdminBaseInfo"), this.$store.dispatch("getAllRights")
             },
             mounted: function () {
-                this.$store.commit("END_LOADING"), this.initZhichi()
             }
         }, V = {
             render: function () {
@@ -2336,12 +2325,6 @@ webpackJsonp([1], {
                             spaceSize: s.bizContent.spaceSize,
                             followStatus: s.bizContent.followStatus
                         }), "applicationSheet" != e.name) {
-                            ksxProbe.gioInit({
-                                userId: s.bizContent.user.id,
-                                companyId: s.bizContent.company.id,
-                                companyName: s.bizContent.company.companyName,
-                                rightsGrade: s.bizContent.company.rightsGrade
-                            });
                             var i = window.navigator.userAgent.toLowerCase(), o = KSX.getPlatform(i);
                             if ("pc" == o && /exam\/m\//.test("/admin/testQuestions")) {
                                 var l = Re.resolve({path: e.path, params: e.params, query: e.query});

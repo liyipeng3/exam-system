@@ -345,17 +345,7 @@ $(document).ready(function () {
                         $(".compl-step").prop("disabled", false).text("完成");
 
                         //注册成功，向gowing-io推送一条数据
-                        var companyId = (typeof msg.bizContent.companyId != undefined) ? msg.bizContent.companyId : '';
 
-                        var gioJson = ksxProbe.gioGetRegistPageInfo();
-                        gioJson.cId = companyId + '';
-                        ksxProbe.gioSetUserId(msg.bizContent.userId);
-                        ksxProbe.gioTrack('registerComplete', 1, {
-                            'registerFromPage_var': gioJson.url,
-                            'registerFromPosition_var': gioJson.postion,
-                            'registerFromPageName_var': gioJson.name,
-                            'cId': gioJson.cId
-                        });
                     } else {
                         var html = "请联系我们～<br/>服务热线：010-64465210";
                         $("#failModal .title2").html(html);

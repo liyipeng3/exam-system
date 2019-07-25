@@ -1108,7 +1108,6 @@ function asyncPaperSub(obj) {
         data: dataForm + "&t=" + Math.random(),
         success: function (msg) {
             if (msg.success == true || msg.msg == true) {
-                ksxProbe.gioTrack('createPaper', 1);
                 if ($("#savePaperBtn").hasClass('addPaperOnly')) {
                     // 只创建试卷
                     window.location.href = '/admin/paper_mgr_new';

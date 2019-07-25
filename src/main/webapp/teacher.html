@@ -10,8 +10,6 @@
     <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
     <meta name="author" content="">
     <script async="" src="./js/tingyun-rum-admin.js"></script>
-    <script async="" src="./js/gio.js"></script>
-    <script type="text/javascript" src="./js/ksx_probe.js"></script>
     <script type="text/javascript">
         var opts = {};
 
@@ -19,11 +17,6 @@
         opts.companyId = '140092';
         opts.companyName = '在线考试平台管理系统';
         opts.rightsGrade = '8';
-
-        //添加gio
-        ksxProbe.gioInit(opts);
-        //添加tingyun
-        ksxProbe.tingyun();
     </script>
     <title>考试云平台</title>
 
@@ -837,17 +830,6 @@
     //当前request返回页面对应导航id
 
     var activeNavItem = 'navItemIndex';
-
-    // gio 在线咨询
-    $("body").on('click', '.gio-inquire-position', function () {
-        //推送咨询事件
-        ksxProbe.gioTrack('onlineInquire', 1, {
-            'inquireFromPage_var': window.location.href,
-            'inquireFromPageName_var': '管理员端',
-            'inquireFromPosition_var': $(this).attr('data-gio-position')
-        });
-    });
-
 
     $(function () {
 
