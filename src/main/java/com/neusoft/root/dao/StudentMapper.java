@@ -10,7 +10,7 @@ import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Log;
 import com.neusoft.root.domain.Managestudent;
-import com.neusoft.root.domain.Paper;
+import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
@@ -35,7 +35,7 @@ public interface StudentMapper {
 	public List<Message> queryMessage(Message message);
 	
 	//对试卷查看
-	public List<Paper> queryPaper(Paper paper);
+	public List<RawPaper> queryPaper(RawPaper rawpaper);
 	
 	//答题result
 	public void addResult(Result result);

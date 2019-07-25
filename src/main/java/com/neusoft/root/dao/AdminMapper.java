@@ -12,7 +12,6 @@ import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Forum;
-import com.neusoft.root.domain.Item;
 import com.neusoft.root.domain.Log;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
@@ -24,24 +23,24 @@ import com.neusoft.root.domain.Teacher;
 public interface AdminMapper 
 {
 	//管理员
-	public void addAdmin(Admin pAdmin);
-	public void deleteAdmin(Admin pAdmin);
-	public void updateAdmin(Map<String ,Object> pAdmin);
-	public List<Object> queryAdmin(Admin pAdmin);
+	public void addAdmin(Admin admin);
+	public void deleteAdmin(Admin admin);
+	public void updateAdmin(Map<String ,Object> admin);
+	public List<Admin> queryAdmin(Admin admin);
 	
 	//学生
-	public void addStudent(Student pStudent);
-	public void deleteStudent(Student pStudent);
-	public void updateStudent(Map<String ,Object> pStudent);
-	public List<Object> queryStudent(Student pStudent);
+	public void addStudent(Student student);
+	public void deleteStudent(Student student);
+	public void updateStudent(Map<String ,Object> student);
+	public List<Student> queryStudent(Student student);
 	
-	//教室
-	public void addClass(Class1 pclasss);
-	public void deleteClass(Class1 pclass);
-	public void updateClass(Map<String ,Object> pclass);
-	public List<Object> queryClass(Class1 pClass1);
+	//班级
+	public void addClass(Class1 class1);
+	public void deleteClass(Class1 class1);
+	public void updateClass(Map<String ,Object> class1);
+	public List<Class1> queryClass(Class1 class1);
 	
-//老师
+	//老师
 	public void addTeacher(Teacher teacher);
 	public void deleteTeacher(Teacher teacher);
 	public void updateTeacher(Map<String ,Object> teacher);
@@ -71,24 +70,21 @@ public interface AdminMapper
 	public void deleteManageteacher(Manageteacher manageteacher);
 	public void updateManageteacher(Manageteacher manageteacher);
 	public List<Manageteacher> queryManageteacher(Manageteacher manageteacher);
-
 	
 	//对消息进行增删查操作
-	public void addMessage(Message pMessage);
-	public void deleteMessage(Message pMessage);
-	public List<Object> queryMessage(Message pMessage);
+	public void addMessage(Message message);
+	public void deleteMessage(Message message);
+	public List<Message> queryMessage(Message message);
 	
 	//学生答题结果
-	public void addResult(Result pResult);
-	public List<Object> queryResult(Result pResult);
+	public void addResult(Result result);
+	public List<Result> queryResult(Result result);
 	
 	//论坛帖子的增加删除查询
-	public void addForum(Forum pForum);
-	public void deleteForum(Forum pForum);
-	public List<Object> queryForum(Forum pForum);
+	public void addForum(Forum forum);
+	public void deleteForum(Forum forum);
+	public List<Forum> queryForum(Forum forum);
 	
 	//老师批卷结果的查询
-
 	public List<Check> queryCheck(Check check);
-
 }
