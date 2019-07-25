@@ -40,7 +40,7 @@ public class Test {
 		System.out.println(gson.toJson(stu1));
 		System.out.println(gson.toJson(stul));
 		System.out.println(userWithAddressJson);*/
-		List<Paper> papers = new ArrayList<>();
+		/*List<Paper> papers = new ArrayList<>();
 		Gson gson = new Gson();
 		Paper paper1 = new Paper("1", "语文", 0.1, "choice", "fill", "subjective", 100.0, "sss", "sss");
 		Paper paper2 = new Paper("2", "语文", 0.2, "choice", "fill", "subjective", 100.0, "sss", "sss");
@@ -48,6 +48,6 @@ public class Test {
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);
-		System.out.println(gson.toJson(papers));
+		System.out.println(gson.toJson(papers));*/
 	}
 }

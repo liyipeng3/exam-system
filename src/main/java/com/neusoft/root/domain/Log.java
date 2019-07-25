@@ -3,13 +3,76 @@ package com.neusoft.root.domain;
 import java.sql.Date;
 public class Log 
 {
-	private String logId;  //日志id
+	private Integer logId;  //日志id
 	private String opId; //操作者ID
 	private Date opDate; //操作时间
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
 	private String opResult; // 操作结果
 	
+	public Log(Integer logId, String opId, Date opDate, String opType, String opMsg, String opResult) {
+		super();
+		this.logId = logId;
+		this.opId = opId;
+		this.opDate = opDate;
+		this.opType = opType;
+		this.opMsg = opMsg;
+		this.opResult = opResult;
+	}
+
+	public Log() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Integer getLogId() {
+		return logId;
+	}
+
+	public void setLogId(Integer logId) {
+		this.logId = logId;
+	}
+
+	public String getOpId() {
+		return opId;
+	}
+
+	public void setOpId(String opId) {
+		this.opId = opId;
+	}
+
+	public Date getOpDate() {
+		return opDate;
+	}
+
+	public void setOpDate(Date opDate) {
+		this.opDate = opDate;
+	}
+
+	public String getOpType() {
+		return opType;
+	}
+
+	public void setOpType(String opType) {
+		this.opType = opType;
+	}
+
+	public String getOpMsg() {
+		return opMsg;
+	}
+
+	public void setOpMsg(String opMsg) {
+		this.opMsg = opMsg;
+	}
+
+	public String getOpResult() {
+		return opResult;
+	}
+
+	public void setOpResult(String opResult) {
+		this.opResult = opResult;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -22,11 +85,7 @@ public class Log
 		result = prime * result + ((opType == null) ? 0 : opType.hashCode());
 		return result;
 	}
-	@Override
-	public String toString() {
-		return "Log [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
-				+ opMsg + ", opResult=" + opResult + "]";
-	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -68,53 +127,10 @@ public class Log
 			return false;
 		return true;
 	}
-	public Log(String logId, String opId, Date opDate, String opType, String opMsg, String opResult) {
-		super();
-		this.logId = logId;
-		this.opId = opId;
-		this.opDate = opDate;
-		this.opType = opType;
-		this.opMsg = opMsg;
-		this.opResult = opResult;
+
+	@Override
+	public String toString() {
+		return "Log [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
+				+ opMsg + ", opResult=" + opResult + "]";
 	}
-	public Log() {
-		super();
-	}
-	public String getLogId() {
-		return logId;
-	}
-	public void setLogId(String logId) {
-		this.logId = logId;
-	}
-	public String getOpId() {
-		return opId;
-	}
-	public void setOpId(String opId) {
-		this.opId = opId;
-	}
-	public Date getOpDate() {
-		return opDate;
-	}
-	public void setOpDate(Date opDate) {
-		this.opDate = opDate;
-	}
-	public String getOpType() {
-		return opType;
-	}
-	public void setOpType(String opType) {
-		this.opType = opType;
-	}
-	public String getOpMsg() {
-		return opMsg;
-	}
-	public void setOpMsg(String opMsg) {
-		this.opMsg = opMsg;
-	}
-	public String getOpResult() {
-		return opResult;
-	}
-	public void setOpResult(String opResult) {
-		this.opResult = opResult;
-	}
-	
 }

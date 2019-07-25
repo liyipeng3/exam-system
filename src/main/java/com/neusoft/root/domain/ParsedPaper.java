@@ -11,16 +11,17 @@ public class ParsedPaper
 	private Date createDate;
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
-	private List<RawItem> singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
-	private List<RawItem> multichoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
-	private List<RawItem> fillQuestion; //填空题,格式为ID1,分数1# ID2,分数2#
-	private List<RawItem> subjectiveQuestion; //主观题格式为ID1,分数1# ID2,分数2#
+	private List<ParsedItem> singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
+	private List<ParsedItem> multichoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
+	private List<ParsedItem> fillQuestion; //填空题,格式为ID1,分数1# ID2,分数2#
+	private List<ParsedItem> subjectiveQuestion; //主观题格式为ID1,分数1# ID2,分数2#
 	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
+	
 	public ParsedPaper(String paperId, String paperName, String createrID, Date createDate, String paperType,
-			Double paperIndex, List<RawItem> singlechoiceQuestion, List<RawItem> multichoiceQuestion,
-			List<RawItem> fillQuestion, List<RawItem> subjectiveQuestion, Double paperScore, String paperSecrecy,
+			Double paperIndex, List<ParsedItem> singlechoiceQuestion, List<ParsedItem> multichoiceQuestion,
+			List<ParsedItem> fillQuestion, List<ParsedItem> subjectiveQuestion, Double paperScore, String paperSecrecy,
 			String paperRemark) {
 		super();
 		this.paperId = paperId;
@@ -37,88 +38,115 @@ public class ParsedPaper
 		this.paperSecrecy = paperSecrecy;
 		this.paperRemark = paperRemark;
 	}
+	
 	public ParsedPaper() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
 	public String getPaperId() {
 		return paperId;
 	}
+
 	public void setPaperId(String paperId) {
 		this.paperId = paperId;
 	}
+
 	public String getPaperName() {
 		return paperName;
 	}
+
 	public void setPaperName(String paperName) {
 		this.paperName = paperName;
 	}
+
 	public String getCreaterID() {
 		return createrID;
 	}
+
 	public void setCreaterID(String createrID) {
 		this.createrID = createrID;
 	}
+
 	public Date getCreateDate() {
 		return createDate;
 	}
+
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+
 	public String getPaperType() {
 		return paperType;
 	}
+
 	public void setPaperType(String paperType) {
 		this.paperType = paperType;
 	}
+
 	public Double getPaperIndex() {
 		return paperIndex;
 	}
+
 	public void setPaperIndex(Double paperIndex) {
 		this.paperIndex = paperIndex;
 	}
-	public List<RawItem> getSinglechoiceQuestion() {
+
+	public List<ParsedItem> getSinglechoiceQuestion() {
 		return singlechoiceQuestion;
 	}
-	public void setSinglechoiceQuestion(List<RawItem> singlechoiceQuestion) {
+
+	public void setSinglechoiceQuestion(List<ParsedItem> singlechoiceQuestion) {
 		this.singlechoiceQuestion = singlechoiceQuestion;
 	}
-	public List<RawItem> getMultichoiceQuestion() {
+
+	public List<ParsedItem> getMultichoiceQuestion() {
 		return multichoiceQuestion;
 	}
-	public void setMultichoiceQuestion(List<RawItem> multichoiceQuestion) {
+
+	public void setMultichoiceQuestion(List<ParsedItem> multichoiceQuestion) {
 		this.multichoiceQuestion = multichoiceQuestion;
 	}
-	public List<RawItem> getFillQuestion() {
+
+	public List<ParsedItem> getFillQuestion() {
 		return fillQuestion;
 	}
-	public void setFillQuestion(List<RawItem> fillQuestion) {
+
+	public void setFillQuestion(List<ParsedItem> fillQuestion) {
 		this.fillQuestion = fillQuestion;
 	}
-	public List<RawItem> getSubjectiveQuestion() {
+
+	public List<ParsedItem> getSubjectiveQuestion() {
 		return subjectiveQuestion;
 	}
-	public void setSubjectiveQuestion(List<RawItem> subjectiveQuestion) {
+
+	public void setSubjectiveQuestion(List<ParsedItem> subjectiveQuestion) {
 		this.subjectiveQuestion = subjectiveQuestion;
 	}
+
 	public Double getPaperScore() {
 		return paperScore;
 	}
+
 	public void setPaperScore(Double paperScore) {
 		this.paperScore = paperScore;
 	}
+
 	public String getPaperSecrecy() {
 		return paperSecrecy;
 	}
+
 	public void setPaperSecrecy(String paperSecrecy) {
 		this.paperSecrecy = paperSecrecy;
 	}
+
 	public String getPaperRemark() {
 		return paperRemark;
 	}
+
 	public void setPaperRemark(String paperRemark) {
 		this.paperRemark = paperRemark;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -138,6 +166,7 @@ public class ParsedPaper
 		result = prime * result + ((subjectiveQuestion == null) ? 0 : subjectiveQuestion.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -214,7 +243,7 @@ public class ParsedPaper
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "ParsedPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrID=" + createrID
