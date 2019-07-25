@@ -13,6 +13,7 @@ public class ExamSystemApplication {
 
 	
 	public static void main(String[] args) {
+
 		
 		//sqlInit();
 

@@ -272,4 +272,202 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<id column="course_id" property="courseId"/>
 		<result column="course_name" property="courseName"/>
 	</resultMap>
+
+	
+	<!-- 管理日志 -->
+	<insert id="addLog" parameterType="Log">
+		insert into log_table 
+		values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
+	</insert>
+	
+	<delete id="deleteLog" parameterType="Log">
+		delete from log_table where log_id = #{logId}
+	</delete>
+	
+	<update id="updateLog" parameterType="Map">
+		update log_table
+		<set>
+			<if test="opId!=null and opId!=''">
+				op_id = #{opId},
+			</if>
+			<if test="opDate!=null and opDate!=''">
+				op_date = #{opDate},
+			</if>
+			<if test="opType!=null and opType!=''">
+				op_type = #{opType},
+			</if>
+			<if test="opMsg!=null and opMsg!=''">
+				op_msg = #{opMsg},
+			</if>
+			<if test="opResult!=null and opResult!=''">
+				op_result = #{opResult},
+			</if>
+		</set>
+		where log_id in
+		<foreach collection="ids" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	
+	<select id="queryLog" parameterType="Log" resultMap="MyLog">
+		select *
+		from log_table
+		<where>
+			<if test="logId!=null and logId!=''">
+				and log_id = #{logId}
+			</if>
+			<if test="opId!=null and opId!=''">
+				and op_id = #{opId}
+			</if>
+			<if test="opDate!=null and opDate!=''">
+				and op_date = #{opDate}
+			</if>
+			<if test="opType!=null and opType!=''">
+				and op_type = #{opType}
+			</if>
+			<if test="opMsg!=null and opMsg!=''">
+				and op_msg = #{opMsg}
+			</if>
+			<if test="opResult!=null and opResult!=''">
+				and op_result = #{opResult}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Log" id="MyLog">
+		<id column="log_id" property="logId"/>
+		<result column="op_id" property="opId"/>
+		<result column="op_date" property="opDate"/>
+		<result column="op_type" property="opType"/>
+		<result column="op_msg" property="opMsg"/>
+		<result column="op_result" property="opResult"/>
+	</resultMap>
+	
+	<!-- 学生安排记录表 -->
+	<insert id="addManagestudent" parameterType="Managestudent">
+		insert into managestudent_table 
+		values(#{classId},#{studentId},#{courseId},#{examDate})
+	</insert>
+	
+	<delete id="deleteManagestudent" parameterType="Managestudent">
+		delete from managestudent_table where 
+		student_id = #{studentId} and course_id = #{courseId}
+	</delete>
+	
+	<update id="updateManagestudent" parameterType="Managestudent">
+		update managestudent_table
+		<set>
+			<if test="classId!=null and classId!=''">
+				class_id = #{classId},
+			</if>
+			<if test="examDate!=null and examDate!=''">
+				exam_date = #{examDate},
+			</if>
+		</set>
+		where student_id = #{studentId} and course_id = #{courseId}
+	</update>
+	
+	<select id="queryManagestudent" parameterType="Managestudent" resultMap="MyManagestudent">
+		select *
+		from managestudent_table
+		<where>
+			<if test="classId!=null and classId!=''">
+				and class_id = #{classId}
+			</if>
+			<if test="studentId!=null and studentId!=''">
+				and student_id = #{studentId}
+			</if>
+			<if test="courseId!=null and courseId!=''">
+				and course_id = #{courseId}
+			</if>
+			<if test="examDate!=null and examDate!=''">
+				and exam_date = #{examDate}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Managestudent" id="MyManagestudent">
+		<result column="class_id" property="classId"/>
+		<result column="student_id" property="studentId"/>
+		<result column="course_id" property="courseId"/>
+		<result column="exam_date" property="examDate"/>
+	</resultMap>
+	
+	
+	<!-- 管理老师 -->
+	<insert id="addManageteacher" parameterType="Manageteacher">
+		insert into manageteacher_table 
+		values(#{classId},#{teacherId},#{courseId},#{examDate})
+	</insert>
+	
+	<delete id="deleteManageteacher" parameterType="Manageteacher">
+		delete from manageteacher_table where 
+		teacher_id = #{teacherId} and course_id = #{courseId}
+	</delete>
+	
+	<update id="updateManageteacher" parameterType="Manageteacher">
+		update manageteacher_table
+		<set>
+			<if test="classId!=null and classId!=''">
+				class_id = #{classId},
+			</if>
+			<if test="examDate!=null and examDate!=''">
+				exam_date = #{examDate},
+			</if>
+		</set>
+		where teacher_id = #{teacherId} and course_id = #{courseId}
+	</update>
+	
+	<select id="queryManageteacher" parameterType="Manageteacher" resultMap="MyManageteacher">
+		select *
+		from manageteacher_table
+		<where>
+			<if test="classId!=null and classId!=''">
+				and class_id = #{classId}
+			</if>
+			<if test="teacherId!=null and teacherId!=''">
+				and teacher_id = #{teacherId}
+			</if>
+			<if test="courseId!=null and courseId!=''">
+				and course_id = #{courseId}
+			</if>
+			<if test="examDate!=null and examDate!=''">
+				and exam_date = #{examDate}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Manageteacher" id="MyManageteacher">
+		<result column="class_id" property="classId"/>
+		<result column="teacher_id" property="teacherId"/>
+		<result column="course_id" property="courseId"/>
+		<result column="exam_date" property="examDate"/>
+	</resultMap>
+	
+	<!-- 消息管理 -->
+	<insert id="addMessage" parameterType="Message">
+		insert into message_table 
+		values(#{msgId},#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext},#{msgRole})
+	</insert>
+	
+	
+	<select id="queryManageteacher" parameterType="Manageteacher" resultMap="MyManageteacher">
+		select *
+		from manageteacher_table
+		<where>
+			<if test="classId!=null and classId!=''">
+				and class_id = #{classId}
+			</if>
+			<if test="teacherId!=null and teacherId!=''">
+				and teacher_id = #{teacherId}
+			</if>
+			<if test="courseId!=null and courseId!=''">
+				and course_id = #{courseId}
+			</if>
+			<if test="examDate!=null and examDate!=''">
+				and exam_date = #{examDate}
+			</if>
+		</where>
+	</select>
+
 </mapper>

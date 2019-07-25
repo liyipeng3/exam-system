@@ -30,7 +30,9 @@ public class PaperGeneratorController {
 	public String getPapers(){
 		List<RawPaper> papers = new ArrayList<>();
 		Gson gson = new Gson();
+
 		@SuppressWarnings("deprecation")
+
 		Date date = new Date(9102, 11, 11);
 		RawPaper paper1 = new RawPaper("1","test1", "1",date, "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
 		RawPaper paper2 = new RawPaper("2","test2","2", date, "语文", 0.2, "choice", "fill", "subjective", "hhhh", 100.0, "sss", "sss");

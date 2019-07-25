@@ -5,15 +5,16 @@ import java.sql.Date;
 public class Forum {
 	private String postId;
 	private Date postDate;
+	private String senderId;
+	private String postTag;//分类标签
+	private String postOutline;//题目
+	private String postContext;//内容
 	@Override
 	public String toString() {
 		return "Forum [postId=" + postId + ", postDate=" + postDate + ", senderId=" + senderId + ", postTag=" + postTag
 				+ ", postOutline=" + postOutline + ", postContext=" + postContext + "]";
 	}
-	private String senderId;
-	private String postTag;//分类标签
-	private String postOutline;//题目
-	private String postContext;//内容
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
