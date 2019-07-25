@@ -39,7 +39,7 @@ public interface StudentMapper {
 	
 	//答题result
 	public void addResult(Result result);
-	public void updateResult(Result result);
+	
 	
 	//学生
 	//改密码
