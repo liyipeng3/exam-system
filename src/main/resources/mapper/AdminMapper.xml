@@ -166,7 +166,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 管理老师 -->
 	<insert id="addTeacher" parameterType="Teacher">
 		insert into teacher_table 
-		values(#{teacherId},#{teacherName},#{teacherPassword},#{teacherAcademy},#{teacherMajor})
+		values(#{teacherId},#{teacherName},#{teacherPassword},#{teacherAcademy},#{teacherMajor},#{teacherSchool})
 	</insert>
 	
 	<delete id="deleteTeacher" parameterType="Teacher">

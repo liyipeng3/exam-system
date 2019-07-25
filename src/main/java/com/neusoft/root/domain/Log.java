@@ -8,71 +8,55 @@ public class Log
 	private Date opDate; //操作时间
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
-	private String opResult; // 操作结果
-	
-	public Log(Integer logId, String opId, Date opDate, String opType, String opMsg, String opResult) {
+	private String opPage; // 操作内容
+	public Log(Integer logId, String opId, Date opDate, String opType, String opMsg, String opPage) {
 		super();
 		this.logId = logId;
 		this.opId = opId;
 		this.opDate = opDate;
 		this.opType = opType;
 		this.opMsg = opMsg;
-		this.opResult = opResult;
+		this.opPage = opPage;
 	}
-
 	public Log() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
 	public Integer getLogId() {
 		return logId;
 	}
-
 	public void setLogId(Integer logId) {
 		this.logId = logId;
 	}
-
 	public String getOpId() {
 		return opId;
 	}
-
 	public void setOpId(String opId) {
 		this.opId = opId;
 	}
-
 	public Date getOpDate() {
 		return opDate;
 	}
-
 	public void setOpDate(Date opDate) {
 		this.opDate = opDate;
 	}
-
 	public String getOpType() {
 		return opType;
 	}
-
 	public void setOpType(String opType) {
 		this.opType = opType;
 	}
-
 	public String getOpMsg() {
 		return opMsg;
 	}
-
 	public void setOpMsg(String opMsg) {
 		this.opMsg = opMsg;
 	}
-
-	public String getOpResult() {
-		return opResult;
+	public String getOpPage() {
+		return opPage;
 	}
-
-	public void setOpResult(String opResult) {
-		this.opResult = opResult;
+	public void setOpPage(String opPage) {
+		this.opPage = opPage;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -81,11 +65,10 @@ public class Log
 		result = prime * result + ((opDate == null) ? 0 : opDate.hashCode());
 		result = prime * result + ((opId == null) ? 0 : opId.hashCode());
 		result = prime * result + ((opMsg == null) ? 0 : opMsg.hashCode());
-		result = prime * result + ((opResult == null) ? 0 : opResult.hashCode());
+		result = prime * result + ((opPage == null) ? 0 : opPage.hashCode());
 		result = prime * result + ((opType == null) ? 0 : opType.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -115,10 +98,10 @@ public class Log
 				return false;
 		} else if (!opMsg.equals(other.opMsg))
 			return false;
-		if (opResult == null) {
-			if (other.opResult != null)
+		if (opPage == null) {
+			if (other.opPage != null)
 				return false;
-		} else if (!opResult.equals(other.opResult))
+		} else if (!opPage.equals(other.opPage))
 			return false;
 		if (opType == null) {
 			if (other.opType != null)
@@ -127,10 +110,9 @@ public class Log
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "Log [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
-				+ opMsg + ", opResult=" + opResult + "]";
+				+ opMsg + ", opPage=" + opPage + "]";
 	}
 }

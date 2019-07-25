@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.gson.Gson;
+/*import com.google.gson.Gson;
 import com.neusoft.root.domain.Paper;
 import com.neusoft.root.domain.Subjects;
 import com.neusoft.root.service.GetPaperCourseImpl;
-
+*/
 @Controller
 @RequestMapping("/exam")
 public class PaperGeneratorController {
 /*	@Autowired
-	private GetPaperCourseImpl getpapersubjects;*/
+	private GetPaperCourseImpl getpapersubjects;
 	private String subject;
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
@@ -54,5 +54,5 @@ public class PaperGeneratorController {
 	@ResponseBody
 	public String getItems(){
 		return "success";
-	} 
+	} */
 }
