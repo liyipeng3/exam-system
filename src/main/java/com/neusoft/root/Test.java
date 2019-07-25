@@ -1,15 +1,17 @@
-package com.neusoft.root;
+﻿package com.neusoft.root;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
+
+import com.neusoft.root.domain.Paper;
 import com.neusoft.root.domain.Student;
 
 public class Test {
 	public static void main(String[] args){
-		Student stu1 = new Student("1", "1", "1", "1", "1", "1");
+		/*Student stu1 = new Student("1", "1", "1", "1", "1", "1");
 		Student stu2 = new Student("1", "1", "1", "1", "1", "1");
 		Student stu3 = new Student("1", "1", "1", "1", "1", "1");
 		Student stu4 = new Student("1", "1", "1", "1", "1", "1");
@@ -38,6 +40,15 @@ public class Test {
 		String userWithAddressJson = gson.toJson(tc);
 		System.out.println(gson.toJson(stu1));
 		System.out.println(gson.toJson(stul));
-		System.out.println(userWithAddressJson);
+		System.out.println(userWithAddressJson);*/
+		List<Paper> papers = new ArrayList<>();
+		Gson gson = new Gson();
+		Paper paper1 = new Paper("1", "语文", 0.1, "choice", "fill", "subjective", 100.0, "sss", "sss");
+		Paper paper2 = new Paper("2", "语文", 0.2, "choice", "fill", "subjective", 100.0, "sss", "sss");
+		Paper paper3 = new Paper("3", "语文", 0.3, "choice", "fill", "subjective", 100.0, "sss", "sss");
+		papers.add(paper1);
+		papers.add(paper2);
+		papers.add(paper3);
+		System.out.println(gson.toJson(papers));
 	}
 }

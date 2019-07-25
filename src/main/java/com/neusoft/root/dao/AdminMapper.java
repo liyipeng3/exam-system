@@ -1,4 +1,4 @@
-package com.neusoft.root.dao;
+﻿package com.neusoft.root.dao;
 
 
 import java.util.List;
@@ -42,16 +42,16 @@ public interface AdminMapper
 	public List<Object> queryClass(Class1 pClass1);
 	
 	//老师
-	public void addteacher(Teacher pteacher);
-	public void deleteteacher(Teacher pteacher);
-	public void updateteacher(Map<String ,Object> pteacher);
-	public List<Object> queryteacher(Teacher pTeacher);
+	public void addTeacher(Teacher teacher);
+	public void deleteTeacher(Teacher teacher);
+	public void updateTeacher(Map<String ,Object> teacher);
+	public List<Teacher> queryTeacher(Teacher teacher);
 	
 	//课程
-	public void addCource(Course pcourse);
-	public void deleteteCourse(Course pcourse);
-	public void updateCourse(Map<String ,Object> pcourse);
-	public List<Object> querycourse(Course pCourse);
+	public void addCource(Course course);
+	public void deleteteCourse(Course course);
+	public void updateCourse(Map<String ,Object> course);
+	public List<Course> queryCourse(Course course);
 	
 	//记录
 	public void  addLog(Log plog);
@@ -87,6 +87,5 @@ public interface AdminMapper
 	public List<Object> queryForum(Forum pForum);
 	
 	//老师批卷结果的查询
-	public List<Object> queryCheck(Check pCheck);
-	
+	public List<Check> queryCheck(Check check);
 }

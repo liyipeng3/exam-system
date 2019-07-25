@@ -6,19 +6,64 @@ public class Teacher {
 	private String teacherPassword;
 	private String teacherAcademy;
 	private String teacherMajor;
-	public Teacher() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private String teacherSchool;
+	
 	public Teacher(String teacherId, String teacherName, String teacherPassword, String teacherAcademy,
-			String teacherMajor) {
+			String teacherMajor, String teacherSchool) {
 		super();
 		this.teacherId = teacherId;
 		this.teacherName = teacherName;
 		this.teacherPassword = teacherPassword;
 		this.teacherAcademy = teacherAcademy;
 		this.teacherMajor = teacherMajor;
+		this.teacherSchool = teacherSchool;
 	}
+	
+	
+	public Teacher() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getTeacherId() {
+		return teacherId;
+	}
+	public void setTeacherId(String teacherId) {
+		this.teacherId = teacherId;
+	}
+	public String getTeacherName() {
+		return teacherName;
+	}
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+	public String getTeacherPassword() {
+		return teacherPassword;
+	}
+	public void setTeacherPassword(String teacherPassword) {
+		this.teacherPassword = teacherPassword;
+	}
+	public String getTeacherAcademy() {
+		return teacherAcademy;
+	}
+	public void setTeacherAcademy(String teacherAcademy) {
+		this.teacherAcademy = teacherAcademy;
+	}
+	public String getTeacherMajor() {
+		return teacherMajor;
+	}
+	public void setTeacherMajor(String teacherMajor) {
+		this.teacherMajor = teacherMajor;
+	}
+
+	public String getTeacherSchool() {
+		return teacherSchool;
+	}
+
+	public void setTeacherSchool(String teacherSchool) {
+		this.teacherSchool = teacherSchool;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -28,8 +73,11 @@ public class Teacher {
 		result = prime * result + ((teacherMajor == null) ? 0 : teacherMajor.hashCode());
 		result = prime * result + ((teacherName == null) ? 0 : teacherName.hashCode());
 		result = prime * result + ((teacherPassword == null) ? 0 : teacherPassword.hashCode());
+		result = prime * result + ((teacherSchool == null) ? 0 : teacherSchool.hashCode());
 		return result;
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -64,42 +112,20 @@ public class Teacher {
 				return false;
 		} else if (!teacherPassword.equals(other.teacherPassword))
 			return false;
+		if (teacherSchool == null) {
+			if (other.teacherSchool != null)
+				return false;
+		} else if (!teacherSchool.equals(other.teacherSchool))
+			return false;
 		return true;
 	}
-	public String getTeacherId() {
-		return teacherId;
-	}
-	public void setTeacherId(String teacherId) {
-		this.teacherId = teacherId;
-	}
-	public String getTeacherName() {
-		return teacherName;
-	}
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
-	}
-	public String getTeacherPassword() {
-		return teacherPassword;
-	}
-	public void setTeacherPassword(String teacherPassword) {
-		this.teacherPassword = teacherPassword;
-	}
-	public String getTeacherAcademy() {
-		return teacherAcademy;
-	}
-	public void setTeacherAcademy(String teacherAcademy) {
-		this.teacherAcademy = teacherAcademy;
-	}
-	public String getTeacherMajor() {
-		return teacherMajor;
-	}
+
+
 	@Override
 	public String toString() {
 		return "Teacher [teacherId=" + teacherId + ", teacherName=" + teacherName + ", teacherPassword="
-				+ teacherPassword + ", teacherAcademy=" + teacherAcademy + ", teacherMajor=" + teacherMajor + "]";
-	}
-	public void setTeacherMajor(String teacherMajor) {
-		this.teacherMajor = teacherMajor;
+				+ teacherPassword + ", teacherAcademy=" + teacherAcademy + ", teacherMajor=" + teacherMajor
+				+ ", teacherSchool=" + teacherSchool + "]";
 	}
 	
 }
