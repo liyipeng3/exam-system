@@ -53,7 +53,7 @@ public interface AdminMapper
 	public List<Course> queryCourse(Course course);
 	
 	//记录
-	public void  addLog(Log log);
+	public void addLog(Log log);
 	public void deleteLog(Log log);
 	public void updateLog(Map<String ,Object> log);
 	public List<Log> queryLog(Log log);
@@ -62,13 +62,13 @@ public interface AdminMapper
 	//学生安排考试表的增删改查
 	public void  addManagestudent(Managestudent managestudent);
 	public void deleteManagestudent(Managestudent managestudent);
-	public void updateManagestudent(Map<String ,Object> managestudent);
+	public void updateManagestudent(Managestudent managestudent);
 	public List<Managestudent> queryManagestudent(Managestudent managestudent);
 	
 	//老师安排考试表的增删改查
-	public void  addManageteacher(Manageteacher manageteacher);
+	public void addManageteacher(Manageteacher manageteacher);
 	public void deleteManageteacher(Manageteacher manageteacher);
-	public void updateManageteacher(Map<String ,Object> manageteacher);
+	public void updateManageteacher(Manageteacher manageteacher);
 	public List<Manageteacher> queryManageteacher(Manageteacher manageteacher);
 	
 	//对消息进行增删查操作
