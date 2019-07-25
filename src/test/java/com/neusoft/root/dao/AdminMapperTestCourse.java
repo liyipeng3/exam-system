@@ -3,13 +3,24 @@ package com.neusoft.root.dao;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/zyc
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+<<<<<<< HEAD
 import com.neusoft.root.domain.Course;
+=======
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+import com.neusoft.root.domain.Course;
+import com.neusoft.root.domain.Student;
+import com.neusoft.root.domain.Teacher;
+>>>>>>> origin/zyc
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -50,6 +61,7 @@ public class AdminMapperTestCourse
 	@Test
 	public void testUpdateCourse()
 	{
+<<<<<<< HEAD
 		/*try 
 		{
 			Map<String, Object> maps = new HashMap<String, Object>();
@@ -72,6 +84,12 @@ public class AdminMapperTestCourse
 			for (Course course : courses) {
 				System.out.println(course);
 			}
+=======
+		try 
+		{
+			Map<String, Object> maps = new hash
+			
+>>>>>>> origin/zyc
 		} 
 		catch (Exception e) 
 		{
