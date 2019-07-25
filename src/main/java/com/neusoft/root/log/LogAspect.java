@@ -17,12 +17,9 @@ import com.neusoft.root.domain.Log;
 @Aspect
 @Component
 public class LogAspect {
-    //设置切点表达式
-    @Pointcut("@annotation(com.nuesoft.root.log.Logger)")
-    public void logPointcut(){}
-    //环绕通知
-    @Around("logPointcut()")
-    public Log logHandler(ProceedingJoinPoint process, HttpServletRequest request) throws Throwable{
+/*    //环绕通知
+    @Around("@annotation(logger)")
+    public Log logHandler(ProceedingJoinPoint process, HttpServletRequest request, Logger logger) throws Throwable{
     	//时间
         long time=System.currentTimeMillis();
         //获得参数
@@ -35,7 +32,6 @@ public class LogAspect {
         //获得类名
         String className= method.getDeclaringClass().getName();
         //获得注解，"路径,操作"
-        Logger logger = method.getAnnotation(Logger.class);
         String value = logger.value();
         String[] svalue = value.split(",");
         String path = svalue[0];
@@ -50,5 +46,5 @@ public class LogAspect {
         System.out.println(username);
         Log result = new Log();
         return result;
-    }
+    }*/
 }
