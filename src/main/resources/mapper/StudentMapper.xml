@@ -23,10 +23,55 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 论坛帖子增删查 -->
 	<insert id="addForum" parameterType="Forum">
-		insert into admin_table values(#{adminId},#{adminName},#{adminPassword})
+		insert into forum_table values(#{postId},#{postDate},#{senderId},#{postTag},#{postOutline},#{postContext})
 	</insert>
 	
-	<delete id="deleteAdmin" parameterType="Admin">
-		delete from admin_table where admin_id = #{adminId}
+	<delete id="deleteForum" parameterType="Forum">
+		delete from forum_table where post_id = #{postId}
 	</delete>
+	<select id="queryForum" parameterType="Forum" resultMap="myForum">
+	select *
+		from forum_table
+	<where>
+			<if test="postId!=null and postId!=''">
+				and post_id = #{postId}
+			</if>
+		</where>
+	</select>
+	<resultMap type="Forum" id="myForum">
+		<id column="post_id" property="postId"/>
+		<result column="post_date" property="postDate"/>
+		<result column="sender_id" property="senderId"/>
+		<result column="post_tag" property="postTag"/>
+		<result column="post_outline" property="postOutline"/>
+		<result column="post_context" property="postContext"/>
+	</resultMap>
+	
+	<!--log增加查询  -->
+	<insert id="addLog" parameterType="Log">
+		insert into log_table values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
+	</insert>
+	
+	<select id="queryLog" parameterType="Log" resultMap="myLog">
+	select *
+		from log_table
+	<where>
+			<if test="logId!=null and logId!=''">
+				and log_id = #{logId}
+			</if>
+		</where>
+	</select>
+	<resultMap type="Log" id="myLog">
+		<id column="log_id" property="logId"/>
+		<result column="op_id" property="opId"/>
+		<result column="op_date" property="opDate"/>
+		<result column="op_type" property="opType"/>
+		<result column="op_msg" property="opMsg"/>
+		<result column="op_result" property="opResult"/>
+	</resultMap>
+	
+	
+	
+	
+	
 </mapper>
