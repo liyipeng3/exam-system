@@ -41,36 +41,37 @@ public interface AdminMapper
 	public void updateClass(Map<String ,Object> pclass);
 	public List<Object> queryClass(Class1 pClass1);
 	
-	//老师
-	public void addteacher(Teacher pteacher);
-	public void deleteteacher(Teacher pteacher);
-	public void updateteacher(Map<String ,Object> pteacher);
-	public List<Object> queryteacher(Teacher pTeacher);
+//老师
+	public void addTeacher(Teacher teacher);
+	public void deleteTeacher(Teacher teacher);
+	public void updateTeacher(Map<String ,Object> teacher);
+	public List<Teacher> queryTeacher(Teacher teacher);
 	
 	//课程
-	public void addCource(Course pcourse);
-	public void deleteteCourse(Course pcourse);
-	public void updateCourse(Map<String ,Object> pcourse);
-	public List<Object> querycourse(Course pCourse);
+	public void addCource(Course course);
+	public void deleteteCourse(Course course);
+	public void updateCourse(Map<String ,Object> course);
+	public List<Course> queryCourse(Course course);
 	
 	//记录
-	public void  addLog(Log plog);
-	public void deleteLog(Log plog);
-	public void updateLog(Map<String ,Object> plog);
-	public List<Object> queryLog(Log plog);
+	public void addLog(Log log);
+	public void deleteLog(Log log);
+	public void updateLog(Map<String ,Object> log);
+	public List<Log> queryLog(Log log);
 	
 	
 	//学生安排考试表的增删改查
-	public void  addManagestudent(Managestudent pmanagestudent);
-	public void deleteManagestudent(Managestudent pmanagestudent);
-	public void updateManagestudent(Map<String ,Object> pmanagestudent);
-	public List<Object> queryManagestudent(Managestudent pmanagestudent);
+	public void  addManagestudent(Managestudent managestudent);
+	public void deleteManagestudent(Managestudent managestudent);
+	public void updateManagestudent(Managestudent managestudent);
+	public List<Managestudent> queryManagestudent(Managestudent managestudent);
 	
 	//老师安排考试表的增删改查
-	public void  addManageteacher(Manageteacher pManageteacher);
-	public void deleteManageteacher(Manageteacher pManageteacher);
-	public void updateManageteacher(Map<String ,Object> pManageteacher);
-	public List<Object> queryManageteacher(Manageteacher pManageteacher);
+	public void addManageteacher(Manageteacher manageteacher);
+	public void deleteManageteacher(Manageteacher manageteacher);
+	public void updateManageteacher(Manageteacher manageteacher);
+	public List<Manageteacher> queryManageteacher(Manageteacher manageteacher);
+
 	
 	//对消息进行增删查操作
 	public void addMessage(Message pMessage);
@@ -87,6 +88,7 @@ public interface AdminMapper
 	public List<Object> queryForum(Forum pForum);
 	
 	//老师批卷结果的查询
-	public List<Object> queryCheck(Check pCheck);
-	
+
+	public List<Check> queryCheck(Check check);
+
 }

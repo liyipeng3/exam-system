@@ -1,13 +1,15 @@
 package com.neusoft.root.domain;
 
-//题库
-public class Item {
+
+//试题
+public class RawItem {
+
 	private String itemId; //题目ID
 	private String itemCourseType;  // 题目类型，java，c++
 	private String itemType; //题目类型，多选题，单选题，填空题，主观题
 	private Double itemIndex; //试题难度 
 	private String itemQuestion; //试题题干
-	private String itemOption; //试题问题
+	private String itemOption; //试题选项
 	private String itemAnswer; //试题答案
 	private String itemPicture; //试题路径
 	@Override
@@ -41,7 +43,7 @@ public class Item {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Item other = (Item) obj;
+		RawItem other = (RawItem) obj;
 		if (itemAnswer == null) {
 			if (other.itemAnswer != null)
 				return false;
@@ -89,11 +91,11 @@ public class Item {
 			return false;
 		return true;
 	}
-	public Item() {
+	public RawItem() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Item(String itemId, String itemCourseType, String itemType, Double itemIndex, String itemQuestion,
+	public RawItem(String itemId, String itemCourseType, String itemType, Double itemIndex, String itemQuestion,
 			String itemOption, String itemAnswer, String itemPicture, Double itemScore) {
 		super();
 		this.itemId = itemId;
