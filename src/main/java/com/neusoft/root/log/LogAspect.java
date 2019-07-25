@@ -12,19 +12,19 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
-import com.neusoft.root.domain.Log;
+import com.neusoft.root.domain.MyLog;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 
 @Aspect
 @Component
 public class LogAspect {
-    //设置切点表达式
+  /*  //设置切点表达式
     @Pointcut("@annotation(com.nuesoft.root.log.Logger)")
     public void logPointcut(){}
     //环绕通知
     @Around("logPointcut()")
-    public Log logHandler(ProceedingJoinPoint process, HttpServletRequest request) throws Throwable{
+    public MyLog logHandler(ProceedingJoinPoint process, HttpServletRequest request) throws Throwable{
     	//时间
         long time=System.currentTimeMillis();
         //获得参数
@@ -50,7 +50,7 @@ public class LogAspect {
         System.out.println(path);
         System.out.println(operation);
         System.out.println(username);
-        Log result = new Log();
+        MyLog result = new MyLog);
         return result;
-    }
+    }*/
 }

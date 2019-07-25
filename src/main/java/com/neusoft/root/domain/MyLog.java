@@ -8,28 +8,21 @@ public class MyLog
 	private Date opDate; //操作时间
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
-<<<<<<< HEAD:src/main/java/com/neusoft/root/domain/MyLog.java
+
 	private String opPage; // 操作内容
 	public MyLog(Integer logId, String opId, Date opDate, String opType, String opMsg, String opPage) {
-=======
-	private String opResult; // 操作结果
-	
-	public Log(Integer logId, String opId, Date opDate, String opType, String opMsg, String opResult) {
->>>>>>> parent of cefd3d7... zyc-2019年7月25日14:43:23:src/main/java/com/neusoft/root/domain/Log.java
+
 		super();
 		this.logId = logId;
 		this.opId = opId;
 		this.opDate = opDate;
 		this.opType = opType;
 		this.opMsg = opMsg;
-		this.opResult = opResult;
+		this.opPage = opPage;
 	}
-<<<<<<< HEAD:src/main/java/com/neusoft/root/domain/MyLog.java
-	public MyLog() {
-=======
 
-	public Log() {
->>>>>>> parent of cefd3d7... zyc-2019年7月25日14:43:23:src/main/java/com/neusoft/root/domain/Log.java
+	public MyLog() {
+
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -75,11 +68,11 @@ public class MyLog
 	}
 
 	public String getOpResult() {
-		return opResult;
+		return opPage;
 	}
 
 	public void setOpResult(String opResult) {
-		this.opResult = opResult;
+		this.opPage = opResult;
 	}
 
 	@Override
@@ -90,7 +83,7 @@ public class MyLog
 		result = prime * result + ((opDate == null) ? 0 : opDate.hashCode());
 		result = prime * result + ((opId == null) ? 0 : opId.hashCode());
 		result = prime * result + ((opMsg == null) ? 0 : opMsg.hashCode());
-		result = prime * result + ((opResult == null) ? 0 : opResult.hashCode());
+		result = prime * result + ((opPage == null) ? 0 : opPage.hashCode());
 		result = prime * result + ((opType == null) ? 0 : opType.hashCode());
 		return result;
 	}
@@ -124,10 +117,10 @@ public class MyLog
 				return false;
 		} else if (!opMsg.equals(other.opMsg))
 			return false;
-		if (opResult == null) {
-			if (other.opResult != null)
+		if (opPage == null) {
+			if (other.opPage != null)
 				return false;
-		} else if (!opResult.equals(other.opResult))
+		} else if (!opPage.equals(other.opPage))
 			return false;
 		if (opType == null) {
 			if (other.opType != null)
@@ -140,6 +133,6 @@ public class MyLog
 	@Override
 	public String toString() {
 		return "Log [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
-				+ opMsg + ", opResult=" + opResult + "]";
+				+ opMsg + ", opResult=" + opPage + "]";
 	}
 }
