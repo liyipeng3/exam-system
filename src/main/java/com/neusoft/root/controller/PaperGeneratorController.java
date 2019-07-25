@@ -1,20 +1,17 @@
 ﻿package com.neusoft.root.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.sql.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
-import com.neusoft.root.service.GetPaperCourseImpl;
 
 @Controller
 @RequestMapping("/exam")
@@ -33,10 +30,10 @@ public class PaperGeneratorController {
 	public String getPapers(){
 		List<RawPaper> papers = new ArrayList<>();
 		Gson gson = new Gson();
-		Date date = new Date();
-		RawPaper paper1 = new RawPaper("1","test1", "1",date, "语文", 0.1,"choice", "fill", "subjective", 100.0, "sss", "sss");
-		RawPaper paper2 = new RawPaper("2","test2","2", "语文", 0.2, "choice", "fill", "subjective", 100.0, "sss", "sss");
-		RawPaper paper3 = new RawPaper("3", "test3","3","语文", 0.3, "choice", "fill", "subjective", 100.0, "sss", "sss");
+		Date date = new Date(9102, 11, 11);
+		RawPaper paper1 = new RawPaper("1","test1", "1",date, "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
+		RawPaper paper2 = new RawPaper("2","test2","2", date, "语文", 0.2, "choice", "fill", "subjective", "hhhh", 100.0, "sss", "sss");
+		RawPaper paper3 = new RawPaper("3", "test3","3", date, "语文", 0.3, "choice", "fill", "subjective", "hhhhh", 100.0, "sss", "sss");
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);

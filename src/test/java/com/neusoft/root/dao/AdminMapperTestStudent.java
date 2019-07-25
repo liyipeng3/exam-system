@@ -64,17 +64,5 @@ public class AdminMapperTestStudent
 	@Test
 	public void testQueryStudent()
 	{
-		try 
-		{
-			List<Student> list = am.queryStudent(null);
-			for (Student student : list) 
-			{
-				System.out.println(student);
-			}
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}
 	}
 }
