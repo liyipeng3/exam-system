@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 
-public class Coursetudent {
+public class Coursestudent {
 	private String courseId;
 	private String teacherId;
 	public String getCourseId() {
@@ -35,7 +35,7 @@ public class Coursetudent {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Coursetudent other = (Coursetudent) obj;
+		Coursestudent other = (Coursestudent) obj;
 		if (courseId == null) {
 			if (other.courseId != null)
 				return false;
@@ -48,11 +48,11 @@ public class Coursetudent {
 			return false;
 		return true;
 	}
-	public Coursetudent() {
+	public Coursestudent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Coursetudent(String courseId, String teacherId) {
+	public Coursestudent(String courseId, String teacherId) {
 		super();
 		this.courseId = courseId;
 		this.teacherId = teacherId;

@@ -154,6 +154,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="className!=null and className!=''">
 				and class_name = #{className}
 			</if>
+			<if test="classSeats!=null and classSeats!=''">
+				and class_seats = #{classSeats}
+			</if>
 		</where>
 	</select>
 	
@@ -235,7 +238,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 管理课程 -->
 	<insert id="addCource" parameterType="Course">
 		insert into course_table 
-		values(#{courseId},#{courseName})
+		values(#{courseId},#{courseName},#{courseType})
 	</insert>
 	
 	<delete id="deleteCourse" parameterType="Course">
@@ -247,6 +250,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<set>
 			<if test="courseName!=null and courseName!=''">
 				course_name = #{courseName},
+			</if>
+			<if test="courseType!=null and courseType!=''">
+				course_type = #{courseType},
 			</if>
 		</set>
 		where course_id in
@@ -265,26 +271,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="courseName!=null and courseName!=''">
 				and course_name = #{courseName}
 			</if>
+			<if test="courseName!=null and courseName!=''">
+				and course_type = #{courseType}
+			</if>
 		</where>
 	</select>
 	
 	<resultMap type="Course" id="MyCourse">
 		<id column="course_id" property="courseId"/>
 		<result column="course_name" property="courseName"/>
+		<result column="course_type" property="courseType"/>
 	</resultMap>
-
 	
 	<!-- 管理日志 -->
-	<insert id="addLog" parameterType="Log">
-		insert into log_table 
-		values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
+	<insert id="addMyLog" parameterType="Mylog">
+		insert into log_table(op_id,op_date,op_type,op_msg,op_page) 
+		values(#{opId},#{opDate},#{opType},#{opMsg},#{opPage})
 	</insert>
 	
-	<delete id="deleteLog" parameterType="Log">
+	<delete id="deleteMyLog" parameterType="Mylog">
 		delete from log_table where log_id = #{logId}
 	</delete>
 	
-	<update id="updateLog" parameterType="Map">
+	<update id="updateMyLog" parameterType="Map">
 		update log_table
 		<set>
 			<if test="opId!=null and opId!=''">
@@ -309,7 +318,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</update>
 	
-	<select id="queryLog" parameterType="Log" resultMap="MyLog">
+	<select id="queryMyLog" parameterType="MyLog" resultMap="MyLog1">
 		select *
 		from log_table
 		<where>
@@ -334,7 +343,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
-	<resultMap type="Log" id="MyLog">
+	<resultMap type="MyLog" id="MyLog1">
 		<id column="log_id" property="logId"/>
 		<result column="op_id" property="opId"/>
 		<result column="op_date" property="opDate"/>
@@ -447,27 +456,128 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 消息管理 -->
 	<insert id="addMessage" parameterType="Message">
 		insert into message_table 
-		values(#{msgId},#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext},#{msgRole})
+		values(#{msgId},#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext})
 	</insert>
 	
+	<delete id="deleteMessage" parameterType="Message">
+		delete from manageteacher_table where msg_id = #{msgId}
+	</delete>
 	
-	<select id="queryManageteacher" parameterType="Manageteacher" resultMap="MyManageteacher">
+	<select id="queryMessage" parameterType="Message" resultMap="MyMessage">
 		select *
 		from manageteacher_table
 		<where>
-			<if test="classId!=null and classId!=''">
-				and class_id = #{classId}
+			<if test="senderId!=null and senderId!=''">
+				and sender_id = #{senderId}
+			</if>
+			<if test="targetId!=null and targetId!=''">
+				and target_id = #{targetId}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Message" id="MyMessage">
+		<id column="msg_id" property="msgId"/>
+		<result column="msg_date" property="msgDate"/>
+		<result column="sender_id" property="senderId"/>
+		<result column="target_id" property="targetId"/>
+		<result column="msg_type" property="msgType"/>
+		<result column="msg_context" property="msgContext"/>
+	</resultMap>
+	
+	<!-- 学生答题结果管理 -->
+	<insert id="addResult" parameterType="Result">
+		insert into result_table 
+		values(#{studentId},#{paperId},#{singlechoiceResult},
+		#{multichoiceResult},#{fillResult},#{subjectiveResult})
+	</insert>
+	
+	<select id="queryResult" parameterType="Result" resultMap="MyResult">
+		select *
+		from result_table
+		<where>
+			<if test="studentId!=null and studentId!=''">
+				and student_id = #{studentId}
+			</if>
+			<if test="paperId!=null and paperId!=''">
+				and paper_id = #{paperId}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Result" id="MyResult">
+		<result column="student_id" property="studentId"/>
+		<result column="paper_id" property="paperId"/>
+		<result column="singlechoice_result" property="singlechoiceResult"/>
+		<result column="multichoice_result" property="multichoiceResult"/>
+		<result column="fill_result" property="fillResult"/>
+		<result column="subjective_result" property="subjectiveResult"/>
+	</resultMap>
+	
+	<!-- 论坛管理 -->
+	<insert id="addForum" parameterType="Forum">
+		insert into forum_table 
+		values(#{postId},#{postDate},#{senderId},
+		#{postTag},#{postOutline},#{postContext})
+	</insert>
+	
+	<delete id="deleteForum" parameterType="Forum">
+		delete from forum_table where post_id = #{post_id} and sender_id = #{senderId}
+	</delete>
+	
+	<select id="queryForum" parameterType="Forum" resultMap="MyForum">
+		select *
+		from forum_table
+		<where>
+			<if test="postId!=null and postId!=''">
+				and post_id = #{postId}
+			</if>
+			<if test="senderId!=null and senderId!=''">
+				and sender_id = #{senderId}
+			</if>
+			<if test="postTag!=null and postTag!=''">
+				and post_tag = #{postTag}
+			</if>
+			<if test="postOutline!=null and postOutline!=''">
+				and post_outline = #{postOutline}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Forum" id="MyForum">
+		<id column="post_id" property="postId"/>
+		<result column="post_date" property="postDate"/>
+		<result column="sender_id" property="senderId"/>
+		<result column="post_tag" property="postTag"/>
+		<result column="post_outline" property="postOutline"/>
+		<result column="post_context" property="postContext"/>
+	</resultMap>
+	
+	<!-- 老师批阅结果管理 -->
+	<select id="queryCheck" parameterType="Check" resultMap="MyCheck">
+		select *
+		from forum_table
+		<where>
+			<if test="postId!=null and postId!=''">
+				and student_id = #{studentId}
+			</if>
+			<if test="paperId!=null and paperId!=''">
+				and paper_id = #{paperId}
 			</if>
 			<if test="teacherId!=null and teacherId!=''">
 				and teacher_id = #{teacherId}
 			</if>
-			<if test="courseId!=null and courseId!=''">
-				and course_id = #{courseId}
-			</if>
-			<if test="examDate!=null and examDate!=''">
-				and exam_date = #{examDate}
-			</if>
 		</where>
 	</select>
-
+	
+	<resultMap type="Check" id="MyCheck">
+		<result column="student_id" property="studentId"/>
+		<result column="paper_id" property="paperId"/>
+		<result column="teacher_id" property="teacherId"/>
+		<result column="singlechoice_score" property="singlechoiceScore"/>
+		<result column="multichoice_score" property="multichoiceScore"/>
+		<result column="fill_score" property="fillScore"/>
+		<result column="subjective_score" property="subjectiveScore"/>
+		<result column="sum_score" property="sumScore"/>
+	</resultMap>
 </mapper>

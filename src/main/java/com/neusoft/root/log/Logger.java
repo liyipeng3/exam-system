@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Inherited
 @Documented
-public @interface Log {
+public @interface Logger 
+{
 	String value() default "";
 }

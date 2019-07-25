@@ -2,6 +2,7 @@ package com.neusoft.root.dao;
 
 import static org.junit.Assert.*;
 
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,25 +14,30 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neusoft.root.domain.Admin;
+import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.Student;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AdminMapperTestStudent 
+public class AdminMapperTestMyLog 
 {
 	@Autowired
 	private AdminMapper am;
 	
 	@Test
-	public void testAddStudent()
+	public void testAddMyLog()
 	{
-		/*try 
+		try 
 		{
-			Student student = new Student("117373", "zyc", "123", "CS", "SE", "HIT");
-			am.addStudent(student);
-		} catch (Exception e) {
+			Date date = new Date(2019, 7, 25);
+			MyLog log = new MyLog(1, "111", date, "123", "123", "123");
+			am.addMyLog(log);
+			
+		} 
+		catch (Exception e) 
+		{
 			System.out.println(e);
-		}*/
+		}
 	}
 	
 	@Test
@@ -64,7 +70,7 @@ public class AdminMapperTestStudent
 	@Test
 	public void testQueryStudent()
 	{
-		try 
+		/*try 
 		{
 			List<Student> list = am.queryStudent(null);
 			for (Student student : list) 
@@ -75,6 +81,6 @@ public class AdminMapperTestStudent
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}
+		}*/
 	}
 }

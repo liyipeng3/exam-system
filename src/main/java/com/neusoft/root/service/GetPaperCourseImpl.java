@@ -1,4 +1,4 @@
-package com.neusoft.root.service;
+/*package com.neusoft.root.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,3 +27,4 @@ public class GetPaperCourseImpl implements GetPaperCourse{
 	}
 	
 }
+*/
