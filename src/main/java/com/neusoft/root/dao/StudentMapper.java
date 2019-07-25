@@ -8,8 +8,8 @@ import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Forum;
-import com.neusoft.root.domain.Log;
 import com.neusoft.root.domain.Managestudent;
+import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
@@ -26,8 +26,8 @@ public interface StudentMapper {
 	public List<Forum> queryForum(Forum forum);
 	
 	//log
-	public void  addLog(Log plog);
-	public List<Object> queryLog(Log plog);
+	public void  addLog(MyLog plog);
+	public List<MyLog> queryLog(MyLog plog);
 	
 	//对消息进行增删查操作
 	public void addMessage(Message message);
