@@ -284,21 +284,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<!-- 管理日志 -->
-<<<<<<< HEAD
 	<insert id="addMyLog" parameterType="Mylog">
 		insert into log_table(op_id,op_date,op_type,op_msg,op_page) 
 		values(#{opId},#{opDate},#{opType},#{opMsg},#{opPage})
 	</insert>
 	
 	<delete id="deleteMyLog" parameterType="Mylog">
-=======
-	<insert id="addLog" parameterType="Mylog">
-		insert into log_table 
-		values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
-	</insert>
-	
-	<delete id="deleteLog" parameterType="Mylog">
->>>>>>> origin/zyc
 		delete from log_table where log_id = #{logId}
 	</delete>
 	
@@ -327,11 +318,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</update>
 	
-<<<<<<< HEAD
 	<select id="queryMyLog" parameterType="MyLog" resultMap="MyLog1">
-=======
-	<select id="queryLog" parameterType="MyLog" resultMap="MyLog1">
->>>>>>> origin/zyc
 		select *
 		from log_table
 		<where>
@@ -514,8 +501,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 			<if test="paperId!=null and paperId!=''">
 				and paper_id = #{paperId}
-<<<<<<< HEAD
-=======
 			</if>
 		</where>
 	</select>
@@ -581,79 +566,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 			<if test="teacherId!=null and teacherId!=''">
 				and teacher_id = #{teacherId}
->>>>>>> origin/zyc
 			</if>
 		</where>
 	</select>
 	
-<<<<<<< HEAD
-	<resultMap type="Result" id="MyResult">
-		<result column="student_id" property="studentId"/>
-		<result column="paper_id" property="paperId"/>
-		<result column="singlechoice_result" property="singlechoiceResult"/>
-		<result column="multichoice_result" property="multichoiceResult"/>
-		<result column="fill_result" property="fillResult"/>
-		<result column="subjective_result" property="subjectiveResult"/>
-	</resultMap>
-	
-	<!-- 论坛管理 -->
-	<insert id="addForum" parameterType="Forum">
-		insert into forum_table 
-		values(#{postId},#{postDate},#{senderId},
-		#{postTag},#{postOutline},#{postContext})
-	</insert>
-	
-	<delete id="deleteForum" parameterType="Forum">
-		delete from forum_table where post_id = #{post_id} and sender_id = #{senderId}
-	</delete>
-	
-	<select id="queryForum" parameterType="Forum" resultMap="MyForum">
-		select *
-		from forum_table
-		<where>
-			<if test="postId!=null and postId!=''">
-				and post_id = #{postId}
-			</if>
-			<if test="senderId!=null and senderId!=''">
-				and sender_id = #{senderId}
-			</if>
-			<if test="postTag!=null and postTag!=''">
-				and post_tag = #{postTag}
-			</if>
-			<if test="postOutline!=null and postOutline!=''">
-				and post_outline = #{postOutline}
-			</if>
-		</where>
-	</select>
-	
-	<resultMap type="Forum" id="MyForum">
-		<id column="post_id" property="postId"/>
-		<result column="post_date" property="postDate"/>
-		<result column="sender_id" property="senderId"/>
-		<result column="post_tag" property="postTag"/>
-		<result column="post_outline" property="postOutline"/>
-		<result column="post_context" property="postContext"/>
-	</resultMap>
-	
-	<!-- 老师批阅结果管理 -->
-	<select id="queryCheck" parameterType="Check" resultMap="MyCheck">
-		select *
-		from forum_table
-		<where>
-			<if test="postId!=null and postId!=''">
-				and student_id = #{studentId}
-			</if>
-			<if test="paperId!=null and paperId!=''">
-				and paper_id = #{paperId}
-			</if>
-			<if test="teacherId!=null and teacherId!=''">
-				and teacher_id = #{teacherId}
-			</if>
-		</where>
-	</select>
-	
-=======
->>>>>>> origin/zyc
 	<resultMap type="Check" id="MyCheck">
 		<result column="student_id" property="studentId"/>
 		<result column="paper_id" property="paperId"/>

@@ -55,7 +55,7 @@ public class AdminMapperTestTeacher
 	@Test
 	public void testUpdateManageteacher()
 	{
-		try 
+		/*try 
 		{
 			Manageteacher mt = new Manageteacher("125","234","123","2019-7-27");
 			am.updateManageteacher(mt);
@@ -63,23 +63,23 @@ public class AdminMapperTestTeacher
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}
+		}*/
 	}
 	
 	@Test
 	public void testQueryManageteacher()
 	{
-		/*try 
+		try 
 		{
-			List<Student> list = am.queryStudent(null);
-			for (Student student : list) 
+			List<Manageteacher> list = am.queryManageteacher(null);
+			for (Manageteacher mt : list) 
 			{
-				System.out.println(student);
+				System.out.println(mt);
 			}
 		} 
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}*/
+		}
 	}
 }

@@ -53,18 +53,10 @@ public interface AdminMapper
 	public List<Course> queryCourse(Course course);
 	
 	//记录
-<<<<<<< HEAD
 	public void addMyLog(MyLog log);
 	public void deleteMyLog(MyLog log);
 	public void updateMyLog(Map<String ,Object> log);
 	public List<MyLog> queryMyLog(MyLog log);
-=======
-	public void addLog(MyLog log);
-	public void deleteLog(MyLog log);
-	public void updateLog(Map<String ,Object> log);
-	public List<MyLog> queryLog(MyLog log);
->>>>>>> origin/zyc
-	
 	
 	//学生安排考试表的增删改查
 	public void addManagestudent(Managestudent managestudent);
