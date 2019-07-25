@@ -310,10 +310,6 @@
                         <i class="icons8-trash-can btn-icon-left"></i>
                         删除
                     </button>
-                    <button type="button" class="btn btn-default" id="examClassify">
-                        <i class="icon icon-a_btn_classify"></i>
-                        管理试卷分类
-                    </button>
                 </div>
                 <div class="body-toolbar-right pull-right toolbar-right-operation">
                     <div class="search-section">
@@ -351,7 +347,6 @@
             </div>
         </div>
 
-
         <div class="status-right">
             <div class="status-item item-notification" id="stateMessage">
                 <i class="icon item-icon icon-p_top_message"></i>
@@ -370,10 +365,8 @@
                     <i class="icons8 icons8-icon"></i>
                 </div>
 
-
                 <div class="sidebar-nav">
                     <ul class="sidebar-trans" id="ksxAdminSidebar">
-
                         <li class="nav-item nav-item-index" id="navItemIndex">
                             <a href="https://admin.kaoshixing.com/account/admin/index/" data-toggle="tooltip"
                                data-placement="right" data-container="body" title="" data-original-title="首页">
@@ -444,8 +437,7 @@
                                 href="https://v.kaoshixing.com/admin/customprocess/" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="自定义任务">
                             <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
-                            <span class="nav-title">自定义任务</span><img class="mark-beta"
-                                                                     src="../../img/a_nav_beta.svg"></a>
+                            <span class="nav-title">自定义任务</span></a>
                         </li>
                         <li class="nav-item " id="navItemCertification"><a
                                 href="https://admin.kaoshixing.com/certificate/certificate_center" class="menu-title"
@@ -509,8 +501,6 @@
                     </ul>
                 </div>
             </div>
-
-
             <div class="sidebar-bottom sidebar-btn">
                 <ul class="sidebar-trans">
                     <li class="nav-item">
@@ -520,7 +510,6 @@
                                 <i class="icon icon-a_nav_help"></i>
                             </div>
                             <span class="nav-title">帮助
-                            <img class="new-svg" src="../../img/a_nav_new.svg" alt="">
                         </span>
                         </a>
                         <div class="dropdown-menu company-info-panel person-servers-panel">
@@ -672,7 +661,7 @@
                             </thead>
                             <tbody>
                             <tr data-row-id="292524">
-                                <td class="select-cell" style="{{ctx.style}}"><label class="select-label"><input
+                                <td class="select-cell" style=""><label class="select-label"><input
                                         name="select" type="checkbox" class="select-box" value="292524"><span
                                         class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>
                                 <td class="text-left" style="">34234</td>
@@ -703,7 +692,7 @@
                                         data-original-title="创建考试"></a></td>
                             </tr>
                             <tr data-row-id="291896">
-                                <td class="select-cell" style="{{ctx.style}}"><label class="select-label"><input
+                                <td class="select-cell" style=""><label class="select-label"><input
                                         name="select" type="checkbox" class="select-box" value="291896"><span
                                         class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>
                                 <td class="text-left" style="">213123</td>
@@ -734,7 +723,7 @@
                                         data-original-title="创建考试"></a></td>
                             </tr>
                             <tr data-row-id="291152">
-                                <td class="select-cell" style="{{ctx.style}}"><label class="select-label"><input
+                                <td class="select-cell" style=""><label class="select-label"><input
                                         name="select" type="checkbox" class="select-box" value="291152"><span
                                         class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>
                                 <td class="text-left" style="">试卷示例</td>
@@ -918,11 +907,11 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="row-label">试卷分类：</div>
+                        <div class="row-label">选择科目：</div>
                         <div class="row-content">
-                            <button type="button" class="btn btn-default btn-sm" id="selTypeLink"><span>选择分类</span><i
-                                    class="bulleted-list icon icon-a_btn_classify"></i></button>
-                            <input type="hidden" name="paper_style" value="">
+                            <div id="select_subject">
+                                &nbsp;
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -939,10 +928,6 @@
                     <div class="form-row">
                         <div class="row-label"></div>
                         <div class="row-content">
-                            <label>
-                                <input type="checkbox" name="perTimeRestrict">
-                                限制每题时长
-                            </label>
                         </div>
                     </div>
                 </form>
@@ -950,20 +935,6 @@
             <div class="modal-footer text-center">
                 <button class="btn btn-gray" data-dismiss="modal">取消</button>
                 <button class="btn btn-primary" id="confirmCreatePaper">确认</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="typeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">选择分类</h4>
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="500px" name="selTypeModal" id="selTypeModal"
-                        src="../../html/saved_resource.html"></iframe>
             </div>
         </div>
     </div>
@@ -1171,6 +1142,15 @@
         $(".toolbar-left-operation .btn#batchDel, .toolbar-left-operation .dropdown-menu").removeClass("deactive").addClass("inactive").attr("disabled", "disabled");
     });//按钮的可用与禁用（inactive deactive)
 </script>
-
+<script>
+    $(function () {
+        $.getJSON("/exam/get_paper_subjects", function (result) {
+            $.each(result.subjects, function (index, e) {
+                $subject = $("<label>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>")
+                $("#select_subject").append($subject);
+            })
+        })
+    })
+</script>
 </body>
 </html>

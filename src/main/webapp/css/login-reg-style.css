@@ -339,16 +339,6 @@
         min-height: 0;
     }
 
-    /*.mobile-btn-regist{*/
-    /*border-radius: 100px;*/
-    /*margin-top: 15px;*/
-    /*height: 50px;*/
-    /*line-height: 50px;*/
-    /*padding: 0;*/
-    /*border-color:#1A8CFE;*/
-    /*color: #1A8CFE;*/
-    /*display: block;*/
-    /*}*/
     .mobile-btn-regist {
         color: #999;
         padding: 0;
@@ -372,11 +362,6 @@
         line-height: 40px;
     }
 
-    /*.mobile-wechat-login {*/
-    /*display: block;*/
-    /*float: left;*/
-    /*color: #999;*/
-    /*}*/
     .mobile-wechat-login a {
         color: #999;
         font-size: 14px;

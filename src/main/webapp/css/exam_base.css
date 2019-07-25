@@ -581,12 +581,6 @@ html, body {
     cursor: not-allowed;
 }
 
-/*.modal-user-info.edit-mode .item .btn-wechat{*/
-/*border-color: #FF0000;*/
-/*color: #FF0000;*/
-/*}*/
-
-
 /*修改密码modal*/
 .modal-set-password .modal-body .error-info {
     color: #FF0000;
