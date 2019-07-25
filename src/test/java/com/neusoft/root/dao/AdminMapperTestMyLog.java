@@ -32,6 +32,7 @@ public class AdminMapperTestMyLog
 			Date date = new Date(2019, 7, 25);
 			MyLog log = new MyLog(1, "113", date, "123", "123", "123");
 			am.addMyLog(log);
+
 		} 
 		catch (Exception e) 
 		{
