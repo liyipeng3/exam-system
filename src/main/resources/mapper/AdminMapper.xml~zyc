@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neusoft.root.dao.AdminMapper">
+	<!-- 管理管理员 -->
+	<insert id="addAdmin" parameterType="Admin">
+		insert into admin_table values(#{adminId},#{adminName},#{adminPassword})
+	</insert>
+	
+	<delete id="deleteAdmin" parameterType="Admin">
+		delete from admin_table where admin_id = #{adminId}
+	</delete>
+	
+	<update id="updateAdmin" parameterType="Map">
+		update admin_table
+		<set>
+			<if test="adminName!=null and adminName!=''">
+				admin_name = #{adminName},
+			</if>
+			<if test="adminPassword!=null and adminPassword!=''">
+				admin_password = #{adminPassword},
+			</if>
+		</set>
+		where admin_id in
+		<foreach collection="ids" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	
+	<select id="queryAdmin" parameterType="Admin" resultMap="MyAdmin">
+		select *
+		from admin_table
+		<where>
+			<if test="adminId!=null and adminId!=''">
+				and admin_id = #{adminId}
+			</if>
+			<if test="adminName!=null and adminName!=''">
+				and admin_name = #{adminName}
+			</if>
+			<if test="adminPassword!=null and adminPassword!=''">
+				and admin_password = #{adminPassword}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Admin" id="MyAdmin">
+		<id column="admin_id" property="adminId"/>
+		<result column="admin_name" property="adminName"/>
+		<result column="admin_password" property="adminPassword"/>
+	</resultMap>
+	
+	<!-- 管理学生-->
+	<insert id="addStudent" parameterType="Student">
+		insert into student_table values(#{studentId},#{studentName},#{studentPassword},#{studentAcademy},#{studentMajor},#{studentSchool})
+	</insert>
+	
+	<delete id="deleteStudent" parameterType="Student">
+		delete from student_table where student_id = #{studentId}
+	</delete>
+	
+	<update id="updateStudent" parameterType="Map">
+		update student_table
+		<set>
+			<if test="studentName!=null and studentName!=''">
+				student_name = #{studentName},
+			</if>
+			<if test="studentPassword!=null and studentPassword!=''">
+				student_password = #{studentPassword},
+			</if>
+			<if test="studentAcademy!=null and studentAcademy!=''">
+				student_academy = #{studentAcademy},
+			</if>
+			<if test="studentMajor!=null and studentMajor!=''">
+				student_major = #{studentMajor},
+			</if>
+			<if test="studentSchool!=null and studentSchool!=''">
+				student_school = #{studentSchool},
+			</if>
+		</set>
+		where student_id in
+		<foreach collection="ids" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	
+	<select id="queryStudent" parameterType="Student" resultMap="MyStudent">
+		select *
+		from student_table
+		<where>
+			<if test="studentId!=null and studentId!=''">
+				and student_id = #{studentId}
+			</if>
+			<if test="studentName!=null and studentName!=''">
+				and student_name = #{studentName}
+			</if>
+			<if test="studentPassword!=null and studentPassword!=''">
+				and student_password = #{studentPassword}
+			</if>
+			<if test="studentAcademy!=null and studentAcademy!=''">
+				and student_academy = #{studentAcademy}
+			</if>
+			<if test="studentMajor!=null and studentMajor!=''">
+				and student_academy = #{studentAcademy}
+			</if>
+			<if test="studentSchool!=null and studentSchool!=''">
+				and student_school = #{studentSchool}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Student" id="MyStudent">
+		<id column="student_id" property="studentId"/>
+		<result column="student_name" property="studentName"/>
+		<result column="student_password" property="studentPassword"/>
+		<result column="student_academy" property="studentAcademy"/>
+		<result column="student_major" property="studentMajor"/>
+		<result column="student_school" property="studentSchool"/>		
+	</resultMap>
+	
+	<!-- 管理班级 -->
+	<insert id="addClass" parameterType="Class1">
+		insert into class_table values(#{classId},#{className},#{classSeats})
+	</insert>
+	
+	<delete id="deleteClass" parameterType="Class1">
+		delete from class_table where class_id = #{classId}
+	</delete>
+	
+	<update id="updateClass" parameterType="Map">
+		update class_table
+		<set>
+			<if test="className!=null and className!=''">
+				class_name = #{className},
+			</if>
+			<if test="classSeats!=null and classSeats!=''">
+				class_seats = #{classSeats},
+			</if>
+		</set>
+		where class_id in
+		<foreach collection="ids" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	
+	<select id="queryClass" parameterType="Class1" resultMap="MyClass1">
+		select *
+		from class_table
+		<where>
+			<if test="classId!=null and classId!=''">
+				and class_id = #{classId}
+			</if>
+			<if test="className!=null and className!=''">
+				and class_name = #{className}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Class1" id="MyClass1">
+		<id column="class_id" property="classId"/>
+		<result column="class_name" property="className"/>
+		<result column="class_seats" property="classSeats"/>	
+	</resultMap>
+	
+	<!-- 管理老师 -->
+	<insert id="addTeacher" parameterType="Teacher">
+		insert into teacher_table 
+		values(#{teacherId},#{teacherName},#{teacherPassword},#{teacherAcademy},#{teacherMajor})
+	</insert>
+	
+	<delete id="deleteTeacher" parameterType="Teacher">
+		delete from teacher_table where teacher_id = #{teacherId}
+	</delete>
+	
+	<update id="updateTeacher" parameterType="Map">
+		update teacher_table
+		<set>
+			<if test="teacherName!=null and teacherName!=''">
+				teacher_name = #{teacherName},
+			</if>
+			<if test="teacherPassword!=null and teacherPassword!=''">
+				teacher_password = #{teacherPassword},
+			</if>
+			<if test="teacherAcademy!=null and teacherAcademy!=''">
+				teacher_academy = #{teacherAcademy},
+			</if>
+			<if test="teacherMajor!=null and teacherMajor!=''">
+				teacher_major = #{teacherMajor},
+			</if>
+			<if test="teacherSchool!=null and teacherSchool!=''">
+				teacher_school = #{teacherSchool},
+			</if>
+		</set>
+		where teacher_id in
+		<foreach collection="ids" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	
+	<select id="queryTeacher" parameterType="Teacher" resultMap="MyTeacher">
+		select *
+		from teacher_table
+		<where>
+			<if test="teacherId!=null and teacherId!=''">
+				and teacher_id = #{teacherId}
+			</if>
+			<if test="teacherName!=null and teacherName!=''">
+				and teacher_name = #{teacherName}
+			</if>
+			<if test="teacherPassword!=null and teacherPassword!=''">
+				and teacher_password = #{teacherPassword}
+			</if>
+			<if test="teacherAcademy!=null and teacherAcademy!=''">
+				and teacher_academy = #{teacherAcademy}
+			</if>
+			<if test="teacherMajor!=null and teacherMajor!=''">
+				and teacher_major = #{teacherMajor}
+			</if>
+			<if test="teacherSchool!=null and teacherSchool!=''">
+				and teacher_school = #{teacherSchool}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Teacher" id="MyTeacher">
+		<id column="teacher_id" property="teacherId"/>
+		<result column="teacher_name" property="teacherName"/>
+		<result column="teacher_password" property="teacherPassword"/>
+		<result column="teacher_academy" property="teacherAcademy"/>
+		<result column="teacher_major" property="teacherMajor"/>
+		<result column="teacher_school" property="teacherSchool"/>
+	</resultMap>
+	
+	<!-- 管理课程 -->
+	<insert id="addCource" parameterType="Course">
+		insert into course_table 
+		values(#{courseId},#{courseName})
+	</insert>
+	
+	<delete id="deleteCourse" parameterType="Course">
+		delete from course_table where course_id = #{courseId}
+	</delete>
+	
+	<update id="updateCourse" parameterType="Map">
+		update course_table
+		<set>
+			<if test="courseName!=null and courseName!=''">
+				course_name = #{courseName},
+			</if>
+		</set>
+		where course_id in
+		<foreach collection="ids" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	
+	<select id="queryCourse" parameterType="Course" resultMap="MyCourse">
+		select *
+		from course_table
+		<where>
+			<if test="courseId!=null and courseId!=''">
+				and course_id = #{courseId}
+			</if>
+			<if test="courseName!=null and courseName!=''">
+				and course_name = #{courseName}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Course" id="MyCourse">
+		<id column="course_id" property="courseId"/>
+		<result column="course_name" property="courseName"/>
+	</resultMap>
+</mapper>

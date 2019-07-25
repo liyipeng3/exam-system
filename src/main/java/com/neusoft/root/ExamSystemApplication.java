@@ -1,4 +1,4 @@
-package com.neusoft.root;
+﻿package com.neusoft.root;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,9 +13,13 @@ public class ExamSystemApplication {
 
 	
 	public static void main(String[] args) {
-		sqlInit();
+		
+		//sqlInit();
+
 		SpringApplication.run(ExamSystemApplication.class, args);
+		
 	}
+	
 	public static void sqlInit()
 	{
 		Connection conn;
