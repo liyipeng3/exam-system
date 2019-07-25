@@ -1060,7 +1060,7 @@ function savePaperFn(url) {
 }
 
 $("#cannotLinkModal .btn").click(function () {
-    window.location.href = "/admin/exam_mgr_new";
+    window.location.href = "/html/exam/exam_mgr_new.html";
 })
 
 //将指定考生的id拼装成字符串

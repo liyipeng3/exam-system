@@ -1110,7 +1110,7 @@ function asyncPaperSub(obj) {
             if (msg.success == true || msg.msg == true) {
                 if ($("#savePaperBtn").hasClass('addPaperOnly')) {
                     // 只创建试卷
-                    window.location.href = '/admin/paper_mgr_new';
+                    window.location.href = '../html/exam/paper_mgr_new.html';
                 } else {
                     // 继续创建考试
                     window.location.href = "/admin/exam_add?paper_info_id=" + msg.bizContent;
@@ -1170,7 +1170,7 @@ function paperTypeShowTemp() {
         $("div.questionContet_simple , div.group_questionShow , div.group_questionAdd").remove();
         $("div.group_title").append($("#paperTpye2").html());
     }
-    ajaxUrl = "/admin/paper_add_new";
+    ajaxUrl = "./html/exam/paper_add_new.html";
 }
 
 //根据试题类型创建新增试题DOM
