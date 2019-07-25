@@ -11,7 +11,7 @@ import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Coursestudent;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.RawItem;
-import com.neusoft.root.domain.Log;
+import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
@@ -42,8 +42,8 @@ public interface TeacherMapper {
 	public List<RawItem> queryItem(RawItem item);
 	
 	//log
-	public void  addLog(Log log);
-	public List<Log> queryLog(Log log);
+	public void  addLog(MyLog log);
+	public List<MyLog> queryLog(MyLog log);
 	
 	//对消息进行增删查操作
 	public void addMessage(Message message);
