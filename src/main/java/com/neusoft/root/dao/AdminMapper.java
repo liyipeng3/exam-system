@@ -12,7 +12,7 @@ import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Forum;
-import com.neusoft.root.domain.Item;
+
 import com.neusoft.root.domain.Log;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
