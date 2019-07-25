@@ -17,7 +17,7 @@ import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
-@Mapper
+@Mapper 
 public interface TeacherMapper {
 	//批阅试卷增删改查
 	public void addCheck(Check check);
