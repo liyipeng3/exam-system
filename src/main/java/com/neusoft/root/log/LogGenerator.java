@@ -4,11 +4,11 @@ import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.neusoft.root.domain.Log;
+import com.neusoft.root.domain.MyLog;
 
 public class LogGenerator {
-	public static Log logGenerator(){
-		Log log = new Log();
+	public static MyLog logGenerator(){
+		MyLog log = new MyLog();
 		long time=System.currentTimeMillis();
 		Date date = new Date(time);
 		log.setOpDate(date);
