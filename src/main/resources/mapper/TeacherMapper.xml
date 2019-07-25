@@ -201,12 +201,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<!-- 管理日志 -->
-	<insert id="addLog" parameterType="Log">
+	<insert id="addLog" parameterType="MyLog">
 		insert into log_table 
 		values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
 	</insert>
 	
-	<select id="queryLog" parameterType="Log" resultMap="MyLog">
+	<select id="queryLog" parameterType="MyLog" resultMap="MyLog">
 		select *
 		from log_table
 		<where>
@@ -231,7 +231,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
-	<resultMap type="Log" id="MyLog">
+	<resultMap type="MyLog" id="MyLog">
 		<id column="log_id" property="logId"/>
 		<result column="op_id" property="opId"/>
 		<result column="op_date" property="opDate"/>
