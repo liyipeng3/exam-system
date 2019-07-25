@@ -40,6 +40,7 @@ public class LogAspect {
         } catch (Throwable throwable) {
             String exception=throwable.getClass()+":"+throwable.getMessage();
             long costTime=System.currentTimeMillis()-startTime;
+            log.
             log.error("请求时间：{}，请求耗时：{}，请求类名：{}，请求方法：{}，请求参数:{}，请求结果：{}",startTime,costTime,className,methodName,params.toString(),exception);
             return CustomerResponse.buildFail(throwable.getMessage());
         }
