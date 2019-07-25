@@ -4,9 +4,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.neusoft.root.dao.StudentMapper">
-	<insert id="queryClass1" parameterType="Class1">
-		insert into admin_table values(#{adminId},#{adminName},#{adminPassword})
-	</insert>
+	<!-- 查询班级 -->
+	<select id="queryClass1" parameterType="Class1" resultMap="myClass1">
+	select *
+		from student_table
+	<where>
+			<if test="adminId!=null and adminId!=''">
+				and admin_id = #{adminId}
+			</if>
+			<if test="adminName!=null and adminName!=''">
+				and admin_name = #{adminName}
+			</if>
+			<if test="adminPassword!=null and adminPassword!=''">
+				and admin_password = #{adminPassword}
+			</if>
+		</where>
+	</select>
+	<resultMap type="Admin" id="MyAdmin">
+		<id column="admin_id" property="adminId"/>
+		<result column="admin_name" property="adminName"/>
+		<result column="admin_password" property="adminPassword"/>
+	</resultMap>
 	
 	<delete id="DeleteAdmin" parameterType="Admin">
 		delete from admin_table where admin_id = #{adminId}
