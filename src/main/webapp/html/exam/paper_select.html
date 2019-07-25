@@ -307,21 +307,14 @@
         });*/
         $.getJSON("/exam/get_papers", function (result) {
             $.each(result, function (index, e) {
-            var paper = "<tr><td class='select-cell' ><label class='select-label'><input ";
-                paper += "name='select' type='checkbox' class='select-box' value='" + e.paperId +"'>"
+                var paper = "<tr><td class='select-cell' ><label class='select-label'><input ";
+                paper += "name='select' type='checkbox' class='select-box' value='" + e.paperId + "'>";
                 paper += "<span class='select-box'><i class='icons8-checked-checkbox'></i></span></label>";
-                /*    "</td><td class='text-left'>" +
-
-            "<tr data-row-id='291152'>
-                    <td class='select-cell' ><label class='select-label'><input
-                name='select' type='checkbox' class='select-box' value='291152'><span
-            class='select-box'><i class='icons8-checked-checkbox'></i></span></label></td>
-                <td class='text-left'>试卷示例</td>
-                    <td class='text-left' style='width:10%;'>选题组卷</td>
-                    <td class='text-left' style='width:10%;'>100</td>
-                    <td class='text-left' style='width:12%;'>东北大学软件园</td>
-                    <td class='text-left' style='width:16%;'>2019-07-22 17:50</td>
-                </tr>"*/
+                paper += "</td><td class='text-left'>" + e.paperName + "</td><td class='text-left' style='width:10%;'>";
+                paper += e.paperScore + "</td><td class='text-left' style='width:12%;'>" + e.paperRemark + "</td>";
+                paper += "<td class='text-left' style='width:12%;'>" + e.creator + "</td>";
+                paper += "<td class='text-left' style='width:16%;'>" + e.createDate + "</td></tr>"
+                $('tbody').append($(paper));
             })
         })
     });
