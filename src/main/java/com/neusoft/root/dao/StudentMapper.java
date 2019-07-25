@@ -3,6 +3,8 @@ package com.neusoft.root.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.mysql.cj.protocol.Message;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
@@ -14,7 +16,7 @@ import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
-
+@Mapper
 public interface StudentMapper {
 	
 	//查询考试班级时间课程

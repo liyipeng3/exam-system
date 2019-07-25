@@ -3,6 +3,8 @@ package com.neusoft.root.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.mysql.cj.protocol.Message;
 import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
@@ -15,7 +17,7 @@ import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
-
+@Mapper
 public interface TeacherMapper {
 	//批阅试卷增删改查
 	public void addCheck(Check check);
