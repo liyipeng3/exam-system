@@ -60,4 +60,10 @@ public class LoginController {
 			return "用户名或密码错误";
 		}*/
 	}
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String logout(HttpServletRequest req){
+		HttpSession session = req.getSession();
+		session.invalidate();
+		return "redirect:/login";
+	}
 }

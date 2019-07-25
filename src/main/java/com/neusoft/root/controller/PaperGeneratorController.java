@@ -53,9 +53,10 @@ public class PaperGeneratorController {
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
-	@RequestMapping(value="/get_paper_items", method=RequestMethod.GET)
+	@RequestMapping(value="/get_items", method=RequestMethod.GET)
 	@ResponseBody
 	public String getItems(){
-		return "success";
+		
+		return "ok";
 	} 
 }

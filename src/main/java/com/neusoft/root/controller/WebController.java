@@ -25,12 +25,32 @@ public class WebController {
 	public String teacher() {
 		return "/teacher.html";
 	}
-	@RequestMapping("/saved_source")
-	public String saved_source() {
-		return "/saved_source.html";
-	}
-	@RequestMapping("/exam_mgr_new")
+	@RequestMapping("/html/exam/exam_mgr_new")
 	public String exam_mgr_new() {
-		return "/exam_mgr_new.html";
+		return "/html/exam/exam_mgr_new.html";
+	}
+	@RequestMapping("/html/exam/exam_add")
+	public String exam_add() {
+		return "/html/exam/exam_add.html";
+	}
+	@RequestMapping("/html/exam/paper_add_new")
+	public String paper_add_new() {
+		return "/html/exam/paper_add_new.html";
+	}
+	@RequestMapping("/html/exam/paper_manual_add")
+	public String paper_manual_add() {
+		return "/html/exam/paper_manual_add.html";
+	}
+	@RequestMapping("/html/exam/paper_mgr_add")
+	public String paper_mgr_add() {
+		return "/html/exam/paper_mgr_add.html";
+	}
+	@RequestMapping("/html/exam/paper_select")
+	public String paper_select() {
+		return "/html/exam/paper_select.html";
+	}
+	@RequestMapping("/html/exam/test_question")
+	public String test_question() {
+		return "/html/exam/test_question.html";
 	}
 }
