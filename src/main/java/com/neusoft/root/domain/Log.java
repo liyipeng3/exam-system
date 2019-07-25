@@ -23,11 +23,6 @@ public class Log
 		return result;
 	}
 	@Override
-	public String toString() {
-		return "Log [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
-				+ opMsg + ", opResult=" + opResult + "]";
-	}
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

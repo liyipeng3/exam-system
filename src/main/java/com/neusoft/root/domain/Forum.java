@@ -1,19 +1,13 @@
 package com.neusoft.root.domain;
 
 import java.sql.Date;
-//帖子
+
 public class Forum {
 	private String postId;
 	private Date postDate;
-	@Override
-	public String toString() {
-		return "Forum [postId=" + postId + ", postDate=" + postDate + ", senderId=" + senderId + ", postTag=" + postTag
-				+ ", postOutline=" + postOutline + ", postContext=" + postContext + "]";
-	}
 	private String senderId;
-	private String postTag;//分类标签
-	private String postOutline;//题目
-	private String postContext;//内容
+	private String postTag;
+	private String postOutline;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -117,5 +111,5 @@ public class Forum {
 	public void setPostContext(String postContext) {
 		this.postContext = postContext;
 	}
-
+	private String postContext;
 }

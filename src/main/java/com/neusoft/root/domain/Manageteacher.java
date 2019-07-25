@@ -17,11 +17,6 @@ public class Manageteacher {
 	public String getClassId() {
 		return classId;
 	}
-	@Override
-	public String toString() {
-		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId
-				+ ", examDate=" + examDate + "]";
-	}
 	public void setClassId(String classId) {
 		this.classId = classId;
 	}

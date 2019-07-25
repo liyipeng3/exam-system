@@ -1,5 +1,5 @@
 package com.neusoft.root.domain;
-//老师批卷最后的表
+
 public class Check {
 	private String studentId;
 	public Check(String studentId, String paperId, String teacherId, String choiceScore, String fillScore,
@@ -13,14 +13,12 @@ public class Check {
 		this.subjectiveScore = subjectiveScore;
 		this.sumScore = sumScore;
 	}
-	
 	@Override
 	public String toString() {
-		return "Check [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId + ", choiceScore="
-				+ choiceScore + ", fillScore=" + fillScore + ", subjectiveScore=" + subjectiveScore + ", sumScore="
-				+ sumScore + "]";
+		return " studentId " + studentId + " paperId " + paperId + " teacherId " + teacherId + " choiceScore "
+				+ choiceScore + " fillScore " + fillScore + " subjectiveScore " + subjectiveScore + " sumScore "
+				+ sumScore ;
 	}
-
 	public Check() {
 		super();
 		// TODO Auto-generated constructor stub

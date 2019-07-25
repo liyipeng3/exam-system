@@ -11,13 +11,6 @@ public class Paper {
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
 	
-	@Override
-	public String toString() {
-		return "Paper [paperId=" + paperId + ", paperType=" + paperType + ", paperIndex=" + paperIndex
-				+ ", choiceQuestion=" + choiceQuestion + ", fillQuestion=" + fillQuestion + ", subjectiveQuestion="
-				+ subjectiveQuestion + ", paperScore=" + paperScore + ", paperSecrecy=" + paperSecrecy
-				+ ", paperRemark=" + paperRemark + "]";
-	}
 	public String getPaperId() {
 		return paperId;
 	}

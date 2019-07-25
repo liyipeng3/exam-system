@@ -104,12 +104,6 @@ public class Student {
 	public String getStudentSchool() {
 		return studentSchool;
 	}
-	@Override
-	public String toString() {
-		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentPassword="
-				+ studentPassword + ", studentAcademy=" + studentAcademy + ", studentMajor=" + studentMajor
-				+ ", studentSchool=" + studentSchool + "]";
-	}
 	public void setStudentSchool(String studentSchool) {
 		this.studentSchool = studentSchool;
 	}
