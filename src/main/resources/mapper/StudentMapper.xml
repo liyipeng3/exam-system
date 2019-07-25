@@ -70,64 +70,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="op_result" property="opResult"/>
 	</resultMap>
 	
-	<!-- 对消息增删查 -->
+	<!-- 对消息增删改查 -->
 	<insert id="addMessage" parameterType="Message">
-		insert into message_table values(#{msgId},#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext},#{msgRole})
+		insert into message_table values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
 	</insert>
 	
-	<delete id="deleteMessage" parameterType="Message">
-		delete from message_table where msg_id = #{msgId}
-	</delete>
-	
-	<select id="queryMessage" parameterType="Message" resultMap="myMessage">
-	select *
-		from message_table
-	<where>
-			<if test="msgId!=null and msgId!=''">
-				and msg_id = #{msgId}
-			</if>
-		</where>
-	</select>
-	<resultMap type="Message" id="myMessage">
-		<id column="msg_id" property="msgId"/>
-		<result column="msg_date" property="msgDate"/>
-		<result column="sender_id" property="senderId"/>
-		<result column="target_id" property="targetId"/>
-		<result column="msg_type" property="msgType"/>
-		<result column="msg_context" property="msgContext"/>
-		<result column="msg_role" property="msgRole"/>
-	</resultMap>
-	
-	<!-- 对试卷查看 -->
-	<select id="queryPaper" parameterType="RawPaper" resultMap="myPaper">
-	select *
-		from rawpaper_table
-	<where>
-			<if test="paperId!=null and paperId!=''">
-				and paper_id = #{paperId}
-			</if>
-		</where>
-	</select>
-	<resultMap type="RawPaper" id="myPaper">
-		<id column="paper_id" property="paperId"/>
-		<result column="paper_name" property="paperName"/>
-		<result column="creater_id" property="createrId"/>
-		<result column="create_date" property="createDate"/>
-		<result column="paper_type" property="paperType"/>
-		<result column="paper_index" property="paperIndex"/>
-		<result column="singlechoice_question" property="singlechoiceQuestion"/>
-		<result column="multichoice_question" property="multichoiceQuestion"/>
-		<result column="fill_question" property="fillQuestion"/>
-		<result column="subjective_question" property="subjectiveQuestion"/>
-		<result column="paper_score" property="paperScore"/>
-		<result column="paper_secrecy" property="paperSecrecy"/>
-		<result column="paper_remark" property="paperRemark"/>
-	</resultMap>
-	
-	<!-- 对考试答题增加和更新 -->
-	<insert id="addResult" parameterType="Result">
-		insert into result_table values(#{studentId},#{paperId},#{choiceResult},#{fillResult},#{subjectiveResult})
-	</insert>
 	
 	
 	
