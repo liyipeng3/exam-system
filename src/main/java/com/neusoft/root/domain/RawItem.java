@@ -1,8 +1,7 @@
-﻿package com.neusoft.root.domain;
+package com.neusoft.root.domain;
 
 //试题
 public class RawItem {
-
 	private String itemId; //题目ID
 	private String itemCourseType;  // 题目类型，java，c++
 	private String itemType; //题目类型，多选题，单选题，填空题，主观题

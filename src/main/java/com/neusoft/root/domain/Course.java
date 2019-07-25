@@ -1,19 +1,46 @@
 package com.neusoft.root.domain;
 
-public class Course {
+public class Course 
+{
 	private String courseId;
 	private String courseName;
+	private String courseType;
+	public Course(String courseId, String courseName, String courseType) {
+		super();
+		this.courseId = courseId;
+		this.courseName = courseName;
+		this.courseType = courseType;
+	}
+	public Course() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public String getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+	public String getCourseType() {
+		return courseType;
+	}
+	public void setCourseType(String courseType) {
+		this.courseType = courseType;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
 		result = prime * result + ((courseName == null) ? 0 : courseName.hashCode());
+		result = prime * result + ((courseType == null) ? 0 : courseType.hashCode());
 		return result;
-	}
-	@Override
-	public String toString() {
-		return "Course [courseId=" + courseId + ", courseName=" + courseName + "]";
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -34,28 +61,15 @@ public class Course {
 				return false;
 		} else if (!courseName.equals(other.courseName))
 			return false;
+		if (courseType == null) {
+			if (other.courseType != null)
+				return false;
+		} else if (!courseType.equals(other.courseType))
+			return false;
 		return true;
 	}
-	public Course(String courseId, String courseName) {
-		super();
-		this.courseId = courseId;
-		this.courseName = courseName;
+	@Override
+	public String toString() {
+		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", courseType=" + courseType + "]";
 	}
-	public Course() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public String getCourseId() {
-		return courseId;
-	}
-	public void setCourseId(String courseId) {
-		this.courseId = courseId;
-	}
-	public String getCourseName() {
-		return courseName;
-	}
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
-
 }
