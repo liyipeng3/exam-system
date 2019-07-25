@@ -2,29 +2,34 @@ package com.neusoft.root.domain;
 
 public class Coursestudent {
 	private String courseId;
-	private String teacherId;
+	private String studentId;
 	public String getCourseId() {
 		return courseId;
 	}
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
-	public String getTeacherId() {
-		return teacherId;
+	public String getStudentId() {
+		return studentId;
 	}
-	@Override
-	public String toString() {
-		return "Coursetudent [courseId=" + courseId + ", teacherId=" + teacherId + "]";
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
-	public void setTeacherId(String teacherId) {
-		this.teacherId = teacherId;
+	public Coursestudent() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Coursestudent(String courseId, String studentId) {
+		super();
+		this.courseId = courseId;
+		this.studentId = studentId;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
-		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
+		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
 		return result;
 	}
 	@Override
@@ -41,20 +46,18 @@ public class Coursestudent {
 				return false;
 		} else if (!courseId.equals(other.courseId))
 			return false;
-		if (teacherId == null) {
-			if (other.teacherId != null)
+		if (studentId == null) {
+			if (other.studentId != null)
 				return false;
-		} else if (!teacherId.equals(other.teacherId))
+		} else if (!studentId.equals(other.studentId))
 			return false;
 		return true;
 	}
-	public Coursestudent() {
-		super();
-		// TODO Auto-generated constructor stub
+
+	@Override
+	public String toString() {
+		return "Coursestudent [courseId=" + courseId + ", studentId=" + studentId + "]";
+
 	}
-	public Coursestudent(String courseId, String teacherId) {
-		super();
-		this.courseId = courseId;
-		this.teacherId = teacherId;
-	}
+	
 }

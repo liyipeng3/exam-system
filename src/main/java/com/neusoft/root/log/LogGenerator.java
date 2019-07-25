@@ -1,4 +1,6 @@
-package com.neusoft.root.log;
+/*package com.neusoft.root.log;
+
+import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,5 +10,7 @@ public class LogGenerator {
 	public static MyLog logGenerator()
 	{
 		return null;
+
 	}
 }
+*/
