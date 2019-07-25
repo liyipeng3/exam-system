@@ -26,7 +26,7 @@ function Probe() {
         * 可以启用 hashtag 作为标识页面的一部分。
         * 放在init和send之间
         * */
-        gio('config', {'hashtag':true});
+        gio('config', {'hashtag': true});
         //原CS1字段
         gio('setUserId', opts.userId);
         //原CS2-10字段
@@ -90,11 +90,11 @@ function Probe() {
             'regx': /^(.*)(\.kaoshixing\.com\/news\/)([0-9]+)(\?classifyOne=2)$/,
             'name': '资讯详情'
         },
-        'version':  {
+        'version': {
             'regx': /^(.*)(\.kaoshixing\.com\/version\/?)$/,
             'name': '版本对比'
         },
-        'about':  {
+        'about': {
             'regx': /^(.*)(\.kaoshixing\.com\/about\/?)$/,
             'name': '关于我们'
         },
@@ -131,7 +131,7 @@ function Probe() {
     * val 对应值
     * */
     this.gioSetItem = function (key, val) {
-        if(this.localStorage){
+        if (this.localStorage) {
             var gioTrack = this.localStorage.gioTrack ? JSON.parse(this.localStorage.gioTrack) : {};
 
             gioTrack[key] = val;
@@ -143,11 +143,11 @@ function Probe() {
     * 获取localstorage中内容
     * */
     this.gioGetItem = function () {
-        if(this.localStorage){
+        if (this.localStorage) {
             var gioTrack = this.localStorage.gioTrack ? JSON.parse(this.localStorage.gioTrack) : {};
 
             return gioTrack;
-        }else {
+        } else {
             return {};
         }
 
@@ -156,13 +156,13 @@ function Probe() {
     /*
     * 匹配来源页面名称
     * */
-    this.gioPageNameFromUrl = function(url) {
+    this.gioPageNameFromUrl = function (url) {
         var pageJson = this.gioPageNameUrlJson;
         var pageName = '', obj;
 
         for (var key in pageJson) {
             obj = pageJson[key];
-            if(obj.regx.test(url)){
+            if (obj.regx.test(url)) {
                 pageName = obj.name;
             }
         }
@@ -176,10 +176,10 @@ function Probe() {
     this.gioGetPageInfo = function () {
         var obj = {'postion': '无来源'};
 
-        if(document.referrer){
-           obj.url  = document.referrer;
-           obj.name = this.gioPageNameFromUrl(document.referrer);
-        }else {
+        if (document.referrer) {
+            obj.url = document.referrer;
+            obj.name = this.gioPageNameFromUrl(document.referrer);
+        } else {
             obj.url = '***';
             obj.name = '无来源';
         }
@@ -194,23 +194,23 @@ function Probe() {
         var gioTrack = this.gioGetItem();
         var obj = {};
 
-        if(gioTrack.registerFromPage_var){
+        if (gioTrack.registerFromPage_var) {
             obj.url = gioTrack.registerFromPage_var;
             obj.name = gioTrack.registerFromPageName_var;
             obj.postion = gioTrack.registerFromPosition_var;
-        }else {
+        } else {
             obj = this.gioGetPageInfo();
         }
 
         return obj;
     };
-    
+
     /*
     * 删除localstorage中记录条目
     * @params key 条目key
     * */
     this.gioRemoveItem = function (key) {
-        if(this.localStorage){
+        if (this.localStorage) {
             var gioTrack = this.localStorage.gioTrack ? JSON.parse(this.localStorage.gioTrack) : {};
 
             delete gioTrack[key];
@@ -246,9 +246,9 @@ function Probe() {
                 tingyunType = 'analysis';
                 break;
             case 'www':
-                if(pathname=='/account/' || pathname=='/admin/' || pathname=='/exam/') {
+                if (pathname == '/account/' || pathname == '/admin/' || pathname == '/exam/') {
                     tingyunType = 'home';
-                }else {
+                } else {
                     tingyunType = 'website';
                 }
                 break;
@@ -275,9 +275,10 @@ function Probe() {
             n.async = 1;
             n.src = 'https://s6.kaoshixing.com/static/plugins/tingyunServer/' + g;
             tag.parentNode.insertBefore(n, tag)
-        }(window, document, "script", 'tingyun-rum-'+tingyunType+'.js');
+        }(window, document, "script", 'tingyun-rum-' + tingyunType + '.js');
     }
 
 }
+
 //使用new调用对象构造函数创建对象
 var ksxProbe = new Probe();

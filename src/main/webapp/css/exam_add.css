@@ -1,38 +1,46 @@
-.viewFrameWork .body-wrapper{
+.viewFrameWork .body-wrapper {
     padding: 0
 }
+
 /*---------------------------------------------------------公共样式-------------------------------------------------------------*/
 /*面板样式*/
-.panel-default>.panel-heading{
+.panel-default > .panel-heading {
     background-color: #fafafa;
     padding: 20px 15px;
     border-bottom: 0;
 }
-.panel-body .form-row .content{
+
+.panel-body .form-row .content {
     margin-left: 10px;
 }
+
 /*显示或隐藏*/
 .isHide,
 .hidden-group,
 .form-inline .form-group.isHide,
-.form-control.form-control-inline.isHide{/*增加权重*/
+.form-control.form-control-inline.isHide { /*增加权重*/
     display: none;
 }
+
 .isShow {
     display: block;
 }
+
 /*radio-group--单选框组*/
 .form-group .radio-group .radio {
     float: left;
     margin-right: 15px;
 }
+
 .form-group .radio-group .radio label {
     height: 20px;
 }
+
 /*单选框组中包含输入框*/
 .form-group .radio-group .radio input[type=text] {
     margin-top: -4px;
 }
+
 /*这是input旁边有文字说明时*/
 .input-group-box {
     position: absolute;
@@ -40,91 +48,113 @@
     top: 0;
     width: 350px;
 }
-    /*文字旁边的input输入框*/
+
+/*文字旁边的input输入框*/
 .input-group-box input {
     height: 28px;
     text-align: center;
     border: 1px solid #D8D8D8;
     border-radius: 4px;
 }
-    /*active-input--边框是蓝色*/
+
+/*active-input--边框是蓝色*/
 .input-group-box .active-input {
     border: 1px solid #1A8CFE;
 }
-    /*error-input--边框是红色*/
+
+/*error-input--边框是红色*/
 .input-group-box .error-input {
     border: 1px solid #FF4B50;
 }
-    /*input旁的文案说明*/
+
+/*input旁的文案说明*/
 .input-group-box .input-group-tips {
     font-size: 12px;
 }
-    /*error--错误提示*/
-.input-group-box .input-group-tips.error{
+
+/*error--错误提示*/
+.input-group-box .input-group-tips.error {
     color: #FF4B50;
 }
+
 /*nav-tabs 创建考试页面main部分--顶部Tab切换*/
-.body-content .cont-r .tab-area .nav-tabs{
+.body-content .cont-r .tab-area .nav-tabs {
     border-bottom: 1px solid #188DFF;
 }
-.body-content .cont-r .tab-area .nav-tabs li{
+
+.body-content .cont-r .tab-area .nav-tabs li {
     width: 33.33%;
 }
+
 .body-content .cont-r .tab-area .nav-tabs li.active {
     margin-bottom: 0;
 }
+
 .body-content .cont-r .tab-area .nav-tabs li a {
-    border:none;
+    border: none;
     font-size: 16px;
     text-align: center;
-    padding:21px 0;
+    padding: 21px 0;
 }
+
 .body-content .cont-r .tab-area .nav-tabs li.active a {
-    color:#188DFF;
+    color: #188DFF;
 }
+
 /*guide-btn 发布考试按钮*/
 .body-content .cont-r .tab-area .body-toolbar .guide-btn {
-    padding:8px 25px;
+    padding: 8px 25px;
 }
+
 /*以下是试卷信息部分*/
 .tab-content .tab-pane {
     padding: 30px;
     background: #f6f7fb;
 }
-.tab-content .tab-pane form{
+
+.tab-content .tab-pane form {
     background: #fff;
 }
+
 .update-area {
     padding: 30px;
     background: #f6f7fb;
 }
+
 .update-area form {
     background: #FFF;
 }
+
 /*normal-setting--考试基本信息  + 更多设置*/
-.exam-setting{
-    padding:20px 25px;
+.exam-setting {
+    padding: 20px 25px;
 }
-.exam-setting.normal-setting{
+
+.exam-setting.normal-setting {
     border-bottom: 1px solid #F6F7FA;
 }
+
 /*label*/
 .exam-setting.normal-setting .form-group label.col-sm-2 {
     width: 99px;
 }
+
 /*单选框、多选框、输入框等*/
 .exam-setting.normal-setting .form-group .col-sm-10 {
-    width:calc(100% - 99px);
+    width: calc(100% - 99px);
 }
+
 .exam-setting.normal-setting .form-group .btn-group .laydate-icon {
-    width:calc(50% - 11px);
+    width: calc(50% - 11px);
 }
-#dateFrom,#dateTo {
+
+#dateFrom, #dateTo {
     height: 28px;
     border: none;
-    width:99%;
+    width: 99%;
     color: #9b9b9b;
 }
+
 .calendar-wrap {
     display: inline-block;
     width: calc(50% - 12px);
@@ -133,49 +163,62 @@
     padding-left: 23px;
     position: relative;
 }
+
 .exam-setting.normal-setting .form-group .btn-group .start,
 .exam-setting.normal-setting .form-group .btn-group .end {
     position: absolute;
     left: 5px;
 }
-.exam-setting.normal-setting .form-group .btn-group .icons8-calendar{
+
+.exam-setting.normal-setting .form-group .btn-group .icons8-calendar {
     color: #1A8CFE;
     line-height: 28px;
 }
+
 /*toolbar-setting--收起（展开）更多设置按钮*/
-.exam-setting.toolbar-setting{
-    padding: 20px;text-align: center;
+.exam-setting.toolbar-setting {
+    padding: 20px;
+    text-align: center;
 }
+
 /*试卷信息*/
 .exam-setting .panel-paper .panel-body {
     padding-bottom: 35px;
 }
+
 .exam-setting .panel-paper .panel-body .form-row {
     margin-top: 22px;
 }
+
 .exam-setting .panel-paper .panel-body .form-row .title {
-    color:#9B9B9B;
+    color: #9B9B9B;
 }
+
 .exam-setting .panel-paper .panel-body .text-center {
     margin-top: 36px;
 }
+
 .exam-setting .panel-paper .panel-heading .paper-title {
     float: left;
 }
+
 .exam-setting .panel-paper .panel-heading .paper-title .paper-type {
     color: #B4B6BD;
 }
+
 .exam-setting .panel-paper .panel-heading .paper-operation {
-    float:right;
-    color:#1A8CFE;
+    float: right;
+    color: #1A8CFE;
     font-size: 0;
 }
+
 .exam-setting .panel-paper .panel-heading .paper-operation .border-right {
     border-right: 1px solid #DEDEDE;
     padding-right: 10px;
     margin-right: 10px;
     font-size: 14px;
 }
+
 .exam-setting .panel-paper .panel-heading .paper-operation .border-right:last-child {
     border-right: 0;
     margin-right: 0;
@@ -186,6 +229,7 @@
     padding: 0;
     font-size: 0;
 }
+
 /*考前说明textarea*/
 .exam-setting .panel-answer-notice .notice-textarea {
     padding: 5px;
@@ -209,12 +253,14 @@ a.q-opra-reduce.removeKeyRadioOrCheck {
     padding-left: 15px;
     margin-bottom: 30px;
 }
+
 /*可考部门、可考人员的label框（可展开收起）*/
 .label-wrap {
     padding-right: 50px;
     position: relative;
     margin-top: 10px;
 }
+
 .label-wrap .label-list {
     background: #F9F9F9;
     border-radius: 4px;
@@ -224,9 +270,11 @@ a.q-opra-reduce.removeKeyRadioOrCheck {
     padding-top: 6px;
     padding-left: 6px;
 }
+
 .label-wrap.open .label-list {
     height: auto;
 }
+
 .label-wrap .label-list .label-default {
     display: inline-block;
     background: #FFF;
@@ -240,7 +288,8 @@ a.q-opra-reduce.removeKeyRadioOrCheck {
     margin-bottom: 6px;
     margin-right: 6px;
 }
-.label-wrap .collapse-label{
+
+.label-wrap .collapse-label {
     position: absolute;
     right: 0;
     line-height: 34px;
@@ -249,106 +298,418 @@ a.q-opra-reduce.removeKeyRadioOrCheck {
     color: #999;
     cursor: pointer;
 }
+
 /*superSetting--更多设置部分*/
 #superSetting .input-group .input-group-addon {
     background: none;
-    border:none;
+    border: none;
 }
+
 #superSetting .input-group input {
     border: 1px solid #9B9B9B;
     border-radius: 4px;
 }
-#superSetting .left-setting .selUserLink .removeLable{
+
+#superSetting .left-setting .selUserLink .removeLable {
     cursor: pointer;
 }
+
 #superSetting .left-setting .form-group label {
     width: 120px;
 }
-#superSetting .left-setting .form-group .skip-login-label{
+
+#superSetting .left-setting .form-group .skip-login-label {
     width: 87px;
 }
-#superSetting .left-setting .form-group.followApp label{width: 155px;}
+
+#superSetting .left-setting .form-group.followApp label {
+    width: 155px;
+}
+
 /*#superSetting .left-setting .form-group.ip-group{padding-left: 20px;}*/
-#superSetting .left-setting .info-group label {width: 100%}
-#superSetting .left-setting .form-group .col-sm-10 {width:calc(100% - 100px);}
-#superSetting .left-setting .form-group .exam-staus {margin-left: 60px;}
-#superSetting .left-setting .radio label {width:75px;}
-#superSetting .right-setting .control-label{text-align: left;padding-right: 0;width:120px;}
-#superSetting .right-setting .col-sm-9{width:calc(100% - 120px);}
-#superSetting .setReleaseNotice.add{display: block;}
-#superSetting .right-setting .onShow_state .on_state {margin-bottom: 10px;}
-#superSetting .right-setting .onShow_state input {/*opacity: 0.99;*/border: 1px solid #999999;  border-radius: 4px;}
-#superSetting .right-setting .onShow_state .min_score {width: calc(13% - 4px);}
-#superSetting .right-setting .onShow_state .max_score {width: calc(13% - 4px);}
-#superSetting .right-setting .onShow_state .marked_words,#superSetting .right-setting .onShow_state .url_address {width:calc(25% - 14px);margin-left: 12px}
-#superSetting .right-setting .onShow_state ::-webkit-input-placeholder {/* WebKit browsers */font-family: MicrosoftYaHei;  font-size: 12px;  color: #999; letter-spacing:0;text-align: center}
-#superSetting .right-setting .onShow_state :-moz-placeholder {/* Mozilla Firefox 4 to 18 */font-family: MicrosoftYaHei;  font-size: 12px;  color: #999; letter-spacing:0;text-align: center}
-#superSetting .right-setting .onShow_state ::-moz-placeholder {/* Mozilla Firefox 19+ */font-family: MicrosoftYaHei;  font-size: 12px;  color: #999; letter-spacing:0;text-align: center}
-#superSetting .right-setting .onShow_state :-ms-input-placeholder {/* Internet Explorer 10+ */font-family: MicrosoftYaHei;  font-size: 12px;  color: #999; letter-spacing:0;text-align: center}
-#superSetting .right-setting .onShow_state .addKeyRadioOrCheck {margin-top: 22px;}
-#superSetting .right-setting .onShow_state .addKeyRadioOrCheck a, #superSetting .right-setting .onShow_state .addKeyRadioOrCheck span {vertical-align: middle;}
-#superSetting .right-setting .onShow_state .addKeyRadioOrCheck em {margin-right: 10px;}
+#superSetting .left-setting .info-group label {
+    width: 100%
+}
+
+#superSetting .left-setting .form-group .col-sm-10 {
+    width: calc(100% - 100px);
+}
+
+#superSetting .left-setting .form-group .exam-staus {
+    margin-left: 60px;
+}
+
+#superSetting .left-setting .radio label {
+    width: 75px;
+}
+
+#superSetting .right-setting .control-label {
+    text-align: left;
+    padding-right: 0;
+    width: 120px;
+}
+
+#superSetting .right-setting .col-sm-9 {
+    width: calc(100% - 120px);
+}
+
+#superSetting .setReleaseNotice.add {
+    display: block;
+}
+
+#superSetting .right-setting .onShow_state .on_state {
+    margin-bottom: 10px;
+}
+
+#superSetting .right-setting .onShow_state input { /*opacity: 0.99;*/
+    border: 1px solid #999999;
+    border-radius: 4px;
+}
+
+#superSetting .right-setting .onShow_state .min_score {
+    width: calc(13% - 4px);
+}
+
+#superSetting .right-setting .onShow_state .max_score {
+    width: calc(13% - 4px);
+}
+
+#superSetting .right-setting .onShow_state .marked_words, #superSetting .right-setting .onShow_state .url_address {
+    width: calc(25% - 14px);
+    margin-left: 12px
+}
+
+#superSetting .right-setting .onShow_state ::-webkit-input-placeholder { /* WebKit browsers */
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0;
+    text-align: center
+}
+
+#superSetting .right-setting .onShow_state :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0;
+    text-align: center
+}
+
+#superSetting .right-setting .onShow_state ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0;
+    text-align: center
+}
+
+#superSetting .right-setting .onShow_state :-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0;
+    text-align: center
+}
+
+#superSetting .right-setting .onShow_state .addKeyRadioOrCheck {
+    margin-top: 22px;
+}
+
+#superSetting .right-setting .onShow_state .addKeyRadioOrCheck a, #superSetting .right-setting .onShow_state .addKeyRadioOrCheck span {
+    vertical-align: middle;
+}
+
+#superSetting .right-setting .onShow_state .addKeyRadioOrCheck em {
+    margin-right: 10px;
+}
+
 #superSetting .right-setting .form-group .switch-wechat,
 #superSetting .right-setting .form-group .weChatLink,
 #superSetting .right-setting .form-group .switch-Beatratio,
 #superSetting .right-setting .form-group .beatratio-content,
 #superSetting .right-setting .switch-examBg,
-#superSetting .right-setting .switch-waterMark{vertical-align: middle}
-#superSetting .right-setting #set_release_notice {border: 1px solid #999999;  border-radius: 4px; resize: none; width: 100%;  height: 28px;  font-size: 12px;  color: #D8D8D8;  line-height: 28px; padding: 0 10px;}
-.form-horizontal .radio{min-height: 28px}
-.form-horizontal .form-group{margin-left: 0;margin-right: 0;padding-left: 6px}
-.form-horizontal .form-group .control-label {text-align: left; padding-right: 0;}
-.form-horizontal .form-group.info-group,.form-horizontal .form-group.ip-group{padding: 25px 10px;background: #F9F9F9;border-radius: 4px;margin-left:21px;}
-.form-horizontal .form-group .form-inline + .form-inline{margin-top: 10px;}
-.form-horizontal .form-group .form-inline .checkbox{padding-top: 0;}
-.form-horizontal .form-group .form-inline .btn-follow-app{margin-left: 16px;}
+#superSetting .right-setting .switch-waterMark {
+    vertical-align: middle
+}
 
-.form-inline .icons8-help, .form-group .icons8-help{color: #9B9B9B;font-size: 12px;}
+#superSetting .right-setting #set_release_notice {
+    border: 1px solid #999999;
+    border-radius: 4px;
+    resize: none;
+    width: 100%;
+    height: 28px;
+    font-size: 12px;
+    color: #D8D8D8;
+    line-height: 28px;
+    padding: 0 10px;
+}
+
+.form-horizontal .radio {
+    min-height: 28px
+}
+
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 6px
+}
+
+.form-horizontal .form-group .control-label {
+    text-align: left;
+    padding-right: 0;
+}
+
+.form-horizontal .form-group.info-group, .form-horizontal .form-group.ip-group {
+    padding: 25px 10px;
+    background: #F9F9F9;
+    border-radius: 4px;
+    margin-left: 21px;
+}
+
+.form-horizontal .form-group .form-inline + .form-inline {
+    margin-top: 10px;
+}
+
+.form-horizontal .form-group .form-inline .checkbox {
+    padding-top: 0;
+}
+
+.form-horizontal .form-group .form-inline .btn-follow-app {
+    margin-left: 16px;
+}
+
+.form-inline .icons8-help, .form-group .icons8-help {
+    color: #9B9B9B;
+    font-size: 12px;
+}
+
 /*.form-inline .radio + .radio{margin-left: 20px;}*/
-.form-control{height: 28px;padding: 3px 6px;border: 1px solid #D8D8D8;}
-.form-control.width-62{width: 62px;}
-.width-100{width: 100px!important;}
-.info-group .form-control{border: 1px solid #9B9B9B;}
+.form-control {
+    height: 28px;
+    padding: 3px 6px;
+    border: 1px solid #D8D8D8;
+}
+
+.form-control.width-62 {
+    width: 62px;
+}
+
+.width-100 {
+    width: 100px !important;
+}
+
+.info-group .form-control {
+    border: 1px solid #9B9B9B;
+}
+
 /*！调整日历插件的盒模型样式*/
-.laydate_box , .laydate_top , .laydate_table , .laydate_bottom , .laydate_yms {box-sizing: content-box;-o-box-sizing: content-box;-ms-box-sizing: content-box;-moz-box-sizing: content-box;-webkit-box-sizing: content-box;}
+.laydate_box, .laydate_top, .laydate_table, .laydate_bottom, .laydate_yms {
+    box-sizing: content-box;
+    -o-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
 
 /*.try-exam {display: inline-block;width: 70px;height: 25px;text-align: center;line-height: 25px;background-color: #188dff;color: #fff;border-radius: 5px;margin: 0 0 0 10px;cursor: pointer;}*/
-#beatModal .show-beat{resize: none;width: 360px;height: 80px;margin-top: 10px;border: 1px solid #ccc; border-radius: 4px;}
-#beatModal .form-row{text-align: center;}
-#beatModal .info-box{background: #ededed;  width: 360px;  height: 132px;  padding: 39px 0;  margin-left: 178px;  border-radius: 4px; margin-bottom: 65px;}
-#beatModal .info-box .info-list{float: left;position: relative;min-height: 1px;width: 50%;}
-#beatModal .info-box .info-list:first-child{border-right: 1px solid #ccc;}
-#beatModal .info-box .info-list:last-child{border-left: 1px solid #ccc;}
-#beatModal .info-box .info-list .title{font-family: MicrosoftYaHei;font-size: 16px;color: #666666;text-align: center;height: 19px;margin-top: 0;padding: 0;background: inherit;font-weight: initial;line-height: initial;}
-#beatModal .info-box .info-list .content{font-family: MicrosoftYaHei;font-size: 30px;color: #4a4a4a;text-align: center;height: 31px;line-height: initial;}
+#beatModal .show-beat {
+    resize: none;
+    width: 360px;
+    height: 80px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#beatModal .form-row {
+    text-align: center;
+}
+
+#beatModal .info-box {
+    background: #ededed;
+    width: 360px;
+    height: 132px;
+    padding: 39px 0;
+    margin-left: 178px;
+    border-radius: 4px;
+    margin-bottom: 65px;
+}
+
+#beatModal .info-box .info-list {
+    float: left;
+    position: relative;
+    min-height: 1px;
+    width: 50%;
+}
+
+#beatModal .info-box .info-list:first-child {
+    border-right: 1px solid #ccc;
+}
+
+#beatModal .info-box .info-list:last-child {
+    border-left: 1px solid #ccc;
+}
+
+#beatModal .info-box .info-list .title {
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    color: #666666;
+    text-align: center;
+    height: 19px;
+    margin-top: 0;
+    padding: 0;
+    background: inherit;
+    font-weight: initial;
+    line-height: initial;
+}
+
+#beatModal .info-box .info-list .content {
+    font-family: MicrosoftYaHei;
+    font-size: 30px;
+    color: #4a4a4a;
+    text-align: center;
+    height: 31px;
+    line-height: initial;
+}
+
 /*发布成功以及邮件提醒*/
-#okModal .modal-dialog{width: 820px;}
-#okModal .modal-body .guide { display: -webkit-flex;display: flex;justify-content: center;margin: auto;margin-top: 64px;  text-align: center;}
-#okModal .modal-body .guide-pwd {margin-top: 30px;}
-#okModal .modal-body .guide .address {border: 1px solid #DEDEDE;padding: 6px 15px 6px 10px;border-right: none;text-align: left;display: inline-block;border-radius: 4px;}
-#okModal .modal-body .guide .btn-copy {  font-family: MicrosoftYaHei;  font-size: 14px;  color: #1A8CFE;  line-height: 8px;  position: relative;  left: -5px;  padding: 0 16px; }
-#okModal .modal-body .qr-code {  text-align: center;  margin-top: 35px;  }
-#okModal .modal-body .qr-code .btn-group .btn-download{  font-family: MicrosoftYaHei;  font-size: 14px;  color: #2F7CDB;  letter-spacing: -0.4px;  padding: 9px 22px;  }
-#okModal .modal-body .qr-code .download-qrcode {display: inline-block;  vertical-align: middle;text-align: left;}
-#okModal .modal-body .qr-code .invite-link-qrcode {display: inline-block;  vertical-align: middle;margin-right: 20px;}
-#okModal .modal-body .sendForm {margin-top: 25px; text-align: center;  font-family: MicrosoftYaHei;  font-size: 16px;  color: #666666;  letter-spacing: 0;position: relative}
-#okModal .modal-body .sendForm input {vertical-align: text-top}
-#okModal .modal-body .btn-div { margin-top: 60px;  text-align: center;  margin-bottom: 25px;}
-#okModal .modal-body .btn-div button {margin-right: 14px;width: 100px}
+#okModal .modal-dialog {
+    width: 820px;
+}
+
+#okModal .modal-body .guide {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 64px;
+    text-align: center;
+}
+
+#okModal .modal-body .guide-pwd {
+    margin-top: 30px;
+}
+
+#okModal .modal-body .guide .address {
+    border: 1px solid #DEDEDE;
+    padding: 6px 15px 6px 10px;
+    border-right: none;
+    text-align: left;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+#okModal .modal-body .guide .btn-copy {
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #1A8CFE;
+    line-height: 8px;
+    position: relative;
+    left: -5px;
+    padding: 0 16px;
+}
+
+#okModal .modal-body .qr-code {
+    text-align: center;
+    margin-top: 35px;
+}
+
+#okModal .modal-body .qr-code .btn-group .btn-download {
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #2F7CDB;
+    letter-spacing: -0.4px;
+    padding: 9px 22px;
+}
+
+#okModal .modal-body .qr-code .download-qrcode {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+
+#okModal .modal-body .qr-code .invite-link-qrcode {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+#okModal .modal-body .sendForm {
+    margin-top: 25px;
+    text-align: center;
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    color: #666666;
+    letter-spacing: 0;
+    position: relative
+}
+
+#okModal .modal-body .sendForm input {
+    vertical-align: text-top
+}
+
+#okModal .modal-body .btn-div {
+    margin-top: 60px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#okModal .modal-body .btn-div button {
+    margin-right: 14px;
+    width: 100px
+}
+
 /*#okModal .modal-body .btn-div span { width: 100px;  height: 34px;  line-height: 34px;  padding: 0;  color: #ffffff; }*/
 /*发布成功以及邮件提醒*/
-.sendAnimation{display: none}
-.sendAnimation.sendTips {display: block;position: fixed; left:0;right:0; z-index: 9999;  width: 400px;  height: 30px;  font-size: 14px;  color: #666;  background: #F5DBCE;  text-align: center;  border-radius: 4px;  margin: 0 auto;line-height: 30px;animation:sendTips 0.8s linear;-webkit-animation:sendTips 0.8s linear;animation-iteration-count:1;
-    -webkit-animation-iteration-count:1;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards }
-#animationLoading {position: fixed}
+.sendAnimation {
+    display: none
+}
+
+.sendAnimation.sendTips {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 400px;
+    height: 30px;
+    font-size: 14px;
+    color: #666;
+    background: #F5DBCE;
+    text-align: center;
+    border-radius: 4px;
+    margin: 0 auto;
+    line-height: 30px;
+    animation: sendTips 0.8s linear;
+    -webkit-animation: sendTips 0.8s linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards
+}
+
+#animationLoading {
+    position: fixed
+}
+
 @keyframes sendTips {
-    from {top:0;}
-    to {top:20px;}
+    from {
+        top: 0;
+    }
+    to {
+        top: 20px;
+    }
 }
+
 @-webkit-keyframes sendTips {
-    from {top:0;}
-    to {top:20px;}
+    from {
+        top: 0;
+    }
+    to {
+        top: 20px;
+    }
 }
+
 /*提示框样式*/
 .help-tips {
     display: inline-block;
@@ -368,6 +729,7 @@ a.q-opra-reduce.removeKeyRadioOrCheck {
     line-height: 13px;
     margin-left: 20px;
 }
+
 .help-tips .notificationTips {
     width: 342px;
     border: 1px solid #DDD;
@@ -385,24 +747,32 @@ a.q-opra-reduce.removeKeyRadioOrCheck {
     font-size: 13px;
     visibility: hidden;
 }
+
 .help-tips .notificationTips > p {
     font-size: 12px;
     color: #4A4A4A;
     line-height: 20px;
 }
+
 .help-tips .notificationTips > div {
     position: relative;
 }
+
 .help-tips .notificationTips h4 {
     margin: 0 0 10px 0;
     font-size: 12px;
     color: #2F7CDB;
 }
+
 .help-tips:hover .notificationTips {
     opacity: 1;
     visibility: visible;
 }
-.help-tips .notificationTips img { width: 100% }
+
+.help-tips .notificationTips img {
+    width: 100%
+}
+
 .help-tips .notification {
     position: absolute;
     font-size: 12px;
@@ -410,47 +780,79 @@ a.q-opra-reduce.removeKeyRadioOrCheck {
     width: 280px;
     color: #fff;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
+
 .help-tips .notification > p {
     margin: 0;
 }
+
 /*清除浮动*/
 /*#okModal .modal-body .btn-div span { width: 100px;  height: 34px;  line-height: 34px;  padding: 0;  color: #ffffff; }*/
 /*#okModal .modal-body .guide #trial-link {margin-left: -10px; margin-top: -3px;padding: 0;}*/
 /*#okModal .modal-body .guide .try-exam {display: inline-block;padding:10px 26px}*/
 /*微信modal*/
-#weChatModal .modal-content {padding:0}
-#weChatModal .modal-header {text-align: center}
+#weChatModal .modal-content {
+    padding: 0
+}
+
+#weChatModal .modal-header {
+    text-align: center
+}
+
 /*免登录modal*/
-#loginModal .modal-content {padding: 0}
+#loginModal .modal-content {
+    padding: 0
+}
+
 /*更换试卷modal*/
 /*#paperModal .modal-dialog {width:800px}*/
 /*#paperModal .modal-content {padding:0}*/
 /*关联考试mask*/
-#mask {  position: absolute;  top: 0;  left: 0;  width: 100%;  height: 1280px;  background-color: rgba(0, 0, 0, 0.55);  z-index: 101;}
-#mask #selPaperLink {  width: 350px;  height: 80px;  font-size: 26px;  left: 40%;  position: fixed;  top: 40%;  border: 3px solid #fff;}
-#selTypeLink{
+#mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1280px;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 101;
+}
+
+#mask #selPaperLink {
+    width: 350px;
+    height: 80px;
+    font-size: 26px;
+    left: 40%;
+    position: fixed;
+    top: 40%;
+    border: 3px solid #fff;
+}
+
+#selTypeLink {
     padding: 5px 15px;
 }
+
 /*#dateFrom{*/
 /*color: #9b9b9b;*/
 /*}*/
 /*#dateTo{*/
 /*color: #9b9b9b;*/
 /*}*/
-#subForm .normal-setting .col-md-6 .form-group{
+#subForm .normal-setting .col-md-6 .form-group {
     margin-bottom: 20px;
 }
-[class|=switch]{
+
+[class|=switch] {
     position: relative;
     display: inline-block;
     width: 45px;
     height: 26px;
     border-radius: 16px;
     line-height: 32px;
-    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
+
 .slider {
     position: absolute;
     display: inline-block;
@@ -462,16 +864,19 @@ a.q-opra-reduce.removeKeyRadioOrCheck {
     left: 0;
     top: 0;
 }
+
 /*.showBeatratio .col-sm-9{*/
 /*width: 15%;*/
 /*}*/
-.icons8-trash-can{
+.icons8-trash-can {
     color: #999;
     margin-left: -3px;
 }
-.icons8-plus-filled{
+
+.icons8-plus-filled {
     font-size: 16px;
 }
+
 /*.right-setting .form-group .col-sm-9 {*/
 /*width: 15%;*/
 /*}*/
@@ -479,14 +884,16 @@ button.btn.btn-default.btn-sm.btn-default-content {
     margin-right: -290px;
     margin-bottom: 28px;
 }
-.beat-prompt{
+
+.beat-prompt {
     font-family: MicrosoftYaHei;
     font-size: 16px;
     color: #4A4A4A;
 }
+
 button#saveBeat {
     background: #1A8CFE;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.10);
     border-radius: 4px;
     color: #fff;
     width: 100px;
@@ -494,9 +901,10 @@ button#saveBeat {
     height: 34px;
     border: 0;
 }
+
 button#cancelBeat {
     background: #F2F2F2;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.10);
     border-radius: 4px;
     height: 34px;
     width: 100px;
@@ -508,12 +916,12 @@ button#cancelBeat {
 
 
 /*查看密码按钮*/
-button.btn-style{
+button.btn-style {
     margin-left: 20px;
     margin-top: -15px;
 }
 
-.modal-pass{
+.modal-pass {
     top: 100px;
 }
 
@@ -524,7 +932,7 @@ button.btn-style{
     border: none;
 }
 
-.ip-modal .modal-content .modal-body .btn-size{
+.ip-modal .modal-content .modal-body .btn-size {
     width: 60px;
     height: 28px;
     padding: 9px 18px 6px 18px;
@@ -532,15 +940,15 @@ button.btn-style{
 }
 
 
-button.icon-style{
+button.icon-style {
     color: #1A8CFE;
 }
 
-.ip-modal .modal-content{
+.ip-modal .modal-content {
     padding: 0 18px 0 18px;
 }
 
-.ip-modal .modal-content .modal-body .form-inline input#ip-start{
+.ip-modal .modal-content .modal-body .form-inline input#ip-start {
     display: inline-block;
     width: 230px;
     vertical-align: middle;
@@ -549,7 +957,7 @@ button.icon-style{
     font-size: 12px;
 }
 
-.ip-modal .modal-content .modal-body .form-inline input#ip-end{
+.ip-modal .modal-content .modal-body .form-inline input#ip-end {
     display: inline-block;
     width: 230px;
     vertical-align: middle;
@@ -559,11 +967,11 @@ button.icon-style{
     font-size: 12px;
 }
 
-.ip-modal .modal-content .modal-body .form-group{
+.ip-modal .modal-content .modal-body .form-group {
     padding-bottom: 10px;
 }
 
-.ip-modal .modal-content .modal-body .form-inline{
+.ip-modal .modal-content .modal-body .form-inline {
     padding-bottom: 30px;
 }
 
@@ -573,7 +981,7 @@ button.icon-style{
     margin-top: 30px;
 }
 
-.ip-modal .modal-content .modal-body .add-content{
+.ip-modal .modal-content .modal-body .add-content {
     max-height: 200px;
     width: 100%;
     overflow-y: auto;
@@ -581,15 +989,15 @@ button.icon-style{
     display: inline-block;
 }
 
-.ip-modal .modal-content .modal-body .add-content .list-group{
+.ip-modal .modal-content .modal-body .add-content .list-group {
     margin-bottom: 0px;
 }
 
-.ip-modal .modal-content .modal-header .icon.icon-a_close{
+.ip-modal .modal-content .modal-header .icon.icon-a_close {
     font-size: 14px;
 }
 
-.ip-modal .add-content ul.list-group li.list-group-item{
+.ip-modal .add-content ul.list-group li.list-group-item {
     background-color: #f6f7fa;
     margin-bottom: 10px;
     font-family: MicrosoftYaHei;
@@ -597,12 +1005,12 @@ button.icon-style{
     color: #666666;
 }
 
-.ip-modal .add-content ul.list-group li.list-group-item:hover{
+.ip-modal .add-content ul.list-group li.list-group-item:hover {
     border: 1px solid #1A8CFE;
 }
 
 
-.ip-modal .add-content ul.list-group li.list-group-item .icon.a_circlr_close{
+.ip-modal .add-content ul.list-group li.list-group-item .icon.a_circlr_close {
     float: right;
     font-size: 14px;
     cursor: pointer;
@@ -610,17 +1018,17 @@ button.icon-style{
     line-height: 20px;
 }
 
-.ip-modal .modal-content .modal-body .btn-size:hover{
+.ip-modal .modal-content .modal-body .btn-size:hover {
     border-color: #1A8CFE;
     cursor: pointer;
 }
 
-.modal-dialog.modal-600.ip-modal{
+.modal-dialog.modal-600.ip-modal {
     top: 50px;
 }
 
 /*密码框样式*/
-span.password-style{
+span.password-style {
     border: 1px solid #DEDEDE;
     border-radius: 4px;
     display: inline-block;
@@ -632,7 +1040,7 @@ span.password-style{
     line-height: 30px;
 }
 
-.control-label.font-style{
+.control-label.font-style {
     font-family: PingFangSC-Regular;
     font-size: 14px;
     color: #666666;
@@ -642,13 +1050,13 @@ span.password-style{
     line-height: 34px;
 }
 
-.button-style{
+.button-style {
     height: 34px;
     width: 130px;
     line-height: 8px;
 }
 
-.modal-body .first-step .font-style , .second-step .font-style{
+.modal-body .first-step .font-style, .second-step .font-style {
     font-size: 14px;
     color: #666666;
 }
@@ -657,13 +1065,13 @@ span.password-style{
 /*padding-top: 20px;*/
 /*}*/
 
-.modal-dialog.ip-modal .modal-content .modal-header{
+.modal-dialog.ip-modal .modal-content .modal-header {
     margin-left: -18px;
     margin-right: -18px;
     border-bottom: hidden;
 }
 
-.modal-dialog.ip-modal .modal-content .modal-header .close{
+.modal-dialog.ip-modal .modal-content .modal-header .close {
     margin-top: -4px;
 }
 
@@ -675,7 +1083,7 @@ span.password-style{
     padding-bottom: 18px;
 }
 
-.modal-dialog.ip-modal .modal-content .buttonRows{
+.modal-dialog.ip-modal .modal-content .buttonRows {
     padding-top: 24px;
     padding-bottom: 32px;
     width: 100%;
@@ -687,7 +1095,7 @@ span.password-style{
     overflow: visible;
 }
 
-.modal-dialog.ip-modal .modal-content .buttonRows .btn-gray{
+.modal-dialog.ip-modal .modal-content .buttonRows .btn-gray {
     background: #F2F2F2;
     width: 100px;
     height: 34px;
@@ -697,7 +1105,7 @@ span.password-style{
     color: #666666;
 }
 
-.modal-dialog.ip-modal .modal-content .buttonRows .btn-blue{
+.modal-dialog.ip-modal .modal-content .buttonRows .btn-blue {
     background: #1A8CFE;
     width: 100px;
     height: 34px;
@@ -707,42 +1115,47 @@ span.password-style{
 }
 
 /*当前是否有正在进行中考试在使用该试卷提示模态框*/
-.modal.using-modal .modal-dialog{
+.modal.using-modal .modal-dialog {
     width: 350px;
     margin-top: 200px;
 }
-.modal.using-modal .modal-header{
+
+.modal.using-modal .modal-header {
     border: 0;
 }
-.modal.using-modal .modal-content{
+
+.modal.using-modal .modal-content {
     padding: 0 20px;
 }
-.modal.using-modal .btns{
+
+.modal.using-modal .btns {
     padding: 10px 0 20px 0;
 }
-.modal.using-modal .btns .btn-gray{
+
+.modal.using-modal .btns .btn-gray {
     background: #F2F2F2;
     color: #666;
     margin-left: 14px;
 }
-.modal.using-modal .btns .btn-blue{
+
+.modal.using-modal .btns .btn-blue {
     background: #1A8CFE;
     color: #FFF;
 }
 
-.modal-pass .modal-content{
+.modal-pass .modal-content {
     padding: 0 68px 0 68px;
 }
 
-.modal-pass .modal-content .modal-header{
+.modal-pass .modal-content .modal-header {
     margin-right: -68px;
     margin-left: -68px;
     border-bottom: hidden;
 }
 
-.modal-pass .modal-content .modal-footer .btn-copy{
+.modal-pass .modal-content .modal-footer .btn-copy {
     background: #1A8CFE;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.10);
     border-radius: 4px;
     width: 80px;
     height: 28px;
@@ -750,36 +1163,61 @@ span.password-style{
     line-height: 3px;
 }
 
-.modal-pass .modal-content .modal-header .close{
+.modal-pass .modal-content .modal-header .close {
     font-size: 14px;
 }
 
-.form-horizontal .form-group.preventCheat{
+.form-horizontal .form-group.preventCheat {
     display: block;
 }
-.note-popover .popover-content .dropdown-menu, .panel-heading.note-toolbar .dropdown-menu{
+
+.note-popover .popover-content .dropdown-menu, .panel-heading.note-toolbar .dropdown-menu {
     margin-top: 0;
     border: none;
 }
 
 /*考前身份认证popover*/
-.btn-try .popover{max-width: 393px;width: 393px;height: 160px;box-shadow: 0 0 5px 0 rgba(0,0,0,0.16);background: #fff;border-radius: 4px;}
-.btn-try .popover .popover-title{display: none;}
-.btn-try .popover .popover-content{padding: 15px 10px;position: relative;height: 100%;}
-.btn-try .popover .popover-content .question{color:#1A8DFF;font-size: 16px;}
-.btn-try .popover .popover-content a{color: #1A8DFF;}
+.btn-try .popover {
+    max-width: 393px;
+    width: 393px;
+    height: 160px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+    background: #fff;
+    border-radius: 4px;
+}
+
+.btn-try .popover .popover-title {
+    display: none;
+}
+
+.btn-try .popover .popover-content {
+    padding: 15px 10px;
+    position: relative;
+    height: 100%;
+}
+
+.btn-try .popover .popover-content .question {
+    color: #1A8DFF;
+    font-size: 16px;
+}
+
+.btn-try .popover .popover-content a {
+    color: #1A8DFF;
+}
 
 /*考前校验密码样式*/
 .pwd-container {
     position: relative;
 }
+
 /*显示评语--分数区间*/
-.state-sign{
+.state-sign {
     font-size: 12px;
     color: #B4B6BD;
     /*width: 64px;*/
     display: inline-block;
 }
+
 .state-sign .less-sign {
     height: 12px;
     width: 12px;
@@ -791,128 +1229,155 @@ span.password-style{
     vertical-align: middle;
     margin-top: -3px;
 }
+
 .state-sign .less-than-equal-to {
     background: url("../images/a_less_than_equal .svg") no-repeat center;
 }
+
 .onShow_state .on_state:nth-last-child(2) .less-sign {
     background: url("../images/a_less_than_equal .svg") no-repeat center;
 }
+
 /*如果分数区间数大于4，则隐藏添加按钮*/
 .onShow_state .addKeyRadioOrCheck:nth-child(6) {
     display: none;
 }
+
 /*微信红包样式*/
 #superSetting .right-setting .showRedPackage {
     position: relative;
 }
+
 #superSetting .right-setting .showRedPackage .grade-item {
     margin-bottom: 10px;
 }
+
 #superSetting .right-setting .showRedPackage input {
     border: 1px solid #DEDEDE;
     border-radius: 4px;
 }
+
 #superSetting .right-setting .showRedPackage .red-packet-min-score,
 #superSetting .right-setting .showRedPackage .red-packet-max-score {
     width: calc(13% - 4px);
 }
+
 #superSetting .right-setting .showRedPackage .min-money,
 #superSetting .right-setting .showRedPackage .max-money {
     width: 13%;
 }
+
 #superSetting .right-setting .showRedPackage .min-money {
     margin-left: 15px;
 }
+
 #superSetting .right-setting .showRedPackage .red-packet-tip {
     width: 130px;
 }
+
 #superSetting .right-setting .showRedPackage ::-webkit-input-placeholder {
     font-family: MicrosoftYaHei;
     font-size: 12px;
     color: #999;
-    letter-spacing:0;
+    letter-spacing: 0;
     text-align: center;
 }
+
 #superSetting .right-setting .showRedPackage :-moz-placeholder {
     font-family: MicrosoftYaHei;
     font-size: 12px;
     color: #999;
-    letter-spacing:0;
+    letter-spacing: 0;
     text-align: center
 }
+
 #superSetting .right-setting .showRedPackage ::-moz-placeholder {
     font-family: MicrosoftYaHei;
     font-size: 12px;
     color: #999;
-    letter-spacing:0;
+    letter-spacing: 0;
     text-align: center
 }
+
 #superSetting .right-setting .showRedPackage :-ms-input-placeholder {
     font-family: MicrosoftYaHei;
     font-size: 12px;
     color: #999;
-    letter-spacing:0;
+    letter-spacing: 0;
     text-align: center
 }
+
 #superSetting .right-setting .showRedPackage .addGradeItem {
     width: 73px;
     display: inline-block;
     margin-left: 5px;
 }
+
 #superSetting .right-setting .showRedPackage .addGradeItem i,
 #superSetting .right-setting .showRedPackage .addGradeItem span {
     vertical-align: middle;
 }
+
 #superSetting .right-setting .showRedPackage .grade-item:nth-last-child(1) .less-sign {
     background: url("../images/a_less_than_equal .svg") no-repeat center;
 }
+
 /*如果分数区间数大于4，则隐藏添加按钮*/
 .showRedPackage .addGradeItem:nth-child(6) {
     display: none;
 }
+
 #superSetting .right-setting .showRedPackage a.q-opra-reduce.removeKeyRadioOrCheck {
     margin-left: 5px;
 }
+
 /*输入错误*/
 #superSetting .right-setting input.error-input {
     border-color: #FF4B50;
 }
 
 
-
 /*自定义考试页背景 按钮*/
 #superSetting .right-setting .setExamBg .control-label {
     width: 132px;
 }
+
 /*自定义考试页面背景 模态框*/
 #examBgModal .modal-dialog {
     margin-top: 50px;
 }
+
 #examBgModal .modal-header .close {
-    opacity: 1!important;
+    opacity: 1 !important;
 }
+
 #examBgModal .modal-header .close span {
     color: #0065DB;
     font-size: 20px;
 }
+
 #examBgModal .modal-body {
     padding: 0 77px 36px;
 }
+
 #examBgModal .modal-footer {
     text-align: center;
     border: 0;
     padding: 0 0 32px;
 }
+
 #examBgModal .modal-footer .btn {
     width: 100px;
     height: 34px;
 }
+
 #examBgModal .modal-footer .btn-gray {
     background: #F2F2F2;
     border-radius: 4px;
     font-size: 14px;
     color: #6D717C;
 }
+
 #examBgModal .modal-footer .btn-blue {
     background: #1A8CFE;
     border-radius: 4px;
@@ -920,35 +1385,43 @@ span.password-style{
     color: #FFF;
     /*margin-left: 14px;*/
 }
+
 #examBgModal .custom, #examBgModal .preview {
     float: left;
 }
+
 #examBgModal .exam-title {
     height: 28px;
     font-size: 14px;
     color: #3A3E51;
     line-height: 28px;
 }
+
 /*设置背景区*/
 #examBgModal .custom {
     padding: 20px 20px 0 0;
     width: 284px;
 }
+
 #examBgModal .custom label input {
     margin-right: 10px;
 }
+
 #examBgModal .custom .exam-bg-box {
     padding: 10px 12px 0;
 }
+
 #examBgModal .custom .exam-title {
     border-left: 6px solid #1A8CFE;
     padding-left: 12px;
 }
+
 /*pc .exam-bg  移动端  .m-exam-bg */
 /*公共样式*/
-#examBgModal .exam-bg-box label{
+#examBgModal .exam-bg-box label {
     margin-top: 20px;
 }
+
 #examBgModal .exam-bg-box .cover-filter-bg {
     width: 100%;
     height: 100%;
@@ -958,10 +1431,12 @@ span.password-style{
     left: 0;
     top: 0;
 }
-#examBgModal .exam-bg-box .wrap{
+
+#examBgModal .exam-bg-box .wrap {
     margin-left: 25px;
     position: relative;
 }
+
 #examBgModal .exam-bg-box .show-exam-bg .bg-icon-content {
     position: absolute;
     left: 0;
@@ -973,25 +1448,30 @@ span.password-style{
     text-align: center;
     line-height: 120px;
 }
+
 #examBgModal .exam-bg-box .show-exam-bg .bg-icon-content .logo-icon-style {
     font-size: 30px;
     color: #FFF;
 }
+
 #examBgModal .tips.bubble-tips {
     font-size: 12px;
     color: #4A4A4A;
     margin-top: 5px;
 }
+
 #examBgModal .tips.bubble-tips span {
     color: #1A8CFE;
 }
+
 /*pc*/
 #examBgModal .exam-bg .preview .wrap {
     width: 260px;
     height: 130px;
-    box-shadow: 0 0 10px rgba(58,62,81,0.05);
+    box-shadow: 0 0 10px rgba(58, 62, 81, 0.05);
 }
-#examBgModal .exam-bg .exam-bg-box .show-exam-bg{
+
+#examBgModal .exam-bg .exam-bg-box .show-exam-bg {
     position: relative;
     overflow: hidden;
     background-repeat: no-repeat;
@@ -999,6 +1479,7 @@ span.password-style{
     width: 240px;
     height: 120px;
 }
+
 /*移动端*/
 #examBgModal .m-exam-bg .exam-bg-box .show-exam-bg {
     position: relative;
@@ -1008,41 +1489,49 @@ span.password-style{
     width: 100px;
     height: 160px;
 }
+
 #examBgModal .m-exam-bg .exam-bg-box .show-exam-bg .bg-icon-content {
     line-height: 160px;
 }
+
 /*考试说明页背景——查看区*/
 /*公共样式*/
 .preview {
     padding-top: 20px;
     padding-right: 20px;
 }
+
 .preview .wrap {
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 10px;
 }
+
 .preview .wrap img {
     position: absolute;
 }
+
 .preview .wrap .img-exam-header {
     left: 0;
     top: 0;
     width: 100%;
 }
+
 .exam-bg .preview .wrap .img-exam-modal {
     left: 50%;
     transform: translateX(-50%);
     top: 24px;
     width: 74px;
 }
+
 /*移动端*/
 .m-exam-bg .preview .wrap {
     width: 100px;
     height: 176.7px;
-    box-shadow: 0 0 10px 0 rgba(58,62,81,0.05);
+    box-shadow: 0 0 10px 0 rgba(58, 62, 81, 0.05);
 }
+
 .m-exam-bg .preview .img-m-exam-modal {
     width: 85%;
     left: 50%;
@@ -1053,17 +1542,19 @@ span.password-style{
 .selectUsers {
     margin-left: 7px;
 }
+
 /*批量录入考生模态框*/
 /*取消按钮*/
 .modal-btn-cancel {
     width: 100px;
     height: 34px;
     background: #F2F2F2;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.10);
     border-radius: 4px;
     font-size: 14px;
     letter-spacing: 2px;
 }
+
 /*确定按钮*/
 .modal-btn-sure {
     width: 100px;
@@ -1074,49 +1565,60 @@ span.password-style{
     font-size: 14px;
     letter-spacing: 2px;
 }
+
 #inputUsersModal .modal-header .close,
 #inputUsersResult .modal-header .close {
     margin-top: 10px;
 }
+
 #inputUsersModal .modal-btn-cancel {
     color: #666;
 }
+
 #inputUsersModal .modal-btn-sure {
     color: #FFF;
 }
+
 #inputUsersModal .modal-dialog {
     width: 600px;
     margin-top: 90px;
 }
+
 #inputUsersModal .modal-content {
     border: 0;
     padding: 0 30px;
 }
+
 #inputUsersModal .modal-header, #inputUsersResult .modal-header {
     padding: 0;
     border: 0;
     height: auto;
     line-height: 28px;
 }
+
 #inputUsersModal .modal-title, #inputUsersResult .modal-title {
     font-size: 20px;
     color: #3A3E51;
     padding-top: 30px;
     padding-bottom: 20px;
 }
+
 #inputUsersModal .modal-body {
     padding-bottom: 32px;
 }
+
 #inputUsersModal .modal-body .input-title {
     font-size: 18px;
     color: #3A3E51;
     margin-bottom: 10px;
 }
+
 #inputUsersModal .modal-body .input-rules dd {
     font-size: 14px;
     color: #6D717C;
     line-height: 21px;
 }
+
 #inputUsersModal .modal-body .input-box textarea {
     width: 540px;
     min-width: 540px;
@@ -1133,16 +1635,20 @@ span.password-style{
     width: 440px;
     margin-top: 90px;
 }
+
 #inputUsersResult .modal-title {
     padding-bottom: 16px;
 }
+
 #inputUsersResult .modal-btn-sure {
     color: #FFF;
 }
+
 #inputUsersResult .modal-content {
     padding: 0 30px;
     border: 0;
 }
+
 #inputUsersResult .modal-body li {
     width: 378px;
     height: 40px;
@@ -1152,46 +1658,55 @@ span.password-style{
     line-height: 40px;
     padding-left: 10px;
 }
+
 #inputUsersResult .modal-body li.success {
-    background: rgba(103,194,58,0.05);
-    border: 1px solid rgba(103,194,58,0.20);
+    background: rgba(103, 194, 58, 0.05);
+    border: 1px solid rgba(103, 194, 58, 0.20);
 }
+
 #inputUsersResult .modal-body li.warning {
-    background: rgba(254,133,69,0.05);
-    border: 1px solid rgba(254,133,69,0.30);
+    background: rgba(254, 133, 69, 0.05);
+    border: 1px solid rgba(254, 133, 69, 0.30);
 }
+
 #inputUsersResult .modal-body li.fail {
-    background: rgba(255,75,80,0.05);
-    border: 1px solid rgba(255,75,80,0.20);
+    background: rgba(255, 75, 80, 0.05);
+    border: 1px solid rgba(255, 75, 80, 0.20);
 }
+
 #inputUsersResult .modal-body li p {
     display: inline-block;
     font-size: 14px;
     color: #6D717C;
     text-indent: 10px;
 }
+
 #inputUsersResult .modal-body li .icon {
     font-size: 18px;
     vertical-align: middle;
     margin-top: -12px;
     display: inline-block;
 }
+
 #inputUsersResult .modal-body li.success .icon {
     color: #1DC88C;
 }
+
 #inputUsersResult .modal-body li.warning .icon {
     color: #FE8545;
 }
+
 #inputUsersResult .modal-body li.fail .icon {
     color: #FF4B50;
 }
+
 #inputUsersResult .modal-body .form-row {
     padding: 32px 0;
 }
 
 
 /*分数对考生是否可见*/
-#superSetting .right-setting .switch-showScore .control-label{
+#superSetting .right-setting .switch-showScore .control-label {
     width: 158px;
 }
 
@@ -1199,18 +1714,22 @@ span.password-style{
 #watermarkPreviewModal .modal-dialog {
     margin-top: 100px;
 }
+
 #watermarkPreviewModal .modal-body {
     height: 500px;
     background-repeat: repeat;
 }
+
 /*bootstrap-dialog 模态框样式*/
-.bootstrap-dialog .modal-header{
+.bootstrap-dialog .modal-header {
     border-bottom: 0;
 }
-.bootstrap-dialog .modal-footer{
+
+.bootstrap-dialog .modal-footer {
     border-top: 0;
     margin: 22px 0;
 }
+
 .bootstrap-dialog-footer-buttons button.btn {
     border-radius: 4px;
     font-size: 14px;
@@ -1219,46 +1738,57 @@ span.password-style{
     height: 34px;
     width: 100px;
 }
-.bootstrap-dialog-footer-buttons button:first-child{
+
+.bootstrap-dialog-footer-buttons button:first-child {
     background: #F2F2F2 !important;
     border-color: #F2F2F2 !important;
-    color: #666!important;
+    color: #666 !important;
 }
-.bootstrap-dialog-footer-buttons button:last-child{
+
+.bootstrap-dialog-footer-buttons button:last-child {
     background: #1A8CFE !important;
     border-color: #1A8CFE !important;
-    color: #FFF!important;
+    color: #FFF !important;
 }
-.set_up_score.add{
+
+.set_up_score.add {
     padding: 20px 10px !important;
     background: #F9F9F9;
     border-radius: 4px;
     margin-left: 21px;
 }
-.set_up_score.in_update{
-    display:none;
-}
-.setAllowsPaperAnswer.hidden_answer{
+
+.set_up_score.in_update {
     display: none;
 }
-.set_up_paper_update{
+
+.setAllowsPaperAnswer.hidden_answer {
+    display: none;
+}
+
+.set_up_paper_update {
     display: block;
 }
-.set_allow_answer{
-    padding-left:10px;
-    display:none;
+
+.set_allow_answer {
+    padding-left: 10px;
+    display: none;
 }
-.set_allow_answer.in_add{
-    display:inline-block;
+
+.set_allow_answer.in_add {
+    display: inline-block;
 }
-.inblock{
-    display:block;
+
+.inblock {
+    display: block;
 }
-.in_l_block{
-    display:inline-block;
+
+.in_l_block {
+    display: inline-block;
 }
-@media (min-width: 768px){
+
+@media (min-width: 768px) {
     .set_up_paper .col-sm-8 {
-        width: 86.66666667%!important;
+        width: 86.66666667% !important;
     }
 }

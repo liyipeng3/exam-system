@@ -1,32 +1,79 @@
 /* topContent样式 */
-.topContent{padding-top: 10px;  padding-bottom: 20px;  border-bottom: 1px solid #1A8CFE;  margin-bottom: 15px;  text-align: center;position: relative}
-.topContent .form-group{display: inline-block;  margin-bottom: 10px;  margin-right: 30px;}
+.topContent {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1A8CFE;
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative
+}
+
+.topContent .form-group {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 30px;
+}
 
 /* topContent下input框 */
-.topContent .modal_input{height: 28px;  }
-.topContent .input_nomal{border:1px solid #D8D8D8;  border-radius: 4px;  width: 200px;}
-.topContent .input_item{border:1px solid #D8D8D8;  border-radius: 4px;  width: 220px;}
+.topContent .modal_input {
+    height: 28px;
+}
+
+.topContent .input_nomal {
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.topContent .input_item {
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    width: 220px;
+}
 
 /* topContent下的select框 */
-.topContent .modal_select{height: 28px;}
-.topContent .select_nomal{width: 100px;  background: #F5F5F5;  border: 0;  border-radius: 4px;}
-.topContent .select_item{width: 220px;  background: #F5F5F5;  border-radius: 4px; border: 0;}
-.topContent .form-group label{font-family: MicrosoftYaHei;  font-size: 12px;  color: #494949;font-weight: normal;}
-.topContent #type_dialog{
+.topContent .modal_select {
+    height: 28px;
+}
+
+.topContent .select_nomal {
+    width: 100px;
+    background: #F5F5F5;
+    border: 0;
+    border-radius: 4px;
+}
+
+.topContent .select_item {
+    width: 220px;
+    background: #F5F5F5;
+    border-radius: 4px;
+    border: 0;
+}
+
+.topContent .form-group label {
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #494949;
+    font-weight: normal;
+}
+
+.topContent #type_dialog {
     display: none;
     position: absolute;
     top: 55px;
     left: 70px;
     width: 25%;
     height: 302px;
-    box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.20);
     background-color: #fff;
     z-index: 999;
     border-radius: 4px;
 }
-.form-group.question_type{
+
+.form-group.question_type {
     position: relative;
 }
+
 .topContent #selTypeLink {
     cursor: pointer;
     position: relative;
@@ -42,29 +89,82 @@
     color: #666666;
     /*line-height: 28px;*/
 }
+
 /* topContent下的toolBarBottom */
-.topSelDiv .toolbarBottom{margin: 16px 0;text-align: center; clear: both; }
+.topSelDiv .toolbarBottom {
+    margin: 16px 0;
+    text-align: center;
+    clear: both;
+}
+
 /*旧版*/
 /*.buttonP{width: 100%;  margin-bottom: 15px;  position: fixed;  bottom: 0; left: 0; text-align: center;  overflow: visible;}*/
 /*#subForm .topSelDiv .buttonP{width: auto;  margin-bottom: 15px; margin-left: -107px; position: fixed;  bottom: 0; left: 50%; text-align: center;  overflow: visible;}*/
 
-.buttonP{width: 100%; height: 60px; line-height: 60px; background: #fff;  position: fixed; z-index: 9999; bottom: 0; left: 0; text-align: center;  overflow: visible;}
-#subForm .topSelDiv .tab-area{padding-bottom: 70px;}
+.buttonP {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background: #fff;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    overflow: visible;
+}
+
+#subForm .topSelDiv .tab-area {
+    padding-bottom: 70px;
+}
+
 /*分页被挡住*/
 /*.buttonP {width: 50%;position: fixed;bottom: 0;left: 25%;text-align: center;overflow: visible;margin: 0 auto;*/
 /*#subForm .buttonP{margin-bottom: 15px;position: fixed;  bottom: 0;  left: 25%;  overflow: visible;}*/
 
 /* 公共按钮的样式 */
-.btn.modal_btn_default{width: 100px;  height: 34px;  font-size: 14px;  border-radius: 4px;  line-height: 34px;  padding: 0;}
-.btn.btn_on:hover{color: #ffffff; }
-.btn.btn_on{color: #ffffff;  background: #1A8CFE; /*box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);*/}
-.btn.btn_off{color: #666666;  background: #f2f2f2; margin-right: 10px; /*box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10);*/}
-.btn-group{height: 28px;  line-height: 28px;}
-#closeBtn{margin-right: 10px;}
-#resetBtn{margin-right: 10px;}
-#rm-folder-setting{margin-right: 10px;}
+.btn.modal_btn_default {
+    width: 100px;
+    height: 34px;
+    font-size: 14px;
+    border-radius: 4px;
+    line-height: 34px;
+    padding: 0;
+}
 
-.button{
+.btn.btn_on:hover {
+    color: #ffffff;
+}
+
+.btn.btn_on {
+    color: #ffffff;
+    background: #1A8CFE; /*box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);*/
+}
+
+.btn.btn_off {
+    color: #666666;
+    background: #f2f2f2;
+    margin-right: 10px; /*box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10);*/
+}
+
+.btn-group {
+    height: 28px;
+    line-height: 28px;
+}
+
+#closeBtn {
+    margin-right: 10px;
+}
+
+#resetBtn {
+    margin-right: 10px;
+}
+
+#rm-folder-setting {
+    margin-right: 10px;
+}
+
+.button {
     cursor: pointer;
     box-sizing: border-box;
     display: inline-block;
@@ -74,7 +174,17 @@
     text-decoration: none;
 }
 
-.setRigth .setRigthContent{padding-bottom: 70px;}
+.setRigth .setRigthContent {
+    padding-bottom: 70px;
+}
+
 /*模态框内页数上翻*/
-.bootgrid-footer .infoBar .actions .btn-group:first-child .dropdown-menu{border-right: none;  top: -127px; left: 0}
-.bootgrid-footer .infoBar .actions .btn-group:last-child{display: none;}
+.bootgrid-footer .infoBar .actions .btn-group:first-child .dropdown-menu {
+    border-right: none;
+    top: -127px;
+    left: 0
+}
+
+.bootgrid-footer .infoBar .actions .btn-group:last-child {
+    display: none;
+}

@@ -5,155 +5,180 @@
  */
 .bootgrid-header,
 .bootgrid-footer {
-  margin: 15px 0;
+    margin: 15px 0;
 }
+
 .bootgrid-header a,
 .bootgrid-footer a {
-  outline: 0;
+    outline: 0;
 }
+
 .bootgrid-header .search,
 .bootgrid-footer .search {
-  display: inline-block;
-  margin: 0 20px 0 0;
-  vertical-align: middle;
-  width: 180px;
+    display: inline-block;
+    margin: 0 20px 0 0;
+    vertical-align: middle;
+    width: 180px;
 }
+
 .bootgrid-header .search .glyphicon,
 .bootgrid-footer .search .glyphicon {
-  top: 0;
+    top: 0;
 }
+
 .bootgrid-header .search .fa,
 .bootgrid-footer .search .fa {
-  display: table-cell;
+    display: table-cell;
 }
+
 .bootgrid-header .search.search-field::-ms-clear,
 .bootgrid-footer .search.search-field::-ms-clear,
 .bootgrid-header .search .search-field::-ms-clear,
 .bootgrid-footer .search .search-field::-ms-clear {
-  display: none;
+    display: none;
 }
+
 .bootgrid-header .pagination,
 .bootgrid-footer .pagination {
-  margin: 0 !important;
+    margin: 0 !important;
 }
+
 .bootgrid-header .actionBar,
 .bootgrid-footer .infoBar {
-  text-align: left;
-  padding: 0;
+    text-align: left;
+    padding: 0;
 }
+
 .bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu,
 .bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu {
-  text-align: left;
+    text-align: left;
 }
+
 .bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
 .bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
-  cursor: pointer;
-  display: block;
-  margin: 0;
-  padding: 3px 20px;
-  white-space: nowrap;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    padding: 3px 20px;
+    white-space: nowrap;
 }
+
 .bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
 .bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
 .bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
 .bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
-  color: #262626;
-  text-decoration: none;
-  background-color: #f5f5f5;
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
 }
+
 .bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
 .bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
 .bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
 .bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
-  margin: 0 2px 4px 0;
-  vertical-align: middle;
+    margin: 0 2px 4px 0;
+    vertical-align: middle;
 }
+
 .bootgrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
 .bootgrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }
+
 .bootgrid-table {
-  table-layout: fixed;
+    table-layout: fixed;
 }
+
 .bootgrid-table a {
-  outline: 0;
+    outline: 0;
 }
+
 .bootgrid-table th > .column-header-anchor {
-  color: #4A4A4A;
-  cursor: not-allowed;
-  display: block;
-  position: relative;
-  text-decoration: none;
+    color: #4A4A4A;
+    cursor: not-allowed;
+    display: block;
+    position: relative;
+    text-decoration: none;
 }
+
 .bootgrid-table th > .column-header-anchor.sortable {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 .bootgrid-table th > .column-header-anchor > .text {
-  display: block;
-  margin: 0 16px 0 0;
-  overflow: hidden;
-  -ms-text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    display: block;
+    margin: 0 16px 0 0;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 .bootgrid-table th > .column-header-anchor > .icon {
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 2px;
-  color: #1A8CFE;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    color: #1A8CFE;
 }
-.bootgrid-table th > .column-header-anchor > .icon.icons8-settings{display: none}
+
+.bootgrid-table th > .column-header-anchor > .icon.icons8-settings {
+    display: none
+}
 
 
 .bootgrid-table th:hover,
 .bootgrid-table th:active {
-  background: #fafafa;
+    background: #fafafa;
 }
 
 
-.bootgrid-table th.select-cell:hover{
-  background: #fff;
-}
-.bootgrid-table th.select-cell:hover .select-box,.bootgrid-table td.select-cell:hover .select-box{
-  border: 1px solid #1A8CFE;
+.bootgrid-table th.select-cell:hover {
+    background: #fff;
 }
 
+.bootgrid-table th.select-cell:hover .select-box, .bootgrid-table td.select-cell:hover .select-box {
+    border: 1px solid #1A8CFE;
+}
 
 
 .bootgrid-table td {
-  overflow: hidden;
-  -ms-text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 .bootgrid-table td.loading,
 .bootgrid-table td.no-results {
-  background: #fff;
-  text-align: center;
+    background: #fff;
+    text-align: center;
 }
+
 .bootgrid-table th.select-cell,
 .bootgrid-table td.select-cell {
-  text-align: center;
-  width: 45px;
-  padding: 6px 0;
+    text-align: center;
+    width: 45px;
+    padding: 6px 0;
 }
 
 .bootgrid-table th.select-cell.disabled,
 .bootgrid-table th.select-cell.disabled *,
 .bootgrid-table td.select-cell.disabled,
-.bootgrid-table td.select-cell.disabled *{
-  cursor: not-allowed;
+.bootgrid-table td.select-cell.disabled * {
+    cursor: not-allowed;
 }
+
 .bootgrid-table th.select-cell.disabled .select-box,
-.bootgrid-table td.select-cell.disabled .select-box{
-  background: #f0f3f7;
+.bootgrid-table td.select-cell.disabled .select-box {
+    background: #f0f3f7;
 }
+
 .bootgrid-table th.select-cell.disabled:hover .select-box,
-.bootgrid-table td.select-cell.disabled:hover .select-box{
-  border: 1px solid #E0E2E3;
+.bootgrid-table td.select-cell.disabled:hover .select-box {
+    border: 1px solid #E0E2E3;
 }
 
 
@@ -161,117 +186,130 @@
 .bootgrid-table td.select-cell input.select-box,
 .bootgrid-table th.select-cell .select-label .icons8-checked-checkbox,
 .bootgrid-table td.select-cell .select-label .icons8-checked-checkbox {
-  display: none;
+    display: none;
 }
 
 .bootgrid-table th.select-cell .select-label,
-.bootgrid-table td.select-cell .select-label{
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  position: relative;
-  max-width: initial;
-  margin: 0;
-  top: 2px;
+.bootgrid-table td.select-cell .select-label {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    max-width: initial;
+    margin: 0;
+    top: 2px;
 }
 
 .bootgrid-table th.select-cell span.select-box,
-.bootgrid-table td.select-cell span.select-box{
-  display: inline-block;
-  border: 1px solid #E0E2E3;
-  border-radius: 4px;
-  width: 25px;
-  height: 25px;
-  position: relative;
+.bootgrid-table td.select-cell span.select-box {
+    display: inline-block;
+    border: 1px solid #E0E2E3;
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    position: relative;
 }
+
 .bootgrid-table th.select-cell .select-box:checked + span.select-box,
-.bootgrid-table tr.active td.select-cell span.select-box{
-  border: 1px solid #1A8CFE;
+.bootgrid-table tr.active td.select-cell span.select-box {
+    border: 1px solid #1A8CFE;
 }
+
 .bootgrid-table th.select-cell .select-box:checked + span.select-box .icons8-checked-checkbox,
-.bootgrid-table tr.active td.select-cell span.select-box .icons8-checked-checkbox{
-  display: inline;
-  position: absolute;
-  font-size: 28px;
-  color: #1A8CFE;
-  left: -2.5px;
-  top: -2px;
-  line-height: 1;
+.bootgrid-table tr.active td.select-cell span.select-box .icons8-checked-checkbox {
+    display: inline;
+    position: absolute;
+    font-size: 28px;
+    color: #1A8CFE;
+    left: -2.5px;
+    top: -2px;
+    line-height: 1;
 }
-
-
 
 
 .table-responsive .bootgrid-table {
-  table-layout: inherit !important;
+    table-layout: inherit !important;
 }
+
 .table-responsive .bootgrid-table th > .column-header-anchor > .text {
-  overflow: inherit !important;
-  -ms-text-overflow: inherit !important;
-  -o-text-overflow: inherit !important;
-  text-overflow: inherit !important;
-  white-space: inherit !important;
+    overflow: inherit !important;
+    -ms-text-overflow: inherit !important;
+    -o-text-overflow: inherit !important;
+    text-overflow: inherit !important;
+    white-space: inherit !important;
 }
+
 .table-responsive .bootgrid-table td {
-  overflow: inherit !important;
-  -ms-text-overflow: inherit !important;
-  -o-text-overflow: inherit !important;
-  text-overflow: inherit !important;
-  white-space: inherit !important;
+    overflow: inherit !important;
+    -ms-text-overflow: inherit !important;
+    -o-text-overflow: inherit !important;
+    text-overflow: inherit !important;
+    white-space: inherit !important;
 }
-.bootgrid-footer .row{
-  padding-left: 15px;
+
+.bootgrid-footer .row {
+    padding-left: 15px;
 }
-.bootgrid-footer .infoBar > div{
-  display: inline-block;
-  vertical-align: middle;
+
+.bootgrid-footer .infoBar > div {
+    display: inline-block;
+    vertical-align: middle;
 }
-.bootgrid-footer .infoBar .infos{
-  font-size: 12px;
-  color: #9B9B9B;
-  margin-right: 20px;
+
+.bootgrid-footer .infoBar .infos {
+    font-size: 12px;
+    color: #9B9B9B;
+    margin-right: 20px;
 }
-.bootgrid-footer .infoBar + .col-sm-6{
-  text-align: right;
+
+.bootgrid-footer .infoBar + .col-sm-6 {
+    text-align: right;
 }
+
 .bootgrid-footer .infoBar .actions .btn-group,
-.bootgrid-footer .infoBar .actions .btn-group .dropdown-toggle{
-  border-radius: 4px!important;
-}
-.bootgrid-footer .infoBar .actions .btn-group .dropdown-toggle{
-  width: 110px;
-  height: 34px;
-  padding: 0;
-  line-height: 34px;
-}
-.bootgrid-footer .infoBar .actions .btn-group .dropdown-toggle .icons8-settings{
-  margin-right: 8px;
-  font-size: 14px;
+.bootgrid-footer .infoBar .actions .btn-group .dropdown-toggle {
+    border-radius: 4px !important;
 }
 
-.bootgrid-footer .infoBar .actions .btn-group+.btn-group{
-  margin-left: 20px;
-}
-.bootgrid-footer .infoBar .actions .btn-group+.btn-group .caret{
-  display: none;
-}
-.bootgrid-footer .infoBar .actions .btn-group .dropdown-menu{
-  border-right: none;
-  padding: 0;
-  border-radius: 0;
-  right: initial;
+.bootgrid-footer .infoBar .actions .btn-group .dropdown-toggle {
+    width: 110px;
+    height: 34px;
+    padding: 0;
+    line-height: 34px;
 }
 
-.bootgrid-footer .infoBar .actions .btn-group:first-child .dropdown-menu{
+.bootgrid-footer .infoBar .actions .btn-group .dropdown-toggle .icons8-settings {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.bootgrid-footer .infoBar .actions .btn-group + .btn-group {
+    margin-left: 20px;
+}
+
+.bootgrid-footer .infoBar .actions .btn-group + .btn-group .caret {
+    display: none;
+}
+
+.bootgrid-footer .infoBar .actions .btn-group .dropdown-menu {
+    border-right: none;
+    padding: 0;
+    border-radius: 0;
+    right: initial;
+}
+
+.bootgrid-footer .infoBar .actions .btn-group:first-child .dropdown-menu {
     top: -110px;
 }
-.bootgrid-footer .infoBar .actions .btn-group:last-child .dropdown-menu{
+
+.bootgrid-footer .infoBar .actions .btn-group:last-child .dropdown-menu {
     top: -135px;
 }
 
-.bootgrid-table>tbody>tr.active>td.no-results, .bootgrid-table>tbody>tr:hover>td.no-results{
-  background-color: #F6F7FA;
+.bootgrid-table > tbody > tr.active > td.no-results, .bootgrid-table > tbody > tr:hover > td.no-results {
+    background-color: #F6F7FA;
 }
-.bootgrid-table>tbody>tr>td.no-results{
-  border-radius: 4px;
+
+.bootgrid-table > tbody > tr > td.no-results {
+    border-radius: 4px;
 }
