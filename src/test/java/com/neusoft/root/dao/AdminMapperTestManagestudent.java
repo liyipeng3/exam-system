@@ -2,7 +2,7 @@ package com.neusoft.root.dao;
 
 import static org.junit.Assert.*;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,24 +14,23 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neusoft.root.domain.Admin;
-import com.neusoft.root.domain.MyLog;
+import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Student;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AdminMapperTestMyLog 
+public class AdminMapperTestManagestudent 
 {
 	@Autowired
 	private AdminMapper am;
 	
 	@Test
-	public void testAddMyLog()
+	public void testAddManagestudent()
 	{
 		/*try 
 		{
-			Date date = new Date(2019, 7, 25);
-			MyLog log = new MyLog(1, "113", date, "123", "123", "123");
-			am.addMyLog(log);
+			Managestudent ms = new Managestudent("125", "117372", "123", "2019-7-15");
+			am.addManagestudent(ms);
 		} 
 		catch (Exception e) 
 		{
@@ -40,13 +39,24 @@ public class AdminMapperTestMyLog
 	}
 	
 	@Test
-	public void testDeleteMylog()
+	public void testDeleteManagestudent()
 	{
 		/*try 
 		{
-			Date date = new Date(2019, 7, 25);
-			MyLog log = new MyLog(1, "111", date, "123", "123", "123");
-			am.deleteMyLog(log);
+			Managestudent ms = new Managestudent("125", "117372", "123", "2019-7-15");
+			am.deleteManagestudent(ms);
+		} catch (Exception e) {
+			System.out.println(e);
+		}*/
+	}
+	
+	@Test
+	public void testUpdateManagestudent()
+	{
+		/*try 
+		{
+			Managestudent ms = new Managestudent("124", "117371", "123", "2019-7-15");
+			am.updateManagestudent(ms);
 		} 
 		catch (Exception e) 
 		{
@@ -55,33 +65,19 @@ public class AdminMapperTestMyLog
 	}
 	
 	@Test
-	public void testUpdateMylog()
-	{
-		/*try 
-		{
-			Map<String, Object> maps = new HashMap<>();
-			maps.put("ids", new String[]{"2","3","4"});
-			maps.put("opId", "zyc");
-			am.updateMyLog(maps);
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}*/
-	}
-	
-	@Test
-	public void testQueryStudent()
+	public void testQueryManagestudent()
 	{
 		try 
 		{
-			List<MyLog> logs = am.queryMyLog(null);
-			for (MyLog myLog : logs) 
+			List<Managestudent> list = am.queryManagestudent(null);
+			for (Managestudent managestudent : list) 
 			{
-				System.out.println(myLog);
+				System.out.println(managestudent);
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e);
 		}
 	}
 }

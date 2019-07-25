@@ -349,7 +349,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="op_date" property="opDate"/>
 		<result column="op_type" property="opType"/>
 		<result column="op_msg" property="opMsg"/>
-		<result column="op_result" property="opResult"/>
+		<result column="op_page" property="opPage"/>
 	</resultMap>
 	
 	<!-- 学生安排记录表 -->
@@ -421,7 +421,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				class_id = #{classId},
 			</if>
 			<if test="examDate!=null and examDate!=''">
-				exam_date = #{examDate},
+				eaxm_date = #{examDate},
 			</if>
 		</set>
 		where teacher_id = #{teacherId} and course_id = #{courseId}

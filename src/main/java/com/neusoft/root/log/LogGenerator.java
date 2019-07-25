@@ -2,11 +2,11 @@ package com.neusoft.root.log;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.neusoft.root.domain.Log;
+import com.neusoft.root.domain.MyLog;
 
 public class LogGenerator {
-	public static Log logGenerator(){
-		
+	public static MyLog logGenerator()
+	{
 		return null;
 	}
 }

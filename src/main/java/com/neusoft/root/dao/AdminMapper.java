@@ -60,7 +60,7 @@ public interface AdminMapper
 	
 	
 	//学生安排考试表的增删改查
-	public void  addManagestudent(Managestudent managestudent);
+	public void addManagestudent(Managestudent managestudent);
 	public void deleteManagestudent(Managestudent managestudent);
 	public void updateManagestudent(Managestudent managestudent);
 	public List<Managestudent> queryManagestudent(Managestudent managestudent);

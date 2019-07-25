@@ -6,21 +6,23 @@ public class Manageteacher {
 	private String classId;
 	private String teacherId;
 	private String courseId;
-	private Date examDate;
+	private String examDate;
 	
-	public Date getExamDate() {
-		return examDate;
-	}
-	public void setExamDate(Date examDate) {
+	public Manageteacher(String classId, String teacherId, String courseId, String examDate) {
+		super();
+		this.classId = classId;
+		this.teacherId = teacherId;
+		this.courseId = courseId;
 		this.examDate = examDate;
 	}
+	
+	
+	public Manageteacher() {
+		super();
+	}
+
 	public String getClassId() {
 		return classId;
-	}
-	@Override
-	public String toString() {
-		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId
-				+ ", examDate=" + examDate + "]";
 	}
 	public void setClassId(String classId) {
 		this.classId = classId;
@@ -37,23 +39,14 @@ public class Manageteacher {
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
-	public Manageteacher(String classId, String teacherId, String courseId) {
-		super();
-		this.classId = classId;
-		this.teacherId = teacherId;
-		this.courseId = courseId;
+	public String getExamDate() {
+		return examDate;
 	}
-	public Manageteacher() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Manageteacher(String classId, String teacherId, String courseId, Date examDate) {
-		super();
-		this.classId = classId;
-		this.teacherId = teacherId;
-		this.courseId = courseId;
+	public void setExamDate(String examDate) {
 		this.examDate = examDate;
 	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,6 +57,8 @@ public class Manageteacher {
 		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -96,5 +91,12 @@ public class Manageteacher {
 		return true;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId
+				+ ", examDate=" + examDate + "]";
+	}
+	
 	
 }
