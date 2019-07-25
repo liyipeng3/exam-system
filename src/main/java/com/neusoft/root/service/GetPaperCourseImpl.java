@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.neusoft.root.dao.TeacherMapper;
 
 import com.neusoft.root.domain.RawPaper;
-import com.neusoft.root.domain.Subjects;
 
 @Service
 public class GetPaperCourseImpl implements GetPaperCourse{
