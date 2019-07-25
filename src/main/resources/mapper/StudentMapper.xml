@@ -4,64 +4,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.neusoft.root.dao.StudentMapper">
-	<!-- 查询班级 -->
-	<select id="queryClass1" parameterType="Class1" resultMap="myClass1">
+	<!-- 查询考试班级时间课程 -->
+	<select id="queryManagestudent" parameterType="Managestudent" resultMap="myManagestudent">
 	select *
-		from student_table
+		from managestudent_table
 	<where>
-			<if test="adminId!=null and adminId!=''">
-				and admin_id = #{adminId}
-			</if>
-			<if test="adminName!=null and adminName!=''">
-				and admin_name = #{adminName}
-			</if>
-			<if test="adminPassword!=null and adminPassword!=''">
-				and admin_password = #{adminPassword}
+			<if test="studentId!=null and studentId!=''">
+				and student_id = #{studentId}
 			</if>
 		</where>
 	</select>
-	<resultMap type="Admin" id="MyAdmin">
-		<id column="admin_id" property="adminId"/>
-		<result column="admin_name" property="adminName"/>
-		<result column="admin_password" property="adminPassword"/>
+	<resultMap type="Managestudent" id="myManagestudent">
+		<id column="student_id" property="studentId"/>
+		<result column="class_id" property="classId"/>
+		<result column="course_id" property="courseId"/>
+		<result column="exam_date" property="examDate"/>
 	</resultMap>
 	
-	<delete id="DeleteAdmin" parameterType="Admin">
+	<!-- 论坛帖子增删查 -->
+	<insert id="addForum" parameterType="Forum">
+		insert into admin_table values(#{adminId},#{adminName},#{adminPassword})
+	</insert>
+	
+	<delete id="deleteAdmin" parameterType="Admin">
 		delete from admin_table where admin_id = #{adminId}
 	</delete>
-	
-	<update id="UpdateAdmin" parameterType="Map">
-		update admin_table
-		<set>
-			<if test="adminName!=null and adminName!=''">
-				admin_name = #{adminName},
-			</if>
-			<if test="adminPassword!=null and adminPassword!=''">
-				admin_password = #{adminPassword},
-			</if>
-		</set>
-		where admin_id in
-		<foreach collection="ids" item="item" open="(" separator="," close=")">
-			#{item}
-		</foreach>
-	</update>
-	
-	<select id="QueryAdmin" parameterType="Admin" resultMap="myAdmin">
-		select *
-		from admin_table
-		<where>
-			<if test="adminId!=null and adminId!=''">
-				and admin_id = #{adminId}
-			</if>
-			<if test="adminName!=null and adminName=''">
-				and admin_name = #{adminName}
-			</if>
-		</where>
-	</select>
-	
-	<resultMap type="Admin" id="myAdmin">
-		<id column="admin_id" property="adminId" />
-		<result column="admin_name" property="adminName" />
-		<result column="admin_password" property="adminPassword" />
-	</resultMap>
 </mapper>

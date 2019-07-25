@@ -9,6 +9,7 @@ import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Log;
+import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Paper;
 import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
@@ -16,14 +17,8 @@ import com.neusoft.root.domain.Teacher;
 
 public interface StudentMapper {
 	
-	//查询班级
-	public Map<String ,Object>  queryClass1(Class1 class1);
-	
-	//查询课程
-	public Map<String, Object> queryCourse(Course course);
-	
-	//查询课程老师
-	public Map<String, Object> queryCourseTeacher(Courseteacher courseteacher);
+	//查询考试班级时间课程
+	public Map<String ,Object> queryManagestudent(Managestudent managestudent);
 	
 	//论坛帖子的增加删除查询
 	public void addForum(Forum forum);
