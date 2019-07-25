@@ -605,18 +605,6 @@ function showSelOk(id, url, password,trialExamLink,type,isSkipLogin) {
 
     $('#okModal').modal();
 
-    // $("#okModal .btn-div").click(function (e) {
-    //     if(e.target.nodeName.toUpperCase() == 'BUTTON'){
-    //         if(e.target.innerText == '确定' && type =='exam'){
-    //             jumpUrl = '/account/admin/index';
-    //         }else if(e.target.innerText == '确定' && type =='course'){
-    //             jumpUrl = '/course/course_mgr';
-    //         }else {
-    //             jumpUrl = trialExamLink;
-    //         }
-    //         sendNotice(sendUrl,jumpUrl);
-    //     }
-    // });
 }
 
 //okmodal点击确定
