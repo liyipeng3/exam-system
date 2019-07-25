@@ -2386,7 +2386,7 @@ webpackJsonp([1], {
                 subMenu: [{
                     title: "考试信息管理",
                     id: "ExamMgr",
-                    url: a.apiBase("admin") + "/admin/exam_mgr_new",
+                    url: a.apiBase("admin") + "/html/exam/exam_mgr_new.html",
                     show: i.allowExamMgr
                 }, {
                     title: "试题库",

@@ -53,13 +53,13 @@ $(function () {
                             title: '试题库',
                             id: 'QuestionMgr',
                             // url: getAdminUrlPrefix + '/admin/showtestqm_new',
-                            url: getStaticUrlPrefix + '/admin/testQuestions/#/list',
+                            url: getStaticUrlPrefix + '/html/exam/test_questions.html/#/list',
                             show: data.allowShowtestqm
                         },
                         {
                             title: '试卷库',
                             id: 'PaperMgr',
-                            url: getAdminUrlPrefix + '/admin/paper_mgr_new',
+                            url: getAdminUrlPrefix + '/html/exam/paper_mgr_new.html',
                             show: data.allowPaperMgr
                         },
                         {
@@ -621,17 +621,17 @@ $("#confirmOkBtn").click(function () {
             if (okModalRef == 'index') {
                 jumpUrl = '/account/admin/index';
             } else {
-                jumpUrl = '/admin/exam_mgr_new';
+                jumpUrl = '/html/exam/exam_mgr_new.html';
             }
         } else {
             if (isOpenUrl) { //如果是复制链接进来的，让其跳转到列表页
-                jumpUrl = '/admin/exam_mgr_new';
+                jumpUrl = '/html/exam/exam_mgr_new.html';
             } else {
                 if (linkToOther) {
                     if (ref.indexOf('index') != -1) {
                         jumpUrl = '/account/admin/index';
                     } else {
-                        jumpUrl = '/admin/exam_mgr_new';
+                        jumpUrl = '/html/exam/exam_mgr_new.html';
                     }
                 } else {
                     jumpUrl = url;
