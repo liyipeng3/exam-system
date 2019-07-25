@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package com.neusoft.root;
 
 import java.util.ArrayList;
@@ -53,4 +52,3 @@ public class Test {
 		System.out.println(gson.toJson(papers));*/
 	}
 }
->>>>>>> origin/zyc

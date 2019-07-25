@@ -8,11 +8,12 @@ import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Courseteacher;
-import com.neusoft.root.domain.Coursetudent;
+import com.neusoft.root.domain.Coursestudent;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
+import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
 public interface TeacherMapper {
@@ -22,17 +23,12 @@ public interface TeacherMapper {
 	public void updateCheck(Map<String, Object> check);
 	public List<Check> queryCheck(Check check);
 	
-	//对班级信息进行查询
-	public List<Class1> queryClass(Class1 class1);
-	
-	//对课程进行查询
-	public List<Course> queryCourse(Course course);
 	
 	//对老师课程查询
 	public List<Courseteacher> queryCourseteacher(Courseteacher courseteacher);
 	
 	//对学生课程查询
-	public List<Coursetudent> queryCoursestudent(Coursetudent coursetudent);
+	public List<Coursestudent> queryCoursestudent(Coursestudent coursestudent);
 	
 	//论坛帖子的增加删除查询
 	public void addForum(Forum forum);
@@ -62,6 +58,8 @@ public interface TeacherMapper {
 	
 	//老师
 	//改密码
+	//查询
 	public void updateTeacherPassword(Teacher teacher);
-	public List<Teacher> queryteacher(Teacher teacher);
+	public List<Teacher> queryTeacher(Teacher teacher);
+	public List<Student> queryStudent(Student student);
 }

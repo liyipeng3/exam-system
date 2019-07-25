@@ -9,6 +9,7 @@ public class Forum {
 	private String postTag;//分类标签
 	private String postOutline;//题目
 	private String postContext;//内容
+
 	
 	public Forum() {
 		super();
@@ -59,6 +60,9 @@ public class Forum {
 	public void setPostContext(String postContext) {
 		this.postContext = postContext;
 	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

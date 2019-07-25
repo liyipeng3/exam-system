@@ -1,4 +1,4 @@
-/*package com.neusoft.root.service;
+package com.neusoft.root.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import com.neusoft.root.dao.TeacherMapper;
 
 import com.neusoft.root.domain.RawPaper;
+
+import com.neusoft.root.domain.Subjects;
+
 
 @Service
 public class GetPaperCourseImpl implements GetPaperCourse{
@@ -21,10 +24,10 @@ public class GetPaperCourseImpl implements GetPaperCourse{
 		List<RawPaper> paperlist = new ArrayList<>();
 		
 			RawPaper paper = new RawPaper(null, null, null, null, subjects, null, null, null, null, null, null, null, null);
+
 			paperlist =teachermapper.queryPaper(paper);
 		
 		return paperlist;
 	}
 	
 }
-*/
