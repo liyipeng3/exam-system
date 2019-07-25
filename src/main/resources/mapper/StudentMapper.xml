@@ -70,6 +70,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="op_result" property="opResult"/>
 	</resultMap>
 	
+	<!-- 对消息增删改查 -->
+	<insert id="addMessage" parameterType="Message">
+		insert into message_table values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
+	</insert>
+	
 	
 	
 	
