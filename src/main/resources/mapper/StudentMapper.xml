@@ -130,7 +130,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 学生改密码查询学生 -->
-	<update id="updateStudent" parameterType="Student">
+	<update id="updateStudent" parameterType="Map">
 		update student_table
 		<set>
 			<if test="studentPassword!=null and studentPassword!=''">
@@ -143,6 +143,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</update>
 	
+	<select id="queryStudent" parameterType="Student" resultMap="MyStudent">
+		select *
+		from student_table
+		<where>
+			<if test="studentId!=null and studentId!=''">
+				and student_id = #{studentId}
+			</if>
+			<if test="studentName!=null and studentName!=''">
+				and student_name = #{studentName}
+			</if>
+			<if test="studentPassword!=null and studentPassword!=''">
+				and student_password = #{studentPassword}
+			</if>
+			<if test="studentAcademy!=null and studentAcademy!=''">
+				and student_academy = #{studentAcademy}
+			</if>
+			<if test="studentMajor!=null and studentMajor!=''">
+				and student_academy = #{studentAcademy}
+			</if>
+			<if test="studentSchool!=null and studentSchool!=''">
+				and student_school = #{studentSchool}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Student" id="MyStudent">
+		<id column="student_id" property="studentId"/>
+		<result column="student_name" property="studentName"/>
+		<result column="student_password" property="studentPassword"/>
+		<result column="student_academy" property="studentAcademy"/>
+		<result column="student_major" property="studentMajor"/>
+		<result column="student_school" property="studentSchool"/>		
+	</resultMap>
 	
 	
 	

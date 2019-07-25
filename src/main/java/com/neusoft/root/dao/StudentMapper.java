@@ -44,5 +44,5 @@ public interface StudentMapper {
 	//学生
 	//改密码
 	public void updateStudent(Student student);
-	public List<Student> querystudent(Student student);
+	public List<Student> queryStudent(Student student);
 }
