@@ -13,10 +13,10 @@ public class ExamSystemApplication {
 
 	
 	public static void main(String[] args) {
-		
+		sqlInit();
 		SpringApplication.run(ExamSystemApplication.class, args);
 	}
-	public void sqlInit()
+	public static void sqlInit()
 	{
 		Connection conn;
 		PreparedStatement stmt;
