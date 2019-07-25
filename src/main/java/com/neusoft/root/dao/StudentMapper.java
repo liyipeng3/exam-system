@@ -43,6 +43,6 @@ public interface StudentMapper {
 	
 	//学生
 	//改密码
-	public void updateStudent(String id,String password);
+	public void updateStudent(Student student);
 	public List<Student> querystudent(Student student);
 }
