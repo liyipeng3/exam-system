@@ -12,7 +12,7 @@ import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Forum;
-import com.neusoft.root.domain.Log;
+import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.Result;
@@ -48,15 +48,15 @@ public interface AdminMapper
 	
 	//课程
 	public void addCource(Course course);
-	public void deleteteCourse(Course course);
+	public void deleteCourse(Course course);
 	public void updateCourse(Map<String ,Object> course);
 	public List<Course> queryCourse(Course course);
 	
 	//记录
-	public void addLog(Log log);
-	public void deleteLog(Log log);
+	public void addLog(MyLog log);
+	public void deleteLog(MyLog log);
 	public void updateLog(Map<String ,Object> log);
-	public List<Log> queryLog(Log log);
+	public List<MyLog> queryLog(MyLog log);
 	
 	
 	//学生安排考试表的增删改查

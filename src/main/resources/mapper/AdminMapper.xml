@@ -154,6 +154,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="className!=null and className!=''">
 				and class_name = #{className}
 			</if>
+			<if test="classSeats!=null and classSeats!=''">
+				and class_seats = #{classSeats}
+			</if>
 		</where>
 	</select>
 	
@@ -235,7 +238,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 管理课程 -->
 	<insert id="addCource" parameterType="Course">
 		insert into course_table 
-		values(#{courseId},#{courseName})
+		values(#{courseId},#{courseName},#{courseType})
 	</insert>
 	
 	<delete id="deleteCourse" parameterType="Course">
@@ -274,12 +277,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<!-- 管理日志 -->
-	<insert id="addLog" parameterType="Log">
+	<insert id="addLog" parameterType="Mylog">
 		insert into log_table 
 		values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
 	</insert>
 	
-	<delete id="deleteLog" parameterType="Log">
+	<delete id="deleteLog" parameterType="Mylog">
 		delete from log_table where log_id = #{logId}
 	</delete>
 	
@@ -308,7 +311,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</update>
 	
-	<select id="queryLog" parameterType="Log" resultMap="MyLog">
+	<select id="queryLog" parameterType="MyLog" resultMap="MyLog1">
 		select *
 		from log_table
 		<where>
@@ -333,7 +336,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
-	<resultMap type="Log" id="MyLog">
+	<resultMap type="MyLog" id="MyLog1">
 		<id column="log_id" property="logId"/>
 		<result column="op_id" property="opId"/>
 		<result column="op_date" property="opDate"/>

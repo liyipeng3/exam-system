@@ -1,7 +1,7 @@
 package com.neusoft.root.domain;
 
 import java.sql.Date;
-public class Log 
+public class MyLog 
 {
 	private Integer logId;  //日志id
 	private String opId; //操作者ID
@@ -9,7 +9,7 @@ public class Log
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
 	private String opPage; // 操作内容
-	public Log(Integer logId, String opId, Date opDate, String opType, String opMsg, String opPage) {
+	public MyLog(Integer logId, String opId, Date opDate, String opType, String opMsg, String opPage) {
 		super();
 		this.logId = logId;
 		this.opId = opId;
@@ -18,7 +18,7 @@ public class Log
 		this.opMsg = opMsg;
 		this.opPage = opPage;
 	}
-	public Log() {
+	public MyLog() {
 		super();
 	}
 	public Integer getLogId() {
@@ -77,7 +77,7 @@ public class Log
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Log other = (Log) obj;
+		MyLog other = (MyLog) obj;
 		if (logId == null) {
 			if (other.logId != null)
 				return false;
