@@ -32,6 +32,11 @@ public class Class1 {
 		this.classSeats = classSeats;
 	}
 
+	@Override
+	public String toString() {
+		return "Class1 [classId=" + classId + ", className=" + className + ", classSeats=" + classSeats + "]";
+	}
+
 	public void setClassId(String classId) {
 		this.classId = classId;
 	}

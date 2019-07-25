@@ -12,6 +12,11 @@ public class Managestudent {
 	public Date getExamDate() {
 		return examDate;
 	}
+	@Override
+	public String toString() {
+		return "Managestudent [classId=" + classId + ", studentId=" + studentId + ", courseId=" + courseId
+				+ ", examDate=" + examDate + "]";
+	}
 	public void setExamDate(Date examDate) {
 		this.examDate = examDate;
 	}
