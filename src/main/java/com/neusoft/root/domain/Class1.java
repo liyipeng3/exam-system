@@ -3,9 +3,8 @@ package com.neusoft.root.domain;
 public class Class1 {
 	private String classId;
 	private String className;
-	private Integer classSeats;
-	public Class1(String classId, String className, Integer classSeats) 
-	{
+	private int classSeats;
+	public Class1(String classId, String className, int classSeats) {
 		super();
 		this.classId = classId;
 		this.className = className;
@@ -25,11 +24,11 @@ public class Class1 {
 		this.className = className;
 	}
 
-	public Integer getClassSeats() {
+	public int getClassSeats() {
 		return classSeats;
 	}
 
-	public void setClassSeats(Integer classSeats) {
+	public void setClassSeats(int classSeats) {
 		this.classSeats = classSeats;
 	}
 
