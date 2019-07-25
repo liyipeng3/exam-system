@@ -12,7 +12,6 @@ import com.neusoft.root.domain.Log;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
-import com.neusoft.root.domain.Teacher;
 
 
 public interface StudentMapper {
