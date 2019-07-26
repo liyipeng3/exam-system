@@ -6,17 +6,19 @@ public class Manageteacher {
 	private String classId;
 	private String teacherId;
 	private String courseId;
-	private String examDate;
-	
-	public Manageteacher(String classId, String teacherId, String courseId, String examDate) {
+	private String examName;
+	private String examBegindate;
+	private String examEnddate;
+	public Manageteacher(String classId, String teacherId, String courseId, String examName, String examBegindate,
+			String examEnddate) {
 		super();
 		this.classId = classId;
 		this.teacherId = teacherId;
 		this.courseId = courseId;
-		this.examDate = examDate;
+		this.examName = examName;
+		this.examBegindate = examBegindate;
+		this.examEnddate = examEnddate;
 	}
-	
-	
 	public Manageteacher() {
 		super();
 	}
@@ -47,6 +49,18 @@ public class Manageteacher {
 	public void setExamName(String examName) {
 		this.examName = examName;
 	}
+	public String getExamBegindate() {
+		return examBegindate;
+	}
+	public void setExamBegindate(String examBegindate) {
+		this.examBegindate = examBegindate;
+	}
+	public String getExamEnddate() {
+		return examEnddate;
+	}
+	public void setExamEnddate(String examEnddate) {
+		this.examEnddate = examEnddate;
+	}
 
 	@Override
 	public int hashCode() {
@@ -60,8 +74,6 @@ public class Manageteacher {
 		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -104,12 +116,10 @@ public class Manageteacher {
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId
 				+ ", examName=" + examName + ", examBegindate=" + examBegindate + ", examEnddate=" + examEnddate + "]";
 	}
 	
-
 }

@@ -24,7 +24,7 @@ public class GetPaperServiceImpl implements GetPaperService{
 		List<RawPaper> paperlist = new ArrayList<>();
 		
 			RawPaper paper = new RawPaper(null, null, null, null, subjects, null, null, null, null, null, null, null, null);
-			paperlist =teachermapper.queryPaper(paper);
+			paperlist =teachermapper.queryRawPaper(paper);
 		return paperlist;
 	}
 	

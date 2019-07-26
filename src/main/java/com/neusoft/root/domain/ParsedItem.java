@@ -14,23 +14,8 @@ public class ParsedItem
 	private List<String> itemOption; //试题选项
 	private List<String> itemAnswer; //试题答案
 	private List<String> itemPicture; //试题路径
-	public ParsedItem(String itemId, String itemCourseType, String itemType, Double itemIndex, String itemQuestion,
-			List<String> itemOption, List<String> itemAnswer, List<String> itemPicture) {
-		super();
-		this.itemId = itemId;
-		this.itemCourseType = itemCourseType;
-		this.itemType = itemType;
-		this.itemIndex = itemIndex;
-		this.itemQuestion = itemQuestion;
-		this.itemOption = itemOption;
-		this.itemAnswer = itemAnswer;
-		this.itemPicture = itemPicture;
-	}
-	public ParsedItem() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public String getItemId() {
+	private Double itemScore; //试题分数
+	public Integer getItemId() {
 		return itemId;
 	}
 	public void setItemId(Integer itemId) {
@@ -39,7 +24,7 @@ public class ParsedItem
 	public String getCreaterId() {
 		return createrId;
 	}
-	public void setCreaterid(String createrId) {
+	public void setCreaterId(String createrId) {
 		this.createrId = createrId;
 	}
 	public String getItemDate() {
@@ -78,17 +63,43 @@ public class ParsedItem
 	public void setItemOption(List<String> itemOption) {
 		this.itemOption = itemOption;
 	}
-	public String getItemAnswer() {
+	public List<String> getItemAnswer() {
 		return itemAnswer;
 	}
-	public void setItemAnswer(String itemAnswer) {
+	public void setItemAnswer(List<String> itemAnswer) {
 		this.itemAnswer = itemAnswer;
 	}
-	public String getItemPicture() {
+	public List<String> getItemPicture() {
 		return itemPicture;
 	}
-	public void setItemPicture(String itemPicture) {
+	public void setItemPicture(List<String> itemPicture) {
 		this.itemPicture = itemPicture;
+	}
+	public Double getItemScore() {
+		return itemScore;
+	}
+	public void setItemScore(Double itemScore) {
+		this.itemScore = itemScore;
+	}
+	public ParsedItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
+			Double itemIndex, String itemQuestion, List<String> itemOption, List<String> itemAnswer,
+			List<String> itemPicture, Double itemScore) {
+		super();
+		this.itemId = itemId;
+		this.createrId = createrId;
+		this.itemDate = itemDate;
+		this.itemCoursetype = itemCoursetype;
+		this.itemType = itemType;
+		this.itemIndex = itemIndex;
+		this.itemQuestion = itemQuestion;
+		this.itemOption = itemOption;
+		this.itemAnswer = itemAnswer;
+		this.itemPicture = itemPicture;
+		this.itemScore = itemScore;
+	}
+	public ParsedItem() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public int hashCode() {
@@ -175,9 +186,10 @@ public class ParsedItem
 	}
 	@Override
 	public String toString() {
-		return "ParsedItem [itemId=" + itemId + ", itemCourseType=" + itemCourseType + ", itemType=" + itemType
-				+ ", itemIndex=" + itemIndex + ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption
-				+ ", itemAnswer=" + itemAnswer + ", itemPicture=" + itemPicture + "]";
+		return "ParsedItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate
+				+ ", itemCoursetype=" + itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex
+				+ ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer
+				+ ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + "]";
 	}
 	
 	

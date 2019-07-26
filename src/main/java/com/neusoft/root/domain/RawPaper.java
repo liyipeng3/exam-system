@@ -18,7 +18,7 @@ public class RawPaper
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
 	
-	public RawPaper(String paperId, String paperName, String createrId, String createDate, String paperType,
+	public RawPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
 			Double paperIndex, String singlechoiceQuestion, String multichoiceQuestion, String fillQuestion,
 			String subjectiveQuestion, Double paperScore, String paperSecrecy, String paperRemark) {
 		super();
@@ -40,7 +40,7 @@ public class RawPaper
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public String getPaperId() {
+	public Integer getPaperId() {
 		return paperId;
 	}
 	public void setPaperId(Integer paperId) {

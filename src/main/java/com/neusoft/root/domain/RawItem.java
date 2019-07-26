@@ -1,23 +1,91 @@
-﻿kage com.neusoft.root.domain;
+﻿package com.neusoft.root.domain;
 
 //试题
 public class RawItem {
-	private String itemId; //题目ID
-	private String itemCourseType;  // 题目类型，java，c++
+	private Integer itemId; //题目ID
+	private String createrId;
+	private String itemDate; //创建日期
+	private String itemCoursetype;  // 题目类型，java，c++
 	private String itemType; //题目类型，多选题，单选题，填空题，主观题
 	private Double itemIndex; //试题难度 
 	private String itemQuestion; //试题题干
 	private String itemOption; //试题选项
 	private String itemAnswer; //试题答案
 	private String itemPicture; //试题路径
+	private Double itemScore;
+	public Integer getItemId() {
+		return itemId;
+	}
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
+	}
+	public String getCreaterId() {
+		return createrId;
+	}
+	public void setCreaterId(String createrId) {
+		this.createrId = createrId;
+	}
+	public String getItemDate() {
+		return itemDate;
+	}
+	public void setItemDate(String itemDate) {
+		this.itemDate = itemDate;
+	}
+	public String getItemCoursetype() {
+		return itemCoursetype;
+	}
+	public void setItemCoursetype(String itemCoursetype) {
+		this.itemCoursetype = itemCoursetype;
+	}
+	public String getItemType() {
+		return itemType;
+	}
+	public void setItemType(String itemType) {
+		this.itemType = itemType;
+	}
+	public Double getItemIndex() {
+		return itemIndex;
+	}
+	public void setItemIndex(Double itemIndex) {
+		this.itemIndex = itemIndex;
+	}
+	public String getItemQuestion() {
+		return itemQuestion;
+	}
+	public void setItemQuestion(String itemQuestion) {
+		this.itemQuestion = itemQuestion;
+	}
+	public String getItemOption() {
+		return itemOption;
+	}
+	public void setItemOption(String itemOption) {
+		this.itemOption = itemOption;
+	}
+	public String getItemAnswer() {
+		return itemAnswer;
+	}
+	public void setItemAnswer(String itemAnswer) {
+		this.itemAnswer = itemAnswer;
+	}
+	public String getItemPicture() {
+		return itemPicture;
+	}
+	public void setItemPicture(String itemPicture) {
+		this.itemPicture = itemPicture;
+	}
+	public Double getItemScore() {
+		return itemScore;
+	}
+	public void setItemScore(Double itemScore) {
+		this.itemScore = itemScore;
+	}
 	@Override
 	public String toString() {
-		return "Item [itemId=" + itemId + ", itemCourseType=" + itemCourseType + ", itemType=" + itemType
-				+ ", itemIndex=" + itemIndex + ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption
-				+ ", itemAnswer=" + itemAnswer + ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + "]";
+		return "RawItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate + ", itemCoursetype="
+				+ itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex + ", itemQuestion="
+				+ itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer + ", itemPicture="
+				+ itemPicture + ", itemScore=" + itemScore + "]";
 	}
-	private Double itemScore; //提示分数 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -105,71 +173,20 @@ public class RawItem {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public RawItem(String itemId, String itemCourseType, String itemType, Double itemIndex, String itemQuestion,
-			String itemOption, String itemAnswer, String itemPicture, Double itemScore) {
+	public RawItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
+			Double itemIndex, String itemQuestion, String itemOption, String itemAnswer, String itemPicture,
+			Double itemScore) {
 		super();
 		this.itemId = itemId;
-		this.itemCourseType = itemCourseType;
+		this.createrId = createrId;
+		this.itemDate = itemDate;
+		this.itemCoursetype = itemCoursetype;
 		this.itemType = itemType;
 		this.itemIndex = itemIndex;
 		this.itemQuestion = itemQuestion;
 		this.itemOption = itemOption;
 		this.itemAnswer = itemAnswer;
 		this.itemPicture = itemPicture;
-		this.itemScore = itemScore;
-	}
-	public String getItemId() {
-		return itemId;
-	}
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
-	}
-	public String getItemCourseType() {
-		return itemCourseType;
-	}
-	public void setItemCourseType(String itemCourseType) {
-		this.itemCourseType = itemCourseType;
-	}
-	public String getItemType() {
-		return itemType;
-	}
-	public void setItemType(String itemType) {
-		this.itemType = itemType;
-	}
-	public Double getItemIndex() {
-		return itemIndex;
-	}
-	public void setItemIndex(Double itemIndex) {
-		this.itemIndex = itemIndex;
-	}
-	public String getItemQuestion() {
-		return itemQuestion;
-	}
-	public void setItemQuestion(String itemQuestion) {
-		this.itemQuestion = itemQuestion;
-	}
-	public String getItemOption() {
-		return itemOption;
-	}
-	public void setItemOption(String itemOption) {
-		this.itemOption = itemOption;
-	}
-	public String getItemAnswer() {
-		return itemAnswer;
-	}
-	public void setItemAnswer(String itemAnswer) {
-		this.itemAnswer = itemAnswer;
-	}
-	public String getItemPicture() {
-		return itemPicture;
-	}
-	public void setItemPicture(String itemPicture) {
-		this.itemPicture = itemPicture;
-	}
-	public Double getItemScore() {
-		return itemScore;
-	}
-	public void setItemScore(Double itemScore) {
 		this.itemScore = itemScore;
 	}
 	

@@ -1,4 +1,4 @@
-﻿kage com.neusoft.root.dao;
+﻿package com.neusoft.root.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +12,6 @@ import com.neusoft.root.domain.Coursestudent;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
-import com.neusoft.root.domain.Message;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;

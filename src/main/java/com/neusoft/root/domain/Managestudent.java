@@ -7,17 +7,19 @@ public class Managestudent {
 	private String classId;
 	private String studentId;
 	private String courseId;
-	private String examDate;
-	
-	public Managestudent(String classId, String studentId, String courseId, String examDate) {
-
+	private String examName;
+	private String examBegindate;
+	private String examEnddate;
+	public Managestudent(String classId, String studentId, String courseId, String examName, String examBegindate,
+			String examEnddate) {
 		super();
 		this.classId = classId;
 		this.studentId = studentId;
 		this.courseId = courseId;
-		this.examDate = examDate;
+		this.examName = examName;
+		this.examBegindate = examBegindate;
+		this.examEnddate = examEnddate;
 	}
-	
 	public Managestudent() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -47,6 +49,18 @@ public class Managestudent {
 	public void setExamName(String examName) {
 		this.examName = examName;
 	}
+	public String getExamBegindate() {
+		return examBegindate;
+	}
+	public void setExamBegindate(String examBegindate) {
+		this.examBegindate = examBegindate;
+	}
+	public String getExamEnddate() {
+		return examEnddate;
+	}
+	public void setExamEnddate(String examEnddate) {
+		this.examEnddate = examEnddate;
+	}
 
 	@Override
 	public int hashCode() {
@@ -60,7 +74,6 @@ public class Managestudent {
 		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -102,10 +115,10 @@ public class Managestudent {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "Managestudent [classId=" + classId + ", studentId=" + studentId + ", courseId=" + courseId
 				+ ", examName=" + examName + ", examBegindate=" + examBegindate + ", examEnddate=" + examEnddate + "]";
 	}
+
 }
