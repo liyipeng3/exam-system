@@ -2,102 +2,25 @@ package com.neusoft.root.domain;
 
 //试题
 public class RawItem {
-	private String itemId; //题目ID
-	private String itemCourseType;  // 题目类型，java，c++
+	private Integer itemId; //题目ID
+	private String createrId;
+	private String itemDate; //创建日期
+	private String itemCoursetype;  // 题目类型，java，c++
 	private String itemType; //题目类型，多选题，单选题，填空题，主观题
 	private Double itemIndex; //试题难度 
 	private String itemQuestion; //试题题干
 	private String itemOption; //试题选项
 	private String itemAnswer; //试题答案
 	private String itemPicture; //试题路径
-	@Override
-	public String toString() {
-		return "Item [itemId=" + itemId + ", itemCourseType=" + itemCourseType + ", itemType=" + itemType
-				+ ", itemIndex=" + itemIndex + ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption
-				+ ", itemAnswer=" + itemAnswer + ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + "]";
-	}
-	private Double itemScore; //提示分数 
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((itemAnswer == null) ? 0 : itemAnswer.hashCode());
-		result = prime * result + ((itemCourseType == null) ? 0 : itemCourseType.hashCode());
-		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
-		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
-		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
-		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
-		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
-		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
-		result = prime * result + ((itemType == null) ? 0 : itemType.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		RawItem other = (RawItem) obj;
-		if (itemAnswer == null) {
-			if (other.itemAnswer != null)
-				return false;
-		} else if (!itemAnswer.equals(other.itemAnswer))
-			return false;
-		if (itemCourseType == null) {
-			if (other.itemCourseType != null)
-				return false;
-		} else if (!itemCourseType.equals(other.itemCourseType))
-			return false;
-		if (itemId == null) {
-			if (other.itemId != null)
-				return false;
-		} else if (!itemId.equals(other.itemId))
-			return false;
-		if (itemIndex == null) {
-			if (other.itemIndex != null)
-				return false;
-		} else if (!itemIndex.equals(other.itemIndex))
-			return false;
-		if (itemOption == null) {
-			if (other.itemOption != null)
-				return false;
-		} else if (!itemOption.equals(other.itemOption))
-			return false;
-		if (itemPicture == null) {
-			if (other.itemPicture != null)
-				return false;
-		} else if (!itemPicture.equals(other.itemPicture))
-			return false;
-		if (itemQuestion == null) {
-			if (other.itemQuestion != null)
-				return false;
-		} else if (!itemQuestion.equals(other.itemQuestion))
-			return false;
-		if (itemScore == null) {
-			if (other.itemScore != null)
-				return false;
-		} else if (!itemScore.equals(other.itemScore))
-			return false;
-		if (itemType == null) {
-			if (other.itemType != null)
-				return false;
-		} else if (!itemType.equals(other.itemType))
-			return false;
-		return true;
-	}
-	public RawItem() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public RawItem(String itemId, String itemCourseType, String itemType, Double itemIndex, String itemQuestion,
-			String itemOption, String itemAnswer, String itemPicture, Double itemScore) {
+	private Double itemScore;
+	public RawItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
+			Double itemIndex, String itemQuestion, String itemOption, String itemAnswer, String itemPicture,
+			Double itemScore) {
 		super();
 		this.itemId = itemId;
-		this.itemCourseType = itemCourseType;
+		this.createrId = createrId;
+		this.itemDate = itemDate;
+		this.itemCoursetype = itemCoursetype;
 		this.itemType = itemType;
 		this.itemIndex = itemIndex;
 		this.itemQuestion = itemQuestion;
@@ -106,17 +29,32 @@ public class RawItem {
 		this.itemPicture = itemPicture;
 		this.itemScore = itemScore;
 	}
-	public String getItemId() {
+	public RawItem() {
+		super();
+	}
+	public Integer getItemId() {
 		return itemId;
 	}
-	public void setItemId(String itemId) {
+	public void setItemId(Integer itemId) {
 		this.itemId = itemId;
 	}
-	public String getItemCourseType() {
-		return itemCourseType;
+	public String getCreaterId() {
+		return createrId;
 	}
-	public void setItemCourseType(String itemCourseType) {
-		this.itemCourseType = itemCourseType;
+	public void setCreaterId(String createrId) {
+		this.createrId = createrId;
+	}
+	public String getItemDate() {
+		return itemDate;
+	}
+	public void setItemDate(String itemDate) {
+		this.itemDate = itemDate;
+	}
+	public String getItemCoursetype() {
+		return itemCoursetype;
+	}
+	public void setItemCoursetype(String itemCoursetype) {
+		this.itemCoursetype = itemCoursetype;
 	}
 	public String getItemType() {
 		return itemType;
@@ -160,5 +98,96 @@ public class RawItem {
 	public void setItemScore(Double itemScore) {
 		this.itemScore = itemScore;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((createrId == null) ? 0 : createrId.hashCode());
+		result = prime * result + ((itemAnswer == null) ? 0 : itemAnswer.hashCode());
+		result = prime * result + ((itemCoursetype == null) ? 0 : itemCoursetype.hashCode());
+		result = prime * result + ((itemDate == null) ? 0 : itemDate.hashCode());
+		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
+		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
+		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
+		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
+		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
+		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
+		result = prime * result + ((itemType == null) ? 0 : itemType.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RawItem other = (RawItem) obj;
+		if (createrId == null) {
+			if (other.createrId != null)
+				return false;
+		} else if (!createrId.equals(other.createrId))
+			return false;
+		if (itemAnswer == null) {
+			if (other.itemAnswer != null)
+				return false;
+		} else if (!itemAnswer.equals(other.itemAnswer))
+			return false;
+		if (itemCoursetype == null) {
+			if (other.itemCoursetype != null)
+				return false;
+		} else if (!itemCoursetype.equals(other.itemCoursetype))
+			return false;
+		if (itemDate == null) {
+			if (other.itemDate != null)
+				return false;
+		} else if (!itemDate.equals(other.itemDate))
+			return false;
+		if (itemId == null) {
+			if (other.itemId != null)
+				return false;
+		} else if (!itemId.equals(other.itemId))
+			return false;
+		if (itemIndex == null) {
+			if (other.itemIndex != null)
+				return false;
+		} else if (!itemIndex.equals(other.itemIndex))
+			return false;
+		if (itemOption == null) {
+			if (other.itemOption != null)
+				return false;
+		} else if (!itemOption.equals(other.itemOption))
+			return false;
+		if (itemPicture == null) {
+			if (other.itemPicture != null)
+				return false;
+		} else if (!itemPicture.equals(other.itemPicture))
+			return false;
+		if (itemQuestion == null) {
+			if (other.itemQuestion != null)
+				return false;
+		} else if (!itemQuestion.equals(other.itemQuestion))
+			return false;
+		if (itemScore == null) {
+			if (other.itemScore != null)
+				return false;
+		} else if (!itemScore.equals(other.itemScore))
+			return false;
+		if (itemType == null) {
+			if (other.itemType != null)
+				return false;
+		} else if (!itemType.equals(other.itemType))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "RawItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate + ", itemCoursetype="
+				+ itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex + ", itemQuestion="
+				+ itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer + ", itemPicture="
+				+ itemPicture + ", itemScore=" + itemScore + "]";
+	}
+	
 	
 }

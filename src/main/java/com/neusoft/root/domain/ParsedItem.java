@@ -4,41 +4,59 @@ import java.util.List;
 
 public class ParsedItem 
 {
-	private String itemId; //题目ID
-	private String itemCourseType;  // 题目类型，java，c++
+	private Integer itemId; //题目ID
+	private String createrId;
+	private String itemDate;
+	private String itemCoursetype;  // 题目类型，java，c++
 	private String itemType; //题目类型，多选题，单选题，填空题，主观题
 	private Double itemIndex; //试题难度 
 	private String itemQuestion; //试题题干
 	private List<String> itemOption; //试题选项
-	private List<String> itemAnswer; //试题答案
-	private List<String> itemPicture; //试题路径
-	public ParsedItem(String itemId, String itemCourseType, String itemType, Double itemIndex, String itemQuestion,
-			List<String> itemOption, List<String> itemAnswer, List<String> itemPicture) {
+	private String itemAnswer; //试题答案
+	private String itemPicture; //试题路径
+	private Double itemScore; //试题分数
+	public ParsedItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
+			Double itemIndex, String itemQuestion, List<String> itemOption, String itemAnswer, String itemPicture,
+			Double itemScore) {
 		super();
 		this.itemId = itemId;
-		this.itemCourseType = itemCourseType;
+		this.createrId = createrId;
+		this.itemDate = itemDate;
+		this.itemCoursetype = itemCoursetype;
 		this.itemType = itemType;
 		this.itemIndex = itemIndex;
 		this.itemQuestion = itemQuestion;
 		this.itemOption = itemOption;
 		this.itemAnswer = itemAnswer;
 		this.itemPicture = itemPicture;
+		this.itemScore = itemScore;
 	}
 	public ParsedItem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public String getItemId() {
+	public Integer getItemId() {
 		return itemId;
 	}
-	public void setItemId(String itemId) {
+	public void setItemId(Integer itemId) {
 		this.itemId = itemId;
 	}
-	public String getItemCourseType() {
-		return itemCourseType;
+	public String getCreaterId() {
+		return createrId;
 	}
-	public void setItemCourseType(String itemCourseType) {
-		this.itemCourseType = itemCourseType;
+	public void setCreaterid(String createrId) {
+		this.createrId = createrId;
+	}
+	public String getItemDate() {
+		return itemDate;
+	}
+	public void setItemDate(String itemDate) {
+		this.itemDate = itemDate;
+	}
+	public String getItemCoursetype() {
+		return itemCoursetype;
+	}
+	public void setItemCoursetype(String itemCoursetype) {
+		this.itemCoursetype = itemCoursetype;
 	}
 	public String getItemType() {
 		return itemType;
@@ -64,29 +82,38 @@ public class ParsedItem
 	public void setItemOption(List<String> itemOption) {
 		this.itemOption = itemOption;
 	}
-	public List<String> getItemAnswer() {
+	public String getItemAnswer() {
 		return itemAnswer;
 	}
-	public void setItemAnswer(List<String> itemAnswer) {
+	public void setItemAnswer(String itemAnswer) {
 		this.itemAnswer = itemAnswer;
 	}
-	public List<String> getItemPicture() {
+	public String getItemPicture() {
 		return itemPicture;
 	}
-	public void setItemPicture(List<String> itemPicture) {
+	public void setItemPicture(String itemPicture) {
 		this.itemPicture = itemPicture;
+	}
+	public Double getItemScore() {
+		return itemScore;
+	}
+	public void setItemScore(Double itemScore) {
+		this.itemScore = itemScore;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((createrId == null) ? 0 : createrId.hashCode());
 		result = prime * result + ((itemAnswer == null) ? 0 : itemAnswer.hashCode());
-		result = prime * result + ((itemCourseType == null) ? 0 : itemCourseType.hashCode());
+		result = prime * result + ((itemCoursetype == null) ? 0 : itemCoursetype.hashCode());
+		result = prime * result + ((itemDate == null) ? 0 : itemDate.hashCode());
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
 		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
 		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
 		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
+		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
 		result = prime * result + ((itemType == null) ? 0 : itemType.hashCode());
 		return result;
 	}
@@ -99,15 +126,25 @@ public class ParsedItem
 		if (getClass() != obj.getClass())
 			return false;
 		ParsedItem other = (ParsedItem) obj;
+		if (createrId == null) {
+			if (other.createrId != null)
+				return false;
+		} else if (!createrId.equals(other.createrId))
+			return false;
 		if (itemAnswer == null) {
 			if (other.itemAnswer != null)
 				return false;
 		} else if (!itemAnswer.equals(other.itemAnswer))
 			return false;
-		if (itemCourseType == null) {
-			if (other.itemCourseType != null)
+		if (itemCoursetype == null) {
+			if (other.itemCoursetype != null)
 				return false;
-		} else if (!itemCourseType.equals(other.itemCourseType))
+		} else if (!itemCoursetype.equals(other.itemCoursetype))
+			return false;
+		if (itemDate == null) {
+			if (other.itemDate != null)
+				return false;
+		} else if (!itemDate.equals(other.itemDate))
 			return false;
 		if (itemId == null) {
 			if (other.itemId != null)
@@ -134,6 +171,11 @@ public class ParsedItem
 				return false;
 		} else if (!itemQuestion.equals(other.itemQuestion))
 			return false;
+		if (itemScore == null) {
+			if (other.itemScore != null)
+				return false;
+		} else if (!itemScore.equals(other.itemScore))
+			return false;
 		if (itemType == null) {
 			if (other.itemType != null)
 				return false;
@@ -143,10 +185,9 @@ public class ParsedItem
 	}
 	@Override
 	public String toString() {
-		return "ParsedItem [itemId=" + itemId + ", itemCourseType=" + itemCourseType + ", itemType=" + itemType
-				+ ", itemIndex=" + itemIndex + ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption
-				+ ", itemAnswer=" + itemAnswer + ", itemPicture=" + itemPicture + "]";
-	}
-	
-	
+		return "ParsedItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate
+				+ ", itemCoursetype=" + itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex
+				+ ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer
+				+ ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + "]";
+	}	
 }

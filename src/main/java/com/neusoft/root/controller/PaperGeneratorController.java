@@ -36,10 +36,9 @@ public class PaperGeneratorController {
 
 		@SuppressWarnings("deprecation")
 
-		Date date = new Date(9102, 11, 11);
-		RawPaper paper1 = new RawPaper("1","test1", "1",date, "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
-		RawPaper paper2 = new RawPaper("2","test2","2", date, "语文", 0.2, "choice", "fill", "subjective", "hhhh", 100.0, "sss", "sss");
-		RawPaper paper3 = new RawPaper("3", "test3","3", date, "语文", 0.3, "choice", "fill", "subjective", "hhhhh", 100.0, "sss", "sss");
+		RawPaper paper1 = new RawPaper(1,"test1", "1","2019-7-1", "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
+		RawPaper paper2 = new RawPaper(2,"test2","2", "2019-7-1", "语文", 0.2, "choice", "fill", "subjective", "hhhh", 100.0, "sss", "sss");
+		RawPaper paper3 = new RawPaper(3, "test3","3", "2019-7-1", "语文", 0.3, "choice", "fill", "subjective", "hhhhh", 100.0, "sss", "sss");
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);

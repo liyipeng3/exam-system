@@ -6,180 +6,193 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.neusoft.root.dao.StudentMapper">
 	<!-- 查询考试班级时间课程 -->
 	<select id="queryManagestudent" parameterType="Managestudent" resultMap="myManagestudent">
-	select *
-		from managestudent_table
-	<where>
-			<if test="studentId!=null and studentId!=''">
-				and student_id = #{studentId}
-			</if>
-		</where>
+		select * from managestudent_table where student_id = #{studentId}
 	</select>
+
 	<resultMap type="Managestudent" id="myManagestudent">
-		<id column="student_id" property="studentId"/>
-		<result column="class_id" property="classId"/>
-		<result column="course_id" property="courseId"/>
-		<result column="exam_date" property="examDate"/>
+		<result column="class_id" property="classId" />
+		<result column="student_id" property="studentId" />
+		<result column="course_id" property="courseId" />
+		<result column="exam_name" property="examName" />
+		<result column="exam_begindate" property="examBegindate" />
+		<result column="exam_enddate" property="examEnddate" />
 	</resultMap>
-	
+
 	<!-- 论坛帖子增删查 -->
 	<insert id="addForum" parameterType="Forum">
-		insert into forum_table values(#{postId},#{postDate},#{senderId},#{postTag},#{postOutline},#{postContext})
+		insert into forum_table(post_date,sender_id,post_tag,post_outline,post_context)
+		values(#{postDate},#{senderId},#{postTag},#{postOutline},#{postContext})
 	</insert>
-	
+
 	<delete id="deleteForum" parameterType="Forum">
-		delete from forum_table where post_id = #{postId}
+		delete from forum_table where post_id = #{postId} and sender_id = #{senderId}
 	</delete>
-	<select id="queryForum" parameterType="Forum" resultMap="myForum">
-	select *
+	
+	<select id="queryForum" parameterType="Forum" resultMap="MyForum">
+		select *
 		from forum_table
-	<where>
+		<where>
 			<if test="postId!=null and postId!=''">
 				and post_id = #{postId}
 			</if>
-		</where>
-	</select>
-	<resultMap type="Forum" id="myForum">
-		<id column="post_id" property="postId"/>
-		<result column="post_date" property="postDate"/>
-		<result column="sender_id" property="senderId"/>
-		<result column="post_tag" property="postTag"/>
-		<result column="post_outline" property="postOutline"/>
-		<result column="post_context" property="postContext"/>
-	</resultMap>
-	
-	<!--log增加查询  -->
-	<insert id="addLog" parameterType="Log">
-		insert into log_table values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
-	</insert>
-	
-	<select id="queryLog" parameterType="Log" resultMap="myLog">
-	select *
-		from log_table
-	<where>
-			<if test="logId!=null and logId!=''">
-				and log_id = #{logId}
+			<if test="senderId!=null and senderId!=''">
+				and sender_id = #{senderId}
+			</if>
+			<if test="postTag!=null and postTag!=''">
+				and post_tag = #{postTag}
+			</if>
+			<if test="postOutline!=null and postOutline!=''">
+				and post_outline = #{postOutline}
 			</if>
 		</where>
 	</select>
-	<resultMap type="Log" id="myLog">
-		<id column="log_id" property="logId"/>
-		<result column="op_id" property="opId"/>
-		<result column="op_date" property="opDate"/>
-		<result column="op_type" property="opType"/>
-		<result column="op_msg" property="opMsg"/>
-		<result column="op_result" property="opResult"/>
-	</resultMap>
 	
+	<resultMap type="Forum" id="MyForum">
+		<id column="post_id" property="postId" />
+		<result column="post_date" property="postDate" />
+		<result column="sender_id" property="senderId" />
+		<result column="post_tag" property="postTag" />
+		<result column="post_outline" property="postOutline" />
+		<result column="post_context" property="postContext" />
+	</resultMap>
+
+	<!--log增加查询 -->
+	<insert id="addMyLog" parameterType="MyLog">
+		insert into log_table(op_id,op_date,op_type,op_msg,op_page) 
+		values(#{opId},#{opDate},#{opType},#{opMsg},#{opPage})
+	</insert>
+
+	<select id="queryMyLog" parameterType="MyLog" resultMap="MyLog1">
+		select * from log_table where op_id = #{opId}
+	</select>
+	
+	<resultMap type="MyLog" id="MyLog1">
+		<id column="log_id" property="logId" />
+		<result column="op_id" property="opId" />
+		<result column="op_date" property="opDate" />
+		<result column="op_type" property="opType" />
+		<result column="op_msg" property="opMsg" />
+		<result column="op_page" property="opPage" />
+	</resultMap>
+
 	<!-- 对消息增删改查 -->
 	<insert id="addMessage" parameterType="Message">
-		insert into message_table values(#{msgId},#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext},#{msgRole})
+		insert into message_table(msg_date,sender_id,target_id,msg_type,msg_context,msg_role)
+		values(#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext},#{msgRole})
 	</insert>
-	
+
 	<delete id="deleteMessage" parameterType="Message">
 		delete from message_table where msg_id = #{msgId}
 	</delete>
-	
-	<select id="queryMessage" parameterType="Message" resultMap="myMessage">
-	select *
-		from message_table
-	<where>
+
+	<select id="queryMessage" parameterType="Message" resultMap="MyMessage">
+		select * from message_table
+		<where>
 			<if test="msgId!=null and msgId!=''">
 				and msg_id = #{msgId}
 			</if>
-		</where>
-	</select>
-	<resultMap type="Message" id="myMessage">
-		<id column="msg_id" property="msgId"/>
-		<result column="msg_date" property="msgDate"/>
-		<result column="sender_id" property="senderId"/>
-		<result column="target_id" property="targetId"/>
-		<result column="msg_type" property="msgType"/>
-		<result column="msg_context" property="msgContext"/>
-		<result column="msg_role" property="msgRole"/>
-	</resultMap>
-	
-	<!-- 对试卷查看 -->
-	<select id="queryPaper" parameterType="RawPaper" resultMap="myPaper">
-	select *
-		from rawpaper_table
-	<where>
-			<if test="paperId!=null and paperId!=''">
-				and paper_id = #{paperId}
+			<if test="senderId!=null and senderId!=''">
+				and sender_id = #{senderId}
+			</if>
+			<if test="targetId!=null and targetId!=''">
+				and target_id = #{targetId}
+			</if>
+			<if test="msgRole!=null and msgRole!=''">
+				and msg_role = #{msgRole}
+			</if>
+			<if test="msgType!=null and msgType!=''">
+				and msg_type = #{msgType}
 			</if>
 		</where>
 	</select>
-	<resultMap type="RawPaper" id="myPaper">
-		<id column="paper_id" property="paperId"/>
-		<result column="paper_name" property="paperName"/>
-		<result column="creater_id" property="createrId"/>
-		<result column="create_date" property="createDate"/>
-		<result column="paper_type" property="paperType"/>
-		<result column="paper_index" property="paperIndex"/>
-		<result column="singlechoice_question" property="singlechoiceQuestion"/>
-		<result column="multichoice_question" property="multichoiceQuestion"/>
-		<result column="fill_question" property="fillQuestion"/>
-		<result column="subjective_question" property="subjectiveQuestion"/>
-		<result column="paper_score" property="paperScore"/>
-		<result column="paper_secrecy" property="paperSecrecy"/>
-		<result column="paper_remark" property="paperRemark"/>
-	</resultMap>
 	
+	<resultMap type="Message" id="MyMessage">
+		<id column="msg_id" property="msgId" />
+		<result column="msg_date" property="msgDate" />
+		<result column="sender_id" property="senderId" />
+		<result column="target_id" property="targetId" />
+		<result column="msg_type" property="msgType" />
+		<result column="msg_context" property="msgContext" />
+		<result column="msg_role" property="msgRole" />
+	</resultMap>
+
+	<!-- 对试卷查看 -->
+	<select id="queryPaper" parameterType="RawPaper" resultMap="MyRawPaper">
+		select *
+		from paper_table
+		<where>
+			<if test="paperId!=null and paperId!=''">
+				and paper_id = #{paperId}
+			</if>
+			<if test="paperType!=null and paperType!=''">
+				and paper_type = #{paperType}
+			</if>
+			<if test="paperName!=null and paperName!=''">
+				and paper_name = #{paperName}
+			</if>
+			<if test="paperSecrecy!=null and paperSecrecy!=''">
+				and paper_secrecy = #{paperSecrecy}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="RawPaper" id="MyRawPaper">
+		<id column="paper_id" property="paperId" />
+		<result column="paper_name" property="paperName" />
+		<result column="creater_id" property="createrId" />
+		<result column="create_date" property="createDate" />
+		<result column="paper_type" property="paperType" />
+		<result column="paper_index" property="paperIndex" />
+		<result column="singlechoice_question" property="singlechoiceQuestion" />
+		<result column="multichoice_question" property="multichoiceQuestion" />
+		<result column="fill_question" property="fillQuestion" />
+		<result column="subjective_question" property="subjectiveQuestion" />
+		<result column="paper_score" property="paperScore" />
+		<result column="paper_secrecy" property="paperSecrecy" />
+		<result column="paper_remark" property="paperRemark" />
+	</resultMap>
+
 	<!-- 对考试答题结果增加 -->
 	<insert id="addResult" parameterType="Result">
-		insert into result_table values(#{studentId},#{paperId},#{choiceResult},#{fillResult},#{subjectiveResult})
+		insert into result_table
+		values(#{studentId},#{paperId},#{singlechoiceResult},#{multichoiceResult},#{fillResult},#{subjectiveResult})
 	</insert>
+	<select id="queryResult" parameterType="Result" resultMap="MyResult">
+		select * from paper_table where student_id = #{studentId}
+	</select>
 	
+	<resultMap type="Result" id="MyResult">
+		<result column="student_id" property="studentId" />
+		<result column="paper_id" property="paperId" />
+		<result column="singlechoice_result" property="singlechoiceResult" />
+		<result column="mutltichoice_result" property="multichoiceResult" />
+		<result column="fill_result" property="fillResult" />
+		<result column="subjective_result" property="subjectiveResult" />
+		<result column="submit_date" property="submitDate" />
+	</resultMap>
+	
+
 	<!-- 学生改密码查询学生 -->
-	<update id="updateStudent" parameterType="Map">
+	<update id="updateStudent" parameterType="Student">
 		update student_table
 		<set>
 			<if test="studentPassword!=null and studentPassword!=''">
 				student_password = #{studentPassword},
 			</if>
 		</set>
-		where student_id in
-		<foreach collection="studentId" item="item" open="(" separator="," close=")">
-			#{item}
-		</foreach>
+		where student_id = #{studentId}
 	</update>
-	
+
 	<select id="queryStudent" parameterType="Student" resultMap="MyStudent">
-		select *
-		from student_table
-		<where>
-			<if test="studentId!=null and studentId!=''">
-				and student_id = #{studentId}
-			</if>
-			<if test="studentName!=null and studentName!=''">
-				and student_name = #{studentName}
-			</if>
-			<if test="studentPassword!=null and studentPassword!=''">
-				and student_password = #{studentPassword}
-			</if>
-			<if test="studentAcademy!=null and studentAcademy!=''">
-				and student_academy = #{studentAcademy}
-			</if>
-			<if test="studentMajor!=null and studentMajor!=''">
-				and student_academy = #{studentAcademy}
-			</if>
-			<if test="studentSchool!=null and studentSchool!=''">
-				and student_school = #{studentSchool}
-			</if>
-		</where>
+		select * from student_table where student_id = #{studentId}
 	</select>
-	
+
 	<resultMap type="Student" id="MyStudent">
-		<id column="student_id" property="studentId"/>
-		<result column="student_name" property="studentName"/>
-		<result column="student_password" property="studentPassword"/>
-		<result column="student_academy" property="studentAcademy"/>
-		<result column="student_major" property="studentMajor"/>
-		<result column="student_school" property="studentSchool"/>		
+		<id column="student_id" property="studentId" />
+		<result column="student_name" property="studentName" />
+		<result column="student_password" property="studentPassword" />
+		<result column="student_academy" property="studentAcademy" />
+		<result column="student_major" property="studentMajor" />
+		<result column="student_school" property="studentSchool" />
 	</resultMap>
-	
-	
-	
-	
-	
-	
 </mapper>

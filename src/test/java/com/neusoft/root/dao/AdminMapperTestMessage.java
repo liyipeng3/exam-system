@@ -14,24 +14,24 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neusoft.root.domain.Admin;
+import com.neusoft.root.domain.Message;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.Student;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AdminMapperTestMyLog 
+public class AdminMapperTestMessage 
 {
 	@Autowired
 	private AdminMapper am;
 	
 	@Test
-	public void testAddMyLog()
+	public void testAddMessage()
 	{
 		/*try 
 		{
-			MyLog log = new MyLog(1, "113", "2019-7-6", "123", "123", "123");
-			am.addMyLog(log);
-
+			Message message = new Message(1, "2019-7-25", "123", "123", "申诉", "i get you", "发送者");
+			am.addMessage(message);
 		} 
 		catch (Exception e) 
 		{
@@ -40,12 +40,12 @@ public class AdminMapperTestMyLog
 	}
 	
 	@Test
-	public void testDeleteMylog()
+	public void testDeleteMessage()
 	{
 		/*try 
-			Date date = new Date(2019, 7, 25);
-			MyLog log = new MyLog(1, "111", "2017-7-4", "123", "123", "123");
-			am.deleteMyLog(log);
+		{
+			Message message = new Message(1, "2019-7-25", "123", "123", "申诉", "i get you", "发送者");
+			am.deleteMessage(message);
 		} 
 		catch (Exception e) 
 		{
@@ -54,34 +54,20 @@ public class AdminMapperTestMyLog
 	}
 	
 	@Test
-	public void testUpdateMylog()
+	public void testQueryMessage()
 	{
-		/*try 
-		{
-			Map<String, Object> maps = new HashMap<>();
-			maps.put("ids", new String[]{"2","3","4"});
-			maps.put("opId", "zyc");
-			am.updateMyLog(maps);
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}*/
-	}
-	
-	@Test
-	public void testQueryMylog()
-	{
+		/*
 		try 
 		{
-			List<MyLog> logs = am.queryMyLog(null);
-			for (MyLog myLog : logs) 
+			Message message = new Message(1, "2019-7-25", "", "", "申诉", "i get you", "");
+			List<Message> messages = am.queryMessage(message);
+			for (Message msg : messages) 
 			{
-				System.out.println(myLog);
+				System.out.println(msg);
 			}
-		} 
-		catch (Exception e) {
-			// TODO: handle exception
-		}
+		} catch (Exception e) 
+		{
+			System.out.println(e);
+		}*/
 	}
 }

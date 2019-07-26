@@ -15,11 +15,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neusoft.root.domain.Admin;
 import com.neusoft.root.domain.Managestudent;
+import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.Student;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AdminMapperTestManagestudent 
+public class AdminMapperTestManageteacher 
 {
 	@Autowired
 	private AdminMapper am;
@@ -29,8 +30,8 @@ public class AdminMapperTestManagestudent
 	{
 		/*try 
 		{
-			Managestudent ms = new Managestudent("125", "117372", "123","java","2019-7-15","2019-7-16");
-			am.addManagestudent(ms);
+			Manageteacher mt = new Manageteacher("123", "235", "123", "java", "2019-7-15","2019-7-15");
+			am.addManageteacher(mt);
 		} 
 		catch (Exception e) 
 		{
@@ -43,36 +44,36 @@ public class AdminMapperTestManagestudent
 	{
 		/*try 
 		{
-			Managestudent ms = new Managestudent("125", "117372", "123","java","2019-7-15","2019-7-16");
-			am.deleteManagestudent(ms);
+			Manageteacher mt = new Manageteacher("123", "235", "123", "java", "2019-7-15","2019-7-15");
+			am.deleteManageteacher(mt);
 		} catch (Exception e) {
 			System.out.println(e);
 		}*/
 	}
 	
 	@Test
-	public void testUpdateManagestudent()
+	public void testUpdateManageteacher()
 	{
-		/*try 
+		try 
 		{
-			Managestudent ms = new Managestudent("125", "117371", "123","java","2019-7-15","2019-7-16");
-			am.updateManagestudent(ms);
+			Manageteacher mt = new Manageteacher("124", "234", "123", "JAVA++", "2019-7-16","2019-7-2");
+			am.updateManageteacher(mt);
 		} 
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}*/
+		}
 	}
 	
 	@Test
-	public void testQueryManagestudent()
+	public void testQueryManageteacher()
 	{
 		/*try 
 		{
-			List<Managestudent> list = am.queryManagestudent(null);
-			for (Managestudent managestudent : list) 
+			List<Manageteacher> list = am.queryManageteacher(null);
+			for (Manageteacher mt : list) 
 			{
-				System.out.println(managestudent);
+				System.out.println(mt);
 			}
 		} 
 		catch (Exception e) 

@@ -5,10 +5,10 @@ import java.util.List;
 
 public class ParsedPaper 
 {
-	private String paperId; //试卷ID，唯一
+	private Integer paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
 	private String createrID;
-	private Date createDate;
+	private String createDate;
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
 	private List<ParsedItem> singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
@@ -18,8 +18,7 @@ public class ParsedPaper
 	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
-	
-	public ParsedPaper(String paperId, String paperName, String createrID, Date createDate, String paperType,
+	public ParsedPaper(Integer paperId, String paperName, String createrID, String createDate, String paperType,
 			Double paperIndex, List<ParsedItem> singlechoiceQuestion, List<ParsedItem> multichoiceQuestion,
 			List<ParsedItem> fillQuestion, List<ParsedItem> subjectiveQuestion, Double paperScore, String paperSecrecy,
 			String paperRemark) {
@@ -38,115 +37,87 @@ public class ParsedPaper
 		this.paperSecrecy = paperSecrecy;
 		this.paperRemark = paperRemark;
 	}
-	
 	public ParsedPaper() {
 		super();
 	}
-
-	public String getPaperId() {
+	public Integer getPaperId() {
 		return paperId;
 	}
-
-	public void setPaperId(String paperId) {
+	public void setPaperId(Integer paperId) {
 		this.paperId = paperId;
 	}
-
 	public String getPaperName() {
 		return paperName;
 	}
-
 	public void setPaperName(String paperName) {
 		this.paperName = paperName;
 	}
-
 	public String getCreaterID() {
 		return createrID;
 	}
-
 	public void setCreaterID(String createrID) {
 		this.createrID = createrID;
 	}
-
-	public Date getCreateDate() {
+	public String getCreateDate() {
 		return createDate;
 	}
-
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
-
 	public String getPaperType() {
 		return paperType;
 	}
-
 	public void setPaperType(String paperType) {
 		this.paperType = paperType;
 	}
-
 	public Double getPaperIndex() {
 		return paperIndex;
 	}
-
 	public void setPaperIndex(Double paperIndex) {
 		this.paperIndex = paperIndex;
 	}
-
 	public List<ParsedItem> getSinglechoiceQuestion() {
 		return singlechoiceQuestion;
 	}
-
 	public void setSinglechoiceQuestion(List<ParsedItem> singlechoiceQuestion) {
 		this.singlechoiceQuestion = singlechoiceQuestion;
 	}
-
 	public List<ParsedItem> getMultichoiceQuestion() {
 		return multichoiceQuestion;
 	}
-
 	public void setMultichoiceQuestion(List<ParsedItem> multichoiceQuestion) {
 		this.multichoiceQuestion = multichoiceQuestion;
 	}
-
 	public List<ParsedItem> getFillQuestion() {
 		return fillQuestion;
 	}
-
 	public void setFillQuestion(List<ParsedItem> fillQuestion) {
 		this.fillQuestion = fillQuestion;
 	}
-
 	public List<ParsedItem> getSubjectiveQuestion() {
 		return subjectiveQuestion;
 	}
-
 	public void setSubjectiveQuestion(List<ParsedItem> subjectiveQuestion) {
 		this.subjectiveQuestion = subjectiveQuestion;
 	}
-
 	public Double getPaperScore() {
 		return paperScore;
 	}
-
 	public void setPaperScore(Double paperScore) {
 		this.paperScore = paperScore;
 	}
-
 	public String getPaperSecrecy() {
 		return paperSecrecy;
 	}
-
 	public void setPaperSecrecy(String paperSecrecy) {
 		this.paperSecrecy = paperSecrecy;
 	}
-
 	public String getPaperRemark() {
 		return paperRemark;
 	}
-
 	public void setPaperRemark(String paperRemark) {
 		this.paperRemark = paperRemark;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -166,7 +137,6 @@ public class ParsedPaper
 		result = prime * result + ((subjectiveQuestion == null) ? 0 : subjectiveQuestion.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -243,7 +213,6 @@ public class ParsedPaper
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "ParsedPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrID=" + createrID

@@ -3,28 +3,31 @@ package com.neusoft.root.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.mysql.cj.protocol.Message;
+import org.apache.ibatis.annotations.Mapper;
+
 import com.neusoft.root.domain.Check;
-import com.neusoft.root.domain.Class1;
-import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Coursestudent;
 import com.neusoft.root.domain.Forum;
+import com.neusoft.root.domain.Managestudent;
+import com.neusoft.root.domain.Manageteacher;
+import com.neusoft.root.domain.Message;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
-public interface TeacherMapper {
+@Mapper
+public interface TeacherMapper 
+{
 	//批阅试卷增删改查
 	public void addCheck(Check check);
 	public void deleteCheck(Check check);
-	public void updateCheck(Map<String, Object> check);
+	public void updateCheck(Check check);
 	public List<Check> queryCheck(Check check);
 	
-	
-	//对老师课程查询
+	//对老师课程查询 
 	public List<Courseteacher> queryCourseteacher(Courseteacher courseteacher);
 	
 	//对学生课程查询
@@ -35,15 +38,16 @@ public interface TeacherMapper {
 	public void deleteForum(Forum forum);
 	public List<Forum> queryForum(Forum forum);
 	
+	
 	//题库的增删改查
-	public void addItem(RawItem item);
-	public void deleteItem(RawItem item);
-	public void updateItem(Map<String,Object> item);
-	public List<RawItem> queryItem(RawItem item);
+	public void addRawItem(RawItem item);
+	public void deleteRawItem(RawItem item);
+	public void updateRawItem(RawItem item);
+	public List<RawItem> queryRawItem(RawItem item);
 	
 	//log
-	public void  addLog(MyLog log);
-	public List<MyLog> queryLog(MyLog log);
+	public void addMyLog(MyLog log);
+	public List<MyLog> queryMyLog(MyLog log);
 	
 	//对消息进行增删查操作
 	public void addMessage(Message message);
@@ -51,15 +55,19 @@ public interface TeacherMapper {
 	public List<Message> queryMessage(Message message);
 	
 	//试卷的增删改查
-	public void addPaper(RawPaper paper);
-	public void deletePaper(RawPaper paper);
-	public void updatePaper(Map<String,Object> paper);
-	public List<RawPaper> queryPaper(RawPaper paper);
+	public void addRawPaper(RawPaper paper);
+	public void deleteRawPaper(RawPaper paper);
+	public void updateRawPaper(RawPaper paper);
+	public List<RawPaper> queryRawPaper(RawPaper paper);
 	
 	//老师
 	//改密码
 	//查询
-	public void updateTeacherPassword(Teacher teacher);
+	public void updateTeacher(Teacher teacher);
 	public List<Teacher> queryTeacher(Teacher teacher);
 	public List<Student> queryStudent(Student student);
+	
+	//管理老师
+	public List<Manageteacher> queryManageteacher(Manageteacher manageteacher);
+
 }

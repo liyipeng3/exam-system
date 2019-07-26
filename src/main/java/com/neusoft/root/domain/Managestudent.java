@@ -7,21 +7,23 @@ public class Managestudent {
 	private String classId;
 	private String studentId;
 	private String courseId;
-	private String examDate;
-	
-	public Managestudent(String classId, String studentId, String courseId, String examDate) {
+	private String examName;
+	private String examBegindate;
+	private String examEnddate;
+	public Managestudent(String classId, String studentId, String courseId, String examName, String examBegindate,
+			String examEnddate) {
 		super();
 		this.classId = classId;
 		this.studentId = studentId;
 		this.courseId = courseId;
-		this.examDate = examDate;
+		this.examName = examName;
+		this.examBegindate = examBegindate;
+		this.examEnddate = examEnddate;
 	}
-	
 	public Managestudent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	public String getClassId() {
 		return classId;
 	}
@@ -40,24 +42,36 @@ public class Managestudent {
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
-	public String getExamDate() {
-		return examDate;
+	public String getExamName() {
+		return examName;
 	}
-	public void setExamDate(String examDate) {
-		this.examDate = examDate;
+	public void setExamName(String examName) {
+		this.examName = examName;
 	}
-
+	public String getExamBegindate() {
+		return examBegindate;
+	}
+	public void setExamBegindate(String examBegindate) {
+		this.examBegindate = examBegindate;
+	}
+	public String getExamEnddate() {
+		return examEnddate;
+	}
+	public void setExamEnddate(String examEnddate) {
+		this.examEnddate = examEnddate;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((classId == null) ? 0 : classId.hashCode());
 		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
-		result = prime * result + ((examDate == null) ? 0 : examDate.hashCode());
+		result = prime * result + ((examBegindate == null) ? 0 : examBegindate.hashCode());
+		result = prime * result + ((examEnddate == null) ? 0 : examEnddate.hashCode());
+		result = prime * result + ((examName == null) ? 0 : examName.hashCode());
 		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,10 +91,20 @@ public class Managestudent {
 				return false;
 		} else if (!courseId.equals(other.courseId))
 			return false;
-		if (examDate == null) {
-			if (other.examDate != null)
+		if (examBegindate == null) {
+			if (other.examBegindate != null)
 				return false;
-		} else if (!examDate.equals(other.examDate))
+		} else if (!examBegindate.equals(other.examBegindate))
+			return false;
+		if (examEnddate == null) {
+			if (other.examEnddate != null)
+				return false;
+		} else if (!examEnddate.equals(other.examEnddate))
+			return false;
+		if (examName == null) {
+			if (other.examName != null)
+				return false;
+		} else if (!examName.equals(other.examName))
 			return false;
 		if (studentId == null) {
 			if (other.studentId != null)
@@ -89,13 +113,10 @@ public class Managestudent {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "Managestudent [classId=" + classId + ", studentId=" + studentId + ", courseId=" + courseId
-				+ ", examDate=" + examDate + "]";
+				+ ", examName=" + examName + ", examBegindate=" + examBegindate + ", examEnddate=" + examEnddate + "]";
 	}
-	
-	
 	
 }

@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.mysql.cj.protocol.Message;
 import com.neusoft.root.domain.Admin;
 import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
@@ -15,6 +14,7 @@ import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
+import com.neusoft.root.domain.Message;
 import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;

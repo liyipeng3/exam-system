@@ -6,17 +6,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.neusoft.root.dao.TeacherMapper">
 	<!-- 批阅试卷的增删改查 -->
 	<insert id="addCheck" parameterType="Check">
-		insert into check_table values(#{studentId},#{paperId},#{teacherId},#{choiceScore},#{fillScore},#{subjectiveScore},#{sumScore})
+		insert into check_table
+		values(#{studentId},#{paperId},#{teacherId},
+		#{singlechoiceScore},#{multichoiceScore},#{fillScore},
+		#{subjectiveScore},#{sumScore},#{checkDate})
 	</insert>
+
 	<delete id="deleteCheck" parameterType="Check">
-		delete from check_table where student_id = #{studentId}
+		delete from check_table
+		where student_id = #{studentId} and paper_id = #{paperId} and
+		teacher_id = #{teacherId}
 	</delete>
-	
-	<update id="updateCheck" parameterType="Map">
+
+	<update id="updateCheck" parameterType="Check">
 		update check_table
 		<set>
-			<if test="choiceScore!=null and choiceScore!=''">
-				choice_score = #{choiceScore},
+			<if test="singlechoiceScore!=null and singlechoiceScore!=''">
+				singlechoice_score = #{singlechoiceScore},
+			</if>
+			<if test="multichoiceScore!=null and multichoiceScore!=''">
+				multichoice_score = #{multichoiceScore},
 			</if>
 			<if test="fillScore!=null and fillScore!=''">
 				fill_score = #{fillScore},
@@ -27,75 +36,83 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="sumScore!=null and sumScore!=''">
 				sum_score = #{sumScore},
 			</if>
+			<if test="checkDate!=null and checkDate!=''">
+				check_date = #{checkDate},
+			</if>
 		</set>
-		where student_id in
-		<foreach collection="studentId" item="item" open="(" separator="," close=")">
-			#{item}
-		</foreach>
+		where student_id = #{studentId} and paper_id = #{paperId} and
+		teacher_id = #{teacherId}
 	</update>
-	
-	<select id="queryCheck" parameterType="Check" resultMap="myCheck">
-	select *
+
+	<select id="queryCheck" parameterType="Check" resultMap="MyCheck">
+		select *
 		from check_table
-	<where>
+		<where>
 			<if test="studentId!=null and studentId!=''">
 				and student_id = #{studentId}
 			</if>
-		</where>
-	</select>
-	<resultMap type="Check" id="myCheck">
-		<id column="student_id" property="studentId"/>
-		<result column="paper_id" property="paperId"/>
-		<result column="teacher_id" property="teacherId"/>
-		<result column="choice_score" property="choiceScore"/>
-		<result column="fill_score" property="fillScore"/>
-		<result column="subjective_score" property="subjectiveScore"/>
-		<result column="sum_score" property="sumScore"/>
-		
-	</resultMap>
-	
-	<!-- 对老师课程进行查询 -->
-	<select id="queryCourseteacher" parameterType="Courseteacher" resultMap="myCourseteacher">
-	select *
-		from courseteacher_table
-	<where>
+			<if test="paperId!=null and paperId!=''">
+				and paper_id = #{paperId}
+			</if>
 			<if test="teacherId!=null and teacherId!=''">
 				and teacher_id = #{teacherId}
 			</if>
 		</where>
 	</select>
-	<resultMap type="Courseteacher" id="myCourseteacher">
-		<result column="course_id" property="courseId"/>
-		<result column="teacher_id" property="teacherId"/>
-	</resultMap>
 	
+	<resultMap type="Check" id="MyCheck">
+		<result column="student_id" property="studentId" />
+		<result column="paper_id" property="paperId" />
+		<result column="teacher_id" property="teacherId" />
+		<result column="singlechoice_score" property="singlechoiceScore" />
+		<result column="multichoice_score" property="multichoiceScore" />
+		<result column="fill_score" property="fillScore" />
+		<result column="subjective_score" property="subjectiveScore" />
+		<result column="sum_score" property="sumScore" />
+		<result column="check_date" property="checkDate" />
+	</resultMap>
+
+	<!-- 对老师课程进行查询 -->
+	<select id="queryCourseteacher" parameterType="Courseteacher"
+		resultMap="MyCourseteacher">
+		select * from courseteacher_table where teacher_id = #{teacherId}
+	</select>
+	
+	<resultMap type="Courseteacher" id="MyCourseteacher">
+		<result column="course_id" property="courseId" />
+		<result column="teacher_id" property="teacherId" />
+	</resultMap>
+
 	<!-- 对学生课程进行查询 -->
-	<select id="queryCoursestudent" parameterType="Coursestudent" resultMap="myCoursestudent">
-	select *
+	<select id="queryCoursestudent" parameterType="Coursestudent"
+		resultMap="myCoursestudent">
+		select *
 		from coursestudent_table
-	<where>
+		<where>
+			<if test="courseId!=null and courseId!=''">
+				and course_id = #{courseId}
+			</if>
 			<if test="studentId!=null and studentId!=''">
 				and student_id = #{studentId}
 			</if>
 		</where>
 	</select>
 	<resultMap type="Coursestudent" id="myCoursestudent">
-		<result column="course_id" property="courseId"/>
-		<result column="student_id" property="studentId"/>
+		<result column="course_id" property="courseId" />
+		<result column="student_id" property="studentId" />
 	</resultMap>
-	
+
 	<!-- 论坛的增删查 -->
 	<!-- 论坛管理 -->
 	<insert id="addForum" parameterType="Forum">
-		insert into forum_table 
-		values(#{postId},#{postDate},#{senderId},
-		#{postTag},#{postOutline},#{postContext})
+		insert into forum_table(post_date,sender_id,post_tag,post_outline,post_context)
+		values(#{postDate},#{senderId},#{postTag},#{postOutline},#{postContext})
 	</insert>
-	
+
 	<delete id="deleteForum" parameterType="Forum">
-		delete from forum_table where post_id = #{post_id} and sender_id = #{senderId}
+		delete from forum_table where post_id = #{postId} and sender_id = #{senderId}
 	</delete>
-	
+
 	<select id="queryForum" parameterType="Forum" resultMap="MyForum">
 		select *
 		from forum_table
@@ -114,30 +131,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
-	
+
 	<resultMap type="Forum" id="MyForum">
-		<id column="post_id" property="postId"/>
-		<result column="post_date" property="postDate"/>
-		<result column="sender_id" property="senderId"/>
-		<result column="post_tag" property="postTag"/>
-		<result column="post_outline" property="postOutline"/>
-		<result column="post_context" property="postContext"/>
+		<id column="post_id" property="postId" />
+		<result column="post_date" property="postDate" />
+		<result column="sender_id" property="senderId" />
+		<result column="post_tag" property="postTag" />
+		<result column="post_outline" property="postOutline" />
+		<result column="post_context" property="postContext" />
 	</resultMap>
-	
+
 	<!-- 题库管理 -->
-		<insert id="addItem" parameterType="RawItem">
-		insert into rawitem_table 
-		values(#{itemId},#{itemCourseType},#{itemType},#{itemIndex},#{itemQuestion},#{itemOption},#{itemAnswer},#{itemPicture})
+	<insert id="addRawItem" parameterType="RawItem">
+		insert into item_table(creater_id,item_date,item_coursetype,item_type,item_index,
+		item_question,item_option,item_answer,item_picture,item_score)
+		values(#{createrId},#{itemDate},#{itemCoursetype},#{itemType},
+		#{itemIndex},#{itemQuestion},#{itemOption},#{itemAnswer},#{itemPicture},#{itemScore})
 	</insert>
-	<delete id="deleteItem" parameterType="RawItem">
-		delete from rawitem_table where item_id = #{itemId}
-	</delete>
 	
-		<update id="updateItem" parameterType="Map">
+	<delete id="deleteRawItem" parameterType="RawItem">
+		delete from item_table where item_id = #{itemId}
+	</delete>
+
+	<update id="updateRawItem" parameterType="Map">
 		update item_table
 		<set>
-			<if test="itemCourseType!=null and itemCourseType!=''">
-				itemCourse_type = #{itemCourseType},
+			<if test="createrId!=null and createrId!=''">
+				creater_id = #{createrId},
+			</if>
+			<if test="itemDate!=null and itemDate!=''">
+				item_date = #{itemDate},
+			</if>
+			<if test="itemCoursetype!=null and itemCoursetype!=''">
+				item_coursetype = #{itemCoursetype},
 			</if>
 			<if test="itemType!=null and itemType!=''">
 				item_type = #{itemType},
@@ -157,18 +183,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="itemPicture!=null and itemPicture!=''">
 				item_picture = #{itemPicture},
 			</if>
+			<if test="itemScore!=null and itemScore!=''">
+				item_score = #{itemScore},
+			</if>
 		</set>
-		where item_id in
-		<foreach collection="itemId" item="item" open="(" separator="," close=")">
-			#{item}
-		</foreach>
+		where item_id = #{itemId}
 	</update>
-	<select id="queryItem" parameterType="RawItem" resultMap="MyRawItem">
+	
+	<select id="queryRawItem" parameterType="RawItem" resultMap="MyRawItem">
 		select *
-		from rawitem_table
+		from item_table
 		<where>
-			<if test="itemCourseType!=null and itemCourseType!=''">
-				and itemcourse_type = #{itemCourseType}
+			<if test="createrId!=null and createrId!=''">
+				and creater_id = #{createrId}
+			</if>
+			<if test="itemCoursetype!=null and itemCoursetype!=''">
+				and item_coursetype = #{itemCoursetype}
 			</if>
 			<if test="itemType!=null and itemType!=''">
 				and item_type = #{itemType}
@@ -187,104 +217,99 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
+	
 	<resultMap type="RawItem" id="MyRawItem">
-		<id column="item_id" property="itemId"/>
-		<result column="itemCourse_type" property="itemCourseType"/>
-		<result column="item_type" property="itemType"/>
-		<result column="item_index" property="itemIndex"/>
-		<result column="item_question" property="itemQuestion"/>
-		<result column="item_option" property="itemOption"/>
-		<result column="item_answer" property="itemAnswer"/>
-		<result column="item_picture" property="itemPicture"/>
+		<id column="item_id" property="itemId" />
+		<id column="creater_id" property="createrId" />
+		<result column="item_date" property="itemDate" />
+		<result column="item_coursetype" property="itemCoursetype" />
+		<result column="item_type" property="itemType" />
+		<result column="item_index" property="itemIndex" />
+		<result column="item_question" property="itemQuestion" />
+		<result column="item_option" property="itemOption" />
+		<result column="item_answer" property="itemAnswer" />
+		<result column="item_picture" property="itemPicture" />
+		<result column="item_score" property="itemScore" />
 	</resultMap>
-	
-	
-	
+
 	<!-- 管理日志 -->
-	<insert id="addLog" parameterType="Log">
-		insert into log_table 
-		values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
+	<insert id="addMyLog" parameterType="MyLog">
+		insert into log_table(op_id,op_date,op_type,op_msg,op_page)
+		values(#{opId},#{opDate},#{opType},#{opMsg},#{opPage})
 	</insert>
-	
-	<select id="queryLog" parameterType="Log" resultMap="MyLog">
-		select *
-		from log_table
-		<where>
-			<if test="logId!=null and logId!=''">
-				and log_id = #{logId}
-			</if>
-			<if test="opId!=null and opId!=''">
-				and op_id = #{opId}
-			</if>
-			<if test="opDate!=null and opDate!=''">
-				and op_date = #{opDate}
-			</if>
-			<if test="opType!=null and opType!=''">
-				and op_type = #{opType}
-			</if>
-			<if test="opMsg!=null and opMsg!=''">
-				and op_msg = #{opMsg}
-			</if>
-			<if test="opResult!=null and opResult!=''">
-				and op_result = #{opResult}
-			</if>
-		</where>
+
+	<select id="queryMyLog" parameterType="MyLog" resultMap="MyLog1">
+		select * from log_table where op_id = #{opId}
 	</select>
-	
-	<resultMap type="Log" id="MyLog">
-		<id column="log_id" property="logId"/>
-		<result column="op_id" property="opId"/>
-		<result column="op_date" property="opDate"/>
-		<result column="op_type" property="opType"/>
-		<result column="op_msg" property="opMsg"/>
-		<result column="op_result" property="opResult"/>
+
+	<resultMap type="MyLog" id="MyLog1">
+		<id column="log_id" property="logId" />
+		<result column="op_id" property="opId" />
+		<result column="op_date" property="opDate" />
+		<result column="op_type" property="opType" />
+		<result column="op_msg" property="opMsg" />
+		<result column="op_page" property="opPage" />
 	</resultMap>
-	
-	
+
+
 	<!-- 消息管理 -->
 	<insert id="addMessage" parameterType="Message">
-		insert into message_table 
-		values(#{msgId},#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext},#{msgRole})
+		insert into message_table(msg_date,sender_id,target_id,msg_type,msg_context,msg_role)
+		values(#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext},#{msgRole})
 	</insert>
-	<delete id="deleteMessage" parameterType="Message">
-		delete from message_table where msg_id = #{msgId}
-	</delete>
 	
-	<select id="queryManageteacher" parameterType="Manageteacher" resultMap="MyManageteacher">
+	<delete id="deleteMessage" parameterType="Message">
+		delete from message_table where msg_id = #{msgId} 
+	</delete>
+
+	<select id="queryMessage" parameterType="Message" resultMap="MyMessage">
 		select *
-		from manageteacher_table
+		from message_table
 		<where>
-			<if test="classId!=null and classId!=''">
-				and class_id = #{classId}
+			<if test="msgId!=null and msgId!=''">
+				and msg_id = #{msgId}
 			</if>
-			<if test="teacherId!=null and teacherId!=''">
-				and teacher_id = #{teacherId}
+			<if test="senderId!=null and senderId!=''">
+				and sender_id = #{senderId}
 			</if>
-			<if test="courseId!=null and courseId!=''">
-				and course_id = #{courseId}
+			<if test="targetId!=null and targetId!=''">
+				and target_id = #{targetId}
 			</if>
-			<if test="examDate!=null and examDate!=''">
-				and exam_date = #{examDate}
+			<if test="msgRole!=null and msgRole!=''">
+				and msg_role = #{msgRole}
+			</if>
+			<if test="msgType!=null and msgType!=''">
+				and msg_type = #{msgType}
 			</if>
 		</where>
 	</select>
-	
+	<resultMap type="Message" id="MyMessage">
+		<id column="msg_id" property="msgId" />
+		<result column="msg_date" property="msgDate" />
+		<result column="sender_id" property="senderId" />
+		<result column="target_id" property="targetId" />
+		<result column="msg_type" property="msgType" />
+		<result column="msg_context" property="msgContext" />
+		<result column="msg_role" property="msgRole" />
+	</resultMap>
+
 	<!-- 试卷管理 -->
-		<insert id="addPaper" parameterType="RawPaper">
-		insert into rawpaper_table 
-		values(#{paperId},#{paperName},#{createrID},#{createDate},#{paperType},#{paperIndex},#{singlechoiceQuestion},#{multichoiceQuestion},#{fillQuestion},#{subjectiveQuestion},#{paperScore},#{paperSecrecy},#{paperRemark})
+	<insert id="addRawPaper" parameterType="RawPaper">
+		insert into paper_table (paper_name,creater_id,create_date,paper_type,paper_index,singlechoice_question,multichoice_question,fill_question,subjective_question,paper_score,paper_secrecy,paper_remark)
+		values(#{paperName},#{createrId},#{createDate},#{paperType},#{paperIndex},#{singlechoiceQuestion},#{multichoiceQuestion},#{fillQuestion},#{subjectiveQuestion},#{paperScore},#{paperSecrecy},#{paperRemark})
 	</insert>
-	<delete id="deletePaper" parameterType="RawPaper">
-		delete from rawpaper_table where paper_id = #{paperId}
-	</delete>
 	
-		<update id="updatePaper" parameterType="Map">
+	<delete id="deleteRawPaper" parameterType="RawPaper">
+		delete from paper_table where paper_id = #{paperId}
+	</delete>
+
+	<update id="updateRawPaper" parameterType="Map">
 		update rawpaper_table
 		<set>
 			<if test="paperName!=null and paperName!=''">
 				paper_name = #{paperName},
 			</if>
-			<if test="createrID!=null and createrID!=''">
+			<if test="createrId!=null and createrId!=''">
 				creater_id = #{createrID},
 			</if>
 			<if test="createDate!=null and createDate!=''">
@@ -318,50 +343,60 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				paper_remark = #{paperRemark},
 			</if>
 		</set>
-		where paper_id in
-		<foreach collection="paperId" item="item" open="(" separator="," close=")">
-			#{item}
-		</foreach>
+		where paper_id = #{paperId}
 	</update>
-	<select id="queryPaper" parameterType="RawPaper" resultMap="myPaper">
-	select *
-		from rawpaper_table
-	<where>
+	
+	<select id="queryRawPaper" parameterType="RawPaper" resultMap="MyRawPaper">
+		select *
+		from paper_table
+		<where>
 			<if test="paperId!=null and paperId!=''">
 				and paper_id = #{paperId}
 			</if>
+			<if test="paperName!=null and paperName!=''">
+				and paper_name = #{paperName}
+			</if>
+			<if test="createrId!=null and createId!=''">
+				and creater_id = #{createrId}
+			</if>
+			<if test="paperType!=null and paperType!=''">
+				and paper_type = #{paperType}
+			</if>
+			<if test="paperSecrecy!=null and paperSecrecy!=''">
+				and paper_secrecy = #{paperSecrecy}
+			</if>
+			<if test="paperRemark!=null and paperRemark!=''">
+				and paper_remark = #{paperRemark}
+			</if>
 		</where>
 	</select>
-	<resultMap type="RawPaper" id="myPaper">
-		<id column="paper_id" property="paperId"/>
-		<result column="paper_name" property="paperName"/>
-		<result column="creater_id" property="createrId"/>
-		<result column="create_date" property="createDate"/>
-		<result column="paper_type" property="paperType"/>
-		<result column="paper_index" property="paperIndex"/>
-		<result column="singlechoice_question" property="singlechoiceQuestion"/>
-		<result column="multichoice_question" property="multichoiceQuestion"/>
-		<result column="fill_question" property="fillQuestion"/>
-		<result column="subjective_question" property="subjectiveQuestion"/>
-		<result column="paper_score" property="paperScore"/>
-		<result column="paper_secrecy" property="paperSecrecy"/>
-		<result column="paper_remark" property="paperRemark"/>
+	<resultMap type="RawPaper" id="MyRawPaper">
+		<id column="paper_id" property="paperId" />
+		<result column="paper_name" property="paperName" />
+		<result column="creater_id" property="createrId" />
+		<result column="create_date" property="createDate" />
+		<result column="paper_type" property="paperType" />
+		<result column="paper_index" property="paperIndex" />
+		<result column="singlechoice_question" property="singlechoiceQuestion" />
+		<result column="multichoice_question" property="multichoiceQuestion" />
+		<result column="fill_question" property="fillQuestion" />
+		<result column="subjective_question" property="subjectiveQuestion" />
+		<result column="paper_score" property="paperScore" />
+		<result column="paper_secrecy" property="paperSecrecy" />
+		<result column="paper_remark" property="paperRemark" />
 	</resultMap>
-	
+
 	<!-- 教室改密码查询老师学生 -->
-	<update id="updateTeacher" parameterType="Map">
-		update teacher_table
+	<update id="updateTeacher" parameterType="Teacher">
+		update teacher_table 
 		<set>
 			<if test="teacherPassword!=null and teacherPassword!=''">
 				teacher_password = #{teacherPassword},
 			</if>
 		</set>
-		where teacher_id in
-		<foreach collection="teacherId" item="item" open="(" separator="," close=")">
-			#{item}
-		</foreach>
+		where teacher_id = #{teacherId}
 	</update>
-	
+
 	<select id="queryTeacher" parameterType="Teacher" resultMap="MyTeacher">
 		select *
 		from teacher_table
@@ -386,16 +421,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
-	
+
 	<resultMap type="Teacher" id="MyTeacher">
-		<id column="teacher_id" property="teacherId"/>
-		<result column="teacher_name" property="teacherName"/>
-		<result column="teacher_password" property="teacherPassword"/>
-		<result column="teacher_academy" property="teacherAcademy"/>
-		<result column="teacher_major" property="teacherMajor"/>
-		<result column="teacher_school" property="teacherSchool"/>
+		<id column="teacher_id" property="teacherId" />
+		<result column="teacher_name" property="teacherName" />
+		<result column="teacher_password" property="teacherPassword" />
+		<result column="teacher_academy" property="teacherAcademy" />
+		<result column="teacher_major" property="teacherMajor" />
+		<result column="teacher_school" property="teacherSchool" />
 	</resultMap>
-	
+
 	<select id="queryStudent" parameterType="Student" resultMap="MyStudent">
 		select *
 		from student_table
@@ -413,23 +448,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and student_academy = #{studentAcademy}
 			</if>
 			<if test="studentMajor!=null and studentMajor!=''">
-				and student_academy = #{studentAcademy}
+				and student_Major = #{studentMajor}
 			</if>
 			<if test="studentSchool!=null and studentSchool!=''">
 				and student_school = #{studentSchool}
 			</if>
 		</where>
 	</select>
-	
+
 	<resultMap type="Student" id="MyStudent">
-		<id column="student_id" property="studentId"/>
-		<result column="student_name" property="studentName"/>
-		<result column="student_password" property="studentPassword"/>
-		<result column="student_academy" property="studentAcademy"/>
-		<result column="student_major" property="studentMajor"/>
-		<result column="student_school" property="studentSchool"/>		
+		<id column="student_id" property="studentId" />
+		<result column="student_name" property="studentName" />
+		<result column="student_password" property="studentPassword" />
+		<result column="student_academy" property="studentAcademy" />
+		<result column="student_major" property="studentMajor" />
+		<result column="student_school" property="studentSchool" />
 	</resultMap>
 	
-	
-	
+	<!-- 管理老师 -->
+	<select id="queryManageteacher" parameterType="Manageteacher" resultMap="MyManageteacher">
+		select * from manageteacher_table where teacher_id = #{teacherId}
+	</select>
+	<resultMap type="Manageteacher" id="MyManageteacher">
+		<result column="class_id" property="classId" />
+		<result column="teacher_id" property="teacherId" />
+		<result column="course_id" property="courseId" />
+		<result column="exam_name" property="examName" />
+		<result column="exam_begindate" property="examBegindate" />
+		<result column="exam_enddate" property="examEnddate" />
+	</resultMap>
 </mapper>
