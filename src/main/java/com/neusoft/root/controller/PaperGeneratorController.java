@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import java.text.SimpleDateFormat;
 
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
 
@@ -58,8 +62,20 @@ public class PaperGeneratorController {
 	}
 	@RequestMapping(value="/get_items", method=RequestMethod.GET)
 	@ResponseBody
-	public String getItems(){
-		
-		return "ok";
+	public String getItems(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.getAttribute("username");
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String datestring = df.format(time);
+		List<RawItem> items = new ArrayList<>();
+		RawItem item1 = new RawItem("itemId", "itemCourseType", "itemType", 0.1, "itemQuestion", "itemOption", "itemAnswer", "itemPicture", 0.1);
+		RawItem item2 = new RawItem("题目Id", "科目", "题型", 0.2, "题干", "选项", "答案", "配图路径", 0.2);
+		RawItem item3 = new RawItem("1", "马克思主义原理", "送分题", 99.9, "老大帅不帅", "是/是", "是", "> A <", 99.9);
+		items.add(item1);
+		items.add(item2);
+		items.add(item3);
+		Gson gson = new Gson();
+		return gson.toJson(items);
 	}
 }
