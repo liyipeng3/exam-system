@@ -43,7 +43,7 @@ function Probe() {
     * */
     this.gioPageNameUrlJson = {
         'wechat1': {
-            'regx': /^(.*)(\.kaoshixing\.com\/account\/m_wechat_login_independent)(.*)$/,
+            'regx': /^(.*)(\.\.com\/account\/m_wechat_login_independent)(.*)$/,
             'name': '微信跳转'
         },
         'wechat2': {
@@ -51,67 +51,67 @@ function Probe() {
             'name': '微信跳转'
         },
         'wechat3': {
-            'regx': /^(.*)(\.kaoshixing\.com\/account\/wechat_login_independent)(.*)$/,
+            'regx': /^(.*)(\.\.com\/account\/wechat_login_independent)(.*)$/,
             'name': '微信跳转'
         },
         'home': {
-            'regx': /^(.*)(\.kaoshixing\.com(\/home)?\/?)(\?.+)?$/,
+            'regx': /^(.*)(\.\.com(\/home)?\/?)(\?.+)?$/,
             'name': '首页'
         },
         'function': {
-            'regx': /^(.*)(\.kaoshixing\.com\/function\/?)$/,
+            'regx': /^(.*)(\.\.com\/function\/?)$/,
             'name': '功能页'
         },
         'partyBuilding': {
-            'regx': /^(.*)(\.kaoshixing\.com\/party_building\/?)$/,
+            'regx': /^(.*)(\.\.com\/party_building\/?)$/,
             'name': '党建平台'
         },
         'competitionPlan': {
-            'regx': /^(.*)(\.kaoshixing\.com\/competition_plan\/?)$/,
+            'regx': /^(.*)(\.\.com\/competition_plan\/?)$/,
             'name': '竞赛方案'
         },
         'competition': {
-            'regx': /^(.*)(\.kaoshixing\.com\/competition\/?)$/,
+            'regx': /^(.*)(\.\.com\/competition\/?)$/,
             'name': '竞赛宣传页'
         },
         'news': {
-            'regx': /^(.*)(\.kaoshixing\.com\/news\/?)(\?classifyOne=1)$/,
+            'regx': /^(.*)(\.\.com\/news\/?)(\?classifyOne=1)$/,
             'name': '案例'
         },
         'newsDetail': {
-            'regx': /^(.*)(\.kaoshixing\.com\/news\/)([0-9]+)(\?classifyOne=1)$/,
+            'regx': /^(.*)(\.\.com\/news\/)([0-9]+)(\?classifyOne=1)$/,
             'name': '案例详情'
         },
         'information': {
-            'regx': /^(.*)(\.kaoshixing\.com\/news\/?)(\?classifyOne=2)$/,
+            'regx': /^(.*)(\.\.com\/news\/?)(\?classifyOne=2)$/,
             'name': '资讯中心'
         },
         'newsDetailDetail': {
-            'regx': /^(.*)(\.kaoshixing\.com\/news\/)([0-9]+)(\?classifyOne=2)$/,
+            'regx': /^(.*)(\.\.com\/news\/)([0-9]+)(\?classifyOne=2)$/,
             'name': '资讯详情'
         },
         'version':  {
-            'regx': /^(.*)(\.kaoshixing\.com\/version\/?)$/,
+            'regx': /^(.*)(\.\.com\/version\/?)$/,
             'name': '版本对比'
         },
         'about':  {
-            'regx': /^(.*)(\.kaoshixing\.com\/about\/?)$/,
+            'regx': /^(.*)(\.\.com\/about\/?)$/,
             'name': '关于我们'
         },
         'changeLog': {
-            'regx': /^(.*)(\.kaoshixing\.com\/change\/log\/?)$/,
+            'regx': /^(.*)(\.\.com\/change\/log\/?)$/,
             'name': '更新日志'
         },
         'brandIntro': {
-            'regx': /^(.*)(\.kaoshixing\.com\/brand\/intro\/?)$/,
+            'regx': /^(.*)(\.\.com\/brand\/intro\/?)$/,
             'name': '品牌介绍'
         },
         'companyIntro': {
-            'regx': /^(.*)(\.kaoshixing\.com\/company\/intro\/?)$/,
+            'regx': /^(.*)(\.\.com\/company\/intro\/?)$/,
             'name': '公司介绍'
         },
         'login': {
-            'regx': /^(.*)(\.kaoshixing\.com\/account\/login)(.)*$/,
+            'regx': /^(.*)(\.\.com\/account\/login)(.)*$/,
             'name': '登录'
         }
     };
@@ -234,7 +234,7 @@ function Probe() {
     * */
     this.tingyun = function () {
         var location = window.location;
-        var hostname = location.hostname.replace('.kaoshixing.com', '');
+        var hostname = location.hostname.replace('..com', '');
         var pathname = location.pathname.replace(/^(\/[a-z]+\/).+$/, '$1');
         var tingyunType = '';
 
@@ -273,7 +273,7 @@ function Probe() {
             var tag = t.getElementsByTagName("script")[0];
             n = t.createElement("script");
             n.async = 1;
-            n.src = 'https://s6.kaoshixing.com/static/plugins/tingyunServer/' + g;
+            n.src = 'https://s6..com/static/plugins/tingyunServer/' + g;
             tag.parentNode.insertBefore(n, tag)
         }(window, document, "script", 'tingyun-rum-'+tingyunType+'.js');
     }

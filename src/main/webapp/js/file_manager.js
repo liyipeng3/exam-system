@@ -44,21 +44,21 @@ $(document).ready(function () {
         $("#grid-data").bootgrid().find(".file-icon").each(function (index, element) {
             var type = $(this).attr("fileType").toLowerCase();
             if (type == ".jpg" || type == ".jpeg" || type == ".png" || type == ".gif" || type == ".bmp") {
-                $(this).attr("src", "https://s6.kaoshixing.com/static/admin/images/file-manager/png-s.png")
+                $(this).attr("src", "https://s6..com/static/admin/images/file-manager/png-s.png")
             } else if (type == ".xls" || type == ".xlsx") {
-                $(this).attr("src", "https://s6.kaoshixing.com/static/admin/images/file-manager/excel-s.png")
+                $(this).attr("src", "https://s6..com/static/admin/images/file-manager/excel-s.png")
             } else if (type == ".mp4" || type == ".avi" || type == ".mov" || type == ".wmv" || type == ".mkv" || type == ".flv" || type == ".rmvb" || type == ".mp3") {
-                $(this).attr("src", "https://s6.kaoshixing.com/static/admin/images/file-manager/mov-s.png")
+                $(this).attr("src", "https://s6..com/static/admin/images/file-manager/mov-s.png")
             } else if (type == ".pdf") {
-                $(this).attr("src", "https://s6.kaoshixing.com/static/admin/images/file-manager/PDF-s.png")
+                $(this).attr("src", "https://s6..com/static/admin/images/file-manager/PDF-s.png")
             } else if (type == ".ppt" || type == ".pptx") {
-                $(this).attr("src", "https://s6.kaoshixing.com/static/admin/images/file-manager/ppt-s.png")
+                $(this).attr("src", "https://s6..com/static/admin/images/file-manager/ppt-s.png")
             } else if (type == ".rar" || type == ".zip") {
-                $(this).attr("src", "https://s6.kaoshixing.com/static/admin/images/file-manager/RAR-s.png")
+                $(this).attr("src", "https://s6..com/static/admin/images/file-manager/RAR-s.png")
             } else if (type == ".txt") {
-                $(this).attr("src", "https://s6.kaoshixing.com/static/admin/images/file-manager/TXT-s.png")
+                $(this).attr("src", "https://s6..com/static/admin/images/file-manager/TXT-s.png")
             } else if (type == ".doc" || type == ".docx") {
-                $(this).attr("src", "https://s6.kaoshixing.com/static/admin/images/file-manager/word-s.png")
+                $(this).attr("src", "https://s6..com/static/admin/images/file-manager/word-s.png")
             }
         });
     });
@@ -318,7 +318,7 @@ function get_file_data() {
                     if(row.onlyRead != 1){
                         return "<div class='edit-name' >" +
                             "<a class='folderName' style='float:left;' folderId='" + row.id + "' folderName='" + row.fileName + "' pOnlyRead='"+ row.onlyRead +"' href='#'>" +
-                            "<img class='folder-icon' src='https://s6.kaoshixing.com/static/admin/images/file-manager/folder.png'>" +
+                            "<img class='folder-icon' src='https://s6..com/static/admin/images/file-manager/folder.png'>" +
                             "<span class='folder_name'>&nbsp;" + row.fileName + "</span>" +
                             "</a>" +
                             "<span class='edit_folder_name' style='display:none;'><i class='icons8-edit'></i></span>" +
@@ -331,7 +331,7 @@ function get_file_data() {
                     }else {
                         return "<div class='edit-name' >" +
                             "<a class='folderName' style='float:left;' folderId='" + row.id + "' folderName='" + row.fileName + "' pOnlyRead='"+ row.onlyRead + "' href='#'>" +
-                            "<img class='folder-icon' src='https://s6.kaoshixing.com/static/admin/images/file-manager/folder.png'>" +
+                            "<img class='folder-icon' src='https://s6..com/static/admin/images/file-manager/folder.png'>" +
                             "<span class='folder_name'>&nbsp;" + row.fileName + "</span>" +
                             "</a>" +
                             "<div class='clear'></div>" +
@@ -339,7 +339,7 @@ function get_file_data() {
                     }
                 } else if (row.fileType == "link") {
                     return "<div class='edit-name' >" +
-                        "<img class='file-icon' fileType='" + row.fileType + "' src='https://s6.kaoshixing.com/static/admin/images/file-manager/help-s.png'>" +
+                        "<img class='file-icon' fileType='" + row.fileType + "' src='https://s6..com/static/admin/images/file-manager/help-s.png'>" +
                         "<span class='folder_name' fileType='" + row.fileType + "' style='float:left;'>&nbsp;" + row.fileName + "</span>" +
                         "<span class='edit_folder_name' style='display:none;'><i class='icons8-edit'></i></span>" +
                         "<form style='display:inline;'>" +
@@ -350,7 +350,7 @@ function get_file_data() {
                         "</div>";
                 }else {
                     return "<div class='edit-name' >" +
-                        "<img class='file-icon' fileType='" + row.fileType + "' src='https://s6.kaoshixing.com/static/admin/images/file-manager/help-s.png'>" +
+                        "<img class='file-icon' fileType='" + row.fileType + "' src='https://s6..com/static/admin/images/file-manager/help-s.png'>" +
                         "<span class='folder_name' fileType='" + row.fileType + "' fileUrl='" + row.fileUrl + "' style='float:left;bottom: -2px;'>&nbsp;" + row.fileName + "</span>" +
                         "<span class='edit_folder_name' style='display:none;'><i class='icons8-edit'></i></span>" +
                         "<form style='display:inline;'>" +
