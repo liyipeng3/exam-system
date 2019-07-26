@@ -26,13 +26,13 @@ import com.neusoft.root.domain.Student;
 @SpringBootTest
 public class TeacherMapperTestMessage 
 {
-	@Autowired
+	/*@Autowired
 	private TeacherMapper tm;
 	
 	@Test
 	public void testAddMessage() 
 	{
-		/*try 
+		try 
 		{
 			Message message = new Message(1, "2019-7-26", "123", "235", "123", "123", "发送方");
 			tm.addMessage(message);
@@ -40,13 +40,13 @@ public class TeacherMapperTestMessage
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}*/
+		}
 	}
 	
 	@Test
 	public void testDeleteMessage() 
 	{
-		/*try 
+		try 
 		{
 			Message message = new Message(2, "2019-7-26", "123", "234", "123", "123", "发送方");
 			tm.deleteMessage(message);
@@ -54,7 +54,7 @@ public class TeacherMapperTestMessage
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}*/
+		}
 	}
 	
 	@Test
@@ -74,5 +74,5 @@ public class TeacherMapperTestMessage
 		{
 			System.out.println(e);
 		}
-	}
+	}*/
 }

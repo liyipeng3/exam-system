@@ -10,8 +10,7 @@ public class MyLog
 	private String opMsg; // 操作具体内容
 	private String opPage; // 操作内容
 	@Override
-	public int hashCode() 
-	{
+	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((logId == null) ? 0 : logId.hashCode());

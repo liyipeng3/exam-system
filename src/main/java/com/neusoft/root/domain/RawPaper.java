@@ -118,6 +118,7 @@ public class RawPaper
 	public void setPaperRemark(String paperRemark) {
 		this.paperRemark = paperRemark;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
