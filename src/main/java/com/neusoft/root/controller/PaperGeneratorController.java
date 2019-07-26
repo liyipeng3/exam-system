@@ -3,17 +3,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
-import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
@@ -22,7 +18,7 @@ import com.neusoft.root.domain.Subjects;
 @RequestMapping("/exam")
 public class PaperGeneratorController {
 /*	@Autowired
-	private GetPaperCourseImpl getpapersubjects;*/
+	private GetPaperServiceImpl getpapersubjects;*/
 	private String subject;
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
@@ -35,13 +31,12 @@ public class PaperGeneratorController {
 	public String getPapers(){
 		List<RawPaper> papers = new ArrayList<>();
 		Gson gson = new Gson();
-
-		@SuppressWarnings("deprecation")
-
-		Date date = new Date(9102, 11, 11);
-		RawPaper paper1 = new RawPaper("1","test1", "1",date, "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
-		RawPaper paper2 = new RawPaper("2","test2","2", date, "语文", 0.2, "choice", "fill", "subjective", "hhhh", 100.0, "sss", "sss");
-		RawPaper paper3 = new RawPaper("3", "test3","3", date, "语文", 0.3, "choice", "fill", "subjective", "hhhhh", 100.0, "sss", "sss");
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String datestring = df.format(time);
+		RawPaper paper1 = new RawPaper("1","test1", "1",datestring, "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
+		RawPaper paper2 = new RawPaper("2","test2","2", datestring, "语文", 0.2, "choice", "fill", "subjective", "hhhh", 100.0, "sss", "sss");
+		RawPaper paper3 = new RawPaper("3", "test3","3", datestring, "语文", 0.3, "choice", "fill", "subjective", "hhhhh", 100.0, "sss", "sss");
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);
@@ -63,12 +58,5 @@ public class PaperGeneratorController {
 	public String getItems(){
 		
 		return "ok";
-	}
-	@RequestMapping(value="/test",method=RequestMethod.POST)
-	@ResponseBody
-	public String test(@RequestBody JSONObject jsonParam){
-		System.out.println("hhhhhhhh");
-		System.out.println(jsonParam.toString());
-		return jsonParam.toString();
 	}
 }

@@ -29,16 +29,19 @@ public class LoginController {
 		if(username.equals("admin") && password.equals(password_md5)){
 			//建立会话对象，存储登录状态
 			HttpSession session = req.getSession();
+			session.setAttribute("username",username);
 			session.setAttribute("flag","admin");
 			return "admin";
 		}
 		else if(username.equals("teacher") && password.equals(password_md5)) {
 			HttpSession session = req.getSession();
+			session.setAttribute("username",username);
 			session.setAttribute("flag","teacher");
 			return "teacher";
 		}
 		else if(username.equals("student") && password.equals(password_md5)) {
 			HttpSession session = req.getSession();
+			session.setAttribute("username",username);
 			session.setAttribute("flag","student");
 			return "student";
 		}
@@ -48,14 +51,20 @@ public class LoginController {
 /*		int result = loginservice.querylogin(username, password);
 		switch(result){
 		case 1:
+			HttpSession session = req.getSession();
+			session.setAttribute("username",username);
+			session.setAttribute("flag","admin");
 			return "admin";
-			break;
 		case 2:
+			HttpSession session = req.getSession();
+			session.setAttribute("username",username);
+			session.setAttribute("flag","student");
 			return "student";
-			break;
 		case 3:
+			HttpSession session = req.getSession();
+			session.setAttribute("username",username);
+			session.setAttribute("flag","teacher");
 			return "teacher";
-			break;
 		default:
 			return "用户名或密码错误";
 		}*/

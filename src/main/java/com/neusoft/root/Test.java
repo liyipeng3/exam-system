@@ -55,7 +55,6 @@ public class Test {
 		System.out.println(gson.toJson(papers));*/
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		Date date = new Date(time);
 		String datestring = df.format(time);
 		System.out.println(datestring);
 	}
