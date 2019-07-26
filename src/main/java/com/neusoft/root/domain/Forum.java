@@ -3,18 +3,13 @@ package com.neusoft.root.domain;
 import java.sql.Date;
 //帖子
 public class Forum {
-	private String postId;
-	private Date postDate;
+	private Integer postId;
+	private String postDate;
 	private String senderId;
 	private String postTag;//分类标签
 	private String postOutline;//题目
 	private String postContext;//内容
-
-	
-	public Forum() {
-		super();
-	}
-	public Forum(String postId, Date postDate, String senderId, String postTag, String postOutline,
+	public Forum(Integer postId, String postDate, String senderId, String postTag, String postOutline,
 			String postContext) {
 		super();
 		this.postId = postId;
@@ -24,16 +19,19 @@ public class Forum {
 		this.postOutline = postOutline;
 		this.postContext = postContext;
 	}
-	public String getPostId() {
+	public Forum() {
+		super();
+	}
+	public Integer getPostId() {
 		return postId;
 	}
-	public void setPostId(String postId) {
+	public void setPostId(Integer postId) {
 		this.postId = postId;
 	}
-	public Date getPostDate() {
+	public String getPostDate() {
 		return postDate;
 	}
-	public void setPostDate(Date postDate) {
+	public void setPostDate(String postDate) {
 		this.postDate = postDate;
 	}
 	public String getSenderId() {
@@ -60,9 +58,6 @@ public class Forum {
 	public void setPostContext(String postContext) {
 		this.postContext = postContext;
 	}
-
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -75,7 +70,6 @@ public class Forum {
 		result = prime * result + ((senderId == null) ? 0 : senderId.hashCode());
 		return result;
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -117,10 +111,10 @@ public class Forum {
 			return false;
 		return true;
 	}
-	
 	@Override
 	public String toString() {
 		return "Forum [postId=" + postId + ", postDate=" + postDate + ", senderId=" + senderId + ", postTag=" + postTag
 				+ ", postOutline=" + postOutline + ", postContext=" + postContext + "]";
 	}
+
 }

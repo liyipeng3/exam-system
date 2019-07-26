@@ -41,16 +41,16 @@ public class WebController {
 	public String paper_manual_add() {
 		return "/html/exam/paper_manual_add.html";
 	}
-	@RequestMapping("/html/exam/paper_mgr_add")
-	public String paper_mgr_add() {
-		return "/html/exam/paper_mgr_add.html";
-	}
 	@RequestMapping("/html/exam/paper_select")
 	public String paper_select() {
 		return "/html/exam/paper_select.html";
 	}
-	@RequestMapping("/html/exam/test_question")
+	@RequestMapping("/html/exam/test_questions")
 	public String test_question() {
-		return "/html/exam/test_question.html";
+		return "/html/exam/test_questions.html";
+	}
+	@RequestMapping("/html/exam/paper_mgr_new")
+	public String paper_mgr_new() {
+		return "/html/exam/paper_mgr_new.html";
 	}
 }

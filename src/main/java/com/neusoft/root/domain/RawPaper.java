@@ -5,8 +5,8 @@ import java.sql.Date;
 public class RawPaper {
 	private String paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
-	private String createrID;
-	private Date createDate;
+	private String createrId;
+	private String createDate;
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
 	private String singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
@@ -17,13 +17,13 @@ public class RawPaper {
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
 	
-	public RawPaper(String paperId, String paperName, String createrID, Date createDate, String paperType,
+	public RawPaper(String paperId, String paperName, String createrId, String createDate, String paperType,
 			Double paperIndex, String singlechoiceQuestion, String multichoiceQuestion, String fillQuestion,
 			String subjectiveQuestion, Double paperScore, String paperSecrecy, String paperRemark) {
 		super();
 		this.paperId = paperId;
 		this.paperName = paperName;
-		this.createrID = createrID;
+		this.createrId = createrId;
 		this.createDate = createDate;
 		this.paperType = paperType;
 		this.paperIndex = paperIndex;
@@ -51,16 +51,16 @@ public class RawPaper {
 	public void setPaperName(String paperName) {
 		this.paperName = paperName;
 	}
-	public String getCreaterID() {
-		return createrID;
+	public String getCreaterId() {
+		return createrId;
 	}
-	public void setCreaterID(String createrID) {
-		this.createrID = createrID;
+	public void setCreaterId(String createrId) {
+		this.createrId = createrId;
 	}
-	public Date getCreateDate() {
+	public String getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
 	public String getPaperType() {
@@ -122,7 +122,7 @@ public class RawPaper {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
-		result = prime * result + ((createrID == null) ? 0 : createrID.hashCode());
+		result = prime * result + ((createrId == null) ? 0 : createrId.hashCode());
 		result = prime * result + ((fillQuestion == null) ? 0 : fillQuestion.hashCode());
 		result = prime * result + ((multichoiceQuestion == null) ? 0 : multichoiceQuestion.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
@@ -150,10 +150,10 @@ public class RawPaper {
 				return false;
 		} else if (!createDate.equals(other.createDate))
 			return false;
-		if (createrID == null) {
-			if (other.createrID != null)
+		if (createrId == null) {
+			if (other.createrId != null)
 				return false;
-		} else if (!createrID.equals(other.createrID))
+		} else if (!createrId.equals(other.createrId))
 			return false;
 		if (fillQuestion == null) {
 			if (other.fillQuestion != null)
@@ -214,7 +214,7 @@ public class RawPaper {
 	}
 	@Override
 	public String toString() {
-		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrID=" + createrID
+		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrID=" + createrId
 				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
 				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
 				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="

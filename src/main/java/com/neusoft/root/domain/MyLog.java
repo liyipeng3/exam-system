@@ -5,7 +5,7 @@ public class MyLog
 {
 	private Integer logId;  //日志id
 	private String opId; //操作者ID
-	private Date opDate; //操作时间
+	private String opDate; //操作时间
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
 	private String opPage; // 操作内容
@@ -73,7 +73,7 @@ public class MyLog
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MyLog(Integer logId, String opId, Date opDate, String opType, String opMsg, String opPage) {
+	public MyLog(Integer logId, String opId, String opDate, String opType, String opMsg, String opPage) {
 		super();
 		this.logId = logId;
 		this.opId = opId;
@@ -94,10 +94,10 @@ public class MyLog
 	public void setOpId(String opId) {
 		this.opId = opId;
 	}
-	public Date getOpDate() {
+	public String getOpDate() {
 		return opDate;
 	}
-	public void setOpDate(Date opDate) {
+	public void setOpDate(String opDate) {
 		this.opDate = opDate;
 	}
 	public String getOpType() {
