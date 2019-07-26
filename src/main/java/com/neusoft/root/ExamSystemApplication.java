@@ -21,6 +21,7 @@ public class ExamSystemApplication {
 		
 	}
 	
+	
 	public static void sqlInit()
 	{
 		Connection conn;
