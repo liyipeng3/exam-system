@@ -65,7 +65,10 @@ public class PaperGeneratorController {
 		return "ok";
 	}
 	@RequestMapping(value="/test",method=RequestMethod.POST)
-	public void test(@RequestBody JSONObject jsonParam){
+	@ResponseBody
+	public String test(@RequestBody JSONObject jsonParam){
+		System.out.println("hhhhhhhh");
 		System.out.println(jsonParam.toString());
+		return jsonParam.toString();
 	}
 }
