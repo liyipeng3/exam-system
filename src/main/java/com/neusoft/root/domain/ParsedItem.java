@@ -7,27 +7,11 @@ public class ParsedItem
 	private String itemId; //题目ID
 	private String itemCourseType;  // 题目类型，java，c++
 	private String itemType; //题目类型，多选题，单选题，填空题，主观题
-	private Double itemIndex; //试题难度 
+	private double itemIndex; //试题难度 
 	private String itemQuestion; //试题题干
 	private List<String> itemOption; //试题选项
 	private List<String> itemAnswer; //试题答案
 	private List<String> itemPicture; //试题路径
-	public ParsedItem(String itemId, String itemCourseType, String itemType, Double itemIndex, String itemQuestion,
-			List<String> itemOption, List<String> itemAnswer, List<String> itemPicture) {
-		super();
-		this.itemId = itemId;
-		this.itemCourseType = itemCourseType;
-		this.itemType = itemType;
-		this.itemIndex = itemIndex;
-		this.itemQuestion = itemQuestion;
-		this.itemOption = itemOption;
-		this.itemAnswer = itemAnswer;
-		this.itemPicture = itemPicture;
-	}
-	public ParsedItem() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public String getItemId() {
 		return itemId;
 	}
@@ -46,10 +30,10 @@ public class ParsedItem
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
 	}
-	public Double getItemIndex() {
+	public double getItemIndex() {
 		return itemIndex;
 	}
-	public void setItemIndex(Double itemIndex) {
+	public void setItemIndex(double itemIndex) {
 		this.itemIndex = itemIndex;
 	}
 	public String getItemQuestion() {
@@ -76,6 +60,22 @@ public class ParsedItem
 	public void setItemPicture(List<String> itemPicture) {
 		this.itemPicture = itemPicture;
 	}
+	public ParsedItem(String itemId, String itemCourseType, String itemType, double itemIndex, String itemQuestion,
+			List<String> itemOption, List<String> itemAnswer, List<String> itemPicture) {
+		super();
+		this.itemId = itemId;
+		this.itemCourseType = itemCourseType;
+		this.itemType = itemType;
+		this.itemIndex = itemIndex;
+		this.itemQuestion = itemQuestion;
+		this.itemOption = itemOption;
+		this.itemAnswer = itemAnswer;
+		this.itemPicture = itemPicture;
+	}
+	public ParsedItem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -83,7 +83,9 @@ public class ParsedItem
 		result = prime * result + ((itemAnswer == null) ? 0 : itemAnswer.hashCode());
 		result = prime * result + ((itemCourseType == null) ? 0 : itemCourseType.hashCode());
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
-		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(itemIndex);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
 		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
 		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
@@ -114,10 +116,7 @@ public class ParsedItem
 				return false;
 		} else if (!itemId.equals(other.itemId))
 			return false;
-		if (itemIndex == null) {
-			if (other.itemIndex != null)
-				return false;
-		} else if (!itemIndex.equals(other.itemIndex))
+		if (Double.doubleToLongBits(itemIndex) != Double.doubleToLongBits(other.itemIndex))
 			return false;
 		if (itemOption == null) {
 			if (other.itemOption != null)
@@ -147,6 +146,6 @@ public class ParsedItem
 				+ ", itemIndex=" + itemIndex + ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption
 				+ ", itemAnswer=" + itemAnswer + ", itemPicture=" + itemPicture + "]";
 	}
-	
+
 	
 }

@@ -6,21 +6,9 @@ public class Manageteacher {
 	private String classId;
 	private String teacherId;
 	private String courseId;
-	private Date examDate;
-	
-	public Date getExamDate() {
-		return examDate;
-	}
-	public void setExamDate(Date examDate) {
-		this.examDate = examDate;
-	}
+	private String examDate;
 	public String getClassId() {
 		return classId;
-	}
-	@Override
-	public String toString() {
-		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId
-				+ ", examDate=" + examDate + "]";
 	}
 	public void setClassId(String classId) {
 		this.classId = classId;
@@ -37,22 +25,22 @@ public class Manageteacher {
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
-	public Manageteacher(String classId, String teacherId, String courseId) {
-		super();
-		this.classId = classId;
-		this.teacherId = teacherId;
-		this.courseId = courseId;
+	public String getExamDate() {
+		return examDate;
 	}
-	public Manageteacher() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setExamDate(String examDate) {
+		this.examDate = examDate;
 	}
-	public Manageteacher(String classId, String teacherId, String courseId, Date examDate) {
+	public Manageteacher(String classId, String teacherId, String courseId, String examDate) {
 		super();
 		this.classId = classId;
 		this.teacherId = teacherId;
 		this.courseId = courseId;
 		this.examDate = examDate;
+	}
+	public Manageteacher() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public int hashCode() {
@@ -95,6 +83,13 @@ public class Manageteacher {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId
+				+ ", examDate=" + examDate + "]";
+	}
+	
+	
 
 	
 }

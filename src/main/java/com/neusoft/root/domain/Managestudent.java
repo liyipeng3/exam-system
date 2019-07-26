@@ -7,21 +7,7 @@ public class Managestudent {
 	private String classId;
 	private String studentId;
 	private String courseId;
-	private Date examDate;
-	
-	public Date getExamDate() {
-		return examDate;
-	}
-	@Override
-	public String toString() {
-		return "Managestudent [classId=" + classId + ", studentId=" + studentId + ", courseId=" + courseId
-				+ ", examDate=" + examDate + "]";
-	}
-	public void setExamDate(Date examDate) {
-		this.examDate = examDate;
-	}
-	
-
+	private String examDate;
 	public String getClassId() {
 		return classId;
 	}
@@ -40,7 +26,23 @@ public class Managestudent {
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
-
+	public String getExamDate() {
+		return examDate;
+	}
+	public void setExamDate(String examDate) {
+		this.examDate = examDate;
+	}
+	public Managestudent(String classId, String studentId, String courseId, String examDate) {
+		super();
+		this.classId = classId;
+		this.studentId = studentId;
+		this.courseId = courseId;
+		this.examDate = examDate;
+	}
+	public Managestudent() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -82,15 +84,11 @@ public class Managestudent {
 			return false;
 		return true;
 	}
-	public Managestudent(String classId, String studentId, String courseId, Date examDate) {
-		super();
-		this.classId = classId;
-		this.studentId = studentId;
-		this.courseId = courseId;
-		this.examDate = examDate;
+	@Override
+	public String toString() {
+		return "Managestudent [classId=" + classId + ", studentId=" + studentId + ", courseId=" + courseId
+				+ ", examDate=" + examDate + "]";
 	}
-	public Managestudent() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 }

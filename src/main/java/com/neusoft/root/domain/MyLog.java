@@ -5,9 +5,10 @@ public class MyLog
 {
 	private Integer logId;  //日志id
 	private String opId; //操作者ID
-	private Date opDate; //操作时间
+	private String opDate; //操作时间
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
+<<<<<<< Updated upstream
 
 	private String opPage; // 操作内容
 	public MyLog(Integer logId, String opId, Date opDate, String opType, String opMsg, String opPage) {
@@ -27,54 +28,58 @@ public class MyLog
 		// TODO Auto-generated constructor stub
 	}
 
+=======
+	private String opResult; // 操作结果
+>>>>>>> Stashed changes
 	public Integer getLogId() {
 		return logId;
 	}
-
 	public void setLogId(Integer logId) {
 		this.logId = logId;
 	}
-
 	public String getOpId() {
 		return opId;
 	}
-
 	public void setOpId(String opId) {
 		this.opId = opId;
 	}
-
-	public Date getOpDate() {
+	public String getOpDate() {
 		return opDate;
 	}
-
-	public void setOpDate(Date opDate) {
+	public void setOpDate(String opDate) {
 		this.opDate = opDate;
 	}
-
 	public String getOpType() {
 		return opType;
 	}
-
 	public void setOpType(String opType) {
 		this.opType = opType;
 	}
-
 	public String getOpMsg() {
 		return opMsg;
 	}
-
 	public void setOpMsg(String opMsg) {
 		this.opMsg = opMsg;
 	}
-
 	public String getOpResult() {
 		return opPage;
 	}
-
 	public void setOpResult(String opResult) {
 		this.opPage = opResult;
 	}
-
+	public MyLog(Integer logId, String opId, String opDate, String opType, String opMsg, String opResult) {
+		super();
+		this.logId = logId;
+		this.opId = opId;
+		this.opDate = opDate;
+		this.opType = opType;
+		this.opMsg = opMsg;
+		this.opResult = opResult;
+	}
+	public MyLog() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -87,7 +92,6 @@ public class MyLog
 		result = prime * result + ((opType == null) ? 0 : opType.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -129,10 +133,18 @@ public class MyLog
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
+<<<<<<< Updated upstream
 		return "Log [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
 				+ opMsg + ", opResult=" + opPage + "]";
+=======
+		return "MyLog [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
+				+ opMsg + ", opResult=" + opResult + "]";
+>>>>>>> Stashed changes
 	}
+	
+	
+
+
 }

@@ -7,7 +7,7 @@ public class RawItem {
 	private String itemId; //题目ID
 	private String itemCourseType;  // 题目类型，java，c++
 	private String itemType; //题目类型，多选题，单选题，填空题，主观题
-	private Double itemIndex; //试题难度 
+	private double itemIndex; //试题难度 
 	private String itemQuestion; //试题题干
 	private String itemOption; //试题选项
 	private String itemAnswer; //试题答案
