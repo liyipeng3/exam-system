@@ -1,5 +1,8 @@
 package com.neusoft.root.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,5 +20,13 @@ public class MyLogServiceImpl implements MyLogService{
 		// TODO Auto-generated method stub
 		mapper.addMyLog(myLog);
 	}
-
+	
+	@Override
+	public List<MyLog> queryMyLog() {
+		// TODO Auto-generated method stub
+		List<MyLog> myLog = new ArrayList<>();
+		myLog = mapper.queryMyLog(null);
+		return myLog;
+	}
+	
 }
