@@ -463,7 +463,7 @@
                                         class="nav-title">开发者信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
-                                        href="https://admin..com/account/admin_op_record"><span
+                                        href="/html/system/admin_op_record"><span
                                         class="nav-title">管理员操作记录</span></a></li>
                             </ul>
                         </li>
@@ -1002,8 +1002,6 @@
             })
         });
     });
-
-
 </script>
 <script type="text/javascript" src="../../js/moment.js"></script>
 <script type="text/javascript" src="../../js/pikaday.js"></script>
@@ -1013,47 +1011,53 @@
     $(function () {
         $.getJSON("/exam/get_paper_subjects", function (result) {
             $.each(result.subjects, function (index, e) {
-                $subject = $("<label style='margin-left: 5px'>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>")
+                $subject = $("<label style='margin-left: 5px'>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>");
                 $("#select_subject").append($subject);
             })
         });
         $.getJSON("/exam/get_papers", function (result) {
-
-            console.log(result);
             $.each(result, function (index, e) {
-                var paper = '<tr class="select-item"><td class="select-cell"><label class="select-label"><input name="select" type="checkbox" class="select-box" value="'+e.paperId+'"><spanclass="select-box"><i class="icons8-checked-checkbox"></i></span></label></td><td class="text-left" style="">'+e.paperName+'</td><td class="text-left" style="">'+e.paperType+'</td><td class="text-left" style=""></td><td class="text-left" style=""></td><td class="text-left" style="">'+e.paperScore+'</td><td class="text-left" style="">'+e.createrID+'</td><td class="text-left" style="">'+e.createDate+'</td><td class="text-left" style=""><a href="./paper_mgr_new.html" data-growing-title="updatePaper" class="icons8-edit updatePaper"  data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="编辑"></a><a href=".\/paper_mgr_new.html" data-growing-title="removePaper" class="icons8-trash-can removePaper" paperisusing="false" examusing="false"  data-toggle="tooltip" data-placement="top" data-container="body"data-original-title="删除"></a><a href="./paper_mgr_new.html" data-growing-title="copyPaper" class="icon-a_operate_copy copyPaper" data-trigger="hover"  data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="复制试卷"></a><a href="./paper_mgr_new.html" data-growing-title="copyPaper" target="_blank" class="icon-a_operate_create_test create_exam" data-trigger="hover" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="创建考试"></a></td></tr>'
+                var paper = '<tr data-row-id="292524" class="select-item">';
+                paper += '<td class="select-cell" style="">';
+                paper += '<label class="select-label">';
+                paper += '<input name="select" type="checkbox" class="select-box" value="' + e.paperId + '">';
+                paper += '<span class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>';
+                paper += '<td class="text-left" style="">' + e.paperName + '</td>';
+                paper += '<td class="text-left" style=""></td>';
+                paper += '<td class="text-left" style="">' + e.paperType + '</td>';
+                paper += '<td class="text-left" style=""></td>';
+                paper += '<td class="text-left" style="">' + e.paperScore + '</td>';
+                paper += '<td class="text-left" style="">' + e.createrId + '</td>';
+                paper += '<td class="text-left" style="">' + e.createDate + '</td>';
+                paper += '<td class="text-left" style="">';
+                paper += '<a href="./paper_mgr_new.html" data-growing-title="updatePaper" class="icons8-edit updatePaper" paperid="292524" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="编辑"></a>';
+                paper += '<a href="./paper_mgr_new.html" data-growing-title="removePaper" class="icons8-trash-can removePaper" paperisusing="false" examusing="false" paperid="292524" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="删除"></a>';
+                paper += '<a href="./paper_mgr_new.html" data-growing-title="copyPaper" class="icon-a_operate_copy copyPaper" data-trigger="hover" paperid="292524" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="复制试卷"></a>';
+                paper += '<a href="./paper_mgr_new.html" paperid="292524" data-growing-title="copyPaper" target="_blank" class="icon-a_operate_create_test create_exam" data-trigger="hover" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="创建考试"></a>';
+                paper += '</td></tr>';
                 $('tbody').append($(paper));
+
+
             });
-       /* $("table").click(function (e) {
-            console.log(e.target);
-            if ($(e.target).parent("tr").hasClass("active")) {
-                $(e.target).parent("tr")
-                    .removeClass("active");
-            } else {
-                $(e.target).parent("tr")
-                    .addClass("active");
-            }
+            $('input.select-box, td.text-left').click(function (e) {
 
-        });*/});
-        $("#select_all").change(function () {
-            if ($(this).hasClass("active")) {
-                $(this).removeClass("active");
-                $('.select-item').removeClass("active");
-            } else {
-                $(this).addClass("active");
-                $('.select-item').addClass("active");
-            }
-        });
-
-        $('input.select-box, td.text-left').click(function (e) {
-
-            if ($(e.target).parents("tr").hasClass("active")) {
-                $(e.target).parents("tr")
-                    .removeClass("active");
-            } else {
-                $(e.target).parents("tr")
-                    .addClass("active");
-            }
+                if ($(e.target).parents("tr").hasClass("active")) {
+                    $(e.target).parents("tr")
+                        .removeClass("active");
+                } else {
+                    $(e.target).parents("tr")
+                        .addClass("active");
+                }
+            });
+            $("#select_all").change(function () {
+                if ($(this).hasClass("active")) {
+                    $(this).removeClass("active");
+                    $('.select-item').removeClass("active");
+                } else {
+                    $(this).addClass("active");
+                    $('.select-item').addClass("active");
+                }
+            });
         });
     });
 </script>
