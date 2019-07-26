@@ -8,10 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
@@ -61,5 +63,9 @@ public class PaperGeneratorController {
 	public String getItems(){
 		
 		return "ok";
-	} 
+	}
+	@RequestMapping(value="/test",method=RequestMethod.POST)
+	public void test(@RequestBody JSONObject jsonParam){
+		System.out.println(jsonParam.toString());
+	}
 }
