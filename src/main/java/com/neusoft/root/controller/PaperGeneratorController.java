@@ -33,7 +33,6 @@ public class PaperGeneratorController {
 	@ResponseBody
 	public String getPapers(){
 		List<RawPaper> papers = new ArrayList<>();
-		Gson gson = new Gson();
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String datestring = df.format(time);
@@ -43,6 +42,7 @@ public class PaperGeneratorController {
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);
+		Gson gson = new Gson();
 		return gson.toJson(papers);
 	}
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
