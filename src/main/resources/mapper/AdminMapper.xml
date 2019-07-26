@@ -251,6 +251,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="courseName!=null and courseName!=''">
 				course_name = #{courseName},
 			</if>
+			<if test="courseType!=null and courseType!=''">
+				course_type = #{courseType},
+			</if>
 		</set>
 		where course_id in
 		<foreach collection="ids" item="item" open="(" separator="," close=")">
@@ -268,25 +271,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="courseName!=null and courseName!=''">
 				and course_name = #{courseName}
 			</if>
+			<if test="courseName!=null and courseName!=''">
+				and course_type = #{courseType}
+			</if>
 		</where>
 	</select>
 	
 	<resultMap type="Course" id="MyCourse">
 		<id column="course_id" property="courseId"/>
 		<result column="course_name" property="courseName"/>
+		<result column="course_type" property="courseType"/>
 	</resultMap>
 	
 	<!-- 管理日志 -->
-	<insert id="addLog" parameterType="Mylog">
-		insert into log_table 
-		values(#{logId},#{opId},#{opDate},#{opType},#{opMsg},#{opResult})
+	<insert id="addMyLog" parameterType="Mylog">
+		insert into log_table(op_id,op_date,op_type,op_msg,op_page) 
+		values(#{opId},#{opDate},#{opType},#{opMsg},#{opPage})
 	</insert>
 	
-	<delete id="deleteLog" parameterType="Mylog">
+	<delete id="deleteMyLog" parameterType="Mylog">
 		delete from log_table where log_id = #{logId}
 	</delete>
 	
-	<update id="updateLog" parameterType="Map">
+	<update id="updateMyLog" parameterType="Map">
 		update log_table
 		<set>
 			<if test="opId!=null and opId!=''">
@@ -311,7 +318,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</update>
 	
-	<select id="queryLog" parameterType="MyLog" resultMap="MyLog1">
+	<select id="queryMyLog" parameterType="MyLog" resultMap="MyLog1">
 		select *
 		from log_table
 		<where>
@@ -330,8 +337,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="opMsg!=null and opMsg!=''">
 				and op_msg = #{opMsg}
 			</if>
-			<if test="opResult!=null and opResult!=''">
-				and op_result = #{opResult}
+			<if test="opPage!=null and opPage!=''">
+				and op_page = #{opPage}
 			</if>
 		</where>
 	</select>
@@ -342,13 +349,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="op_date" property="opDate"/>
 		<result column="op_type" property="opType"/>
 		<result column="op_msg" property="opMsg"/>
-		<result column="op_result" property="opResult"/>
+		<result column="op_page" property="opPage"/>
 	</resultMap>
 	
 	<!-- 学生安排记录表 -->
 	<insert id="addManagestudent" parameterType="Managestudent">
 		insert into managestudent_table 
-		values(#{classId},#{studentId},#{courseId},#{examDate})
+		values(#{classId},#{studentId},#{courseId},#{examName},#{examBegindate},#{examEnddate})
 	</insert>
 	
 	<delete id="deleteManagestudent" parameterType="Managestudent">
@@ -362,8 +369,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="classId!=null and classId!=''">
 				class_id = #{classId},
 			</if>
-			<if test="examDate!=null and examDate!=''">
-				exam_date = #{examDate},
+			<if test="examName!=null and examName!=''">
+				exam_name = #{examName},
+			</if>
+			<if test="examBegindate!=null and examBegindate!=''">
+				exam_begindate = #{examBegindate},
+			</if>
+			<if test="examEnddate!=null and examEnddate!=''">
+				exam_enddate = #{examEnddate},
 			</if>
 		</set>
 		where student_id = #{studentId} and course_id = #{courseId}
@@ -376,30 +389,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="classId!=null and classId!=''">
 				and class_id = #{classId}
 			</if>
-			<if test="studentId!=null and studentId!=''">
-				and student_id = #{studentId}
+			<if test="teacherId!=null and teacherId!=''">
+				and teacher_id = #{teacherId}
 			</if>
 			<if test="courseId!=null and courseId!=''">
 				and course_id = #{courseId}
-			</if>
-			<if test="examDate!=null and examDate!=''">
-				and exam_date = #{examDate}
 			</if>
 		</where>
 	</select>
 	
 	<resultMap type="Managestudent" id="MyManagestudent">
-		<result column="class_id" property="classId"/>
-		<result column="student_id" property="studentId"/>
-		<result column="course_id" property="courseId"/>
-		<result column="exam_date" property="examDate"/>
+		<result column="class_id" property="classId" />
+		<result column="student_id" property="studentId" />
+		<result column="course_id" property="courseId" />
+		<result column="exam_name" property="examName" />
+		<result column="exam_begindate" property="examBegindate" />
+		<result column="exam_enddate" property="examEnddate" />
 	</resultMap>
 	
 	
 	<!-- 管理老师 -->
 	<insert id="addManageteacher" parameterType="Manageteacher">
 		insert into manageteacher_table 
-		values(#{classId},#{teacherId},#{courseId},#{examDate})
+		values(#{classId},#{teacherId},#{courseId},#{examName},#{examBegindate},#{examEnddate})
 	</insert>
 	
 	<delete id="deleteManageteacher" parameterType="Manageteacher">
@@ -413,8 +425,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="classId!=null and classId!=''">
 				class_id = #{classId},
 			</if>
-			<if test="examDate!=null and examDate!=''">
-				exam_date = #{examDate},
+			<if test="examName!=null and examName!=''">
+				exam_name = #{examName},
+			</if>
+			<if test="examBegindate!=null and examBegindate!=''">
+				exam_begindate = #{examBegindate},
+			</if>
+			<if test="examEnddate!=null and examEnddate!=''">
+				exam_enddate = #{examEnddate},
 			</if>
 		</set>
 		where teacher_id = #{teacherId} and course_id = #{courseId}
@@ -433,38 +451,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="courseId!=null and courseId!=''">
 				and course_id = #{courseId}
 			</if>
-			<if test="examDate!=null and examDate!=''">
-				and exam_date = #{examDate}
-			</if>
 		</where>
 	</select>
 	
 	<resultMap type="Manageteacher" id="MyManageteacher">
-		<result column="class_id" property="classId"/>
-		<result column="teacher_id" property="teacherId"/>
-		<result column="course_id" property="courseId"/>
-		<result column="exam_date" property="examDate"/>
+		<result column="class_id" property="classId" />
+		<result column="teacher_id" property="teacherId" />
+		<result column="course_id" property="courseId" />
+		<result column="exam_name" property="examName" />
+		<result column="exam_begindate" property="examBegindate" />
+		<result column="exam_enddate" property="examEnddate" />
 	</resultMap>
 	
 	<!-- 消息管理 -->
 	<insert id="addMessage" parameterType="Message">
-		insert into message_table 
-		values(#{msgId},#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext})
+		insert into message_table(msg_date,sender_id,target_id,msg_type,msg_context,msg_role)
+		values(#{msgDate},#{senderId},#{targetId},#{msgType},#{msgContext},#{msgRole})
 	</insert>
 	
 	<delete id="deleteMessage" parameterType="Message">
-		delete from manageteacher_table where msg_id = #{msgId}
+		delete from message_table where msg_id = #{msgId}
 	</delete>
 	
 	<select id="queryMessage" parameterType="Message" resultMap="MyMessage">
 		select *
-		from manageteacher_table
+		from message_table
 		<where>
 			<if test="senderId!=null and senderId!=''">
 				and sender_id = #{senderId}
 			</if>
 			<if test="targetId!=null and targetId!=''">
 				and target_id = #{targetId}
+			</if>
+			<if test="msgRole!=null and msgRole!=''">
+				and msg_role = #{msgRole}
+			</if>
+			<if test="msgType!=null and msgType!=''">
+				and msg_type = #{msgType}
 			</if>
 		</where>
 	</select>
@@ -476,15 +499,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="target_id" property="targetId"/>
 		<result column="msg_type" property="msgType"/>
 		<result column="msg_context" property="msgContext"/>
+		<result column="msg_role" property="msgRole"/>
 	</resultMap>
 	
-	<!-- 学生答题结果管理 -->
-	<insert id="addResult" parameterType="Result">
-		insert into result_table 
-		values(#{studentId},#{paperId},#{singlechoiceResult},
-		#{multichoiceResult},#{fillResult},#{subjectiveResult})
-	</insert>
-	
+	<!-- 学生答题结果管理 -->	
 	<select id="queryResult" parameterType="Result" resultMap="MyResult">
 		select *
 		from result_table
@@ -505,17 +523,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="multichoice_result" property="multichoiceResult"/>
 		<result column="fill_result" property="fillResult"/>
 		<result column="subjective_result" property="subjectiveResult"/>
+		<result column="submit_date" property="submitDate"/>
 	</resultMap>
 	
 	<!-- 论坛管理 -->
 	<insert id="addForum" parameterType="Forum">
-		insert into forum_table 
-		values(#{postId},#{postDate},#{senderId},
-		#{postTag},#{postOutline},#{postContext})
+		insert into forum_table(post_date,sender_id,post_tag,post_outline,post_context)
+		values(#{postDate},#{senderId},#{postTag},#{postOutline},#{postContext})
 	</insert>
 	
 	<delete id="deleteForum" parameterType="Forum">
-		delete from forum_table where post_id = #{post_id} and sender_id = #{senderId}
+		delete from forum_table 
+		<where>
+			<if test="senderId!=null and senderId!=''">
+				and sender_id = #{senderId}
+			</if>
+			<if test="postTag!=null and postTag!=''">
+				and post_tag = #{postTag}
+			</if>
+			<if test="postOutline!=null and postOutline!=''">
+				and post_outline = #{postOutline}
+			</if>
+		</where>
 	</delete>
 	
 	<select id="queryForum" parameterType="Forum" resultMap="MyForum">
@@ -549,9 +578,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 老师批阅结果管理 -->
 	<select id="queryCheck" parameterType="Check" resultMap="MyCheck">
 		select *
-		from forum_table
+		from check_table
 		<where>
-			<if test="postId!=null and postId!=''">
+			<if test="studentId!=null and studentId!=''">
 				and student_id = #{studentId}
 			</if>
 			<if test="paperId!=null and paperId!=''">

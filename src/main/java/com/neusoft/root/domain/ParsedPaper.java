@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ParsedPaper 
 {
-	private String paperId; //试卷ID，唯一
+	private Integer paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
 	private String createrID;
 	private Date createDate;

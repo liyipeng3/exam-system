@@ -1,672 +1,783 @@
 /*登录*/
-.login{
-  margin: 0;
-  padding: 0;
-}
-.login-wrap {
-  height: 100vh;
-  min-height: 580px;
-}
-.bg-pic {
-  width: 100%;
-  height: 100%;
-}
-.img-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.login-content-wrap {
-  position: absolute;
-  width: 460px;
-  height:100%;
-  min-height: 580px;
-  background: rgba(255,255,255,.4);
-  top: 0;
-  right: 0;
-}
-.login-content {
-  width: 360px;
-  height: 580px;
-  margin: auto;
-  background: rgba(255,255,255,1);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  font-size: 12px;
-  transform: translateY(-50%);
-}
-.logo{
-  max-width:60%;
-  display: block;
-  margin: 0 auto;
-  max-height: 60px;
-}
-.login-form {
-  width: 78.4%;
-  margin: 0px auto;
-  margin-top: 70px;
-}
-.main-error-tips {
-  font-size: 18px;
-  text-align: center;
-  color: red;
-  width: 78.4%;
-  top: 110px;
-  margin: auto;
-  height: 17px;
-}
-.username,.password {
-  color:#999;
-  border-bottom:1px solid #999;
-  margin-top: 30px;
-  padding-left: 10px;
-  padding-bottom: 8px;
-  font-size: 14px;
-}
-.username em,.password em {
-  font-size: 14px;
-  vertical-align: text-bottom;
-}
-.username span,.password span {
-  color: #DEDEDE;
-  padding: 0px 5px;
-}
-.userNameInput,.passwordInput {
-  outline: none;
-  border: none;
-  color:#999;
-  width: calc(100% - 38px);
-}
-.focus {
-  border-color: #1A8CFE;
-}
-.focus em {
-  color:#1A8CFE
-}
-.remember{
-  overflow: hidden;
-  margin-top: 8px;
-}
-.remember label {
-  float:left;
-  color:#999;
-  font-weight: normal;
-  cursor: pointer;
-  padding-left: 2px;
-}
-.remember input {
-  margin-right: 8px;
-  margin-top: 0;
-}
-.forget-password {
-  float: right;
-  color: #999;
-}
-.btn-login{
-  width: 100%;
-  background-color: #1A8CFE;
-  border-color: #1A8CFE;
-  margin-top: 35px;
-}
-.btn-wechat {
-  width:100%;
-  color: #1A8CFE;
-  border-color: #1A8CFE;
-  margin-top: 9px;
-}
-.btn-wechat em {
-  margin-right: 8px;
-}
-.btn-regist {
-  float: right;
-  color:#1A8CFE;
-  margin-top: 15px;
-}
-.login-content-footer{
-  clear:both;
-  overflow: hidden;
-  margin-top:134px ;
-  margin-bottom: 16px;
-}
-.login-content-footer .login-on-phone {
-  float: left;
-  color: #999;
-  line-height: 20px;
-}
-.login-content-footer .login-on-phone em {
-  margin-right: 8px;
-  vertical-align: middle;
-}
-.login-content-footer .switchLang{
-  float: right;
-  color:#999;
-  cursor: pointer;
-  line-height: 21px;
-}
-.login-content-footer .switchLang em {
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
-}
-.login-content-footer .switchLang .ch {
-  margin-left: 5px;
-  vertical-align: middle;
-}
-.login-content-footer .show-qr-code {
-  color: #999;
-  vertical-align: middle;
-}
-.login-content-footer em{
-  font-size: 16px;
-}
-.mobile-register,.mobile-wechat-login {
-  display: none;
-}
-.qr-code-wrap {
-  background: url(../images/login_reg/qr-wrap.png) no-repeat;
-  bottom: 45px;
-  position: absolute;
-  left: 36px;
-  background-size: contain;
-  height: 120px;
-  width: 120px;
-  display: none;
-}
-.qr-codes {
-  margin: 7px;
-}
-.login-on-phone:hover .qr-code-wrap {
-  display: block;
-}
-.loginWechet {
-  width: 78.4%;
-  margin: 0px auto;
-}
-.loginWechet .reg-tips{
-  font-size: 22px;
-  color: #1A8CFE;
-  margin-top: 102px;
-  margin-bottom: 35px;
-  text-align: center;
-  margin-left: 28px;
-}
-.loginWechet .icon-a_circle_check {
-  font-size: 77px;
-  display: block;
-  text-align: center;
-  color:#1A8CFE;
-}
-.loginWechet .finish-text {
-  color: #999;
-  margin-top: 80px;
-  text-align: center;
-}
-.loginWechet .btn-goto-bind {
-  width: 100%;
-  margin-top: 50px;
-  background: #1A8CFE;
-  border-color: #1A8CFE;
-}
-.loginWechet .btn-goto-login {
-  width: 100%;
-  margin-top: 112px;
-  font-size: 12px;
-  color: #666;
-  background: none;
-  border: none;
-}
-/*input 中placeholder样式*/
-::-webkit-input-placeholder { /* WebKit browsers */
-  color: #999;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #999;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #999;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-  color: #999;
-}
-/*移动端*/
-@media (max-width: 768px) {
-  .btn-regist,.login-content-footer .login-on-phone,.bg-pic {
-    display: none;
-  }
-  .btn-wechat {
-    border-radius: 100px;
-    margin-top: 15px;
-    height: 50px;
-    line-height: 50px;
+.login {
+    margin: 0;
     padding: 0;
-    border-color: #1A8CFE;
-    color: #1A8CFE;
-    display: block;
-  }
-  .login-form {
-    margin-top: 44px;
-    min-height: calc(100vh - 44px);
-    padding-bottom: 60px;
-    position: relative;
-  }
-  .logo{
-    margin-top: 0;
-  }
-  .username {
-    margin-top: 40px;
-  }
-  .password{
-    margin-top: 52px;
-  }
-  .remember {
-    margin-top: 20px;
-  }
-  .remember input {
-    vertical-align: middle;
-    position: relative;
-    top: -1px;
-  }
-  .remember em {
-    vertical-align: middle;
-  }
-  .main-error-tips{
+}
+
+.login-wrap {
+    height: 100vh;
+    min-height: 580px;
+}
+
+.bg-pic {
+    width: 100%;
+    height: 100%;
+}
+
+.img-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-content-wrap {
+    position: absolute;
+    width: 460px;
+    height: 100%;
+    min-height: 580px;
+    background: rgba(255, 255, 255, .4);
+    top: 0;
+    right: 0;
+}
+
+.login-content {
+    width: 360px;
+    height: 580px;
+    margin: auto;
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
     font-size: 12px;
+    transform: translateY(-50%);
+}
+
+.logo {
+    max-width: 60%;
+    display: block;
+    margin: 0 auto;
+    max-height: 60px;
+}
+
+.login-form {
+    width: 78.4%;
+    margin: 0px auto;
+    margin-top: 70px;
+}
+
+.main-error-tips {
+    font-size: 18px;
     text-align: center;
     color: red;
     width: 78.4%;
     top: 110px;
     margin: auto;
-    height: 1px;
-  }
-  .login-wrap,.login-content,.login-content-wrap {
-    min-height: 0;
-  }
-  /*.mobile-btn-regist{*/
-    /*border-radius: 100px;*/
-    /*margin-top: 15px;*/
-    /*height: 50px;*/
-    /*line-height: 50px;*/
-    /*padding: 0;*/
-    /*border-color:#1A8CFE;*/
-    /*color: #1A8CFE;*/
-    /*display: block;*/
-  /*}*/
-  .mobile-btn-regist {
-    color: #999;
-    padding: 0;
-    border: none;
-    font-size: 14px;
-    margin-left: 8px;
-  }
-  .mobile-btn-regist:hover {
-    color:#999;
-    background-color: #fff;
-  }
-  .mobile-register {
-    display: block;
-    float: left;
-    color: #999;
-  }
-  .login-content-footer .switchLang {
-    line-height: 40px;
-  }
-  /*.mobile-wechat-login {*/
-    /*display: block;*/
-    /*float: left;*/
-    /*color: #999;*/
-  /*}*/
-  .mobile-wechat-login a{
-    color: #999;
-    font-size: 14px;
-    vertical-align: super;
-    margin-left: 8px;
-  }
-  .login-content-wrap{
-    width: 100%;
-    height: 100%;
-    min-width: 0px;
-  }
-  .login-content {
-    width: 100%;
-    height: 100%;
-  }
-  .btn-login{
-    border-radius: 100px;
-    margin-top: 45px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0;
-  }
-  .login-content-footer {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 2px;
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-  }
-  .login-content-footer em {
-    font-size: 20px;
-    vertical-align: middle;
-  }
-  .login-content-footer .switchLang .ch {
-    font-size: 14px;
-    margin-left: 5px;
-  }
-  .loginWechet .btn-goto-login {
-    margin-top: 80px;
-  }
-}
-/*注册*/
-body{
-  margin: 0;
-  padding: 0;
-}
-.reg-wrap {
-  height: 100vh;
-  min-height: 580px;
-}
-.bg-pic {
-  width: 100%;
-  height: 100%;
-}
-.img-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.reg-content-wrap {
-  position: absolute;
-  width: 460px;
-  height:100%;
-  min-height: 580px;
-  background: rgba(255,255,255,.4);
-  top: 0;
-  right: 0;
-}
-.reg-content {
-  width: 360px;
-  height: 580px;
-  margin: auto;
-  background: rgba(255,255,255,1);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow: scroll;
-}
-.examinee-reg {
-  width: 78.4%;
-  margin: 0px auto;
-}
-.examRegStep1 .reg-tips {
-  font-size: 22px;
-  color:#1A8CFE;
-  margin-top: 38px;
-  border:none;
-  margin-bottom: 60px;
-}
-.examRegStep1 .password {
-  padding-left: 0;
-}
-.examRegStep1 .necessary{
-  color: red;
-  position: absolute;
-  left: -10px;
-  top: 5px;
-  padding: 0;
-}
-.examRegStep2 .reg-tips {
-  font-size: 22px;
-  color:#1A8CFE;
-  margin-top: 38px;
-  border:none;
-  margin-bottom: 35px;
-}
-.examRegStep3 .reg-tips {
-  font-size: 22px;
-  color:#1A8CFE;
-  margin-top: 102px;
-  margin-bottom: 35px;
-  text-align: center;
-  margin-left: 28px;
-}
-.examRegStep1 input,.examRegStep2 input {
-  border: none;
-  outline: none;
-  width: 100%;
-  color: #999;
-}
-.examRegStep1 div,.examRegStep2 div {
-  border-bottom: 1px solid #B7B7B7;
-  margin-bottom: 30px;
-  padding-bottom: 7px;
-  position: relative;
-}
-.examRegStep1 .focus,.examRegStep2 .focus {
-  border-color: #1A8CFE;
-}
-.examRegStep1 .error-tips,.examRegStep2 .error-tips{
-  font-size: 12px;
-  color: red;
-  position: absolute;
-  top: 4px;
-  right: 0;
-  border-bottom: 0;
-  margin: 0;
-  background: #fff;
-  padding-left: 10px;
-}
-.examRegStep2 .required:before {
-  color: #999;
-  font-size: 14px;
-  line-height: 19px;
-  content: '*';
-  display: block;
-  position: absolute;
-  left: -14px;
-  bottom: 6px;
-}
-.btn{
-  height: 40px;
-  padding: 0;
-  line-height: 40px;
-}
-.btn-next-step,.btn-finish {
-  width:100%;
-  background: #1A8CFE;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  cursor: not-allowed;
-  opacity: .65;
-  border-color:#1A8CFE;
-}
-.btn-exist-account{
-  width: 100%;
-}
-.all-input {
-  opacity: 1;
-  cursor: pointer;
-}
-.examRegStep2 .phone-series,.examRegStep2 .verify-input,.examRegStep2 .captcha-input,.examRegStep2 .verify-button, .examRegStep2 .information,
-.examRegStep2 .dep,.examRegStep2 .info,.examRegStep2 .current-option,.examRegStep2 .dep-option,.examRegStep2 .option {
-  border-bottom: 0;
-  margin-bottom: 0;
-  padding-bottom: 0;
+    height: 17px;
 }
 
-.examRegStep2 .info,.verify{
-  overflow: hidden;
+.username, .password {
+    color: #999;
+    border-bottom: 1px solid #999;
+    margin-top: 30px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    font-size: 14px;
 }
-.examRegStep2 .dep {
-  position: relative;
-  color: #999;
+
+.username em, .password em {
+    font-size: 14px;
+    vertical-align: text-bottom;
 }
-.examRegStep2 .dep {
-  cursor: pointer;
-  margin-bottom: 30px;
+
+.username span, .password span {
+    color: #DEDEDE;
+    padding: 0px 5px;
 }
-.examRegStep2 .dep .current-option {
-  border-bottom: 1px solid #999;
-  padding-bottom: 7px;
+
+.userNameInput, .passwordInput {
+    outline: none;
+    border: none;
+    color: #999;
+    width: calc(100% - 38px);
 }
-.examRegStep2 .dep em {
-  position: absolute;
-  top: 4px;
-  right: 0;
-  font-size: 12px;
+
+.focus {
+    border-color: #1A8CFE;
 }
-.examRegStep2 .dep-option {
-  display: none;
-  background: #FFFFFF;
-  border: 1px solid rgba(0,0,0,0.10);
-  border-radius: 4px;
-  padding: 10px;
+
+.focus em {
+    color: #1A8CFE
 }
-.examRegStep2 .dep-option .option {
-  margin-bottom: 5px;
-  padding-left: 10px;
+
+.remember {
+    overflow: hidden;
+    margin-top: 8px;
 }
-.examRegStep2 .dep-option .option:hover {
-  background: #F2F2F2;
-  border-radius: 4px;
-  cursor: pointer;
-  color:#1A8CFE;
+
+.remember label {
+    float: left;
+    color: #999;
+    font-weight: normal;
+    cursor: pointer;
+    padding-left: 2px;
 }
-.examRegStep2 .active .dep-option {
-  display: block;
+
+.remember input {
+    margin-right: 8px;
+    margin-top: 0;
 }
-.examRegStep2 .active .current-option {
-  color:#1A8CFE;
+
+.forget-password {
+    float: right;
+    color: #999;
 }
-.examRegStep2 .sex {
-  overflow: hidden;
-  margin-bottom: 30px;
-  border-bottom: 0;
-  padding-bottom: 0;
+
+.btn-login {
+    width: 100%;
+    background-color: #1A8CFE;
+    border-color: #1A8CFE;
+    margin-top: 35px;
 }
-.examRegStep2 .male,.examRegStep2 .famale {
-  margin-bottom: 0;
-  float: left;
-  width: 46%;
-  color: #B7B7B7;
-  border: 1px solid #B7B7B7;
-  padding: 6.5px 0;
+
+.btn-wechat {
+    width: 100%;
+    color: #1A8CFE;
+    border-color: #1A8CFE;
+    margin-top: 9px;
 }
-.examRegStep2 .male {
-  margin-right: 9px;
+
+.btn-wechat em {
+    margin-right: 8px;
 }
-.examRegStep2 .male:hover,.examRegStep2 .famale:hover,.examRegStep2 .selected.male,.examRegStep2 .selected.famale {
-  border:1px solid #1A8CFE;
-  color:#1A8CFE;
-  background: #fff;
+
+.btn-regist {
+    float: right;
+    color: #1A8CFE;
+    margin-top: 15px;
 }
-.btn-verify{
-  padding:0;
+
+.login-content-footer {
+    clear: both;
+    overflow: hidden;
+    margin-top: 134px;
+    margin-bottom: 16px;
 }
-.examRegStep3 .finish-text {
-  color:#999;
-  margin-top: 80px;
-  text-align: center;
+
+.login-content-footer .login-on-phone {
+    float: left;
+    color: #999;
+    line-height: 20px;
 }
-.examRegStep3 .btn-goto-login {
-  width: 100%;
-  margin-top: 50px;
-  background: #1A8CFE;
-  border-color:#1A8CFE;
+
+.login-content-footer .login-on-phone em {
+    margin-right: 8px;
+    vertical-align: middle;
 }
-.examRegStep3.weChatBind .btn-goto-login {
-  width: 100%;
-  margin-top: 112px;
-  font-size: 12px;
-  color: #666;
-  background: none;
-  border: none;
+
+.login-content-footer .switchLang {
+    float: right;
+    color: #999;
+    cursor: pointer;
+    line-height: 21px;
 }
-.examRegStep3.weChatBind .btn-goto-bind {
-  width: 100%;
-  margin-top: 50px;
-  background: #1A8CFE;
-  border-color:#1A8CFE;
+
+.login-content-footer .switchLang em {
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
 }
-.examRegStep3 .icon-a_circle_check {
-  font-size: 77px;
-  display: block;
-  text-align: center;
-  color:#1A8CFE;
+
+.login-content-footer .switchLang .ch {
+    margin-left: 5px;
+    vertical-align: middle;
 }
+
+.login-content-footer .show-qr-code {
+    color: #999;
+    vertical-align: middle;
+}
+
+.login-content-footer em {
+    font-size: 16px;
+}
+
+.mobile-register, .mobile-wechat-login {
+    display: none;
+}
+
+.qr-code-wrap {
+    background: url(../images/login_reg/qr-wrap.png) no-repeat;
+    bottom: 45px;
+    position: absolute;
+    left: 36px;
+    background-size: contain;
+    height: 120px;
+    width: 120px;
+    display: none;
+}
+
+.qr-codes {
+    margin: 7px;
+}
+
+.login-on-phone:hover .qr-code-wrap {
+    display: block;
+}
+
+.loginWechet {
+    width: 78.4%;
+    margin: 0px auto;
+}
+
+.loginWechet .reg-tips {
+    font-size: 22px;
+    color: #1A8CFE;
+    margin-top: 102px;
+    margin-bottom: 35px;
+    text-align: center;
+    margin-left: 28px;
+}
+
+.loginWechet .icon-a_circle_check {
+    font-size: 77px;
+    display: block;
+    text-align: center;
+    color: #1A8CFE;
+}
+
+.loginWechet .finish-text {
+    color: #999;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.loginWechet .btn-goto-bind {
+    width: 100%;
+    margin-top: 50px;
+    background: #1A8CFE;
+    border-color: #1A8CFE;
+}
+
+.loginWechet .btn-goto-login {
+    width: 100%;
+    margin-top: 112px;
+    font-size: 12px;
+    color: #666;
+    background: none;
+    border: none;
+}
+
 /*input 中placeholder样式*/
 ::-webkit-input-placeholder { /* WebKit browsers */
-  color: #999;
-  font-size: 14px;
+    color: #999;
 }
+
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #999;
-  font-size: 14px;
+    color: #999;
 }
+
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #999;
-  font-size: 14px;
+    color: #999;
 }
+
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-  color: #999;
-  font-size: 14px;
+    color: #999;
 }
+
 /*移动端*/
 @media (max-width: 768px) {
-  .reg-wrap {
-    min-height: 0;
-  }
-  .bg-pic {
-    display: none;
-  }
-  .reg-content-wrap{
-    width: 100%;
-    height: 100%;
-    min-width: 0px;
-  }
-  .reg-content {
-    width: 100%;
-    height: 100%;
-  }
-  .reg-content-wrap{
-    min-height: 0;
-  }
-  .examRegStep1 .reg-tips {
-    margin-bottom: 70px;
-  }
-  .examRegStep1 .password {
-    margin-top: 0;
-  }
-  .examRegStep1 div,.examRegStep2 div {
-    border-bottom-width: 0.5px;
-  }
-  .examRegStep1 .required:before, .examRegStep2 .required:before {
-    color: #1A8CFE;
-  }
-  .examRegStep3 .btn-goto-login {
-    margin-top: 40px;
-    margin-bottom: 0;
-  }
-  .btn-goto-login,.btn-next-step,.btn-finish,.male,.famale,.btn-exist-account {
-    border-radius: 100px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0;
-  }
-  .examRegStep2 .male, .examRegStep2 .famale {
-    height: 40px;
-    line-height: 40px;
-    padding:0;
-  }
- .examRegStep3 .reg-tips {
-   margin-top: 80px;
- }
+    .btn-regist, .login-content-footer .login-on-phone, .bg-pic {
+        display: none;
+    }
+
+    .btn-wechat {
+        border-radius: 100px;
+        margin-top: 15px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0;
+        border-color: #1A8CFE;
+        color: #1A8CFE;
+        display: block;
+    }
+
+    .login-form {
+        margin-top: 44px;
+        min-height: calc(100vh - 44px);
+        padding-bottom: 60px;
+        position: relative;
+    }
+
+    .logo {
+        margin-top: 0;
+    }
+
+    .username {
+        margin-top: 40px;
+    }
+
+    .password {
+        margin-top: 52px;
+    }
+
+    .remember {
+        margin-top: 20px;
+    }
+
+    .remember input {
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+    }
+
+    .remember em {
+        vertical-align: middle;
+    }
+
+    .main-error-tips {
+        font-size: 12px;
+        text-align: center;
+        color: red;
+        width: 78.4%;
+        top: 110px;
+        margin: auto;
+        height: 1px;
+    }
+
+    .login-wrap, .login-content, .login-content-wrap {
+        min-height: 0;
+    }
+
+    .mobile-btn-regist {
+        color: #999;
+        padding: 0;
+        border: none;
+        font-size: 14px;
+        margin-left: 8px;
+    }
+
+    .mobile-btn-regist:hover {
+        color: #999;
+        background-color: #fff;
+    }
+
+    .mobile-register {
+        display: block;
+        float: left;
+        color: #999;
+    }
+
+    .login-content-footer .switchLang {
+        line-height: 40px;
+    }
+
+    .mobile-wechat-login a {
+        color: #999;
+        font-size: 14px;
+        vertical-align: super;
+        margin-left: 8px;
+    }
+
+    .login-content-wrap {
+        width: 100%;
+        height: 100%;
+        min-width: 0px;
+    }
+
+    .login-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    .btn-login {
+        border-radius: 100px;
+        margin-top: 45px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0;
+    }
+
+    .login-content-footer {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 2px;
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+    }
+
+    .login-content-footer em {
+        font-size: 20px;
+        vertical-align: middle;
+    }
+
+    .login-content-footer .switchLang .ch {
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .loginWechet .btn-goto-login {
+        margin-top: 80px;
+    }
 }
+
+/*注册*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.reg-wrap {
+    height: 100vh;
+    min-height: 580px;
+}
+
+.bg-pic {
+    width: 100%;
+    height: 100%;
+}
+
+.img-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reg-content-wrap {
+    position: absolute;
+    width: 460px;
+    height: 100%;
+    min-height: 580px;
+    background: rgba(255, 255, 255, .4);
+    top: 0;
+    right: 0;
+}
+
+.reg-content {
+    width: 360px;
+    height: 580px;
+    margin: auto;
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: scroll;
+}
+
+.examinee-reg {
+    width: 78.4%;
+    margin: 0px auto;
+}
+
+.examRegStep1 .reg-tips {
+    font-size: 22px;
+    color: #1A8CFE;
+    margin-top: 38px;
+    border: none;
+    margin-bottom: 60px;
+}
+
+.examRegStep1 .password {
+    padding-left: 0;
+}
+
+.examRegStep1 .necessary {
+    color: red;
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    padding: 0;
+}
+
+.examRegStep2 .reg-tips {
+    font-size: 22px;
+    color: #1A8CFE;
+    margin-top: 38px;
+    border: none;
+    margin-bottom: 35px;
+}
+
+.examRegStep3 .reg-tips {
+    font-size: 22px;
+    color: #1A8CFE;
+    margin-top: 102px;
+    margin-bottom: 35px;
+    text-align: center;
+    margin-left: 28px;
+}
+
+.examRegStep1 input, .examRegStep2 input {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #999;
+}
+
+.examRegStep1 div, .examRegStep2 div {
+    border-bottom: 1px solid #B7B7B7;
+    margin-bottom: 30px;
+    padding-bottom: 7px;
+    position: relative;
+}
+
+.examRegStep1 .focus, .examRegStep2 .focus {
+    border-color: #1A8CFE;
+}
+
+.examRegStep1 .error-tips, .examRegStep2 .error-tips {
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    border-bottom: 0;
+    margin: 0;
+    background: #fff;
+    padding-left: 10px;
+}
+
+.examRegStep2 .required:before {
+    color: #999;
+    font-size: 14px;
+    line-height: 19px;
+    content: '*';
+    display: block;
+    position: absolute;
+    left: -14px;
+    bottom: 6px;
+}
+
+.btn {
+    height: 40px;
+    padding: 0;
+    line-height: 40px;
+}
+
+.btn-next-step, .btn-finish {
+    width: 100%;
+    background: #1A8CFE;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    cursor: not-allowed;
+    opacity: .65;
+    border-color: #1A8CFE;
+}
+
+.btn-exist-account {
+    width: 100%;
+}
+
+.all-input {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.examRegStep2 .phone-series, .examRegStep2 .verify-input, .examRegStep2 .captcha-input, .examRegStep2 .verify-button, .examRegStep2 .information,
+.examRegStep2 .dep, .examRegStep2 .info, .examRegStep2 .current-option, .examRegStep2 .dep-option, .examRegStep2 .option {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.examRegStep2 .info, .verify {
+    overflow: hidden;
+}
+
+.examRegStep2 .dep {
+    position: relative;
+    color: #999;
+}
+
+.examRegStep2 .dep {
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.examRegStep2 .dep .current-option {
+    border-bottom: 1px solid #999;
+    padding-bottom: 7px;
+}
+
+.examRegStep2 .dep em {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    font-size: 12px;
+}
+
+.examRegStep2 .dep-option {
+    display: none;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.examRegStep2 .dep-option .option {
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+
+.examRegStep2 .dep-option .option:hover {
+    background: #F2F2F2;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #1A8CFE;
+}
+
+.examRegStep2 .active .dep-option {
+    display: block;
+}
+
+.examRegStep2 .active .current-option {
+    color: #1A8CFE;
+}
+
+.examRegStep2 .sex {
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.examRegStep2 .male, .examRegStep2 .famale {
+    margin-bottom: 0;
+    float: left;
+    width: 46%;
+    color: #B7B7B7;
+    border: 1px solid #B7B7B7;
+    padding: 6.5px 0;
+}
+
+.examRegStep2 .male {
+    margin-right: 9px;
+}
+
+.examRegStep2 .male:hover, .examRegStep2 .famale:hover, .examRegStep2 .selected.male, .examRegStep2 .selected.famale {
+    border: 1px solid #1A8CFE;
+    color: #1A8CFE;
+    background: #fff;
+}
+
+.btn-verify {
+    padding: 0;
+}
+
+.examRegStep3 .finish-text {
+    color: #999;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.examRegStep3 .btn-goto-login {
+    width: 100%;
+    margin-top: 50px;
+    background: #1A8CFE;
+    border-color: #1A8CFE;
+}
+
+.examRegStep3.weChatBind .btn-goto-login {
+    width: 100%;
+    margin-top: 112px;
+    font-size: 12px;
+    color: #666;
+    background: none;
+    border: none;
+}
+
+.examRegStep3.weChatBind .btn-goto-bind {
+    width: 100%;
+    margin-top: 50px;
+    background: #1A8CFE;
+    border-color: #1A8CFE;
+}
+
+.examRegStep3 .icon-a_circle_check {
+    font-size: 77px;
+    display: block;
+    text-align: center;
+    color: #1A8CFE;
+}
+
+/*input 中placeholder样式*/
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #999;
+    font-size: 14px;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #999;
+    font-size: 14px;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999;
+    font-size: 14px;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #999;
+    font-size: 14px;
+}
+
+/*移动端*/
+@media (max-width: 768px) {
+    .reg-wrap {
+        min-height: 0;
+    }
+
+    .bg-pic {
+        display: none;
+    }
+
+    .reg-content-wrap {
+        width: 100%;
+        height: 100%;
+        min-width: 0px;
+    }
+
+    .reg-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    .reg-content-wrap {
+        min-height: 0;
+    }
+
+    .examRegStep1 .reg-tips {
+        margin-bottom: 70px;
+    }
+
+    .examRegStep1 .password {
+        margin-top: 0;
+    }
+
+    .examRegStep1 div, .examRegStep2 div {
+        border-bottom-width: 0.5px;
+    }
+
+    .examRegStep1 .required:before, .examRegStep2 .required:before {
+        color: #1A8CFE;
+    }
+
+    .examRegStep3 .btn-goto-login {
+        margin-top: 40px;
+        margin-bottom: 0;
+    }
+
+    .btn-goto-login, .btn-next-step, .btn-finish, .male, .famale, .btn-exist-account {
+        border-radius: 100px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0;
+    }
+
+    .examRegStep2 .male, .examRegStep2 .famale {
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+    }
+
+    .examRegStep3 .reg-tips {
+        margin-top: 80px;
+    }
+}
+
 /*隐藏商桥链接*/
 #newBridge {
-  display: none!important;
+    display: none !important;
 }

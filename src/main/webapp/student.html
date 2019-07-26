@@ -10,8 +10,6 @@
     <meta name="description" content="一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
     <meta name="author" content="">
     <script async="" src="./js/tingyun-rum-exam.js"></script>
-    <script async="" src="./js/gio.js"></script>
-    <script type="text/javascript" src="./js/ksx_probe.js"></script>
     <script type="text/javascript">
         var opts = {};
 
@@ -19,11 +17,6 @@
         opts.companyId = '140092';
         opts.companyName = '东北大学软件园';
         opts.rightsGrade = '8';
-
-        //添加gio
-        ksxProbe.gioInit(opts);
-        //添加tingyun
-        ksxProbe.tingyun();
     </script>
 
     <title>考试云平台</title>
@@ -382,8 +375,6 @@
                                   target="characterIframe" action="https://exam.com/account/user/upload_picture">
                                 <i class="icon icon-p_personal_camera"></i>
                                 <input type="file" name="picture" id="characterUpload">
-                                <iframe name="characterIframe" id="characterIframe" class="hidden"
-                                        src="./saved_resource.html"></iframe>
                             </form>
                         </div>
                     </div>
@@ -742,7 +733,6 @@
                     }
                 }
             });
-
         });
 
         //进入考试(继续考试)
@@ -890,7 +880,5 @@
         }
     });
 </script>
-
-
 </body>
 </html>

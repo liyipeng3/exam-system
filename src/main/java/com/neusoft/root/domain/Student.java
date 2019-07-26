@@ -71,6 +71,10 @@ public class Student {
 		this.studentMajor = studentMajor;
 		this.studentSchool = studentSchool;
 	}
+	public Student() 
+	{
+		super();
+	}
 	public String getStudentId() {
 		return studentId;
 	}

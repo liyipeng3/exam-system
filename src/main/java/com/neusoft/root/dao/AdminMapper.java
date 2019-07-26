@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.mysql.cj.protocol.Message;
 import com.neusoft.root.domain.Admin;
 import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Class1;
@@ -15,6 +14,7 @@ import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
+import com.neusoft.root.domain.Message;
 import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
@@ -52,6 +52,7 @@ public interface AdminMapper
 	public void updateCourse(Map<String ,Object> course);
 	public List<Course> queryCourse(Course course);
 	
+
 	//记录
 	public void addMyLog(MyLog myLog);
 	public void deleteMyLog(MyLog myLog);
@@ -60,7 +61,7 @@ public interface AdminMapper
 	
 	
 	//学生安排考试表的增删改查
-	public void  addManagestudent(Managestudent managestudent);
+	public void addManagestudent(Managestudent managestudent);
 	public void deleteManagestudent(Managestudent managestudent);
 	public void updateManagestudent(Managestudent managestudent);
 	public List<Managestudent> queryManagestudent(Managestudent managestudent);

@@ -53,9 +53,9 @@ $(document).ready(function () {
         $("#group_simple").find("input[name=test_peer_score]").attr("sort", sortRandom);
         $("#group_simple").find("input[name=test_peer_time]").attr("sort", sortRandom);
         $("#group_simple").find("input[name=totelNum]").attr("sort", sortRandom);
-        if(type==1 || type==2){
+        if (type == 1 || type == 2) {
             $("#group_simple").find(".options-disorder").removeClass("hidden");
-        }else {
+        } else {
             $("#group_simple").find(".options-disorder").addClass("hidden");
         }
 
@@ -99,15 +99,15 @@ $(document).ready(function () {
         inputBox = inputBox.eq(inputBox.length - 1);
         inputBox.val(queName);
         //左侧添加相应大题信息
-        var htmlLeft = '<div onclick="leftItemClick(this)" data-catename="'+queName+'" class="item group_simple left_group_simple animate" sort="' + sortRandom + '">' +
+        var htmlLeft = '<div onclick="leftItemClick(this)" data-catename="' + queName + '" class="item group_simple left_group_simple animate" sort="' + sortRandom + '">' +
             '<p><h3 class="test_tittle" sort="' + sortRandom + '">' + queName + '</h3></p>' +
             ((type == '6' && paper_type == "1") ? '<p class="left_p">共<span class="test_num" sort="' + sortRandom + '">0</span>题 ，含 <span class="small_test_num" sort="' + sortRandom + '">0</span> 小题 </p><p class="left_p">共 <span class="all_fraction" sort="' + sortRandom + '">0</span> 分数</p>' : '<p class="left_p">共<span class="test_num" sort="' + sortRandom + '">0</span>题 ，共 <span class="all_fraction" sort="' + sortRandom + '">0</span> 分数</p>') +
-            ((perTimeRestrict == "0") ? '' : '<p class="left_p" id="oneQTime">每题答题时长<input type="text" name="every_q_time" line-height: 15px" sort="' + sortRandom + '">秒</p>' )+
-            '<p class="left_p">每题分数<input type="text" name="test_peer_score" line-height: 15px" sort="' + sortRandom + '">分</p>'+
+            ((perTimeRestrict == "0") ? '' : '<p class="left_p" id="oneQTime">每题答题时长<input type="text" name="every_q_time" line-height: 15px" sort="' + sortRandom + '">秒</p>') +
+            '<p class="left_p">每题分数<input type="text" name="test_peer_score" line-height: 15px" sort="' + sortRandom + '">分</p>' +
             '<p class="test_icon_a"><a href="javascript:void(0)" class="m-content-trash icon-a_operate_delete" aria-hidden="true" title="移除" sort="' + sortRandom + '" data-toggle="tooltip" data-placement="top" data-original-title="删除"></a>' +
-            '<a href="javascript:void(0)" class="m-content-up glyphicon icon-a_operate_move_up" aria-hidden="true" title="上移" sort="' + sortRandom + '" data-toggle="tooltip" data-placement="top" data-original-title="上移"></a>'+
-            '<a href="javascript:void(0)" class="m-content-down glyphicon icon-a_operate_move_down" aria-hidden="true" title="下移" sort="' + sortRandom + '" data-toggle="tooltip" data-placement="top" data-original-title="下移"></a></p>'+
-            '<div class="q_s_line"></div>'+
+            '<a href="javascript:void(0)" class="m-content-up glyphicon icon-a_operate_move_up" aria-hidden="true" title="上移" sort="' + sortRandom + '" data-toggle="tooltip" data-placement="top" data-original-title="上移"></a>' +
+            '<a href="javascript:void(0)" class="m-content-down glyphicon icon-a_operate_move_down" aria-hidden="true" title="下移" sort="' + sortRandom + '" data-toggle="tooltip" data-placement="top" data-original-title="下移"></a></p>' +
+            '<div class="q_s_line"></div>' +
             '</div>';
 
         $(".info-board .total").before(htmlLeft);
@@ -125,7 +125,7 @@ $(document).ready(function () {
         }
 
         changeLeftInfoFn(inputBox, 3, queName);
-        if(paper_type==3){
+        if (paper_type == 3) {
             fixMChoicesQuestionStyle();
         }
 
@@ -193,7 +193,7 @@ $(document).ready(function () {
         var $example = $(this).parents(".m-example");
         $($example).find("input[name=per_score]").val("");
         var Rsort = $($example).parents('.group_simple').attr('sort');
-        $('.left_group_simple').each(function (index,element) {
+        $('.left_group_simple').each(function (index, element) {
             if ($(this).attr('sort') == Rsort) {
                 $(this).find("input[name=test_peer_score]").val("");
             }
@@ -205,14 +205,14 @@ $(document).ready(function () {
     $("body").on("keyup", ".group_main .group_simple input.member_second", function (e) {
         $(this).val($.trim($(this).val()));
         var value = $(this).val();
-        var regex=/^\d+\.[1-9]+$/;  // true 小数
+        var regex = /^\d+\.[1-9]+$/;  // true 小数
         if (value == '' && isNaN(value) && regex.test($(this).val())) {
             alert('时长为数字且为整数!');
         }
         var $example = $(this).parents(".m-example");
         $($example).find("input[name=per_time]").val("");
         var Rsort = $($example).parents('.group_simple').attr('sort');
-        $('.left_group_simple').each(function (index,element) {
+        $('.left_group_simple').each(function (index, element) {
             if ($(this).attr('sort') == Rsort) {
                 $(this).find("input[name=every_q_time]").val("");
             }
@@ -266,13 +266,13 @@ $(document).ready(function () {
     $("body").on("click", ".m-example-edit", function (e) {
         $('.tooltip.fade').remove();
         updateQuestionId = $(this).attr("questionId");
-            window.open('/admin/update?id=' + updateQuestionId, "_blank");
+        window.open('/admin/update?id=' + updateQuestionId, "_blank");
     });
     //移除添加的试题
     $("body").on("click", ".m-example-remove", function (e) {
         $('.tooltip.fade').remove();
         totalTestNumFn($(this).parents(".group_simple").attr("sort"), 2);
-        if($(this).parents(".group_simple").find(".m-example").length==1){ //大题的小题全部删除后，显示空空如也  如果目前仅剩1个小题，移除后即0个，所以先判断为1，否则定位不到大题位置
+        if ($(this).parents(".group_simple").find(".m-example").length == 1) { //大题的小题全部删除后，显示空空如也  如果目前仅剩1个小题，移除后即0个，所以先判断为1，否则定位不到大题位置
             $(this).parents(".group_simple").find(".empty_q_tip").show();
         }
         $(this).parents(".m-example").remove();
@@ -430,14 +430,14 @@ $(document).ready(function () {
     });
 
     //选择分类
-    $("body").on("click", "#selTypeLink", function(e) {
+    $("body").on("click", "#selTypeLink", function (e) {
         e.stopPropagation();
         e.preventDefault();
         showSelType(this);
     });
 
     // 选择标签
-    $("body").on("click", "#selLabelLink", function(e) {
+    $("body").on("click", "#selLabelLink", function (e) {
         showSelLabel(this);
     });
 
@@ -458,19 +458,19 @@ $(document).ready(function () {
         var diff1 = $(this).parents(".group_simple").find(".diff_div .diff1").text();
         var diff2 = $(this).parents(".group_simple").find(".diff_div .diff2").text();
         var diff3 = $(this).parents(".group_simple").find(".diff_div .diff3").text();
-        if(diff1==''){
+        if (diff1 == '') {
             diff1 = 0;
         }
-        if(diff2==''){
+        if (diff2 == '') {
             diff2 = 0;
         }
-        if(diff3==''){
+        if (diff3 == '') {
             diff3 = 0;
         }
         $('input[name=difficult1]').val(diff1);
         $('input[name=difficult2]').val(diff2);
         $('input[name=difficult3]').val(diff3);
-        if (!$(this).parents(".group_simple").hasClass('click_add')){
+        if (!$(this).parents(".group_simple").hasClass('click_add')) {
             difficultModalReset();
         }
         var getType = $(this).parents(".group_simple").attr("questiontype");
@@ -480,29 +480,29 @@ $(document).ready(function () {
         e.preventDefault();
         selType = getType;
         selTr = $(this).parents(".group_simple");
-        if ($(selTr).hasClass('click_add')){
-            getTableData($(this).parents(".extract-box-tit").find("input[name=test_classify_id]").val(),$(this).parents(".extract-box-tit").find("input[name=test_label_id]").val());
+        if ($(selTr).hasClass('click_add')) {
+            getTableData($(this).parents(".extract-box-tit").find("input[name=test_classify_id]").val(), $(this).parents(".extract-box-tit").find("input[name=test_label_id]").val());
         }
         showQuestionsType(this);
         $(this).parents(".group_simple").addClass('click_add');
     });
 
     //抽题/随机组卷勾选回显
-    function showCheckedClassLabel(_this){
-        _checked_this=_this; //这个全局变量在点击选择弹窗的'确定'按钮时、在树里显示勾选时用到
-        var class_ids=$(_this).parents('.extract-box-tit').find("input[name='test_classify_id']").val();
-        var label_ids=$(_this).parents('.extract-box-tit').find("input[name='test_label_id']").val();
+    function showCheckedClassLabel(_this) {
+        _checked_this = _this; //这个全局变量在点击选择弹窗的'确定'按钮时、在树里显示勾选时用到
+        var class_ids = $(_this).parents('.extract-box-tit').find("input[name='test_classify_id']").val();
+        var label_ids = $(_this).parents('.extract-box-tit').find("input[name='test_label_id']").val();
         $(_this).parents('.extract-box-tit').find(".checked_classify_ids").val(class_ids); //试题分类的勾选项与提交项一致（提交项是最终设置，勾选项只是查询条件）
         $(_this).parents('.extract-box-tit').find(".checked_label_ids").val(label_ids); //试题标签的勾选项与提交项一致（提交项是最终设置，勾选项只是查询条件）
-        if(class_ids==""){ //如果为空，文案变回请选择
+        if (class_ids == "") { //如果为空，文案变回请选择
             $("#selTypeLink").text('请选择');
         }
-        if(label_ids==""){ //如果为空，文案变回请选择
+        if (label_ids == "") { //如果为空，文案变回请选择
             $("#selLabelLink").text('请选择');
         }
     }
 
-    $('#saveTextBtn').on('click',function () {
+    $('#saveTextBtn').on('click', function () {
         var difficult = "";
         var totelNum = "";
         var simple = $('input[name=difficult1]').val();
@@ -511,35 +511,35 @@ $(document).ready(function () {
         var difficult1_num = $('#difficultModal .difficult1_num').text();
         var difficult2_num = $('#difficultModal .difficult2_num').text();
         var difficult3_num = $('#difficultModal .difficult3_num').text();
-        var checked_class_ids=$(_checked_this).parents('.extract-box-tit').find(".checked_classify_ids").val();//勾选的试题分类id
+        var checked_class_ids = $(_checked_this).parents('.extract-box-tit').find(".checked_classify_ids").val();//勾选的试题分类id
         $("input[name=classification]").val(checked_class_ids); //将勾选的id赋给提交参数
         selTr.find("input[name=test_classify_id]").val(checked_class_ids);
-        var checked_label_ids=$(_checked_this).parents('.extract-box-tit').find(".checked_label_ids").val();//勾选的试题标签id
+        var checked_label_ids = $(_checked_this).parents('.extract-box-tit').find(".checked_label_ids").val();//勾选的试题标签id
         $("input[name=label]").val(checked_label_ids);
         selTr.find("input[name=test_label_id]").val(checked_label_ids);
-        if (simple == '' || middle == '' || hard == ''){
+        if (simple == '' || middle == '' || hard == '') {
             alert("数量不能为空!");
             return;
         }
-        if(simple=="0" && middle=="0" && hard=="0"){
+        if (simple == "0" && middle == "0" && hard == "0") {
             alert("数量不能全为0！");
             return;
         }
-        if(parseInt(simple)>parseInt(difficult1_num)){
+        if (parseInt(simple) > parseInt(difficult1_num)) {
             alert("数量过大，请重新填写！");
             return;
         }
-        if(parseInt(middle)>parseInt(difficult2_num)){
+        if (parseInt(middle) > parseInt(difficult2_num)) {
             alert("数量过大，请重新填写！");
             return;
         }
-        if(parseInt(hard)>parseInt(difficult3_num)){
+        if (parseInt(hard) > parseInt(difficult3_num)) {
             alert("数量过大，请重新填写！");
             return;
         }
         difficult = simple + "," + middle + "," + hard;
         totelNum = parseInt(simple) + parseInt(middle) + parseInt(hard);
-        saveDifficultFn(difficult,totelNum);
+        saveDifficultFn(difficult, totelNum);
         hideDifficultModal();
     });
 
@@ -553,14 +553,14 @@ $(document).ready(function () {
         var score = $(this).val();
         if (score % 0.5 != 0) {
             alert('请保证每题分数为0.5的倍数!');
-        };
+        }
+        ;
     });
     //漏选给分显示每个选项分数输入框
     $("body").on("change", "input[name='less_choice_confirm']", function (e) {
         if (this.checked) {
             $(this).parent().children("span[name='option_peer_score_show']").css("display", "inline");
-        }
-        else {
+        } else {
             $(this).parent().children("span[name='option_peer_score_show']").css("display", "none");
         }
         ;
@@ -653,53 +653,54 @@ $(document).ready(function () {
 
 
 });
+
 //试题验证表单选项
-function checkForm_question(parentDom){
-	var parentDom = $(parentDom);
-	if(parentDom.parents(".group_simple").find("input[name=test_tittle]").val()==""){
-		alert("请输入题型名称；（例如：选择题）！");
-		return false;
-	}
+function checkForm_question(parentDom) {
+    var parentDom = $(parentDom);
+    if (parentDom.parents(".group_simple").find("input[name=test_tittle]").val() == "") {
+        alert("请输入题型名称；（例如：选择题）！");
+        return false;
+    }
 
-	var type = parentDom.parents(".group_simple").attr("questionType");
-	var questionEditor = parentDom.find("input[name=question]").val();
+    var type = parentDom.parents(".group_simple").attr("questionType");
+    var questionEditor = parentDom.find("input[name=question]").val();
 
-	if(questionEditor==""){
-		alert("请填写试题描述！");
-		return false;
-	}
-	if(type==1||type==2){
-		var key = parentDom.find(".radioOrCheck");
-		var ifCheck = 0;
-		for(var i=0;i<key.length;i++){
-			var checked = $(key[i]).is(":checked");
-			$(key[i]).parent().find(".key").remove();
-			if(checked===true){
-				ifCheck++;
-				$(key[i]).parent().append('<input type="hidden" class="key" name="key'+(i+1)+'" value="1" />');
-			}else{
-				$(key[i]).parent().append('<input type="hidden" class="key" name="key'+(i+1)+'" value="0" />');
-			}
-		}
-		if(ifCheck===0){
-			alert("请选择正确答案！");
-			return false;
-		}
-		if (type == 2 && ifCheck<2){
+    if (questionEditor == "") {
+        alert("请填写试题描述！");
+        return false;
+    }
+    if (type == 1 || type == 2) {
+        var key = parentDom.find(".radioOrCheck");
+        var ifCheck = 0;
+        for (var i = 0; i < key.length; i++) {
+            var checked = $(key[i]).is(":checked");
+            $(key[i]).parent().find(".key").remove();
+            if (checked === true) {
+                ifCheck++;
+                $(key[i]).parent().append('<input type="hidden" class="key" name="key' + (i + 1) + '" value="1" />');
+            } else {
+                $(key[i]).parent().append('<input type="hidden" class="key" name="key' + (i + 1) + '" value="0" />');
+            }
+        }
+        if (ifCheck === 0) {
+            alert("请选择正确答案！");
+            return false;
+        }
+        if (type == 2 && ifCheck < 2) {
             alert("多选题要至少有两个选项哦！");
             return false;
         }
-		return true;
-	}
-	if(type==4){
-        var key=parentDom.parents(".cont-r").find("input[name=keyFill]");
-        var ifFill= true;
-        for(var i=0;i<key.length-1;i++){
-          if($(key[i]).val()==""){
-            alert("请填写试题答案！");
-            ifFill=false;
-            break;
-          }
+        return true;
+    }
+    if (type == 4) {
+        var key = parentDom.parents(".cont-r").find("input[name=keyFill]");
+        var ifFill = true;
+        for (var i = 0; i < key.length - 1; i++) {
+            if ($(key[i]).val() == "") {
+                alert("请填写试题答案！");
+                ifFill = false;
+                break;
+            }
         }
         if (ifCheck === 0) {
             alert("请选择正确答案！");
@@ -734,6 +735,7 @@ function checkForm_question(parentDom){
     }
     return true;
 }
+
 //提交试题数据合并
 function serializeForm_question(parentDom) {
     var parentDom = $(parentDom);
@@ -777,7 +779,7 @@ function serializeForm_question(parentDom) {
         var html = "";
         var reg = /,/g;
         keyList.each(function (index, element) {
-            html = '<input type="hidden" class="" name="key' + (index + 1) + '" value="1" /><input type="hidden" class="radioOrCheck" name="answer' + (index + 1) + '" value="' + $(this).val().replace(reg,"&&") + '" />';
+            html = '<input type="hidden" class="" name="key' + (index + 1) + '" value="1" /><input type="hidden" class="radioOrCheck" name="answer' + (index + 1) + '" value="' + $(this).val().replace(reg, "&&") + '" />';
             $("#asyncForm_question div").append(html);
         });
         return true;
@@ -789,19 +791,20 @@ function serializeForm_question(parentDom) {
         return true;
     }
 }
+
 //试卷验证表单选项
 function checkForm_paper() {
 
-    if($("input[name=paperName]").val()==""){
+    if ($("input[name=paperName]").val() == "") {
         alert("请输入试卷名称");
         return false;
-    }else if($("input[name=paperName]").val().length > 50){
+    } else if ($("input[name=paperName]").val().length > 50) {
         alert("试卷名称不得大于50字！");
         return false;
     }
 
     var reg = /^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
-    var regex=/^\d+\.[1-9]+$/;  // true 小数
+    var regex = /^\d+\.[1-9]+$/;  // true 小数
     var test_tittle = true;
     $(".group_main input[name=test_tittle]").each(function (index, element) {
         if ($(this).val() == "") {
@@ -819,11 +822,11 @@ function checkForm_paper() {
     var question_per_score = true;
     $(".group_main input[name=per_score]").each(function (index, element) {
         var type = $(this).parents(".group_simple").attr("questionType");
-        $(this).css('border','solid 1px #D8D8D8');
+        $(this).css('border', 'solid 1px #D8D8D8');
         $(this).parent().find(".empty_red_tip").remove();
         if ((type != 6) && (!reg.test($(this).val()))) {
             question_per_score = false;
-            $(this).css('border','solid 1px #FF4B50');
+            $(this).css('border', 'solid 1px #FF4B50');
             $(this).parent().append('<span class="empty_red_tip">请设置每题分数</span>');
             return false;
         }
@@ -841,23 +844,24 @@ function checkForm_paper() {
         if ($(this).parent().is(':visible') && ($(this).val() == "" || $(this).val() % 0.5 != 0)) {
             option_peer_score = false;
             return false;
-        };
+        }
+        ;
     });
     //检查每题时长 秒
     var every_q_time = true;
     $(".group_main input[name=test_peer_time]").each(function (index, element) {
-        $(this).css('border','solid 1px #D8D8D8');
+        $(this).css('border', 'solid 1px #D8D8D8');
         $(this).parent().find(".empty_red_tip").remove();
         if ($(this).val() == "") {
             every_q_time = false;
-            $(this).css('border','solid 1px #FF4B50');
+            $(this).css('border', 'solid 1px #FF4B50');
             $(this).parent().append('<span class="empty_red_tip">请设置答题时长</span>');
             return false;
         }
     });
     $(".info-board input[name=every_q_time]").each(function (index, element) {
         var _val = $(this).val();
-        if (_val == "" || _val.indexOf(".") > -1 || (paper_type!="1"?(parseInt(_val)==0?true:false):false)) {
+        if (_val == "" || _val.indexOf(".") > -1 || (paper_type != "1" ? (parseInt(_val) == 0 ? true : false) : false)) {
             every_q_time = false;
             return false;
         }
@@ -866,7 +870,7 @@ function checkForm_paper() {
     var question_per_time = true;
     $(".group_main input[name=per_time]").each(function (index, element) {
         var type = $(this).parents(".group_simple").attr("questionType");
-        if (regex.test($(this).val()) || $(this).val().indexOf(".")>-1) {
+        if (regex.test($(this).val()) || $(this).val().indexOf(".") > -1) {
             question_per_time = false;
             return false;
         }
@@ -879,7 +883,7 @@ function checkForm_paper() {
             comb_per_time = false;
             return false;
         }
-        if ($(this).val()=="") {
+        if ($(this).val() == "") {
             comb_per_time_vaild = false;
             return false;
         }
@@ -901,7 +905,7 @@ function checkForm_paper() {
         return false;
     }
 
-    if (perTimeRestrict == 1){
+    if (perTimeRestrict == 1) {
         if ($("input[name=per_time]").length == 0 && every_q_time === false) {
             alert("请填写每题答题时长");
             return false;
@@ -975,6 +979,7 @@ function checkForm_paper() {
 
     return true;
 }
+
 //提交试卷数据合并
 function serializeForm_paper() {
     $("#asyncForm_paper div").html("&nbsp;");
@@ -983,7 +988,8 @@ function serializeForm_paper() {
     $("#asyncForm_paper input[name=totalTime]").val($(".info-board .total .total_time").text());
     $(".group_main .group_simple").each(function (index, element) {
         var num = index + 1;
-        var html = "", test_ids = "", question_scores = "", question_time = "" , test_type = "", test_peer_score = "", test_peer_time = "",test_tittle = "";
+        var html = "", test_ids = "", question_scores = "", question_time = "", test_type = "", test_peer_score = "",
+            test_peer_time = "", test_tittle = "";
         var comb_data1 = [];
         var comb_data2 = [];
         var question_disorder, options_disorder;
@@ -1039,24 +1045,21 @@ function serializeForm_paper() {
         // 试题乱序
         if ($($(this).find("input[name=question_disorder]")[0]).is(":checked")) {
             question_disorder = '1';
-        }
-        else {
+        } else {
             question_disorder = '0';
         }
 
         // 选项乱序
         if ($($(this).find("input[name=options_disorder]")[0]).is(":checked")) {
             options_disorder = '1';
-        }
-        else {
+        } else {
             options_disorder = '0';
         }
 
         //如果漏选得分checked，则取值1
         if ($(this).find("input[name=less_choice_confirm]").is(":checked")) {
             less_choice_confirm_value = '1';
-        }
-        else {
+        } else {
             less_choice_confirm_value = '0';
         }
 
@@ -1065,8 +1068,8 @@ function serializeForm_paper() {
         option_peer_score = typeof option_peer_score == "undefined" ? "" : option_peer_score;
 
         if (test_type == "6" && paper_type == "1") {
-            html += '<input type="hidden" name="comb' + num + '" value="' + JSON.stringify(comb_data1).replace(/\"/g, "\'") + '" />'+
-                   '<input type="hidden" name="comb_t' + num + '"value="' + JSON.stringify(comb_data2).replace(/\"/g, "\'")+'" />';
+            html += '<input type="hidden" name="comb' + num + '" value="' + JSON.stringify(comb_data1).replace(/\"/g, "\'") + '" />' +
+                '<input type="hidden" name="comb_t' + num + '"value="' + JSON.stringify(comb_data2).replace(/\"/g, "\'") + '" />';
         } else {
             html += '<input type="hidden" name="testIds' + num + '" value="' + test_ids + '" />';
             if (question_scores == "") {
@@ -1105,11 +1108,10 @@ function asyncPaperSub(obj) {
         data: dataForm + "&t=" + Math.random(),
         success: function (msg) {
             if (msg.success == true || msg.msg == true) {
-                ksxProbe.gioTrack('createPaper', 1);
-                if($("#savePaperBtn").hasClass('addPaperOnly')){
+                if ($("#savePaperBtn").hasClass('addPaperOnly')) {
                     // 只创建试卷
-                    window.location.href = '/admin/paper_mgr_new';
-                }else {
+                    window.location.href = '../html/exam/paper_mgr_new.html';
+                } else {
                     // 继续创建考试
                     window.location.href = "/admin/exam_add?paper_info_id=" + msg.bizContent;
                 }
@@ -1168,7 +1170,7 @@ function paperTypeShowTemp() {
         $("div.questionContet_simple , div.group_questionShow , div.group_questionAdd").remove();
         $("div.group_title").append($("#paperTpye2").html());
     }
-    ajaxUrl = "/admin/paper_add_new";
+    ajaxUrl = "./html/exam/paper_add_new.html";
 }
 
 //根据试题类型创建新增试题DOM
@@ -1210,6 +1212,7 @@ function createGroupSimple(sortRandom, questionType) {
         }
     });
 }
+
 //抽题组卷显示单项分数
 function showOptionScore(sortRandom, questionType) {
     $("div.group_main .group_simple").each(function (index, element) {
@@ -1230,6 +1233,7 @@ function showOptionScore(sortRandom, questionType) {
         }
     });
 }
+
 //切换答案数量fn
 function changeNum(dom, num) {
     $(dom).find(".q-item").each(function (index, element) {
@@ -1250,18 +1254,18 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
 
     if (create_type == 'update') {
         per_score = $(".m-example[questionId=" + obj.id + "]").parents(".group_simple").find("input[name=test_peer_score]").val();
-        per_time=$(".m-example[questionId="+obj.id+"]").parents(".group_simple").find("input[name=test_peer_time]").val();
+        per_time = $(".m-example[questionId=" + obj.id + "]").parents(".group_simple").find("input[name=test_peer_time]").val();
     } else {
         per_score = $(parentDom).parents(".group_simple").find("input[name=test_peer_score]").val();
-        per_time=$(parentDom).parents(".group_simple").find("input[name=test_peer_time]").val();
+        per_time = $(parentDom).parents(".group_simple").find("input[name=test_peer_time]").val();
     }
     if (obj.type == "1" || obj.type == "2") {
         //内容填充
         try {
             if (obj.answer1 != undefined) {
-                if (obj.test_ans_right.indexOf("A")== -1 ){
+                if (obj.test_ans_right.indexOf("A") == -1) {
                     html += '<dd class="a"><em class="icon">A</em>' + obj.answer1 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="a correctAnswer"><em class="icon">A</em>' + obj.answer1 + '</dd>';
                 }
             }
@@ -1270,9 +1274,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         try {
 
             if (obj.answer2 != undefined) {
-                if (obj.test_ans_right.indexOf("B")== -1 ){
+                if (obj.test_ans_right.indexOf("B") == -1) {
                     html += '<dd class="b"><em class="icon">B</em>' + obj.answer2 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="b correctAnswer"><em class="icon">B</em>' + obj.answer2 + '</dd>';
                 }
             }
@@ -1280,9 +1284,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer3 != undefined) {
-                if (obj.test_ans_right.indexOf("C")== -1 ){
+                if (obj.test_ans_right.indexOf("C") == -1) {
                     html += '<dd class="c"><em class="icon">C</em>' + obj.answer3 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="c correctAnswer"><em class="icon">C</em>' + obj.answer3 + '</dd>';
                 }
             }
@@ -1290,9 +1294,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer4 != undefined) {
-                if (obj.test_ans_right.indexOf("D")== -1 ){
+                if (obj.test_ans_right.indexOf("D") == -1) {
                     html += '<dd class="d"><em class="icon">D</em>' + obj.answer4 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="d correctAnswer"><em class="icon">D</em>' + obj.answer4 + '</dd>';
                 }
             }
@@ -1300,9 +1304,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer5 != undefined) {
-                if (obj.test_ans_right.indexOf("E")== -1 ){
+                if (obj.test_ans_right.indexOf("E") == -1) {
                     html += '<dd class="e"><em class="icon">E</em>' + obj.answer5 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="e correctAnswer"><em class="icon">E</em>' + obj.answer5 + '</dd>';
                 }
             }
@@ -1310,9 +1314,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer6 != undefined) {
-                if (obj.test_ans_right.indexOf("F")== -1 ){
+                if (obj.test_ans_right.indexOf("F") == -1) {
                     html += '<dd class="f"><em class="icon">F</em>' + obj.answer6 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="f correctAnswer"><em class="icon">F</em>' + obj.answer6 + '</dd>';
                 }
             }
@@ -1320,9 +1324,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer7 != undefined) {
-                if (obj.test_ans_right.indexOf("G")== -1 ){
+                if (obj.test_ans_right.indexOf("G") == -1) {
                     html += '<dd class="g"><em class="icon">G</em>' + obj.answer7 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="g correctAnswer"><em class="icon">G</em>' + obj.answer7 + '</dd>';
                 }
             }
@@ -1330,9 +1334,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer8 != undefined) {
-                if (obj.test_ans_right.indexOf("H")== -1 ){
+                if (obj.test_ans_right.indexOf("H") == -1) {
                     html += '<dd class="h"><em class="icon">H</em>' + obj.answer8 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="h correctAnswer"><em class="icon">H</em>' + obj.answer8 + '</dd>';
                 }
             }
@@ -1340,9 +1344,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer9 != undefined) {
-                if (obj.test_ans_right.indexOf("I")== -1 ){
+                if (obj.test_ans_right.indexOf("I") == -1) {
                     html += '<dd class="i"><em class="icon">I</em>' + obj.answer9 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="i correctAnswer"><em class="icon">I</em>' + obj.answer9 + '</dd>';
                 }
             }
@@ -1350,9 +1354,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer10 != undefined) {
-                if (obj.test_ans_right.indexOf("J")== -1 ){
+                if (obj.test_ans_right.indexOf("J") == -1) {
                     html += '<dd class="j"><em class="icon">J</em>' + obj.answer10 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="j correctAnswer"><em class="icon">J</em>' + obj.answer10 + '</dd>';
                 }
             }
@@ -1360,9 +1364,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer11 != undefined) {
-                if (obj.test_ans_right.indexOf("K")== -1 ){
+                if (obj.test_ans_right.indexOf("K") == -1) {
                     html += '<dd class="k"><em class="icon">K</em>' + obj.answer11 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="k correctAnswer"><em class="icon">K</em>' + obj.answer11 + '</dd>';
                 }
             }
@@ -1370,9 +1374,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer12 != undefined) {
-                if (obj.test_ans_right.indexOf("L")== -1 ){
+                if (obj.test_ans_right.indexOf("L") == -1) {
                     html += '<dd class="l"><em class="icon">L</em>' + obj.answer12 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="l correctAnswer"><em class="icon">L</em>' + obj.answer12 + '</dd>';
                 }
             }
@@ -1380,9 +1384,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer13 != undefined) {
-                if (obj.test_ans_right.indexOf("M")== -1 ){
+                if (obj.test_ans_right.indexOf("M") == -1) {
                     html += '<dd class="m"><em class="icon">M</em>' + obj.answer13 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="m correctAnswer"><em class="icon">M</em>' + obj.answer13 + '</dd>';
                 }
             }
@@ -1390,9 +1394,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer14 != undefined) {
-                if (obj.test_ans_right.indexOf("N")== -1 ){
+                if (obj.test_ans_right.indexOf("N") == -1) {
                     html += '<dd class="n"><em class="icon">N</em>' + obj.answer14 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="n correctAnswer"><em class="icon">N</em>' + obj.answer14 + '</dd>';
                 }
             }
@@ -1400,9 +1404,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer15 != undefined) {
-                if (obj.test_ans_right.indexOf("O")== -1 ){
+                if (obj.test_ans_right.indexOf("O") == -1) {
                     html += '<dd class="o"><em class="icon">O</em>' + obj.answer15 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="o correctAnswer"><em class="icon">O</em>' + obj.answer15 + '</dd>';
                 }
             }
@@ -1410,9 +1414,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer16 != undefined) {
-                if (obj.test_ans_right.indexOf("P")== -1 ){
+                if (obj.test_ans_right.indexOf("P") == -1) {
                     html += '<dd class="p"><em class="icon">P</em>' + obj.answer16 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="p correctAnswer"><em class="icon">P</em>' + obj.answer16 + '</dd>';
                 }
             }
@@ -1420,9 +1424,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer17 != undefined) {
-                if (obj.test_ans_right.indexOf("Q")== -1 ){
+                if (obj.test_ans_right.indexOf("Q") == -1) {
                     html += '<dd class="q"><em class="icon">Q</em>' + obj.answer17 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="q correctAnswer"><em class="icon">Q</em>' + obj.answer17 + '</dd>';
                 }
             }
@@ -1430,9 +1434,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer18 != undefined) {
-                if (obj.test_ans_right.indexOf("R")== -1 ){
+                if (obj.test_ans_right.indexOf("R") == -1) {
                     html += '<dd class="r"><em class="icon">R</em>' + obj.answer18 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="r correctAnswer"><em class="icon">R</em>' + obj.answer18 + '</dd>';
                 }
             }
@@ -1440,9 +1444,9 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer19 != undefined) {
-                if (obj.test_ans_right.indexOf("S")== -1 ){
+                if (obj.test_ans_right.indexOf("S") == -1) {
                     html += '<dd class="s"><em class="icon">S</em>' + obj.answer19 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="s correctAnswer"><em class="icon">S</em>' + obj.answer19 + '</dd>';
                 }
             }
@@ -1450,26 +1454,26 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         }
         try {
             if (obj.answer20 != undefined) {
-                if (obj.test_ans_right.indexOf("T")== -1 ){
+                if (obj.test_ans_right.indexOf("T") == -1) {
                     html += '<dd class="t"><em class="icon">T</em>' + obj.answer20 + '</dd>';
-                }else{
+                } else {
                     html += '<dd class="t correctAnswer"><em class="icon">T</em>' + obj.answer20 + '</dd>';
                 }
             }
         } catch (e) {
         }
     } else if (obj.type == 3) {
-        if (obj.test_ans_right.indexOf("正确")== -1){
+        if (obj.test_ans_right.indexOf("正确") == -1) {
             html += '<dd class="rt"><em class="icon"><span class="icon-a_check"></span></em>正确</dd><dd class="wg correctAnswer"><em class="icon"><span class="icon-a_close"></span></em>错误</dd>';
-        }else {
+        } else {
             html += '<dd class="rt correctAnswer"><em class="icon"><span class="icon-a_check"></span></em>正确</dd><dd class="wg"><em class="icon"><span class="icon-a_close"></span></em>错误</dd>';
         }
-    }else if(obj.type == 5){
-        if(obj.normal_words!=undefined){
-            html += '<p>普通关键词：'+obj.normal_words.join("或")+'</p>';
+    } else if (obj.type == 5) {
+        if (obj.normal_words != undefined) {
+            html += '<p>普通关键词：' + obj.normal_words.join("或") + '</p>';
         }
-        if(obj.key_words!=undefined){
-            html += '<p>核心关键词：'+obj.key_words.join("或")+'</p>';
+        if (obj.key_words != undefined) {
+            html += '<p>核心关键词：' + obj.key_words.join("或") + '</p>';
         }
     }
     if (obj.type != 6) {
@@ -1490,7 +1494,7 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         for (var i = 0; i < obj.insert_data.length; i++) {
             allHtml += '<dt style="overflow: hidden">' +
                 '<div class="col-md-9 member-question" s_id="' + obj.insert_data[i].testId + '">' + (i + 1) + ' . ' + obj.insert_data[i].question + '</div>' +
-                ((perTimeRestrict == "0") ? '' : '<div class="col-md-3 col-md-offset-1 time-center">时长<input type="text" name="member_second_' + (i + 1) + '" class="member_second">秒</div>' )+
+                ((perTimeRestrict == "0") ? '' : '<div class="col-md-3 col-md-offset-1 time-center">时长<input type="text" name="member_second_' + (i + 1) + '" class="member_second">秒</div>') +
                 '<div class="col-md-3 col-md-offset-1 text-center">分数<input type="text" name="member_score_' + (i + 1) + '" class="member-score">分</div>' +
                 '</dt>';
         }
@@ -1520,12 +1524,14 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
     }
 
 }
+
 //保存试题后清空表单数据
 function clearFormFn(parentDom) {
     var parentDom = $(parentDom);
     parentDom.find(".q-ipt-t , .q-ipt-i").val("");
     parentDom.find("div.textareaDom").html("");
 }
+
 //联动左右大题信息 type：1左侧分数，2右侧分数，3右侧标题，4左侧答题时长，5右侧时长
 function changeLeftInfoFn(obj, type, queName) {
     var sortNum = $(obj).attr("sort");
@@ -1534,9 +1540,9 @@ function changeLeftInfoFn(obj, type, queName) {
             if ($(this).attr("sort") == sortNum) {
                 $(this).val($(obj).val());
                 $(this).parents(".group_simple").find("input[name=per_score]").val($(obj).val());
-                $(this).parents('.group_simple').find('.m-example').each(function (index,element) {
+                $(this).parents('.group_simple').find('.m-example').each(function (index, element) {
                     var num = $(this).find('.member-question').length;
-                    $(this).find("input.member-score").val(Number($(obj).val() / num ).toFixed(1));
+                    $(this).find("input.member-score").val(Number($(obj).val() / num).toFixed(1));
                 });
             }
         });
@@ -1563,7 +1569,7 @@ function changeLeftInfoFn(obj, type, queName) {
             if ($(this).attr("sort") == sortNum) {
                 $(this).val($(obj).val());
                 $(this).parents(".group_simple").find("input[name=per_time]").val($(obj).val());
-                $(this).parents('.group_simple').find('.m-example').each(function (index,element) {
+                $(this).parents('.group_simple').find('.m-example').each(function (index, element) {
                     var num = $(this).find('.member-question').length;
                     $(this).find("input.member_second").val(Number($(obj).val() / num).toFixed(1));
                 });
@@ -1579,6 +1585,7 @@ function changeLeftInfoFn(obj, type, queName) {
         totalTimeFn();
     }
 }
+
 //计算试题数量
 function totalTestNumFn(sortNum, addOrDel, selNum) {
     $(".info-board .test_num").each(function (index, element) {
@@ -1596,14 +1603,14 @@ function totalTestNumFn(sortNum, addOrDel, selNum) {
 }
 
 // 计算组合题中含小题数
-$("#selQuestionFrame").on("load", function(event){//判断 iframe是否加载完成
-    $("#selQuestionFrame").contents().find("#saveBtn").on('click',function () {
+$("#selQuestionFrame").on("load", function (event) {//判断 iframe是否加载完成
+    $("#selQuestionFrame").contents().find("#saveBtn").on('click', function () {
         $('.group_simple').each(function () {
             var rightSort = $(this).attr('sort');
             var question_count = $(this).find('.com-questions .member-question').length;
             $('.left_group_simple').each(function () {
-                if($(this).attr('sort') == rightSort){
-                     $(this).find('.small_test_num').text(question_count);
+                if ($(this).attr('sort') == rightSort) {
+                    $(this).find('.small_test_num').text(question_count);
                 }
             });
         });
@@ -1613,7 +1620,7 @@ $("#selQuestionFrame").on("load", function(event){//判断 iframe是否加载完
 
 // 计算每个题型总分
 //  根据左侧每小题分数 计算组合题总分
-$("body").on("keyup",".left_group_simple input[name=test_peer_score]",function () {
+$("body").on("keyup", ".left_group_simple input[name=test_peer_score]", function () {
     var all_fraction = 0;
     var score_type = $(this).val();
     var testNum = $(this).parents().siblings().children(".test_num").text();
@@ -1625,56 +1632,57 @@ $("body").on("keyup",".left_group_simple input[name=test_peer_score]",function (
 });
 
 // 分数显示函数封装,除组合外
-function showScore(thatJq,thisSort,type){
+function showScore(thatJq, thisSort, type) {
     var inputs = thatJq.parents('.group_simple').find('input[name=per_score]');
     var inputsCombine = thatJq.parents('.group_simple').find('input.member-score');
     var tmpScore = 0;
-    if(type!='组合题'){
+    if (type != '组合题') {
         inputs.each(function (index) {
-            tmpScore+=($(this).val()==''?0:$(this).val()-0)
+            tmpScore += ($(this).val() == '' ? 0 : $(this).val() - 0)
         });
-    }else{
+    } else {
         inputsCombine.each(function (index) {
-            tmpScore+=($(this).val()==''?0:$(this).val()-0)
+            tmpScore += ($(this).val() == '' ? 0 : $(this).val() - 0)
         })
     }
 
     $('.left_group_simple').each(function (index) {
-        if($(this).attr('sort') == thisSort){
+        if ($(this).attr('sort') == thisSort) {
             $(this).find('.all_fraction').text(tmpScore.toFixed(1))
         }
     });
 }
-$("body").on("keyup",".m-example input",function () {
+
+$("body").on("keyup", ".m-example input", function () {
     var score_type = $(this).parents('.group_simple').find('.questionTypeText').text();
     var thisSort = $(this).parents('.group_simple').attr('sort');
     var that = $(this);
-    showScore(that,thisSort,score_type);
+    showScore(that, thisSort, score_type);
 });
 
 
 //计算试卷总分
-function totalScoreFn(){
+function totalScoreFn() {
     var totalScore = 0;
     var totalTestNum = 0;
-    if($("input[name=per_score]").length>0){
-        $(".questions-board .group_simple").each(function (index,element) {
+    if ($("input[name=per_score]").length > 0) {
+        $(".questions-board .group_simple").each(function (index, element) {
             var type = $(this).attr("questionType");
-            if(type=="6"){
-                $(this).find(".member-score").each(function(index, element) {
-                    totalScore+=Number($(this).val());
+            if (type == "6") {
+                $(this).find(".member-score").each(function (index, element) {
+                    totalScore += Number($(this).val());
                 });
-            }else {
-                $(this).find("input[name=per_score]").each(function(index,element) {
-                    totalScore+=Number($(this).val());
+            } else {
+                $(this).find("input[name=per_score]").each(function (index, element) {
+                    totalScore += Number($(this).val());
                 });
             }
         });
-        $(".info-board .group_simple").each(function(index, element) {
+        $(".info-board .group_simple").each(function (index, element) {
             totalTestNum += Number($(this).find(".test_num").text());
         });
-    }else {
-        $(".info-board .group_simple").each(function(index, element) {
+    } else {
+        $(".info-board .group_simple").each(function (index, element) {
             totalScore += Number($(this).find(".test_num").text()) * Number($(this).find("input[name=test_peer_score]").val());
             totalTestNum += Number($(this).find(".test_num").text());
         });
@@ -1723,8 +1731,9 @@ function showQuestionsType(obj) {
         keyboard: false
     });
 }
+
 //关闭难度对话框
-function hideDifficultModal(obj){
+function hideDifficultModal(obj) {
     $('#difficultModal').modal('hide');
     selTr = "";
 }
@@ -1735,7 +1744,7 @@ function saveDifficultFn(difficult, totelNum) {
     $(tr).find("input[name=hard]").val(difficult); //隐含难度字段
     $(tr).find("input[name=totelNum]").val(totelNum); //显示总题数
     var list = difficult.split(",");
-    var text = "简单：" + "<span class='diff1'>"+ list[0] + "</span>" + "；普通：" + "<span class='diff2'>"+ list[1] + "</span>" + "；困难：" + "<span class='diff3'>"+ list[2] + "</span>";
+    var text = "简单：" + "<span class='diff1'>" + list[0] + "</span>" + "；普通：" + "<span class='diff2'>" + list[1] + "</span>" + "；困难：" + "<span class='diff3'>" + list[2] + "</span>";
 
     $(tr).find(".empty_q_tip").hide(); //隐藏空空如也
     $(tr).find(".selDifficultLink_text").html(text);
@@ -1746,6 +1755,7 @@ function saveDifficultFn(difficult, totelNum) {
     totalScoreFn();
     totalTimeFn();
 }
+
 //编辑难度时填充数字fn
 function updateFillDifficultFn() {
     var tr = selTr;
@@ -1775,6 +1785,7 @@ function showSelQuestions(obj) {
     });
     selTr = $(obj).parents(".group_simple");
 }
+
 //选题组卷，关闭选择试题对话框
 function hideSelQuestions(obj) {
     $('#questionsModal').modal('hide');
@@ -1855,19 +1866,20 @@ function guidePosition(n) {
         default:
     }
 }
+
 // 获取同一类型题目下所有所选试题
 function getSelQuestion(type) {
     typeObject[type] = [];
     typeObjectLabel[type] = [];
     $("div[questiontype=" + type + "] input[name=test_classify_id]").each(function (index, el) {
-            var toArry = el.value.split(",");
-            var concatArry = typeObject[type].concat(toArry);
-            var repeatArry = Array.from(new Set(concatArry));  // 数组去重
-            var cleanArry = repeatArry.filter(function (n) {
-                return n;
-            }); // 将数组去除空
-            typeObject[type] = cleanArry;
-        });
+        var toArry = el.value.split(",");
+        var concatArry = typeObject[type].concat(toArry);
+        var repeatArry = Array.from(new Set(concatArry));  // 数组去重
+        var cleanArry = repeatArry.filter(function (n) {
+            return n;
+        }); // 将数组去除空
+        typeObject[type] = cleanArry;
+    });
 
     $("div[questiontype=" + type + "] input[name=test_label_id]").each(function (index, el) {
         var toArry = el.value.split(",");
@@ -1880,11 +1892,12 @@ function getSelQuestion(type) {
     });
 
     // 将用户选取的试题存入本地存储
-    localStorage.setItem("selArry"+user_id, typeObject[type].toString());
-    localStorage.setItem("selArryLabel"+user_id, typeObjectLabel[type].toString());
+    localStorage.setItem("selArry" + user_id, typeObject[type].toString());
+    localStorage.setItem("selArryLabel" + user_id, typeObjectLabel[type].toString());
 }
+
 //显示选择分类对话框
-function showSelType(obj){
+function showSelType(obj) {
     $("input[name=classification]").val('');
     selQuestionsTypeModal.location.href = "/admin/tree/tests_multi_class";
     $("#questionsTypeModal").modal({
@@ -1897,16 +1910,17 @@ function showSelType(obj){
 function hideQuestionsSelType(obj) {
     $('#questionsTypeModal').modal('hide');
 }
+
 //接受选择试题分类数据多个
 function selQuestionsType(id, name) {
     selTr.find(".checked_classify_ids").val(id);
     var labelIds = selTr.find("input[name=test_label_id]").val();
     $("#selTypeLink").text('已选择');
-    getTableData(id,labelIds);
+    getTableData(id, labelIds);
 }
 
-function getTableData(classIds,labelIds) {
-    classIds = classIds.slice(0,classIds.length-1);
+function getTableData(classIds, labelIds) {
+    classIds = classIds.slice(0, classIds.length - 1);
     var data = {
         type: selType,
         classification: classIds,
@@ -1930,29 +1944,31 @@ function getTableData(classIds,labelIds) {
 }
 
 //显示选择标签对话框
-function showSelLabel(obj){
+function showSelLabel(obj) {
     $("input[name=label]").val('');
     selLabelModal.location.href = "/admin/tree/tests_multi_label";
     $("#labelModal").modal({
-        backdrop:"static",
-        keyboard:false
+        backdrop: "static",
+        keyboard: false
     });
 }
+
 //关闭选择标签对话框
-function hideSelLabel(obj){
+function hideSelLabel(obj) {
     $('#labelModal').modal('hide');
 }
+
 // 接受选择标签数据
 function selLabel(data) {
     var ids = '';
     for (var i = 0; i < data.length; i++) {
         ids += data[i].id + ',';
     }
-    ids = ids.slice(0,ids.length - 1);
+    ids = ids.slice(0, ids.length - 1);
     selTr.find(".checked_label_ids").val(ids);
     var classIds = selTr.find("input[name=test_classify_id]").val();
     $("#selLabelLink").text('已选择');
-    getTableData(classIds,ids);
+    getTableData(classIds, ids);
 }
 
 function difficultModalReset() {
@@ -1969,28 +1985,28 @@ function difficultModalReset() {
 }
 
 /*新设计页面控制*/
-$('body').on('mouseenter','.default_create_q_model',function(e){
+$('body').on('mouseenter', '.default_create_q_model', function (e) {
     e.preventDefault();
     e.stopPropagation();
-    $(this).css('display','none');
-    $('.type_create_q_model').css('display','inline-block');
+    $(this).css('display', 'none');
+    $('.type_create_q_model').css('display', 'inline-block');
 });
 
-$('body').on('mouseleave','.type_create_q_model',function(e){
+$('body').on('mouseleave', '.type_create_q_model', function (e) {
     e.preventDefault();
     e.stopPropagation();
-    $(this).css('display','none');
-    $('.default_create_q_model').css('display','inline-block');
+    $(this).css('display', 'none');
+    $('.default_create_q_model').css('display', 'inline-block');
 });
 
-$('body').on('mouseenter','.test_icon_a a',function(){ //新增的左侧删除等按钮浮动提示
+$('body').on('mouseenter', '.test_icon_a a', function () { //新增的左侧删除等按钮浮动提示
     $(this).tooltip('show');
 });
 
-$('body').on('mouseenter','.questions a',function(){ //新增的删除等按钮浮动提示
+$('body').on('mouseenter', '.questions a', function () { //新增的删除等按钮浮动提示
     $(this).tooltip('show');
 });
 
-function fixMChoicesQuestionStyle(){ //调整随机组卷多选'漏选给分'样式，因为随机组卷没有试题乱序
-    $(".group_main .group_simple[questiontype=2]").find("#selection_score").css('right','130px');
+function fixMChoicesQuestionStyle() { //调整随机组卷多选'漏选给分'样式，因为随机组卷没有试题乱序
+    $(".group_main .group_simple[questiontype=2]").find("#selection_score").css('right', '130px');
 }

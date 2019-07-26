@@ -5,12 +5,14 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+
 import com.mysql.cj.protocol.Message;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Managestudent;
+import com.neusoft.root.domain.Message;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Result;

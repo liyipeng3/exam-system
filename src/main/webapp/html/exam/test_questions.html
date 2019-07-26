@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://v.com/admin/testQuestions/#/list -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>考试云平台</title>
+    <link rel="shortcut icon" href="../../img/logo.ico">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/mint-ui.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link href="../../css/application.f204953ac24050f3f543b9fbc1fe1cdd.css" rel="stylesheet">
+    <style></style>
+</head>
+<body>
+<div id="app">
+    <section class="el-container viewFrameWork admin is-vertical" element-loading-text="拼命加载中"
+             element-loading-background="rgba(0, 0, 0, 0.8)">
+        <header class="el-header viewFrameWork-header" style="height: 70px;">
+            <div class="header">
+                <div class="header-left"><a href="https://admin.com/account/admin/index"><img
+                        src="../../img/logo.png" alt="" class="item item-logo"></a></div>
+                <div class="header-middle">
+                    <div data-v-3a050ba5="" class="body-toolbar clearfix">
+                        <div data-v-3a050ba5="" class="toolbar-left fl">
+                            <button data-v-3a050ba5="" type="button"
+                                    class="el-button el-button--primary el-button--small" primary=""><!----><i
+                                    class="icon-a_circle_plus"></i><span>添加试题</span></button>
+                            <div data-v-3a050ba5="" class="el-dropdown"><span data-v-3a050ba5=""
+                                                                              class="el-button-repeat el-dropdown-selfdefine"
+                                                                              aria-haspopup="list"
+                                                                              aria-controls="dropdown-menu-9669"
+                                                                              role="button" tabindex="0"><i
+                                    data-v-3a050ba5="" class="icon-a_operate_retake btn-icon-left"></i>
+        试题查重
+      </span>
+                                <ul data-v-3a050ba5="" class="el-dropdown-menu el-popper" id="dropdown-menu-9669"
+                                    style="display: none;">
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">单选题</li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">多选题</li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">判断题</li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">填空题</li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">问答题</li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">组合题</li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">录音题</li>
+                                </ul>
+                            </div>
+                            <button data-v-3a050ba5="" type="button"
+                                    class="el-button el-button--primary el-button--small is-plain"><!----><i
+                                    class="icon-a_btn_update"></i><span>批量更新</span></button>
+                            <button data-v-3a050ba5="" type="button"
+                                    class="el-button el-button--primary el-button--small is-plain"><!----><i
+                                    class="icon-a_btn_delete"></i><span>删除</span></button>
+                            <div data-v-3a050ba5="" class="el-dropdown">
+                                <button data-v-3a050ba5="" type="button"
+                                        class="el-button el-button--primary el-button--small is-plain el-dropdown-selfdefine"
+                                        aria-haspopup="list" aria-controls="dropdown-menu-6861" role="button"
+                                        tabindex="0"><!----><i class="icon-a_btn_custom_column"></i><span>自定义列</span>
+                                </button>
+                                <ul data-v-3a050ba5="" class="el-dropdown-menu el-popper ksx-dropdown check"
+                                    id="dropdown-menu-6861" style="display: none;">
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item"><i
+                                            data-v-3a050ba5="" class="el-icon-check icon-check"></i>
+                                        分类
+                                    </li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item"><i
+                                            data-v-3a050ba5="" class="el-icon-check icon-check"></i>
+                                        难度
+                                    </li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item"><!---->
+                                        修改人
+                                    </li>
+                                    <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item"><!---->
+                                        修改时间
+                                    </li>
+                                </ul>
+                            </div>
+                            <button data-v-3a050ba5="" type="button"
+                                    class="el-button el-button--primary el-button--small is-plain"><!----><i
+                                    class="icon-a_btn_classify"></i><span>管理试题分类</span></button>
+                            <button data-v-3a050ba5="" type="button"
+                                    class="el-button el-button--primary el-button--small is-plain"><!----><i
+                                    class="icon-a_btn_classify"></i><span>管理试题标签</span></button>
+                        </div>
+                        <div data-v-3a050ba5="" class="toolbar-right fr">
+                            <div data-v-3a050ba5="" class="ksx-search-group">
+                                <div data-v-3a050ba5=""
+                                     class="el-input el-input-group el-input-group--append el-input--prefix el-input--suffix ksx-simple-search animate">
+                                    <!----><input type="text" autocomplete="off" placeholder="请输入试题或选项内容"
+                                                  class="el-input__inner"><span class="el-input__prefix"><i
+                                        data-v-3a050ba5="" class="el-icon-search"></i><!----></span><!---->
+                                    <div class="el-input-group__append"><span data-v-3a050ba5="">搜索</span></div>
+                                </div>
+                                <span data-v-3a050ba5=""><div role="tooltip" id="el-popover-6267" aria-hidden="true"
+                                                              class="el-popover el-popper ksx-advanced-search"
+                                                              tabindex="0" style="width: 423px; display: none;"><!----><form
+                                        data-v-3a050ba5="" class="el-form el-form--label-left"><div data-v-3a050ba5=""
+                                                                                                    class="form-body-wrapper"><div
+                                        data-v-3a050ba5="" class="form-body"><div data-v-3a050ba5=""
+                                                                                  class="el-form-item el-form-item--mini"><label
+                                        class="el-form-item__label" style="width: 70px;">创建人</label><div
+                                        class="el-form-item__content" style="margin-left: 70px;"><div data-v-3a050ba5=""
+                                                                                                      class="el-input el-input--mini"><!----><input
+                                        type="text" autocomplete="off" class="el-input__inner"><!----><!---->
+                                    <!----></div><!----></div></div> <div data-v-3a050ba5=""
+                                                                          class="el-form-item el-form-item--mini"><label
+                                        class="el-form-item__label" style="width: 70px;">试题分类</label><div
+                                        class="el-form-item__content" style="margin-left: 70px;"><div data-v-3a050ba5=""
+                                                                                                      class="el-form-choose tc">
+                  请选择
+                </div><!----></div></div> <div data-v-3a050ba5="" class="el-form-item el-form-item--mini"><label
+                                        class="el-form-item__label" style="width: 70px;">试题类型</label><div
+                                        class="el-form-item__content" style="margin-left: 70px;"><div data-v-3a050ba5=""
+                                                                                                      class="block-col-2 el-row"><div
+                                        data-v-3a050ba5="" class="el-col el-col-12"><div data-v-3a050ba5=""
+                                                                                         class="el-dropdown"><span
+                                        data-v-3a050ba5=""
+                                        class="el-dropdown-link save-difficult el-dropdown-selfdefine"
+                                        aria-haspopup="list" aria-controls="dropdown-menu-6921" role="button"
+                                        tabindex="0">请选择</span> <ul data-v-3a050ba5=""
+                                                                    class="el-dropdown-menu el-popper"
+                                                                    id="dropdown-menu-6921" style="display: none;"><li
+                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">单选题</li> <li
+                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">多选题</li> <li
+                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">判断题</li> <li
+                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">填空题</li> <li
+                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">问答题</li> <li
+                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">组合题</li> <li
+                                        data-v-3a050ba5="" tabindex="-1"
+                                        class="el-dropdown-menu__item">录音题</li></ul></div></div></div>
+                                    <!----></div></div> <div data-v-3a050ba5="" class="el-form-item el-form-item--mini"><label
+                                        class="el-form-item__label" style="width: 70px;">试题难度</label><div
+                                        class="el-form-item__content" style="margin-left: 70px;"><div data-v-3a050ba5=""
+                                                                                                      class="block-col-2 el-row"><div
+                                        data-v-3a050ba5="" class="el-col el-col-12"><div data-v-3a050ba5=""
+                                                                                         class="el-dropdown"><span
+                                        data-v-3a050ba5=""
+                                        class="el-dropdown-link save-difficult el-dropdown-selfdefine"
+                                        aria-haspopup="list" aria-controls="dropdown-menu-9302" role="button"
+                                        tabindex="0">请选择</span> <ul data-v-3a050ba5=""
+                                                                    class="el-dropdown-menu el-popper"
+                                                                    id="dropdown-menu-9302" style="display: none;"><li
+                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">简单</li> <li
+                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">普通</li> <li
+                                        data-v-3a050ba5="" tabindex="-1"
+                                        class="el-dropdown-menu__item">困难</li></ul></div></div></div><!----></div></div> <div
+                                        data-v-3a050ba5="" class="el-form-item el-form-item--mini"><label
+                                        class="el-form-item__label" style="width: 70px;">试题标签</label><div
+                                        class="el-form-item__content" style="margin-left: 70px;"><div data-v-3a050ba5=""
+                                                                                                      class="el-form-choose tc">
+                  请选择
+                </div><!----></div></div></div></div> <div data-v-3a050ba5=""
+                                                           class="el-form-item tc fixed-bottom el-form-item--mini"><!----><div
+                                        class="el-form-item__content" style="margin-left: 70px;"><button
+                                        data-v-3a050ba5="" type="button"
+                                        class="el-button el-btn-search el-button--primary el-button--mini"><!---->
+                                    <!----><span>搜索</span></button><!----></div></div></form> </div><button
+                                        data-v-3a050ba5="" type="button"
+                                        class="el-button el-btn-advance el-button--text el-button--medium el-popover__reference"
+                                        aria-describedby="el-popover-6267" tabindex="0"><!----><!----><span>
+          高级搜索<i data-v-3a050ba5="" class="el-icon-arrow-down el-icon--right"></i></span></button></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div data-v-ce850100="" class="el-badge item item-notification"><a data-v-ce850100=""
+                                                                                       href="https://admin.com/account/notification/1"><i
+                            data-v-ce850100="" class="icon-p_top_message icon item-icon"></i></a><sup
+                            class="el-badge__content is-fixed" style="display: none;"></sup></div>
+                </div>
+            </div>
+        </header>
+        <section class="el-container">
+            <aside class="el-aside viewFrameWork-sidebar full" style="width: 300px;">
+                <ul role="menubar" class="el-menu-vertical el-menu">
+                    <li class="el-menu-item item-collapse el-tooltip item" aria-describedby="el-tooltip-4366"
+                        tabindex="0"><i class="el-icon-d-arrow-left"></i></li>
+                    <a href="https://admin.com/account/admin/index">
+                        <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip"
+                            aria-describedby="el-tooltip-7549" style="padding-left: 20px;"><i
+                                class="icon icon-a_nav_home"></i>  <!----><span class="title">首页</span></li>
+                    </a><a href="./test_questions.html">
+                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu is-active is-opened"
+                        aria-describedby="el-tooltip-7909" tabindex="0" aria-expanded="true">
+                        <div class="el-submenu__title" style="padding-left: 20px;"><i class="icon icon-a_nav_exam"></i>
+                            <span>考试管理</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
+                        <ul role="menu" class="el-menu el-menu--inline" style="" data-old-padding-top=""
+                            data-old-padding-bottom="" data-old-overflow=""><a
+                                href="/html/exam/exam_mgr_new.html">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">考试信息管理</span></li>
+                        </a><a href="./test_questions.html">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
+                                style="padding-left: 40px;"><span class="title">试题库</span></li>
+                        </a><a href="./paper_mgr_new.html">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">试卷库</span></li>
+                        </a><a href="https://admin.com/admin/result/mgr_new">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">成绩查询批改</span></li>
+                        </a><a href="https://new.com/ae/results/analysis/exam">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">分析考试</span></li>
+                        </a><a href="https://new.com/ae/results/analysis/person">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">分析考生</span></li>
+                        </a></ul>
+                    </li>
+                </a><a href="./test_questions.html">
+                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
+                        aria-describedby="el-tooltip-6361" tabindex="0">
+                        <div class="el-submenu__title" style="padding-left: 20px;"><i
+                                class="icon icon-a_nav_personnel"></i> <span>人员管理</span><i
+                                class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
+                        <ul role="menu" class="el-menu el-menu--inline" style="display: none;"><a
+                                href="https://v.com/admin/user/#/list">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">考生信息</span></li>
+                        </a><a href="https://admin.com/admin/user_reg">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">注册设置</span></li>
+                        </a></ul>
+                    </li>
+                </a><a href="./test_questions.html">
+                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
+                        aria-describedby="el-tooltip-341" tabindex="0">
+                        <div class="el-submenu__title" style="padding-left: 20px;"><i class="icon icon-a_nav_study"></i>
+                            <span>学习</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
+                        <ul role="menu" class="el-menu el-menu--inline" style="display: none;"><a
+                                href="https://admin.com/admin/file/manager">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">知识库</span></li>
+                        </a><a href="https://admin.com/course/course_mgr">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">课程管理</span></li>
+                        </a><a href="https://admin.com/course/study_record_mgr/course">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">学习记录</span></li>
+                        </a></ul>
+                    </li>
+                </a><a href="https://v.com/admin/customprocess/#/list">
+                    <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip" aria-describedby="el-tooltip-3304"
+                        style="padding-left: 20px;"><i class="icon icon-a_icon_nav_process"></i> <img
+                            src="../../img/a_nav_beta.svg" class="mark-beta"><span class="title">自定义任务</span></li>
+                </a><a href="https://admin.com/certificate/certificate_center">
+                    <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip" aria-describedby="el-tooltip-4728"
+                        style="padding-left: 20px;"><i class="icon icon-p_leftnav_certification"></i>  <!----><span
+                            class="title">认证中心</span></li>
+                </a><a href="https://v.com/admin/application/#/list">
+                    <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip" aria-describedby="el-tooltip-5041"
+                        style="padding-left: 20px;"><i class="icon icon-a_nav_sign_up"></i>  <!----><span class="title">报名审核</span>
+                    </li>
+                </a><a href="./test_questions.html">
+                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
+                        aria-describedby="el-tooltip-7260" tabindex="0">
+                        <div class="el-submenu__title" style="padding-left: 20px;"><i class="icon icon-a_nav_pay"></i>
+                            <span>支付中心</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
+                        <ul role="menu" class="el-menu el-menu--inline" style="display: none;"><a
+                                href="https://admin.com/account/admin_pay_center">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">充值</span></li>
+                        </a><a href="https://admin.com/admin/user_pay_set">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">支付设置</span></li>
+                        </a><a href="https://admin.com/account/admin_consume_record">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">消费记录</span></li>
+                        </a><a href="https://admin.com/account/admin_order_record">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">充值记录</span></li>
+                        </a><a href="https://admin.com/account/examinee_pay_record">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">考生付费记录</span></li>
+                        </a></ul>
+                    </li>
+                </a><a href="./test_questions.html">
+                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
+                        aria-describedby="el-tooltip-5575" tabindex="0">
+                        <div class="el-submenu__title" style="padding-left: 20px;"><i
+                                class="icon icon-a_nav_system"></i> <span>系统管理</span><i
+                                class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
+                        <ul role="menu" class="el-menu el-menu--inline" style="display: none;"><a
+                                href="https://admin.com/admin/sub_admin_mgr">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">子管理员设置</span></li>
+                        </a><a href="https://admin.com/admin/app_set">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">App设置</span></li>
+                        </a><a href="https://admin.com/admin/modify">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">个性化设置</span></li>
+                        </a><a href="https://admin.com/admin/follow_app">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">关联公众号</span></li>
+                        </a><a href="https://admin.com/admin/dev_info_mgr">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">开发者信息管理</span></li>
+                        </a><a href="https://admin.com/account/admin_op_record">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
+                                    class="title">管理员操作记录</span></li>
+                        </a></ul>
+                    </li>
+                </a>
+                    <div class="fixed-bottom"><span class="el-tooltip" aria-describedby="el-tooltip-1239" tabindex="0"><div
+                            role="tooltip" id="el-popover-5605" aria-hidden="true"
+                            class="el-popover el-popper ksx-popver el-global-help" tabindex="0"
+                            style="width: 300px; display: none;"><!----><div class="el-row"><i
+                            class="icon icon-a_help_document"></i> <a
+                            href="https://www.kancloud.cn/exam-star/ksxhelp_1/974046" target="_blank"
+                            class="content jump">帮助文档</a></div> <div class="el-row"><i
+                            class="icon icon-a_help_service"></i> <div class="content">
+                  人工客服
+                  <div>可<a href="javascript:;" data-gio-position="管理端帮助在线咨询" target="_blank"
+                           class="link">在线咨询</a>或拨打电话<span class="phone">400-870-1477</span></div></div></div> </div><li
+                            role="menuitem" tabindex="0" class="el-menu-item el-popover__reference"
+                            aria-describedby="el-popover-5605" style="padding-left: 20px;"><i
+                            class="icon icon-a_nav_help"></i> <img src="../../img/a_nav_new.svg"
+                                                                   class="mark-help"> <span class="title">帮助</span></li></span>
+                        <span class="el-tooltip" aria-describedby="el-tooltip-8838" tabindex="0"><div role="tooltip"
+                                                                                                      id="el-popover-2704"
+                                                                                                      aria-hidden="true"
+                                                                                                      class="el-popover el-popper ksx-popver el-global-company-info"
+                                                                                                      tabindex="0"
+                                                                                                      style="width: 285px; display: none;"><!----><div
+                                class="user el-row"><div class="user-character"><img
+                                src="../../img/default-pic.png" alt=""></div> <div class="user-info"><div
+                                class="user-surname"><div class="name ellipse">
+                        东北大学软件园
+                      </div></div> <div class="company-name ellipse">东北大学软件园</div></div></div> <ul
+                                class="operate-group"><li class="operate-item"><i
+                                class="operate-icon icon-a_personal_switch"></i>
+                  切换至考生端<i class="operate-right-icon icon-a_enter"></i></li> <li class="operate-item"><i
+                                class="operate-icon icon-a_personal_edit"></i>
+                  修改个人信息<i class="operate-right-icon icon-a_enter"></i></li> <li class="operate-item"><i
+                                class="operate-icon icon-a_personal_exit"></i>退出
+                </li></ul> </div><li role="menuitem" tabindex="0" class="el-menu-item ellipse el-popover__reference"
+                                     aria-describedby="el-popover-2704" style="padding-left: 20px;"><i
+                                class="icon icon-a_nav_my"></i> <span class="title">东北大学软件园</span></li></span></div>
+                    <div class="nav-color-padding"></div>
+                </ul>
+            </aside>
+            <section class="el-container viewFrameWork-body">
+                <main class="el-main body-wrapper">
+                    <div class="body-content">
+                        <div class="user-manager-wrapper">
+                            <div class="content user-manager">
+                                <div class="content-right">
+                                    <div class="detail-list el-table-area">
+                                        <div class="el-table el-table--fit el-table--border el-table--enable-row-transition"
+                                             style="width: 100%; height: 100%;">
+                                            <div class="hidden-columns">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div> <!----> <!---->
+                                                <div></div>
+                                            </div>
+                                            <div class="el-table__header-wrapper">
+                                                <table cellspacing="0" cellpadding="0" border="0"
+                                                       class="el-table__header" style="width: 1700px;">
+                                                    <colgroup>
+                                                        <col name="el-table_1_column_1" width="33">
+                                                        <col name="el-table_1_column_2" width="80">
+                                                        <col name="el-table_1_column_3" width="180">
+                                                        <col name="el-table_1_column_4" width="661">
+                                                        <col name="el-table_1_column_5" width="80">
+                                                        <col name="el-table_1_column_6" width="200">
+                                                        <col name="el-table_1_column_7" width="120">
+                                                        <col name="el-table_1_column_8" width="180">
+                                                        <col name="el-table_1_column_9" width="166">
+                                                        <col name="gutter" width="0">
+                                                    </colgroup>
+                                                    <thead class="has-gutter">
+                                                    <tr class="">
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_1   el-table-column--selection  is-leaf">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </th>
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_2     is-leaf">
+                                                            <div class="cell">题型</div>
+                                                        </th>
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_3     is-leaf">
+                                                            <div class="cell">分类</div>
+                                                        </th>
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_4     is-leaf">
+                                                            <div class="cell">试题内容</div>
+                                                        </th>
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_5     is-leaf">
+                                                            <div class="cell">难度</div>
+                                                        </th>
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_6     is-leaf">
+                                                            <div class="cell">试题标签</div>
+                                                        </th>
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_7     is-leaf">
+                                                            <div class="cell">创建人</div>
+                                                        </th>
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_8     is-leaf is-sortable">
+                                                            <div class="cell">创建时间<span class="caret-wrapper"><i
+                                                                    class="sort-caret ascending"></i><i
+                                                                    class="sort-caret descending"></i></span></div>
+                                                        </th>
+                                                        <th colspan="1" rowspan="1"
+                                                            class="el-table_1_column_9     is-hidden is-leaf">
+                                                            <div class="cell">操作</div>
+                                                        </th>
+                                                        <th class="gutter" style="width: 0px; display: none;"></th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="el-table__body-wrapper is-scrolling-none"
+                                                 style="height: 440px;">
+                                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
+                                                       style="width: 1700px;">
+                                                    <colgroup>
+                                                        <col name="el-table_1_column_1" width="33">
+                                                        <col name="el-table_1_column_2" width="80">
+                                                        <col name="el-table_1_column_3" width="180">
+                                                        <col name="el-table_1_column_4" width="661">
+                                                        <col name="el-table_1_column_5" width="80">
+                                                        <col name="el-table_1_column_6" width="200">
+                                                        <col name="el-table_1_column_7" width="120">
+                                                        <col name="el-table_1_column_8" width="180">
+                                                        <col name="el-table_1_column_9" width="166">
+                                                    </colgroup>
+                                                    <tbody>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">单选</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                在机场、商厦、地铁等公共场所乘自动扶梯时应靠（）站立,另一侧供有急事赶路的人快行。
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-11-02 12:00
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-6949" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-6578" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">单选</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                一般性的拜访多以（）为最佳交往时间。
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-11-02 12:00
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-1114" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-1651" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">单选</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                拜访他人应选择（）,并应提前打招呼。
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-11-02 12:00
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-6083" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-7713" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">单选</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                在参加各种社交宴请宾客中,要注意从座椅的（）侧入座,动作应轻而缓,轻松自然。
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-11-02 12:00
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-3423" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-5390" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">问答</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                请简单表述一下中国在饮食方面的礼仪
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-09-14 13:44
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-6739" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-8182" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">问答</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                请简单说一下你对礼仪的认识与理解
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-09-14 13:44
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-4501" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-1653" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">填空</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                男性公务员应保持面部清洁，不蓄胡须，不留大鬓角（）（）（）发长要求
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-09-14 13:40
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-8389" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-4389" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">填空</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                个人形象分（）（）（）（）和综合型五种类型。
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-09-14 13:40
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-1697" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-6244" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">填空</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                打招呼的方式一般有（）（）（）（）
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-09-14 13:40
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-4108" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-3877" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="el-table__row">
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_1  el-table-column--selection">
+                                                            <div class="cell"><label role="checkbox"
+                                                                                     class="el-checkbox"><span
+                                                                    aria-checked="mixed"
+                                                                    class="el-checkbox__input"><span
+                                                                    class="el-checkbox__inner"></span><input
+                                                                    type="checkbox" aria-hidden="true"
+                                                                    class="el-checkbox__original" value=""></span>
+                                                                <!----></label></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">多选</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">试题分类/示例
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                                                            <div class="cell el-tooltip" style="width: 660px;">
+                                                                以接待对象为标准划分的接待类型有
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_5  ">
+                                                            <div class="cell el-tooltip" style="width: 79px;">简单</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_6  ">
+                                                            <div class="cell el-tooltip" style="width: 199px;"></div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_7  ">
+                                                            <div class="cell el-tooltip" style="width: 119px;">考试</div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1" class="el-table_1_column_8  ">
+                                                            <div class="cell el-tooltip" style="width: 179px;">
+                                                                2016-09-14 11:40
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="1" colspan="1"
+                                                            class="el-table_1_column_9   is-hidden">
+                                                            <div class="cell"><i
+                                                                    class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                    aria-describedby="el-tooltip-5219" tabindex="0"></i>
+                                                                <i class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                   aria-describedby="el-tooltip-5616" tabindex="0"></i>
+                                                            </div>
+                                                        </td>
+                                                    </tr><!----></tbody>
+                                                </table><!----><!----></div><!----><!---->
+                                            <div class="el-table__fixed-right" style="width: 166px; height: 495px;">
+                                                <div class="el-table__fixed-header-wrapper">
+                                                    <table cellspacing="0" cellpadding="0" border="0"
+                                                           class="el-table__header" style="width: 1700px;">
+                                                        <colgroup>
+                                                            <col name="el-table_1_column_1" width="33">
+                                                            <col name="el-table_1_column_2" width="80">
+                                                            <col name="el-table_1_column_3" width="180">
+                                                            <col name="el-table_1_column_4" width="661">
+                                                            <col name="el-table_1_column_5" width="80">
+                                                            <col name="el-table_1_column_6" width="200">
+                                                            <col name="el-table_1_column_7" width="120">
+                                                            <col name="el-table_1_column_8" width="180">
+                                                            <col name="el-table_1_column_9" width="166">
+                                                        </colgroup>
+                                                        <thead class="">
+                                                        <tr class="">
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_1   el-table-column--selection  is-hidden is-leaf">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </th>
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_2     is-hidden is-leaf">
+                                                                <div class="cell">题型</div>
+                                                            </th>
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_3     is-hidden is-leaf">
+                                                                <div class="cell">分类</div>
+                                                            </th>
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_4     is-hidden is-leaf">
+                                                                <div class="cell">试题内容</div>
+                                                            </th>
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_5     is-hidden is-leaf">
+                                                                <div class="cell">难度</div>
+                                                            </th>
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_6     is-hidden is-leaf">
+                                                                <div class="cell">试题标签</div>
+                                                            </th>
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_7     is-hidden is-leaf">
+                                                                <div class="cell">创建人</div>
+                                                            </th>
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_8     is-hidden is-leaf is-sortable">
+                                                                <div class="cell">创建时间<span class="caret-wrapper"><i
+                                                                        class="sort-caret ascending"></i><i
+                                                                        class="sort-caret descending"></i></span></div>
+                                                            </th>
+                                                            <th colspan="1" rowspan="1"
+                                                                class="el-table_1_column_9     is-leaf">
+                                                                <div class="cell">操作</div>
+                                                            </th>
+                                                        </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div class="el-table__fixed-body-wrapper"
+                                                     style="top: 55px; height: 440px;">
+                                                    <table cellspacing="0" cellpadding="0" border="0"
+                                                           class="el-table__body" style="width: 1700px;">
+                                                        <colgroup>
+                                                            <col name="el-table_1_column_1" width="33">
+                                                            <col name="el-table_1_column_2" width="80">
+                                                            <col name="el-table_1_column_3" width="180">
+                                                            <col name="el-table_1_column_4" width="661">
+                                                            <col name="el-table_1_column_5" width="80">
+                                                            <col name="el-table_1_column_6" width="200">
+                                                            <col name="el-table_1_column_7" width="120">
+                                                            <col name="el-table_1_column_8" width="180">
+                                                            <col name="el-table_1_column_9" width="166">
+                                                        </colgroup>
+                                                        <tbody>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">单选
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    在机场、商厦、地铁等公共场所乘自动扶梯时应靠（）站立,另一侧供有急事赶路的人快行。
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-11-02 12:00
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-4558"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-1049"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">单选
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    一般性的拜访多以（）为最佳交往时间。
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-11-02 12:00
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-6600"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-6364"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">单选
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    拜访他人应选择（）,并应提前打招呼。
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-11-02 12:00
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-6818"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-692"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">单选
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    在参加各种社交宴请宾客中,要注意从座椅的（）侧入座,动作应轻而缓,轻松自然。
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-11-02 12:00
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-5592"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-6787"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">问答
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    请简单表述一下中国在饮食方面的礼仪
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-09-14 13:44
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-3718"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-5384"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">问答
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    请简单说一下你对礼仪的认识与理解
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-09-14 13:44
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-8236"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-7938"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">填空
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    男性公务员应保持面部清洁，不蓄胡须，不留大鬓角（）（）（）发长要求
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-09-14 13:40
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-1269"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-2117"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">填空
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    个人形象分（）（）（）（）和综合型五种类型。
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-09-14 13:40
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-7986"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-5271"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">填空
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    打招呼的方式一般有（）（）（）（）
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-09-14 13:40
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-1417"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-7922"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="el-table__row">
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
+                                                                <div class="cell"><label role="checkbox"
+                                                                                         class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"><span
+                                                                        class="el-checkbox__inner"></span><input
+                                                                        type="checkbox" aria-hidden="true"
+                                                                        class="el-checkbox__original" value=""></span>
+                                                                    <!----></label></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_2   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">多选
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_3   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    试题分类/示例
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_4   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 660px;">
+                                                                    以接待对象为标准划分的接待类型有
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_5   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 79px;">简单
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_6   is-hidden">
+                                                                <div class="cell el-tooltip"
+                                                                     style="width: 199px;"></div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_7   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 119px;">考试
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1"
+                                                                class="el-table_1_column_8   is-hidden">
+                                                                <div class="cell el-tooltip" style="width: 179px;">
+                                                                    2016-09-14 11:40
+                                                                </div>
+                                                            </td>
+                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
+                                                                <div class="cell"><i
+                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
+                                                                        aria-describedby="el-tooltip-7512"
+                                                                        tabindex="0"></i> <i
+                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
+                                                                        aria-describedby="el-tooltip-4308"
+                                                                        tabindex="0"></i></div>
+                                                            </td>
+                                                        </tr><!----></tbody>
+                                                    </table>
+                                                </div><!----></div>
+                                            <div class="el-table__fixed-right-patch"
+                                                 style="width: 0px; height: 55px;"></div>
+                                            <div class="el-table__column-resize-proxy" style="display: none;"></div>
+                                        </div>
+                                        <div class="el-pagination is-background"><span class="el-pagination__total">共 23 条</span><span
+                                                class="el-pagination__sizes"><div class="el-select el-select--mini"><!----><div
+                                                class="el-input el-input--mini el-input--suffix"><!----><input
+                                                type="text" readonly="readonly" autocomplete="off" placeholder="请选择"
+                                                class="el-input__inner"><!----><span class="el-input__suffix"><span
+                                                class="el-input__suffix-inner"><i
+                                                class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                            <!----></span><!----></span><!----></div><div
+                                                class="el-select-dropdown el-popper"
+                                                style="display: none; min-width: 110px;"><div class="el-scrollbar"
+                                                                                              style=""><div
+                                                class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                style="margin-bottom: -17px; margin-right: -17px;"><ul
+                                                class="el-scrollbar__view el-select-dropdown__list"><!----><li
+                                                class="el-select-dropdown__item selected"><span>10条/页</span></li><li
+                                                class="el-select-dropdown__item"><span>20条/页</span></li><li
+                                                class="el-select-dropdown__item"><span>50条/页</span></li><li
+                                                class="el-select-dropdown__item"><span>100条/页</span></li></ul></div><div
+                                                class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb"
+                                                                                             style="transform: translateX(0%);"></div></div><div
+                                                class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb"
+                                                                                           style="transform: translateY(0%);"></div></div></div>
+                                            <!----></div></div></span>
+                                            <button type="button" disabled="disabled" class="btn-prev"><i
+                                                    class="el-icon el-icon-arrow-left"></i></button>
+                                            <ul class="el-pager">
+                                                <li class="number active">1</li><!---->
+                                                <li class="number">2</li><!---->
+                                                <li class="number">3</li>
+                                            </ul>
+                                            <button type="button" class="btn-next"><i
+                                                    class="el-icon el-icon-arrow-right"></i></button>
+                                            <span class="el-pagination__jump">前往<div
+                                                    class="el-input el-pagination__editor is-in-pagination"><!----><input
+                                                    type="number" autocomplete="off" min="1" class="el-input__inner"
+                                                    max="3"><!----><!----><!----></div>页</span><!----></div>
+                                        <div class="el-loading-mask" style="display: none;">
+                                            <div class="el-loading-spinner">
+                                                <svg viewBox="25 25 50 50" class="circular">
+                                                    <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+                                                </svg><!----></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="el-dialog__wrapper" style="display: none;">
+                                <div class="el-dialog el-dialog--center" style="margin-top: 60px;">
+                                    <div class="el-dialog__header"><span class="el-dialog__title">试题标签</span>
+                                        <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
+                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                    </div><!---->
+                                    <div class="el-dialog__footer">
+                                        <div class="dialog-footer">
+                                            <button type="button" class="el-button closeBtn el-button--default"><!---->
+                                                <!----><span>关闭</span></button>
+                                            <button type="button" class="el-button saveBtn el-button--default"><!---->
+                                                <!----><span>选择</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="el-dialog__wrapper" style="display: none;">
+                                <div class="el-dialog el-dialog--center" style="margin-top: 60px;">
+                                    <div class="el-dialog__header"><span class="el-dialog__title">管理试题分类</span>
+                                        <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
+                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                    </div><!---->
+                                    <div class="el-dialog__footer">
+                                        <div class="dialog-footer">
+                                            <button type="button" class="el-button closeBtn el-button--default"><!---->
+                                                <!----><span>关闭</span></button>
+                                            <button type="button" class="el-button saveBtn el-button--default"><!---->
+                                                <!----><span>选择</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="el-dialog__wrapper" style="display: none;">
+                                <div class="el-dialog el-dialog--center" style="margin-top: 60px;">
+                                    <div class="el-dialog__header"><span class="el-dialog__title">管理试题分类</span>
+                                        <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
+                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                    </div><!---->
+                                    <div class="el-dialog__footer">
+                                        <div class="dialog-footer">
+                                            <button type="button" class="el-button closeBtn el-button--default"><!---->
+                                                <!----><span>关闭</span></button>
+                                            <button type="button" class="el-button saveBtn el-button--default"><!---->
+                                                <!----><span>选择</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="el-dialog__wrapper" style="display: none;">
+                                <div class="el-dialog el-dialog--center" style="margin-top: 60px;">
+                                    <div class="el-dialog__header"><span class="el-dialog__title">试题标签</span>
+                                        <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
+                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                    </div><!---->
+                                    <div class="el-dialog__footer">
+                                        <div class="dialog-footer">
+                                            <button type="button" class="el-button closeBtn el-button--default"><!---->
+                                                <!----><span>关闭</span></button>
+                                            <button type="button" class="el-button saveBtn el-button--default"><!---->
+                                                <!----><span>选择</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-v-641a9f46="">
+                                <div data-v-641a9f46="" class="el-dialog__wrapper update-dialog" style="display: none;">
+                                    <div class="el-dialog el-dialog--center" style="width: 30%; margin-top: 15vh;">
+                                        <div class="el-dialog__header"><span class="el-dialog__title">批量更新</span>
+                                            <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
+                                                    class="el-dialog__close el-icon el-icon-close"></i></button>
+                                        </div><!---->
+                                        <div class="el-dialog__footer"><span data-v-641a9f46="" class="dialog-footer"><button
+                                                data-v-641a9f46="" type="button" class="el-button el-button--default"><!---->
+                                            <!----><span>取 消</span></button> <button data-v-641a9f46="" type="button"
+                                                                                     class="el-button el-button--primary"><!---->
+                                            <!----><span>确 定</span></button></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </section>
+        </section>
+        <div class="el-loading-mask" style="background-color: rgba(0, 0, 0, 0.8); display: none;">
+            <div class="el-loading-spinner">
+                <svg viewBox="25 25 50 50" class="circular">
+                    <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+                </svg>
+                <p class="el-loading-text">拼命加载中</p></div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript" src="../../js/vue.min.js"></script>
+<script type="text/javascript" src="../../js/vuex.js"></script>
+<script type="text/javascript" src="../../js/vue-router.js"></script>
+<script type="text/javascript" src="../../js/axios.min.js"></script>
+<script type="text/javascript" src="../../js/element-ui.js"></script>
+<script type="text/javascript" src="../../js/mint-ui.js"></script>
+<script type="text/javascript" src="../../js/ksxing.js"></script>
+<script type="text/javascript" src="../../js/manifest.bcc1d48291623be65c56.js"></script>
+<script type="text/javascript" src="../../js/vendor.878de6c8ea2b304033fa.js"></script>
+<!--<script type="text/javascript" src="../../js/application.6522cbb4c98f28b2f862.js"></script>-->
+</body>
+</html>

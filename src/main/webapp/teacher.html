@@ -10,8 +10,6 @@
     <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
     <meta name="author" content="">
     <script async="" src="./js/tingyun-rum-admin.js"></script>
-    <script async="" src="./js/gio.js"></script>
-    <script type="text/javascript" src="./js/ksx_probe.js"></script>
     <script type="text/javascript">
         var opts = {};
 
@@ -19,11 +17,6 @@
         opts.companyId = '140092';
         opts.companyName = '在线考试平台管理系统';
         opts.rightsGrade = '8';
-
-        //添加gio
-        ksxProbe.gioInit(opts);
-        //添加tingyun
-        ksxProbe.tingyun();
     </script>
     <title>考试云平台</title>
 
@@ -41,29 +34,6 @@
     <link rel="stylesheet" type="text/css" href="./css/admin_index.css">
     <link rel="stylesheet" type="text/css" href="./css/admin_index_add.css">
     <link rel="stylesheet" type="text/css" href="./css/cannotlink_modal.css">
-    <script src="./js/entrance.js" id="zhichiScript" class="zhiCustomBtn"></script>
-    <script>
-        //初始化智齿咨询组件实例
-        var zhiManager = (getzhiSDKInstance());
-        //再调用load方法
-        zhiManager.on("load", function () {
-            zhiManager.initBtnDOM();
-        });
-        //设置入口方位//按钮将显示在右下角 默认显示在右下角
-        zhiManager.set('location', 1);
-        //设置悬浮窗的水平位置
-        //true 自定义咨询按钮 废弃系统默认按钮
-        zhiManager.set('customBtn', 'true');
-        //设置自动强制发起会话
-        //    setTimeout(function(){
-        //        zhiManager.expand();
-        ////      zhiManager.set('autoExpand', true);
-        //    },5000);
-        //默认：当为左下时，则水平距离左边100px。当为右下时，则水平距离右边100px
-        zhiManager.set('customMargin', 30);
-        //    zhiManager.set('horizontal', 0);
-        zhiManager.set('manTrace', true); //开启收集用户方访问轨迹 默认不收集
-    </script>
 
     <style type="text/css">  .JColResizer {
         table-layout: fixed;
@@ -201,10 +171,10 @@
                                         href="/html/exam/exam_mgr_new.html"><span class="nav-title">考试信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
-                                        href="https://.com/admin/testQuestions/#/list"><span
+                                        href="./html/exam/test_questions.html"><span
                                         class="nav-title">试题库</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
-                                        href="https://admi.com/admin/paper_mgr_new"><span
+                                        href="./html/exam/paper_mgr_new.html"><span
                                         class="nav-title">试卷库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
@@ -539,7 +509,7 @@
                                                 <span class="disInBlock">操作</span>
                                                 <span class="disInBlock icon-a_arrow_down handle-arrow-bottom"></span>
                                                 <div class="user-handle-menu drop-menu menu-hide">
-                                                    <p onclick="editExamLink(&#39;/admin/exam/update/293974&#39;)">
+                                                    <p onclick="editExamLink('/admin/exam/update/293974');">
                                                         <a href="javascript:void(0);">
                                                             <span class="disInBlock l icons8-edit"></span>
                                                             <span>编辑考试</span>
@@ -797,7 +767,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="gridSystemModalLabel">为了您更佳的使用体验，<br>建议您通过以下浏览器访问考试星系统</h4>
+                <h4 class="modal-title" id="gridSystemModalLabel">为了您更佳的使用体验，<br>建议您通过以下浏览器访问考试系统</h4>
             </div>
             <div class="modal-body clearfix">
                 <div class="browser browser-chrome">
@@ -825,9 +795,9 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="party-title">考试星党建云内容平台上线啦！</div>
+                <div class="party-title">考试党建云内容平台上线啦！</div>
                 <div class="party-desc">
-                    考试星联手权威专家团<br>
+                    考试联手权威专家团<br>
                     打造党建学习+考试一站式内容平台<br>
                     高效提升党建学习效率<br>
                 </div>
@@ -860,31 +830,6 @@
     //当前request返回页面对应导航id
 
     var activeNavItem = 'navItemIndex';
-
-    // gio 在线咨询
-    $("body").on('click', '.gio-inquire-position', function () {
-        //推送咨询事件
-        ksxProbe.gioTrack('onlineInquire', 1, {
-            'inquireFromPage_var': window.location.href,
-            'inquireFromPageName_var': '管理员端',
-            'inquireFromPosition_var': $(this).attr('data-gio-position')
-        });
-    });
-
-
-    //智齿 官网右下角图标
-    $("body").on('click', '#zhichiBtnBox', function () {
-        var title = $(this).find('.zc-advice-icon-btn-title').text();
-
-        if (title == '收起') {
-            //推送咨询事件
-            ksxProbe.gioTrack('onlineInquire', 1, {
-                'inquireFromPage_var': window.location.href,
-                'inquireFromPageName_var': '管理员端',
-                'inquireFromPosition_var': '管理员端右下角咨询'
-            });
-        }
-    });
 
     $(function () {
 
@@ -973,7 +918,7 @@
             e.preventDefault();
             e.stopPropagation();
             window.localStorage.setItem('okModalExamRef', 'index'); //记下是从首页进入的创建，以便跳转回来
-            window.location.href = '/admin/paper_add_new';
+            window.location.href = './html/exam/paper_add_new.html';
         });
 
 
@@ -1085,7 +1030,7 @@
         alert("复制失败，请重试");
     });
 
-    //版本小于10的IE浏览器进入考试星系统管理员页面时，弹出提示弹窗
+    //版本小于10的IE浏览器进入考试系统管理员页面时，弹出提示弹窗
 
     // 判断浏览器是否支持placeholder属性
     function isSupportPlaceholder() {
@@ -1213,15 +1158,5 @@
         window.open(url);
     }
 </script>
-
-
-<div id="zhichiBtnBox"
-     style="position: fixed; z-index: 2147483583; box-shadow: rgba(15, 66, 76, 0.25) 0px 0px 14px 0px; width: 60px; height: 60px; border-radius: 50%; background-color: rgb(60, 140, 252); background-image: url(&quot;//www.sobot.com/chat/frame/imgs/icon.png&quot;); background-repeat: no-repeat; background-position: 18px -58px; right: 40px; bottom: 20px; display: none;">
-    <a hidefocus="" id="zhichiBtn"
-       style="position:relative;text-decoration: none; outline: none; font-family: Microsoft Yahei, Arial, Helvetica; color: #fff; font-size: 16px; display: inline-block; margin: 0; padding: 0; border: none; line-height:43px; float:none;width:100%;height:100%;border-radius:50%;"><span
-            class="zc-advice-icon-btn-title"
-            style="box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px; border: 1px solid rgb(235, 239, 240); font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; color: rgb(85, 85, 86); font-size: 13px; margin: 0px; text-align: right; background: rgb(255, 255, 255); position: absolute; top: 15px; right: 70px; text-overflow: ellipsis; white-space: nowrap; word-break: normal; display: none; border-radius: 3px; padding: 0px 5px; height: 30px; line-height: 30px;">咨询在线客服</span></a><i
-        style="position:absolute;top:0px;right:0px;padding:1px;line-height:20px;text-align:center;color:#fff;font-weight:bold;height:18px;min-width:18px;background-color:#ed5c5c;border-radius:18px;font-size:12px;display:none;font-style:normal;"
-        id="zhichiCount"></i></div>
 </body>
 </html>

@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
+    <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="author" content="">
+    <script async="" src="../../js/tingyun-rum-admin.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '东北大学软件园';
+        opts.rightsGrade = '8';
+
+    </script>
+    <title>考试云平台</title>
+
+
+    <link rel="shortcut icon" href="../../img/logo.ico">
+
+
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/admin_base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.bootgrid.css">
+    <link rel="stylesheet" type="text/css" href="../../css/pikaday.css">
+    <style>
+        .col-sm-12.actionBar {
+            display: none;
+        }
+
+        /*th.text-left:last-child {
+            text-align: center;
+        }*/
+        .viewFrameWork-body .body-wrapper .body-content {
+            padding-right: 15px;
+        }
+
+        div#grid-data-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            padding-top: 11px;
+            background: #fff;
+            margin-bottom: 0;
+        }
+
+        table#grid-data {
+            padding-bottom: 60px;
+        }
+
+        #grid-data-footer .row .infoBar .actions .btn-group:last-child .dropdown-menu {
+            top: -235px;
+        }
+
+        #createPaperForm {
+            padding: 0 40px;
+        }
+
+        #createPaperForm .form-row {
+            position: relative;
+            line-height: 28px;
+            padding-left: 90px;
+        }
+
+        #createPaperForm .form-row .tip {
+            position: absolute;
+            right: -10px;
+            top: 3px;
+            font-size: 16px;
+            color: #FF0000;
+            line-height: 1;
+        }
+
+        #createPaperForm .form-row + .form-row {
+            margin-top: 15px;
+        }
+
+        #createPaperForm .form-row .row-label {
+            position: absolute;
+            left: 10px;
+            top: 0;
+        }
+
+        #createPaperForm .form-row .btn + .btn {
+            margin-left: 7px;
+        }
+
+        #createPaperForm .form-row label {
+            font-weight: normal;
+        }
+
+        #createPaperForm .form-row .btn i {
+            margin-left: 5px;
+        }
+
+        #createPaperForm .form-row .btn.not-selected {
+            border: 1px solid #DEDEDE;
+            color: #B4B6BD;
+        }
+
+        #createPaperModal .modal-header {
+            padding-top: 30px;
+            padding-bottom: 18px;
+        }
+
+        #createPaperForm .btn-default {
+            line-height: 1.4;
+        }
+
+        #createPaperForm .form-control {
+            height: 28px;
+        }
+
+        #createPaperForm .form-row input[type=checkbox] {
+            margin-right: 3px;
+        }
+
+        .del-test .modal-dialog,
+        .del-test .modal-content,
+        .exam-not-del .modal-dialog,
+        .exam-not-del .modal-content {
+            width: 440px;
+            border: none;
+        }
+
+        .exam-del .close,
+        .del-test .close,
+        .exam-not-del .close {
+            display: none;
+        }
+
+        .del-test .bootstrap-dialog-message {
+            font-size: 20px;
+            color: #3A3E51;
+        }
+
+        .exam-del .del-test-no,
+        .exam-del .del-test-yes,
+        .del-test .del-test-no,
+        .del-test .del-test-yes {
+            height: 34px;
+            width: 100px;
+            font-size: 14px;
+        }
+
+        .exam-del .del-test-yes,
+        .del-test .del-test-yes {
+            background: #FF0000;
+            border-radius: 4px;
+            color: #FFFFFF;
+            margin-left: 14px !important;
+        }
+
+        .exam-del .del-test-no,
+        .del-test .del-test-no {
+            background: #F2F2F2;
+            border-radius: 4px;
+            color: #666666;
+        }
+
+        .del-test .modal-footer {
+            padding: 32px 15px;
+            border-top: 0;
+        }
+
+        .del-test .modal-header {
+            border-bottom: 0;
+            height: 50px;
+        }
+
+        .exam-del .modal-header,
+        .exam-not-del .modal-header {
+            height: 70px;
+            border: none;
+            font-size: 20px;
+            color: #3A3E51;
+            padding: 50px 0 0 0;
+        }
+
+        .exam-del .bootstrap-dialog-title,
+        .exam-not-del .bootstrap-dialog-title {
+            line-height: 1;
+        }
+
+        .exam-del .modal-body,
+        .exam-not-del .modal-body {
+            margin-top: 18px;
+        }
+
+        .exam-del .modal-body p,
+        .exam-not-del .modal-body p {
+            padding: 0px !important;
+            margin: 0;
+        }
+
+        .exam-not-del .exam-del-btn {
+            width: 100px;
+            height: 34px;
+            background: #F2F2F2;
+            border-radius: 4px;
+            border-color: #F2F2F2;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .exam-del .modal-footer,
+        .exam-not-del .modal-footer {
+            height: 98px;
+            border: none;
+            padding: 32px 15px;
+        }
+
+        /*表格滑动-滚动条被分页器遮挡住了，需要调整让滚动条出现*/
+        #grid-data {
+            padding-bottom: unset !important; /*去掉60px的底部填充*/
+        }
+
+        #grid-data-footer {
+            bottom: -60px !important; /*分页器也随着下移60px的底部距离*/
+        }
+
+        .select-label { /*设置不换行后，勾选框的边距消失，需要再设置*/
+            margin: 0 14px !important;
+        }
+    </style>
+
+    <style type="text/css">  .JColResizer {
+        table-layout: fixed;
+    }
+
+    .JColResizer > tbody > tr > td, .JColResizer > tbody > tr > th {
+        overflow: hidden;
+    }
+
+    .JCLRgrips {
+        height: 0px;
+        position: relative;
+    }
+
+    .JCLRgrip {
+        margin-left: -5px;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .JCLRgrip .JColResizer {
+        position: absolute;
+        background-color: red;
+        filter: alpha(opacity=1);
+        opacity: 0;
+        width: 10px;
+        height: 100%;
+        cursor: col-resize;
+        top: 0px
+    }
+
+    .JCLRLastGrip {
+        position: absolute;
+        width: 1px;
+    }
+
+    .JCLRgripDrag {
+        border-left: 1px dotted black;
+    }
+
+    .JCLRFlex {
+        width: auto !important;
+    }
+
+    .JCLRgrip.JCLRdisabledGrip .JColResizer {
+        cursor: default;
+        display: none;
+    }</style>
+    <style></style>
+</head>
+
+
+<body>
+<div class="viewFrameWork sidebar-full" id="viewFrameWork">
+
+    <div class="viewFrameWork-statusbar">
+
+        <a href="https://admin.kaoshixing.com/account/admin/index" class="status-left company-logo" title="logo"
+           id="companyLogo">
+            <!--对有没有logo进行判断-->
+            <img class="icon-logo logo-ksx" src="../../img/logo.png"></a>
+
+
+        <div class="status-middle toolbar">
+            <div class="body-toolbar clearfix">
+                <div class="body-toolbar-left pull-left toolbar-left-operation">
+
+                    <button type="button" class="btn btn-primary createPaper">
+                        <i class="icon-a_circle_plus btn-icon-left"></i>
+                        创建试卷
+                    </button>
+
+                    <button type="button" class="btn btn-default inactive" disabled="" id="batchDel">
+                        <i class="icons8-trash-can btn-icon-left"></i>
+                        删除
+                    </button>
+                </div>
+                <div class="body-toolbar-right pull-right toolbar-right-operation">
+                    <div class="search-section">
+                        <div class="search-section-normal" id="normalSearch">
+                            <i class="icon-p_top_search search-section-icon" id="searchIcon"></i>
+                            <input class="search-section-area placeholder" name="paper_name" type="text"
+                                   placeholder="请输入试卷名称">
+                        </div>
+                        <div class="search-section-adv" id="advSearch">
+                    <span class="dropdown-toggle search-section-adv-title" data-toggle="dropdown" aria-haspopup="true"
+                          aria-expanded="true">
+                        高级搜索
+                        <i class="icons8-expand-arrow"></i>
+                    </span>
+                            <div class="dropdown-menu search-dropdown-menu search-section-adv-panel">
+                                <form name="form" method="get" id="subForm">
+                                    <ul class="search-menu">
+                                        <li>
+                                            <span class="search-menu-title">试卷分类</span>
+                                            <button class="btn btn-default search-menu-content" id="selTypeLinkMulti">
+                                                选择分类
+                                            </button>
+                                            <input type="hidden" name="paper_style">
+                                        </li>
+
+                                    </ul>
+                                </form>
+                                <div class="dropdown-footer">
+                                    <button type="button" class="btn btn-primary" id="searchBtn">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-right">
+            <div class="status-item item-notification" id="stateMessage">
+                <i class="icon item-icon icon-p_top_message"></i>
+                <span class="message-count hidden"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="viewFrameWork-main">
+
+        <div class="viewFrameWork-sidebar">
+            <div class="sidebar-inner">
+
+                <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
+                     data-container="body" title="" data-original-title="收起导航">
+                    <i class="icons8 icons8-icon"></i>
+                </div>
+
+                <div class="sidebar-nav">
+                    <ul class="sidebar-trans" id="ksxAdminSidebar">
+                        <li class="nav-item nav-item-index" id="navItemIndex">
+                            <a href="https://admin.kaoshixing.com/account/admin/index/" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="首页">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_nav_home icon-index"></i>
+                                </div>
+                                <span class="nav-title">首页</span>
+                            </a>
+                        </li>
+                        <li class="nav-item has-sub-menu open" id="navItemExam"><a
+                                href="./paper_mgr_new.html" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="考试管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
+                            <span class="nav-title">考试管理</span></a>
+                            <ul class="sub-menu animate" style="height: 238px;">
+                                <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
+                                        href="/html/exam/exam_mgr_new.html"><span class="nav-title">考试信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
+                                        href="./test_questions.html"><span
+                                        class="nav-title">试题库</span></a></li>
+                                <li class="nav-item sub-nav-item nav-item-active" id="subNavItemPaperMgr"><a
+                                        href="./paper_mgr_new.html"><span class="nav-title">试卷库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/result/mgr_new"><span
+                                        class="nav-title">成绩查询批改</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
+                                        href="https://new.kaoshixing.com/ae/results/analysis/exam"><span
+                                        class="nav-title">分析考试</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
+                                        href="https://new.kaoshixing.com/ae/results/analysis/person"><span
+                                        class="nav-title">分析考生</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemUser"><a
+                                href="./paper_mgr_new.html" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="人员管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
+                            <span class="nav-title">人员管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
+                                        href="https://v.kaoshixing.com/admin/user/#/list"><span
+                                        class="nav-title">考生信息</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
+                                        href="https://admin.kaoshixing.com/admin/user_reg"><span
+                                        class="nav-title">注册设置</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemCourse"><a
+                                href="./paper_mgr_new.html" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="学习">
+                            <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
+                            <span class="nav-title">学习</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/file/manager"><span class="nav-title">知识库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
+                                        href="https://admin.kaoshixing.com/course/course_mgr"><span class="nav-title">课程管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
+                                        href="https://admin.kaoshixing.com/course/study_record_mgr/course"><span
+                                        class="nav-title">学习记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item " id="navItemCustomProcess"><a
+                                href="https://v.kaoshixing.com/admin/customprocess/" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="自定义任务">
+                            <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
+                            <span class="nav-title">自定义任务</span></a>
+                        </li>
+                        <li class="nav-item " id="navItemCertification"><a
+                                href="https://admin.kaoshixing.com/certificate/certificate_center" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
+                            <div class="nav-icon"><i class="icon icon-p_leftnav_certification"></i></div>
+                            <span class="nav-title">认证中心</span></a></li>
+                        <li class="nav-item " id="navItemApplication"><a
+                                href="https://v.kaoshixing.com/admin/application/#/list" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="报名审核">
+                            <div class="nav-icon"><i class="icon icon-a_nav_sign_up"></i></div>
+                            <span class="nav-title">报名审核</span></a></li>
+                        <li class="nav-item has-sub-menu" id="navItemPay"><a
+                                href="./paper_mgr_new.html" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="支付中心">
+                            <div class="nav-icon"><i class="icon icon-a_nav_pay"></i></div>
+                            <span class="nav-title">支付中心</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemPayCenter"><a
+                                        href="https://admin.kaoshixing.com/account/admin_pay_center"><span
+                                        class="nav-title">充值</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaySet"><a
+                                        href="https://admin.kaoshixing.com/admin/user_pay_set"><span class="nav-title">支付设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemConsumeRecord"><a
+                                        href="https://admin.kaoshixing.com/account/admin_consume_record"><span
+                                        class="nav-title">消费记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOrderRecord"><a
+                                        href="https://admin.kaoshixing.com/account/admin_order_record"><span
+                                        class="nav-title">充值记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPayRecord"><a
+                                        href="https://admin.kaoshixing.com/account/examinee_pay_record"><span
+                                        class="nav-title">考生付费记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemSystem"><a
+                                href="./paper_mgr_new.html" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="系统管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
+                            <span class="nav-title">系统管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/sub_admin_mgr"><span class="nav-title">子管理员设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
+                                        href="https://admin.kaoshixing.com/admin/app_set"><span
+                                        class="nav-title">App设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemModify"><a
+                                        href="https://admin.kaoshixing.com/admin/modify"><span
+                                        class="nav-title">个性化设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
+                                        href="https://admin.kaoshixing.com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
+                                        href="https://admin.kaoshixing.com/admin/dev_info_mgr"><span class="nav-title">开发者信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
+                                        href="https://admin.kaoshixing.com/account/admin_op_record"><span
+                                        class="nav-title">管理员操作记录</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-bottom sidebar-btn">
+                <ul class="sidebar-trans">
+                    <li class="nav-item">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_help"></i>
+                            </div>
+                            <span class="nav-title">帮助
+                        </span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel person-servers-panel">
+                            <div class="btn-help">
+                                <i class="icon icon-a_help_document"></i>
+                                <p><a href="https://www.kancloud.cn/exam-star/ksxhelp_1/974046">帮助文档</a></p>
+                            </div>
+                            <div class="btn-service">
+                                <i class="icon icon-a_help_service"></i>
+                                <span>人工客服</span>
+                                <p>
+                                    可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
+                                        href="javascript:;">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-user">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_my"></i>
+                            </div>
+                            <span class="nav-title">东北大学软件园</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel user-info-panel">
+
+                            <div class="user-info">
+                                <div class="info-img">
+                                    <img src="../../img/default-pic.png" class="user_img" alt="">
+                                </div>
+                                <div class="info-detail clearfix">
+                                    <div class="user" id="user">
+                                        <span class="user-surname">东北大学软件园</span>
+                                        <i data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                           data-original-title="编辑信息">
+                                        </i>
+                                    </div>
+                                    <div class="company">
+                                        东北大学软件园
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="operate-group">
+                                <a class="operate-item exam-entrance" href="https://exam.kaoshixing.com/exam">
+                                    <i class="operate-icon icon-a_personal_switch"></i>
+                                    切换至考生端
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item exam-entrance"
+                                   href="https://admin.kaoshixing.com/admin/admin_information">
+                                    <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
+                                       data-placement="top" data-container="body" title="" data-original-title="编辑信息">
+
+                                        <i class="unread-notice"></i>
+
+                                    </i>
+                                    修改个人信息
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item btn-exit" id="logoutBtn">
+                                    <i class="operate-icon icon-a_personal_exit"></i>
+                                    退出
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="viewFrameWork-body">
+            <!-- loading -->
+            <div class="spinner-wrapper hidden" id="spinnerLoading">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+
+            <div class="body-wrapper">
+                <div class="body-content">
+                    <div class="table-responsive">
+                        <div class="JCLRgrips" style="width: 1685px;">
+                            <div class="JCLRgrip" style="left: 60px; height: 193px;">
+                                <div class="JColResizer"></div>
+                            </div>
+                            <div class="JCLRgrip" style="left: 200px; height: 193px;">
+                                <div class="JColResizer"></div>
+                            </div>
+                            <div class="JCLRgrip" style="left: 404px; height: 193px;">
+                                <div class="JColResizer"></div>
+                            </div>
+                            <div class="JCLRgrip" style="left: 575px; height: 193px;">
+                                <div class="JColResizer"></div>
+                            </div>
+                            <div class="JCLRgrip" style="left: 805px; height: 193px;">
+                                <div class="JColResizer"></div>
+                            </div>
+                            <div class="JCLRgrip" style="left: 916px; height: 193px;">
+                                <div class="JColResizer"></div>
+                            </div>
+                            <div class="JCLRgrip" style="left: 1141px; height: 193px;">
+                                <div class="JColResizer"></div>
+                            </div>
+                            <div class="JCLRgrip" style="left: 1393px; height: 193px;">
+                                <div class="JColResizer"></div>
+                            </div>
+                            <div class="JCLRgrip JCLRLastGrip" style="left: 1686px; height: 193px;"></div>
+                        </div>
+                        <table id="grid-data" class="table text-nowrap bootgrid-table JColResizer" aria-busy="false">
+                            <thead>
+                            <tr>
+                                <th class="select-cell" style="width: 3.5%;"><label class="select-label"><input
+                                        name="select" type="checkbox" class="select-box" value="all" {{ctx.checked}}=""><span
+                                        class="select-box"><i class="icons8-checked-checkbox"></i></span></label></th>
+                                <th data-column-id="paperName" class="text-left" style="width: 8.3%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">名称</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="paperStyleName" class="text-left" style="width: 12.1%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">试卷分类</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="paperType" class="text-left" style="width: 10.1%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">组卷方式</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="perTimeRestrict" class="text-left" style="width: 13.6%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">限制每题时长</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="totalScore" class="text-left" style="width: 6.6%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">总分</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="createUserName" class="text-left" style="width: 13.4%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                        class="text">创建人</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="createTime" class="text-left" style="width: 15%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">创建时间</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="sender" class="text-left" style="width: 17.4%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">操作</span><span class="icon glyphicon icons8-settings"></span></a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr data-row-id="292524">
+                                <td class="select-cell" style=""><label class="select-label"><input
+                                        name="select" type="checkbox" class="select-box" value="292524"><span
+                                        class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>
+                                <td class="text-left" style="">34234</td>
+                                <td class="text-left" style="">试卷分类</td>
+                                <td class="text-left" style="">选题组卷</td>
+                                <td class="text-left" style="">否</td>
+                                <td class="text-left" style="">9</td>
+                                <td class="text-left" style="">东北大学软件园</td>
+                                <td class="text-left" style="">2019-07-24 22:00</td>
+                                <td class="text-left" style=""><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="updatePaper" class="icons8-edit updatePaper"
+                                        paperid="292524" data-toggle="tooltip" data-placement="top"
+                                        data-container="body" title="" data-original-title="编辑"></a><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="removePaper" class="icons8-trash-can removePaper"
+                                        paperisusing="false" examusing="false" paperid="292524" data-toggle="tooltip"
+                                        data-placement="top" data-container="body" title=""
+                                        data-original-title="删除"></a><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="copyPaper" class="icon-a_operate_copy copyPaper"
+                                        data-trigger="hover" paperid="292524" data-toggle="tooltip" data-placement="top"
+                                        data-container="body" title="" data-original-title="复制试卷"></a><a
+                                        href="./paper_mgr_new.html" paperid="292524"
+                                        data-growing-title="copyPaper" target="_blank"
+                                        class="icon-a_operate_create_test create_exam" data-trigger="hover"
+                                        data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                        data-original-title="创建考试"></a></td>
+                            </tr>
+                            <tr data-row-id="291896">
+                                <td class="select-cell" style=""><label class="select-label"><input
+                                        name="select" type="checkbox" class="select-box" value="291896"><span
+                                        class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>
+                                <td class="text-left" style="">213123</td>
+                                <td class="text-left" style="">试卷分类</td>
+                                <td class="text-left" style="">选题组卷</td>
+                                <td class="text-left" style="">是</td>
+                                <td class="text-left" style="">3985</td>
+                                <td class="text-left" style="">东北大学软件园</td>
+                                <td class="text-left" style="">2019-07-23 21:06</td>
+                                <td class="text-left" style=""><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="updatePaper" class="icons8-edit updatePaper"
+                                        paperid="291896" data-toggle="tooltip" data-placement="top"
+                                        data-container="body" title="" data-original-title="编辑"></a><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="removePaper" class="icons8-trash-can removePaper"
+                                        paperisusing="false" examusing="false" paperid="291896" data-toggle="tooltip"
+                                        data-placement="top" data-container="body" title=""
+                                        data-original-title="删除"></a><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="copyPaper" class="icon-a_operate_copy copyPaper"
+                                        data-trigger="hover" paperid="291896" data-toggle="tooltip" data-placement="top"
+                                        data-container="body" title="" data-original-title="复制试卷"></a><a
+                                        href="./paper_mgr_new.html" paperid="291896"
+                                        data-growing-title="copyPaper" target="_blank"
+                                        class="icon-a_operate_create_test create_exam" data-trigger="hover"
+                                        data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                        data-original-title="创建考试"></a></td>
+                            </tr>
+                            <tr data-row-id="291152">
+                                <td class="select-cell" style=""><label class="select-label"><input
+                                        name="select" type="checkbox" class="select-box" value="291152"><span
+                                        class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>
+                                <td class="text-left" style="">试卷示例</td>
+                                <td class="text-left" style="">试卷分类/示例</td>
+                                <td class="text-left" style="">选题组卷</td>
+                                <td class="text-left" style="">否</td>
+                                <td class="text-left" style="">100</td>
+                                <td class="text-left" style="">东北大学软件园</td>
+                                <td class="text-left" style="">2019-07-22 17:50</td>
+                                <td class="text-left" style=""><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="updatePaper" class="icons8-edit updatePaper"
+                                        paperid="291152" data-toggle="tooltip" data-placement="top"
+                                        data-container="body" title="" data-original-title="编辑"></a><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="removePaper" class="icons8-trash-can removePaper"
+                                        paperisusing="false" examusing="false" paperid="291152" data-toggle="tooltip"
+                                        data-placement="top" data-container="body" title=""
+                                        data-original-title="删除"></a><a
+                                        href="./paper_mgr_new.html"
+                                        data-growing-title="copyPaper" class="icon-a_operate_copy copyPaper"
+                                        data-trigger="hover" paperid="291152" data-toggle="tooltip" data-placement="top"
+                                        data-container="body" title="" data-original-title="复制试卷"></a><a
+                                        href="./paper_mgr_new.html" paperid="291152"
+                                        data-growing-title="copyPaper" target="_blank"
+                                        class="icon-a_operate_create_test create_exam" data-trigger="hover"
+                                        data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                        data-original-title="创建考试"></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="grid-data-footer" class="bootgrid-footer container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6 infoBar">
+                                <div class="infos">共3项记录</div>
+                                <div class="actions btn-group">
+                                    <div class="btn-group">
+                                        <button class="btn btn-default dropdown-toggle" type="button"
+                                                data-toggle="dropdown"><span
+                                                class="dropdown-text page-count-span">每页10项</span> <span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li class="active" aria-selected="true"><a
+                                                    href="./paper_mgr_new.html#10"
+                                                    class="dropdown-item dropdown-item-button">10</a></li>
+                                            <li aria-selected="false"><a
+                                                    href="./paper_mgr_new.html#20"
+                                                    class="dropdown-item dropdown-item-button">20</a></li>
+                                            <li aria-selected="false"><a
+                                                    href="./paper_mgr_new.html#50"
+                                                    class="dropdown-item dropdown-item-button">50</a></li>
+                                            <li aria-selected="false"><a
+                                                    href="./paper_mgr_new.html#100"
+                                                    class="dropdown-item dropdown-item-button">100</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-default dropdown-toggle" type="button"
+                                                data-toggle="dropdown"><span class="dropdown-text"><span
+                                                class="icon glyphicon icons8-settings"></span>自定义设置</span> <span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu pull-right custom-settings" role="menu">
+                                            <li><label class="dropdown-item"><input name="id" type="checkbox" value="1"
+                                                                                    class="dropdown-item-checkbox">
+                                            </label></li>
+                                            <li><label class="dropdown-item"><input name="paperName" type="checkbox"
+                                                                                    value="1"
+                                                                                    class="dropdown-item-checkbox"
+                                                                                    checked="checked"> 名称</label></li>
+                                            <li><label class="dropdown-item"><input name="paperStyleName"
+                                                                                    type="checkbox" value="1"
+                                                                                    class="dropdown-item-checkbox"
+                                                                                    checked="checked"> 试卷分类</label></li>
+                                            <li><label class="dropdown-item"><input name="status" type="checkbox"
+                                                                                    value="1"
+                                                                                    class="dropdown-item-checkbox">
+                                                状态</label></li>
+                                            <li><label class="dropdown-item"><input name="paperType" type="checkbox"
+                                                                                    value="1"
+                                                                                    class="dropdown-item-checkbox"
+                                                                                    checked="checked"> 组卷方式</label></li>
+                                            <li><label class="dropdown-item"><input name="perTimeRestrict"
+                                                                                    type="checkbox" value="1"
+                                                                                    class="dropdown-item-checkbox"
+                                                                                    checked="checked"> 限制每题时长</label>
+                                            </li>
+                                            <li><label class="dropdown-item"><input name="totalScore" type="checkbox"
+                                                                                    value="1"
+                                                                                    class="dropdown-item-checkbox"
+                                                                                    checked="checked"> 总分</label></li>
+                                            <li><label class="dropdown-item"><input name="createUserName"
+                                                                                    type="checkbox" value="1"
+                                                                                    class="dropdown-item-checkbox"
+                                                                                    checked="checked"> 创建人</label></li>
+                                            <li><label class="dropdown-item"><input name="createTime" type="checkbox"
+                                                                                    value="1"
+                                                                                    class="dropdown-item-checkbox"
+                                                                                    checked="checked"> 创建时间</label></li>
+                                            <li><label class="dropdown-item"><input name="modifier" type="checkbox"
+                                                                                    value="1"
+                                                                                    class="dropdown-item-checkbox"> 修改人</label>
+                                            </li>
+                                            <li><label class="dropdown-item"><input name="modifiedTime" type="checkbox"
+                                                                                    value="1"
+                                                                                    class="dropdown-item-checkbox"> 修改时间</label>
+                                            </li>
+                                            <li><label class="dropdown-item"><input name="sender" type="checkbox"
+                                                                                    value="1"
+                                                                                    class="dropdown-item-checkbox"
+                                                                                    checked="checked"> 操作</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="pagination">
+                                    <li class="first disabled" aria-disabled="true"><a
+                                            href="./paper_mgr_new.html#first"
+                                            class="button"><i class="icons8-icon"></i></a></li>
+                                    <li class="prev disabled" aria-disabled="true"><a
+                                            href="./paper_mgr_new.html#prev" class="button"><i
+                                            class="icons8-back-filled"></i></a></li>
+                                    <li class="page-1 active" aria-disabled="false" aria-selected="true"><a
+                                            href="./paper_mgr_new.html#1"
+                                            class="button">1</a></li>
+                                    <li class="next disabled" aria-disabled="true"><a
+                                            href="./paper_mgr_new.html#next" class="button"><i
+                                            class="icons8-forward-filled"></i></a></li>
+                                    <li class="last disabled" aria-disabled="true"><a
+                                            href="./paper_mgr_new.html#last" class="button"><i
+                                            class="icons8-icon-3"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--超管后台新版本通知-->
+<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-600 change-log-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title"></div>
+                <div class="version"></div>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="getChangeBtn">知道了</button>
+                    <a href="https://www.kaoshixing.com/change/log/" target="_blank" class="more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade ksx-modal" id="createPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-440" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">选择组卷方式</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="createPaperForm">
+                    <div class="form-row">
+                        <div class="row-label">试卷名称：</div>
+                        <div class="row-content">
+                            <input type="text" name="paper_name" class="form-control input-sm" id="paperName"
+                                   placeholder="请输入试卷名称">
+                            <span class="tip">*</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="row-label">选择科目：</div>
+                        <div class="row-content">
+                            <div id="select_subject">
+                                &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="row-label">组卷方式：</div>
+                        <div class="row-content paper-type-group">
+                            <button type="button" data-value="1" class="btn btn-default btn-sm">选题组卷</button>
+                            <button type="button" data-value="2" class="btn btn-default btn-sm not-selected">抽题组卷
+                            </button>
+                            <button type="button" data-value="3" class="btn btn-default btn-sm not-selected">随机组卷
+                            </button>
+                            <input type="hidden" class="" name="paper_type" value="1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="row-label"></div>
+                        <div class="row-content">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+                <button class="btn btn-gray" data-dismiss="modal">取消</button>
+                <button class="btn btn-primary" id="confirmCreatePaper">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="typeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title model-exam-classify" id="myModalLabel">选择试卷分类</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="400px" name="selTypeModal" id="selTypeModal"
+                        src="../../html/saved_resource(1).html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.bootgrid-ksx.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="../../js/colResizable-1.6.min.js"></script>
+<script type="text/javascript" src="../../js/admin-base.js"></script>
+<script>
+    // these are global constant
+    var LOCAL_URL = window.location.href;
+    var USER_ROLE = 'admin';
+    var rights = '8';
+    var surname = "东北大学软件园";
+    var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
+    var tool_html = '';//消息内容
+    var tool_count = 0;//消息数目
+    var user_id = "7387836";
+    var getAdminUrlPrefix = 'https://admin.kaoshixing.com';
+    var getUrlPrefix = '';
+    var getAnalysisUrlPrefix = 'https://new.kaoshixing.com';
+    var getStaticUrlPrefix = 'https://v.kaoshixing.com';
+
+    //当前request返回页面对应导航id
+
+    var activeNavItem = 'subNavItemPaperMgr';
+    $(function () {
+
+
+        // 更新消息已读
+        $("#getChangeBtn").click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/admin/read_public',
+                type: 'get',
+                cache: false,
+                dataType: 'json',
+                success: function (msg) {
+                    $("#changeLogModal").modal('hide');
+                }
+            })
+        });
+
+    });
+
+
+    $(document).ready(function () {
+
+        // $("#user").click(function(){
+        //     window.location.href="/admin/admin_information";
+        //     $(".unread-notice").hide();
+        //
+        // });
+
+        //    自管理员点击添加考生，添加试题，创建考试时的权限判断
+        $("#staff,#test,#exam").on("click", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var type = $(this).prop("id");
+            var url = $(this).prop("href");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/admin/checkout_sub_admin_right",
+                data: "type=" + type,
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = url;
+                    } else {
+                        alert(msg.desc);
+                    }
+                }
+
+            })
+        });
+    });
+
+
+</script>
+<script type="text/javascript" src="../../js/moment.js"></script>
+<script type="text/javascript" src="../../js/pikaday.js"></script>
+<script type="text/javascript" src="../../js/pikaday.jquery.js"></script>
+<script type="text/javascript" src="../../js/admin_paperManager.js"></script>
+<script>
+    var customArr = [];//保存自定义设置
+    var customPageCount = 10;//保存每页显示项数
+    var firstLoad = true;//是否第一次加载，第一次加载的话不保存cookie
+    //判断是是否有cookie
+    var cookieName = "admin_paper_mgr_new";
+
+    //判断搜索条件
+    if (getCookie(cookieName)) {
+        customArr = getSearchCookie(cookieName, "customStr").split("+");
+        //判断自定义设置
+        if (customArr.length > 0 && customArr[0] != "") {
+            $("#grid-data th").each(function (index, element) {
+                var num = $.inArray($(this).attr("data-column-id"), customArr);
+                if (num > -1) {
+                    $(this).attr("data-visible", "true");
+                } else {
+                    if ($(this).attr("data-column-id") == 'perTimeRestrict') {
+                        $(this).attr("data-visible", "true");
+                    }
+                    $(this).attr("data-visible", "false");
+                }
+            });
+        }
+        //判断是否保存了每页显示项目数
+        if (getSearchCookie(cookieName, "customPageCount")) {
+            customPageCount = getSearchCookie(cookieName, "customPageCount");
+        }
+    }
+    $("#grid-data").bootgrid({
+        ajax: true,
+        ajaxSettings: {
+            method: "POST",
+            cache: false
+        },
+        post: function () {
+            var sortOrder = $("#grid-data").bootgrid("getSortDictionary");
+            var sortKey, sortName;
+            var paperName = $("input[name=paper_name]").val();
+            var paperStyleName = $("input[name=paper_style_name]").val();
+            var paperStyle = $("input[name=paper_style]").val();
+            var paperStartTime = $("input[name=dateForm]").val();
+            var paperEndTime = $("input[name=dateTo]").val();
+            $.each(sortOrder, function (name, value) {
+                sortKey = name;
+                sortName = value;
+            });
+            return {
+                "sort": sortKey,
+                "sortName": sortName,
+                "paperName": paperName,
+                "paperStyleName": paperStyleName,
+                "paperStyle": paperStyle,
+                "paperStartTime": paperStartTime,
+                "paperEndTime": paperEndTime
+            };
+        },
+        url: "/admin/paper/mgr_grid/",
+        selection: true,
+        multiSelect: true,
+        rowSelect: true,
+        padding: 1,
+        navigation: 2,
+        formatters: {
+            "link": function (column, row) {
+                return "<a href='#' data-growing-title='updatePaper' class='icons8-edit updatePaper' paperId='" + row.id + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='编辑'></a>" +
+                    "<a href='#' data-growing-title='removePaper' class='icons8-trash-can removePaper' paperIsUsing='" + row.paperIsUsing + "' examUsing='" + row.examingIsUsing + "' paperId='" + row.id + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除'></a>" +
+                    "<a href='#' data-growing-title='copyPaper' class='icon-a_operate_copy copyPaper' data-trigger='hover'  paperId='" + row.id + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='复制试卷'></a>" +
+                    "<a href='#' paperId='" + row.id + "' data-growing-title='copyPaper'  target='_blank' class='icon-a_operate_create_test create_exam' data-trigger='hover'  data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='创建考试'></a>";
+            }
+        }
+    }).on("loaded.rs.jquery.bootgrid", function (e) {
+        if (!firstLoad) {
+            //自定义设置
+            customArr = [];
+            $(".custom-settings input:checked").each(function (index, element) {
+                customArr.push($(this).attr("name"));
+            });
+            //保存每页显示项目数目
+            var cookieObj = {};
+            cookieObj["customStr"] = customArr.join("+");
+            cookieObj["customPageCount"] = $(".page-count-span").text().substring(2, 4);
+            setSearchCookie(cookieName, cookieObj);
+        }
+        firstLoad = false;
+        // initial tooltip
+        $('#grid-data [data-toggle="tooltip"]').tooltip();
+        $("#grid-data").colResizable({
+            fixed: false,
+            liveDrag: true,
+            draggingClass: "dragging"
+        });
+    }).on("selected.rs.jquery.bootgrid", function (e) {
+        $(".toolbar-left-operation .inactive#batchDel").removeClass("inactive").addClass("deactive").removeAttr("disabled");
+    }).on("deselected.rs.jquery.bootgrid", function (e) {
+        var selectList = $("#grid-data").bootgrid("getSelectedRows");
+
+        if (selectList.length == 0) {
+            $(".toolbar-left-operation .btn#batchDel, .toolbar-left-operation .dropdown-menu").removeClass("deactive").addClass("inactive").attr("disabled", "disabled");
+        }
+    }).on("load.rs.jquery.bootgrid", function () {
+        $(".toolbar-left-operation .btn#batchDel, .toolbar-left-operation .dropdown-menu").removeClass("deactive").addClass("inactive").attr("disabled", "disabled");
+    });//按钮的可用与禁用（inactive deactive)
+</script>
+<script>
+    $(function () {
+        $.getJSON("/exam/get_paper_subjects", function (result) {
+            $.each(result.subjects, function (index, e) {
+                $subject = $("<label>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>")
+                $("#select_subject").append($subject);
+            })
+        })
+    })
+</script>
+</body>
+</html>

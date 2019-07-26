@@ -5,11 +5,11 @@ $(function () {
     $('[data-toggle="popover"]').popover();
 
     // ajaxstart with loading shown
-    $( document ).ajaxStart(function() {
+    $(document).ajaxStart(function () {
         $("#spinnerLoading").removeClass("hidden");
     });
     // ajaxstop with loading hidden
-    $( document ).ajaxStop(function() {
+    $(document).ajaxStop(function () {
         $("#spinnerLoading").addClass("hidden");
     });
 
@@ -17,14 +17,14 @@ $(function () {
     //创建导航逻辑
     $(function () {
         //读取导航（根据模块权限动态生成）
-        if($("#ksxAdminSidebar").length>0){
+        if ($("#ksxAdminSidebar").length > 0) {
             $.ajax({
                 type: "POST",
-                cache : false,
+                cache: false,
                 dataType: "json",
                 url: "/admin/getAllRights",
                 success: function (msg) {
-                    if(msg.success){
+                    if (msg.success) {
                         //生成导航
                         createSidebar(msg.bizContent);
                         //标记当前导航项
@@ -53,13 +53,13 @@ $(function () {
                             title: '试题库',
                             id: 'QuestionMgr',
                             // url: getAdminUrlPrefix + '/admin/showtestqm_new',
-                            url: getStaticUrlPrefix + '/admin/testQuestions/#/list',
+                            url: getStaticUrlPrefix + '/html/exam/test_questions.html/#/list',
                             show: data.allowShowtestqm
                         },
                         {
                             title: '试卷库',
                             id: 'PaperMgr',
-                            url: getAdminUrlPrefix + '/admin/paper_mgr_new',
+                            url: getAdminUrlPrefix + '/html/exam/paper_mgr_new.html',
                             show: data.allowPaperMgr
                         },
                         {
@@ -231,7 +231,7 @@ $(function () {
             ];
 
 
-            for(var i=0; i< menuList.length; i++){
+            for (var i = 0; i < menuList.length; i++) {
                 createNav(menuList[i]);
             }
 
@@ -239,22 +239,22 @@ $(function () {
 
         //创建一级导航dom
         function createNav(data) {
-            var menuDom = $('<li class="nav-item '+(data.subMenu ? 'has-sub-menu' : '')+'"  id="navItem'+data.id+'"></li>');
+            var menuDom = $('<li class="nav-item ' + (data.subMenu ? 'has-sub-menu' : '') + '"  id="navItem' + data.id + '"></li>');
             var menuHtml =
-                '<a href="'+(data.subMenu ? '#' : data.url)+'" class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body" title="'+data.title+'">' +
-                '<div class="nav-icon"><i class="icon '+data.icon+'"></i></div>'+
-                '<span class="nav-title">'+data.title+'</span>'+
+                '<a href="' + (data.subMenu ? '#' : data.url) + '" class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body" title="' + data.title + '">' +
+                '<div class="nav-icon"><i class="icon ' + data.icon + '"></i></div>' +
+                '<span class="nav-title">' + data.title + '</span>' +
                 (data.beta ? '<img class="mark-beta" src="https://s6.kaoshixing.com/ksxing_static/vue/images/icon/a_nav_beta.svg" />' : '') +
                 '</a>';
 
 
-            if(data.subMenu){
+            if (data.subMenu) {
                 //有二级导航
 
                 var subMenuShowList = data.subMenu;
 
                 //管理员和超管不做过滤，所有二级导航都显示，子管理员限制权限
-                if(USER_ROLE=='sub_admin'){
+                if (USER_ROLE == 'sub_admin') {
                     subMenuShowList = data.subMenu.filter(function (t) {
                         return t.show;
                     });
@@ -262,33 +262,33 @@ $(function () {
 
                 var subMenuDom = $('<ul class="sub-menu animate"></ul>');
 
-                for(var i=0; i< data.subMenu.length; i++){
-                    if(data.subMenu[i].show){
+                for (var i = 0; i < data.subMenu.length; i++) {
+                    if (data.subMenu[i].show) {
                         $(subMenuDom).append(createSubNav(data.subMenu[i]));
                     }
                 }
 
                 //若二级导航至少有一个
-                if(subMenuShowList.length!=0){
+                if (subMenuShowList.length != 0) {
                     $(menuDom).append(menuHtml, subMenuDom);
 
                     $("#ksxAdminSidebar").append(menuDom);
                 }
-            }else {
-                if(data.id=='Application'){
-                    if( data.show ){
+            } else {
+                if (data.id == 'Application') {
+                    if (data.show) {
                         $(menuDom).append(menuHtml);
                         $("#ksxAdminSidebar").append(menuDom);
                     }
-                }else {
+                } else {
                     //无二级导航
                     //beta模块子管理员不可见
-                    if(USER_ROLE=='sub_admin'){
-                        if(data.show){
+                    if (USER_ROLE == 'sub_admin') {
+                        if (data.show) {
                             $(menuDom).append(menuHtml);
                             $("#ksxAdminSidebar").append(menuDom);
                         }
-                    }else {
+                    } else {
                         $(menuDom).append(menuHtml);
                         $("#ksxAdminSidebar").append(menuDom);
                     }
@@ -298,10 +298,10 @@ $(function () {
 
         //创建二级导航dom
         function createSubNav(data) {
-            var subMenuDom = $('<li class="nav-item sub-nav-item" id="subNavItem'+data.id+'"></li>');
+            var subMenuDom = $('<li class="nav-item sub-nav-item" id="subNavItem' + data.id + '"></li>');
             var subMenuHtml =
-                '<a href="'+data.url+'">' +
-                '<span class="nav-title">'+data.title+'</span>'+
+                '<a href="' + data.url + '">' +
+                '<span class="nav-title">' + data.title + '</span>' +
                 '</a>';
 
             $(subMenuDom).append(subMenuHtml);
@@ -317,38 +317,38 @@ $(function () {
             var subNavLength = $(subNav).find(".sub-nav-item").length;
 
             //若导航为收起状态，先展开
-            if($("#viewFrameWork").hasClass('sidebar-min')){
+            if ($("#viewFrameWork").hasClass('sidebar-min')) {
                 $("#sidebar-fold").click();
             }
 
 
-            if($(_this).hasClass('open')){
+            if ($(_this).hasClass('open')) {
                 //不做处理
                 // $(_this).removeClass('open');
                 // $(subNav).css('height', "0px");
-            }else {
+            } else {
                 $(".sidebar-trans .nav-item.has-sub-menu.open .sub-menu").css('height', "0px");
                 $(".sidebar-trans .nav-item.has-sub-menu.open").removeClass('open');
 
                 $(_this).addClass('open');
-                $(subNav).css('height', (38*subNavLength + 10) + "px");
+                $(subNav).css('height', (38 * subNavLength + 10) + "px");
             }
         });
 
 
         //标记激活导航
         function getActiveNav() {
-            var activeDom = $('#'+activeNavItem);
+            var activeDom = $('#' + activeNavItem);
 
-            if(activeDom.length != 0){
-                if($(activeDom).hasClass('has-sub-menu')){
+            if (activeDom.length != 0) {
+                if ($(activeDom).hasClass('has-sub-menu')) {
                     //有二级导航的一级导航，什么也不做
 
-                }else if($(activeDom).hasClass('sub-nav-item')){
+                } else if ($(activeDom).hasClass('sub-nav-item')) {
                     //二级导航
                     $(activeDom).parents('.has-sub-menu').find('.menu-title').click();
                     $(activeDom).addClass('nav-item-active');
-                }else {
+                } else {
                     //孤独的一级导航
                     $(activeDom).addClass('nav-item-active');
                 }
@@ -358,20 +358,19 @@ $(function () {
     });
 
 
-
     //读取用户自定义LOGO
-    if($("#companyLogo").length>0){
+    if ($("#companyLogo").length > 0) {
         var _this = $("#companyLogo");
 
         $.ajax({
             type: "GET",
-            cache : false,
+            cache: false,
             dataType: "json",
             url: "/admin/modify_get_logo",
-            success: function(msg){
-                if(msg.success){
+            success: function (msg) {
+                if (msg.success) {
                     var logo_url = msg.bizContent.logoUrl;
-                    var img = '<img class="icon-logo logo-ksx" src="'+logo_url+'" />';
+                    var img = '<img class="icon-logo logo-ksx" src="' + logo_url + '" />';
                     $(_this).append(img);
                 }
             }
@@ -379,18 +378,17 @@ $(function () {
     }
 
 
-
-    if($(".sidebar-fold").hasClass("icon-unfold")){
+    if ($(".sidebar-fold").hasClass("icon-unfold")) {
         $('.sidebar-nav [data-toggle="tooltip"]').tooltip('destroy');
     }
 
     // fold sidebar
-    $("#sidebar-fold").click(function(e) {
+    $("#sidebar-fold").click(function (e) {
         e.stopPropagation();
         e.preventDefault();
-        if($(this).hasClass("icon-unfold")){
+        if ($(this).hasClass("icon-unfold")) {
             // fold sidebar
-            $(this).removeClass("icon-unfold").addClass("icon-fold").attr("title","展开导航").attr("data-original-title","展开导航");
+            $(this).removeClass("icon-unfold").addClass("icon-fold").attr("title", "展开导航").attr("data-original-title", "展开导航");
             $(this).find(".icons8").removeClass("icons8-icon").addClass("icons8-icon-3");
             $(".viewFrameWork").removeClass("sidebar-full").addClass("sidebar-min");
             document.cookie = "ksxFoldState=fold; path =; domain=;";
@@ -399,9 +397,9 @@ $(function () {
             //收起二级导航
             $(".sidebar-trans .nav-item.has-sub-menu").removeClass('open');
             $(".sidebar-trans .nav-item.has-sub-menu .sub-menu").css('height', "0px");
-        }else if ($(this).hasClass("icon-fold")) {
+        } else if ($(this).hasClass("icon-fold")) {
             // unfold sidebar
-            $(this).removeClass("icon-fold").addClass("icon-unfold").attr("title","收起导航").attr("data-original-title","收起导航");
+            $(this).removeClass("icon-fold").addClass("icon-unfold").attr("title", "收起导航").attr("data-original-title", "收起导航");
             $(this).find(".icons8").removeClass("icons8-icon-3").addClass("icons8-icon");
             $(".viewFrameWork").removeClass("sidebar-min").addClass("sidebar-full");
             document.cookie = "ksxFoldState=unfold; path =; domain=;";
@@ -411,18 +409,16 @@ $(function () {
     });
 
 
-
-
     //初始化系统消息
     var POPOVER_HTML = '';
     $.ajax({
-        type:'POST',
-        cache : false,
-        headers: { "cache-control": "no-cache" },
+        type: 'POST',
+        cache: false,
+        headers: {"cache-control": "no-cache"},
         dataType: "json",
         url: '/account/notification/',
-        success:function (msg) {
-            var tool_count=msg.bizContent.unreadCount;
+        success: function (msg) {
+            var tool_count = msg.bizContent.unreadCount;
             //样式调整，先注释
             /*var tool_html = '';
 
@@ -431,32 +427,31 @@ $(function () {
             }*/
 
             // 未读标志
-            if(tool_count>9){
+            if (tool_count > 9) {
                 $('#stateMessage .message-count').text('9+').removeClass('hidden');
-            }else if (tool_count>0) {
+            } else if (tool_count > 0) {
                 $('#stateMessage .message-count').text(tool_count).removeClass('hidden');
-            }else {
+            } else {
                 $('#stateMessage .message-count').addClass('hidden');
             }
 
 
-
             // notifications是最新的消息，最多为5条，添加支消息框
-            for (var i = 0; i <msg.bizContent.notifications.length; i++) {
-                var content=msg.bizContent.notifications[i].content;
-                if(msg.bizContent.notifications[i].isRead==0){//若状态为未读添加未读类
-                    tool_html+='<div class="message unread" id="'+msg.bizContent.notifications[i].id+'">'+
+            for (var i = 0; i < msg.bizContent.notifications.length; i++) {
+                var content = msg.bizContent.notifications[i].content;
+                if (msg.bizContent.notifications[i].isRead == 0) {//若状态为未读添加未读类
+                    tool_html += '<div class="message unread" id="' + msg.bizContent.notifications[i].id + '">' +
                         '<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>'
-                        +content+'</div>';
-                }else {
-                    tool_html+='<span class="message read" id="'+msg.bizContent.notifications[i].id+'">'+content+'</span><br>';
+                        + content + '</div>';
+                } else {
+                    tool_html += '<span class="message read" id="' + msg.bizContent.notifications[i].id + '">' + content + '</span><br>';
                 }
             }
 
             // 如果所有消息中未读消息的数目不为0，则显示有未读消息的标志
             if (tool_count != 0) {
-                $(".hasUnread").css("display","inline-block");
-            }else {
+                $(".hasUnread").css("display", "inline-block");
+            } else {
                 $(".hasUnread").hide();
             }
 
@@ -466,61 +461,58 @@ $(function () {
     });
 
 
-
-
     // 若点击消息内部链接，则认为消息已读
     $("body").on('click', "#stateMessageSection .unread a", function () {
         var notification_id = $(this).parent(".unread").attr("id");
         $.ajax({
-            type:'POST',
-            cache : false,
-            headers: { "cache-control": "no-cache" },
+            type: 'POST',
+            cache: false,
+            headers: {"cache-control": "no-cache"},
             dataType: "json",
             url: '/account/read_notification/',
-            data: 'ids='+notification_id,
-            success:function (msg) {}
+            data: 'ids=' + notification_id,
+            success: function (msg) {
+            }
         })
     });
 
 
-    $("#stateMessage").click(function(){
-        window.location.href="/account/notification/";
+    $("#stateMessage").click(function () {
+        window.location.href = "/account/notification/";
     });
-
 
 
 });
 
 
-
 // set cookie
-function setCookie(c_name,value){
-    document.cookie=c_name+ "=" +escape(value);
+function setCookie(c_name, value) {
+    document.cookie = c_name + "=" + escape(value);
 }
 
 // get cookie
-function getCookie(c_name){
-    if(document.cookie.length>0){
-        c_start=document.cookie.indexOf(c_name + "=")
-        if(c_start!=-1){
-            c_start=c_start + c_name.length+1;
-            c_end=document.cookie.indexOf(";",c_start);
-            if (c_end==-1){
-                c_end=document.cookie.length
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=")
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length
             }
-            return unescape(document.cookie.substring(c_start,c_end));
+            return unescape(document.cookie.substring(c_start, c_end));
         }
     }
     return "";
 }
 
 //保存 search 条件
-function setSearchCookie(cName, obj){
+function setSearchCookie(cName, obj) {
     var expiresTime = new Date();
     expiresTime.setTime(expiresTime.getTime() + (24 * 60 * 60 * 1000));
     var cookieStr = "";
-    for(var itemName in obj){//用javascript的for/in循环遍历对象的属性
-        if(obj[itemName] != ""){
+    for (var itemName in obj) {//用javascript的for/in循环遍历对象的属性
+        if (obj[itemName] != "") {
             cookieStr += itemName + "=" + obj[itemName] + "&&";
         }
     }
@@ -530,27 +522,27 @@ function setSearchCookie(cName, obj){
 
 //删除 cookie
 function delCookie(cName) {
-    document.cookie=cName+"='';"
+    document.cookie = cName + "='';"
 }
 
 //获取 search 条件
-function getSearchCookie(cName, itemName){
-    if(document.cookie.length>0){
+function getSearchCookie(cName, itemName) {
+    if (document.cookie.length > 0) {
         var itemValue = "";
-        var cStart=document.cookie.indexOf(cName + "=");
-        if(cStart!=-1){
-            cStart=cStart + cName.length+1;
-            c_end=document.cookie.indexOf(";",cStart);
-            if (c_end==-1){
-                c_end=document.cookie.length
+        var cStart = document.cookie.indexOf(cName + "=");
+        if (cStart != -1) {
+            cStart = cStart + cName.length + 1;
+            c_end = document.cookie.indexOf(";", cStart);
+            if (c_end == -1) {
+                c_end = document.cookie.length
             }
-            itemValue = unescape(document.cookie.substring(cStart,c_end));
+            itemValue = unescape(document.cookie.substring(cStart, c_end));
             var itemStart = itemValue.indexOf(itemName + "=");
-            if(itemStart > -1){
-                var itemEnd = itemValue.indexOf("&&",itemStart);
-                itemValue = itemValue.substring(itemStart+itemName.length+1, itemEnd);
+            if (itemStart > -1) {
+                var itemEnd = itemValue.indexOf("&&", itemStart);
+                itemValue = itemValue.substring(itemStart + itemName.length + 1, itemEnd);
                 return itemValue;
-            }else {
+            } else {
                 return "";
             }
         }
@@ -565,10 +557,10 @@ $("#logoutBtn").click(function (e) {
 
     $.ajax({
         type: "POST",
-        cache : false,
+        cache: false,
         dataType: "json",
         url: "/account/logout",
-        success: function(msg){
+        success: function (msg) {
             var jump_url = msg.bizContent.url;
             window.location.href = jump_url;
         }
@@ -578,25 +570,25 @@ $("#logoutBtn").click(function (e) {
 
 
 // 显示发布成功对话框
-function showSelOk(id, url, password,trialExamLink,type,isSkipLogin) {
+function showSelOk(id, url, password, trialExamLink, type, isSkipLogin) {
     $('#sendForm').removeClass('hidden');
     $(".guide-pwd").addClass('hidden');
 
     $("#exam_url").text(url);
     //isSkipLogin : 0是普通登录；1是免登录；2是微信免登录
-    if(isSkipLogin != 0){
+    if (isSkipLogin != 0) {
         $('#sendForm').addClass('hidden');
     }
-    if(password){
+    if (password) {
         $("#exam_password").html(password);
         $(".guide-pwd").removeClass('hidden');
     }
-    if(type == 'exam'){
+    if (type == 'exam') {
         var sendUrl = '/admin/exam_notice/' + id;
-    }else {
+    } else {
         var sendUrl = '/course/course_notice/' + id;
     }
-    var jumpUrl ='';
+    var jumpUrl = '';
     createQrcode(url);
 
     $("#confirmOkBtn").attr("data-type", type).attr("data-id", id);
@@ -605,18 +597,6 @@ function showSelOk(id, url, password,trialExamLink,type,isSkipLogin) {
 
     $('#okModal').modal();
 
-    // $("#okModal .btn-div").click(function (e) {
-    //     if(e.target.nodeName.toUpperCase() == 'BUTTON'){
-    //         if(e.target.innerText == '确定' && type =='exam'){
-    //             jumpUrl = '/account/admin/index';
-    //         }else if(e.target.innerText == '确定' && type =='course'){
-    //             jumpUrl = '/course/course_mgr';
-    //         }else {
-    //             jumpUrl = trialExamLink;
-    //         }
-    //         sendNotice(sendUrl,jumpUrl);
-    //     }
-    // });
 }
 
 //okmodal点击确定
@@ -624,58 +604,58 @@ $("#confirmOkBtn").click(function () {
     var type = $(this).attr("data-type");
     var id = $(this).attr("data-id");
     var jumpUrl = '', sendUrl = '';
-    var ref=document.referrer;//上一页面url
-    var url=document.URL;//当前页url
-    var linkToOther=true;//是否要跳转到其他页面
-    var isOpenUrl=false; //是否是直接复制链接而非跳转过来
-    if(url.indexOf('/admin/index')!=-1||url.indexOf('/course/course_mgr')!=-1||url.indexOf('/admin/exam_mgr_new')!=-1){ //如果当前是首页、考试列表页、课程列表页，直接跳到本页面
-        linkToOther=false;
+    var ref = document.referrer;//上一页面url
+    var url = document.URL;//当前页url
+    var linkToOther = true;//是否要跳转到其他页面
+    var isOpenUrl = false; //是否是直接复制链接而非跳转过来
+    if (url.indexOf('/admin/index') != -1 || url.indexOf('/course/course_mgr') != -1 || url.indexOf('/admin/exam_mgr_new') != -1) { //如果当前是首页、考试列表页、课程列表页，直接跳到本页面
+        linkToOther = false;
     }
-    if(ref==""&&url.indexOf('/admin/index')==-1&&url.indexOf('/course/course_mgr')==-1&&url.indexOf('/admin/exam_mgr_new')==-1){ //上一页面为空，且不是首页、考试列表页、课程列表页
-        isOpenUrl=true;
+    if (ref == "" && url.indexOf('/admin/index') == -1 && url.indexOf('/course/course_mgr') == -1 && url.indexOf('/admin/exam_mgr_new') == -1) { //上一页面为空，且不是首页、考试列表页、课程列表页
+        isOpenUrl = true;
     }
     //弹窗跳转逻辑优化  1.优先在哪点的回到哪 2.最差也是都回到列表页面
-    if(type=='exam'){
-        if(url.indexOf('/admin/exam_add')!=-1){ //创建考试的情况
-            var okModalRef=window.localStorage.getItem('okModalExamRef');
-            if(okModalRef=='index'){
+    if (type == 'exam') {
+        if (url.indexOf('/admin/exam_add') != -1) { //创建考试的情况
+            var okModalRef = window.localStorage.getItem('okModalExamRef');
+            if (okModalRef == 'index') {
                 jumpUrl = '/account/admin/index';
-            }else{
-                jumpUrl = '/admin/exam_mgr_new';
+            } else {
+                jumpUrl = '/html/exam/exam_mgr_new.html';
             }
-        }else {
-            if(isOpenUrl) { //如果是复制链接进来的，让其跳转到列表页
-                jumpUrl = '/admin/exam_mgr_new';
-            }else{
+        } else {
+            if (isOpenUrl) { //如果是复制链接进来的，让其跳转到列表页
+                jumpUrl = '/html/exam/exam_mgr_new.html';
+            } else {
                 if (linkToOther) {
                     if (ref.indexOf('index') != -1) {
                         jumpUrl = '/account/admin/index';
                     } else {
-                        jumpUrl = '/admin/exam_mgr_new';
+                        jumpUrl = '/html/exam/exam_mgr_new.html';
                     }
-                }else{
+                } else {
                     jumpUrl = url;
                 }
             }
         }
         sendUrl = '/admin/exam_notice/' + id;
-    }else if(type == 'course'){
-        if(isOpenUrl){ //如果是复制链接进来的，让其跳转到列表页
+    } else if (type == 'course') {
+        if (isOpenUrl) { //如果是复制链接进来的，让其跳转到列表页
             jumpUrl = '/course/course_mgr';
-        }else {
+        } else {
             if (linkToOther) {
                 if (ref.indexOf('index') != -1) {
                     jumpUrl = '/account/admin/index';
-                }else {
+                } else {
                     jumpUrl = '/course/course_mgr';
                 }
-            }else {
+            } else {
                 jumpUrl = url;
             }
         }
         sendUrl = '/course/course_notice/' + id;
     }
-    sendNotice(sendUrl,jumpUrl);
+    sendNotice(sendUrl, jumpUrl);
 });
 
 //okmodal点击考一下
@@ -684,12 +664,12 @@ $("#trialExamBtn").click(function () {
     var id = $(this).attr("data-id");
     var jumpUrl = $(this).attr("data-url"), sendUrl = '';
 
-    if(type=='exam'){
+    if (type == 'exam') {
         sendUrl = '/admin/exam_notice/' + id;
-    }else if(type == 'course'){
+    } else if (type == 'course') {
         sendUrl = '/course/course_notice/' + id;
     }
-    sendNotice(sendUrl,jumpUrl);
+    sendNotice(sendUrl, jumpUrl);
 });
 
 //生成二维码
@@ -714,11 +694,11 @@ function createQrcode(examUrl) {
         background: "#FFF"
     });
     var download0 = $("#small canvas")[0];
-    $("a[download-size=0]").click(function() {
+    $("a[download-size=0]").click(function () {
         if (download0.msToBlob) {//IE9+浏览器下载二维码
             var blob = download0.msToBlob();
             window.navigator.msSaveBlob(blob, $("input[name=examName]").val() + "_二维码小.png");
-        }else{ //其他浏览器下载二维码
+        } else { //其他浏览器下载二维码
             this.href = download0.toDataURL();
             this.download = $("input[name=examName]").val() + "_二维码小.png";
         }
@@ -731,11 +711,11 @@ function createQrcode(examUrl) {
         background: "#FFF"
     });
     var download1 = $("#medium canvas")[0];
-    $("a[download-size=1]").click(function() {
+    $("a[download-size=1]").click(function () {
         if (download1.msToBlob) {//IE9+浏览器
             var blob = download1.msToBlob();
             window.navigator.msSaveBlob(blob, $("input[name=examName]").val() + "_二维码中.png");
-        }else{
+        } else {
             this.href = download1.toDataURL();
             this.download = $("input[name=examName]").val() + "_二维码中.png";
         }
@@ -748,11 +728,11 @@ function createQrcode(examUrl) {
         background: "#FFF"
     });
     var download2 = $("#large canvas")[0];
-    $("a[download-size=2]").click(function() {
+    $("a[download-size=2]").click(function () {
         if (download2.msToBlob) {//IE9+浏览器
             var blob = download2.msToBlob();
             window.navigator.msSaveBlob(blob, $("input[name=examName]").val() + "_二维码大.png");
-        }else {
+        } else {
             this.href = download2.toDataURL();
             this.download = $("input[name=examName]").val() + "_二维码大.png";
         }
@@ -760,21 +740,21 @@ function createQrcode(examUrl) {
 }
 
 //发送通知
-function sendNotice(url,jumpUrl) {
+function sendNotice(url, jumpUrl) {
     // var dataForm = $('#sendForm').serialize();
-    var sendWay ='';
+    var sendWay = '';
     var isSendNotice = $("#sendForm input:checked").length;
-    if(isSendNotice == 0){
+    if (isSendNotice == 0) {
         window.location.href = jumpUrl;
-    }else {
-        $('#sendForm input:checked').each(function(index,ele) {
-            sendWay += $(ele).prop('id')+',';
+    } else {
+        $('#sendForm input:checked').each(function (index, ele) {
+            sendWay += $(ele).prop('id') + ',';
         });
-        sendWay = sendWay.substring(0,sendWay.length-1);
+        sendWay = sendWay.substring(0, sendWay.length - 1);
         $.ajax({
             type: "POST",
             cache: false,
-            headers: { "cache-control": "no-cache" },
+            headers: {"cache-control": "no-cache"},
             dataType: "json",
             url: url,
             data: 'sendWay=' + sendWay,
@@ -796,37 +776,36 @@ function sendNotice(url,jumpUrl) {
 function animationEndFunction(jumpUrl) {
     $('#okModal .modal-content').hide();
     $("#animationLoading").removeClass("hidden");
-    setTimeout(function(){
+    setTimeout(function () {
         window.location.href = jumpUrl;
-    },1000);
+    }, 1000);
 }
-
 
 
 //数组区间无交叉 //有交叉返回true；没有返回false
 //demo: 如想判断[1,2],[3,4],[5,6]三个数组的数值是否有交叉，则这样调用该函数：arrCross([1,3,5],[2,4,6]);
 function arrCross(minArr, maxArr) {
     //如果最小区间或最大区间有重复元素，则说明区间有交叉
-    if(isRepeat(minArr) || isRepeat(maxArr)) {
+    if (isRepeat(minArr) || isRepeat(maxArr)) {
         return true;
     }
     //minArr 为最小值组成的数组
     //maxArr 为最大值组成的数组
     var minSortArr = JSON.parse(JSON.stringify(minArr));
     var maxSortArr = JSON.parse(JSON.stringify(maxArr));
-    minSortArr.sort(function(a,b){
-        return a-b;
+    minSortArr.sort(function (a, b) {
+        return a - b;
     });
-    maxSortArr.sort(function(a,b){
-        return a-b;
+    maxSortArr.sort(function (a, b) {
+        return a - b;
     });
-    for(var i=0;i<minArr.length;i++) {
+    for (var i = 0; i < minArr.length; i++) {
         //如果排序之后相同index位置的值与原对应关系不一致
-        if(minSortArr.indexOf(minArr[i]) != maxSortArr.indexOf(maxArr[i])){
+        if (minSortArr.indexOf(minArr[i]) != maxSortArr.indexOf(maxArr[i])) {
             return true;
-        }else if(i > 0){
+        } else if (i > 0) {
             //如果最小值小于前一组的最大值
-            if(minSortArr[i] < maxSortArr[i-1]){
+            if (minSortArr[i] < maxSortArr[i - 1]) {
                 return true;
             }
         }
@@ -837,8 +816,8 @@ function arrCross(minArr, maxArr) {
 // 验证重复元素，有重复返回true；否则返回false
 function isRepeat(arr) {
     var hash = {};
-    for(var i in arr) {
-        if(hash[arr[i]]) {
+    for (var i in arr) {
+        if (hash[arr[i]]) {
             return true;
         }
         // 不存在该元素，则赋值为true，可以赋任意值，相应的修改if判断条件即可
@@ -853,5 +832,6 @@ function getUrlsearch(param) {
     var searchUrl = window.location.search;
     var reg = new RegExp("(^|&)" + param + "=([^&]*)(&|$)");
     var r = searchUrl.substr(1).match(reg);
-    if (r != null) return unescape(r[2]); return null;
+    if (r != null) return unescape(r[2]);
+    return null;
 }

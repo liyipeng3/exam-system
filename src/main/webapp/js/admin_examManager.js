@@ -3,31 +3,31 @@ var customPageCount = 10;//保存每页显示项数
 var firstLoad = true;//是否第一次加载，第一次加载的话不保存cookie
 var isShowSelect = true;//管理考试分类弹窗按钮选择是否显示
 
-$('#examClassify').click(function(){
+$('#examClassify').click(function () {
     //显示选择分类对话框
-        selTypeModal.location.href = "/admin/tree/exam_sel_style";
-        $('#typeModal').modal({
-            backdrop: "static",
-            keyboard: false
-        });
-        $('.exam-classify').text('管理考试分类')
+    selTypeModal.location.href = "/admin/tree/exam_sel_style";
+    $('#typeModal').modal({
+        backdrop: "static",
+        keyboard: false
+    });
+    $('.exam-classify').text('管理考试分类')
 });
 
 //置顶考试
-$('#examTop').click(function(e){
+$('#examTop').click(function (e) {
     e.stopPropagation();
     e.preventDefault();
-    if($("#grid-data").bootgrid("getSelectedRows").length>3){
+    if ($("#grid-data").bootgrid("getSelectedRows").length > 3) {
         alert('最多选择三场考试进行置顶');
         return;
-    }else{
+    } else {
         $.ajax({
-            type:'POST',
+            type: 'POST',
             cache: false,
-            headers:  { "cache-control": "no-cache" },
-            dataType:'json',
+            headers: {"cache-control": "no-cache"},
+            dataType: 'json',
             url: '/exam/getCurrentTopExam',
-            success:function(mesg){
+            success: function (mesg) {
                 $('.current_top_exam').find('span').text(mesg.bizContent.examNames);
                 $('#examTopModal').modal('show');
             }
@@ -35,30 +35,30 @@ $('#examTop').click(function(e){
 
     }
 })
-$('#setExamTop').click(function(e){
+$('#setExamTop').click(function (e) {
     e.stopPropagation();
     e.preventDefault();
-    var top_exam_list=[];
+    var top_exam_list = [];
     var examIds;
-    $("#grid-data").find("tbody tr.active").each(function(){//遍历选中的考试，使用遍历来按照列表顺序拼接数组。使用bootgrid("getSelectedRows")则会按照用户点击顺序拼接的
+    $("#grid-data").find("tbody tr.active").each(function () {//遍历选中的考试，使用遍历来按照列表顺序拼接数组。使用bootgrid("getSelectedRows")则会按照用户点击顺序拼接的
         top_exam_list.push($(this).attr('data-row-id'));
     })
-    examIds=top_exam_list.join(',');
+    examIds = top_exam_list.join(',');
     $.ajax({
-        type:'POST',
+        type: 'POST',
         cache: false,
-        headers: { "cache-control": "no-cache" },
+        headers: {"cache-control": "no-cache"},
         dataType: 'json',
-        data:'examIds='+examIds,
+        data: 'examIds=' + examIds,
         url: '/exam/update_top_time',
-        success: function(){
+        success: function () {
             $('#examTopModal').modal('hide');
         }
     })
 })
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     //初始化日历控件
     laydate.render({
         elem: "#dateFrom"
@@ -69,41 +69,40 @@ $(document).ready(function() {
     //判断是是否有cookie
     var cookieName = "admin_exam_mgr_new";
     //判断搜索条件
-    if(getCookie(cookieName)){
-        customArr = getSearchCookie(cookieName,"customStr").split("+");
+    if (getCookie(cookieName)) {
+        customArr = getSearchCookie(cookieName, "customStr").split("+");
         //判断自定义设置
-        if(customArr.length > 0 && customArr[0] != ""){
-            $("#grid-data th").each(function(index, element){
+        if (customArr.length > 0 && customArr[0] != "") {
+            $("#grid-data th").each(function (index, element) {
                 var num = $.inArray($(this).attr("data-column-id"), customArr);
-                if(num > -1){
+                if (num > -1) {
                     $(this).attr("data-visible", "true");
-                }else {
+                } else {
                     $(this).attr("data-visible", "false");
                 }
             });
         }
         //判断是否保存了每页显示项目数
-        if(getSearchCookie(cookieName,"customPageCount")){
-            customPageCount = getSearchCookie(cookieName,"customPageCount");
+        if (getSearchCookie(cookieName, "customPageCount")) {
+            customPageCount = getSearchCookie(cookieName, "customPageCount");
         }
     }
     $("#grid-data").bootgrid({
         ajax: true,
         ajaxSettings: {
-            method:"POST",
+            method: "POST",
             cache: false
         },
-        post: function ()
-        {
+        post: function () {
             var sortOrder = $("#grid-data").bootgrid("getSortDictionary");
-            var sortKey,sortOrderValue;
+            var sortKey, sortOrderValue;
             var examName = $("input[name=exam_name]").val();
             var examStatus = $("select[name=status]").val();
             var examStyle = $("input[name=exam_style]").val();
             var examStartTime = $("input[name=dateFrom]").val();
             var examEndTime = $("input[name=dateTo]").val();
             $.each(sortOrder, function (name, value) {
-                sortKey   = name;
+                sortKey = name;
                 sortOrderValue = value;
             });
             return {
@@ -120,21 +119,20 @@ $(document).ready(function() {
         selection: true,
         multiSelect: true,
         rowSelect: true,
-        padding:1,
+        padding: 1,
         navigation: 2,
         formatters: {
-            "link": function(column, row)
-            {
-                return "<a href='#' data-growing-title='updateExam' class='icon-a_operate_edit updateExam' examId='"+row.id+"' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='编辑'></a>"+
-                    "<a href='#' data-growing-title='linkExam' class='icon-a_operate_link linkExam' examId='"+row.id+"' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='考试链接'></a>"+
+            "link": function (column, row) {
+                return "<a href='#' data-growing-title='updateExam' class='icon-a_operate_edit updateExam' examId='" + row.id + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='编辑'></a>" +
+                    "<a href='#' data-growing-title='linkExam' class='icon-a_operate_link linkExam' examId='" + row.id + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='考试链接'></a>" +
                     // "<a href='#' data-growing-title='linkTest' class='icons8-purchase-order linkTest' data-toggle=\"tooltip\" data-container=\"body\" data-placement=\"top\" title='考一下' examId='"+row.id+"'></a>"+
-                    "<a href='#' data-growing-title='linkScore' class='icon-a_operate_mark linkScore' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='成绩查询批改' examId='"+row.id+"'></a>" +
-                    "<a href='#' data-growing-title='linkAnalysis' class='icon-a_operate_analysis linkAnalysis' data-toggle=\"tooltip\" data-container=\"body\" data-placement=\"top\" title='统计分析' examId='"+row.id+"' examName='"+row.examName+"'></a>" +
-                    "<a href='#' data-growing-title='searchState' class='icon-a_operate_dspmsg searchState' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='考生答题状态查询' examId='"+row.id+"'></a>";
+                    "<a href='#' data-growing-title='linkScore' class='icon-a_operate_mark linkScore' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='成绩查询批改' examId='" + row.id + "'></a>" +
+                    "<a href='#' data-growing-title='linkAnalysis' class='icon-a_operate_analysis linkAnalysis' data-toggle=\"tooltip\" data-container=\"body\" data-placement=\"top\" title='统计分析' examId='" + row.id + "' examName='" + row.examName + "'></a>" +
+                    "<a href='#' data-growing-title='searchState' class='icon-a_operate_dspmsg searchState' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='考生答题状态查询' examId='" + row.id + "'></a>";
             }
         }
-    }).on("loaded.rs.jquery.bootgrid", function (e){
-        if(!firstLoad) {
+    }).on("loaded.rs.jquery.bootgrid", function (e) {
+        if (!firstLoad) {
             //自定义设置
             customArr = [];
             $(".custom-settings input:checked").each(function (index, element) {
@@ -143,7 +141,7 @@ $(document).ready(function() {
             //保存每页显示项目数目
             var cookieObj = {};
             cookieObj["customStr"] = customArr.join("+");
-            cookieObj["customPageCount"] = $(".page-count-span").text().substring(2,4);
+            cookieObj["customPageCount"] = $(".page-count-span").text().substring(2, 4);
             setSearchCookie(cookieName, cookieObj);
         }
         firstLoad = false;
@@ -151,14 +149,14 @@ $(document).ready(function() {
         $('#grid-data [data-toggle="tooltip"]').tooltip();
 
         $("#grid-data").colResizable({
-            fixed:false,
-            liveDrag:true,
-            draggingClass:"dragging"
+            fixed: false,
+            liveDrag: true,
+            draggingClass: "dragging"
         });
 
 
         //新编辑考试
-        $("#grid-data").bootgrid().find(".updateExam").on("click", function(e) {
+        $("#grid-data").bootgrid().find(".updateExam").on("click", function (e) {
             var examId = $(this).attr("examId");
             e.stopPropagation();
             e.preventDefault();
@@ -167,12 +165,12 @@ $(document).ready(function() {
         });
 
         //管理员体验一下考试
-        $("#grid-data").bootgrid().find(".linkTest").on("click", function(e) {
+        $("#grid-data").bootgrid().find(".linkTest").on("click", function (e) {
             var examId = $(this).attr("examId");
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
-                url: '/admin/exam/exam_can_edit/'+examId,
+                url: '/admin/exam/exam_can_edit/' + examId,
                 type: 'get',
                 cache: false,
                 dataType: 'json',
@@ -182,21 +180,21 @@ $(document).ready(function() {
                         $.ajax({
                             type: "GET",
                             cache: false,
-                            headers: { "cache-control": "no-cache" },
+                            headers: {"cache-control": "no-cache"},
                             dataType: "json",
                             url: "/admin/exam/link_info/?examId=" + examId,
-                            success: function(msg) {
+                            success: function (msg) {
                                 //该地址和modal框里的地址不一样
                                 window.open(msg.bizContent.trialUrl);
                             }
                         });
-                    }else alert ("请在课程中完成相应课程后参加该考试");
+                    } else alert("请在课程中完成相应课程后参加该考试");
                 }
             })
         });
 
         //管理员成绩查询批改首页表格快捷入口
-        $("#grid-data").bootgrid().find(".linkScore").on("click", function(e) {
+        $("#grid-data").bootgrid().find(".linkScore").on("click", function (e) {
             var examId = $(this).attr("examId");
             e.stopPropagation();
             e.preventDefault();
@@ -204,10 +202,10 @@ $(document).ready(function() {
         });
 
         //考试链接
-        $("#grid-data").bootgrid().find(".linkExam").on("click", function(e) {
-            if($(this).parents("td").prev().text()=='是'){ //根据表格判断是否关联自定义任务
+        $("#grid-data").bootgrid().find(".linkExam").on("click", function (e) {
+            if ($(this).parents("td").prev().text() == '是') { //根据表格判断是否关联自定义任务
                 $('#cannotLinkModal').modal("show");
-            }else{
+            } else {
                 var examName = $(this).parents("tr").children().eq(1).text();
                 var examId = $(this).attr("examId");
                 e.stopPropagation();
@@ -219,25 +217,25 @@ $(document).ready(function() {
         });
 
         //考生状态查询
-        $("#grid-data").bootgrid().find(".searchState").on("click", function(e) {
+        $("#grid-data").bootgrid().find(".searchState").on("click", function (e) {
             e.stopPropagation();
             e.preventDefault();
             $("#searchStateModal").modal("show");
-            $("#searchStateModal").attr("examId",$(this).attr("examId"));
+            $("#searchStateModal").attr("examId", $(this).attr("examId"));
         });
 
         //考试统计分析
-        $("#grid-data").bootgrid().find(".linkAnalysis").on("click", function(e) {
+        $("#grid-data").bootgrid().find(".linkAnalysis").on("click", function (e) {
             e.stopPropagation();
             e.preventDefault();
             var _this = $(this);
-            window.open(encodeURI("/ae/results/analysis/exam?examId="+_this.attr("examId")+"&examName="+encodeURI(_this.attr("examName"))));
+            window.open(encodeURI("/ae/results/analysis/exam?examId=" + _this.attr("examId") + "&examName=" + encodeURI(_this.attr("examName"))));
         });
     });
 
 
     //选择分类
-    $("body").on("click", "#selTypeLink", function(e) {
+    $("body").on("click", "#selTypeLink", function (e) {
         e.stopPropagation();
         e.preventDefault();
         showSelType(this);
@@ -245,7 +243,7 @@ $(document).ready(function() {
 
 
     //删除多个考试
-    $("body").on("click", "#batchDel", function(e) {
+    $("body").on("click", "#batchDel", function (e) {
         e.stopPropagation();
         e.preventDefault();
         var ids = $("#grid-data").bootgrid("getSelectedRows").join(",");
@@ -260,7 +258,7 @@ $(document).ready(function() {
     //按钮的可用与禁用（inactive deactive）
 
     var namesArray = [];
-    $("#grid-data").bootgrid().on("selected.rs.jquery.bootgrid", function(e, rows) {
+    $("#grid-data").bootgrid().on("selected.rs.jquery.bootgrid", function (e, rows) {
 
         $(".toolbar-left-operation .inactive").removeClass("inactive").addClass("deactive").removeAttr("disabled");
 
@@ -268,11 +266,11 @@ $(document).ready(function() {
             namesArray.unshift(rows[i].id);
             // return namesArray;
         }
-    }).on("deselected.rs.jquery.bootgrid", function(e, rows) {
+    }).on("deselected.rs.jquery.bootgrid", function (e, rows) {
         var selectList = $("#grid-data").bootgrid("getSelectedRows");
 
-        if(selectList.length==0){
-            $(".toolbar-left-operation .btn.deactive, .toolbar-left-operation .dropdown-menu.deactive").removeClass("deactive").addClass("inactive").attr("disabled","disabled");
+        if (selectList.length == 0) {
+            $(".toolbar-left-operation .btn.deactive, .toolbar-left-operation .dropdown-menu.deactive").removeClass("deactive").addClass("inactive").attr("disabled", "disabled");
         }
 
         for (var i = 0; i < namesArray.length; i++) {
@@ -289,30 +287,30 @@ $(document).ready(function() {
             }
         }
     }).on("load.rs.jquery.bootgrid", function () {
-        $(".toolbar-left-operation .btn.deactive, .toolbar-left-operation .dropdown-menu.deactive").removeClass("deactive").addClass("inactive").attr("disabled","disabled");
+        $(".toolbar-left-operation .btn.deactive, .toolbar-left-operation .dropdown-menu.deactive").removeClass("deactive").addClass("inactive").attr("disabled", "disabled");
     });
 
 
-    $("#batchExport").click(function(e) {
+    $("#batchExport").click(function (e) {
         var dataForm = namesArray.toString();
 
         if (namesArray.length <= 10 && namesArray.length > 0) {
-                BootstrapDialog.show({
+            BootstrapDialog.show({
                 title: "",
                 message: "导出表格包含未参考人员吗？",
-                cssClass:'export_dialog',
+                cssClass: 'export_dialog',
                 buttons: [{
                     label: "否",
                     cssClass: 'btn-default export_no',
-                    action: function(dialogItself) {
+                    action: function (dialogItself) {
                         dialogItself.close();
                         $.ajax({
                             type: 'GET',
                             cache: false,
-                            headers: { "cache-control": "no-cache" },
+                            headers: {"cache-control": "no-cache"},
                             dataType: "json",
                             url: '/admin/results/import/?examInfoId=' + dataForm + "&confirmExaminees=0" + "&batch=1",
-                            success: function(msg) {
+                            success: function (msg) {
                                 $('#exportModal').modal({
                                     backdrop: "static",
                                     keyboard: false
@@ -320,18 +318,18 @@ $(document).ready(function() {
                             }
                         });
                     }
-                },{
+                }, {
                     label: "是",
                     cssClass: 'btn-primary export_yes',
-                    action: function(dialogItself) {
+                    action: function (dialogItself) {
                         dialogItself.close();
                         $.ajax({
                             type: 'GET',
                             cache: false,
-                            headers: { "cache-control": "no-cache" },
+                            headers: {"cache-control": "no-cache"},
                             dataType: "json",
                             url: '/admin/results/import/?examInfoId=' + dataForm + "&confirmExaminees=1" + "&batch=1",
-                            success: function(msg) {
+                            success: function (msg) {
                                 $('#exportModal').modal({
                                     backdrop: "static",
                                     keyboard: false
@@ -355,14 +353,14 @@ $(document).ready(function() {
 
 
     //正常考试
-    $("body").on("click", ".examStatusTrueBtn", function(e) {
+    $("body").on("click", ".examStatusTrueBtn", function (e) {
         e.stopPropagation();
         e.preventDefault();
         var examId = $(this).attr("examId");
         examStatusFn(examId, 0);
     });
     //禁用考试
-    $("body").on("click", ".exampleStatusFalseBtn", function(e) {
+    $("body").on("click", ".exampleStatusFalseBtn", function (e) {
         e.stopPropagation();
         e.preventDefault();
         var examId = $(this).attr("examId");
@@ -370,19 +368,19 @@ $(document).ready(function() {
     });
 
     //点击搜索
-    $("body").on("click", "#searchIcon", function(e) {
+    $("body").on("click", "#searchIcon", function (e) {
         var srch = $('input[name=exam_name]');
         srch.val($.trim(srch.val()));
         //清空高级搜索条件
         $("#subForm")[0].reset();
-        $("#subForm input").each(function(index,element){
+        $("#subForm input").each(function (index, element) {
             $(this).val("");
         });
         $("#selTypeLink").text("选择分类");
         $("#grid-data").bootgrid("reload");
     });
 
-    $("body").on("click", "#searchBtn", function(e) {
+    $("body").on("click", "#searchBtn", function (e) {
         e.stopPropagation();
         e.preventDefault();
         //清空一般搜索条件
@@ -391,7 +389,7 @@ $(document).ready(function() {
         $("advSearch").hide();
     });
     //搜索回车事件
-    $("body").keydown(function() {
+    $("body").keydown(function () {
         var e = window.event || arguments.callee.caller.arguments[0];
         if (e && e.keyCode == "13") {//keyCode=13是回车键
             $('#searchIcon').click();
@@ -421,37 +419,38 @@ $(document).ready(function() {
     //编辑考试
     function examEditFn(examId) {
         $.ajax({
-            url: '/admin/exam/exam_can_edit/'+examId,
+            url: '/admin/exam/exam_can_edit/' + examId,
             type: 'get',
             cache: false,
             dataType: 'json',
-            success: function(msg) {
+            success: function (msg) {
                 if (msg.success != false)
                     window.open("/admin/exam/update/" + examId);
-                else alert ('该考试与课程关联，请在课程中编辑');
+                else alert('该考试与课程关联，请在课程中编辑');
             }
         })
 
     }
+
     //链接考试
     function getExamUrl(examId, examName) {
         //异步获取考试地址
         $.ajax({
             type: "GET",
             cache: false,
-            headers: { "cache-control": "no-cache" },
+            headers: {"cache-control": "no-cache"},
             dataType: "json",
             url: "/admin/exam/link_info/?examId=" + examId,
-            success: function(msg) {
-                if(msg.success){
+            success: function (msg) {
+                if (msg.success) {
                     //管理员体验地址
                     var url = msg.bizContent.trialUrl;
                     $("#trialExamBtn").html('<span class="trial-link">考一下</span>');
                     var notification = msg.bizContent.msgContent.split(',');
                     $('.notification .notificationContent').text(notification[0]);
                     $('.notification .notificationUrl').text(notification[1]);
-                    showSelOk(examId, msg.bizContent.examUrl, msg.bizContent.examPwd,url,'exam',msg.bizContent.isSkipLogin)
-                }else {
+                    showSelOk(examId, msg.bizContent.examUrl, msg.bizContent.examPwd, url, 'exam', msg.bizContent.isSkipLogin)
+                } else {
                     alert('请在课程中完成相应课程后参加该考试');
                 }
             }
@@ -459,49 +458,47 @@ $(document).ready(function() {
     }
 
 
-
     //删除考试 -本场考试关联自定义任务
     function examDelFn(examId, much) {
         BootstrapDialog.show({
-                title: "确定删除选中的记录?",
-                message: "删除考试会同步删除考试中的成绩和答题，是否继续？<br /> 以下两种情况将导致本场考试无法删除：<br /> -本场考试当前有人正在答题<br />-已关联自定义任务,需先取消关联 ",
-                cssClass:'delete_dialog',
-                buttons: [{
-                    cssClass: 'btn-default delete_no',
-                    label: "取消",
-                    action: function(dialogItself)
-                    {
+            title: "确定删除选中的记录?",
+            message: "删除考试会同步删除考试中的成绩和答题，是否继续？<br /> 以下两种情况将导致本场考试无法删除：<br /> -本场考试当前有人正在答题<br />-已关联自定义任务,需先取消关联 ",
+            cssClass: 'delete_dialog',
+            buttons: [{
+                cssClass: 'btn-default delete_no',
+                label: "取消",
+                action: function (dialogItself) {
+                    dialogItself.close();
+                }
+            },
+                {
+                    label: "确认",
+                    cssClass: 'btn-default delete_yes',
+                    action: function (dialogItself) {
                         dialogItself.close();
-                    }
-                },
-                    {label: "确认",
-                        cssClass: 'btn-default delete_yes',
-                        action: function(dialogItself)
-                        {
-                            dialogItself.close();
-                            $.ajax({
+                        $.ajax({
                             type: "GET",
                             cache: false,
-                            headers: { "cache-control": "no-cache" },
+                            headers: {"cache-control": "no-cache"},
                             dataType: "json",
                             url: "/admin/exam/del/" + examId,
-                            success: function(msg) {
-                                    if (msg.success != true) {
-                                        if (msg.code == 33061) {
-                                            createDialog("有考生正在参加该考试");
-                                        } else if (msg.code == 33074) {
-                                            createDialog("您选的考试中,存在已关联自定义任务的考试,请先前往自定义任务中取消关联");
-                                        } else {
-                                            createDialog("操作失败，请联系管理员！");
-                                        }
+                            success: function (msg) {
+                                if (msg.success != true) {
+                                    if (msg.code == 33061) {
+                                        createDialog("有考生正在参加该考试");
+                                    } else if (msg.code == 33074) {
+                                        createDialog("您选的考试中,存在已关联自定义任务的考试,请先前往自定义任务中取消关联");
                                     } else {
-                                        $("#grid-data").bootgrid("reload");
+                                        createDialog("操作失败，请联系管理员！");
                                     }
+                                } else {
+                                    $("#grid-data").bootgrid("reload");
                                 }
-                            })
-                        }
-                    }],
-                });
+                            }
+                        })
+                    }
+                }],
+        });
 
         function createDialog(alertMsg) {
             BootstrapDialog.show({
@@ -511,10 +508,10 @@ $(document).ready(function() {
                 buttons: [{
                     label: "知道了",
                     cssClass: 'btn-default cannot_delete_yes',
-                    action: function(dialogItself) {
-                            dialogItself.close();
-                        }
-                    }]
+                    action: function (dialogItself) {
+                        dialogItself.close();
+                    }
+                }]
             });
         };
     }
@@ -524,15 +521,14 @@ $(document).ready(function() {
         domain_split = company_domain.split(".");
         if (domain_split[1] == "gaoxiaobang" && domain_split[2] == "com") {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     //删除考试将考试id推送给慧科
     var num = 0;
-    var post_del_exam = function(exam_id) {
+    var post_del_exam = function (exam_id) {
         var post_data = {
             "exam_id": exam_id
         };
@@ -543,11 +539,10 @@ $(document).ready(function() {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(post_data),
-            success: function(msg) {
+            success: function (msg) {
                 if (msg.status == 0) {
                     // alert("推送成功");
-                }
-                else {
+                } else {
                     alert("推送失败，请联系管理员");
                     num = num + 1;
                     if (num < 3) {
@@ -564,10 +559,10 @@ $(document).ready(function() {
             $.ajax({
                 type: "GET",
                 cache: false,
-                headers: { "cache-control": "no-cache" },
+                headers: {"cache-control": "no-cache"},
                 dataType: "json",
                 url: "/admin/exam/update_status/" + examId + "/" + type,
-                success: function(msg) {
+                success: function (msg) {
                     if (msg.success == true) {
                         window.location.reload();
                     } else {
@@ -578,6 +573,7 @@ $(document).ready(function() {
         }
     }
 });
+
 //重新刷新页面
 function reloadHtml() {
     location.reload(true);
@@ -589,7 +585,7 @@ if (document.URL.match("exam_mgr_new") == "exam_mgr_new") {
         //obj = {"name": node.name , "id": node.id}
         var idStr = "";
         var nameStr = "";
-        $(obj).each(function(index, element) {
+        $(obj).each(function (index, element) {
             if (index != obj.length - 1) {
                 idStr += element.id + ",";
                 nameStr += element.name + ",";
@@ -614,34 +610,34 @@ function hideSelType(obj) {
 
     $('#typeModal').modal('hide');
 
-    if(isShowSelect){
+    if (isShowSelect) {
         $('.exam-classify').text('选择考试分类')
     }
 }
 
 //考生状态查询的查询按钮
-$("#searchStateModal .btn-search").click(function(){
+$("#searchStateModal .btn-search").click(function () {
     var examId = $("#searchStateModal").attr("examId");
     var account = $("#searchStateModal .examinee-account").val();
-    if(!account || $.trim(account).length < 1) {
+    if (!account || $.trim(account).length < 1) {
         alert("请输入考生账号！");
         return false;
     }
     $.ajax({
         type: "POST",
         cache: false,
-        headers: { "cache-control": "no-cache" },
+        headers: {"cache-control": "no-cache"},
         dataType: "json",
         url: "/admin/query_examinee_qualifier",
         data: {
             examInfoId: examId,
             account: account
         },
-        success: function(msg) {
-            var code = msg.code?msg.code:00000,
+        success: function (msg) {
+            var code = msg.code ? msg.code : 00000,
                 colorCss = "",//用以标记结果颜色和样式
                 iconClass = "",//图标
-                tipStr = msg.desc?msg.desc:'查询出现问题，请稍后再试';
+                tipStr = msg.desc ? msg.desc : '查询出现问题，请稍后再试';
             switch (code) {
                 case 61510:
                     colorCss = "fail";
@@ -668,8 +664,8 @@ $("#searchStateModal .btn-search").click(function(){
                     iconClass = "icon-a_warning";
                     break;
             }
-            var htmlStr = '<i class="icon '+iconClass+'"></i>' +
-                '<p>'+tipStr+'</p>';
+            var htmlStr = '<i class="icon ' + iconClass + '"></i>' +
+                '<p>' + tipStr + '</p>';
             $("#searchStateModal .examinee-account").val(""); //清空信息
             $("#searchStateModal").modal("hide");
             $("#searchStateResultModal .ksx-tip").removeClass("fail success warning").addClass(colorCss).html(htmlStr);

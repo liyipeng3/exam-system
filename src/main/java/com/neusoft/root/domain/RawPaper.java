@@ -2,8 +2,9 @@ package com.neusoft.root.domain;
 
 import java.sql.Date;
 
-public class RawPaper {
-	private String paperId; //试卷ID，唯一
+public class RawPaper 
+{
+	private Integer paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
 	private String createrId;
 	private String createDate;
@@ -42,7 +43,7 @@ public class RawPaper {
 	public String getPaperId() {
 		return paperId;
 	}
-	public void setPaperId(String paperId) {
+	public void setPaperId(Integer paperId) {
 		this.paperId = paperId;
 	}
 	public String getPaperName() {

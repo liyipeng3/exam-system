@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)https://admin.ing.com/admin/paper_add_new -->
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,8 +10,6 @@
     <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
     <meta name="author" content="">
     <script async="" src="../../js/tingyun-rum-admin.js"></script>
-    <script async="" src="../../js/gio.js"></script>
-    <script type="text/javascript" src="../../js/ksx_probe.js"></script>
     <script type="text/javascript">
         var opts = {};
 
@@ -20,11 +17,6 @@
         opts.companyId = '140092';
         opts.companyName = '东北大学软件园';
         opts.rightsGrade = '8';
-
-        //添加gio
-        ksxProbe.gioInit(opts);
-        //添加tingyun
-        ksxProbe.tingyun();
     </script>
     <title>考试云平台</title>
 
@@ -225,31 +217,6 @@
         }
 
     </style>
-    <script src="../../js/entrance.js" id="zhichiScript" class="zhiCustomBtn"></script>
-    <script>
-        //初始化智齿咨询组件实例
-        var zhiManager = (getzhiSDKInstance());
-        //再调用load方法
-        zhiManager.on("load", function () {
-            zhiManager.initBtnDOM();
-        });
-        //设置入口方位//按钮将显示在右下角 默认显示在右下角
-        zhiManager.set('location', 1);
-        //设置悬浮窗的水平位置
-        //true 自定义咨询按钮 废弃系统默认按钮
-        zhiManager.set('customBtn', 'true');
-        //设置自动强制发起会话
-        //    setTimeout(function(){
-        //        zhiManager.expand();
-        ////      zhiManager.set('autoExpand', true);
-        //    },5000);
-        //默认：当为左下时，则水平距离左边100px。当为右下时，则水平距离右边100px
-        zhiManager.set('customMargin', 30);
-        //    zhiManager.set('horizontal', 0);
-
-        zhiManager.set('manTrace', true); //开启收集用户方访问轨迹 默认不收集
-    </script>
-
     <style type="text/css">  .JColResizer {
         table-layout: fixed;
     }
@@ -349,19 +316,20 @@
                             </a>
                         </li>
                         <li class="nav-item has-sub-menu open" id="navItemExam"><a
-                                href="https://admin.com/admin/paper_add_new#" class="menu-title"
+                                href="./paper_add_new.html#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="考试管理">
                             <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
                             <span class="nav-title">考试管理</span></a>
                             <ul class="sub-menu animate" style="height: 238px;">
                                 <li class="nav-item sub-nav-item nav-item-active" id="subNavItemExamMgr"><a
-                                        href="https://admin.com/admin/exam_mgr_new"><span class="nav-title">考试信息管理</span></a>
+                                        href="https://admin.com/admin/exam_mgr_new"><span
+                                        class="nav-title">考试信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
-                                        href="https://v.com/admin/testQuestions/#/list"><span
+                                        href="./test_questions.html"><span
                                         class="nav-title">试题库</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
-                                        href="https://admin.com/admin/paper_mgr_new"><span class="nav-title">试卷库</span></a>
+                                        href="./paper_mgr_new.html"><span class="nav-title">试卷库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
                                         href="https://admin.com/admin/result/mgr_new"><span
@@ -375,7 +343,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemUser"><a
-                                href="https://admin.com/admin/paper_add_new#" class="menu-title"
+                                href="./paper_add_new.html#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="人员管理">
                             <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
                             <span class="nav-title">人员管理</span></a>
@@ -389,16 +357,18 @@
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemCourse"><a
-                                href="https://admin.com/admin/paper_add_new#" class="menu-title"
+                                href="./paper_add_new.html#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="学习">
                             <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
                             <span class="nav-title">学习</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
-                                        href="https://admin.com/admin/file/manager"><span class="nav-title">知识库</span></a>
+                                        href="https://admin.com/admin/file/manager"><span
+                                        class="nav-title">知识库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
-                                        href="https://admin.com/course/course_mgr"><span class="nav-title">课程管理</span></a>
+                                        href="https://admin.com/course/course_mgr"><span
+                                        class="nav-title">课程管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
                                         href="https://admin.com/course/study_record_mgr/course"><span
@@ -422,7 +392,7 @@
                             <div class="nav-icon"><i class="icon icon-a_nav_sign_up"></i></div>
                             <span class="nav-title">报名审核</span></a></li>
                         <li class="nav-item has-sub-menu" id="navItemPay"><a
-                                href="https://admin.com/admin/paper_add_new#" class="menu-title"
+                                href="./paper_add_new.html#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="支付中心">
                             <div class="nav-icon"><i class="icon icon-a_nav_pay"></i></div>
                             <span class="nav-title">支付中心</span></a>
@@ -445,13 +415,14 @@
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemSystem"><a
-                                href="https://admin.com/admin/paper_add_new#" class="menu-title"
+                                href="./paper_add_new.html#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="系统管理">
                             <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
                             <span class="nav-title">系统管理</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
-                                        href="https://admin.com/admin/sub_admin_mgr"><span class="nav-title">子管理员设置</span></a>
+                                        href="https://admin.com/admin/sub_admin_mgr"><span
+                                        class="nav-title">子管理员设置</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
                                         href="https://admin.com/admin/app_set"><span
@@ -460,10 +431,12 @@
                                         href="https://admin.com/admin/modify"><span
                                         class="nav-title">个性化设置</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
-                                        href="https://admin.com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
+                                        href="https://admin.com/admin/follow_app"><span
+                                        class="nav-title">关联公众号</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
-                                        href="https://admin.com/admin/dev_info_mgr"><span class="nav-title">开发者信息管理</span></a>
+                                        href="https://admin.com/admin/dev_info_mgr"><span
+                                        class="nav-title">开发者信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
                                         href="https://admin.com/account/admin_op_record"><span
@@ -484,7 +457,6 @@
                                 <i class="icon icon-a_nav_help"></i>
                             </div>
                             <span class="nav-title">帮助
-                            <img class="new-svg" src="../../img/a_nav_new.svg" alt="">
                         </span>
                         </a>
                         <div class="dropdown-menu company-info-panel person-servers-panel">
@@ -577,19 +549,19 @@
                         <div role="tabpanel" class="tab-area tab-col4">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active step1">
-                                    <a href="https://admin.com/admin/paper_add_new#createTest1"
+                                    <a href="./paper_add_new.html#createTest1"
                                        aria-controls="create1" role="tab" data-toggle="tab">
                                         第一步:创建试卷
                                     </a>
                                 </li>
                                 <li role="presentation" class="step3">
-                                    <a href="https://admin.com/admin/paper_add_new#createTest3"
+                                    <a href="./paper_add_new.html#createTest3"
                                        aria-controls="create3" role="tab" data-toggle="">
                                         第二步:添加试题
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a href="https://admin.com/admin/paper_add_new#createTest4"
+                                    <a href="./paper_add_new.html#createTest4"
                                        aria-controls="create4" role="tab" data-toggle="">
                                         第三步:发布考试
                                     </a>
@@ -598,12 +570,13 @@
                             <div class="line"></div>
                             <div class="lineLeft"></div>
                             <div class="lineRight"></div>
-                            <form action="https://admin.com/admin/paper_add_new" name="form" method="post"
+                            <form action="./paper_add_new.html" name="form" method="post"
                                   id="subForm">
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="createTest1">
                                         <div class="create-test-area new-test-aera clearfix">
-                                            <div class="create-test-box guide col-xs-10 col-md-offset-1 animate" step="2">
+                                            <div class="create-test-box guide col-xs-10 col-md-offset-1 animate"
+                                                 step="2">
                                                 <h3>
                                                     <input name="" type="radio" value="" checked="" class="new-test">
                                                     创建新试卷
@@ -615,18 +588,28 @@
                                                 </div>
                                                 <div id="select_subject">
                                                     选择科目：
-                                                    <label>语文 <input type="radio" value=""></label>
                                                 </div>
                                                 <!--原第二步 组卷方式 -->
-                                                <div role="tabpanel" class="tab-pane " id="createTest" style="margin-top: 1rem">
+                                                <div role="tabpanel" class="tab-pane " id="createTest"
+                                                     style="margin-top: 1rem">
                                                     <div class="create-test-area in-hand clearfix">
                                                         <div class="guide animate" step="3">
                                                             <div class="ctb-row pick-in-lib">
                                                                 组卷方式：
-                                                                <span class="lib-type1 type1" name="paper_type_sel" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="勾选想出的题生成一份试卷">选题组卷</span>
-                                                                <span class="lib-type0 type2" name="paper_type_sel" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="根据设置的抽取规则生成一份试卷，每个考生所用试卷内容一样">抽题组卷</span>
-                                                                <span class="lib-type0 type3" name="paper_type_sel" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="设置好抽取规则，每个考生进入考试时随机生成一份试卷，每份试卷内容不一样">随机组卷</span>
-                                                                <input type="hidden" value="1" name="paper_type" id="paper_type_select">
+                                                                <span class="lib-type1 type1" name="paper_type_sel"
+                                                                      title="" data-toggle="tooltip"
+                                                                      data-placement="bottom"
+                                                                      data-original-title="勾选想出的题生成一份试卷">选题组卷</span>
+                                                                <span class="lib-type0 type2" name="paper_type_sel"
+                                                                      title="" data-toggle="tooltip"
+                                                                      data-placement="bottom"
+                                                                      data-original-title="根据设置的抽取规则生成一份试卷，每个考生所用试卷内容一样">抽题组卷</span>
+                                                                <span class="lib-type0 type3" name="paper_type_sel"
+                                                                      title="" data-toggle="tooltip"
+                                                                      data-placement="bottom"
+                                                                      data-original-title="设置好抽取规则，每个考生进入考试时随机生成一份试卷，每份试卷内容不一样">随机组卷</span>
+                                                                <input type="hidden" value="1" name="paper_type"
+                                                                       id="paper_type_select">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -636,7 +619,9 @@
 
 
                                                 <div class="btn-div">
-                                                    <button type="button" class="btn btn-primary btn-step1 guide-btn">下一步</button>
+                                                    <button type="button" class="btn btn-primary btn-step1 guide-btn">
+                                                        下一步
+                                                    </button>
                                                 </div>
                                             </div>
                                             <div class="create-test-bar create-test-bar1 col-xs-10 col-md-offset-1 animate">
@@ -653,7 +638,7 @@
                                                 <h3>
                                                     <input name="" type="radio" value="" checked="checked">从试卷库中选择一张试卷
                                                 </h3>
-                                                <a href="https://admin.com/admin/paper_add_new#"
+                                                <a href="./paper_add_new.html#"
                                                    class="blue-link" id="selPaperLink">
                                                     <span>选择试卷</span>
                                                 </a>
@@ -751,13 +736,13 @@
                                             <input type="hidden" class="" name="paper_set_num" value="">
                                             <p class="buttonP">
                                                 <a class="button"
-                                                   href="https://admin.com/admin/paper_add_new#"
+                                                   href="./paper_add_new.html#"
                                                    id="previewBtn">预览</a>
                                                 <a class="button"
-                                                   href="https://admin.com/admin/paper_add_new#"
+                                                   href="./paper_add_new.html#"
                                                    id="saveBtn">保存</a>
                                                 <a class="button"
-                                                   href="https://admin.com/admin/paper_add_new#"
+                                                   href="./paper_add_new.html#"
                                                    id="downloadBtn">下载</a>
                                             </p>
                                             <!-- 3-2结束 -->
@@ -805,7 +790,7 @@
             </div>
             <div class="modal-body">
                 <iframe width="100%" height="610px" name="selPaperModal" id="selPaperModal"
-                        src="./select_papper.html"></iframe>
+                        src="paper_select.html"></iframe>
             </div>
         </div>
     </div>
@@ -822,7 +807,7 @@
             </div>
             <div class="modal-body">
                 <iframe width="100%" height="550px" style="border:0px" name="selQuestionFrame" id="selQuestionFrame"
-                        src="../../html/saved_resource(2).html"></iframe>
+                        src="/html/saved_resource(2).html"></iframe>
             </div>
         </div>
     </div>
@@ -839,7 +824,7 @@
             </div>
             <div class="modal-body">
                 <iframe width="100%" height="500px" style="border:0px" name="modifyQuestionFrame"
-                        id="modifyQuestionFrame" src="../../html/saved_resource(3).html">
+                        id="modifyQuestionFrame" src="/html/saved_resource(3).html">
                 </iframe>
             </div>
         </div>
@@ -855,7 +840,7 @@
             </div>
             <div class="modal-body">
                 <iframe width="100%" height="500px" name="selQuestionsTypeModal" id="selQuestionsTypeModal"
-                        src="../../html/saved_resource(4).html">
+                        src="/html/saved_resource(4).html">
                 </iframe>
             </div>
         </div>
@@ -873,7 +858,7 @@
             </div>
             <div class="modal-body">
                 <iframe width="100%" height="180px" style="border:0px" name="difficultFrame" id="difficultFrame"
-                        src="../../html/saved_resource(5).html">
+                        src="/html/saved_resource(5).html">
                 </iframe>
             </div>
         </div>
@@ -922,31 +907,6 @@
     //当前request返回页面对应导航id
 
     var activeNavItem = 'subNavItemExamMgr';
-
-    // gio 在线咨询
-    $("body").on('click', '.gio-inquire-position', function () {
-        //推送咨询事件
-        ksxProbe.gioTrack('onlineInquire', 1, {
-            'inquireFromPage_var': window.location.href,
-            'inquireFromPageName_var': '管理员端',
-            'inquireFromPosition_var': $(this).attr('data-gio-position')
-        });
-    });
-
-
-    //智齿 官网右下角图标
-    $("body").on('click', '#zhichiBtnBox', function () {
-        var title = $(this).find('.zc-advice-icon-btn-title').text();
-
-        if (title == '收起') {
-            //推送咨询事件
-            ksxProbe.gioTrack('onlineInquire', 1, {
-                'inquireFromPage_var': window.location.href,
-                'inquireFromPageName_var': '管理员端',
-                'inquireFromPosition_var': '管理员端右下角咨询'
-            });
-        }
-    });
 
     $(function () {
 
@@ -1006,8 +966,11 @@
 </script>
 <script>
     $(function () {
-        $.getJSON("/exam/get_paper_subjects",function (result) {
-            console.log(result);
+        $.getJSON("/exam/get_paper_subjects", function (result) {
+            $.each(result.subjects, function (index, e) {
+                $subject = $("<label>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>")
+                $("#select_subject").append($subject);
+            })
         })
     })
 </script>
@@ -1039,6 +1002,7 @@
             //传递 选题、随机、抽题组卷 到第三步
             $("input[name=add_style]").val("select");
             $("input[name=classification]").val("");
+            var type = "";
             manualInputTest("/exam/add_paper", type);
         });
 
@@ -1147,15 +1111,5 @@
         }
     })
 </script>
-
-
-<div id="zhichiBtnBox"
-     style="position: fixed; z-index: 2147483583; box-shadow: rgba(15, 66, 76, 0.25) 0px 0px 14px 0px; width: 60px; height: 60px; border-radius: 50%; background-color: rgb(60, 140, 252); background-image: url(&quot;//www.sobot.com/chat/frame/imgs/icon.png&quot;); background-repeat: no-repeat; background-position: 18px -58px; right: 40px; bottom: 20px; display: none;">
-    <a hidefocus="" id="zhichiBtn"
-       style="position:relative;text-decoration: none; outline: none; font-family: Microsoft Yahei, Arial, Helvetica; color: #fff; font-size: 16px; display: inline-block; margin: 0; padding: 0; border: none; line-height:43px; float:none;width:100%;height:100%;border-radius:50%;"><span
-            class="zc-advice-icon-btn-title"
-            style="box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px; border: 1px solid rgb(235, 239, 240); font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; color: rgb(85, 85, 86); font-size: 13px; margin: 0px; text-align: right; background: rgb(255, 255, 255); position: absolute; top: 15px; right: 70px; text-overflow: ellipsis; white-space: nowrap; word-break: normal; display: none; border-radius: 3px; padding: 0px 5px; height: 30px; line-height: 30px;">咨询在线客服</span></a><i
-        style="position:absolute;top:0px;right:0px;padding:1px;line-height:20px;text-align:center;color:#fff;font-weight:bold;height:18px;min-width:18px;background-color:#ed5c5c;border-radius:18px;font-size:12px;display:none;font-style:normal;"
-        id="zhichiCount"></i></div>
 </body>
 </html>

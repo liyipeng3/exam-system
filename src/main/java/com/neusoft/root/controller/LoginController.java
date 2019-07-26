@@ -18,6 +18,8 @@ import com.neusoft.root.MD5;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+/*	@Autowired
+	LoginServiceImpl loginservice;*/
 	@RequestMapping(value="/checkAccount", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public String checkAccount(HttpServletRequest req, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
@@ -43,5 +45,25 @@ public class LoginController {
 		else{
 			return "用户名或密码错误";
 		}
+/*		int result = loginservice.querylogin(username, password);
+		switch(result){
+		case 1:
+			return "admin";
+			break;
+		case 2:
+			return "student";
+			break;
+		case 3:
+			return "teacher";
+			break;
+		default:
+			return "用户名或密码错误";
+		}*/
+	}
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String logout(HttpServletRequest req){
+		HttpSession session = req.getSession();
+		session.invalidate();
+		return "redirect:/login";
 	}
 }

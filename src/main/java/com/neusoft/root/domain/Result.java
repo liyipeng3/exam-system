@@ -2,14 +2,15 @@ package com.neusoft.root.domain;
 //学生答题结果
 public class Result {
 	private String studentId;
-	private String paperId;
+	private Integer paperId;
 	private String singlechoiceResult;
 	private String multichoiceResult;
 	private String fillResult;
 	private String subjectiveResult;
+	private String submitDate;
 	
-	public Result(String studentId, String paperId, String singlechoiceResult, String multichoiceResult,
-			String fillResult, String subjectiveResult) {
+	public Result(String studentId, Integer paperId, String singlechoiceResult, String multichoiceResult,
+			String fillResult, String subjectiveResult, String submitDate) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
@@ -17,10 +18,12 @@ public class Result {
 		this.multichoiceResult = multichoiceResult;
 		this.fillResult = fillResult;
 		this.subjectiveResult = subjectiveResult;
+		this.submitDate = submitDate;
 	}
 
 	public Result() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getStudentId() {
@@ -31,11 +34,11 @@ public class Result {
 		this.studentId = studentId;
 	}
 
-	public String getPaperId() {
+	public Integer getPaperId() {
 		return paperId;
 	}
 
-	public void setPaperId(String paperId) {
+	public void setPaperId(Integer paperId) {
 		this.paperId = paperId;
 	}
 
@@ -71,6 +74,14 @@ public class Result {
 		this.subjectiveResult = subjectiveResult;
 	}
 
+	public String getSubmitDate() {
+		return submitDate;
+	}
+
+	public void setSubmitDate(String submitDate) {
+		this.submitDate = submitDate;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -81,6 +92,7 @@ public class Result {
 		result = prime * result + ((singlechoiceResult == null) ? 0 : singlechoiceResult.hashCode());
 		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
 		result = prime * result + ((subjectiveResult == null) ? 0 : subjectiveResult.hashCode());
+		result = prime * result + ((submitDate == null) ? 0 : submitDate.hashCode());
 		return result;
 	}
 
@@ -123,6 +135,11 @@ public class Result {
 				return false;
 		} else if (!subjectiveResult.equals(other.subjectiveResult))
 			return false;
+		if (submitDate == null) {
+			if (other.submitDate != null)
+				return false;
+		} else if (!submitDate.equals(other.submitDate))
+			return false;
 		return true;
 	}
 
@@ -130,8 +147,7 @@ public class Result {
 	public String toString() {
 		return "Result [studentId=" + studentId + ", paperId=" + paperId + ", singlechoiceResult=" + singlechoiceResult
 				+ ", multichoiceResult=" + multichoiceResult + ", fillResult=" + fillResult + ", subjectiveResult="
-				+ subjectiveResult + "]";
+				+ subjectiveResult + ", submitDate=" + submitDate + "]";
 	}
-	
 	
 }

@@ -10,28 +10,28 @@ $(function () {
     });
 
     // ajaxstart with loading shown
-    $( document ).ajaxStart(function() {
+    $(document).ajaxStart(function () {
         $("#spinnerLoading").removeClass("hidden");
     });
     // ajaxstop with loading hidden
-    $( document ).ajaxStop(function() {
+    $(document).ajaxStop(function () {
         $("#spinnerLoading").addClass("hidden");
     });
 
 
     //读取用户自定义LOGO
-    if($("#companyLogo").length>0){
+    if ($("#companyLogo").length > 0) {
         var _this = $("#companyLogo");
 
         $.ajax({
             type: "GET",
-            cache : false,
+            cache: false,
             dataType: "json",
             url: "/admin/modify_get_logo",
-            success: function(msg){
-                if(msg.success){
+            success: function (msg) {
+                if (msg.success) {
                     var logo_url = msg.bizContent.logoUrl;
-                    var img = '<img class="icon-logo logo-ksx" src="'+logo_url+'" />';
+                    var img = '<img class="icon-logo logo-ksx" src="' + logo_url + '" />';
                     $(_this).append(img);
                 }
             }
@@ -39,32 +39,31 @@ $(function () {
     }
 
 
-
     //展开状态下不显示提示卡
-    if($(".sidebar-fold").hasClass("icon-unfold")){
+    if ($(".sidebar-fold").hasClass("icon-unfold")) {
         $('.sidebar-nav [data-toggle="tooltip"]').tooltip('destroy');
     }
 
     // fold sidebar
-    $("#sidebar-fold").click(function(e) {
+    $("#sidebar-fold").click(function (e) {
         e.stopPropagation();
         e.preventDefault();
-        if($(this).hasClass("icon-unfold")){
+        if ($(this).hasClass("icon-unfold")) {
             // fold sidebar
             $('.show-num').css({
-                'left':'28px'
+                'left': '28px'
             });
-            $(this).removeClass("icon-unfold").addClass("icon-fold").attr("title","展开导航").attr("data-original-title","展开导航");
+            $(this).removeClass("icon-unfold").addClass("icon-fold").attr("title", "展开导航").attr("data-original-title", "展开导航");
             $(this).find(".icons8").removeClass("icons8-icon").addClass("icons8-icon-3");
             $(".viewFrameWork").removeClass("sidebar-full").addClass("sidebar-min");
             document.cookie = "ksxFoldState=fold; path =; domain=;";
             $('.sidebar-inner [data-toggle="tooltip"]').tooltip();
-        }else if ($(this).hasClass("icon-fold")) {
+        } else if ($(this).hasClass("icon-fold")) {
             // unfold sidebar
             $('.show-num').css({
-                'left':'76px'
+                'left': '76px'
             });
-            $(this).removeClass("icon-fold").addClass("icon-unfold").attr("title","收起导航").attr("data-original-title","收起导航");
+            $(this).removeClass("icon-fold").addClass("icon-unfold").attr("title", "收起导航").attr("data-original-title", "收起导航");
             $(this).find(".icons8").removeClass("icons8-icon-3").addClass("icons8-icon");
             $(".viewFrameWork").removeClass("sidebar-min").addClass("sidebar-full");
             document.cookie = "ksxFoldState=unfold; path =; domain=;";
@@ -83,29 +82,29 @@ $(function () {
         var query_status = false;
         //所有带导航页面url结构列表
         var url_list = {
-            "exam":["/exam/history","/exam/wrong_topic"],
-            "course": ["course/show","course/mine","course/study/"],
+            "exam": ["/exam/history", "/exam/wrong_topic"],
+            "course": ["course/show", "course/mine", "course/study/"],
             "certificate": ["certificate/certificate_mine"],
-            "netdisk":["/exam/file_mgr"],
+            "netdisk": ["/exam/file_mgr"],
         };
 
-        for(var o in url_list){
+        for (var o in url_list) {
             var item_list = url_list[o];
 
-            for(var i=0; i< item_list.length; i++){
-                if(current_url.indexOf(item_list[i])!=-1){
+            for (var i = 0; i < item_list.length; i++) {
+                if (current_url.indexOf(item_list[i]) != -1) {
                     query_status = true;
                     break;
                 }
             }
 
-            if(query_status){
+            if (query_status) {
                 current_item = o;
                 break;
             }
         }
 
-        $(".sidebar-trans .nav-item.nav-item-"+current_item).addClass("nav-item-active");
+        $(".sidebar-trans .nav-item.nav-item-" + current_item).addClass("nav-item-active");
     });
 
     //导航栏搜索配置
@@ -116,21 +115,23 @@ $(function () {
         //默认为当前考试列表页搜索，不列入配置当中
         //url:当前路径，name:搜索name，status:要不要显示
         var search_list = [
-            {url: 'exam/history', name: 'name', method: 'get', action: '/exam/history_search',
-                status: true},
+            {
+                url: 'exam/history', name: 'name', method: 'get', action: '/exam/history_search',
+                status: true
+            },
             {url: 'exam/wrong_topic', status: false},
             {url: 'course/show', status: false},
             {url: 'exam/file_mgr', name: 'name', method: '', action: '', status: true},
             {url: 'certificate/certificate_mine', status: false}
         ];
 
-        for(var i=0; i<search_list.length; i++){
-            if(current_url.indexOf(search_list[i].url)!=-1){
-                if(search_list[i].status){
+        for (var i = 0; i < search_list.length; i++) {
+            if (current_url.indexOf(search_list[i].url) != -1) {
+                if (search_list[i].status) {
                     $(".status-item.item-search").removeClass("hidden");
                     $(_form).attr("method", search_list[i].method).attr("action", search_list[i].action);
                     $(_form).find(".item-key-input").attr("name", search_list[i].name);
-                }else{
+                } else {
                     $(".status-item.item-search").addClass("hidden");
                 }
             }
@@ -139,12 +140,12 @@ $(function () {
     });
 
     //搜索
-    $("#searchBtn").click(function(e){
+    $("#searchBtn").click(function (e) {
         $("#searchForm").submit();
     });
 
-    $("#searchForm .item-key-input").keydown(function(e){
-        if(e.keyCode==13){
+    $("#searchForm .item-key-input").keydown(function (e) {
+        if (e.keyCode == 13) {
             $("#searchForm").submit();
         }
     });
@@ -171,7 +172,7 @@ $(function () {
         //获取cookie
         var thirdParty = getCookie('thirdParty');
 
-        if(thirdParty=='true'){
+        if (thirdParty == 'true') {
             $("#logoutBtn").addClass("hidden");
         }
     });
@@ -182,32 +183,32 @@ $(function () {
 function switchLang(lang) {
     //en:english
     //zh-CN:Chinese
-    $.ajax( {
-        type:"post",
-        url:"/account/set_cookie",
-        dataType:"json",
+    $.ajax({
+        type: "post",
+        url: "/account/set_cookie",
+        dataType: "json",
         data: "cookieName=language&cookieValue=" + lang + "&expiresTime=86400",
-        success:function(msg){
-            window.location.href = window.location.href+"?"+Math.random();
+        success: function (msg) {
+            window.location.href = window.location.href + "?" + Math.random();
         }
     });
 
 }
 
 // set cookie
-function setCookie(cookieName, cookieValue, expiresTime){
+function setCookie(cookieName, cookieValue, expiresTime) {
     $("#spinnerLoading").addClass("hide");
 
-    $.ajax( {
-        type:"post",
-        url:"/account/set_cookie",
-        dataType:"json",
+    $.ajax({
+        type: "post",
+        url: "/account/set_cookie",
+        dataType: "json",
         data: "cookieName=" + cookieName + "&cookieValue=" + cookieValue + "&expiresTime=" + expiresTime,
-        success:function(msg){
+        success: function (msg) {
             $("#spinnerLoading").removeClass("hide");
             return msg;
         },
-        error:function (msg) {
+        error: function (msg) {
             $("#spinnerLoading").removeClass("hide");
         }
     });
@@ -216,16 +217,16 @@ function setCookie(cookieName, cookieValue, expiresTime){
 
 
 // get cookie
-function getCookie(c_name){
-    if(document.cookie.length>0){
-        c_start=document.cookie.indexOf(c_name + "=")
-        if(c_start!=-1){
-            c_start=c_start + c_name.length+1;
-            c_end=document.cookie.indexOf(";",c_start);
-            if (c_end==-1){
-                c_end=document.cookie.length
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=")
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length
             }
-            return unescape(document.cookie.substring(c_start,c_end));
+            return unescape(document.cookie.substring(c_start, c_end));
         }
     }
     return "";
@@ -243,7 +244,7 @@ function getQueryString(name) {
 
 //处理aliyun oss url问题，进行uri编码
 function aliyunEncodeURI(url) {
-    if (url.indexOf("https://kaoshixing.oss-cn-beijing.aliyuncs.com/") > -1){
+    if (url.indexOf("https://kaoshixing.oss-cn-beijing.aliyuncs.com/") > -1) {
         url = url.replace("https://kaoshixing.oss-cn-beijing.aliyuncs.com/", '');
         url = "https://kaoshixing.oss-cn-beijing.aliyuncs.com/" + encodeURIComponent(url);
     } else if (url.indexOf("https://s6.kaoshixing.com/") > -1) {
@@ -267,10 +268,10 @@ $("#logoutBtn").click(function (e) {
 $("#confirmLogoutBtn").click(function () {
     $.ajax({
         type: "POST",
-        cache : false,
+        cache: false,
         dataType: "json",
         url: "/account/logout",
-        success: function(msg){
+        success: function (msg) {
             var jump_url = msg.bizContent.url;
             window.location.href = jump_url;
 

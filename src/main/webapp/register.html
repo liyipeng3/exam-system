@@ -8,15 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>哈工大－在线考试系统云平台</title>
     <script async="" src="./js/tingyun-rum-home.js"></script>
-    <script async="" src="./js/gio.js"></script>
-    <script type="text/javascript" src="./js/ksx_probe.js"></script>
     <script type="text/javascript">
         var opts = {};
-
-        //添加gio
-        ksxProbe.gioInit(opts);
-        //添加tingyun
-        ksxProbe.tingyun();
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <meta name="renderer" content="webkit">
@@ -157,20 +150,5 @@
 <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./js/md5.min.js"></script>
 <script type="text/javascript" src="./js/register.js"></script>
-<script type="text/javascript">
-    $(function () {
-        var registPageInfo = ksxProbe.gioGetRegistPageInfo();
-
-        //浏览注册页，向growing-io推送一条数据
-        ksxProbe.gioTrack('viewRegisterPage', 1, {
-            'registerFromPage_var': registPageInfo.url,
-            'registerFromPosition_var': registPageInfo.postion,
-            'registerFromPageName_var': registPageInfo.name
-        });
-
-    });
-</script>
-
-
 </body>
 </html>

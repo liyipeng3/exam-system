@@ -1,4 +1,4 @@
-package com.neusoft.root.domain;
+﻿kage com.neusoft.root.domain;
 
 //试题
 public class RawItem {
@@ -22,8 +22,10 @@ public class RawItem {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((createrId == null) ? 0 : createrId.hashCode());
 		result = prime * result + ((itemAnswer == null) ? 0 : itemAnswer.hashCode());
-		result = prime * result + ((itemCourseType == null) ? 0 : itemCourseType.hashCode());
+		result = prime * result + ((itemCoursetype == null) ? 0 : itemCoursetype.hashCode());
+		result = prime * result + ((itemDate == null) ? 0 : itemDate.hashCode());
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
 		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
@@ -42,15 +44,25 @@ public class RawItem {
 		if (getClass() != obj.getClass())
 			return false;
 		RawItem other = (RawItem) obj;
+		if (createrId == null) {
+			if (other.createrId != null)
+				return false;
+		} else if (!createrId.equals(other.createrId))
+			return false;
 		if (itemAnswer == null) {
 			if (other.itemAnswer != null)
 				return false;
 		} else if (!itemAnswer.equals(other.itemAnswer))
 			return false;
-		if (itemCourseType == null) {
-			if (other.itemCourseType != null)
+		if (itemCoursetype == null) {
+			if (other.itemCoursetype != null)
 				return false;
-		} else if (!itemCourseType.equals(other.itemCourseType))
+		} else if (!itemCoursetype.equals(other.itemCoursetype))
+			return false;
+		if (itemDate == null) {
+			if (other.itemDate != null)
+				return false;
+		} else if (!itemDate.equals(other.itemDate))
 			return false;
 		if (itemId == null) {
 			if (other.itemId != null)
