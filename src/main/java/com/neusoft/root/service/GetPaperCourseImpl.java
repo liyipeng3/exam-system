@@ -21,7 +21,7 @@ public class GetPaperCourseImpl implements GetPaperCourse{
 		// TODO Auto-generated method stub
 		List<RawPaper> paperlist = new ArrayList<>();
 		
-			RawPaper paper = new RawPaper(null, null, null, null, subjects, null, null, null, null, null, null, null, null);
+			RawPaper paper = new RawPaper(null, null, null, null, subjects, 0, null, null, null, null, 0, null, null);
 					
 			paperlist =teachermapper.queryPaper(paper);
 		

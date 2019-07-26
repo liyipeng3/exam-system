@@ -9,24 +9,6 @@ public class Forum {
 	private String postTag;//分类标签
 	private String postOutline;//题目
 	private String postContext;//内容
-<<<<<<< Updated upstream
-
-	
-	public Forum() {
-		super();
-	}
-	public Forum(String postId, Date postDate, String senderId, String postTag, String postOutline,
-			String postContext) {
-		super();
-		this.postId = postId;
-		this.postDate = postDate;
-		this.senderId = senderId;
-		this.postTag = postTag;
-		this.postOutline = postOutline;
-		this.postContext = postContext;
-	}
-=======
->>>>>>> Stashed changes
 	public String getPostId() {
 		return postId;
 	}
@@ -63,9 +45,6 @@ public class Forum {
 	public void setPostContext(String postContext) {
 		this.postContext = postContext;
 	}
-<<<<<<< Updated upstream
-
-=======
 	public Forum(String postId, String postDate, String senderId, String postTag, String postOutline,
 			String postContext) {
 		super();
@@ -80,7 +59,6 @@ public class Forum {
 		super();
 		// TODO Auto-generated constructor stub
 	}
->>>>>>> Stashed changes
 	@Override
 	public int hashCode() {
 		final int prime = 31;

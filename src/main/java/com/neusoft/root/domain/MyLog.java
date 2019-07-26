@@ -8,29 +8,7 @@ public class MyLog
 	private String opDate; //操作时间
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
-<<<<<<< Updated upstream
-
 	private String opPage; // 操作内容
-	public MyLog(Integer logId, String opId, Date opDate, String opType, String opMsg, String opPage) {
-
-		super();
-		this.logId = logId;
-		this.opId = opId;
-		this.opDate = opDate;
-		this.opType = opType;
-		this.opMsg = opMsg;
-		this.opPage = opPage;
-	}
-
-	public MyLog() {
-
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-=======
-	private String opResult; // 操作结果
->>>>>>> Stashed changes
 	public Integer getLogId() {
 		return logId;
 	}
@@ -61,20 +39,20 @@ public class MyLog
 	public void setOpMsg(String opMsg) {
 		this.opMsg = opMsg;
 	}
-	public String getOpResult() {
+	public String getOpPage() {
 		return opPage;
 	}
-	public void setOpResult(String opResult) {
-		this.opPage = opResult;
+	public void setOpPage(String opPage) {
+		this.opPage = opPage;
 	}
-	public MyLog(Integer logId, String opId, String opDate, String opType, String opMsg, String opResult) {
+	public MyLog(Integer logId, String opId, String opDate, String opType, String opMsg, String opPage) {
 		super();
 		this.logId = logId;
 		this.opId = opId;
 		this.opDate = opDate;
 		this.opType = opType;
 		this.opMsg = opMsg;
-		this.opResult = opResult;
+		this.opPage = opPage;
 	}
 	public MyLog() {
 		super();
@@ -135,15 +113,11 @@ public class MyLog
 	}
 	@Override
 	public String toString() {
-<<<<<<< Updated upstream
-		return "Log [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
-				+ opMsg + ", opResult=" + opPage + "]";
-=======
 		return "MyLog [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
-				+ opMsg + ", opResult=" + opResult + "]";
->>>>>>> Stashed changes
+				+ opMsg + ", opPage=" + opPage + "]";
 	}
 	
+
 	
 
 
