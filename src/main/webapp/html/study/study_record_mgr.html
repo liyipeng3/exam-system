@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
+    <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="author" content="">
+    <script async="" src="../../js/tingyun-rum-admin.js"></script>
+    <script async="" src="../../js/gio.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '东北大学软件园';
+        opts.rightsGrade = '8';
+
+    </script>
+    <title>考试云平台</title>
+
+
+    <link rel="shortcut icon" href="../../img/logo.ico">
+
+
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/admin_base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.bootgrid.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-tab-base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/pikaday.css">
+    <style>
+        #export_msg {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            display: none;
+            z-index: 3;
+        }
+
+        .col-sm-12.actionBar {
+            display: none;
+        }
+
+        .nav-tabs > li {
+            float: left;
+            width: 50%;
+            margin-bottom: -1px;
+            text-align: center;
+        }
+
+        .search-section .search-section-adv .search-section-adv-panel .search-menu > li .search-menu-title {
+            overflow: hidden;
+            width: 60px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: #494949;
+        }
+
+        .tab-content .tab-pane .tab-wrap1 .rqm-table1 {
+            padding: 0 30px;
+            height: 138px;
+            border: 1px solid #DEDEDE;
+            border-top: 0;
+        }
+
+        .tab-content .tab-pane .tab-wrap1 .rqm-table1 .table tbody .curr td {
+            padding: 23px 0 10px 10px;
+            border-bottom: 0;
+            color: #3A3E51;
+        }
+
+        .tab-content .tab-pane .tab-wrap1 .rqm-table1 .table tbody tr th {
+            height: 69px;
+            width: 14%;
+            font-size: 14px;
+            color: #6D717C;
+            margin-top: 10px;
+            vertical-align: middle;
+            padding-bottom: 0;
+            padding-left: 10px;
+        }
+
+        .tab-wrap1 .rqm-table1 .table > tbody > tr > td {
+            background-color: #fff;
+        }
+
+        .table > tbody > tr > td:first-child {
+            border-radius: 0;
+            border-left: 0;
+        }
+
+        .table > tbody > tr > td:last-child {
+            border-radius: 0;
+            border-right: 0;
+        }
+
+        .devide-line {
+            width: 100%;
+            height: 20px;
+            background: #EEF3F8;
+        }
+
+        .viewFrameWork-body .body-addition .body-top-left .body-nav {
+            margin-bottom: 10px;
+            padding-right: 0px;
+            position: relative;
+        }
+
+        table.table.admin-table.table-style1 {
+            margin-bottom: -5px;
+            border-spacing: 0;
+        }
+
+        .table-style1 > tbody > tr:hover > td {
+            border-top: 1px solid #F6F7FA;
+        }
+
+        .table > tbody > tr:hover > td:first-child {
+            border-left: 0;
+        }
+
+        .table > tbody > tr:hover > td:last-child {
+            border-right: 0;
+        }
+
+        /*********样式分割线**********/
+
+
+        .cont-r {
+            background-color: #f3f3f5;
+        }
+
+        .body-content .cont-r .nav-tabs li {
+            padding: 0;
+        }
+
+        .body-content .cont-r .nav-tabs li a {
+            font-size: 18px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .body-content .cont-r .nav-tabs li.active {
+            background: #fff;
+        }
+
+        .body-content .cont-r .nav-tabs li {
+            padding: 0;
+        }
+
+        .body-content .cont-r .nav-tabs > li.active > a {
+            color: #1A8CFE;
+            border: none;
+            background-color: #fff;
+        }
+
+        .btn-size {
+            width: 84px;
+            height: 36px;
+            padding-left: 14px;
+            margin-left: 20px;
+            font-size: 14px;
+            padding-top: 10px;
+        }
+
+        #selDepLink {
+            display: inline-block;
+            border-radius: 4px;
+            width: 264px;
+            height: 30px;
+            line-height: 12px;
+            color: #666666;
+            background: #F5F5F5;
+            border: 0;
+        }
+
+        /*div#grid-data-footer{*/
+        /*position: fixed;*/
+        /*bottom: 0;*/
+        /*width: 100%;*/
+        /*padding-right: 180px;*/
+        /*height: 90px;*/
+        /*padding-top:30px;*/
+        /*background: #fff;*/
+        /*margin-bottom: 0;*/
+        /*}*/
+        table#grid-data {
+            padding-bottom: 90px;
+        }
+
+        .bootgrid-table th.select-cell, .bootgrid-table td.select-cell {
+            width: 45px !important;
+        }
+
+        #grid-data-footer .row .infoBar .actions .btn-group:last-child .dropdown-menu {
+            top: -210px;
+        }
+
+        #advSearch .search-section-adv-panel .search-menu .to {
+            font-size: 12px;
+            color: #494949;
+        }
+
+        #selDepLink {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /*tab切换的样式修改*/
+        #selCourse {
+            padding: 10px 20px;
+            vertical-align: middle;
+            width: 110px;
+            height: 36px;
+        }
+
+        .body-toolbar-left button {
+            margin-right: 8px;
+        }
+
+        .cont-r {
+            border-bottom: 0;
+        }
+
+        /*bootstrap-dialog 模态框样式*/
+        .bootstrap-dialog .modal-header {
+            border-bottom: 0;
+        }
+
+        .bootstrap-dialog .modal-footer {
+            border-top: 0;
+            margin: 22px 0;
+        }
+
+        .bootstrap-dialog-footer-buttons button.btn {
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666666;
+            letter-spacing: 0;
+            height: 34px;
+            width: 100px;
+        }
+
+        .bootstrap-dialog-footer-buttons button:first-child {
+            background: #F2F2F2 !important;
+            border-color: #F2F2F2 !important;
+            color: #666 !important;
+        }
+
+        .course-export .close {
+            display: none;
+        }
+
+        .course-export .modal-header {
+            height: 50px;
+            line-height: normal;
+        }
+
+        .course-export .bootstrap-dialog-message {
+            font-size: 20px;
+            color: #3A3E51;
+        }
+
+        .course-export .course-export-yes {
+            margin-left: 14px !important;
+            background: #1A8CFE !important;
+            border-color: #1A8CFE !important;
+            color: #FFF !important;
+        }
+
+        .course-export .course-del-yes {
+            border-color: #FF0000 !important;
+            color: #FFF !important;
+            background: #FF0000 !important;
+            margin-left: 14px !important;
+        }
+
+        #exportModal .modal-dialog {
+            margin-top: 15% !important;
+        }
+
+        #exportModal .modal-dialog,
+        #exportModal .modal-content {
+            width: 440px;
+        }
+
+        #exportModal .modal-header {
+            height: 70px;
+            line-height: normal;
+            padding: 50px 0 0;
+            border-bottom: none;
+        }
+
+        #exportModal .modal-footer {
+            border-top: none;
+            text-align: center;
+            padding: 32px 15px;
+        }
+
+        #exportModal .modal-body {
+            margin-top: 18px;
+            font-size: 14px;
+            color: #999999;
+        }
+
+        #exportModal .btn-default {
+            width: 100px;
+            height: 34px;
+            background: #F2F2F2;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666666;
+            border-color: #F2F2F2;
+        }
+
+    </style>
+
+    <style type="text/css">  .JColResizer {
+        table-layout: fixed;
+    }
+
+    .JColResizer > tbody > tr > td, .JColResizer > tbody > tr > th {
+        overflow: hidden;
+    }
+
+    .JCLRgrips {
+        height: 0px;
+        position: relative;
+    }
+
+    .JCLRgrip {
+        margin-left: -5px;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .JCLRgrip .JColResizer {
+        position: absolute;
+        background-color: red;
+        filter: alpha(opacity=1);
+        opacity: 0;
+        width: 10px;
+        height: 100%;
+        cursor: col-resize;
+        top: 0px
+    }
+
+    .JCLRLastGrip {
+        position: absolute;
+        width: 1px;
+    }
+
+    .JCLRgripDrag {
+        border-left: 1px dotted black;
+    }
+
+    .JCLRFlex {
+        width: auto !important;
+    }
+
+    .JCLRgrip.JCLRdisabledGrip .JColResizer {
+        cursor: default;
+        display: none;
+    }</style>
+    <style></style>
+</head>
+
+
+<body class="modal-open">
+<div class="viewFrameWork sidebar-full" id="viewFrameWork">
+
+    <div class="viewFrameWork-statusbar">
+
+        <a href="https://admin..com/account/admin/index" class="status-left company-logo" title="logo" id="companyLogo">
+            <!--对有没有logo进行判断-->
+            <img class="icon-logo logo-ksx" src="../../img/logo.png"></a>
+
+
+        <div class="status-middle toolbar">
+            <div class="body-toolbar clearfix">
+                <div class="body-toolbar-left pull-left toolbar-left-operation">
+                    <button type="button" class="btn btn-default" id="selCourse">
+                        <i class="icon-a_btn_select btn-icon-left"></i>选择课程
+                    </button>
+                    <button type="button" class="btn btn-default btn2" id="exportBtn">
+                        <i class="icons8-export btn-icon-left"></i>
+                        导出
+                    </button>
+                    <button type="button" class="btn btn-default btn2 inactive" disabled="" id="btn-remove">
+                        <i class="icons8-trash-can btn-icon-left"></i>
+                        删除
+                    </button>
+                </div>
+                <div class="body-toolbar-right pull-right toolbar-right-operation">
+                    <div class="search-section">
+                        <div class="search-section-normal" id="normalSearch">
+                            <a href="javascript:void(0)"><i class="icon-p_top_search search-section-icon"
+                                                            id="searchIcon"></i></a>
+                            <input class="search-section-area placeholder" name="surname" type="text"
+                                   placeholder="请输入姓名">
+                            <input type="hidden" class="enableSearch" name="search">
+                        </div>
+                        <div class="search-section-adv" id="advSearch">
+                    <span class="dropdown-toggle search-section-adv-title" data-toggle="dropdown" aria-haspopup="true"
+                          aria-expanded="true">
+                        <a href="javascript:void(0)" class="advSearch">高级搜索</a>
+                    </span>
+                            <div class="dropdown-menu search-dropdown-menu search-section-adv-panel">
+                                <form action="https://admin..com/course/study_record_mgr/course" name="form"
+                                      method="get" id="searchForm">
+                                    <input type="hidden" name="search_surname">
+                                    <input type="hidden" name="search_dep">
+                                    <input type="hidden" name="search_score_left">
+                                    <input type="hidden" name="search_score_right">
+                                    <ul class="search-menu">
+                                        <li>
+                                            <span class="search-menu-size search-menu-title">部门：</span>
+                                            <button class="btn btn-default" type="button" id="selDepLink">
+                                                <span>选择部门</span></button>
+                                            <input type="hidden" class="form-control" name="dep_id">
+                                        </li>
+                                        <li>
+                                            <span class="search-menu-size search-menu-title">分数区间：</span>
+                                            <input name="score_left" type="text" class="form-control"
+                                                   style="width:125px;display:inline-block;margin-right:5px;">
+                                            <span class="to">到</span>
+                                            <input name="score_right" type="text" class="form-control"
+                                                   style="width:125px;display:inline-block;margin-left:5px;">
+                                        </li>
+                                    </ul>
+                                </form>
+                                <div class="dropdown-footer">
+                                    <button type="button" class="btn btn-primary" id="searchBtn">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="status-right">
+            <div class="status-item item-notification" id="stateMessage">
+                <i class="icon item-icon icon-p_top_message"></i>
+                <span class="message-count hidden"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="viewFrameWork-main">
+
+        <div class="viewFrameWork-sidebar">
+            <div class="sidebar-inner">
+
+                <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
+                     data-container="body" title="" data-original-title="收起导航">
+                    <i class="icons8 icons8-icon"></i>
+                </div>
+
+
+                <div class="sidebar-nav">
+                    <ul class="sidebar-trans" id="ksxAdminSidebar">
+
+                        <li class="nav-item nav-item-index" id="navItemIndex">
+                            <a href="https://admin..com/account/admin/index/" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="首页">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_nav_home icon-index"></i>
+                                </div>
+                                <span class="nav-title">首页</span>
+                            </a>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemExam"><a
+                                href="https://admin..com/course/study_record_mgr/course#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="考试管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
+                            <span class="nav-title">考试管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
+                                        href="https://admin..com/admin/exam_mgr_new"><span
+                                        class="nav-title">考试信息管理</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
+                                        href="https://v..com/admin/testQuestions/#/list"><span
+                                        class="nav-title">试题库</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
+                                        href="https://admin..com/admin/paper_mgr_new"><span class="nav-title">试卷库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
+                                        href="https://admin..com/admin/result/mgr_new"><span
+                                        class="nav-title">成绩查询批改</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
+                                        href="https://new..com/ae/results/analysis/exam"><span
+                                        class="nav-title">分析考试</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
+                                        href="https://new..com/ae/results/analysis/person"><span
+                                        class="nav-title">分析考生</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemUser"><a
+                                href="https://admin..com/course/study_record_mgr/course#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="人员管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
+                            <span class="nav-title">人员管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
+                                        href="https://v..com/admin/user/#/list"><span class="nav-title">考生信息</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
+                                        href="https://admin..com/admin/user_reg"><span class="nav-title">注册设置</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu open" id="navItemCourse"><a
+                                href="https://admin..com/course/study_record_mgr/course#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="学习">
+                            <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
+                            <span class="nav-title">学习</span></a>
+                            <ul class="sub-menu animate" style="height: 124px;">
+                                <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
+                                        href="https://admin..com/admin/file/manager"><span class="nav-title">知识库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
+                                        href="https://admin..com/course/course_mgr"><span class="nav-title">课程管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item nav-item-active" id="subNavItemCourseRecord"><a
+                                        href="https://admin..com/course/study_record_mgr/course"><span
+                                        class="nav-title">学习记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item " id="navItemCustomProcess"><a href="https://v..com/admin/customprocess/"
+                                                                           class="menu-title" data-toggle="tooltip"
+                                                                           data-placement="right" data-container="body"
+                                                                           title="自定义任务">
+                            <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
+                            <span class="nav-title">自定义任务</span><img class="mark-beta"
+                                                                     src="../../img/a_nav_beta.svg"></a></li>
+                        <li class="nav-item " id="navItemCertification"><a
+                                href="https://admin..com/certificate/certificate_center" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
+                            <div class="nav-icon"><i class="icon icon-p_leftnav_certification"></i></div>
+                            <span class="nav-title">认证中心</span></a></li>
+                        <li class="nav-item " id="navItemApplication"><a href="https://v..com/admin/application/#/list"
+                                                                         class="menu-title" data-toggle="tooltip"
+                                                                         data-placement="right" data-container="body"
+                                                                         title="报名审核">
+                            <div class="nav-icon"><i class="icon icon-a_nav_sign_up"></i></div>
+                            <span class="nav-title">报名审核</span></a></li>
+                        <li class="nav-item has-sub-menu" id="navItemPay"><a
+                                href="https://admin..com/course/study_record_mgr/course#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="支付中心">
+                            <div class="nav-icon"><i class="icon icon-a_nav_pay"></i></div>
+                            <span class="nav-title">支付中心</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemPayCenter"><a
+                                        href="https://admin..com/account/admin_pay_center"><span
+                                        class="nav-title">充值</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaySet"><a
+                                        href="https://admin..com/admin/user_pay_set"><span class="nav-title">支付设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemConsumeRecord"><a
+                                        href="https://admin..com/account/admin_consume_record"><span class="nav-title">消费记录</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOrderRecord"><a
+                                        href="https://admin..com/account/admin_order_record"><span class="nav-title">充值记录</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPayRecord"><a
+                                        href="https://admin..com/account/examinee_pay_record"><span class="nav-title">考生付费记录</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemSystem"><a
+                                href="https://admin..com/course/study_record_mgr/course#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="系统管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
+                            <span class="nav-title">系统管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
+                                        href="https://admin..com/admin/sub_admin_mgr"><span
+                                        class="nav-title">子管理员设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAdvancedSetMgr"><a
+                                        href="https://admin..com/admin_info/advanced_setting"><span class="nav-title">高级功能设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
+                                        href="https://admin..com/admin/app_set"><span class="nav-title">App设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemModify"><a
+                                        href="https://admin..com/admin/modify"><span class="nav-title">个性化设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
+                                        href="https://admin..com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
+                                        href="https://admin..com/admin/dev_info_mgr"><span
+                                        class="nav-title">开发者信息管理</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
+                                        href="https://admin..com/account/admin_op_record"><span class="nav-title">管理员操作记录</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="sidebar-bottom sidebar-btn">
+                <ul class="sidebar-trans">
+                    <li class="nav-item">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_help"></i>
+                            </div>
+                            <span class="nav-title">帮助
+                            <img class="new-svg" src="../../img/a_nav_new.svg" alt="">
+                        </span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel person-servers-panel">
+                            <div class="btn-help">
+                                <i class="icon icon-a_help_document"></i>
+                                <p><a href="https://www.kancloud.cn/exam-star/ksxhelp_1/974046">帮助文档</a></p>
+                            </div>
+                            <div class="btn-service">
+                                <i class="icon icon-a_help_service"></i>
+                                <span>人工客服</span>
+                                <p>
+                                    可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
+                                        href="javascript:">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-user">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_my"></i>
+                            </div>
+                            <span class="nav-title">东北大学软件园</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel user-info-panel">
+
+                            <div class="user-info">
+                                <div class="info-img">
+                                    <img src="../../img/default-pic.png" class="user_img" alt="">
+                                </div>
+                                <div class="info-detail clearfix">
+                                    <div class="user" id="user">
+                                        <span class="user-surname">东北大学软件园</span>
+                                        <i data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                           data-original-title="编辑信息">
+                                        </i>
+                                    </div>
+                                    <div class="company">
+                                        东北大学软件园
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="operate-group">
+                                <a class="operate-item exam-entrance" href="https://exam..com/exam">
+                                    <i class="operate-icon icon-a_personal_switch"></i>
+                                    切换至考生端
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item exam-entrance" href="https://admin..com/admin/admin_information">
+                                    <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
+                                       data-placement="top" data-container="body" title="" data-original-title="编辑信息">
+
+                                        <i class="unread-notice"></i>
+
+                                    </i>
+                                    修改个人信息
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item btn-exit" id="logoutBtn">
+                                    <i class="operate-icon icon-a_personal_exit"></i>
+                                    退出
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="viewFrameWork-body">
+            <!-- loading -->
+            <div class="spinner-wrapper hidden" id="spinnerLoading">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+
+            <div class="body-wrapper">
+                <div class="body-content">
+                    <img id="export_msg" src="../../img/icon_export.png">
+                    <div class="cont-r">
+                        <ul class="ksx-tabs-card">
+                            <li class="active ksx-tab-item">
+                                <a href="https://admin..com/course/study_record_mgr/course/">
+                                    按课程查询
+                                </a>
+                            </li>
+                            <li class="ksx-tab-item">
+                                <a href="https://admin..com/course/study_record_mgr/user/">
+                                    按人员查询
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="byTest">
+                            <div class="tab-wrap1">
+                                <div class="rqm-table1">
+
+                                    <table class="table admin-table table-style1">
+                                        <tbody>
+                                        <tr>
+                                            <th>课程名称</th>
+                                            <th>课程类型</th>
+                                            <th>课程时间</th>
+                                        </tr>
+                                        <tr class="curr">
+                                            <td></td>
+                                            <td></td>
+                                            <td> -</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="devide-line"></div>
+                                <div class="rqm-table2 com-drop">
+                                    <table id="grid-data" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th data-column-id="id" data-visible="false" data-type="numeric"
+                                                data-identifier="true" data-formatter="id"></th>
+                                            <th data-column-id="courseName" data-visible="false" data-sortable="false">
+                                                课程名称
+                                            </th>
+                                            <th data-column-id="surname" data-sortable="false" data-width="8%">用户姓名</th>
+                                            <th data-column-id="depName" data-sortable="false" data-width="10%">所属部门
+                                            </th>
+                                            <th data-column-id="time" data-sortable="false" data-width="12%">学习时长</th>
+                                            <th data-column-id="score" data-sortable="false" data-width="10%">最高分数</th>
+                                            <th data-column-id="sender" data-formatter="link" data-sortable="false"
+                                                data-width="10%">操作
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--超管后台新版本通知-->
+<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-600 change-log-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title"></div>
+                <div class="version"></div>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="getChangeBtn">知道了</button>
+                    <a href="https://www..com/change/log/" target="_blank" class="more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade in" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="display: block;">
+    <div class="modal-dialog modal-large modal-iframe" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">选择课程</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="100%" name="selCourseModal" id="selCourseModal"
+                        src="../../html/saved_resource.html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="depModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">选择部门</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="500px" name="selDepModal" id="selDepModal"
+                        src="../../html/saved_resource(1).html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--导出考生答案提示 Modal -->
+<div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">导出中...</h4>
+            </div>
+            <div class="modal-body text-center">
+                正在导学习记录<br>
+                成功后即可进入"消息中心"下载
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.bootgrid-ksx.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="../../js/colResizable-1.6.min.js"></script>
+<script type="text/javascript" src="../../js/admin-base.js"></script>
+<script>
+    // these are global constant
+    var LOCAL_URL = window.location.href;
+    var USER_ROLE = 'admin';
+    var rights = '8';
+    var surname = "东北大学软件园";
+    var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
+    var tool_html = '';//消息内容
+    var tool_count = 0;//消息数目
+    var user_id = "7387836";
+    var getAdminUrlPrefix = 'https://admin..com';
+    var getUrlPrefix = '';
+    var getAnalysisUrlPrefix = 'https://new..com';
+    var getStaticUrlPrefix = 'https://v..com';
+
+    //当前request返回页面对应导航id
+
+    var activeNavItem = 'subNavItemCourseRecord';
+
+
+
+    $(function () {
+
+
+        // 更新消息已读
+        $("#getChangeBtn").click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/admin/read_public',
+                type: 'get',
+                cache: false,
+                dataType: 'json',
+                success: function (msg) {
+                    $("#changeLogModal").modal('hide');
+                }
+            })
+        });
+
+    });
+
+
+    $(document).ready(function () {
+
+        // $("#user").click(function(){
+        //     window.location.href="/admin/admin_information";
+        //     $(".unread-notice").hide();
+        //
+        // });
+
+        //    自管理员点击添加考生，添加试题，创建考试时的权限判断
+        $("#staff,#test,#exam").on("click", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var type = $(this).prop("id");
+            var url = $(this).prop("href");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/admin/checkout_sub_admin_right",
+                data: "type=" + type,
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = url;
+                    } else {
+                        alert(msg.desc);
+                    }
+                }
+
+            })
+        });
+    });
+
+
+</script>
+<script type="text/javascript" src="../../js/study_record_course.js"></script>
+<script type="text/javascript">
+    var course_id = '0';
+</script>
+
+
+<div class="modal-backdrop fade in"></div>
+
+</body>
+</html>

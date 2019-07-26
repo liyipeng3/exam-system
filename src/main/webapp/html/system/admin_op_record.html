@@ -7,11 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
-    <meta name="description" content="考试星是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
     <meta name="author" content="">
     <script async="" src="../../js/tingyun-rum-admin.js"></script>
     <script async="" src="../../js/gio.js"></script>
-    <script type="text/javascript" src="../../js/ksx_probe.js"></script>
     <script type="text/javascript">
         var opts = {};
 
@@ -20,15 +19,11 @@
         opts.companyName = '东北大学软件园';
         opts.rightsGrade = '8';
 
-        //添加gio
-        ksxProbe.gioInit(opts);
-        //添加tingyun
-        ksxProbe.tingyun();
     </script>
     <title>考试云平台</title>
 
 
-    <link rel="shortcut icon" href="https://s0..com/static/base/images/new_logo.ico">
+    <link rel="shortcut icon" href="../../img/logo.ico">
 
 
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
@@ -96,30 +91,6 @@
 
 
     </style>
-    <script src="../../js/entrance.js" id="zhichiScript" class="zhiCustomBtn"></script>
-    <script>
-        //初始化智齿咨询组件实例
-        var zhiManager = (getzhiSDKInstance());
-        //再调用load方法
-        zhiManager.on("load", function () {
-            zhiManager.initBtnDOM();
-        });
-        //设置入口方位//按钮将显示在右下角 默认显示在右下角
-        zhiManager.set('location', 1);
-        //设置悬浮窗的水平位置
-        //true 自定义咨询按钮 废弃系统默认按钮
-        zhiManager.set('customBtn', 'true');
-        //设置自动强制发起会话
-        //    setTimeout(function(){
-        //        zhiManager.expand();
-        ////      zhiManager.set('autoExpand', true);
-        //    },5000);
-        //默认：当为左下时，则水平距离左边100px。当为右下时，则水平距离右边100px
-        zhiManager.set('customMargin', 30);
-        //    zhiManager.set('horizontal', 0);
-
-        zhiManager.set('manTrace', true); //开启收集用户方访问轨迹 默认不收集
-    </script>
 
     <style type="text/css">  .JColResizer {
         table-layout: fixed;
@@ -244,7 +215,8 @@
                             <span class="nav-title">考试管理</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
-                                        href="https://admin..com/admin/exam_mgr_new"><span class="nav-title">考试信息管理</span></a>
+                                        href="https://admin..com/admin/exam_mgr_new"><span
+                                        class="nav-title">考试信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
                                         href="https://v..com/admin/testQuestions/#/list"><span
@@ -340,7 +312,8 @@
                             <span class="nav-title">系统管理</span></a>
                             <ul class="sub-menu animate" style="height: 276px;">
                                 <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
-                                        href="https://admin..com/admin/sub_admin_mgr"><span class="nav-title">子管理员设置</span></a>
+                                        href="https://admin..com/admin/sub_admin_mgr"><span
+                                        class="nav-title">子管理员设置</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemAdvancedSetMgr"><a
                                         href="https://admin..com/admin_info/advanced_setting"><span
@@ -355,7 +328,8 @@
                                         href="https://admin..com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
-                                        href="https://admin..com/admin/dev_info_mgr"><span class="nav-title">开发者信息管理</span></a>
+                                        href="https://admin..com/admin/dev_info_mgr"><span
+                                        class="nav-title">开发者信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item nav-item-active" id="subNavItemOpRecord"><a
                                         href="/html/system/admin_op_record"><span
@@ -388,7 +362,7 @@
                                 <span>人工客服</span>
                                 <p>
                                     可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
-                                        href="javascript:;">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                        href="javascript:">在线咨询</a>或拔打电话<span>400-870-1477</span>
                                 </p>
                             </div>
                         </div>
