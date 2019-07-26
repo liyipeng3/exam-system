@@ -60,7 +60,7 @@ public class StudentMapperTestMessage
 	@Test
 	public void testQueryMessage()
 	{
-		try 
+		/*try 
 		{
 			Message message = new Message();
 			message.setMsgRole("接收者");
@@ -73,6 +73,6 @@ public class StudentMapperTestMessage
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}
+		}*/
 	}
 }

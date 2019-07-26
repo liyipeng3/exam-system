@@ -16,25 +16,6 @@ public class ParsedItem
 	private String itemAnswer; //试题答案
 	private String itemPicture; //试题路径
 	private Double itemScore; //试题分数
-	public ParsedItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
-			Double itemIndex, String itemQuestion, List<String> itemOption, String itemAnswer, String itemPicture,
-			Double itemScore) {
-		super();
-		this.itemId = itemId;
-		this.createrId = createrId;
-		this.itemDate = itemDate;
-		this.itemCoursetype = itemCoursetype;
-		this.itemType = itemType;
-		this.itemIndex = itemIndex;
-		this.itemQuestion = itemQuestion;
-		this.itemOption = itemOption;
-		this.itemAnswer = itemAnswer;
-		this.itemPicture = itemPicture;
-		this.itemScore = itemScore;
-	}
-	public ParsedItem() {
-		super();
-	}
 	public Integer getItemId() {
 		return itemId;
 	}
@@ -44,7 +25,7 @@ public class ParsedItem
 	public String getCreaterId() {
 		return createrId;
 	}
-	public void setCreaterid(String createrId) {
+	public void setCreaterId(String createrId) {
 		this.createrId = createrId;
 	}
 	public String getItemDate() {
@@ -95,27 +76,31 @@ public class ParsedItem
 	public void setItemPicture(String itemPicture) {
 		this.itemPicture = itemPicture;
 	}
-
 	public Double getItemScore() {
 		return itemScore;
 	}
 	public void setItemScore(Double itemScore) {
 		this.itemScore = itemScore;
-
-	public ParsedItem(String itemId, String itemCourseType, String itemType, double itemIndex, String itemQuestion,
-			List<String> itemOption, List<String> itemAnswer, List<String> itemPicture) {
+	}
+	public ParsedItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
+			double itemIndex, String itemQuestion, List<String> itemOption, String itemAnswer, String itemPicture,
+			Double itemScore) {
 		super();
 		this.itemId = itemId;
-		this.itemCourseType = itemCourseType;
+		this.createrId = createrId;
+		this.itemDate = itemDate;
+		this.itemCoursetype = itemCoursetype;
 		this.itemType = itemType;
 		this.itemIndex = itemIndex;
 		this.itemQuestion = itemQuestion;
 		this.itemOption = itemOption;
 		this.itemAnswer = itemAnswer;
 		this.itemPicture = itemPicture;
+		this.itemScore = itemScore;
 	}
 	public ParsedItem() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public int hashCode() {
@@ -205,6 +190,6 @@ public class ParsedItem
 				+ ", itemCoursetype=" + itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex
 				+ ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer
 				+ ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + "]";
-	}	
-
+	}
+	
 }

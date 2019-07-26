@@ -17,28 +17,6 @@ public class RawPaper
 	private double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
-
-	public RawPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
-			Double paperIndex, String singlechoiceQuestion, String multichoiceQuestion, String fillQuestion,
-			String subjectiveQuestion, Double paperScore, String paperSecrecy, String paperRemark) {
-		super();
-		this.paperId = paperId;
-		this.paperName = paperName;
-		this.createrId = createrId;
-		this.createDate = createDate;
-		this.paperType = paperType;
-		this.paperIndex = paperIndex;
-		this.singlechoiceQuestion = singlechoiceQuestion;
-		this.multichoiceQuestion = multichoiceQuestion;
-		this.fillQuestion = fillQuestion;
-		this.subjectiveQuestion = subjectiveQuestion;
-		this.paperScore = paperScore;
-		this.paperSecrecy = paperSecrecy;
-		this.paperRemark = paperRemark;
-	}
-	public RawPaper() {
-		super();
-	}
 	public Integer getPaperId() {
 		return paperId;
 	}
@@ -117,13 +95,13 @@ public class RawPaper
 	public void setPaperRemark(String paperRemark) {
 		this.paperRemark = paperRemark;
 	}
-	public RawPaper(String paperId, String paperName, String createrID, String createDate, String paperType,
+	public RawPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
 			double paperIndex, String singlechoiceQuestion, String multichoiceQuestion, String fillQuestion,
 			String subjectiveQuestion, double paperScore, String paperSecrecy, String paperRemark) {
 		super();
 		this.paperId = paperId;
 		this.paperName = paperName;
-		this.createrID = createrID;
+		this.createrId = createrId;
 		this.createDate = createDate;
 		this.paperType = paperType;
 		this.paperIndex = paperIndex;
@@ -135,9 +113,13 @@ public class RawPaper
 		this.paperSecrecy = paperSecrecy;
 		this.paperRemark = paperRemark;
 	}
-	public RawPaper() {
-		super();
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
+				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
+				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
+				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
+				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -231,12 +213,10 @@ public class RawPaper
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
-				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
-				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
-				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
-				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
+	public RawPaper() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
+
+	
 }
