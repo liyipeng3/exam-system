@@ -53,10 +53,10 @@ public interface AdminMapper
 	public List<Course> queryCourse(Course course);
 	
 	//记录
-	public void addLog(MyLog log);
-	public void deleteLog(MyLog log);
-	public void updateLog(Map<String ,Object> log);
-	public List<MyLog> queryLog(MyLog log);
+	public void addMyLog(MyLog myLog);
+	public void deleteMyLog(MyLog myLog);
+	public void updateMyLog(Map<String ,Object> myLog);
+	public List<MyLog> queryMyLog(MyLog myLog);
 	
 	
 	//学生安排考试表的增删改查

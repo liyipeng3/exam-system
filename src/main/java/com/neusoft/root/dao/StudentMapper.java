@@ -29,8 +29,8 @@ public interface StudentMapper {
 	public List<Forum> queryForum(Forum forum);
 	
 	//log
-	public void  addMyLog(MyLog log);
-	public List<MyLog> queryMyLog(MyLog log);
+	public void  addMyLog(MyLog myLog);
+	public List<MyLog> queryMyLog(MyLog myLog);
 	
 	//对消息进行增删查操作
 	public void addMessage(Message message);

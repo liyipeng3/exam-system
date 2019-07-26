@@ -12,7 +12,7 @@ import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
 
 @Service
-public class GetPaperCourseImpl implements GetPaperCourse{
+public class GetPaperServiceImpl implements GetPaperService{
 	@Autowired
 	TeacherMapper teachermapper;
 
@@ -21,10 +21,8 @@ public class GetPaperCourseImpl implements GetPaperCourse{
 		// TODO Auto-generated method stub
 		List<RawPaper> paperlist = new ArrayList<>();
 		
-			RawPaper paper = new RawPaper(null, null, null, null, subjects, 0, null, null, null, null, 0, null, null);
-					
+			RawPaper paper = new RawPaper(null, null, null, null, subjects, null, null, null, null, null, null, null, null);
 			paperlist =teachermapper.queryPaper(paper);
-		
 		return paperlist;
 	}
 	

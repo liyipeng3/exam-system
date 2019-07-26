@@ -38,14 +38,14 @@ public interface TeacherMapper {
 	public List<Forum> queryForum(Forum forum);
 	
 	//题库的增删改查
-	public void addItem(RawItem item);
-	public void deleteItem(RawItem item);
-	public void updateItem(Map<String,Object> item);
-	public List<RawItem> queryItem(RawItem item);
+	public void addRawItem(RawItem rawItem);
+	public void deleteRawItem(RawItem rawItem);
+	public void updateRawItem(Map<String,Object> rawItem);
+	public List<RawItem> queryRawItem(RawItem rawItem);
 	
 	//log
-	public void  addLog(MyLog log);
-	public List<MyLog> queryLog(MyLog log);
+	public void  addMyLog(MyLog myLog);
+	public List<MyLog> queryMyLog(MyLog myLog);
 	
 	//对消息进行增删查操作
 	public void addMessage(Message message);
