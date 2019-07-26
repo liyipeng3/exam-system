@@ -55,6 +55,6 @@ public class WebController {
 	}
 	@RequestMapping("/html/system/admin_op_record")
 	public String admin_op_record() {
-		return "/html/exam/admin_op_record.html";
+		return "/html/system/admin_op_record.html";
 	}
 }
