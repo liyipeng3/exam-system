@@ -4,36 +4,21 @@ import java.sql.Date;
 //帖子
 public class Forum {
 	private String postId;
-	private Date postDate;
+	private String postDate;
 	private String senderId;
 	private String postTag;//分类标签
 	private String postOutline;//题目
 	private String postContext;//内容
-
-	
-	public Forum() {
-		super();
-	}
-	public Forum(String postId, Date postDate, String senderId, String postTag, String postOutline,
-			String postContext) {
-		super();
-		this.postId = postId;
-		this.postDate = postDate;
-		this.senderId = senderId;
-		this.postTag = postTag;
-		this.postOutline = postOutline;
-		this.postContext = postContext;
-	}
 	public String getPostId() {
 		return postId;
 	}
 	public void setPostId(String postId) {
 		this.postId = postId;
 	}
-	public Date getPostDate() {
+	public String getPostDate() {
 		return postDate;
 	}
-	public void setPostDate(Date postDate) {
+	public void setPostDate(String postDate) {
 		this.postDate = postDate;
 	}
 	public String getSenderId() {
@@ -61,7 +46,20 @@ public class Forum {
 		this.postContext = postContext;
 	}
 
-
+	public Forum(String postId, String postDate, String senderId, String postTag, String postOutline,
+			String postContext) {
+		super();
+		this.postId = postId;
+		this.postDate = postDate;
+		this.senderId = senderId;
+		this.postTag = postTag;
+		this.postOutline = postOutline;
+		this.postContext = postContext;
+	}
+	public Forum() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public int hashCode() {
@@ -75,7 +73,6 @@ public class Forum {
 		result = prime * result + ((senderId == null) ? 0 : senderId.hashCode());
 		return result;
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -117,10 +114,11 @@ public class Forum {
 			return false;
 		return true;
 	}
-	
 	@Override
 	public String toString() {
 		return "Forum [postId=" + postId + ", postDate=" + postDate + ", senderId=" + senderId + ", postTag=" + postTag
 				+ ", postOutline=" + postOutline + ", postContext=" + postContext + "]";
 	}
+	
+	
 }

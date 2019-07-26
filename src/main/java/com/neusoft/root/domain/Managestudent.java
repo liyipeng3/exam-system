@@ -8,19 +8,6 @@ public class Managestudent {
 	private String studentId;
 	private String courseId;
 	private String examDate;
-	
-	public Managestudent(String classId, String studentId, String courseId, String examDate) {
-		super();
-		this.classId = classId;
-		this.studentId = studentId;
-		this.courseId = courseId;
-		this.examDate = examDate;
-	}
-	
-	public Managestudent() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public String getClassId() {
 		return classId;
@@ -47,6 +34,17 @@ public class Managestudent {
 		this.examDate = examDate;
 	}
 
+	public Managestudent(String classId, String studentId, String courseId, String examDate) {
+		super();
+		this.classId = classId;
+		this.studentId = studentId;
+		this.courseId = courseId;
+		this.examDate = examDate;
+	}
+	public Managestudent() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -97,5 +95,5 @@ public class Managestudent {
 	}
 	
 	
-	
+
 }
