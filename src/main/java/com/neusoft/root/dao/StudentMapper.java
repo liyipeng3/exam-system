@@ -16,11 +16,12 @@ import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
+
 @Mapper
 public interface StudentMapper {
 	
 	//查询考试班级时间课程
-	public Map<String ,Object> queryManagestudent(Managestudent managestudent);
+	public List<Managestudent> queryManagestudent(Managestudent managestudent);
 	
 	//论坛帖子的增加删除查询
 	public void addForum(Forum forum);
@@ -28,8 +29,8 @@ public interface StudentMapper {
 	public List<Forum> queryForum(Forum forum);
 	
 	//log
-	public void  addLog(MyLog plog);
-	public List<MyLog> queryLog(MyLog plog);
+	public void  addMyLog(MyLog log);
+	public List<MyLog> queryMyLog(MyLog log);
 	
 	//对消息进行增删查操作
 	public void addMessage(Message message);
@@ -41,7 +42,6 @@ public interface StudentMapper {
 	
 	//答题result
 	public void addResult(Result result);
-	
 	
 	//学生
 	//改密码

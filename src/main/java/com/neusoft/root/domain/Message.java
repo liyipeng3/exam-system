@@ -10,6 +10,24 @@ public class Message
 	private String targetId;
 	private String msgType;
 	private String msgContext;
+	private String msgRole;
+	
+	
+	public Message() {
+		super();
+	}
+	
+	public Message(Integer msgId, String msgDate, String senderId, String targetId, String msgType, String msgContext,
+			String msgRole) {
+		super();
+		this.msgId = msgId;
+		this.msgDate = msgDate;
+		this.senderId = senderId;
+		this.targetId = targetId;
+		this.msgType = msgType;
+		this.msgContext = msgContext;
+		this.msgRole = msgRole;
+	}
 	public Integer getMsgId() {
 		return msgId;
 	}
@@ -46,19 +64,13 @@ public class Message
 	public void setMsgContext(String msgContext) {
 		this.msgContext = msgContext;
 	}
-	public Message(Integer msgId, String msgDate, String senderId, String targetId, String msgType, String msgContext) {
-		super();
-		this.msgId = msgId;
-		this.msgDate = msgDate;
-		this.senderId = senderId;
-		this.targetId = targetId;
-		this.msgType = msgType;
-		this.msgContext = msgContext;
+	public String getMsgRole() {
+		return msgRole;
 	}
-	public Message() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setMsgRole(String msgRole) {
+		this.msgRole = msgRole;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -66,11 +78,13 @@ public class Message
 		result = prime * result + ((msgContext == null) ? 0 : msgContext.hashCode());
 		result = prime * result + ((msgDate == null) ? 0 : msgDate.hashCode());
 		result = prime * result + ((msgId == null) ? 0 : msgId.hashCode());
+		result = prime * result + ((msgRole == null) ? 0 : msgRole.hashCode());
 		result = prime * result + ((msgType == null) ? 0 : msgType.hashCode());
 		result = prime * result + ((senderId == null) ? 0 : senderId.hashCode());
 		result = prime * result + ((targetId == null) ? 0 : targetId.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -95,6 +109,11 @@ public class Message
 				return false;
 		} else if (!msgId.equals(other.msgId))
 			return false;
+		if (msgRole == null) {
+			if (other.msgRole != null)
+				return false;
+		} else if (!msgRole.equals(other.msgRole))
+			return false;
 		if (msgType == null) {
 			if (other.msgType != null)
 				return false;
@@ -112,13 +131,11 @@ public class Message
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Message [msgId=" + msgId + ", msgDate=" + msgDate + ", senderId=" + senderId + ", targetId=" + targetId
-				+ ", msgType=" + msgType + ", msgContext=" + msgContext + "]";
+				+ ", msgType=" + msgType + ", msgContext=" + msgContext + ", msgRole=" + msgRole + "]";
 	}
-	
-	
-	
 	
 }

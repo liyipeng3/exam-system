@@ -3,16 +3,29 @@ package com.neusoft.root.domain;
 import java.sql.Date;
 //帖子
 public class Forum {
-	private String postId;
+	private Integer postId;
 	private String postDate;
 	private String senderId;
 	private String postTag;//分类标签
 	private String postOutline;//题目
 	private String postContext;//内容
-	public String getPostId() {
+	public Forum(Integer postId, String postDate, String senderId, String postTag, String postOutline,
+			String postContext) {
+		super();
+		this.postId = postId;
+		this.postDate = postDate;
+		this.senderId = senderId;
+		this.postTag = postTag;
+		this.postOutline = postOutline;
+		this.postContext = postContext;
+	}
+	public Forum() {
+		super();
+	}
+	public Integer getPostId() {
 		return postId;
 	}
-	public void setPostId(String postId) {
+	public void setPostId(Integer postId) {
 		this.postId = postId;
 	}
 	public String getPostDate() {
@@ -44,20 +57,6 @@ public class Forum {
 	}
 	public void setPostContext(String postContext) {
 		this.postContext = postContext;
-	}
-	public Forum(String postId, String postDate, String senderId, String postTag, String postOutline,
-			String postContext) {
-		super();
-		this.postId = postId;
-		this.postDate = postDate;
-		this.senderId = senderId;
-		this.postTag = postTag;
-		this.postOutline = postOutline;
-		this.postContext = postContext;
-	}
-	public Forum() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public int hashCode() {
@@ -117,6 +116,5 @@ public class Forum {
 		return "Forum [postId=" + postId + ", postDate=" + postDate + ", senderId=" + senderId + ", postTag=" + postTag
 				+ ", postOutline=" + postOutline + ", postContext=" + postContext + "]";
 	}
-	
-	
+
 }

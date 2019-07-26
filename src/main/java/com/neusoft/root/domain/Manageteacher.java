@@ -7,6 +7,20 @@ public class Manageteacher {
 	private String teacherId;
 	private String courseId;
 	private String examDate;
+	
+	public Manageteacher(String classId, String teacherId, String courseId, String examDate) {
+		super();
+		this.classId = classId;
+		this.teacherId = teacherId;
+		this.courseId = courseId;
+		this.examDate = examDate;
+	}
+	
+	
+	public Manageteacher() {
+		super();
+	}
+
 	public String getClassId() {
 		return classId;
 	}
@@ -31,17 +45,8 @@ public class Manageteacher {
 	public void setExamDate(String examDate) {
 		this.examDate = examDate;
 	}
-	public Manageteacher(String classId, String teacherId, String courseId, String examDate) {
-		super();
-		this.classId = classId;
-		this.teacherId = teacherId;
-		this.courseId = courseId;
-		this.examDate = examDate;
-	}
-	public Manageteacher() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -52,6 +57,8 @@ public class Manageteacher {
 		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -83,13 +90,13 @@ public class Manageteacher {
 			return false;
 		return true;
 	}
+
+
 	@Override
 	public String toString() {
 		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId
 				+ ", examDate=" + examDate + "]";
 	}
 	
-	
-
 	
 }
