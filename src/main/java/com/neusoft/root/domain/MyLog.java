@@ -9,6 +9,55 @@ public class MyLog
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
 	private String opPage; // 操作内容
+	public Integer getLogId() {
+		return logId;
+	}
+	public void setLogId(Integer logId) {
+		this.logId = logId;
+	}
+	public String getOpId() {
+		return opId;
+	}
+	public void setOpId(String opId) {
+		this.opId = opId;
+	}
+	public String getOpDate() {
+		return opDate;
+	}
+	public void setOpDate(String opDate) {
+		this.opDate = opDate;
+	}
+	public String getOpType() {
+		return opType;
+	}
+	public void setOpType(String opType) {
+		this.opType = opType;
+	}
+	public String getOpMsg() {
+		return opMsg;
+	}
+	public void setOpMsg(String opMsg) {
+		this.opMsg = opMsg;
+	}
+	public String getOpPage() {
+		return opPage;
+	}
+	public void setOpPage(String opPage) {
+		this.opPage = opPage;
+	}
+	public MyLog(Integer logId, String opId, String opDate, String opType, String opMsg, String opPage) {
+		super();
+		this.logId = logId;
+		this.opId = opId;
+		this.opDate = opDate;
+		this.opType = opType;
+		this.opMsg = opMsg;
+		this.opPage = opPage;
+	}
+	public MyLog() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public int hashCode() 
 	{
@@ -21,12 +70,6 @@ public class MyLog
 		result = prime * result + ((opPage == null) ? 0 : opPage.hashCode());
 		result = prime * result + ((opType == null) ? 0 : opType.hashCode());
 		return result;
-	}
-	
-	@Override
-	public String toString() {
-		return "MyLog [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
-				+ opMsg + ", opPage=" + opPage + "]";
 	}
 
 	@Override
@@ -70,6 +113,7 @@ public class MyLog
 			return false;
 		return true;
 	}
+
 	public MyLog() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -118,5 +162,12 @@ public class MyLog
 	}
 	public void setOpPage(String opPage) {
 		this.opPage = opPage;
+	}
+
+
+	@Override
+	public String toString() {
+		return "MyLog [logId=" + logId + ", opId=" + opId + ", opDate=" + opDate + ", opType=" + opType + ", opMsg="
+				+ opMsg + ", opPage=" + opPage + "]";
 	}
 }

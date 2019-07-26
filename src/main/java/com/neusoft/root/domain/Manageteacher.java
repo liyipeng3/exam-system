@@ -22,6 +22,7 @@ public class Manageteacher {
 	public Manageteacher() {
 		super();
 	}
+
 	public String getClassId() {
 		return classId;
 	}
@@ -40,8 +41,10 @@ public class Manageteacher {
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
+
 	public String getExamName() {
 		return examName;
+
 	}
 	public void setExamName(String examName) {
 		this.examName = examName;
@@ -58,6 +61,7 @@ public class Manageteacher {
 	public void setExamEnddate(String examEnddate) {
 		this.examEnddate = examEnddate;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -111,6 +115,7 @@ public class Manageteacher {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId

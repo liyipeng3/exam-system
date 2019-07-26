@@ -55,6 +55,7 @@ public class RawItem {
 	}
 	public void setItemCoursetype(String itemCoursetype) {
 		this.itemCoursetype = itemCoursetype;
+
 	}
 	public String getItemType() {
 		return itemType;
@@ -62,6 +63,7 @@ public class RawItem {
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
 	}
+
 	public Double getItemIndex() {
 		return itemIndex;
 	}
@@ -98,6 +100,7 @@ public class RawItem {
 	public void setItemScore(Double itemScore) {
 		this.itemScore = itemScore;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -107,7 +110,9 @@ public class RawItem {
 		result = prime * result + ((itemCoursetype == null) ? 0 : itemCoursetype.hashCode());
 		result = prime * result + ((itemDate == null) ? 0 : itemDate.hashCode());
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
-		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(itemIndex);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
 		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
 		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
@@ -149,10 +154,7 @@ public class RawItem {
 				return false;
 		} else if (!itemId.equals(other.itemId))
 			return false;
-		if (itemIndex == null) {
-			if (other.itemIndex != null)
-				return false;
-		} else if (!itemIndex.equals(other.itemIndex))
+		if (Double.doubleToLongBits(itemIndex) != Double.doubleToLongBits(other.itemIndex))
 			return false;
 		if (itemOption == null) {
 			if (other.itemOption != null)
@@ -182,12 +184,11 @@ public class RawItem {
 		return true;
 	}
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "RawItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate + ", itemCoursetype="
 				+ itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex + ", itemQuestion="
 				+ itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer + ", itemPicture="
 				+ itemPicture + ", itemScore=" + itemScore + "]";
 	}
-	
-	
 }

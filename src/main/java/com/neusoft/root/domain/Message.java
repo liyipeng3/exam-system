@@ -28,6 +28,7 @@ public class Message
 		this.msgContext = msgContext;
 		this.msgRole = msgRole;
 	}
+
 	public Integer getMsgId() {
 		return msgId;
 	}
@@ -64,6 +65,7 @@ public class Message
 	public void setMsgContext(String msgContext) {
 		this.msgContext = msgContext;
 	}
+
 	public String getMsgRole() {
 		return msgRole;
 	}
@@ -108,11 +110,13 @@ public class Message
 			if (other.msgId != null)
 				return false;
 		} else if (!msgId.equals(other.msgId))
+
 			return false;
 		if (msgRole == null) {
 			if (other.msgRole != null)
 				return false;
 		} else if (!msgRole.equals(other.msgRole))
+
 			return false;
 		if (msgType == null) {
 			if (other.msgType != null)
@@ -137,5 +141,5 @@ public class Message
 		return "Message [msgId=" + msgId + ", msgDate=" + msgDate + ", senderId=" + senderId + ", targetId=" + targetId
 				+ ", msgType=" + msgType + ", msgContext=" + msgContext + ", msgRole=" + msgRole + "]";
 	}
-	
+
 }

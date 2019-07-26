@@ -10,12 +10,12 @@ public class ParsedPaper
 	private String createrID;
 	private String createDate;
 	private String paperType; //试卷科目类型，例如JAVA, C++
-	private Double paperIndex; //试卷难度,由题目平均难度决定
+	private double paperIndex; //试卷难度,由题目平均难度决定
 	private List<ParsedItem> singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
 	private List<ParsedItem> multichoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
 	private List<ParsedItem> fillQuestion; //填空题,格式为ID1,分数1# ID2,分数2#
 	private List<ParsedItem> subjectiveQuestion; //主观题格式为ID1,分数1# ID2,分数2#
-	private Double paperScore; //试卷总分 
+	private double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
 	public ParsedPaper(Integer paperId, String paperName, String createrID, String createDate, String paperType,
@@ -44,6 +44,8 @@ public class ParsedPaper
 		return paperId;
 	}
 	public void setPaperId(Integer paperId) {
+
+	public void setPaperId(String paperId) {
 		this.paperId = paperId;
 	}
 	public String getPaperName() {
@@ -100,6 +102,7 @@ public class ParsedPaper
 	public void setSubjectiveQuestion(List<ParsedItem> subjectiveQuestion) {
 		this.subjectiveQuestion = subjectiveQuestion;
 	}
+
 	public Double getPaperScore() {
 		return paperScore;
 	}
@@ -118,6 +121,7 @@ public class ParsedPaper
 	public void setPaperRemark(String paperRemark) {
 		this.paperRemark = paperRemark;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -127,10 +131,13 @@ public class ParsedPaper
 		result = prime * result + ((fillQuestion == null) ? 0 : fillQuestion.hashCode());
 		result = prime * result + ((multichoiceQuestion == null) ? 0 : multichoiceQuestion.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
-		result = prime * result + ((paperIndex == null) ? 0 : paperIndex.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(paperIndex);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((paperName == null) ? 0 : paperName.hashCode());
 		result = prime * result + ((paperRemark == null) ? 0 : paperRemark.hashCode());
-		result = prime * result + ((paperScore == null) ? 0 : paperScore.hashCode());
+		temp = Double.doubleToLongBits(paperScore);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((paperSecrecy == null) ? 0 : paperSecrecy.hashCode());
 		result = prime * result + ((paperType == null) ? 0 : paperType.hashCode());
 		result = prime * result + ((singlechoiceQuestion == null) ? 0 : singlechoiceQuestion.hashCode());
@@ -171,10 +178,7 @@ public class ParsedPaper
 				return false;
 		} else if (!paperId.equals(other.paperId))
 			return false;
-		if (paperIndex == null) {
-			if (other.paperIndex != null)
-				return false;
-		} else if (!paperIndex.equals(other.paperIndex))
+		if (Double.doubleToLongBits(paperIndex) != Double.doubleToLongBits(other.paperIndex))
 			return false;
 		if (paperName == null) {
 			if (other.paperName != null)
@@ -186,10 +190,7 @@ public class ParsedPaper
 				return false;
 		} else if (!paperRemark.equals(other.paperRemark))
 			return false;
-		if (paperScore == null) {
-			if (other.paperScore != null)
-				return false;
-		} else if (!paperScore.equals(other.paperScore))
+		if (Double.doubleToLongBits(paperScore) != Double.doubleToLongBits(other.paperScore))
 			return false;
 		if (paperSecrecy == null) {
 			if (other.paperSecrecy != null)
@@ -221,4 +222,6 @@ public class ParsedPaper
 				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
 				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
 	}
+	
+	
 }

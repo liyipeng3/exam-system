@@ -24,6 +24,7 @@ public class Managestudent {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public String getClassId() {
 		return classId;
 	}
@@ -60,6 +61,7 @@ public class Managestudent {
 	public void setExamEnddate(String examEnddate) {
 		this.examEnddate = examEnddate;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -118,5 +120,5 @@ public class Managestudent {
 		return "Managestudent [classId=" + classId + ", studentId=" + studentId + ", courseId=" + courseId
 				+ ", examName=" + examName + ", examBegindate=" + examBegindate + ", examEnddate=" + examEnddate + "]";
 	}
-	
+
 }
