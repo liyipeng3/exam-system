@@ -270,7 +270,7 @@
                 paper += "</td><td class='text-left'>" + e.paperName + "</td><td class='text-left' style='width:10%;'>";
                 paper += e.paperType + "</td><td class='text-left' style='width:12%;'>" + e.paperScore + "</td>";
                 paper += "<td class='text-left' style='width:12%;'>" + e.createrID + "</td>";
-                paper += "<td class='text-left' style='width:16%;'>" + e.createDate + "</td></tr>"
+                paper += "<td class='text-left' style='width:16%;'>" + e.createDate + "</td></tr>";
                 $('tbody').append($(paper));
             });
             $('input.select-box, td.text-left').click(function (e) {
@@ -284,7 +284,6 @@
                 }
             });
         });
-
 
     });
 
@@ -323,7 +322,7 @@
                             }
                         }
                     });
-                    return;
+
                 } else {
 
                     parent.selPaper(paper_id, paper_name, paper_type, total_score);

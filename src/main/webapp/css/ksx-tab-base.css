@@ -1,0 +1,93 @@
+.cont-r {
+    border: 1px solid #DEDEDE;
+    border-radius: 2px 2px 2px 0;
+}
+
+/*tab切换的最外层盒子——.ksx-tabs-card*/
+/*tab切换的每一项——.ksx-tab-item*/
+/*tab切换中item中的a标签：样式多半都在该a标签上*/
+/*tab切换样式*/
+/*ul*/
+.ksx-tabs-card {
+    height: 40px;
+    background: #F7F8FA;
+    border-bottom: 1px solid #DEDEDE;
+}
+/*ul--li*/
+.ksx-tabs-card .ksx-tab-item {
+    float: left;
+}
+/*ul--li--a*/
+.ksx-tabs-card .ksx-tab-item a {
+    padding: 10px 20px;
+    line-height: 20px;
+    float: left;
+    border-right: 1px solid #DEDEDE;
+    color: #6D717C;
+    cursor: pointer;
+}
+/*ul--li--a：被选中的样式*/
+.ksx-tabs-card .ksx-tab-item.active a {
+    background: #FFF;
+    color: #1A8CFE;
+}
+/*ul-li：没有长边框的item--a*/
+/*.ksx-tabs-card .ksx-tab-item-border-0 a {*/
+    /*border-right: 0;*/
+    /*padding-right: 0;*/
+/*}*/
+/*ul-li：没有长边框的item--a--span：把短边框写给span*/
+/*.ksx-tabs-card .ksx-tab-item-border-0 .ksx-tab-item-span {*/
+    /*display: block;*/
+    /*padding-right: 20px;*/
+    /*border-right: 1px solid #DEDEDE;*/
+/*}*/
+/*ul--li：最后一个item且未被选中--a*/
+/*.ksx-tabs-card .ksx-tab-item:last-child:not(.active) a {*/
+    /*border-right: 0;*/
+/*}*/
+/*ksx-item-right*/
+.ksx-item-right {
+    float: right;
+}
+
+/*顶部的tab*/
+.body-toolbar .body-toolbar-left > * {
+    display: inline-block;
+    margin-right: 8px;
+}
+.body-toolbar .body-toolbar-left {
+    display: inline-block;
+}
+.body-toolbar .body-toolbar-left .nav-tab-item.active {
+    color: #1A8CFE;
+}
+.body-toolbar .body-toolbar-left .nav-tab-item {
+    font-size: 18px;
+    color: #6D717C;
+    cursor: pointer;
+    height: 70px;
+    line-height: 70px;
+    cursor: pointer;
+}
+.body-toolbar .body-toolbar-left .nav-tab-item a {
+    color: #6D717C;
+}
+.body-toolbar .body-toolbar-left .nav-tab-item.active a {
+    color: #1A8CFE;
+}
+.body-toolbar .body-toolbar-left .nav-tab-item span {
+    padding: 0 15px;
+    border-right: 2px solid #B4B6BD;
+    line-height: 18px;
+    display: inline-block;
+    height: 18px;
+}
+/*第一个li的span没有padding-left*/
+.body-toolbar .body-toolbar-left .nav-tab-item:first-child span {
+    padding-left: 0;
+}
+/*最后一个li的span没有border-right*/
+.body-toolbar .body-toolbar-left .nav-tab-item:last-child span {
+    border-right: 0;
+}

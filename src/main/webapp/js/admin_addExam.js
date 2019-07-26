@@ -437,7 +437,7 @@ $(document).ready(function () {
         if ($(this).is(":checked")) {
             $("#weChatLink").show();
             $("input[name=weChatTitle]").val("我参加了[考试名称]，得了[得分]分，你也来测测");
-            $("input[name=weChatPic]").val("http://file.kaoshixing.com/wx-logo.png");
+            $("input[name=weChatPic]").val("http://file..com/wx-logo.png");
         } else {
             $("#weChatLink").hide();
             $("input[name=weChatTitle]").val("");
@@ -448,7 +448,7 @@ $(document).ready(function () {
         if ($(this).is(":checked")) {
             $("#weChatLink").show();
             $("input[name=weChatTitle]").val("我参加了[考试名称]，得了[得分]分，你也来测测");
-            $("input[name=weChatPic]").val("http://file.kaoshixing.com/wx-logo.png");
+            $("input[name=weChatPic]").val("http://file..com/wx-logo.png");
         } else {
             $("#weChatLink").hide();
             $("input[name=weChatTitle]").val("");

@@ -244,15 +244,15 @@ function getQueryString(name) {
 
 //处理aliyun oss url问题，进行uri编码
 function aliyunEncodeURI(url) {
-    if (url.indexOf("https://kaoshixing.oss-cn-beijing.aliyuncs.com/") > -1) {
-        url = url.replace("https://kaoshixing.oss-cn-beijing.aliyuncs.com/", '');
-        url = "https://kaoshixing.oss-cn-beijing.aliyuncs.com/" + encodeURIComponent(url);
-    } else if (url.indexOf("https://s6.kaoshixing.com/") > -1) {
-        url = url.replace("https://s6.kaoshixing.com/", '');
-        url = "https://s6.kaoshixing.com/" + encodeURIComponent(url);
-    } else if (url.indexOf("https://cdnoss.kaoshixing.com/") > -1) {
-        url = url.replace("https://cdnoss.kaoshixing.com/", '');
-        url = "https://cdnoss.kaoshixing.com/" + encodeURIComponent(url);
+    if (url.indexOf("https://.oss-cn-beijing.aliyuncs.com/") > -1) {
+        url = url.replace("https://.oss-cn-beijing.aliyuncs.com/", '');
+        url = "https://.oss-cn-beijing.aliyuncs.com/" + encodeURIComponent(url);
+    } else if (url.indexOf("https://s6..com/") > -1) {
+        url = url.replace("https://s6..com/", '');
+        url = "https://s6..com/" + encodeURIComponent(url);
+    } else if (url.indexOf("https://cdnoss..com/") > -1) {
+        url = url.replace("https://cdnoss..com/", '');
+        url = "https://cdnoss..com/" + encodeURIComponent(url);
     }
     return url;
 }

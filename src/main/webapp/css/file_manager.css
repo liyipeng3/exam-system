@@ -1,0 +1,417 @@
+.rm_file-btn,.right-setting-btn,.new_folder-btn,.mv_file-btn{
+    margin: 0 5px 10px 5px;
+    height: 25px;
+    line-height: 25px;
+    width: 60px;
+    /*background: url(./images/icon.gif) repeat-x 0 -91px;*/
+    padding: 0 10px;
+    font-size: 12px;
+    color: #474747;
+    border: #808080 1px solid;
+    border-radius: 3px;
+    text-align: center;
+}
+.rm_file-btn:hover,.right-setting-btn:hover,.new_folder-btn:hover,.mv_file-btn:hover{
+    background-color: transparent;
+    border: #5d9cec 1px solid;
+    box-shadow: none;
+}
+
+.close-file{
+    background-color: #ccc;
+    font-size: 18px;
+    color: #333;
+    padding: 10px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+
+
+.table>tbody>tr>td{
+    vertical-align: middle!important;
+}
+.breadcrumb {
+    margin-bottom:0!important;
+    background-color: #fff!important;
+}
+.breadcrumb>li+li:before {
+    padding: 0!important;
+}
+.breadcrumb a{
+    color:  #337ab7;
+    font-weight: bold;
+}
+
+/*.modal-dialog {
+    width: 300px;
+}*/
+
+/*#setting .modal-content,#FolderModal .modal-content,#delete-folder .modal-content{*/
+/*margin-top: 50%;*/
+/*}*/
+/*#setting .modal-content,#FolderModal .modal-content, #folder-setting .modal-content{*/
+/*margin-top: 20%;*/
+/*}*/
+.bootstrap-dialog-footer{
+    text-align: center;
+}
+
+.bootstrap-dialog .btn-default{
+    background: #F2F2F2;
+    border-color: #F2F2F2;
+    border-radius: 4px;
+    width: 100px;
+    font-size: 14px;
+    color: #666666;
+    height: 34px!important;
+    padding: 0 15px!important;
+    margin: 0 5px!important;
+}
+
+.bootstrap-dialog .btn-ok{
+    background: #1A8CFE;
+    color: #FFFFFF;
+}
+.folder-icon,.file-icon{
+    height: 14px;
+}
+
+.file-icon{
+    float: left;
+    /*position: absolute;
+    top: 4px;*/
+}
+
+span.folder_name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 75%;
+    /*margin-left: 14px;*/
+    /*bottom: -2px;*/
+    position: absolute;
+}
+
+.uploadify-queue{
+    position: absolute;
+    z-index: 1;
+    right: 50px;
+    top: 0;
+}
+
+.edit_folder_name em{
+    background-image: url(./images/edit-name.png);
+    background-size: 20px 20px;
+    display:inline-block; width:20px; height:20px;
+}
+
+.edit_folder_name:hover em{
+    background-image: url(./images/edit-name-blue.png);
+    background-size: 20px 20px;
+    display:inline-block; width:20px; height:20px;
+}
+
+.edit_folder_name{
+    float: right;
+    top: -2px;
+    position: absolute;
+    right: 10px;
+}
+.clear{
+    clear: both;
+}
+.edit-name{
+    cursor:pointer;
+    max-width: 100%;
+    position: relative;
+}
+
+.error_msg{
+    font-size: 18px;
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 300px;
+    height: 60px;
+    background-color: #fce3ed;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 15px;
+    z-index: 50;
+}
+
+#ossfile {
+    margin-left: 10px;
+}
+
+.upload_file,.sel_file {
+    width: 100px !important;
+    display: inline-block;
+    line-height: 25px;
+    margin: 0 5px 10px 5px;
+    height: 25px;
+    font-size: 14px;
+    color: #fff;
+    border: #178dff 1px solid;
+    border-radius: 3px;
+    text-align: center;
+    background-color: #178dff;
+}
+
+.sel_file:hover {
+    background-color: #0081fe;
+    border: #5d9cec 1px solid;
+    box-shadow: none;
+    color:#fff;
+}
+
+/******覆盖label label-default ， 原来的在bottsttrap.min.css*************/
+.label-default {
+    margin-right: 6px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #dedede;
+    padding: 6px 14px;
+}
+
+.label {
+    font-size: 75%;
+    line-height: 1;
+    color: #666666;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    opacity: 0.9;
+}
+
+.authority-content{
+    height: 450px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: center;
+}
+
+.authority-content .file-right{
+    height: 26px;
+    width: 100%;
+    float: left;
+    /*padding-top: 26px;*/
+    /*padding-bottom: 20px;*/
+}
+
+.authority-content .right-font{/*选择部门字体*/
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    color: #333333;
+    letter-spacing: -0.57px;
+    width: 118px;
+    float: left;
+}
+
+.authority-content .sel-dept-user{/*选择部门*/
+    display: inline-block;
+    float: left;
+    padding-top: 30px;
+    padding-left: 15px;
+
+}
+
+.authority-content .sel-dept-user .rightName .sel-btn .item-icon{
+    color: #fff;
+}
+
+.authority-content .sel-dept-user .rightName .sel-btn .item-font{
+    font-size: 12px;
+    font-family: "Microsoft YaHei";
+    color: #fff;
+    padding-right: 4px;
+}
+
+.authority-content .sel-dept-user .rightName{/*添加部门*/
+    height: 114px;
+    width: 436px;
+    float: right;
+    margin-top: -30px;
+    border: 1px solid #9B9B9B;
+    border-radius: 2px;
+}
+
+.sel-dept-user .rightName .rightLabel{
+    float: left;
+    display: inline-block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 72px;
+    width: 100%;
+}
+
+
+.authority-content .file-right .selFile{/*可查看下载文件*/
+    width: 156px;
+    height: 20px;
+    float: left;
+    line-height: 20px;
+    margin-right: 20px;
+
+}
+
+.authority-content .file-right .reviewFile{/*可预览不可下载*/
+    width: 146px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+
+}
+
+.authority-content .file-right span.file-little-font{
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: -0.57px;
+    width: 118px;
+    float: right;
+    margin-right: 15px;
+}
+
+.authority-content .sel-btn{
+    width: 90px;
+    height: 28px;
+    border: 1px solid #1A8CFE;
+    border-radius: 4px;
+    margin: 5px 10px;
+    text-align: center;
+    background-color: #1A8CFE;
+    line-height: 26px;
+}
+
+/*上传文件说明弹窗*/
+#uploadFileModal .modal-dialog {
+    width: 600px;
+    margin-top: 120px;
+}
+#uploadFileModal .modal-header {
+    border-bottom: 0;
+    padding-top: 20px;
+}
+#uploadFileModal .modal-title {
+    font-size: 20px;
+    color: #3A3E51;
+}
+#uploadFileModal .modal-body .upload-title {
+    font-size: 18px;
+    color: #3A3E51;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+#uploadFileModal .modal-body .upload-rules {
+    padding: 10px 20px;
+    border: 1px dashed #1A8CFE;
+}
+#uploadFileModal .modal-body .upload-rules p {
+    font-size: 14px;
+    color: #6D717C;
+    line-height: 20px;
+    margin: 0;
+}
+#uploadFileModal .modal-body .form-row {
+    padding: 15px;
+    position: relative;
+}
+#uploadFileModal .modal-body .form-row .mp4-notice {
+    font-size: 14px;
+    color: #1A8CFE;
+    line-height: 34px;
+    position: absolute;
+    right: 0;
+}
+.bootstrap-dialog .close{
+    display: none;
+}
+.bootstrap-dialog .modal-dialog,
+.bootstrap-dialog .modal-content{
+    width: 440px;
+}
+.bootstrap-dialog-title{
+    font-size: 20px;
+    color: #3A3E51;
+}
+.bootstrap-dialog-header{
+    line-height: normal!important;
+}
+.modal-header{
+    height: 70px;
+    padding: 50px 0 0;
+    font-size: 20px;
+    line-height: normal;
+    border-bottom: none;
+}
+.modal-body{
+    margin-top: 20px;
+    text-align: center;
+}
+.bootstrap-dialog .modal-footer{
+    border-top: none;
+    padding: 32px;
+}
+#new_folder{
+    width: 290px;
+    margin: 0 auto;
+}
+#new_folder .form-control{
+    font-size: 12px;
+    color: #B4B6BD;
+}
+#delete-folder,#setting{
+    margin-top: 100px;
+}
+#delete-folder .modal-content,
+#delete-folder .modal-dialog{
+    width: 440px;
+    border-color: #fff;
+}
+#myModalLabel,.modal-title{
+    font-size: 20px!important;
+}
+#delete-folder .modal-body p{
+    font-size: 14px;
+    color: #999999;
+}
+#delete-folder .confirm-delet{
+    width: 290px;
+    height: 34px;
+    font-size: 12px;
+    color: #B4B6BD;
+    padding-left: 10px;
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+}
+#delete-folder .rm-delete,
+#delete-folder .close-delete{
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100px;
+    height: 34px;
+}
+#delete-folder .rm-delete{
+    background: #F2F2F2;
+    border-color: #F2F2F2;
+    color: #666666;
+}
+#delete-folder .close-delete{
+    background: #FF0000;
+    color: #FFFFFF;
+}
+#setting .modal-body{
+    padding: 0;
+}
+
+
+
+
+
+
+

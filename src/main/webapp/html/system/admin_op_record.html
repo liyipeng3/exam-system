@@ -7,11 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
-    <meta name="description" content="考试星是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
     <meta name="author" content="">
     <script async="" src="../../js/tingyun-rum-admin.js"></script>
     <script async="" src="../../js/gio.js"></script>
-    <script type="text/javascript" src="../../js/ksx_probe.js"></script>
     <script type="text/javascript">
         var opts = {};
 
@@ -20,15 +19,11 @@
         opts.companyName = '东北大学软件园';
         opts.rightsGrade = '8';
 
-        //添加gio
-        ksxProbe.gioInit(opts);
-        //添加tingyun
-        ksxProbe.tingyun();
     </script>
     <title>考试云平台</title>
 
 
-    <link rel="shortcut icon" href="https://s0.kaoshixing.com/static/base/images/new_logo.ico">
+    <link rel="shortcut icon" href="../../img/logo.ico">
 
 
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
@@ -96,30 +91,6 @@
 
 
     </style>
-    <script src="../../js/entrance.js" id="zhichiScript" class="zhiCustomBtn"></script>
-    <script>
-        //初始化智齿咨询组件实例
-        var zhiManager = (getzhiSDKInstance());
-        //再调用load方法
-        zhiManager.on("load", function () {
-            zhiManager.initBtnDOM();
-        });
-        //设置入口方位//按钮将显示在右下角 默认显示在右下角
-        zhiManager.set('location', 1);
-        //设置悬浮窗的水平位置
-        //true 自定义咨询按钮 废弃系统默认按钮
-        zhiManager.set('customBtn', 'true');
-        //设置自动强制发起会话
-        //    setTimeout(function(){
-        //        zhiManager.expand();
-        ////      zhiManager.set('autoExpand', true);
-        //    },5000);
-        //默认：当为左下时，则水平距离左边100px。当为右下时，则水平距离右边100px
-        zhiManager.set('customMargin', 30);
-        //    zhiManager.set('horizontal', 0);
-
-        zhiManager.set('manTrace', true); //开启收集用户方访问轨迹 默认不收集
-    </script>
 
     <style type="text/css">  .JColResizer {
         table-layout: fixed;
@@ -177,7 +148,7 @@
 
     <div class="viewFrameWork-statusbar">
 
-        <a href="https://admin.kaoshixing.com/account/admin/index" class="status-left company-logo" title="logo"
+        <a href="https://admin..com/account/admin/index" class="status-left company-logo" title="logo"
            id="companyLogo">
             <!--对有没有logo进行判断-->
             <img class="icon-logo logo-ksx" src="../../img/logo.png"></a>
@@ -229,7 +200,7 @@
                     <ul class="sidebar-trans" id="ksxAdminSidebar">
 
                         <li class="nav-item nav-item-index" id="navItemIndex">
-                            <a href="https://admin.kaoshixing.com/account/admin/index/" data-toggle="tooltip"
+                            <a href="https://admin..com/account/admin/index/" data-toggle="tooltip"
                                data-placement="right" data-container="body" title="" data-original-title="首页">
                                 <div class="nav-icon">
                                     <i class="icon icon-a_nav_home icon-index"></i>
@@ -244,22 +215,23 @@
                             <span class="nav-title">考试管理</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
-                                        href="https://admin.kaoshixing.com/admin/exam_mgr_new"><span class="nav-title">考试信息管理</span></a>
+                                        href="https://admin..com/admin/exam_mgr_new"><span
+                                        class="nav-title">考试信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
-                                        href="https://v.kaoshixing.com/admin/testQuestions/#/list"><span
+                                        href="https://v..com/admin/testQuestions/#/list"><span
                                         class="nav-title">试题库</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
-                                        href="https://admin.kaoshixing.com/admin/paper_mgr_new"><span class="nav-title">试卷库</span></a>
+                                        href="https://admin..com/admin/paper_mgr_new"><span class="nav-title">试卷库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
-                                        href="https://admin.kaoshixing.com/admin/result/mgr_new"><span
+                                        href="https://admin..com/admin/result/mgr_new"><span
                                         class="nav-title">成绩查询批改</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
-                                        href="https://new.kaoshixing.com/ae/results/analysis/exam"><span
+                                        href="https://new..com/ae/results/analysis/exam"><span
                                         class="nav-title">分析考试</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
-                                        href="https://new.kaoshixing.com/ae/results/analysis/person"><span
+                                        href="https://new..com/ae/results/analysis/person"><span
                                         class="nav-title">分析考生</span></a></li>
                             </ul>
                         </li>
@@ -270,10 +242,10 @@
                             <span class="nav-title">人员管理</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
-                                        href="https://v.kaoshixing.com/admin/user/#/list"><span
+                                        href="https://v..com/admin/user/#/list"><span
                                         class="nav-title">考生信息</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
-                                        href="https://admin.kaoshixing.com/admin/user_reg"><span
+                                        href="https://admin..com/admin/user_reg"><span
                                         class="nav-title">注册设置</span></a></li>
                             </ul>
                         </li>
@@ -284,29 +256,29 @@
                             <span class="nav-title">学习</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
-                                        href="https://admin.kaoshixing.com/admin/file/manager"><span class="nav-title">知识库</span></a>
+                                        href="https://admin..com/admin/file/manager"><span class="nav-title">知识库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
-                                        href="https://admin.kaoshixing.com/course/course_mgr"><span class="nav-title">课程管理</span></a>
+                                        href="https://admin..com/course/course_mgr"><span class="nav-title">课程管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="https://admin.kaoshixing.com/course/study_record_mgr/course"><span
+                                        href="https://admin..com/course/study_record_mgr/course"><span
                                         class="nav-title">学习记录</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item " id="navItemCustomProcess"><a
-                                href="https://v.kaoshixing.com/admin/customprocess/" class="menu-title"
+                                href="https://v..com/admin/customprocess/" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="自定义任务">
                             <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
                             <span class="nav-title">自定义任务</span></a>
                         </li>
                         <li class="nav-item " id="navItemCertification"><a
-                                href="https://admin.kaoshixing.com/certificate/certificate_center" class="menu-title"
+                                href="https://admin..com/certificate/certificate_center" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
                             <div class="nav-icon"><i class="icon icon-p_leftnav_certification"></i></div>
                             <span class="nav-title">认证中心</span></a></li>
                         <li class="nav-item " id="navItemApplication"><a
-                                href="https://v.kaoshixing.com/admin/application/#/list" class="menu-title"
+                                href="https://v..com/admin/application/#/list" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="报名审核">
                             <div class="nav-icon"><i class="icon icon-a_nav_sign_up"></i></div>
                             <span class="nav-title">报名审核</span></a></li>
@@ -317,19 +289,19 @@
                             <span class="nav-title">支付中心</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemPayCenter"><a
-                                        href="https://admin.kaoshixing.com/account/admin_pay_center"><span
+                                        href="https://admin..com/account/admin_pay_center"><span
                                         class="nav-title">充值</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemPaySet"><a
-                                        href="https://admin.kaoshixing.com/admin/user_pay_set"><span class="nav-title">支付设置</span></a>
+                                        href="https://admin..com/admin/user_pay_set"><span class="nav-title">支付设置</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemConsumeRecord"><a
-                                        href="https://admin.kaoshixing.com/account/admin_consume_record"><span
+                                        href="https://admin..com/account/admin_consume_record"><span
                                         class="nav-title">消费记录</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemOrderRecord"><a
-                                        href="https://admin.kaoshixing.com/account/admin_order_record"><span
+                                        href="https://admin..com/account/admin_order_record"><span
                                         class="nav-title">充值记录</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemPayRecord"><a
-                                        href="https://admin.kaoshixing.com/account/examinee_pay_record"><span
+                                        href="https://admin..com/account/examinee_pay_record"><span
                                         class="nav-title">考生付费记录</span></a></li>
                             </ul>
                         </li>
@@ -340,22 +312,24 @@
                             <span class="nav-title">系统管理</span></a>
                             <ul class="sub-menu animate" style="height: 276px;">
                                 <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
-                                        href="https://admin.kaoshixing.com/admin/sub_admin_mgr"><span class="nav-title">子管理员设置</span></a>
+                                        href="https://admin..com/admin/sub_admin_mgr"><span
+                                        class="nav-title">子管理员设置</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemAdvancedSetMgr"><a
-                                        href="https://admin.kaoshixing.com/admin_info/advanced_setting"><span
+                                        href="https://admin..com/admin_info/advanced_setting"><span
                                         class="nav-title">高级功能设置</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
-                                        href="https://admin.kaoshixing.com/admin/app_set"><span
+                                        href="https://admin..com/admin/app_set"><span
                                         class="nav-title">App设置</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemModify"><a
-                                        href="https://admin.kaoshixing.com/admin/modify"><span
+                                        href="https://admin..com/admin/modify"><span
                                         class="nav-title">个性化设置</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
-                                        href="https://admin.kaoshixing.com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
+                                        href="https://admin..com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
-                                        href="https://admin.kaoshixing.com/admin/dev_info_mgr"><span class="nav-title">开发者信息管理</span></a>
+                                        href="https://admin..com/admin/dev_info_mgr"><span
+                                        class="nav-title">开发者信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item nav-item-active" id="subNavItemOpRecord"><a
                                         href="/html/system/admin_op_record"><span
@@ -388,7 +362,7 @@
                                 <span>人工客服</span>
                                 <p>
                                     可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
-                                        href="javascript:;">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                        href="javascript:">在线咨询</a>或拔打电话<span>400-870-1477</span>
                                 </p>
                             </div>
                         </div>
@@ -421,13 +395,13 @@
                             </div>
 
                             <div class="operate-group">
-                                <a class="operate-item exam-entrance" href="https://exam.kaoshixing.com/exam">
+                                <a class="operate-item exam-entrance" href="https://exam..com/exam">
                                     <i class="operate-icon icon-a_personal_switch"></i>
                                     切换至考生端
                                     <i class="operate-right-icon icon-a_enter"></i>
                                 </a>
                                 <a class="operate-item exam-entrance"
-                                   href="https://admin.kaoshixing.com/admin/admin_information">
+                                   href="https://admin..com/admin/admin_information">
                                     <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
                                        data-placement="top" data-container="body" title="" data-original-title="编辑信息">
 
@@ -483,7 +457,7 @@
                             </div>
                             <div class="JCLRgrip JCLRLastGrip" style="left: 1661px; height: 610px;"></div>
                         </div>
-                        <table id="grid-data" class="table bootgrid-table JColResizer" aria-busy="false">
+                        <table id="my-data" class="table bootgrid-table JColResizer" aria-busy="false">
                             <thead>
                             <tr>
                                 <th data-column-id="opTime" class="text-left" style="width: 16.6%;"><a
@@ -699,7 +673,7 @@
             <div class="modal-footer">
                 <div class="btn-row">
                     <button type="button" class="btn btn-primary" data-dismiss="modal" id="getChangeBtn">知道了</button>
-                    <a href="https://www.kaoshixing.com/change/log/" target="_blank" class="more">了解更多</a>
+                    <a href="https://www..com/change/log/" target="_blank" class="more">了解更多</a>
                 </div>
             </div>
         </div>
@@ -723,42 +697,17 @@
     var tool_html = '';//消息内容
     var tool_count = 0;//消息数目
     var user_id = "7387836";
-    var getAdminUrlPrefix = 'https://admin.kaoshixing.com';
+    var getAdminUrlPrefix = 'https://admin..com';
     var getUrlPrefix = '';
-    var getAnalysisUrlPrefix = 'https://new.kaoshixing.com';
-    var getStaticUrlPrefix = 'https://v.kaoshixing.com';
+    var getAnalysisUrlPrefix = 'https://new..com';
+    var getStaticUrlPrefix = 'https://v..com';
 
     //当前request返回页面对应导航id
 
     var activeNavItem = 'subNavItemOpRecord';
 
-    // gio 在线咨询
-    $("body").on('click', '.gio-inquire-position', function () {
-        //推送咨询事件
-        ksxProbe.gioTrack('onlineInquire', 1, {
-            'inquireFromPage_var': window.location.href,
-            'inquireFromPageName_var': '管理员端',
-            'inquireFromPosition_var': $(this).attr('data-gio-position')
-        });
-    });
-
-
-    //智齿 官网右下角图标
-    $("body").on('click', '#zhichiBtnBox', function () {
-        var title = $(this).find('.zc-advice-icon-btn-title').text();
-
-        if (title == '收起') {
-            //推送咨询事件
-            ksxProbe.gioTrack('onlineInquire', 1, {
-                'inquireFromPage_var': window.location.href,
-                'inquireFromPageName_var': '管理员端',
-                'inquireFromPosition_var': '管理员端右下角咨询'
-            });
-        }
-    });
 
     $(function () {
-
 
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
@@ -817,44 +766,15 @@
 <script src="../../js/pikaday.js"></script>
 <script src="../../js/pikaday.jquery.js"></script>
 <script type="text/javascript">
-    $("#grid-data").bootgrid({
-
-        ajax: true,
-        ajaxSettings: {
-            method: "POST",
-            cache: false
-        },
-        post: function () {
-            var sortOrder = $("#grid-data").bootgrid("getSortDictionary");
-            var sortKey, sortOrderValue;
-            var startTime = $('#dateFrom').val();
-            var endTime = $('#dateTo').val();
-            $.each(sortOrder, function (name, value) {
-                sortKey = name;
-                sortOrderValue = value;
-            });
-            return {
-                "sortKey": sortKey,
-                "sortOrder": sortOrderValue,
-                "startTime": startTime,
-                "endTime": endTime
-            };
-        },
-        url: "/account/admin_op_log_grid",
-        selection: false,
-        multiSelect: false,
-        padding: 1,
-        navigation: 2,
-        formatters: {
-            "op_time": function (column, row) {
-                return moment(row.op_time + '+0800').format('YYYY-MM-DD HH:mm:ss');
-            }
-        }
-    }).on("loaded.rs.jquery.bootgrid", function (e) {
-        $("#grid-data").colResizable({
-            fixed: false,
-            liveDrag: true,
-            draggingClass: "dragging"
+    $.getJSON("/system/get_logs", function (result) {
+        $.each(result, function (index, e) {
+            var paper = '<tr><td class="text-left" style="">' + e.opDate + '</td>';
+            paper += '<td class="text-left" style="">' + e.opId + '</td>';
+            paper += '<td class="text-left" style="">' + e.opType + '</td>';
+            paper += '<td class="text-left" style="">' + e.opMsg + '</td>';
+            paper += '<td class="text-left" style="">' + e.opPage + '</td>';
+            paper += '<td class="text-left" style=""></td></tr>';
+            $('tbody').append($(paper));
         });
     });
 </script>

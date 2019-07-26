@@ -84,19 +84,19 @@ webpackJsonp([1], {
                     t = "http://localhost:8080";
                     break;
                 case"test":
-                    t = "https://test.kaoshixing.com";
+                    t = "https://test..com";
                     break;
                 case"label":
-                    t = "https://label.kaoshixing.com";
+                    t = "https://label..com";
                     break;
                 case"stag":
-                    t = "https://stag.kaoshixing.com";
+                    t = "https://stag..com";
                     break;
                 case"preview":
-                    t = "https://preview.kaoshixing.com";
+                    t = "https://preview..com";
                     break;
                 default:
-                    t = void 0 == e ? "https://" + h + ".kaoshixing.com" : "https://" + e + ".kaoshixing.com"
+                    t = void 0 == e ? "https://" + h + "..com" : "https://" + e + "..com"
             }
             return t
         }
@@ -124,19 +124,19 @@ webpackJsonp([1], {
                     e = "http://localhost:8082";
                     break;
                 case"test":
-                    e = "http://test.kaoshixing.com:8082";
+                    e = "http://test..com:8082";
                     break;
                 case"stag":
-                    e = "http://stag.kaoshixing.com:8082";
+                    e = "http://stag..com:8082";
                     break;
                 case"label":
-                    e = "http://label.kaoshixing.com:8082";
+                    e = "http://label..com:8082";
                     break;
                 case"preview":
-                    e = "http://preview.kaoshixing.com:8082";
+                    e = "http://preview..com:8082";
                     break;
                 default:
-                    e = "https://v.kaoshixing.com"
+                    e = "https://v..com"
             }
             return e
         }
@@ -155,7 +155,7 @@ webpackJsonp([1], {
                     var e = this, t = e.$createElement, a = e._self._c || t;
                     return a("el-container", {staticClass: "viewFrameWork public responsive"}, [a("el-main", {staticClass: "viewFrameWork-main"}, [a("div", {staticClass: "info-area"}, [a("div", {staticClass: "status-img"}, [a("img", {
                         attrs: {
-                            src: "https://cdnoss.kaoshixing.com/ksxing_static/vue/images/public/404.png",
+                            src: "https://cdnoss..com/ksxing_static/vue/images/public/404.png",
                             alt: ""
                         }
                     })]), e._v(" "), a("div", {staticClass: "desc"}, [e._v("\n        你访问的页面不存在 \n      ")]), e._v(" "), a("div", {staticClass: "jump hidden-xs"}, [a("el-button", {
@@ -181,7 +181,7 @@ webpackJsonp([1], {
                     var e = this, t = e.$createElement, a = e._self._c || t;
                     return a("el-container", {staticClass: "viewFrameWork public"}, [a("el-main", {staticClass: "viewFrameWork-main"}, [a("div", {staticClass: "info-area"}, [a("div", {staticClass: "status-img"}, [a("img", {
                         attrs: {
-                            src: "https://cdnoss.kaoshixing.com/ksxing_static/vue/images/public/500.png",
+                            src: "https://cdnoss..com/ksxing_static/vue/images/public/500.png",
                             alt: ""
                         }
                     })]), e._v(" "), a("div", {staticClass: "desc"}, [e._v("\n        系统发生故障，请联系管理员\n      ")]), e._v(" "), a("div", {staticClass: "jump hidden-xs"}, [a("el-button", {
@@ -222,12 +222,12 @@ webpackJsonp([1], {
                     }, [a("div", {staticClass: "header"}, [a("div", {staticClass: "header-left"}, [a("img", {
                         staticClass: "item item-logo",
                         attrs: {
-                            src: "https://cdnoss.kaoshixing.com/ksxing_static/vue/images/base/logo-transparent-header.svg",
+                            src: "https://cdnoss..com/ksxing_static/vue/images/base/logo-transparent-header.svg",
                             alt: ""
                         }
                     })]), e._v(" "), a("div", {staticClass: "header-right"}, [a("div", {staticClass: "item service"}, [a("i", {staticClass: "icon icon-a_help_service"}), e._v("\n          400-800-1477\n        ")])])])]), e._v(" "), a("el-main", {staticClass: "viewFrameWork-main"}, [a("div", {staticClass: "info-area"}, [a("div", {staticClass: "status-img"}, [a("img", {
                         attrs: {
-                            src: "https://cdnoss.kaoshixing.com/ksxing_static/vue/images/public/info.png",
+                            src: "https://cdnoss..com/ksxing_static/vue/images/public/info.png",
                             alt: ""
                         }
                     })]), e._v(" "), a("div", {staticClass: "desc"}, [e._v("\n        " + e._s(e.message) + "\n      ")]), e._v(" "), a("div", {staticClass: "jump hidden-xs"}, [a("el-button", {
@@ -265,7 +265,7 @@ webpackJsonp([1], {
                 return {
                     isCollapse: !1,
                     currentMenu: "",
-                    defaultPic: "https://cdnoss.kaoshixing.com/ksxing_static/vue/images/user/default-pic.png",
+                    defaultPic: "https://cdnoss..com/ksxing_static/vue/images/user/default-pic.png",
                     zhiManager: {}
                 }
             },
@@ -327,7 +327,7 @@ webpackJsonp([1], {
                 }, [a("el-header", {
                     staticClass: "viewFrameWork-header",
                     attrs: {height: "70px"}
-                }, [a("div", {staticClass: "header"}, [a("div", {staticClass: "header-left"}, [a("a", {attrs: {href: "https://admin.kaoshixing.com/account/admin/index"}}, [a("img", {
+                }, [a("div", {staticClass: "header"}, [a("div", {staticClass: "header-left"}, [a("a", {attrs: {href: "https://admin..com/account/admin/index"}}, [a("img", {
                     staticClass: "item item-logo",
                     attrs: {src: e.company.logoUrl, alt: ""}
                 })])]), e._v(" "), a("div", {staticClass: "header-middle"}, [a("router-view", {attrs: {name: "subNav"}})], 1), e._v(" "), a("div", {staticClass: "header-right"}, [a("notification")], 1)])]), e._v(" "), a("el-container", [a("el-aside", {class: ["viewFrameWork-sidebar", e.isCollapse ? "mini" : "full"]}, [a("el-menu", {
@@ -367,7 +367,7 @@ webpackJsonp([1], {
                         slot: "title"
                     }, [e._v(e._s(t.title))]), e._v(" "), t.beta ? a("img", {
                         staticClass: "mark-beta",
-                        attrs: {src: "https://cdnoss.kaoshixing.com/ksxing_static/vue/images/icon/a_nav_beta.svg"}
+                        attrs: {src: "https://cdnoss..com/ksxing_static/vue/images/icon/a_nav_beta.svg"}
                     }) : e._e()]) : e._e()], 1)], 1)
                 }), e._v(" "), a("div", {staticClass: "fixed-bottom"}, [a("el-tooltip", {
                     attrs: {
@@ -397,7 +397,7 @@ webpackJsonp([1], {
                     }, slot: "reference"
                 }, [a("i", {staticClass: "icon icon-a_nav_help"}), e._v(" "), a("img", {
                     staticClass: "mark-help",
-                    attrs: {src: "https://cdnoss.kaoshixing.com/ksxing_static/vue/images/icon/a_nav_new.svg"}
+                    attrs: {src: "https://cdnoss..com/ksxing_static/vue/images/icon/a_nav_new.svg"}
                 }), e._v(" "), a("span", {
                     staticClass: "title",
                     attrs: {slot: "title"},

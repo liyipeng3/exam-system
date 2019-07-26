@@ -446,7 +446,7 @@
                                 <span>人工客服</span>
                                 <p>
                                     可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
-                                        href="javascript:;">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                        href="javascript:">在线咨询</a>或拔打电话<span>400-870-1477</span>
                                 </p>
                             </div>
                         </div>
@@ -945,7 +945,7 @@
     $(function () {
         $.getJSON("/exam/get_paper_subjects", function (result) {
             $.each(result.subjects, function (index, e) {
-                $subject = $("<label>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>")
+                $subject = $("<label>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>");
                 $("#select_subject").append($subject);
             })
         })
@@ -1054,7 +1054,7 @@
         });
         //从题库中选题
         $('.pick-in-lib').children().eq(0).click(function () {
-            $(this).addClass('lib-type1').removeClass('lib-type0')
+            $(this).addClass('lib-type1').removeClass('lib-type0');
             $('.pick-in-lib').find('span').eq(1).addClass('lib-type0').removeClass('lib-type1');
             $('.pick-in-lib').find('span').eq(2).addClass('lib-type0').removeClass('lib-type1');
             var a = 1;
