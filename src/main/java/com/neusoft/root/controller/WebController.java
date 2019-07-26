@@ -53,4 +53,8 @@ public class WebController {
 	public String paper_mgr_new() {
 		return "/html/exam/paper_mgr_new.html";
 	}
+	@RequestMapping("/html/system/admin_op_record")
+	public String admin_op_record() {
+		return "/html/exam/admin_op_record.html";
+	}
 }
