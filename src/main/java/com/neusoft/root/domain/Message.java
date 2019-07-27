@@ -141,5 +141,4 @@ public class Message
 		return "Message [msgId=" + msgId + ", msgDate=" + msgDate + ", senderId=" + senderId + ", targetId=" + targetId
 				+ ", msgType=" + msgType + ", msgContext=" + msgContext + ", msgRole=" + msgRole + "]";
 	}
-
 }

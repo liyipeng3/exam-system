@@ -11,6 +11,7 @@ public class Forum {
 	private String postOutline;//题目
 	private String postContext;//内容
 
+
 	public Forum(Integer postId, String postDate, String senderId, String postTag, String postOutline,
 			String postContext) {
 		super();
@@ -60,6 +61,7 @@ public class Forum {
 	public void setPostContext(String postContext) {
 		this.postContext = postContext;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -119,4 +121,5 @@ public class Forum {
 		return "Forum [postId=" + postId + ", postDate=" + postDate + ", senderId=" + senderId + ", postTag=" + postTag
 				+ ", postOutline=" + postOutline + ", postContext=" + postContext + "]";
 	}
+
 }

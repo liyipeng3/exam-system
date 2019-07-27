@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://admin..com/admin/result/mgr_new -->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
+    <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="author" content="">
+    <script async="" src="../../js/tingyun-rum-admin.js"></script>
+    <script async="" src="../../js/gio.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '东北大学软件园';
+        opts.rightsGrade = '8';
+
+    </script>
+    <title>考试云平台</title>
+
+
+    <link rel="shortcut icon" href="../../img/logo.ico">
+
+
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/admin_base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.bootgrid.css">
+    <link rel="stylesheet" type="text/css" href="../../js/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-tab-base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/result_mgr_new.css">
+    <style type="text/css">  .JColResizer {
+        table-layout: fixed;
+    }
+
+    .JColResizer > tbody > tr > td, .JColResizer > tbody > tr > th {
+        overflow: hidden;
+    }
+
+    .JCLRgrips {
+        height: 0px;
+        position: relative;
+    }
+
+    .JCLRgrip {
+        margin-left: -5px;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .JCLRgrip .JColResizer {
+        position: absolute;
+        background-color: red;
+        filter: alpha(opacity=1);
+        opacity: 0;
+        width: 10px;
+        height: 100%;
+        cursor: col-resize;
+        top: 0px
+    }
+
+    .JCLRLastGrip {
+        position: absolute;
+        width: 1px;
+    }
+
+    .JCLRgripDrag {
+        border-left: 1px dotted black;
+    }
+
+    .JCLRFlex {
+        width: auto !important;
+    }
+
+    .JCLRgrip.JCLRdisabledGrip .JColResizer {
+        cursor: default;
+        display: none;
+    }</style>
+    <link rel="stylesheet" href="../../css/laydate.css" id="layuicss-laydate">
+    <style></style>
+</head>
+
+
+<body class="modal-open">
+<div class="viewFrameWork sidebar-full" id="viewFrameWork">
+
+    <div class="viewFrameWork-statusbar">
+
+        <a href="/index#" class="status-left company-logo" title="logo" id="companyLogo">
+            <!--对有没有logo进行判断-->
+            <img class="icon-logo logo-ksx" src="../../img/logo.png"></a>
+
+
+        <div class="status-middle toolbar">
+            <div class="body-toolbar clearfix">
+                <div class="body-toolbar-left pull-left toolbar-left-operation">
+                    <button type="button" class="btn btn-default" id="selTypeLink"><i
+                            class="icon-a_btn_select btn-icon-left"></i>选择考试
+                    </button>
+                    <div class="btn-group customer-btn-group">
+                        <a class="btn btn-default dropdown-toggle  " data-toggle="dropdown"
+                           href="/html/exam/mgr_new#" style="line-height: 24px;padding: 0;"
+                           aria-expanded="false">
+                            <i class="icon-a_btn_derivation btn-icon-left"></i>
+                            导出
+                        </a>
+                        <ul class="dropdown-menu page-dropdown-menu">
+                            <span class="horn"></span>
+                            <li><a href="/html/exam/mgr_new#" class="exportBtn_results">考生成绩</a>
+                            </li>
+                            <li><a href="/html/exam/mgr_new#" class="exportBtn_answer">考生答案</a>
+                            </li>
+                            <li><a href="/html/exam/mgr_new#" class="exportBtn_paper">考生答卷</a></li>
+                            <li><a href="/html/exam/mgr_new#" class="exportBtn_absence">未参考人员</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button type="button" class="btn btn-default" id="forceSubmitBtn">
+                        <i class="icon btn-icon-left icon-a_btn_batch"></i>
+                        批量交卷
+                    </button>
+                    <button type="button" class="btn btn-default addsexit disable" disabled="" id="addexitBtn">
+                        <i class="icon btn-icon-left  icon-a_operate_retake"></i>
+                        批量补考
+                    </button>
+                    <button type="button" class="btn btn-default" id="moreOpt">
+                        <i class="icon-a_btn_custom_column icon btn-icon-left"></i>
+                        更多
+                    </button>
+                    <ul data-show="0" class="el-dropdown-menu el-popper ksx-dropdown check" id="moreOptList"
+                        style="position: absolute; top: 52px; left: 604px; display: none;" x-placement="bottom-end">
+                        <li tabindex="-1" class="el-dropdown-menu__item" id="changeDept">
+                            修改部门
+                        </li>
+                        <li tabindex="-1" class="el-dropdown-menu__item" id="recoverExam">
+                            恢复考试
+                        </li>
+                        <li tabindex="-1" class="el-dropdown-menu__item" id="exportFile">
+                            导出附件链接
+                        </li>
+                        <li tabindex="-1" class="el-dropdown-menu__item" id="btn-remove">
+                            删除
+                        </li>
+                        <div x-arrow="" class="popper__arrow"></div>
+                    </ul>
+                </div>
+                <div class="body-toolbar-right pull-right toolbar-right-operation">
+                    <div class="search-section">
+                        <div class="search-section-normal" id="normalSearch">
+                            <i class="icon-p_top_search search-section-icon" id="searchIcon"></i>
+                            <input class="search-section-area placeholder" name="user_name" type="text"
+                                   placeholder="请输入姓名、账号信息">
+                        </div>
+                        <div class="search-section-adv" id="advSearch">
+                                        <span class="dropdown-toggle search-section-adv-title" data-toggle="dropdown"
+                                              aria-haspopup="true" aria-expanded="true">
+                                            高级搜索
+                                            <i class="icons8-expand-arrow"></i>
+                                        </span>
+                            <div class="dropdown-menu page-dropdown-menu search-dropdown-menu page-dropdown-menu search-section-adv-panel">
+                                <form name="form" method="get" id="subForm">
+                                    <ul class="search-menu">
+                                        <li>
+                                            <span class="search-menu-title">所属部门</span>
+                                            <button class="btn btn-default search-menu-content" id="selDepLink"><span>选择部门</span>
+                                            </button>
+                                            <input type="hidden" name="dep_id">
+                                        </li>
+                                        <li>
+                                            <span class="search-menu-title">判分状态</span>
+                                            <select class="search-menu-content" name="is_grade">
+                                                <option value="" selected="">是否判分</option>
+                                                <option value="0">未判分</option>
+                                                <option value="1">已判分</option>
+                                            </select>
+                                        </li>
+
+                                        <li>
+                                            <span class="search-menu-title">考试时间</span>
+                                            <div class="btn-group search-menu-content">
+                                                <div class="calendar"><em></em><input name="exam_date_from" type="text"
+                                                                                      id="dateForm" value=""
+                                                                                      lay-key="1"></div>
+                                                <span class="to">到</span>
+                                                <div class="calendar"><em></em><input name="exam_date_to" type="text"
+                                                                                      id="dateTo" value="" lay-key="2">
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="search-menu-title">是否及格</span>
+                                            <select class="search-menu-content" name="is_pass">
+                                                <option value="" selected="">请选择</option>
+                                                <option value="1">是</option>
+                                                <option value="0">否</option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <span class="search-menu-title">分数区间</span>
+                                            <div class="btn-group search-menu-content">
+                                                <input class="score-left" name="score_left" type="text">
+                                                <span class="to">到</span>
+                                                <input class="score-right" name="score_right" type="text">
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="search-menu-title">认证状态</span>
+                                            <select class="search-menu-content" name="verify_status">
+                                                <option value="" selected="">请选择</option>
+                                                <option value="1">已通过</option>
+                                                <option value="2">认证失败</option>
+                                                <option value="3">无认证信息</option>
+                                                <option value="4">通过,与用户姓名不一致</option>
+                                            </select>
+                                        </li>
+                                    </ul>
+                                    <input type="text" name="name_search" class="hidden">
+                                    <input type="text" name="dep_search" class="hidden">
+                                    <input type="text" name="grade_search" class="hidden">
+                                    <input type="text" name="start_time_search" class="hidden">
+                                    <input type="text" name="end_time_search" class="hidden">
+                                    <input type="text" name="pass_search" class="hidden">
+                                    <input type="text" name="min_score_search" class="hidden">
+                                    <input type="text" name="max_score_search" class="hidden">
+                                    <input type="text" name="verify_status_search" class="hidden">
+                                </form>
+                                <div class="dropdown-footer">
+                                    <button type="button" class="btn btn-primary" id="searchBtn">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="status-right">
+            <div class="status-item item-notification" id="stateMessage">
+                <i class="icon item-icon icon-p_top_message"></i>
+                <span class="message-count hidden"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="viewFrameWork-main">
+
+        <div class="viewFrameWork-sidebar">
+            <div class="sidebar-inner">
+
+                <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
+                     data-container="body" title="" data-original-title="收起导航">
+                    <i class="icons8 icons8-icon"></i>
+                </div>
+
+
+                <div class="sidebar-nav">
+                    <ul class="sidebar-trans" id="ksxAdminSidebar">
+
+                        <li class="nav-item nav-item-index" id="navItemIndex">
+                            <a href="/index#" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="首页">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_nav_home icon-index"></i>
+                                </div>
+                                <span class="nav-title">首页</span>
+                            </a>
+                        </li>
+                        <li class="nav-item has-sub-menu open" id="navItemExam"><a
+                                href="/html/exam/mgr_new#" class="menu-title" data-toggle="tooltip"
+                                data-placement="right" data-container="body" title="考试管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
+                            <span class="nav-title">考试管理</span></a>
+                            <ul class="sub-menu animate" style="height: 238px;">
+                                <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
+                                        href="/html/exam/exam_mgr_new"><span
+                                        class="nav-title">考试信息管理</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
+                                        href="/html/exam/test_questions"><span
+                                        class="nav-title">试题库</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
+                                        href="/html/exam/paper_mgr_new"><span class="nav-title">试卷库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item nav-item-active" id="subNavItemResultMgr"><a
+                                        href="/html/exam/mgr_new"><span
+                                        class="nav-title">成绩查询批改</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
+                                        href="/html/exam/exam_analysis"><span
+                                        class="nav-title">分析考试</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
+                                        href="/html/exam/student_analysis"><span
+                                        class="nav-title">分析考生</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemUser"><a
+                                href="/html/exam/mgr_new#" class="menu-title" data-toggle="tooltip"
+                                data-placement="right" data-container="body" title="人员管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
+                            <span class="nav-title">人员管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
+                                        href="/html/user/user_list"><span class="nav-title">考生信息</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
+                                        href="/html/user/user_reg"><span class="nav-title">注册设置</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemCourse"><a
+                                href="/html/exam/mgr_new#" class="menu-title" data-toggle="tooltip"
+                                data-placement="right" data-container="body" title="学习">
+                            <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
+                            <span class="nav-title">学习</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
+                                        href="/html/study/manager"><span class="nav-title">知识库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
+                                        href="/html/study/course_mgr"><span class="nav-title">课程管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
+                                        href="/html/study/study_record_mgr"><span
+                                        class="nav-title">学习记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item " id="navItemCustomProcess"><a href="https://v..com/admin/customprocess/"
+                                                                           class="menu-title" data-toggle="tooltip"
+                                                                           data-placement="right" data-container="body"
+                                                                           title="自定义任务">
+                            <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
+                            <span class="nav-title">自定义任务</span><img class="mark-beta"
+                                                                     src="../../img/a_nav_beta.svg"></a></li>
+                        <li class="nav-item " id="navItemCertification"><a
+                                href="https://admin..com/certificate/certificate_center" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
+                            <div class="nav-icon"><i class="icon icon-p_leftnav_certification"></i></div>
+                            <span class="nav-title">认证中心</span></a></li>
+                        <li class="nav-item " id="navItemApplication"><a href="https://v..com/admin/application/#/list"
+                                                                         class="menu-title" data-toggle="tooltip"
+                                                                         data-placement="right" data-container="body"
+                                                                         title="报名审核">
+                            <div class="nav-icon"><i class="icon icon-a_nav_sign_up"></i></div>
+                            <span class="nav-title">报名审核</span></a></li>
+                        <li class="nav-item has-sub-menu" id="navItemPay"><a
+                                href="https://admin..com/admin/result/mgr_new#" class="menu-title" data-toggle="tooltip"
+                                data-placement="right" data-container="body" title="支付中心">
+                            <div class="nav-icon"><i class="icon icon-a_nav_pay"></i></div>
+                            <span class="nav-title">支付中心</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemPayCenter"><a
+                                        href="https://admin..com/account/admin_pay_center"><span
+                                        class="nav-title">充值</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaySet"><a
+                                        href="https://admin..com/admin/user_pay_set"><span class="nav-title">支付设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemConsumeRecord"><a
+                                        href="https://admin..com/account/admin_consume_record"><span class="nav-title">消费记录</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOrderRecord"><a
+                                        href="https://admin..com/account/admin_order_record"><span class="nav-title">充值记录</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPayRecord"><a
+                                        href="https://admin..com/account/examinee_pay_record"><span class="nav-title">考生付费记录</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemSystem"><a
+                                href="/html/exam/mgr_new#" class="menu-title" data-toggle="tooltip"
+                                data-placement="right" data-container="body" title="系统管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
+                            <span class="nav-title">系统管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
+                                        href="/html/system/sub_admin_mgr"><span
+                                        class="nav-title">子管理员设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAdvancedSetMgr"><a
+                                        href="https://admin..com/admin_info/advanced_setting"><span class="nav-title">高级功能设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
+                                        href="https://admin..com/admin/app_set"><span class="nav-title">App设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemModify"><a
+                                        href="https://admin..com/admin/modify"><span class="nav-title">个性化设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
+                                        href="https://admin..com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
+                                        href="https://admin..com/admin/dev_info_mgr"><span
+                                        class="nav-title">开发者信息管理</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
+                                        href="/html/system/admin_op_record"><span class="nav-title">管理员操作记录</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="sidebar-bottom sidebar-btn">
+                <ul class="sidebar-trans">
+                    <li class="nav-item">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_help"></i>
+                            </div>
+                            <span class="nav-title">帮助
+                                                <img class="new-svg" src="../../img/a_nav_new.svg" alt="">
+                                            </span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel person-servers-panel">
+                            <div class="btn-help">
+                                <i class="icon icon-a_help_document"></i>
+                                <p><a href="https://www.kancloud.cn/exam-star/ksxhelp_1/974046">帮助文档</a></p>
+                            </div>
+                            <div class="btn-service">
+                                <i class="icon icon-a_help_service"></i>
+                                <span>人工客服</span>
+                                <p>
+                                    可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
+                                        href="javascript:">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-user">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_my"></i>
+                            </div>
+                            <span class="nav-title">东北大学软件园</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel user-info-panel">
+
+                            <div class="user-info">
+                                <div class="info-img">
+                                    <img src="../../img/default-pic.png" class="user_img" alt="">
+                                </div>
+                                <div class="info-detail clearfix">
+                                    <div class="user" id="user">
+                                        <span class="user-surname">东北大学软件园</span>
+                                        <i data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                           data-original-title="编辑信息">
+                                        </i>
+                                    </div>
+                                    <div class="company">
+                                        东北大学软件园
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="operate-group">
+                                <a class="operate-item exam-entrance" href="https://exam..com/exam">
+                                    <i class="operate-icon icon-a_personal_switch"></i>
+                                    切换至考生端
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item exam-entrance" href="https://admin..com/admin/admin_information">
+                                    <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
+                                       data-placement="top" data-container="body" title="" data-original-title="编辑信息">
+
+                                        <i class="unread-notice"></i>
+
+                                    </i>
+                                    修改个人信息
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item btn-exit" id="logoutBtn">
+                                    <i class="operate-icon icon-a_personal_exit"></i>
+                                    退出
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="viewFrameWork-body">
+            <!-- loading -->
+            <div class="spinner-wrapper hidden" id="spinnerLoading">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+
+            <div class="body-wrapper">
+                <div class="body-content">
+                    <div class="cont-r">
+                        <ul class="ksx-tabs-card" role="tablist">
+                            <li class="ksx-tab-item active">
+                                <a href="https://admin..com/admin/result/mgr_new/">
+                                    按考试查询批改
+                                </a>
+                            </li>
+
+                            <li class="ksx-tab-item" aria-controls="manual" role="tab">
+                                <a href="https://admin..com/admin/result/user_mgr_new/">
+                                    按考生查询批改
+                                </a>
+                            </li>
+
+                            <li class="ksx-item-right ">
+                                <span class="islook">考生信息对子管理员可见</span>
+                                <div id="islook_box">
+                                    <i class="icons8-help " id="islook_tips" data-container="body" data-toggle="popover"
+                                       data-placement="top" data-trigger="hover"
+                                       data-content="关闭后，所有子管理员不可见考生相关信息，同时无法进行导出、下载、按考生查询批改等相关功能"
+                                       data-original-title="" title=""></i>
+                                    <span class="switch-hidden switch-wechatSkipLogin-copy switch-on" islook="0">
+                                                        <span class="slider"></span>
+                                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="byTest">
+                            <div class="tab-wrap1">
+                                <div class="rqm-table1">
+
+                                </div>
+                                <div class="devide-line"></div>
+                                <div class="rqm-table2 com-drop">
+
+                                    <table id="grid-data" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th data-column-id="id" data-visible="false" data-type="numeric"
+                                                data-identifier="true" data-formatter="id"></th>
+
+                                            <th data-column-id="userName" data-formatter="userName" data-type="numeric"
+                                                data-width="10%">账号
+                                            </th>
+                                            <th data-column-id="surname" data-sortable="false" data-width="10%">用户名</th>
+
+                                            <th data-column-id="examVerifyStatus" data-formatter="verify"
+                                                data-sortable="false" data-width="12%">身份认证状态
+                                            </th>
+                                            <th data-column-id="depName" data-sortable="false" data-width="10%">所属部门
+                                            </th>
+                                            <th data-column-id="results" data-width="6%">分数</th>
+                                            <th data-column-id="isPass" data-sortable="false" data-width="8%">及格</th>
+                                            <th data-column-id="isMakeup" data-formatter="isMakeup"
+                                                data-sortable="false" data-width="8%">是否为补考
+                                            </th>
+                                            <th data-column-id="isForce" data-formatter="isForce" data-sortable="false"
+                                                data-width="8%">强制交卷
+                                            </th>
+                                            <th data-column-id="commitTime" data-width="13%">交卷时间</th>
+                                            <th data-column-id="sender" data-formatter="link" data-sortable="false">操作
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="byPerson">......</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--超管后台新版本通知-->
+<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-600 change-log-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title"></div>
+                <div class="version"></div>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="getChangeBtn">知道了</button>
+                    <a href="https://www..com/change/log/" target="_blank" class="more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="submitExamPaper" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    模态框（Modal）标题
+                </h4>
+            </div>
+            <div class="modal-body">
+                在这里添加一些文本
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-export" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
+                        class="icon icon-a_close"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <h4 class="modal-title">请选择导出方式</h4>
+                <div class="choose-style">
+                    <div class="all-result export-style">
+                        <p><i class="icon icon-a_export_all_text"></i></p>
+                        <p class="export-title">
+                            全部成绩
+                        </p>
+                    </div>
+                    <div class="high-score export-style">
+                        <p><i class="icon icon-a_export_highest_text"></i></p>
+                        <p class="export-title">
+                            最高分
+                        </p>
+                    </div>
+                    <div class="prompt-wrapper">
+                        <p class="export-prompt" style="display: none">请先选择导出方式</p>
+                        <p class="all-result-prompt export-style-prompt" style="display: none;">如果考生进行多次考试，将全部导出</p>
+                        <p class="high-score-prompt export-style-prompt" style="display: none;">取考生多次考试中的最高分导出</p>
+                    </div>
+                </div>
+                <div class="export-footer">
+                    <a href="https://admin..com/admin/result/mgr_new#" class="export-btn">导出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade in" id="typeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="display: block;">
+    <div class="modal-dialog modal-large modal-iframe" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">选择考试</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="100%" name="selTypeModal" id="selTypeModal"
+                        src="../../html/saved_resource.html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deptModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">修改部门</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="500px" name="updateDeptModal" id="updateDeptModal"
+                        src="../../html/saved_resource(1).html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal-->
+<div class="modal fade" id="gradeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="margin-left:25%;">
+        <div class="modal-content" style="border-radius:6px;width:380px;margin:0 auto;margin-top:25%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title"><img src="../../img/waring.png" width="16" height="16"
+                                             style=" vertical-align:middle">&nbsp;&nbsp;判分提示
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="order_contain" style="margin:30px 0px 30px 0px;text-align:center;padding-top:15px;">
+                    <div class="block">
+                        <div class="msg" style="font-size:16px;">考生尚未交卷</div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="depModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">选择部门</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="500px" style="border:0px" name="selDepModal" id="selDepModal"
+                        src="../../html/saved_resource(2).html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--导出考生成绩提示 Modal -->
+<div class="modal fade" id="result-exportPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">导出中...</h4>
+            </div>
+            <div class="modal-body text-center">
+
+                正在导出考生成绩单<br>
+                成功后即可进入"消息中心"下载
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--导出考生答案提示 Modal -->
+<div class="modal fade" id="answer-exportPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">导出中...</h4>
+            </div>
+            <div class="modal-body text-center">
+
+                正在导出考生答案<br>
+                成功后即可进入"消息中心"下载
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--导出考生答卷提示 Modal -->
+<div class="modal fade" id="paper-exportPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">导出中...</h4>
+            </div>
+            <div class="modal-body text-center">
+
+                正在导出考生答卷,预计需要<span class="export-minutes"></span><br>
+                成功后即可进入"消息中心"下载
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--导出未参考人员提示 Modal -->
+<div class="modal fade" id="people-exportPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">导出中...</h4>
+            </div>
+            <div class="modal-body text-center">
+
+                正在导出未参考人员<br>
+                成功后即可进入"消息中心"下载
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--重置考试时间 Modal -->
+<div class="modal fade" id="resetTimeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-600 modal-reset-time" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon icon-a_close"></i></span></button>
+                <div class="modal-title">考生交卷时间设置</div>
+            </div>
+            <div class="modal-body">
+                <div class="first-step">
+                    <form id="resetTimeForm">
+                        <table class="table table-reset-time">
+                            <thead>
+                            <tr>
+                                <th>账号</th>
+                                <th>姓名</th>
+                                <th>开始作答时间</th>
+                                <th>交卷时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="user-name" style="width:15%"></td>
+                                <td class="surname" style="width: 5%"></td>
+                                <td class="start-time" style="width: 50%"></td>
+                                <td class="end-time" style="width: 20%">
+                                    <div class="set-end-time">
+                                        <i class="icon icon-a_btn_dates icon-blue"></i>
+                                        <input type="text" name="delayTime" class="laydate-icon setting-time"
+                                               id="endTime">
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <input type="hidden" name="examResultId">
+                    </form>
+                    <!--<div class="tip">请设置当前时刻后的时间交卷</div>-->
+                </div>
+                <div class="second-step hidden text-center">
+                    <div class="title">是否要将考生<span class="surname"></span>的交卷时间修改为</div>
+                    <div class="confirm-time"></div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <div class="first-step">
+                    <button class="btn btn-default btn-base btn-gray" data-dismiss="modal">取消</button>
+                    <button class="btn btn-primary btn-base" id="resetNextStepBtn">下一步</button>
+                </div>
+                <div class="second-step hidden">
+                    <button class="btn btn-default btn-base" id="resetPrevStepBtn">上一步</button>
+                    <button class="btn btn-primary btn-base" id="resetSaveBtn">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="verifyStatusModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-440 modal-verify-status" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="title">
+                    是否修改考生
+                    <div class="verify" id="verifyName"></div>
+                    在本场考试的认证状态为<span class="verify">已通过</span>
+                </div>
+                <div class="content">
+                    修改后，考生即可开始答题
+                </div>
+                <div class="btn-row">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">再看看</button>
+                    <button type="button" class="btn btn-primary" data-id="" id="verifyStatusConfirm">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="verifyInfoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-440 modal-verify-status" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="title">
+                    <div class=""><span class="surname"></span></div>
+                    <div class=""><span class="id-card"></span></div>
+                </div>
+                <div class="btn-row">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exportFileModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-440 modal-verify-status" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="title">
+                    导出附件链接
+                </div>
+                <div class="content">
+                    <p>下载本场考试全部答卷的附件链接表？</p>
+                    <p>注意：建议下载附件链接后，使用第三方工具下载附件</p>
+                </div>
+                <div class="btn-row">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-id="" id="startExportLinks">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exportingFileModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-440 modal-verify-status" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="title">
+                </div>
+                <div class="content">
+                </div>
+                <div class="btn-row">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.bootgrid-ksx.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="../../js/colResizable-1.6.min.js"></script>
+<script type="text/javascript" src="../../js/admin-base.js"></script>
+<script>
+    // these are global constant
+    var LOCAL_URL = window.location.href;
+    var USER_ROLE = 'admin';
+    var rights = '8';
+    var surname = "东北大学软件园";
+    var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
+    var tool_html = '';//消息内容
+    var tool_count = 0;//消息数目
+    var user_id = "7387836";
+    var getAdminUrlPrefix = 'https://admin..com';
+    var getUrlPrefix = '';
+    var getAnalysisUrlPrefix = 'https://new..com';
+    var getStaticUrlPrefix = 'https://v..com';
+
+    //当前request返回页面对应导航id
+
+    var activeNavItem = 'subNavItemResultMgr';
+
+    $(function () {
+
+
+        // 更新消息已读
+        $("#getChangeBtn").click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/admin/read_public',
+                type: 'get',
+                cache: false,
+                dataType: 'json',
+                success: function (msg) {
+                    $("#changeLogModal").modal('hide');
+                }
+            })
+        });
+
+    });
+
+
+    $(document).ready(function () {
+
+        // $("#user").click(function(){
+        //     window.location.href="/admin/admin_information";
+        //     $(".unread-notice").hide();
+        //
+        // });
+
+        //    自管理员点击添加考生，添加试题，创建考试时的权限判断
+        $("#staff,#test,#exam").on("click", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var type = $(this).prop("id");
+            var url = $(this).prop("href");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/admin/checkout_sub_admin_right",
+                data: "type=" + type,
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = url;
+                    } else {
+                        alert(msg.desc);
+                    }
+                }
+
+            })
+        });
+    });
+
+
+</script>
+<script type="text/javascript" src="../../js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="../../js/laydate.js"></script>
+<script>
+    var exam_info_id = '';
+    var domain = "140092";
+    var user_name = "18800418032@140092";
+    var jwt = "{{ jwt_info }}";
+    var skip_exam = "";
+    var usersArray = [];
+    var storageLock = true;
+    var exam_times_restrict = "";
+    if (exam_times_restrict == '1') {
+        storageLock = false;
+    }
+    var lock = storageLock;
+    if (document.location.href.match(/examInfoId/)) {
+        $("#grid-data").bootgrid({
+            ajax: true,
+            ajaxSettings: {
+                method: "POST",
+                cache: false
+            },
+            post: function () {
+                var sortOrder = $("#grid-data").bootgrid("getSortDictionary");
+                var sort_key, sort_order;
+                var exam_info_id =;
+                var user_name = $("input[name=name_search]").val();
+                var dep_id = $("input[name=dep_search]").val();
+                var is_grade = $("input[name=grade_search]").val();
+                var score_left = $("input[name=min_score_search]").val();
+                var score_right = $("input[name=max_score_search]").val();
+                var is_pass = $("input[name=pass_search]").val();
+                var start_time = $("input[name=start_time_search]").val();
+                var end_time = $("input[name=end_time_search]").val();
+                var verify_status = $("input[name=verify_status_search]").val();
+
+                $.each(sortOrder, function (name, value) {
+                    sort_key = name;
+                    sort_order = value;
+                });
+                return {
+                    "sortKey": sort_key,
+                    "sortOrder": sort_order,
+                    "examInfoId": exam_info_id,
+                    "userName": user_name,
+                    "depIds": dep_id,
+                    "isGrade": is_grade,
+                    "scoreLeft": score_left,
+                    "scoreRight": score_right,
+                    "isPass": is_pass,
+                    "startTime": start_time,
+                    "endTime": end_time,
+                    "examVerifyStatus": verify_status
+                };
+            },
+            url: "/admin/result/mgr_grid/",
+            selection: true,
+            multiSelect: true,
+            // rowSelect: true,
+            navigation: 2,
+            formatters: {
+                "userName": function (column, row) {
+                    return row.userName + "<input class='user_id_hidden' type='hidden' value='" + row.userId + "'>";
+                },
+                "link": function (column, row) {
+                    var grade_class = 'markExam';
+                    var title_tip = '判分';
+                    var reset_time_html = "";
+                    var exam_verify_html = "";
+                    var is_look_disabled = "";
+
+                    if (row.grade) {
+                        grade_class = 'markExam markedExam';
+                        title_tip = '已判分';
+                    }
+                    //examVerifyStatus  1：已通过 2:认证失败
+                    // 3:无认证信息（指考试未设置身份认证）
+                    // 4：通过,与用户姓名不一致（通过认证，但是身份证上姓名与填写的不相符合）
+
+                    if (USER_ROLE == "sub_admin" && '1' == '0') {
+                        is_look_disabled = " disabled";
+                    }
+                    if (row.examVerifyStatus == 1 || row.examVerifyStatus == 2 || row.examVerifyStatus == 4) {
+                        exam_verify_html = "<a href='#' data-growing-title='viewVerifyInfo' class='icon-a_operate_identity_information viewVerifyInfo" + is_look_disabled + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='身份认证信息' examResultId='" + row.id + "'></a>";
+                    }
+
+                    if (row.examVerifyStatus == 2) {
+                        return "<a href='#' data-growing-title='removeExamGrade' class='icons8-trash-can removeExamGrade' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除' examResultId='" + row.id + "'></a>" +
+                            "<a href='#' data-growing-title='verifyEdit' class='icons8-edit verifyEdit' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='编辑认证状态' examResultId='" + row.id + "' surname='" + row.surname + "'></a>" + exam_verify_html;
+                    }
+
+                    if (row.commitTime == "答题中") {
+                        reset_time_html = "<a href='#' data-growing-title='resetTime' class='icons8-alarm-clock resetTime' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='交卷时间设置' examResultId='" + row.id +
+                            "' userName='" + row.userName + "' surname='" + row.surname + "' userId='" + row.userId + "' startTime='" + row.startTime + "' endTime='" + row.endTime + "'></a>";
+                    } else if ((row.examVerifyStatus == 1 || row.examVerifyStatus == 4) && row.commitTime == "未开始答题") {
+                        return "<a href='#' data-growing-title='removeExamGrade' class='icons8-trash-can removeExamGrade' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除' examResultId='" + row.id + "'></a>" + exam_verify_html;
+                    }
+
+                    var linkStr = "";
+                    linkStr += "<a href='#' data-growing-title='markPaper' class='icon-a_operate_mark " + grade_class + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='" + title_tip + "' examResultId='" + row.id + "' user_name='" + row.userName + "'></a>";
+                    if (row.status == '1' || !lock) {
+                        linkStr += "<a href='#' data-growing-title='addexit' class='icon-a_operate_retake addexit disabled' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='补考' examResultId='" + row.id + "' status='" + row.status + "'></a>";
+                    } else {
+                        linkStr += "<a href='#' data-growing-title='addexit' class='icon-a_operate_retake addexit' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='补考' examResultId='" + row.id + "' status='" + row.status + "'></a>";
+                    }
+                    if (USER_ROLE == "sub_admin" && 1 == '0') {
+                        linkStr += "<a href='#' data-growing-title='removeExamGrade' class='icon-a_operate_delete removeExamGrade' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除' examResultId='" + row.id + "'></a>" + reset_time_html + exam_verify_html;
+                    } else {
+                        linkStr += "<a href='#' data-growing-title='download' class='icon-a_operate_download download' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='下载' examResultId='" + row.id + "'></a>" +
+                            "<a href='#' data-growing-title='removeExamGrade' class='icon-a_operate_delete removeExamGrade' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除' examResultId='" + row.id + "'></a>" + reset_time_html + exam_verify_html;
+
+                    }
+                    return linkStr;
+
+                },
+                "verify": function (column, row) {
+
+                    var examVerifyStatus;
+
+                    if (USER_ROLE == "sub_admin" && 1 == '0') {
+                        examVerifyStatus = "-";
+                    } else {
+                        switch (row.examVerifyStatus) {
+                            case 0:
+                                examVerifyStatus = '-';
+                                break;
+                            case 1:
+                                examVerifyStatus = '已通过';
+                                break;
+                            case 2:
+                                examVerifyStatus = '认证失败';
+                                break;
+                            case 3:
+                                examVerifyStatus = '无认证信息';
+                                break;
+                            case 4:
+                                examVerifyStatus = '通过,与用户姓名不一致';
+                                break;
+                        }
+                    }
+                    return examVerifyStatus
+                },
+                'isMakeup': function (column, row) {
+                    return row.isMakeup == 0 ? '否' : '是';
+                },
+                'isForce': function (column, row) {
+                    var forceStr = "否";
+                    // isForce--是否强制交卷，强制交卷方式 //0--否 1--是 2--切屏防作弊 3--x秒不动自动交卷 4--闯关失败 5--答题时间或者考试时间已到
+                    switch (row.isForce) {
+                        case '0':
+                            forceStr = "否";
+                            break;
+                        case '1':
+                            forceStr = "是";
+                            break;
+                        case '2':
+                            forceStr = row.switchScreen ? "是（切屏" + row.switchScreen + "次）" : "是（切屏）";
+                            break;
+                        case '3':
+                            forceStr = row.noOpsAutoCommit ? "是（" + row.noOpsAutoCommit + "秒无操作）" : "是（无操作）";
+                            break;
+                        case '4':
+                            forceStr = "是（闯关失败）";
+                            break;
+                        case '5':
+                            forceStr = "是（时间已到）";
+                            break;
+                        case '6' :
+                            forceStr = "是（管理员）";
+                            break;
+                        default:
+                            forceStr = "否";
+                            break;
+                    }
+                    return forceStr;
+                }
+            }
+        }).on("loaded.rs.jquery.bootgrid", function (e) {
+            // initial tooltip
+            $('#grid-data [data-toggle="tooltip"]').tooltip();
+            $("#grid-data").colResizable({
+                fixed: false,
+                liveDrag: true,
+                draggingClass: "dragging"
+            });
+            //单条删除
+            $("#grid-data").bootgrid().find(".removeExamGrade").on("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var id = $(this).attr("examResultId") + ",";
+                delDate(id);
+            });
+            // 单条补考
+            $("#grid-data").bootgrid().find(".addexit").on("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var examResultId = $(this).attr("examResultId") + ",";
+                addExit(examResultId);
+            });
+
+            //单条编辑认证状态
+            $("#grid-data").bootgrid().find(".verifyEdit").on("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var id = $(this).attr("examResultId");
+                var surname = $(this).attr("surname");
+
+                verifyStatusEdit(id, surname);
+            });
+
+            //查看身份认证信息
+            $("#grid-data").bootgrid().find(".viewVerifyInfo").on("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var id = $(this).attr("examResultId");
+
+                $.ajax({
+                    type: "get",
+                    cache: false,
+                    headers: {"cache-control": "no-cache"},
+                    dataType: "json",
+                    url: "/admin/get/exam_verify_info/",
+                    data: "examResultsId=" + id,
+                    success: function (msg) {
+                        if (msg.success) {
+                            $("#verifyInfoModal .id-card").text(msg.bizContent.userCardCode);
+                            $("#verifyInfoModal .surname").text(msg.bizContent.userCardName);
+                            $("#verifyInfoModal").modal();
+                        } else {
+                            $("#verifyInfoModal .id-card").text("");
+                            $("#verifyInfoModal .surname").text("暂无身份认证信息");
+                            $("#verifyInfoModal").modal();
+                        }
+                    }
+                })
+            });
+
+            // 单个试卷下载
+            $("#grid-data").bootgrid().find(".download").on("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var result_id = $(this).attr("examResultId");
+                if ($(this).parent().prev().text() == '答题中' || $(this).parent().prev().text() == '系统交卷中') {
+                    alert('试卷未提交');
+                } else {
+                    window.open("/exam/result/export_pdf/?resultId=" + result_id, "_blank");
+                }
+            });
+
+            //单个考试设置时间
+            $("#grid-data").bootgrid().find(".resetTime").on("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var exam_info_id = $(this).attr("examInfoId");
+                var user_id = $(this).attr("userId");
+                var user_name = $(this).attr("userName");
+                var surname = $(this).attr("surname");
+                var start_time = $(this).attr("startTime");
+                var end_time = $(this).attr("endTime");
+                var exam_result_id = $(this).attr("examResultId");
+
+                $.ajax({
+                    type: 'POST',
+                    cache: false,
+                    headers: {"cache-control": "no-cache"},
+                    async: false,
+                    dataType: "json",
+                    url: '/admin/exam/getExamEndTime',
+                    data: "examResultId=" + exam_result_id + "&userId=" + user_id,
+                    success: function (msg) {
+                        if (msg.success) {
+                            end_time = msg.bizContent.modifiedExamEndTime;
+                        }
+                    }
+                });
+
+                $("#resetTimeModal .user-name").text(user_name);
+                $("#resetTimeModal .surname").text(surname);
+                $("#resetTimeModal .start-time").text(start_time);
+                $("#resetTimeModal input[name=delayTime]").val(end_time);
+                $("#resetTimeModal input[name=examResultId]").val(exam_result_id);
+                $("#resetTimeModal .confirm-time").text(end_time.replace(/^(\d{4})-(\d{2})-(\d{2})([\s\S]+)$/, "$1年$2月$3日$4"));
+
+                $("#resetTimeModal").modal({
+                    backdrop: "static",
+                    keyboard: false
+                });
+            });
+
+            //单个批改  判分
+            $("#grid-data").bootgrid().find(".markExam").on("click", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var id = $(this).attr("examResultId");
+                var user_name = $(this).attr("user_name");
+                if ($(this).parent().prev().text() == '答题中')
+                    alert('考生正在答题中');
+                else {
+                    var tempwindow = window.open();
+                    tempwindow.location = "/exam/manmade_exam_check?examInfoId=" + exam_info_id + "&examResultsId=" + id + "&userName=" + user_name + "&isLook=" + 1;
+                }
+            });
+        }).on("selected.rs.jquery.bootgrid", function (e, rows) {
+            $('#addexitBtn').removeClass('disable').removeAttr("disabled");
+            lock = storageLock;
+            $("#grid-data tbody input.select-box").each(function (index, element) {
+                if ($(this).is(":checked")) {
+                    if ($(this).parents("tr").find(".addexit").attr("status") == "1") {
+                        lock = false;
+                    }
+                }
+            });
+            var selectList = $("#grid-data").bootgrid("getSelectedRows");
+            if (selectList.length == 0) {
+                lock = false;
+            }
+            if (lock) {
+                $('#addexitBtn').removeClass('disable').removeAttr("disabled");
+            } else {
+                $('#addexitBtn').addClass('disable').prop('disabled', true);
+            }
+            for (var i = 0; i < rows.length; i++) {
+                usersArray.unshift(rows[i].userId);
+            }
+        }).on("deselected.rs.jquery.bootgrid", function (e, rows) {
+            lock = storageLock;
+            $("#grid-data tbody input.select-box").each(function (index, element) {
+                if ($(this).is(":checked")) {
+                    if ($(this).parents("tr").find(".addexit").attr("status") == "1") {
+                        lock = false;
+                    }
+                }
+            });
+            var selectList = $("#grid-data").bootgrid("getSelectedRows");
+            if (selectList.length == 0) {
+                lock = false;
+            }
+            if (lock) {
+                $('#addexitBtn').removeClass('disable').removeAttr("disabled");
+            } else {
+                $('#addexitBtn').addClass('disable').prop('disabled', true);
+            }
+            for (var j = 0; j < rows.length; j++) {
+                usersArray.remove(rows[j].userId);
+            }
+        });
+    }
+    Array.prototype.indexOf = function (val) {
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] == val) return i;
+        }
+        return -1;
+    };
+
+    Array.prototype.remove = function (val) {
+        var index = this.indexOf(val);
+        if (index > -1) {
+            this.splice(index, 1);
+        }
+    };
+
+    $(document).ready(function () {
+        //关闭选择订单对话框
+        function hidepayorders(obj) {
+            $('#gradeModal').modal('hide');
+        }
+
+        if ($('#islook_tips').attr('aria-describedby')) {
+
+        }
+
+        if (USER_ROLE == "admin") {
+            // 考试信息是否对子管理员可见
+
+            $('span.switch-hidden.switch-wechatSkipLogin-copy').click(function () {
+                var isLook = $(this).attr('isLook');
+                $.ajax({
+                    url: '/admin/subadmin_islook',
+                    type: 'get',
+                    data: "isLook=" + isLook,
+                    dataType: 'json',
+                    success: function (msg) {
+                        if (msg.success == true) {
+
+                            if (isLook == '1') {
+                                $('span.switch-hidden.switch-wechatSkipLogin-copy').removeClass('switch-off').addClass('switch-on').attr('isLook', 0)
+                            } else {
+                                $('span.switch-hidden.switch-wechatSkipLogin-copy').removeClass('switch-on').addClass('switch-off').attr('isLook', 1)
+                            }
+                        }
+                    }
+                })
+            })
+        }
+    });
+
+    //导出附件链接弹窗
+    $('#exportFile').click(function () {
+        $("#exportFileModal").modal('show');
+    });
+    //导出附件链接
+    $('#startExportLinks').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/admin/attachment/download/',
+            cache: false,
+            headers: {"cache-control": "no-cache"},
+            dataType: 'json',
+            data: 'examInfoId=' + exam_info_id,
+            success: function (mesg) {
+                if (mesg.success) {
+                    $("#exportFileModal").modal('hide');
+                    $("#exportingFileModal .title").text("导出中...");
+                    $("#exportingFileModal .content").text("").append("<p>正在导出考生答案</p><p>成功后即可进入'消息中心'下载</p>");
+                    $("#exportingFileModal").modal('show');
+                } else {
+                    if (mesg.code == '61522') {
+                        $("#exportFileModal").modal('hide');
+                        $("#exportingFileModal .title").text("");
+                        $("#exportingFileModal .content").text("正在导出本场考试的附件链接");
+                        $("#exportingFileModal").modal('show');
+                    }
+                    if (mesg.code == '61523') {
+                        $("#exportFileModal").modal('hide');
+                        $("#exportingFileModal .title").text("导出失败");
+                        $("#exportingFileModal .content").text("");
+                        $("#exportingFileModal").modal('show');
+                    }
+                }
+            },
+        })
+    });
+</script>
+<script type="text/javascript" src="../../js/admin_mark_paper.js"></script>
+
+
+<div class="modal-backdrop fade in"></div>
+
+</body>
+</html>

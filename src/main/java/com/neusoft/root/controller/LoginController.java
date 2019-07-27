@@ -22,23 +22,26 @@ public class LoginController {
 	LoginServiceImpl loginservice;*/
 	@RequestMapping(value="/checkAccount", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
-	public String checkAccount(HttpServletRequest req, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+	public String checkAccount(HttpServletRequest request, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		System.out.println("用户名：" + username + "  密    码：" + password);
 		String password_md5 = MD5.toString("123");
 		System.out.println(password_md5);
 		if(username.equals("admin") && password.equals(password_md5)){
 			//建立会话对象，存储登录状态
-			HttpSession session = req.getSession();
+			HttpSession session = request.getSession();
+			session.setAttribute("username",username);
 			session.setAttribute("flag","admin");
 			return "admin";
 		}
 		else if(username.equals("teacher") && password.equals(password_md5)) {
-			HttpSession session = req.getSession();
+			HttpSession session = request.getSession();
+			session.setAttribute("username",username);
 			session.setAttribute("flag","teacher");
 			return "teacher";
 		}
 		else if(username.equals("student") && password.equals(password_md5)) {
-			HttpSession session = req.getSession();
+			HttpSession session = request.getSession();
+			session.setAttribute("username",username);
 			session.setAttribute("flag","student");
 			return "student";
 		}
@@ -48,14 +51,20 @@ public class LoginController {
 /*		int result = loginservice.querylogin(username, password);
 		switch(result){
 		case 1:
+			HttpSession session = request.getSession();
+			session.setAttribute("username",username);
+			session.setAttribute("flag","admin");
 			return "admin";
-			break;
 		case 2:
+			HttpSession session = request.getSession();
+			session.setAttribute("username",username);
+			session.setAttribute("flag","student");
 			return "student";
-			break;
 		case 3:
+			HttpSession session = request.getSession();
+			session.setAttribute("username",username);
+			session.setAttribute("flag","teacher");
 			return "teacher";
-			break;
 		default:
 			return "用户名或密码错误";
 		}*/

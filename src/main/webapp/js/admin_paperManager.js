@@ -212,14 +212,6 @@ $(document).ready(function () {
         }
         paperDelFn(ids, true);
     });
-    //     //显示高级搜索
-    //     $("body").on("click", ".advSearch", function(e) {
-    //             $(".adv-search-box").toggle();
-    // });
-    //     //隐藏高级搜索
-    //     $("body").on("click", "#searchClose", function(e) {
-    //             $(".adv-search-box").hide();
-    //     });
     //点击搜索
     $("body").on("click", "#searchIcon", function (e) {
         var srch = $('input[name=paper_name]');
