@@ -2,8 +2,6 @@
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
@@ -20,11 +18,7 @@
 
     </script>
     <title>考试云平台</title>
-
-
-    <link rel="shortcut icon" href="https://s0..com/static/base/images/new_logo.ico">
-
-
+    <link rel="shortcut icon" href="../../img/logo.ico">
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/admin_base.css">
     <link rel="stylesheet" type="text/css" href="../../css/ksx-base.css">
@@ -94,15 +88,11 @@
 
 <body>
 <div class="viewFrameWork sidebar-full" id="viewFrameWork">
-
     <div class="viewFrameWork-statusbar">
-
-        <a href="https://admin..com/account/admin/index" class="status-left company-logo" title="logo"
+        <a href="/index" class="status-left company-logo" title="logo"
            id="companyLogo">
             <!--对有没有logo进行判断-->
             <img class="icon-logo logo-ksx" src="../../img/logo.png"></a>
-
-
         <div class="status-middle toolbar">
             <div class="body-toolbar clearfix">
                 <div class="body-toolbar-right pull-right toolbar-right-operation">
@@ -111,7 +101,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="status-right">
             <div class="status-item item-notification" id="stateMessage">
@@ -125,18 +114,14 @@
 
         <div class="viewFrameWork-sidebar">
             <div class="sidebar-inner">
-
                 <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
                      data-container="body" title="" data-original-title="收起导航">
                     <i class="icons8 icons8-icon"></i>
                 </div>
-
-
                 <div class="sidebar-nav">
                     <ul class="sidebar-trans" id="ksxAdminSidebar">
-
                         <li class="nav-item nav-item-index" id="navItemIndex">
-                            <a href="https://admin..com/account/admin/index/" data-toggle="tooltip"
+                            <a href="/index" data-toggle="tooltip"
                                data-placement="right" data-container="body" title="" data-original-title="首页">
                                 <div class="nav-icon">
                                     <i class="icon icon-a_nav_home icon-index"></i>
@@ -151,14 +136,14 @@
                             <span class="nav-title">考试管理</span></a>
                             <ul class="sub-menu animate" style="height: 238px;">
                                 <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
-                                        href="https://admin..com/admin/exam_mgr_new"><span
+                                        href="/html/exam/exam_mgr_new"><span
                                         class="nav-title">考试信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item nav-item-active" id="subNavItemQuestionMgr"><a
                                         href="https://v..com/admin/testQuestions/#/list"><span
                                         class="nav-title">试题库</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
-                                        href="https://admin..com/admin/paper_mgr_new"><span class="nav-title">试卷库</span></a>
+                                        href="/html/exam/paper_mgr_new"><span class="nav-title">试卷库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
                                         href="https://admin..com/admin/result/mgr_new"><span
@@ -172,7 +157,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemUser"><a
-                                href="https://admin..com/admin/addtestqm#" class="menu-title"
+                                href="/html/exam/addtestqm#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="人员管理">
                             <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
                             <span class="nav-title">人员管理</span></a>
@@ -268,15 +253,13 @@
                                         class="nav-title">开发者信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
-                                        href="https://admin..com/account/admin_op_record"><span
+                                        href="/html/system/admin_op_record"><span
                                         class="nav-title">管理员操作记录</span></a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-
-
             <div class="sidebar-bottom sidebar-btn">
                 <ul class="sidebar-trans">
                     <li class="nav-item">
@@ -330,7 +313,7 @@
                             </div>
 
                             <div class="operate-group">
-                                <a class="operate-item exam-entrance" href="https://exam..com/exam">
+                                <a class="operate-item exam-entrance" href="/student">
                                     <i class="operate-icon icon-a_personal_switch"></i>
                                     切换至考生端
                                     <i class="operate-right-icon icon-a_enter"></i>
@@ -339,9 +322,7 @@
                                    href="https://admin..com/admin/admin_information">
                                     <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
                                        data-placement="top" data-container="body" title="" data-original-title="编辑信息">
-
                                         <i class="unread-notice"></i>
-
                                     </i>
                                     修改个人信息
                                     <i class="operate-right-icon icon-a_enter"></i>
@@ -354,10 +335,8 @@
                         </div>
                     </li>
                 </ul>
-
             </div>
         </div>
-
 
         <div class="viewFrameWork-body">
             <!-- loading -->
@@ -438,7 +417,6 @@
                                                 <option value="middle">普通</option>
                                                 <option value="hard">困难</option>
                                             </select>
-
                                         </div>
 
                                         <div class="combPanel" style="display:none;">
@@ -1172,7 +1150,6 @@
                                                                 <div id="preview"></div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -1305,19 +1282,14 @@
                                                     </div>
                                                 </div>
 
-
                                                 <div class="keyFillContent">
                                                     <div class="input-group">
                                                         <span class="input-group-addon">1</span>
                                                         <div class="bootstrap-tagsinput"><input type="text"
                                                                                                 placeholder="请输入答案，按下回车添加同义词。">
                                                         </div>
-                                                        <input type="text" name="keyFill" class="form-control"
-                                                               id="keyFillInput" data-role="tagsinput"
-                                                               placeholder="请输入答案，按下回车添加同义词。" style="display: none;">
                                                     </div>
                                                 </div>
-
 
                                                 <div class="addKeyFillBtn">
                                                     <button type="button" class="btn btn-l-gray addKeyFill"><i
@@ -1386,7 +1358,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <!--超管后台新版本通知-->
@@ -1421,9 +1392,7 @@
     <input type="hidden" name="encrypt" value="">
     <input type="hidden" name="normalWords" value="">
     <input type="hidden" name="keyWords" value="">
-
     <input type="hidden" name="disorder" value="1">
-
     <textarea name="question"></textarea>
     <textarea name="analysis"></textarea>
     <div></div>
@@ -1606,7 +1575,6 @@
     </div>
 </div>
 
-<input class="hidden" name="companyId" value="140092">
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/jquery.bootgrid-ksx.js"></script>
@@ -1633,8 +1601,6 @@
     var activeNavItem = 'subNavItemQuestionMgr';
 
     $(function () {
-
-
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
             e.preventDefault();
@@ -1652,15 +1618,7 @@
 
     });
 
-
     $(document).ready(function () {
-
-        // $("#user").click(function(){
-        //     window.location.href="/admin/admin_information";
-        //     $(".unread-notice").hide();
-        //
-        // });
-
         //    自管理员点击添加考生，添加试题，创建考试时的权限判断
         $("#staff,#test,#exam").on("click", function (e) {
             e.stopPropagation();
@@ -1685,8 +1643,6 @@
             })
         });
     });
-
-
 </script>
 <script type="text/javascript" src="../../js/froala_editor.pkgd.min.js"></script>
 <script type="text/javascript" src="../../js/zh_cn.js"></script>
@@ -1806,7 +1762,6 @@
         $(this).parent().hide();
         $(this).parents('.simulationSelect').next().children().eq(idx).prop('selected', 'selected').change()
     });
-
 
     //答案乱序
 

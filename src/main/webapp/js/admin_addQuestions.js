@@ -296,7 +296,7 @@ $(document).ready( function() {
 
 	//填空题添加多个
 	$("div.keyFill .addKeyFill").click(function(e) {
-		var keyLength = $("input[name=keyFill]").length;
+		var keyLength = $("input[name=keyFill]").length + 1;
 		if (keyLength==19) {
 			$(".keyFill .addKeyFillBtn").addClass("hidden");
 		}
