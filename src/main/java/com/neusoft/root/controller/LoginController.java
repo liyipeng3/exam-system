@@ -66,7 +66,7 @@ public class LoginController {
 			return "用户名或密码错误";
 		}*/
 	}
-	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	@RequestMapping(value="/logout",method=RequestMethod.POST)
 	public String logout(HttpServletRequest req){
 		HttpSession session = req.getSession();
 		session.invalidate();
