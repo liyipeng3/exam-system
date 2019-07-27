@@ -1,4 +1,4 @@
-package com.neusoft.root.dao;
+﻿package com.neusoft.root.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
@@ -35,14 +35,15 @@ public interface TeacherMapper {
 	
 	
 	//题库的增删改查
-	public void addRawItem(RawItem item);
-	public void deleteRawItem(RawItem item);
-	public void updateRawItem(RawItem item);
-	public List<RawItem> queryRawItem(RawItem item);
+	public void addRawItem(RawItem rawItem);
+	public void deleteRawItem(RawItem rawItem);
+	public void updateRawItem(RawItem rawItem);
+	public List<RawItem> queryRawItem(RawItem rawItem);
 	
 	//log
-	public void addMyLog(MyLog log);
-	public List<MyLog> queryMyLog(MyLog log);
+	public void  addMyLog(MyLog myLog);
+	public List<MyLog> queryMyLog(MyLog myLog);
+
 	
 	//对消息进行增删查操作
 	public void addMessage(Message message);

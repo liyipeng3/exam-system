@@ -4,14 +4,11 @@ import java.sql.Date;
 //帖子
 public class Forum {
 	private Integer postId;
-
 	private String postDate;
 	private String senderId;
 	private String postTag;//分类标签
 	private String postOutline;//题目
 	private String postContext;//内容
-
-
 	public Forum(Integer postId, String postDate, String senderId, String postTag, String postOutline,
 			String postContext) {
 		super();
@@ -61,8 +58,6 @@ public class Forum {
 	public void setPostContext(String postContext) {
 		this.postContext = postContext;
 	}
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

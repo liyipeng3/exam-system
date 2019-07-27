@@ -2,7 +2,8 @@ package com.neusoft.root.domain;
 
 public class Admin {
 	
-	private String adminId;
+	private  String adminId;
+
 	private String adminName;
 	private String adminPassword;
 	

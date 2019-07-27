@@ -18,6 +18,7 @@ import com.neusoft.root.domain.Result;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
+@Mapper
 public interface StudentMapper {
 	
 	//查询考试班级时间课程
@@ -29,8 +30,8 @@ public interface StudentMapper {
 	public List<Forum> queryForum(Forum forum);
 	
 	//log
-	public void  addMyLog(MyLog log);
-	public List<MyLog> queryMyLog(MyLog log);
+	public void  addMyLog(MyLog myLog);
+	public List<MyLog> queryMyLog(MyLog myLog);
 	
 	//对消息进行增删查操作
 	public void addMessage(Message message);
@@ -42,7 +43,6 @@ public interface StudentMapper {
 	
 	//答题result
 	public void addResult(Result result);
-	public List<Result> queryResult(Result result);
 	
 	//学生
 	//改密码
