@@ -149,7 +149,7 @@ var Ksxing = (function (window) {
                     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
                     var expires = "expires=" + d.toUTCString();
 
-                    document.cookie = cname + "=" + encodeURIComponent(cvalue) + "; " + expires + "; path=/; domain=.kaoshixing.com";
+                    document.cookie = cname + "=" + encodeURIComponent(cvalue) + "; " + expires + "; path=/; domain=..com";
                 },
                 // 获取cookie
                 this.getCookie = function (cname) {
@@ -175,7 +175,7 @@ var Ksxing = (function (window) {
             this.deleteCookie = function (cname) {
                 var date = new Date();
                 date.setTime(date.getTime() - 10000);
-                document.cookie = cname + "=v; expire=" + date.toGMTString() + "; path=/; domain=.kaoshixing.com";
+                document.cookie = cname + "=v; expire=" + date.toGMTString() + "; path=/; domain=..com";
             }
         },
 
