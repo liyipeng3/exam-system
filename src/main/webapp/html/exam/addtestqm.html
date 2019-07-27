@@ -402,9 +402,22 @@
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="manualInput">
                                         <div class="batch-type">
-                                            <span class="intro">试题分类</span>
-                                            <button type="button" class="btn btn-default" id="selTypeLink">请选择</button>
-                                            <input type="hidden" class="" name="classification" value="514884">
+                                            <span class="intro">科目</span>
+                                            <div class="simulationSelect testType">
+                                                <span class="title-font">选择科目</span>
+                                                <em class="glyphicon glyphicon-triangle-bottom"></em>
+                                                <div class="simulationOption" style="display: none;">
+                                                    <div class="one">语文</div>
+                                                    <div class="two">数学</div>
+                                                    <div class="three">英语</div>
+                                                </div>
+                                            </div>
+                                            <select name="type" class="hidden">
+                                                <option value="1" selected="">语文</option>
+                                                <div class="one">语文</div>
+                                                <div class="two">数学</div>
+                                                <div class="three">英语</div>
+                                            </select>
 
                                             <span class="intro">试题类型</span>
                                             <div class="simulationSelect testType">
