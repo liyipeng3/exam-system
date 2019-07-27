@@ -267,7 +267,7 @@ $("#logoutBtn").click(function (e) {
 //确认退出登录
 $("#confirmLogoutBtn").click(function () {
     $.ajax({
-        type: "POST",
+        type: "GET",
         cache: false,
         dataType: "json",
         url: "/login/logout",

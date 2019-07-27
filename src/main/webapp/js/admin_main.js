@@ -22,11 +22,9 @@ $(document).ready(function () {
 
     // 退出登录(清空cookie,session&&sessionId)
     $("#logoutBtn").click(function (e) {
-        e.stopPropagation();
-        e.preventDefault();
 
         $.ajax({
-            type: "POST",
+            type: "GET",
             cache: false,
             dataType: "json",
             url: "/login/logout",
