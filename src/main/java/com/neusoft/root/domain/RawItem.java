@@ -13,9 +13,10 @@ public class RawItem {
 	private String itemAnswer; //试题答案
 	private String itemPicture; //试题路径
 	private Double itemScore;
+	private String itemParse;
 	public RawItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
 			Double itemIndex, String itemQuestion, String itemOption, String itemAnswer, String itemPicture,
-			Double itemScore) {
+			Double itemScore, String itemParse) {
 		super();
 		this.itemId = itemId;
 		this.createrId = createrId;
@@ -28,6 +29,7 @@ public class RawItem {
 		this.itemAnswer = itemAnswer;
 		this.itemPicture = itemPicture;
 		this.itemScore = itemScore;
+		this.itemParse = itemParse;
 	}
 	public RawItem() {
 		super();
@@ -55,7 +57,6 @@ public class RawItem {
 	}
 	public void setItemCoursetype(String itemCoursetype) {
 		this.itemCoursetype = itemCoursetype;
-
 	}
 	public String getItemType() {
 		return itemType;
@@ -63,7 +64,6 @@ public class RawItem {
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
 	}
-
 	public Double getItemIndex() {
 		return itemIndex;
 	}
@@ -100,7 +100,12 @@ public class RawItem {
 	public void setItemScore(Double itemScore) {
 		this.itemScore = itemScore;
 	}
-
+	public String getItemParse() {
+		return itemParse;
+	}
+	public void setItemParse(String itemParse) {
+		this.itemParse = itemParse;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,10 +115,9 @@ public class RawItem {
 		result = prime * result + ((itemCoursetype == null) ? 0 : itemCoursetype.hashCode());
 		result = prime * result + ((itemDate == null) ? 0 : itemDate.hashCode());
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(itemIndex);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
 		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
+		result = prime * result + ((itemParse == null) ? 0 : itemParse.hashCode());
 		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
 		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
 		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
@@ -154,12 +158,20 @@ public class RawItem {
 				return false;
 		} else if (!itemId.equals(other.itemId))
 			return false;
-		if (Double.doubleToLongBits(itemIndex) != Double.doubleToLongBits(other.itemIndex))
+		if (itemIndex == null) {
+			if (other.itemIndex != null)
+				return false;
+		} else if (!itemIndex.equals(other.itemIndex))
 			return false;
 		if (itemOption == null) {
 			if (other.itemOption != null)
 				return false;
 		} else if (!itemOption.equals(other.itemOption))
+			return false;
+		if (itemParse == null) {
+			if (other.itemParse != null)
+				return false;
+		} else if (!itemParse.equals(other.itemParse))
 			return false;
 		if (itemPicture == null) {
 			if (other.itemPicture != null)
@@ -184,11 +196,11 @@ public class RawItem {
 		return true;
 	}
 	@Override
-	public String toString() 
-	{
+	public String toString() {
 		return "RawItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate + ", itemCoursetype="
 				+ itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex + ", itemQuestion="
 				+ itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer + ", itemPicture="
-				+ itemPicture + ", itemScore=" + itemScore + "]";
+				+ itemPicture + ", itemScore=" + itemScore + ", itemParse=" + itemParse + "]";
 	}
+	
 }

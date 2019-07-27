@@ -144,9 +144,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 题库管理 -->
 	<insert id="addRawItem" parameterType="RawItem">
 		insert into item_table(creater_id,item_date,item_coursetype,item_type,item_index,
-		item_question,item_option,item_answer,item_picture,item_score)
+		item_question,item_option,item_answer,item_picture,item_score,item_parse)
 		values(#{createrId},#{itemDate},#{itemCoursetype},#{itemType},
-		#{itemIndex},#{itemQuestion},#{itemOption},#{itemAnswer},#{itemPicture},#{itemScore})
+		#{itemIndex},#{itemQuestion},#{itemOption},#{itemAnswer},#{itemPicture},#{itemScore},#{itemParse})
 	</insert>
 	
 	<delete id="deleteRawItem" parameterType="RawItem">
@@ -185,6 +185,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 			<if test="itemScore!=null and itemScore!=''">
 				item_score = #{itemScore},
+			</if>
+			<if test="itemParse!=null and itemParse!=''">
+				item_parse = #{itemParse},
 			</if>
 		</set>
 		where item_id = #{itemId}
@@ -230,6 +233,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="item_answer" property="itemAnswer" />
 		<result column="item_picture" property="itemPicture" />
 		<result column="item_score" property="itemScore" />
+		<result column="item_parse" property="itemParse" />
 	</resultMap>
 
 	<!-- 管理日志 -->

@@ -12,10 +12,30 @@ public class ParsedItem
 	private double itemIndex; //试题难度 
 	private String itemQuestion; //试题题干
 	private List<String> itemOption; //试题选项
-
 	private String itemAnswer; //试题答案
 	private String itemPicture; //试题路径
 	private Double itemScore; //试题分数
+	private String itemParse;
+	public ParsedItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
+			double itemIndex, String itemQuestion, List<String> itemOption, String itemAnswer, String itemPicture,
+			Double itemScore, String itemParse) {
+		super();
+		this.itemId = itemId;
+		this.createrId = createrId;
+		this.itemDate = itemDate;
+		this.itemCoursetype = itemCoursetype;
+		this.itemType = itemType;
+		this.itemIndex = itemIndex;
+		this.itemQuestion = itemQuestion;
+		this.itemOption = itemOption;
+		this.itemAnswer = itemAnswer;
+		this.itemPicture = itemPicture;
+		this.itemScore = itemScore;
+		this.itemParse = itemParse;
+	}
+	public ParsedItem() {
+		super();
+	}
 	public Integer getItemId() {
 		return itemId;
 	}
@@ -82,25 +102,11 @@ public class ParsedItem
 	public void setItemScore(Double itemScore) {
 		this.itemScore = itemScore;
 	}
-	public ParsedItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
-			double itemIndex, String itemQuestion, List<String> itemOption, String itemAnswer, String itemPicture,
-			Double itemScore) {
-		super();
-		this.itemId = itemId;
-		this.createrId = createrId;
-		this.itemDate = itemDate;
-		this.itemCoursetype = itemCoursetype;
-		this.itemType = itemType;
-		this.itemIndex = itemIndex;
-		this.itemQuestion = itemQuestion;
-		this.itemOption = itemOption;
-		this.itemAnswer = itemAnswer;
-		this.itemPicture = itemPicture;
-		this.itemScore = itemScore;
+	public String getItemParse() {
+		return itemParse;
 	}
-	public ParsedItem() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setItemParse(String itemParse) {
+		this.itemParse = itemParse;
 	}
 	@Override
 	public int hashCode() {
@@ -115,6 +121,7 @@ public class ParsedItem
 		temp = Double.doubleToLongBits(itemIndex);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
+		result = prime * result + ((itemParse == null) ? 0 : itemParse.hashCode());
 		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
 		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
 		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
@@ -162,6 +169,11 @@ public class ParsedItem
 				return false;
 		} else if (!itemOption.equals(other.itemOption))
 			return false;
+		if (itemParse == null) {
+			if (other.itemParse != null)
+				return false;
+		} else if (!itemParse.equals(other.itemParse))
+			return false;
 		if (itemPicture == null) {
 			if (other.itemPicture != null)
 				return false;
@@ -189,7 +201,6 @@ public class ParsedItem
 		return "ParsedItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate
 				+ ", itemCoursetype=" + itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex
 				+ ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer
-				+ ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + "]";
+				+ ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + ", itemParse=" + itemParse + "]";
 	}
-	
 }

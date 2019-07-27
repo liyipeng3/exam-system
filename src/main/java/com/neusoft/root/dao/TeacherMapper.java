@@ -1,16 +1,12 @@
 package com.neusoft.root.dao;
 
 import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Mapper;
-
 import com.mysql.cj.protocol.Message;
 import com.neusoft.root.domain.Check;
 import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Coursestudent;
 import com.neusoft.root.domain.Forum;
-import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.MyLog;
