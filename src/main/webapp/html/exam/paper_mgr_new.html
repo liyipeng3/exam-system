@@ -1039,7 +1039,7 @@
 
 
             });
-            $('input.select-box, td.text-left').click(function (e) {
+            $('input.select-box, td.text-left').change(function (e) {
 
                 if ($(e.target).parents("tr").hasClass("active")) {
                     $(e.target).parents("tr")
