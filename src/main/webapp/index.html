@@ -337,7 +337,7 @@
                                     修改个人信息
                                     <i class="operate-right-icon icon-a_enter"></i>
                                 </a>
-                                <a class="operate-item btn-exit" id="logoutBtn">
+                                <a href="/login/logout" class="operate-item btn-exit" id="logoutBtn">
                                     <i class="operate-icon icon-a_personal_exit"></i>
                                     退出
                                 </a>
@@ -1051,73 +1051,6 @@
             showBrowerModal();
         }
     }
-
-    // 年终数据盘点
-    $(function () {
-        var companyIdCrypto;
-        var todaypartyBuilding = getCookie('partyBuilding');
-        var hasViewParty = getCookie('hasViewParty');
-        var hasTitle = "true";
-
-        //判断是否弹出 新功能推送弹窗，如果为true，则不主动弹出党建弹窗
-        if (hasTitle == "true") {
-            $.ajax({
-                type: 'GET',
-                cache: false,
-                headers: {"cache-control": "no-cache"},
-                dataType: "json",
-                url: "/check_annual_data/",
-                success: function (msg) {
-                    if (msg.success) {
-                        $("#activityBtn").removeClass("hidden");
-                        companyIdCrypto = msg.bizContent;
-
-                        if (todaypartyBuilding == '' && hasViewParty == '') {
-                            $("#partyBuildingModal").modal();
-
-                            //一天之内只显示一次
-                            var dateToday = new Date();
-                            dateToday.setTime(dateToday.getTime() + (7 * 24 * 60 * 60 * 1000));
-                            document.cookie = "partyBuilding=2018; expires=" + dateToday.toGMTString();
-                        }
-
-                        //活动二维码
-                        var activityUrl = window.location.protocol + '//' + window.location.host +
-                            '/annual_data_2018/' + companyIdCrypto;
-
-                        $("#activityQrcode").qrcode({
-                            size: 64,
-                            text: activityUrl,
-                            background: "#FFF"
-                        });
-
-                    }
-                }
-            });
-        }
-
-        //显示活动弹窗
-        $("#activityBtn").click(function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-            $("#partyBuildingModal").modal();
-        });
-
-        //查看活动长图
-        $("#partyBuildingBtn").click(function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-            var dateActivity = new Date(2019, 1, 1, 0, 0, 0);
-
-            dateActivity.setTime(dateActivity.getTime() + (31 * 24 * 60 * 60 * 1000));
-            document.cookie = "hasViewParty=true; expires=" + dateActivity.toGMTString();
-            window.open('https://ww.com/party_building', '_blank');
-        });
-
-
-    });
 
 
     //首页修改

@@ -559,7 +559,7 @@ $("#logoutBtn").click(function (e) {
         type: "POST",
         cache: false,
         dataType: "json",
-        url: "/account/logout",
+        url: "/login/logout",
         success: function (msg) {
             var jump_url = msg.bizContent.url;
             window.location.href = jump_url;
