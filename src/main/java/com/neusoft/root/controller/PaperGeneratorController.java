@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import java.text.SimpleDateFormat;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +19,6 @@ import com.google.gson.Gson;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
-
 @Controller
 @RequestMapping("/exam")
 public class PaperGeneratorController {
