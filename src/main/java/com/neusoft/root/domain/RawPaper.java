@@ -213,6 +213,7 @@ public class RawPaper
 			return false;
 		return true;
 	}
+
 	public RawPaper() {
 		super();
 		// TODO Auto-generated constructor stub

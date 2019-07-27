@@ -244,7 +244,7 @@ $(function () {
                 '<a href="' + (data.subMenu ? '#' : data.url) + '" class="menu-title" data-toggle="tooltip" data-placement="right" data-container="body" title="' + data.title + '">' +
                 '<div class="nav-icon"><i class="icon ' + data.icon + '"></i></div>' +
                 '<span class="nav-title">' + data.title + '</span>' +
-                (data.beta ? '<img class="mark-beta" src="https://s6.kaoshixing.com/ksxing_static/vue/images/icon/a_nav_beta.svg" />' : '') +
+                (data.beta ? '<img class="mark-beta" src="https://s6..com/ksxing_static/vue/images/icon/a_nav_beta.svg" />' : '') +
                 '</a>';
 
 
