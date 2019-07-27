@@ -9,14 +9,36 @@ public class RawPaper
 	private String createrId;
 	private String createDate;
 	private String paperType; //试卷科目类型，例如JAVA, C++
-	private double paperIndex; //试卷难度,由题目平均难度决定
+	private Double paperIndex; //试卷难度,由题目平均难度决定
 	private String singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
 	private String multichoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
 	private String fillQuestion; //填空题,格式为ID1,分数1# ID2,分数2#
 	private String subjectiveQuestion; //主观题格式为ID1,分数1# ID2,分数2#
-	private double paperScore; //试卷总分 
+	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
+	public RawPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
+			Double paperIndex, String singlechoiceQuestion, String multichoiceQuestion, String fillQuestion,
+			String subjectiveQuestion, Double paperScore, String paperSecrecy, String paperRemark) {
+		super();
+		this.paperId = paperId;
+		this.paperName = paperName;
+		this.createrId = createrId;
+		this.createDate = createDate;
+		this.paperType = paperType;
+		this.paperIndex = paperIndex;
+		this.singlechoiceQuestion = singlechoiceQuestion;
+		this.multichoiceQuestion = multichoiceQuestion;
+		this.fillQuestion = fillQuestion;
+		this.subjectiveQuestion = subjectiveQuestion;
+		this.paperScore = paperScore;
+		this.paperSecrecy = paperSecrecy;
+		this.paperRemark = paperRemark;
+	}
+	public RawPaper() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getPaperId() {
 		return paperId;
 	}
@@ -47,10 +69,10 @@ public class RawPaper
 	public void setPaperType(String paperType) {
 		this.paperType = paperType;
 	}
-	public double getPaperIndex() {
+	public Double getPaperIndex() {
 		return paperIndex;
 	}
-	public void setPaperIndex(double paperIndex) {
+	public void setPaperIndex(Double paperIndex) {
 		this.paperIndex = paperIndex;
 	}
 	public String getSinglechoiceQuestion() {
@@ -77,10 +99,10 @@ public class RawPaper
 	public void setSubjectiveQuestion(String subjectiveQuestion) {
 		this.subjectiveQuestion = subjectiveQuestion;
 	}
-	public double getPaperScore() {
+	public Double getPaperScore() {
 		return paperScore;
 	}
-	public void setPaperScore(double paperScore) {
+	public void setPaperScore(Double paperScore) {
 		this.paperScore = paperScore;
 	}
 	public String getPaperSecrecy() {
@@ -95,32 +117,6 @@ public class RawPaper
 	public void setPaperRemark(String paperRemark) {
 		this.paperRemark = paperRemark;
 	}
-	public RawPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
-			double paperIndex, String singlechoiceQuestion, String multichoiceQuestion, String fillQuestion,
-			String subjectiveQuestion, double paperScore, String paperSecrecy, String paperRemark) {
-		super();
-		this.paperId = paperId;
-		this.paperName = paperName;
-		this.createrId = createrId;
-		this.createDate = createDate;
-		this.paperType = paperType;
-		this.paperIndex = paperIndex;
-		this.singlechoiceQuestion = singlechoiceQuestion;
-		this.multichoiceQuestion = multichoiceQuestion;
-		this.fillQuestion = fillQuestion;
-		this.subjectiveQuestion = subjectiveQuestion;
-		this.paperScore = paperScore;
-		this.paperSecrecy = paperSecrecy;
-		this.paperRemark = paperRemark;
-	}
-	@Override
-	public String toString() {
-		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
-				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
-				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
-				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
-				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -130,13 +126,10 @@ public class RawPaper
 		result = prime * result + ((fillQuestion == null) ? 0 : fillQuestion.hashCode());
 		result = prime * result + ((multichoiceQuestion == null) ? 0 : multichoiceQuestion.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(paperIndex);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((paperIndex == null) ? 0 : paperIndex.hashCode());
 		result = prime * result + ((paperName == null) ? 0 : paperName.hashCode());
 		result = prime * result + ((paperRemark == null) ? 0 : paperRemark.hashCode());
-		temp = Double.doubleToLongBits(paperScore);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((paperScore == null) ? 0 : paperScore.hashCode());
 		result = prime * result + ((paperSecrecy == null) ? 0 : paperSecrecy.hashCode());
 		result = prime * result + ((paperType == null) ? 0 : paperType.hashCode());
 		result = prime * result + ((singlechoiceQuestion == null) ? 0 : singlechoiceQuestion.hashCode());
@@ -177,7 +170,10 @@ public class RawPaper
 				return false;
 		} else if (!paperId.equals(other.paperId))
 			return false;
-		if (Double.doubleToLongBits(paperIndex) != Double.doubleToLongBits(other.paperIndex))
+		if (paperIndex == null) {
+			if (other.paperIndex != null)
+				return false;
+		} else if (!paperIndex.equals(other.paperIndex))
 			return false;
 		if (paperName == null) {
 			if (other.paperName != null)
@@ -189,7 +185,10 @@ public class RawPaper
 				return false;
 		} else if (!paperRemark.equals(other.paperRemark))
 			return false;
-		if (Double.doubleToLongBits(paperScore) != Double.doubleToLongBits(other.paperScore))
+		if (paperScore == null) {
+			if (other.paperScore != null)
+				return false;
+		} else if (!paperScore.equals(other.paperScore))
 			return false;
 		if (paperSecrecy == null) {
 			if (other.paperSecrecy != null)
@@ -213,11 +212,12 @@ public class RawPaper
 			return false;
 		return true;
 	}
-
-	public RawPaper() {
-		super();
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
+				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
+				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
+				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
+				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
 	}
-
-	
 }
