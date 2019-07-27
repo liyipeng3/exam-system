@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neusoft.root.MD5;
+import com.neusoft.root.service.LoginServiceImpl;
 
 @Controller
 @RequestMapping("/login")
