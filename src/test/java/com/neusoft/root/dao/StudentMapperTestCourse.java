@@ -30,7 +30,7 @@ public class StudentMapperTestCourse
 	{
 		try 
 		{
-			Managestudent student = new Managestudent("", "117371", "1", "1");
+			Managestudent student = new Managestudent(null, null, null, null, null, null);
 			List<Managestudent> list = sm.queryManagestudent(student);
 			for (Managestudent ms : list) 
 			{
