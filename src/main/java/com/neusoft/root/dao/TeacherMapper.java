@@ -37,7 +37,7 @@ public interface TeacherMapper {
 	//题库的增删改查
 	public void addRawItem(RawItem rawItem);
 	public void deleteRawItem(RawItem rawItem);
-	public void updateRawItem(Map<String,Object> rawItem);
+	public void updateRawItem(RawItem rawItem);
 	public List<RawItem> queryRawItem(RawItem rawItem);
 	
 	//log

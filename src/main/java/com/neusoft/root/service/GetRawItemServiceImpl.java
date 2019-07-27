@@ -19,7 +19,7 @@ public class GetRawItemServiceImpl implements GetRawItemService{
 	public List<RawItem> getRawItem(String subjects) {
 		// TODO Auto-generated method stub
 		List<RawItem> list = new ArrayList<>();
-		RawItem rawItem = new RawItem(null, null, null, null, subjects, null, null, null, null, null, null);
+		RawItem rawItem = new RawItem(null, null, null, null, subjects, null, null, null, null, null, null, null);
 		list =mapper.queryRawItem(rawItem);
 		return list;
 	}

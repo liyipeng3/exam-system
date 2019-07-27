@@ -16,8 +16,12 @@ public class ParsedItem
 	private String itemPicture; //试题路径
 	private Double itemScore; //试题分数
 	private String itemParse;
+	public ParsedItem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public ParsedItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
-			double itemIndex, String itemQuestion, List<String> itemOption, String itemAnswer, String itemPicture,
+			Double itemIndex, String itemQuestion, List<String> itemOption, String itemAnswer, String itemPicture,
 			Double itemScore, String itemParse) {
 		super();
 		this.itemId = itemId;
@@ -32,9 +36,6 @@ public class ParsedItem
 		this.itemPicture = itemPicture;
 		this.itemScore = itemScore;
 		this.itemParse = itemParse;
-	}
-	public ParsedItem() {
-		super();
 	}
 	public Integer getItemId() {
 		return itemId;
@@ -84,16 +85,16 @@ public class ParsedItem
 	public void setItemOption(List<String> itemOption) {
 		this.itemOption = itemOption;
 	}
-	public List<String> getItemAnswer() {
+	public String getItemAnswer() {
 		return itemAnswer;
 	}
-	public void setItemAnswer(List<String> itemAnswer) {
+	public void setItemAnswer(String itemAnswer) {
 		this.itemAnswer = itemAnswer;
 	}
-	public List<String> getItemPicture() {
+	public String getItemPicture() {
 		return itemPicture;
 	}
-	public void setItemPicture(List<String> itemPicture) {
+	public void setItemPicture(String itemPicture) {
 		this.itemPicture = itemPicture;
 	}
 	public Double getItemScore() {
@@ -107,6 +108,13 @@ public class ParsedItem
 	}
 	public void setItemParse(String itemParse) {
 		this.itemParse = itemParse;
+	}
+	@Override
+	public String toString() {
+		return "ParsedItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate
+				+ ", itemCoursetype=" + itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex
+				+ ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer
+				+ ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + ", itemParse=" + itemParse + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -197,11 +205,5 @@ public class ParsedItem
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "ParsedItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate
-				+ ", itemCoursetype=" + itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex
-				+ ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer
-				+ ", itemPicture=" + itemPicture + ", itemScore=" + itemScore + ", itemParse=" + itemParse + "]";
-	}
+	
 }
