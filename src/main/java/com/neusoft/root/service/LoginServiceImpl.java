@@ -19,15 +19,15 @@ public class LoginServiceImpl implements LoginService{
 		Admin admin = new Admin(null, username, password);
 		Student student = new Student(null, username, password, null, null, null);
 		Teacher teacher = new Teacher(null, username, password, null, null, null);
-		if(mapper.queryAdmin(admin)!=null)
+		if(mapper.queryAdmin(admin).size()!=0)
 		{
 			return 1;
 		}
-		else if(mapper.queryStudent(student)!=null)
+		else if(mapper.queryStudent(student).size()!=0)
 		{
 			return 2;
 		}
-		else if(mapper.queryTeacher(teacher)!=null)
+		else if(mapper.queryTeacher(teacher).size()!=0)
 		{
 			return 3;
 		}
