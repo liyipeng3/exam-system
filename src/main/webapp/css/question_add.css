@@ -1,0 +1,446 @@
+.cont-r{
+    background-color: #FFF;
+}
+.min-height-1000 {
+    height: 100%;
+    min-height: 1000px;
+}
+
+.viewFrameWork-body .body-wrapper,
+.viewFrameWork-body .body-wrapper .body-content,
+.cont-r>.tab-area,
+#subForm .tab-content,
+#subForm .tab-content>.tab-pane{
+    height: 100%;
+}
+#subForm {
+    height: calc(100% - 40px);
+}
+input[type="checkbox"], input[type="radio"]{width: 15px;height: 15px;}
+.cont-r .tab-area .wangEditor-container .wangEditor-txt {padding:0}
+.disabled {background: #eee}
+/*手动添加试题页面*/
+.body-addition .body-operation .body-toolbar .body-toolbar-left button  { padding: 7px 16px 7px 16px;}
+.body-addition .body-operation .body-toolbar .body-toolbar-left button i { margin-right: 9px;}
+/*.viewFrameWork-body .body-content {padding:101px 0 0 0}*/
+.body-content .cont-r .nav-tabs li {padding:0}
+.body-content .cont-r .nav-tabs li.active {background:#fff }
+.body-content .cont-r .nav-tabs li a { font-size: 18px;padding: 17px 0; text-align: center; width: 117px;margin: 0 auto;border-bottom:4px solid #f3f3f5;}
+.body-content .cont-r .nav-tabs li.active a {background:#fff;border-bottom:4px solid #4A90E2;color:#4A4A4A }
+.body-content .cont-r .tab-content .batch-type {background: #fff;padding:16px 0 13px 0;font-size: 12px;position: relative;}
+.body-content .cont-r .tab-content .batch-type .intro {padding-right: 19px;padding-left: 20px}
+.body-content .cont-r .tab-content .batch-type button#selTypeLink,#selLabelLink {padding: 8px 21px 8px 18px;}
+.body-content .cont-r .tab-content .batch-type .simulationSelect{display: inline-block;position: relative;border: 1px solid #1A8CFE;  width: 107px;  height: 30px; line-height: 30px;  border-radius: 4px;padding-left: 17px;vertical-align: middle;cursor: pointer;color:#389DE8}
+.body-content .cont-r .tab-content .batch-type .simulationOption {border: 1px solid #ddd;background: #fff;text-align: center;display: none;position: absolute;z-index: 9999;width: 107px;font-size: 14px;}
+.body-content .cont-r .tab-content .batch-type .simulationOption div:hover {background: #1A8CFE;color:#fff;cursor: pointer}
+.body-content .cont-r .tab-content .batch-type .simulationSelect em {position: absolute;  top: 8px;  color: #1A8CFE;left:80px}
+.body-content .cont-r .tab-content .batch-type .simulationOption.testType,.body-content .cont-r .tab-content .batch-type .simulationOption.difficult {left:0;color:#4A4A4A}
+.body-content .cont-r .tab-content .question-content {
+    margin: 20px;
+    padding-right: 28px;
+    background-color: #F6F7FA;
+}
+#manualInput .combPanel {
+    padding: 20px 20px 25px 20px;
+    font-size: 12px;
+}
+.body-content .cont-r .tab-content .question-content .descPanel,
+.body-content .cont-r .tab-content .question-content .keyPanel {
+    margin-bottom: 40px;
+}
+.body-content .cont-r .tab-content .question-content .descPanel .title .tip,
+.body-content .cont-r .tab-content .question-content .keyPanel .title .tip,
+.body-content .cont-r .tab-content .question-content .analysisPanel .title .tip,
+#manualInput .combPanel .title .tip,
+#manualInput .combBatchPanel .title .tip,
+#manualInput .questionPanel .title .tip{
+    padding: 5px 14px;
+    background: #A9B3BF;
+    font-size: 12px;
+    margin-right: 12px;
+    color:#fff;
+    display: inline-block;
+}
+.body-content .cont-r .tab-content .question-content .descPanel .title .intro,
+.body-content .cont-r .tab-content .question-content .keyPanel .title .intro,
+.body-content .cont-r .tab-content .question-content .analysisPanel .title .intro,
+#manualInput .combPanel .title .intro,
+#manualInput .combBatchPanel .title .intro {
+    color:#A9B3BF;
+    vertical-align: middle;
+}
+.body-content .cont-r .tab-content .question-content .descPanel .wangEditor-container,.body-content .cont-r .tab-content .question-content .analysisPanel .wangEditor-container,#manualInput .combPanel .wangEditor-container {margin-top: 0px;border: 1px solid #C2CEDB; border-radius: 2px;min-height:62px}
+.body-content .cont-r .tab-content .question-content .keyPanel .title{margin-bottom: 15px}
+.body-content .cont-r .tab-content .question-content .keyPanel .keyList,.body-content .cont-r .tab-content .question-content .keyFill .keyFillContent {margin-bottom: 15px;position: relative}
+.body-content .cont-r .tab-content .question-content .keyPanel .keyList .keyLeft {display: inline-block;width: 46px;  text-align: center;}
+.body-content .cont-r .tab-content .question-content .keyPanel .keyList .keyRight {width: calc(100% - 50px);vertical-align: middle;display: inline-block}
+.body-content .cont-r .tab-content .question-content .keyPanel .keyList .keyRight .wangEditor-container {border-radius: 2px;min-height: 30px;vertical-align: middle }
+.body-content .cont-r .tab-content .question-content .keyPanel .keyList .removeKey,.body-content .cont-r .tab-content .question-content .keyFill .keyFillContent .removeKeyFill{ width: 17px;  height: 17px;  background: #A9B3BF;  right: -24px;  z-index: 99999;  position: absolute;  top: 50%;  margin-top: -9px; text-align: center;  line-height: 18px;color: #fff;}
+.body-content .cont-r .tab-content .question-content .keyPanel .addKeyBtn {margin-top: 15px}
+.body-content .cont-r .tab-content .question-content .keyPanel .addKeyBtn .addKey,.body-content .cont-r .tab-content .question-content .keyPanel .addKeyFillBtn .addKeyFill{background: #A9B3BF; border-radius: 4px;color:#fff;padding: 10px 0;margin-left:48px;width:calc(100% - 48px);}
+.body-content .cont-r .tab-content .question-content .keyPanel .addKeyFillBtn .addKeyFill {width:100%;margin-left: 0}
+.body-content .cont-r .tab-content .add-questions-btn {margin-top: 35px;padding-bottom:25px;text-align: center;}
+.body-content .cont-r .tab-content .add-questions-btn .btn {padding:10px 35px}
+.body-content .cont-r .tab-content .add-questions-btn .btn-reset{margin-right:40px}
+/*.body-content .cont-r .tab-content .question-content .keyJudge .title {margin-bottom: 15px}*/
+.body-content .cont-r .tab-content .question-content .keyJudge label {color: #777E87; margin-right: 6px;border: 1px solid #ABBCD0;padding:10px 37px;}
+.body-content .cont-r .tab-content .question-content .keyJudge input[type=radio]:checked + label { background: #A9B3BF;  border: 1px solid #878F98;  color: #fff;}
+.body-content .cont-r .tab-content .question-content .keyFill .keyFillContent .input-group {width: 100%}
+.body-content .cont-r .tab-content .question-content .keyFill .keyFillContent .input-group span{background:#C2CEDB;width:51px}
+.body-content .cont-r .tab-content .question-content .keyFill .keyFillContent .input-group textarea {height: 30px;resize: none;padding: 0}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel,#manualInput .combBatchPanel .combBatchBlock  {margin-top: 15px}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel input { border: 1px solid #C2CEDB;  width: 40%;  margin-top: 10px;  margin-bottom: 10px;}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .title .keyWordBadge {display: inline-block;  height: 15px;  width: 15px;  border-radius: 50%;  text-align: center;  margin-left: 15px;  cursor: pointer; background: #ddd;}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .title #keyWordContent { position: absolute;  left: 235px;  top: 5px;  width: 180px;  background: #fff;  border: 1px solid #ddd;  display: none;  padding: 5px;}
+.body-content .cont-r .tab-content .question-content .keyCloze .questions_add {min-height:58px}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .button-bar button {padding: 10px 21px;font-size: 12px;  color: #4A4A4A;}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .button-bar #normalWord{ background: #A9B3BF;  border: 1px solid #878F98;color: #fff;}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .button-bar #keyWord {color:#fff;border: 1px solid rgba(0,0,0,0.19);}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .key_block {margin-top: 10px;  border: 1px solid #C2CEDB;  padding: 0 12px;  width: 85%;  border-radius: 4px;  min-height: 41px;  background-color: #fff;}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .key_block em {cursor: pointer}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .key_block .whole-word {display: inline-block;  background-color: #a9b3bf;  color: #fff;  border: 1px solid #878f98;  padding: 2px;  border-radius: 4px;  margin: 7px 5px 5px 0;}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .key_block .key-word { background-color: #FF7832;  border: 1px solid rgba(0,0,0,0.19);}
+.body-content .cont-r .tab-content .question-content .keyCloze .keyWordPanel .key_block .whole-word .word { padding: 0 5px;  vertical-align: middle;}
+#manualInput .combBatchPanel {
+    padding: 10px 20px 0;
+    font-size: 12px;
+    height: calc(100% - 208px);
+}
+.savePanel {display: none}
+
+/*组合题*/
+/*#manualInput .combBatchPanel{padding: 9px 22px 26px;background-color: #f3f3f5;}*/
+/*#manualInput .combBatchPanel .title{margin-top:0;}*/
+/*批量导题*/
+.combBatchPanel .combBatchBlock{border: 1px solid #DCE1E7;border-radius: 4px;height: calc(100% - 41px);}
+.combBatchBlock .button-bar{
+    padding: 11px 24px;
+    background-color: #fff;
+    border-bottom: 1px solid #C4CFDC;;
+}
+.combBatchBlock .button-bar .btn-border-blue:hover{border: 1px solid #5D9CEC;background: #fff;color: #5D9CEC;}
+.button-bar input[type=radio]:checked + label{background: #5D9CEC;color: #fff;border: 1px solid #5D9CEC;}
+.button-bar input[type=radio]:checked + label:hover{background: #5D9CEC;color: #fff;border: 1px solid #5D9CEC;}
+.button-bar .btn-orange{width: 77px;}
+#inputArea{height: calc(100% - 57px);background: #f6f8fc;}
+.batch-input, .batch-input .toolbar .title {
+    height: 100%;
+    font-family: MicrosoftYaHei;
+    font-size: 18px;
+    color: #4A4A4A;
+    letter-spacing: -0.35px;
+    line-height: 31px;
+}
+.batch-input .toolbar {
+    padding: 0 20px 0 10px;
+    background: #F3F3F5;
+    height: 40px;
+    line-height: 40px;
+}
+.batch-input .toolbar .example{
+    color: #5d9cec;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 40px;
+    float: right;
+}
+
+.b-example{ width:100%; padding:16px 12px 25px; border:#22ac38 dashed 1px}
+.b-example h3{ color:#22ac38; font-size:16px; line-height:30px}
+.b-example p{ line-height:24px}
+.batch-input h3{ font-size:16px; margin-bottom:10px; color:#5d9cec;height: 24px;line-height: 24px;}
+.batch-input p{ line-height:26px; margin:10px 0 0 0}
+.batch-input-box{
+    float:left;
+    width: calc(50% - 5px);
+    height: 100%;
+    position: relative;
+    margin-right: 10px;
+    border-right: 1px solid #DEDEDE;
+}
+
+.batch-input-box .btn-div, .batch-preview-box .btn-div{ margin:25px 0; text-align:center}
+.batch-input-box .box {
+    width: 100%!important;
+    overflow:auto;
+    color: #4A4A4A;
+    letter-spacing: -0.35px;
+    line-height: 31px;
+    border-top: 1px solid #dadada;
+    border-left: none;
+    border-right: none;
+    height: calc(100% - 40px);
+}
+.batch-input-box .box p{
+    white-space: pre-wrap;
+}
+/*隐藏工具栏*/
+.fr-toolbar{
+    display: none!important;
+}
+
+.batch-preview-box {float:left;width:calc(50% - 5px);height: 100%;position: relative;}
+.batch-preview-box .box{ background: #f6f8fc;width:100%!important;overflow:auto;color: #4A4A4A;letter-spacing: -0.35px;line-height: 31px;padding:19px 12px;height: calc(100% - 40px);}
+.batch-preview-box .box #preview{text-align: left;}
+.batch-preview-box .toolbar .error-text,.batch-preview-box .toolbar .btn-s-blue{display: none;}
+.batch-preview-box .toolbar .count{display: inline-block;color: #fff;background: #FF4848;border-radius: 2px;margin: 0 5px;height: 14px;width: 20px;text-align: center;line-height: 14px;font-size: 10px;}
+.batch-preview-box .toolbar .btn-s-blue{width: 50px;text-align: center;padding: 0;height: 20px;}
+
+/*编辑试题start*/
+.insert-question{background: #f3f3f5;padding: 20px 24px 23px;}
+.insert-question .button-bar{padding: 10px 23px 10px 14.3px;background-color: #fff;border: 1px solid #B2BBC5;border-radius: 4px;width: 89.5%;margin-left: 56px;}
+.insert-question .button-bar .btn-border-blue:hover{border: 1px solid #5D9CEC;background: #fff;color: #5D9CEC;}
+.insert-question .button-bar .btn-add em{display: inline-block;width: 18px;height: 18px;background: url(../new_images/icon_plus.png) no-repeat center;vertical-align: text-top;margin-right: 3px;}
+/*插入试题模式*/
+#manualInput .insert-content{  background: #C2CEDB;  border: 1px solid #A9B3BF;  border-radius: 2px;  width: calc(85.5%);  margin-left: 81px;  position: relative;  padding: 20px 30px;}
+.insert-content .savePanel {margin-top: 15px;text-align: center;display: block}
+.insert-content .savePanel #insertRemove {margin-right: 20px}
+
+/*!*编辑试题end*!*/
+
+/*批量导入右侧预览区样式start*/
+.errorText {color:#000; font-weight:bold; background-color:#FC3}
+.errorTextNew {color:#000; font-weight:bold; background-color:#7DC0FF}
+#errorDiv{max-height:295px; height:295px; overflow:auto; width:100%; display:block}
+.question .qt_error{padding-left: 35px;}
+.question.check_error{border: 1px solid #FF4848!important;}
+.question .qt_error,.question .error{color: #fff; font-weight:bold;background-color: #FF4848;border-radius: 2px;word-wrap: break-word;word-break: break-all;margin-bottom: 5px;}
+.box .question{padding: 12.8px 37.7px;background-color: #fff;font-size: 12px;color: #494949;letter-spacing: -0.44px;line-height: 22px;border: 1px solid rgba(73,73,73,0.10);margin-bottom: 17px;position: relative;}
+.question p{word-break: break-all;word-wrap: break-word;}
+.question .qt_title{margin:0 0 9px 0;}
+.question .qt_title .title{font-family: MicrosoftYaHei;font-size: 24px;color: #5D9CEC;letter-spacing: -0.88px;line-height: 22px;position: absolute;left: 9px;}
+.question .key_A,.question .key_B,.question .key_C,.question .key_D,.question .key_E,.question .key_F,
+.question .key_G,.question .key_H,.question .key_I,.question .key_J,.question .key_K,.question .key_L,
+.question .key_M,.question .key_N,.question .key_O,.question .key_P,.question .key_Q,.question .key_R,
+.question .key_S,.question .key_T{border: 1px solid #E4EAF0;border-radius: 2px;margin: 0 0 5px 0;}
+.question .key_A .title,.question .key_B .title,.question .key_C .title,.question .key_D .title,.question .key_E .title,.question .key_F .title,
+.question .key_G .title,.question .key_H .title,.question .key_I .title,.question .key_J .title,.question .key_K .title,.question .key_L .title,
+.question .key_M .title,.question .key_N .title,.question .key_O .title,.question .key_P .title,.question .key_Q .title,.question .key_R .title,
+.question .key_S .title,.question .key_T .title{margin-right: 3px;color: #5d9cec;}
+.question > p .checkOrRadio{margin: 0 10px;}
+.question .qt_answer, .question .qt_analysis{margin: 0 0 5px 0;}
+.question .qt_answer .title, .question .qt_analysis .title{color: #adc0d4}
+/*批量导入右侧预览区样式end*/
+
+/*小题列表*/
+
+.questionPanel{padding: 60px 81px 0 81px; font-size: 12px;}
+.questionPanel .title{margin-top: 0;margin-bottom: 15px}
+.questionPanel .questionList .single{position: relative;margin-bottom: 10px;}
+.single .input-group{width: calc(100%);}
+.single .input-group .input-div{height: 30px;line-height: 30px;background: #FFFFFF;border: 1px solid #A9B3BF;border-radius: 0 4px 4px 0;  padding: 0 10px 0 70px;position: relative;overflow: hidden;}
+.single .input-group .input-div .type{background: #5D9CEC;border-radius: 4px;font-family: MicrosoftYaHei;font-size: 10px;color: #FFFFFF;
+letter-spacing: -0.37px;line-height: 19px;padding: 2px 9px;position: absolute;top: 2px;left: 10px;}
+.single .input-group .input-group-addon:first-child{width: 51px;background: #C2CEDB;color: #fff;font-size: 12px;}
+.single .operation-icon{position: absolute;top: 6px;left: calc(100% + 8px);width: 60px}
+.single .operation-icon em{display: inline-block;width: 17px;height: 17px;cursor: pointer;background:#A9B3BF; text-align: center; line-height: 18px;color: #fff;}
+
+.questionList .single:first-child .icons8-forward,.questionList .single:last-child .icons8-expand-arrow{display: none;}
+
+.import_choose{display: inline-block;width: 30px;height: 30px;margin: 0 5px;position: relative;top: -2px;}
+
+.import_choose input {z-index: 1;width: 30px;height: 30px;opacity: 0;}
+.import_choose:hover .icon-tip {display: block;}
+.icon-tip {line-height: 20px;display: none;position: absolute;top: 30px;left: 20px;min-width: 150px;background-color: #f7f7f7;border: 1px solid #ccc;border-radius: 5px;padding: 5px;text-align: center;}
+
+.btn-s-blue{background-color: #5d9cec;color: #fff!important;border: 1px solid #5d9cec!important;font-size: 14px;margin: 0!important;}
+.errorText {color:#000; font-weight:bold; background-color:#FC3}
+.errorTextNew {color:#000; font-weight:bold; background-color:#7DC0FF}
+#errorDiv{max-height:295px; height:295px; overflow:auto; width:100%; display:block}
+.batch-input p{margin: 0;line-height: inherit;}
+.question{padding: 10px;}
+#errorText{color: #ff0000;margin-right: 10px;}
+@media (min-width: 768px){
+    #qtExample .modal-dialog {
+        margin: 120px auto;
+        width: 650px;
+    }
+    #txtImport .modal-dialog{
+        margin: 200px auto;
+        width: 550px;
+    }
+}
+#qtExample .modal-body{font-size: 14px;}
+.accordion-group h2{text-align: center;color: #22ac38;font-size: 20px;margin-top: -10px;margin-bottom: 10px;}
+
+
+/*excel import*/
+.import_row{text-align: center;height: 100px;}
+#conResult,#showQuestion{margin:5px 20px 10px;width:120px}
+/*.uploadify:hover .uploadify-button,.uploadify-button{background-image: initial;font-size: 16px;}*/
+.import_choose{position: relative;display: inline-block;width: 30px;height: 30px;margin: 0 5px;position: relative;top: -2px;}
+
+.import_choose input {z-index: 1;width: 30px;height: 30px;opacity: 0;filter: alpha(opacity=0);}
+.btn-row{margin: 10px 20px;}
+/*.uploadify object{margin-left: -50px;}*/
+.import_choose:hover .icon-tip {display: block;}
+.icon-tip {line-height: 20px;display: none;position: absolute;top: 30px;left: 20px;min-width: 150px;background-color: #f7f7f7;border: 1px solid #ccc;border-radius: 5px;padding: 5px;text-align: center;}
+/*导入结果*/
+.bootstrap-dialog .modal-header {height: 50px;padding: 5px 0 0 0;}
+.bootstrap-dialog-title {font-size: 20px;line-height: 30px;}
+.bootstrap-dialog .modal-dialog {width: 550px;}
+.bootstrap-dialog-message .success ol {height: 60px;  padding:0;}
+.bootstrap-dialog .bootstrap-dialog-message {text-align: left;}
+.bootstrap-dialog-message .success ol li {float: left;padding: 20px 10px 0 0;list-style: none}
+.bootstrap-dialog-message .error ol li {padding: 10px;}
+.bootstrap-dialog-message .error {clear: both;}
+.bootstrap-dialog-message .title {padding: 5px 0 5px 5px;border-radius: 5px;color: #fff;font-size: 16px;font-weight: bold;}
+.bootstrap-dialog-message .success-title {background-color: #6ccd81;}
+.bootstrap-dialog-message .error-title {background-color: #e46d6b;}
+#excel_import .download,#excel_import .upload {text-decoration: none;padding: 0 20px;line-height: 36px;vertical-align: middle;position: relative}
+#excel_import .upload input { position: absolute;opacity: 0; top: 0;left:0;line-height: 36px;height: 36px;width: 92px;filter: "alpha(opacity=0)"; filter: alpha(opacity=0); -moz-opacity: 0; cursor: pointer!important; z-index: 2; }
+/*excel import*/
+
+/*模态框样式*/
+.modal-content {padding:0 20px}
+.modal-header {border:none}
+.modal-footer {text-align: center}
+/*excle批量导入模态框*/
+#excleImportModal .modal-header {font-size:20px }
+
+.body-content .cont-r .tab-content .question-content .keyPanel .title .pull-right{position: absolute;  top: -9px;  right: 0;}
+.body-content .cont-r .tab-content .question-content .keyPanel .title {position: relative;  }
+.pull-right .switch {min-width: 58px;vertical-align: middle;height: 30px;border-radius: 30px;}
+.pull-right .switch .switch-left {background-image: none;background-color: #1A8CFE;font-size: 12px; top: -3px;}
+.pull-right .switch .switch-right{font-size: 12px; top: -3px;}
+.pull-right label {font-size: 12px;color:#494949;font-weight: normal;border:none}
+.keyFillContent .input-group .bootstrap-tagsinput{width: 100%;border-radius: 0 4px 4px 0}
+.disorder-prompt{background: #FFFFFF;box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);border-radius: 2px;position: absolute;top: -95px;right: 0;z-index: 999;padding: 10px;line-height: 22px;width: 257px;height: 86px;}
+.answer-prompt{background: #FFFFFF;box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);border-radius: 2px;position: absolute;top: -140px;left: 0;z-index: 999;padding: 10px;line-height: 22px;width: 257px;height: 126px;}
+.disorder-prompt .importent , .answer-prompt .importent{font-family: MicrosoftYaHei;font-size: 12px;color: #1A8CFE;}
+.icons8-help{color: #A9B3BF; font-size: 14px;}
+.answer-help{margin-left: 5px;}
+.disorder-help{margin: 0 5px;}
+.body-content .cont-r .tab-content .question-content .keyFill .keyFillContent .input-group .bootstrap-tagsinput .label-info{background: #1A8CFE;}
+.body-content .cont-r .tab-content .question-content .keyFill .keyFillContent .input-group .bootstrap-tagsinput .label-info>span{background: #1A8CFE;}
+.body-content .cont-r .tab-content .question-content .keyFill .keyFillContent .input-group .bootstrap-tagsinput .label-info>span:after{font-weight: normal;}
+.body-content .cont-r .tab-content .question-content .keyFill .addKeyFillBtn .icons8-plus{margin-right: 5px;font-size: 14px;}
+
+.btn-size{width: 90px; height: 34px;}
+span.title-font{color: #1A8CFE;}
+.addKeyBtn .plus-style{margin-right: 6px;}
+.descPanel .questions_add.wangEditor-txt {height: 58px !important;margin: 0 !important;}
+.bootstrap-tagsinput .tag + input::-webkit-input-placeholder{opacity: 0.0;}
+
+.btn-size{
+    width: 90px;
+    height: 34px;
+}
+
+span.title-font{
+    color: #1A8CFE;
+}
+
+.addKeyBtn .plus-style{
+    margin-right: 6px;
+}
+
+.descPanel .questions_add.wangEditor-txt{
+    height: 58px !important;
+    margin: 0 !important;
+}
+.fr-box.fr-basic.fr-top .fr-wrapper,
+.fr-box.fr-basic .fr-element {
+    height: 100%;
+    font-size: 12px;
+}
+.fr-buttons,.fr-arrow {
+    display: none!important;
+}
+.fr-popup {
+    border: 0!important;
+    box-shadow: none;
+}
+img.fr-dib {
+    display: inline-block!important;
+    vertical-align: bottom!important;
+}
+#help{
+    float: right;
+    background: rgba(26,140,254,0.10);
+    border: 1px solid rgba(26,140,254,0.20);
+    border-radius: 2px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    color: #1A8CFE;
+    font-size: 14px;
+    min-width: 95px;
+    margin-right: 20px;
+}
+.answer_disorder_container{
+    width:250px;
+}
+.answer_disorder_container .col-sm-9{
+    display:inline-block;
+    width:unset;
+    float: unset;
+    vertical-align: middle;
+    float:right;
+}
+.answer_disorder_container .placeholder{
+    line-height: 37px;
+    float:right;
+}
+#saveQuestionModal .modal-header{
+    border-bottom: none;
+    text-align: center;
+    height: auto;
+    padding: 40px 0 18px;
+}
+#saveQuestionModal .modal-header h4{
+    font-size: 20px;
+    color: #3A3E51;
+}
+#saveQuestionModal .modal-header span{
+    color: #1A8CFE;
+    font-size: 50px;
+}
+#saveQuestionModal .modal-footer{
+    border-top: none;
+}
+#saveQuestionModal .modal-dialog{
+    margin-top: 15%!important;
+}
+#saveQuestionModal .modal-body{
+    text-align: center;
+    font-size: 14px;
+    color: #999999;
+}
+#saveQuestionModal .modal-footer{
+    padding: 32px 0;
+    text-align: center;
+}
+#saveQuestionModal #paperList{
+    background: #F2F2F2;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #666666;
+    border-color: #F2F2F2;
+}
+#createExam{
+    font-size: 14px;
+    margin-left: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
