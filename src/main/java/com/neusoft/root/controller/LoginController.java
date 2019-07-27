@@ -23,7 +23,7 @@ public class LoginController {
 	@RequestMapping(value="/checkAccount", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public String checkAccount(HttpServletRequest request, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		int result = loginservice.querylogin(username, password);
+		int result = loginservice.Login(username, password);
 		HttpSession session = request.getSession();
 		switch(result){
 		case 1:
@@ -67,7 +67,7 @@ public class LoginController {
 			return "用户名或密码错误";
 		}*/
 	}
-	@RequestMapping(value="/logout",method=RequestMethod.POST)
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public String logout(HttpServletRequest req){
 		HttpSession session = req.getSession();
 		session.invalidate();
