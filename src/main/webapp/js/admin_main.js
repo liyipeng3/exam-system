@@ -26,11 +26,9 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             cache: false,
-            dataType: "json",
             url: "/login/logout",
             success: function (msg) {
-                var jump_url = msg.bizContent.url;
-                window.location.href = jump_url;
+                window.location.href = "/login";
             }
         });
 
