@@ -75,11 +75,11 @@ public class WebController {
 	}
 	@RequestMapping("/html/study/manager")
 	public String manager() {
-		return "/html/study/manger.html";
+		return "/html/study/manager.html";
 	}
 	@RequestMapping("/html/study/course_mgr")
 	public String course_mgr() {
-		return "/html/study/course_mgr";
+		return "/html/study/course_mgr.html";
 	}
 	@RequestMapping("/html/study/study_record_mgr")
 	public String study_record_mgr() {
