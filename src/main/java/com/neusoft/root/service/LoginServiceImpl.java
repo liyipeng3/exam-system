@@ -17,7 +17,7 @@ public class LoginServiceImpl implements LoginService{
 	public int Login(String username, String password) {
 		// TODO Auto-generated method stub
 		System.out.println(username+password);
-		Admin admin = new Admin(username,null, password);
+		Admin admin = new Admin(username,username, password);
 		Student student = new Student(username,null, password, null, null, null);
 		Teacher teacher = new Teacher(username,null, password, null, null, null);
 		if(mapper.queryAdmin(admin).size()!=0)
