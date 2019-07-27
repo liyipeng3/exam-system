@@ -7,7 +7,7 @@ import com.neusoft.root.dao.AdminMapper;
 import com.neusoft.root.domain.Admin;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
-
+ 
 @Service
 public class LoginServiceImpl implements LoginService{
 
