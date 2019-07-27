@@ -116,4 +116,5 @@ public class Forum {
 		return "Forum [postId=" + postId + ", postDate=" + postDate + ", senderId=" + senderId + ", postTag=" + postTag
 				+ ", postOutline=" + postOutline + ", postContext=" + postContext + "]";
 	}
+
 }
