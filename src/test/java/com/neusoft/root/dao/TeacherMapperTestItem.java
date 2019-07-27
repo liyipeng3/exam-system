@@ -33,7 +33,7 @@ public class TeacherMapperTestItem
 		/*try 
 		{
 			RawItem ri = new RawItem(
-			1,"234","2019-8-7","2","1",1.2,"question","option","answer","picture",6.0);
+			1,"234","2019-8-7","2","1",1.2,"question","option","answer","picture",6.0,"parse");
 			tm.addRawItem(ri);
 		} 
 		catch (Exception e) 
@@ -47,7 +47,7 @@ public class TeacherMapperTestItem
 	{
 		/*try 
 		{
-			RawItem ri = new RawItem(1,"234","2019-8-7","2","1",1.2,"question","option","answer","picture",6.0);
+			RawItem ri = new RawItem(2,"234","2019-8-7","2","1",1.2,"question","option","answer","picture",6.0,"parse");
 			tm.deleteRawItem(ri);
 		} 
 		catch (Exception e) 
@@ -63,8 +63,9 @@ public class TeacherMapperTestItem
 		{
 			RawItem ri = new RawItem();
 			ri.setCreaterId("235");
-			ri.setItemId(2);
+			ri.setItemId(3);
 			ri.setItemDate("2020-8-6");
+			ri.setItemParse("MyParse");
 			tm.updateRawItem(ri);
 		} 
 		catch (Exception e) 
@@ -76,7 +77,7 @@ public class TeacherMapperTestItem
 	@Test
 	public void testQueryRawItem()
 	{
-		try 
+		/*try 
 		{
 			List<RawItem> list = tm.queryRawItem(null);
 			for (RawItem ri : list) 
@@ -87,6 +88,6 @@ public class TeacherMapperTestItem
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}
+		}*/
 	}
 }

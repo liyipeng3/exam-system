@@ -17,7 +17,6 @@ public class RawPaper
 	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
-	
 	public RawPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
 			Double paperIndex, String singlechoiceQuestion, String multichoiceQuestion, String fillQuestion,
 			String subjectiveQuestion, Double paperScore, String paperSecrecy, String paperRemark) {
@@ -118,7 +117,6 @@ public class RawPaper
 	public void setPaperRemark(String paperRemark) {
 		this.paperRemark = paperRemark;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -216,11 +214,10 @@ public class RawPaper
 	}
 	@Override
 	public String toString() {
-		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrID=" + createrId
+		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
 				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
 				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
 				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
 				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
 	}
-	
 }

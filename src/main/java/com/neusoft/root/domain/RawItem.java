@@ -13,6 +13,27 @@ public class RawItem {
 	private String itemAnswer; //试题答案
 	private String itemPicture; //试题路径
 	private Double itemScore;
+	private String itemParse;
+	public RawItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
+			Double itemIndex, String itemQuestion, String itemOption, String itemAnswer, String itemPicture,
+			Double itemScore, String itemParse) {
+		super();
+		this.itemId = itemId;
+		this.createrId = createrId;
+		this.itemDate = itemDate;
+		this.itemCoursetype = itemCoursetype;
+		this.itemType = itemType;
+		this.itemIndex = itemIndex;
+		this.itemQuestion = itemQuestion;
+		this.itemOption = itemOption;
+		this.itemAnswer = itemAnswer;
+		this.itemPicture = itemPicture;
+		this.itemScore = itemScore;
+		this.itemParse = itemParse;
+	}
+	public RawItem() {
+		super();
+	}
 	public Integer getItemId() {
 		return itemId;
 	}
@@ -79,12 +100,11 @@ public class RawItem {
 	public void setItemScore(Double itemScore) {
 		this.itemScore = itemScore;
 	}
-	@Override
-	public String toString() {
-		return "RawItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate + ", itemCoursetype="
-				+ itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex + ", itemQuestion="
-				+ itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer + ", itemPicture="
-				+ itemPicture + ", itemScore=" + itemScore + "]";
+	public String getItemParse() {
+		return itemParse;
+	}
+	public void setItemParse(String itemParse) {
+		this.itemParse = itemParse;
 	}
 	@Override
 	public int hashCode() {
@@ -97,6 +117,7 @@ public class RawItem {
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		result = prime * result + ((itemIndex == null) ? 0 : itemIndex.hashCode());
 		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
+		result = prime * result + ((itemParse == null) ? 0 : itemParse.hashCode());
 		result = prime * result + ((itemPicture == null) ? 0 : itemPicture.hashCode());
 		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
 		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
@@ -147,6 +168,11 @@ public class RawItem {
 				return false;
 		} else if (!itemOption.equals(other.itemOption))
 			return false;
+		if (itemParse == null) {
+			if (other.itemParse != null)
+				return false;
+		} else if (!itemParse.equals(other.itemParse))
+			return false;
 		if (itemPicture == null) {
 			if (other.itemPicture != null)
 				return false;
@@ -169,25 +195,12 @@ public class RawItem {
 			return false;
 		return true;
 	}
-	public RawItem() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public RawItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
-			Double itemIndex, String itemQuestion, String itemOption, String itemAnswer, String itemPicture,
-			Double itemScore) {
-		super();
-		this.itemId = itemId;
-		this.createrId = createrId;
-		this.itemDate = itemDate;
-		this.itemCoursetype = itemCoursetype;
-		this.itemType = itemType;
-		this.itemIndex = itemIndex;
-		this.itemQuestion = itemQuestion;
-		this.itemOption = itemOption;
-		this.itemAnswer = itemAnswer;
-		this.itemPicture = itemPicture;
-		this.itemScore = itemScore;
+	@Override
+	public String toString() {
+		return "RawItem [itemId=" + itemId + ", createrId=" + createrId + ", itemDate=" + itemDate + ", itemCoursetype="
+				+ itemCoursetype + ", itemType=" + itemType + ", itemIndex=" + itemIndex + ", itemQuestion="
+				+ itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer + ", itemPicture="
+				+ itemPicture + ", itemScore=" + itemScore + ", itemParse=" + itemParse + "]";
 	}
 	
 }
