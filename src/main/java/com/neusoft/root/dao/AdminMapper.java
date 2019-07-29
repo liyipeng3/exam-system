@@ -52,11 +52,13 @@ public interface AdminMapper
 	public void updateCourse(Map<String ,Object> course);
 	public List<Course> queryCourse(Course course);
 	
-	public void addMyLog(MyLog log);
-	public void deleteMyLog(MyLog log);
-	public void updateMyLog(Map<String ,Object> log);
-	public List<MyLog> queryMyLog(MyLog log);
 
+	//记录
+	public void addMyLog(MyLog myLog);
+	public void deleteMyLog(MyLog myLog);
+	public void updateMyLog(Map<String ,Object> myLog);
+	public List<MyLog> queryMyLog(MyLog myLog);
+	
 	
 	//学生安排考试表的增删改查
 	public void addManagestudent(Managestudent managestudent);

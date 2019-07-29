@@ -26,7 +26,6 @@ public class Message
 		this.msgContext = msgContext;
 		this.msgRole = msgRole;
 	}
-
 	public Integer getMsgId() {
 		return msgId;
 	}
@@ -63,7 +62,6 @@ public class Message
 	public void setMsgContext(String msgContext) {
 		this.msgContext = msgContext;
 	}
-
 	public String getMsgRole() {
 		return msgRole;
 	}
@@ -115,6 +113,11 @@ public class Message
 				return false;
 		} else if (!msgRole.equals(other.msgRole))
 
+			return false;
+		if (msgRole == null) {
+			if (other.msgRole != null)
+				return false;
+		} else if (!msgRole.equals(other.msgRole))
 			return false;
 		if (msgType == null) {
 			if (other.msgType != null)

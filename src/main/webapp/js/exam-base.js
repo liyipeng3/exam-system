@@ -267,13 +267,11 @@ $("#logoutBtn").click(function (e) {
 //确认退出登录
 $("#confirmLogoutBtn").click(function () {
     $.ajax({
-        type: "POST",
+        type: "GET",
         cache: false,
-        dataType: "json",
-        url: "/account/logout",
+        url: "/login/logout",
         success: function (msg) {
-            var jump_url = msg.bizContent.url;
-            window.location.href = jump_url;
+            window.location.href = "/login";
 
         }
     });

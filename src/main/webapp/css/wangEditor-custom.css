@@ -1,0 +1,84 @@
+.wangEditor-container { border: 1px solid #C2CEDB;border-radius: 4px;}
+.wangEditor-container.wangEditor-fullscreen {width:100%; height: 100% !important;}
+.wangEditor-container .questions_add { border: none; height: 240px; }
+.wangEditor-container .wangEditor-menu-container { display: none;}
+.wangEditor-container .questions_add.wangEditor-txt { height: 20px !important; margin: 0 !important; }
+.wangEditor-container .questions_add.wangEditor-txt p { margin: 0; padding: 0; }
+
+.wangEditor-container.active .wangEditor-menu-container { display:block; }
+.wangEditor-container.active .questions_add.wangEditor-txt { height: 209px !important; margin: 5px 0 10px 0 !important; }
+.wangEditor-container.wangEditor-fullscreen .questions_add.wangEditor-txt { height: 96% !important; }
+.wangEditor-container.active .questions_add.wangEditor-txt p { margin: 10px 0; }
+.wangEditor-container img { vertical-align: text-bottom; }
+.video-uploading-img {
+    /*box-sizing: border-box;*/
+    border: 1px solid gray !important;
+    width: 315px;
+    height: 210px;
+    background: transparent url('../images/mediauploading.gif') no-repeat center;
+}
+.audio-uploading-img {
+    border: 1px solid gray !important;
+    width: 315px;
+    height: 50px;
+    background: transparent url('../images/mediauploading.gif') no-repeat center;
+}
+.video-temp-img {
+    /*box-sizing: border-box;*/
+    border: 1px solid gray !important;
+    width: 315px;
+    height: 210px;
+    background: transparent url('../images/medialogo.gif') no-repeat center;
+}
+.audio-temp-img {
+    border: 1px solid gray !important;
+    width: 315px;
+    height: 50px;
+    background: transparent url('../images/medialogo.gif') no-repeat center;
+}
+.wangEditor-container .wangEditor-txt .upfile:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url("../images/attach-file.png");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+.localupload::before{
+    content: " ";
+    position: absolute;
+    display: none;
+    left: 60%;
+    bottom: 27%;
+    transform: translateX(-50%);
+    margin-bottom: 4px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 5px solid #666666;
+}
+
+.localupload::after{
+    content: "文件大小不超过20M";
+    display: none;
+    position: absolute;
+    padding: 5px 10px;
+    left: 60%;
+    bottom: 27%;
+    margin-bottom: 8px;
+    transform: translateX(-50%);
+    font-size: 12px;
+    background: #666666;
+    color: #fff;
+    cursor: default;
+}
+
+.localupload:hover::after,
+.localupload:hover::before {
+    display: block;
+}
+
+

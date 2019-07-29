@@ -1036,10 +1036,8 @@
                 paper += '<a href="./paper_mgr_new.html" paperid="292524" data-growing-title="copyPaper" target="_blank" class="icon-a_operate_create_test create_exam" data-trigger="hover" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="创建考试"></a>';
                 paper += '</td></tr>';
                 $('tbody').append($(paper));
-
-
             });
-            $('input.select-box, td.text-left').click(function (e) {
+            $('input.select-box, td.text-left').change(function (e) {
 
                 if ($(e.target).parents("tr").hasClass("active")) {
                     $(e.target).parents("tr")

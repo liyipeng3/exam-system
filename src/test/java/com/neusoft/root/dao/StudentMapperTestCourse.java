@@ -20,23 +20,17 @@ import com.neusoft.root.domain.Student;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class StudentMapperTestForum 
+public class StudentMapperTestCourse 
 {
 	@Autowired
 	private StudentMapper sm;
 	
 	@Test
-	public void testAddForum() 
-	{
-		
-	}
-	
-	@Test
 	public void testQueryManagestudent()
 	{
-		/*try 
+		try 
 		{
-			Managestudent student = new Managestudent("", "117371", "1", "1");
+			Managestudent student = new Managestudent(null, null, null, null, null, null);
 			List<Managestudent> list = sm.queryManagestudent(student);
 			for (Managestudent ms : list) 
 			{
@@ -47,6 +41,5 @@ public class StudentMapperTestForum
 		{
 			System.out.println(e);
 		}
-		*/
 	}
 }

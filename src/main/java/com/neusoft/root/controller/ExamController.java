@@ -11,11 +11,13 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
@@ -23,7 +25,7 @@ import com.neusoft.root.domain.Subjects;
 
 @Controller
 @RequestMapping("/exam")
-public class PaperGeneratorController {
+public class ExamController {
 /*	@Autowired
 	private GetPaperServiceImpl getpapersubjects;*/
 	private String subject;
@@ -76,7 +78,15 @@ public class PaperGeneratorController {
 		items.add(item1);
 		items.add(item2);
 		items.add(item3);
+		items.add(item4);
 		Gson gson = new Gson();
 		return gson.toJson(items);
+	}
+	@RequestMapping(value="/add_item",method=RequestMethod.POST)
+	@ResponseBody
+	public String addItem(@RequestBody JSONObject jsonParam){
+		System.out.println("6666666");
+		System.out.println(jsonParam.toString());
+		return "ok";
 	}
 }

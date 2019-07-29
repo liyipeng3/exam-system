@@ -3,6 +3,7 @@ package com.neusoft.root.domain;
 import java.sql.Date;
 //论坛帖子表
 public class Forum {
+
 	private Integer postId; //帖子ID
 	private String postDate; //发帖日期
 	private String senderId; //发送者ID
@@ -59,8 +60,6 @@ public class Forum {
 	public void setPostContext(String postContext) {
 		this.postContext = postContext;
 	}
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

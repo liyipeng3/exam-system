@@ -1,4 +1,4 @@
-package com.neusoft.root.domain;
+﻿package com.neusoft.root.domain;
 
 //解析前试题
 public class RawItem {

@@ -26,8 +26,8 @@
                 <div class="header-middle">
                     <div data-v-3a050ba5="" class="body-toolbar clearfix">
                         <div data-v-3a050ba5="" class="toolbar-left fl">
-                            <button data-v-3a050ba5="" type="button"
-                                    class="el-button el-button--primary el-button--small" primary=""><i
+                            <button type="button"
+                                    class="el-button el-button--primary el-button--small" id="add_question"><i
                                     class="icon-a_circle_plus"></i><span>添加试题</span></button>
                             <div data-v-3a050ba5="" class="el-dropdown"><span data-v-3a050ba5=""
                                                                               class="el-button-repeat el-dropdown-selfdefine"
@@ -532,7 +532,7 @@
                                                  style="width: 0px; height: 55px;"></div>
                                             <div class="el-table__column-resize-proxy" style="display: none;"></div>
                                         </div>
-                                        <div class="el-pagination is-background"><span class="el-pagination__total">共 23 条</span><span
+                                        <div class="el-pagination is-background"><span class="el-pagination__total">共 ? 条</span><span
                                                 class="el-pagination__sizes"><div class="el-select el-select--mini"><div
                                                 class="el-input el-input--mini el-input--suffix"><input
                                                 type="text" readonly="readonly" autocomplete="off" placeholder="请选择"
@@ -715,15 +715,17 @@
 
                 }
             });
-
             $('#select_all').change(function () {
-                if($(this).hasClass('is-checked')) {
+                if ($(this).hasClass('is-checked')) {
                     $('.my_item').addClass('is-checked');
                 } else {
                     $('.my_item').removeClass('is-checked');
 
-                };
+                }
             });
+        });
+        $('#add_question').click(function () {
+           window.location.href="/html/exam/addtestqm";
         });
     });
 </script>

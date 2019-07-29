@@ -25,12 +25,6 @@ public class AdminMapperTestAdmin
 {
 	@Autowired
 	private AdminMapper am;
-
-	/*@Test
-	public void testAddAdmin()
-	{
-		
-	}*/
 	
 	@Test
 	public void testQueryCheck()

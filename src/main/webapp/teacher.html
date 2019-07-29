@@ -2,8 +2,6 @@
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
@@ -19,11 +17,7 @@
         opts.rightsGrade = '8';
     </script>
     <title>考试云平台</title>
-
-
     <link rel="shortcut icon" href="img/logo.ico">
-
-
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/admin_base.css">
     <link rel="stylesheet" type="text/css" href="./css/ksx-base.css">
@@ -34,7 +28,6 @@
     <link rel="stylesheet" type="text/css" href="./css/admin_index.css">
     <link rel="stylesheet" type="text/css" href="./css/admin_index_add.css">
     <link rel="stylesheet" type="text/css" href="./css/cannotlink_modal.css">
-
     <style type="text/css">  .JColResizer {
         table-layout: fixed;
     }
@@ -106,7 +99,7 @@
                 <div class="body-toolbar-right pull-right toolbar-right-operation">
                     <div class="activity-btn hidden" id="activityBtn">
                         <div class="activity-icon"></div>
-                        <div class="activity-title">查看党建内容平台</div>
+                        <div class="activity-title"></div>
                     </div>
                     <div class="dropdown-menu login-info-panel">
                         <div class="title">登录地址</div>
@@ -355,52 +348,6 @@
                     <div class="page_wrapper">
 
                         <div class="company-status-wrapper">
-                            <div class="nav-state-icon nav-state-online progress-limit">
-                                <span class="state-online-title">在线人数</span>
-                                <span class="state-user-count" id="stateUserCount">0/25</span>
-                                <div class="progress">
-                                    <div class="progress-bar" id="stateUserCountBar" role="progressbar"
-                                         aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 0.0%;"></div>
-                                </div>
-                                <a href="https://ww.com/version" target="_blank"
-                                   class="go-version icon-a_circle_plus_outline"></a>
-                            </div>
-
-                            <div class="nav-state-icon nav-state-online progress-limit">
-                                <span class="state-online-title">注册人数</span>
-                                <span class="state-user-count" id="regUserCount">1/25</span>
-                                <div class="progress">
-                                    <div class="progress-bar" id="regUserCountBar" role="progressbar"
-                                         aria-valuenow="4.0" aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 4.0%;"></div>
-                                </div>
-                                <a href="https://ww.com/version" target="_blank"
-                                   class="go-version icon-a_circle_plus_outline"></a>
-                            </div>
-
-                            <div class="nav-state-icon nav-state-online progress-limit">
-                                <span class="state-online-title">存储空间</span>
-                                <span class="state-online-store" id="stateOnlineStore">0.0/100.0MB</span>
-                                <div class="progress">
-                                    <div class="progress-bar" id="stateOnlineStoreBar" role="progressbar"
-                                         aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 0.0%;"></div>
-                                </div>
-                                <a href="https://ww.com/version" target="_blank"
-                                   class="go-version icon-a_circle_plus_outline"></a>
-                            </div>
-
-                            <div class="nav-state-icon nav-state-online progress-limit">
-                                <span class="state-online-title">消耗流量</span>
-                                <span class="state-flow" id="stateFlow">0.0/1.0GB</span>
-                                <div class="progress">
-                                    <div class="progress-bar" id="stateFlowBar" role="progressbar" aria-valuenow="0.0"
-                                         aria-valuemin="0" aria-valuemax="100" style="width: 0.0%;"></div>
-                                </div>
-                                <a href="https://ww.com/version" target="_blank"
-                                   class="go-version icon-a_circle_plus_outline"></a>
-                            </div>
 
                         </div>
 
@@ -572,15 +519,10 @@
                                 </div>
                                 <div class="divide_line"></div>
                             </div>
-
-
                             <div class="placeholder">
                                 还没有正在进行的任务，快去创建一个自定义任务吧～
                             </div>
-
-
                         </div>
-
                         <!-- 最近添加 结束 -->
                     </div>
                 </div>
@@ -599,7 +541,6 @@
                 <div class="version"></div>
             </div>
             <div class="modal-body">
-
             </div>
             <div class="modal-footer">
                 <div class="btn-row">
@@ -765,11 +706,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="party-title">考试党建云内容平台上线啦！</div>
+                <div class="party-title">！</div>
                 <div class="party-desc">
-                    考试联手权威专家团<br>
-                    打造党建学习+考试一站式内容平台<br>
-                    高效提升党建学习效率<br>
                 </div>
                 <div class="party-building-btn" id="partyBuildingBtn">去查看</div>
             </div>
@@ -803,7 +741,6 @@
 
     $(function () {
 
-
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
             e.preventDefault();
@@ -823,12 +760,6 @@
 
 
     $(document).ready(function () {
-
-        // $("#user").click(function(){
-        //     window.location.href="/admin/admin_information";
-        //     $(".unread-notice").hide();
-        //
-        // });
 
         //    自管理员点击添加考生，添加试题，创建考试时的权限判断
         $("#staff,#test,#exam").on("click", function (e) {
@@ -1038,73 +969,6 @@
             showBrowerModal();
         }
     }
-
-    // 年终数据盘点
-    $(function () {
-        var companyIdCrypto;
-        var todaypartyBuilding = getCookie('partyBuilding');
-        var hasViewParty = getCookie('hasViewParty');
-        var hasTitle = "true";
-
-        //判断是否弹出 新功能推送弹窗，如果为true，则不主动弹出党建弹窗
-        if (hasTitle == "true") {
-            $.ajax({
-                type: 'GET',
-                cache: false,
-                headers: {"cache-control": "no-cache"},
-                dataType: "json",
-                url: "/check_annual_data/",
-                success: function (msg) {
-                    if (msg.success) {
-                        $("#activityBtn").removeClass("hidden");
-                        companyIdCrypto = msg.bizContent;
-
-                        if (todaypartyBuilding == '' && hasViewParty == '') {
-                            $("#partyBuildingModal").modal();
-
-                            //一天之内只显示一次
-                            var dateToday = new Date();
-                            dateToday.setTime(dateToday.getTime() + (7 * 24 * 60 * 60 * 1000));
-                            document.cookie = "partyBuilding=2018; expires=" + dateToday.toGMTString();
-                        }
-
-                        //活动二维码
-                        var activityUrl = window.location.protocol + '//' + window.location.host +
-                            '/annual_data_2018/' + companyIdCrypto;
-
-                        $("#activityQrcode").qrcode({
-                            size: 64,
-                            text: activityUrl,
-                            background: "#FFF"
-                        });
-
-                    }
-                }
-            });
-        }
-
-        //显示活动弹窗
-        $("#activityBtn").click(function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-            $("#partyBuildingModal").modal();
-        });
-
-        //查看活动长图
-        $("#partyBuildingBtn").click(function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-            var dateActivity = new Date(2019, 1, 1, 0, 0, 0);
-
-            dateActivity.setTime(dateActivity.getTime() + (31 * 24 * 60 * 60 * 1000));
-            document.cookie = "hasViewParty=true; expires=" + dateActivity.toGMTString();
-            window.open('https://ww.com/party_building', '_blank');
-        });
-
-
-    });
 
 
     //首页修改
