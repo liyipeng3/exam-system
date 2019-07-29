@@ -481,4 +481,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="exam_begindate" property="examBegindate" />
 		<result column="exam_enddate" property="examEnddate" />
 	</resultMap>
+	
+	<!-- 查询学生答题 -->
+	<!-- 学生答题结果管理 -->	
+	<select id="queryResult" parameterType="RawResult" resultMap="MyRawResult">
+		select *
+		from result_table
+		<where>
+			<if test="studentId!=null and studentId!=''">
+				and student_id = #{studentId}
+			</if>
+			<if test="paperId!=null and paperId!=''">
+				and paper_id = #{paperId}
+			</if>
+			<if test="checked!=null and checked!=''">
+				and checked = #{checked}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="RawResult" id="MyRawResult">
+		<result column="student_id" property="studentId"/>
+		<result column="paper_id" property="paperId"/>
+		<result column="singlechoice_result" property="singlechoiceResult"/>
+		<result column="multichoice_result" property="multichoiceResult"/>
+		<result column="fill_result" property="fillResult"/>
+		<result column="subjective_result" property="subjectiveResult"/>
+		<result column="submit_date" property="submitDate"/>
+		<result column="checked" property="checked"/>
+	</resultMap>
 </mapper>

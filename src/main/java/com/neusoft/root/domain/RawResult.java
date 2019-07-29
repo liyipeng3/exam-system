@@ -8,9 +8,9 @@ public class RawResult {
 	private String fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
 	private String subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
 	private String submitDate; //答题日期
-	
+	private String checked; //是否被批阅  
 	public RawResult(String studentId, Integer paperId, String singlechoiceResult, String multichoiceResult,
-			String fillResult, String subjectiveResult, String submitDate) {
+			String fillResult, String subjectiveResult, String submitDate, String checked) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
@@ -19,72 +19,64 @@ public class RawResult {
 		this.fillResult = fillResult;
 		this.subjectiveResult = subjectiveResult;
 		this.submitDate = submitDate;
+		this.checked = checked;
 	}
-
 	public RawResult() {
 		super();
 	}
-
 	public String getStudentId() {
 		return studentId;
 	}
-
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-
 	public Integer getPaperId() {
 		return paperId;
 	}
-
 	public void setPaperId(Integer paperId) {
 		this.paperId = paperId;
 	}
-
 	public String getSinglechoiceResult() {
 		return singlechoiceResult;
 	}
-
 	public void setSinglechoiceResult(String singlechoiceResult) {
 		this.singlechoiceResult = singlechoiceResult;
 	}
-
 	public String getMultichoiceResult() {
 		return multichoiceResult;
 	}
-
 	public void setMultichoiceResult(String multichoiceResult) {
 		this.multichoiceResult = multichoiceResult;
 	}
-
 	public String getFillResult() {
 		return fillResult;
 	}
-
 	public void setFillResult(String fillResult) {
 		this.fillResult = fillResult;
 	}
-
 	public String getSubjectiveResult() {
 		return subjectiveResult;
 	}
-
 	public void setSubjectiveResult(String subjectiveResult) {
 		this.subjectiveResult = subjectiveResult;
 	}
-
 	public String getSubmitDate() {
 		return submitDate;
 	}
-
 	public void setSubmitDate(String submitDate) {
 		this.submitDate = submitDate;
 	}
-
+	public String getChecked() {
+		return checked;
+	}
+	public void setChecked(String checked) {
+		this.checked = checked;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((checked == null) ? 0 : checked.hashCode());
 		result = prime * result + ((fillResult == null) ? 0 : fillResult.hashCode());
 		result = prime * result + ((multichoiceResult == null) ? 0 : multichoiceResult.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
@@ -94,7 +86,6 @@ public class RawResult {
 		result = prime * result + ((submitDate == null) ? 0 : submitDate.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -104,6 +95,11 @@ public class RawResult {
 		if (getClass() != obj.getClass())
 			return false;
 		RawResult other = (RawResult) obj;
+		if (checked == null) {
+			if (other.checked != null)
+				return false;
+		} else if (!checked.equals(other.checked))
+			return false;
 		if (fillResult == null) {
 			if (other.fillResult != null)
 				return false;
@@ -141,12 +137,11 @@ public class RawResult {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
-		return "Result [studentId=" + studentId + ", paperId=" + paperId + ", singlechoiceResult=" + singlechoiceResult
-				+ ", multichoiceResult=" + multichoiceResult + ", fillResult=" + fillResult + ", subjectiveResult="
-				+ subjectiveResult + ", submitDate=" + submitDate + "]";
+		return "RawResult [studentId=" + studentId + ", paperId=" + paperId + ", singlechoiceResult="
+				+ singlechoiceResult + ", multichoiceResult=" + multichoiceResult + ", fillResult=" + fillResult
+				+ ", subjectiveResult=" + subjectiveResult + ", submitDate=" + submitDate + ", checked=" + checked
+				+ "]";
 	}
-	
 }

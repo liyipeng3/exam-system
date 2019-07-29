@@ -19,6 +19,7 @@ import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
+import com.neusoft.root.domain.RawResult;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
@@ -28,47 +29,18 @@ public class TeacherMapperTestTeacher
 {
 	@Autowired
 	private TeacherMapper tm;
-	
-	@Test
-	public void testAddRawPaper() 
-	{
-		/*try 
-		{
-			Teacher teacher = new Teacher();
-			teacher.setTeacherId("234");
-			teacher.setTeacherPassword("234");
-			tm.updateTeacher(teacher);
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}*/
-	}
-	
-	@Test
-	public void testQueryRawPaper() 
-	{
-		/*try 
-		{
-			for (Teacher teacher : tm.queryTeacher(null)) 
-			{
-				System.out.println(teacher);
-			}
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}*/
-	}
-	
+		
 	@Test
 	public void testQueryStudent()
 	{
 		try 
 		{
-			for (Student student : tm.queryStudent(null)) 
+			RawResult rawResult = new RawResult();
+			rawResult.setChecked("no");
+			rawResult.setPaperId(1);
+			for (RawResult rr : tm.queryResult(rawResult))
 			{
-				System.out.println(student);
+				System.out.println(rr);
 			}
 		} 
 		catch (Exception e) 
