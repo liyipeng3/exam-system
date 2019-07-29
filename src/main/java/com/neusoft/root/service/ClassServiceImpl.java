@@ -46,8 +46,7 @@ public class ClassServiceImpl implements ClassService{
 	public List<Class1> queryClass(JSONObject json) {
 		// TODO Auto-generated method stub
 		Class1 class1 = new Class1(json.getString("classId"), json.getString("className"), json.getInteger("classSeats"));
-		List<Class1> list = new ArrayList<>();
-		list = mapper.queryClass(class1);
+		List<Class1> list = mapper.queryClass(class1);
 		return list;
 	}
 	

@@ -48,8 +48,7 @@ public class AdminServiceImpl implements AdminService{
 	public List<Admin> queryAdmin(JSONObject json) {
 		// TODO Auto-generated method stub
 		Admin admin = new Admin(json.getString("adminId"),json.getString("adminName"), json.getString("adminPassword"));
-		List<Admin> list = new ArrayList<>();
-		list = mapper.queryAdmin(admin);
+		List<Admin> list = mapper.queryAdmin(admin);
 		return list;
 	}
 

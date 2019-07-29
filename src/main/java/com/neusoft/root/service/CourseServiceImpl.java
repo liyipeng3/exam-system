@@ -40,7 +40,7 @@ public class CourseServiceImpl implements CourseService{
 		map.put("ids",list);
 		map.put("courseName",course.getCourseName());
 		map.put("courseType",course.getCourseType());
-		mapper.updateClass(map);
+		mapper.updateCourse(map);
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class CourseServiceImpl implements CourseService{
 	}
 
 	@Override
-	public List<String> queryCourseAll() {
+	public List<String> queryAllCourse() {
 		// TODO Auto-generated method stub
 		List<Course> list = mapper.queryCourse(null);
 		List<String> list2 = new ArrayList<>();
