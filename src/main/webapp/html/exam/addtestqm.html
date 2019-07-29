@@ -1738,7 +1738,7 @@
     });
 
 
-    $.getJSON("/exam/get_paper_subjects", function (result) {
+    $.getJSON("/exam/get_subjects", function (result) {
         $.each(result.subjects, function (index, e) {
             $subject = $("<div value=op" + index + ">" + e + "</div>");
             $(".subjects").append($subject);
@@ -1763,10 +1763,10 @@
 
     $("#saveAndAddBtn").click(function (e) {
         var data = {
-            "题干": $('#questionEditor').val(),
-            "key1Editor": $('#key1Editor').val(),
-            "key2Editor": $('#key2Editor').val(),
-            "analysisEditor": $('#analysisEditor').val()
+            "题干": $('#questionEditor p').val(),
+            "key1Editor": $('#key1Editor p').val(),
+            "key2Editor": $('#key2Editor p').val(),
+            "analysisEditor": $('#analysisEditor p').val()
         };
         ajax_post("/exam/add_item", data);
     });
