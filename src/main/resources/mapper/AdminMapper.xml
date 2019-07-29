@@ -386,8 +386,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="classId!=null and classId!=''">
 				and class_id = #{classId}
 			</if>
-			<if test="teacherId!=null and teacherId!=''">
-				and teacher_id = #{teacherId}
+			<if test="studentId!=null and studentId!=''">
+				and student_id = #{studentId}
 			</if>
 			<if test="courseId!=null and courseId!=''">
 				and course_id = #{courseId}
