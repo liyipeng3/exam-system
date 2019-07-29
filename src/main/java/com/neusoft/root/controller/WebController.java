@@ -74,6 +74,10 @@ public class WebController {
 	public String addtestqm() {
 		return "/html/exam/addtestqm.html";
 	}
+	@RequestMapping("/html/exam/updatetestqm")
+	public String updatetestqm() {
+		return "/html/exam/updatetestqm.html";
+	}
 	@RequestMapping("/html/exam/add_item")
 	public String add_item() {
 		return "/html/exam/add_item.html";
