@@ -12,7 +12,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("flag");
+		String username = (String) session.getAttribute("username");
 		if(username != null){
 			System.out.println(request.getRequestURI()+"通过登录认证:" + username);
 			return true;

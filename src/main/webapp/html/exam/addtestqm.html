@@ -7,7 +7,6 @@
     <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
     <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
     <meta name="author" content="">
-    <script async="" src="../../js/tingyun-rum-admin.js"></script>
     <script type="text/javascript">
         var opts = {};
 
@@ -381,18 +380,14 @@
                                                     <div class="three">判断题</div>
                                                     <div class="four">填空题</div>
                                                     <div class="five">问答题</div>
-                                                    <div class="six">组合题</div>
-                                                    <div class="seven">录音题</div>
                                                 </div>
                                             </div>
-                                            <select name="type" class="form-control hidden">
+                                            <select name="type" id="item_type" class="form-control hidden">
                                                 <option value="1" selected="">单选题</option>
                                                 <option value="2">多选题</option>
                                                 <option value="3">判断题</option>
                                                 <option value="4">填空题</option>
                                                 <option value="5">问答题</option>
-                                                <option value="6">组合题</option>
-                                                <option value="7">录音题</option>
                                             </select>
 
                                             <span class="intro">试题难度</span>
@@ -1762,12 +1757,42 @@
     };
 
     $("#saveAndAddBtn").click(function (e) {
-        var data = {
-            "题干": $('#questionEditor p').text(),
-            "key1Editor": $('#key1Editor p').text(),
-            "key2Editor": $('#key2Editor p').text(),
-            "analysisEditor": $('#analysisEditor p').text()
-        };
+        var data;
+        var option = $('#item_type option:selected').val();
+        switch (option) {
+            case 1:
+                var ans = $('input:radio:checked').parent().sibling().find(".questions_add").attr("id");
+                data = {
+                    "questionEditor": $('#questionEditor p').text(),
+                    "analysisEditor": $('#analysisEditor p').text()
+                };
+                var len = $('.keyRadio').children().length;
+                data['option_length'] = len - 2;
+                data["itemType"] = "单选题";
+                data['answer'] = ans;
+                for (let i = 1; i <= len - 2; i++) {
+                    data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
+                }
+                break;
+            case 2:
+                data = {
+                    "questionEditor": $('#questionEditor p').text(),
+                    "analysisEditor": $('#analysisEditor p').text()
+                };
+                var ans = $('input:radio:checked').parent().sibling().find('.questions_add').each(function (index, e) {
+                   data['answer' + index] = e.attr('id');
+                });
+                var len = $('.keyRadio').children().length;
+                data['option_length'] = len - 2;
+                data["itemType"] = "多选题";
+                for (let i = 1; i <= len - 2; i++) {
+                    data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
+                }
+                break;
+            case 3:;
+        }
+
+
         ajax_post("/exam/add_item", data);
     });
 
