@@ -3065,7 +3065,7 @@ _e(function (E, $) {
             E[value] = function (info) {
                 // 通过配置来控制打印输出
                 if (E.config && E.config.printLog) {
-                    console[value]('wangEditor提示: ' + info);
+                    //console[value]('wangEditor提示: ' + info);
                 }
             };
         }
