@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
+import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Student;
 
@@ -57,5 +58,6 @@ public class Test {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String datestring = df.format(time);
 		System.out.println(datestring);
+		ParsedItem pi = new ParsedItem();
 	}
 }
