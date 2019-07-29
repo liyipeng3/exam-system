@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 
-import java.sql.Date;
+//日志表
 public class MyLog 
 {
 	private Integer logId;  //日志id
@@ -9,6 +9,7 @@ public class MyLog
 	private String opType; //操作类型
 	private String opMsg; // 操作具体内容
 	private String opPage; // 操作内容
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

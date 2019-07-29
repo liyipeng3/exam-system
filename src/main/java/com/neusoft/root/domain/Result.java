@@ -1,13 +1,13 @@
 package com.neusoft.root.domain;
 //学生答题结果
 public class Result {
-	private String studentId;
-	private Integer paperId;
-	private String singlechoiceResult;
-	private String multichoiceResult;
-	private String fillResult;
-	private String subjectiveResult;
-	private String submitDate;
+	private String studentId; //学生ID
+	private Integer paperId; //试卷ID
+	private String singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
+	private String multichoiceResult; //多选题结果，格式：ID1，分数1###ID2，分数2###
+	private String fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
+	private String subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
+	private String submitDate; //答题日期
 	
 	public Result(String studentId, Integer paperId, String singlechoiceResult, String multichoiceResult,
 			String fillResult, String subjectiveResult, String submitDate) {
@@ -23,7 +23,6 @@ public class Result {
 
 	public Result() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getStudentId() {

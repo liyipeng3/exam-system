@@ -25,13 +25,13 @@ public class AdminMapperTestAdmin
 {
 	@Autowired
 	private AdminMapper am;
-
+	
 	@Test
 	public void testQueryCheck()
 	{
 		try 
 		{
-			Admin admin = new Admin("admin","","202cb962ac59075b964b07152d234b70");
+			Admin admin = new Admin("J117371",null,"123");
 			List<Admin> list = am.queryAdmin(admin);
 			for (Admin mt : list) 
 			{

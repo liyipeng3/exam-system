@@ -1,13 +1,12 @@
 package com.neusoft.root.domain;
 
-import java.sql.Date;
-
+//解析前试卷
 public class RawPaper 
 {
 	private Integer paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
-	private String createrId;
-	private String createDate;
+	private String createrId; //创作者ID
+	private String createDate; //创作日期
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
 	private String singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#

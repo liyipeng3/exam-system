@@ -1,8 +1,9 @@
 package com.neusoft.root.domain;
 
+//课程To老师表
 public class Courseteacher {
-	private String courseId;
-	private String teacherId;
+	private String courseId; //课程ID
+	private String teacherId; //老师ID
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -43,7 +44,6 @@ public class Courseteacher {
 	}
 	public Courseteacher() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getCourseId() {
 		return courseId;

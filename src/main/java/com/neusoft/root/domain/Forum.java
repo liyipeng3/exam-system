@@ -1,14 +1,16 @@
 package com.neusoft.root.domain;
 
 import java.sql.Date;
-//帖子
+//论坛帖子表
 public class Forum {
-	private Integer postId;
-	private String postDate;
-	private String senderId;
+
+	private Integer postId; //帖子ID
+	private String postDate; //发帖日期
+	private String senderId; //发送者ID
 	private String postTag;//分类标签
 	private String postOutline;//题目
 	private String postContext;//内容
+
 	public Forum(Integer postId, String postDate, String senderId, String postTag, String postOutline,
 			String postContext) {
 		super();

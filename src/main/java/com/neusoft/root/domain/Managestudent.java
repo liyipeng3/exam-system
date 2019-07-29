@@ -1,15 +1,14 @@
 package com.neusoft.root.domain;
 
-import java.util.Date;
-
-public class Managestudent {
-
-	private String classId;
-	private String studentId;
-	private String courseId;
-	private String examName;
-	private String examBegindate;
-	private String examEnddate;
+//考试安排学生表
+public class Managestudent 
+{
+	private String classId; //教室ID
+	private String studentId; //学生ID
+	private String courseId; //课程ID
+	private String examName; // 考试名字
+	private String examBegindate; //考试开始时间
+	private String examEnddate; //考试结束时间
 	public Managestudent(String classId, String studentId, String courseId, String examName, String examBegindate,
 			String examEnddate) {
 		super();
