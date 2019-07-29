@@ -3,7 +3,7 @@ package com.neusoft.root.domain;
 import java.util.Map;
 
 //老师批卷后的表
-public class ParseCheck 
+public class ParsedCheck 
 {
 	private String studentId;  // 学生ID
 	private Integer paperId; // 试卷ID 
@@ -14,10 +14,10 @@ public class ParseCheck
 	private Map<String, Double> subjectiveScore; //主观题得分，格式：ID1,分数1###ID2,分数2
 	private Double sumScore; //总分
 	private String checkDate; // 日期
-	public ParseCheck() {
+	public ParsedCheck() {
 		super();
 	}
-	public ParseCheck(String studentId, Integer paperId, String teacherId, Map<String, Double> singlechoiceScore,
+	public ParsedCheck(String studentId, Integer paperId, String teacherId, Map<String, Double> singlechoiceScore,
 			Map<String, Double> multichoiceScore, Map<String, Double> fillScore, Map<String, Double> subjectiveScore,
 			Double sumScore, String checkDate) {
 		super();
@@ -108,7 +108,7 @@ public class ParseCheck
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ParseCheck other = (ParseCheck) obj;
+		ParsedCheck other = (ParsedCheck) obj;
 		if (checkDate == null) {
 			if (other.checkDate != null)
 				return false;

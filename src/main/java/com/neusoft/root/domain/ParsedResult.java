@@ -3,7 +3,7 @@ package com.neusoft.root.domain;
 import java.util.Map;
 
 //学生答题结果
-public class ParseResult {
+public class ParsedResult {
 	private String studentId; //学生ID
 	private Integer paperId; //试卷ID
 	private Map<String, Double> singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
@@ -11,7 +11,7 @@ public class ParseResult {
 	private Map<String, Double> fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> submitDate; //答题日期
-	public ParseResult(String studentId, Integer paperId, Map<String, Double> singlechoiceResult,
+	public ParsedResult(String studentId, Integer paperId, Map<String, Double> singlechoiceResult,
 			Map<String, Double> multichoiceResult, Map<String, Double> fillResult, Map<String, Double> subjectiveResult,
 			Map<String, Double> submitDate) {
 		super();
@@ -23,7 +23,7 @@ public class ParseResult {
 		this.subjectiveResult = subjectiveResult;
 		this.submitDate = submitDate;
 	}
-	public ParseResult() {
+	public ParsedResult() {
 		super();
 	}
 	public String getStudentId() {
@@ -89,7 +89,7 @@ public class ParseResult {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ParseResult other = (ParseResult) obj;
+		ParsedResult other = (ParsedResult) obj;
 		if (fillResult == null) {
 			if (other.fillResult != null)
 				return false;
