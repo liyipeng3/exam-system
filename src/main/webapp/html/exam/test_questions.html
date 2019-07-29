@@ -128,7 +128,7 @@
                         tabindex="0"><i class="el-icon-d-arrow-left"></i></li>
                     <a href="/index">
                         <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip"
-                             style="padding-left: 20px;"><i
+                            style="padding-left: 20px;"><i
 
                                 class="icon icon-a_nav_home"></i><span class="title">首页</span></li>
                     </a><a href="/html/exam/test_questions#">
@@ -397,70 +397,7 @@
                                                             <col name="el-table_1_column_8" width="180">
                                                             <col name="el-table_1_column_9" width="166">
                                                         </colgroup>
-                                                        <tbody>
-
-
-                                                        <tr class="el-table__row">
-                                                            <td rowspan="1" colspan="1"
-                                                                class="el-table_1_column_1  el-table-column--selection is-hidden">
-                                                                <div class="cell"><label role="checkbox"
-                                                                                         class="el-checkbox"><span
-                                                                        aria-checked="mixed" class="el-checkbox__input"><span
-                                                                        class="el-checkbox__inner"></span><input
-                                                                        type="checkbox" aria-hidden="true"
-                                                                        class="el-checkbox__original" value=""></span>
-                                                                </label></div>
-                                                            </td>
-                                                            <td rowspan="1" colspan="1"
-                                                                class="el-table_1_column_2   is-hidden">
-                                                                <div class="cell el-tooltip" style="width: 79px;">单选
-                                                                </div>
-                                                            </td>
-                                                            <td rowspan="1" colspan="1"
-                                                                class="el-table_1_column_3   is-hidden">
-                                                                <div class="cell el-tooltip" style="width: 179px;">
-                                                                    试题分类/示例
-                                                                </div>
-                                                            </td>
-                                                            <td rowspan="1" colspan="1"
-                                                                class="el-table_1_column_4   is-hidden">
-                                                                <div class="cell el-tooltip" style="width: 660px;">
-                                                                    拜访他人应选择（）,并应提前打招呼。
-                                                                </div>
-                                                            </td>
-                                                            <td rowspan="1" colspan="1"
-                                                                class="el-table_1_column_5   is-hidden">
-                                                                <div class="cell el-tooltip" style="width: 79px;">简单
-                                                                </div>
-                                                            </td>
-                                                            <td rowspan="1" colspan="1"
-                                                                class="el-table_1_column_6   is-hidden">
-                                                                <div class="cell el-tooltip"
-                                                                     style="width: 199px;"></div>
-                                                            </td>
-                                                            <td rowspan="1" colspan="1"
-                                                                class="el-table_1_column_7   is-hidden">
-                                                                <div class="cell el-tooltip" style="width: 119px;">考试
-                                                                </div>
-                                                            </td>
-                                                            <td rowspan="1" colspan="1"
-                                                                class="el-table_1_column_8   is-hidden">
-                                                                <div class="cell el-tooltip" style="width: 179px;">
-
-                                                                </div>
-                                                            </td>
-                                                            <td rowspan="1" colspan="1" class="el-table_1_column_9  ">
-                                                                <div class="cell"><i
-                                                                        class="el-icon icon-a_operate_edit el-tooltip item"
-                                                                        aria-describedby="el-tooltip-6818"
-                                                                        tabindex="0"></i> <i
-                                                                        class="el-icon icon-a_operate_delete el-tooltip item"
-                                                                        aria-describedby="el-tooltip-692"
-                                                                        tabindex="0"></i></div>
-                                                            </td>
-                                                        </tr>
-
-                                                        </tbody>
+                                                        <tbody></tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -635,9 +572,20 @@
                 item += '<div class="cell el-tooltip" style="width: 179px;"></div></td>';
                 item += '<td class="el-table_1_column_9  " colspan="1" rowspan="1"><div class="cell">';
                 item += '<i class="el-icon icon-a_operate_edit el-tooltip item" tabindex="0"></i>';
-                item += '<i id="delete_"'+e.itemId + ' class="el-icon icon-a_operate_delete el-tooltip item" tabindex="0"></i>';
+                item += '<i id="delete_' + e.itemId + '" class="el-icon icon-a_operate_delete el-tooltip item" tabindex="0"></i>';
                 item += '</div></td></tr>';
                 $('tbody').append($(item));
+
+            });
+            $('.icon-a_operate_delete').click(function (e) {
+                $.get("/exam/delete_item", "id=" + ($(e.target).attr("id")), function (msg) {
+                    e.stopPropagation();
+                    if (msg == 'ok') {
+                        alert("删除成功！");
+                    } else {
+                        alert("删除失败！");
+                    }
+                });
             });
             $('span.el-checkbox__input').change(function () {
 
@@ -661,17 +609,9 @@
             });
         });
         $('#add_question').click(function () {
-           window.location.href="/html/exam/addtestqm";
+            window.location.href = "/html/exam/addtestqm";
         });
-        $('.icon-a_operate_delete').click(function () {
-            $.get("/exam/delete_item", ($(this).attr("id")), function (msg) {
-                if(msg=='ok'){
-                    alert("删除成功！");
-                } else {
-                    alert("删除失败！");
-                }
-            })
-        });
+
     });
 </script>
 </body>
