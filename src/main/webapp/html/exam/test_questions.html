@@ -575,16 +575,21 @@
                 item += '<i id="delete_' + e.itemId + '" class="el-icon icon-a_operate_delete el-tooltip item" tabindex="0"></i>';
                 item += '</div></td></tr>';
                 $('tbody').append($(item));
-
             });
+            $('.el-pagination__total').text("共 " + $('tbody').children.length + " 条");
             $('.icon-a_operate_delete').click(function (e) {
+                var msg = "您确定要删除吗吗？";
+                if (confirm(msg)==false){
+                    return;
+                }
                 $.get("/exam/delete_item", "id=" + ($(e.target).attr("id")), function (msg) {
                     e.stopPropagation();
                     if (msg == 'ok') {
                         alert("删除成功！");
                     } else {
                         alert("删除失败！");
-                    };
+                    }
+                    ;
                     window.location.reload();
                 });
             });
