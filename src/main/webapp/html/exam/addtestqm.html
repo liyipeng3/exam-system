@@ -1757,8 +1757,9 @@
     };
 
     $("#saveAndAddBtn").click(function (e) {
-        if ($('#item_type option:selected').val() === 1) {
-            var data = {
+        var data;
+        if ($('#item_type option:selected').val() == 1) {
+            data = {
                 "questionEditor": $('#questionEditor p').text(),
                 "analysisEditor": $('#analysisEditor p').text()
             };
@@ -1767,8 +1768,7 @@
             for (let i = 1; i <= len - 2; i++) {
                 data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
             }
-        }
-        alert(666);
+        };
         ajax_post("/exam/add_item", data);
     });
 
