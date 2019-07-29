@@ -175,9 +175,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 	<!-- 对考试答题结果增加 -->
-	<insert id="addResult" parameterType="Result">
+	<insert id="addResult" parameterType="RawResult">
 		insert into result_table
-		values(#{studentId},#{paperId},#{singlechoiceResult},#{multichoiceResult},#{fillResult},#{subjectiveResult})
+		values(#{studentId},#{paperId},#{singlechoiceResult},#{multichoiceResult},#{fillResult},#{subjectiveResult},#{submitDate})
 	</insert>
 
 	<!-- 学生改密码查询学生 -->

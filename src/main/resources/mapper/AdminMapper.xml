@@ -499,7 +499,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<!-- 学生答题结果管理 -->	
-	<select id="queryResult" parameterType="Result" resultMap="MyResult">
+	<select id="queryResult" parameterType="RawResult" resultMap="MyRawResult">
 		select *
 		from result_table
 		<where>
@@ -512,7 +512,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
-	<resultMap type="Result" id="MyResult">
+	<resultMap type="RawResult" id="MyRawResult">
 		<result column="student_id" property="studentId"/>
 		<result column="paper_id" property="paperId"/>
 		<result column="singlechoice_result" property="singlechoiceResult"/>
@@ -572,7 +572,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<!-- 老师批阅结果管理 -->
-	<select id="queryCheck" parameterType="Check" resultMap="MyCheck">
+	<select id="queryCheck" parameterType="RawCheck" resultMap="MyRawCheck">
 		select *
 		from check_table
 		<where>
@@ -588,7 +588,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
-	<resultMap type="Check" id="MyCheck">
+	<resultMap type="RawCheck" id="MyRawCheck">
 		<result column="student_id" property="studentId"/>
 		<result column="paper_id" property="paperId"/>
 		<result column="teacher_id" property="teacherId"/>

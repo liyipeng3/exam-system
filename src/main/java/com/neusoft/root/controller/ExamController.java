@@ -33,19 +33,32 @@ import com.neusoft.root.service.RawItemServiceImpl;
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
-	@Autowired
-	private PaperServiceImpl paperService;
-	@Autowired
-	private CourseServiceImpl courseService;
-	@Autowired
-	private RawItemServiceImpl rawItemService;
+/*	@Autowired
+	private PaperServiceImpl paperService;*/
+/*	@Autowired
+	private CourseServiceImpl courseService;*/
+/*	@Autowired
+	private RawItemServiceImpl rawItemService;*/
 	private String subject;
+	/**
+	 * 
+	 * 
+	 * @param paper_name
+	 * @param subject
+	 * @param method
+	 * @return
+	 */
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
 	public String paperSettings(String paper_name, String subject, String method) {
 		this.subject = subject;
 		return null;
 	}
+	/**
+	 * 获得所有试卷
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/get_papers", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPapers(){
@@ -63,6 +76,11 @@ public class ExamController {
 		return gson.toJson(papers);
 		//return gson.toJson(paperService.queryRawPaper(null));
 	}
+	/**
+	 * 获得试卷的所有科目
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperSubjects(){
@@ -74,6 +92,11 @@ public class ExamController {
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
+	/**
+	 * 获得所有科目
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/get_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getSubjects(){
@@ -86,6 +109,12 @@ public class ExamController {
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
+	/**
+	 * 获取所有试题
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/get_items", method=RequestMethod.GET)
 	@ResponseBody
 	public String getItems(HttpServletRequest request){
@@ -107,6 +136,38 @@ public class ExamController {
 		return gson.toJson(items);
 		//return gson.toJson(rawItemService.getRawItem(null));
 	}
+	/**
+	 * 获取科目对应的题
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="get_subject_items")
+	@ResponseBody
+	public String getSubjectItems(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String datestring = df.format(time);
+		List<RawItem> items = new ArrayList<>();
+		RawItem item1 = new RawItem(1, "10011",datestring,"itemCourseType", "itemType", 0.1, "itemQuestion", "itemOption", "itemAnswer", "itemPicture", 0.1,"");
+		RawItem item2 = new RawItem(2, "1008",datestring,"科目", "题型", 0.2, "题干", "选项", "答案", "配图路径", 0.2,"");
+		RawItem item3 = new RawItem(3, "1008611",datestring, "马克思主义原理", "送分题", 99.9, "老大帅不帅", "是/是", "是", "> A <", 99.9,"");
+		RawItem item4 = new RawItem(4, username, datestring, "语文", "单选题", 0.6,"老大帅不帅" , "是/是", "是",  "> A <", 99.9,"");
+		items.add(item1);
+		items.add(item2);
+		items.add(item3);
+		items.add(item4);
+		Gson gson = new Gson();
+		return gson.toJson(items);
+	}
+	/**
+	 * 添加试题
+	 * 
+	 * @param jsonParam
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/add_item",method=RequestMethod.POST)
 	@ResponseBody
 	public String addItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
@@ -119,7 +180,7 @@ public class ExamController {
 		jsonParam.put("createrId", username);
 		jsonParam.put("itemDate", date);
 		System.out.println(jsonParam.toString());
-		rawItemService.addRawItem(jsonParam);
+		//rawItemService.addRawItem(jsonParam);
 		return "ok";
 	}
 }

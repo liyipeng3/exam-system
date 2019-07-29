@@ -31,17 +31,17 @@ public class RawItemServiceImpl implements RawItemService{
 		
 	}
 	@Override
-	public void deleteRawItem(RawItem rawItem) {
+	public void deleteRawItem(JSONObject json) {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void updateRawItem(RawItem rawItem) {
+	public void updateRawItem(JSONObject json) {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public List<ParsedItem> queryRawItem(RawItem rawItem) {
+	public List<ParsedItem> queryRawItem(JSONObject json) {
 		// TODO Auto-generated method stub
 		return null;
 	}

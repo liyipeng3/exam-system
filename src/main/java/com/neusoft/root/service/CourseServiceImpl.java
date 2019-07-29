@@ -18,7 +18,7 @@ public class CourseServiceImpl implements CourseService{
 	AdminMapper mapper;
 
 	@Override
-	public void addCource(JSONObject json) {
+	public void addCourse(JSONObject json) {
 		// TODO Auto-generated method stub
 		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"));
 		mapper.addCource(course);
