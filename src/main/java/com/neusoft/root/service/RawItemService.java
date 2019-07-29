@@ -17,7 +17,7 @@ public interface RawItemService {
 	 * @param subjects 科目
 	 * @return 该科目所有题目
 	 */
-	public List<RawItem> getRawItem(String subjects);
+	public List<RawItem> queryRawItem(String subjects);
 	/**
 	 * 增加试题
 	 * @param json rawitem串
@@ -27,7 +27,7 @@ public interface RawItemService {
 	 * 删除试题
 	 * @param rawItem rawitem串
 	 */
-	public void deleteRawItem(JSONObject json);
+	public void deleteRawItem(Integer id);
 	/**
 	 * 更新试题
 	 * @param rawItem rawitem串
@@ -38,5 +38,5 @@ public interface RawItemService {
 	 * @param rawItem rawitem串
 	 * @return parseditem的list
 	 */
-	public List<ParsedItem> queryRawItem(JSONObject json);
+	public List<ParsedItem> queryParsedItem(String subjects);
 }
