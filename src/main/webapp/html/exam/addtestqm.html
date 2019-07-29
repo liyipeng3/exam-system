@@ -1791,8 +1791,9 @@
 
     $.ajax({
         url: "/exam/add_item",
-        method: "POST",
+        method: "GET",
         data: {'cehsi': '10086'},
+        dataType: 'text',
         success: function () {
             alert('success');
         },
