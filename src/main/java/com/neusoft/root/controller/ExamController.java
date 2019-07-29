@@ -23,7 +23,7 @@ import com.neusoft.root.domain.Subjects;
 
 @Controller
 @RequestMapping("/exam")
-public class PaperGeneratorController {
+public class ExamController {
 /*	@Autowired
 	private GetPaperServiceImpl getpapersubjects;*/
 	private String subject;
@@ -79,4 +79,5 @@ public class PaperGeneratorController {
 		Gson gson = new Gson();
 		return gson.toJson(items);
 	}
+	public
 }
