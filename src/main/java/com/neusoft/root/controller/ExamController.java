@@ -172,7 +172,7 @@ public class ExamController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="delete_item",method=RequestMethod.GET)
+	@RequestMapping(value="/delete_item",method=RequestMethod.GET)
 	@ResponseBody
 	public String deleteItem(String id, HttpServletRequest request){
 		if(id != null){
@@ -191,7 +191,7 @@ public class ExamController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="update_item",method=RequestMethod.GET)
+	@RequestMapping(value="/update_item",method=RequestMethod.GET)
 	@ResponseBody
 	public String updateItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
 		HttpSession session = request.getSession();
