@@ -17,7 +17,7 @@ import com.neusoft.root.domain.Subjects;
 @Service
 public class PaperServiceImpl implements PaperService{
 	@Autowired
-	TeacherMapper teachermapper;
+	TeacherMapper mapper;
 
 	@Override
 	public void addRawPaper(JSONObject json) {
@@ -41,6 +41,15 @@ public class PaperServiceImpl implements PaperService{
 	public List<ParsedPaper> queryRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<String> queryPaperCourse() {
+		// TODO Auto-generated method stub
+		List<String> list = new ArrayList<>();
+		
+		return null;
 	}	
+	
 	
 }
