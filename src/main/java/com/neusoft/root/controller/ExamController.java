@@ -15,11 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
@@ -73,6 +72,7 @@ public class ExamController {
 		subjects.add("数学");
 		subjects.add("英语");
 		subjects.add("历史");
+		
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
@@ -98,14 +98,14 @@ public class ExamController {
 	}
 	@RequestMapping(value="/add_item",method=RequestMethod.POST)
 	@ResponseBody
-	public String addItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
+	public String addItem(@RequestBody JsonObject jsonParam, HttpServletRequest request){
 		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String date = df.format(time);
-		jsonParam.put("createrId", username);
-		jsonParam.put("itemDate", date);
+		jsonParam.addProperty("createId", username);
+		jsonParam.addProperty("itemDate", date);
 		System.out.println(jsonParam.toString());
 		return "ok";
 	}
