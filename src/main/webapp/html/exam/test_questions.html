@@ -407,12 +407,6 @@
                                         </div>
                                         <div class="el-pagination is-background"><span class="el-pagination__total">共 ? 条</span><span
                                                 class="el-pagination__sizes"><div class="el-select el-select--mini"><div
-                                                class="el-input el-input--mini el-input--suffix"><input
-                                                type="text" readonly="readonly" autocomplete="off" placeholder="请选择"
-                                                class="el-input__inner"><span class="el-input__suffix"><span
-                                                class="el-input__suffix-inner"><i
-                                                class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                            </span></span></div><div
                                                 class="el-select-dropdown el-popper"
                                                 style="display: none; min-width: 110px;"><div class="el-scrollbar"
                                                                                               style=""><div
@@ -575,16 +569,21 @@
                 item += '<i id="delete_' + e.itemId + '" class="el-icon icon-a_operate_delete el-tooltip item" tabindex="0"></i>';
                 item += '</div></td></tr>';
                 $('tbody').append($(item));
-
             });
+            $('.el-pagination__total').text("共 " + $('tbody').children().length / 2 + " 条");
             $('.icon-a_operate_delete').click(function (e) {
+                var msg = "您确定要删除吗吗？";
+                if (confirm(msg) == false) {
+                    return;
+                }
                 $.get("/exam/delete_item", "id=" + ($(e.target).attr("id")), function (msg) {
                     e.stopPropagation();
                     if (msg == 'ok') {
                         alert("删除成功！");
                     } else {
                         alert("删除失败！");
-                    };
+                    }
+                    ;
                     window.location.reload();
                 });
             });

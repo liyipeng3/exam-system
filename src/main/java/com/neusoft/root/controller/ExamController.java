@@ -87,9 +87,6 @@ public class ExamController {
 	@ResponseBody
 	public String getPaperSubjects(){
 		Subjects subjects = new Subjects();
-/*		subjects.add("语文");
-		subjects.add("数学");
-		subjects.add("英语");*/
 		subjects.setSubjects(paperService.queryPaperCourse());
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
@@ -103,10 +100,6 @@ public class ExamController {
 	@ResponseBody
 	public String getSubjects(){
 		Subjects subjects = new Subjects();
-/*		subjects.add("语文");
-		subjects.add("数学");
-		subjects.add("英语");
-		subjects.add("历史");*/
 		subjects.setSubjects(courseService.queryAllCourse());
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
@@ -120,23 +113,10 @@ public class ExamController {
 	@RequestMapping(value="/get_items", method=RequestMethod.GET)
 	@ResponseBody
 	public String getItems(HttpServletRequest request){
-		HttpSession session = request.getSession();
-		String username = session.getAttribute("username").toString();
-		long time = System.currentTimeMillis();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String datestring = df.format(time);
 		List<RawItem> items = new ArrayList<>();
-		RawItem item1 = new RawItem(1, "10011",datestring,"itemCourseType", "itemType", 0.1, "itemQuestion", "itemOption", "itemAnswer", "itemPicture", 0.1,"");
-		RawItem item2 = new RawItem(2, "1008",datestring,"科目", "题型", 0.2, "题干", "选项", "答案", "配图路径", 0.2,"");
-		RawItem item3 = new RawItem(3, "1008611",datestring, "马克思主义原理", "送分题", 99.9, "老大帅不帅", "是/是", "是", "> A <", 99.9,"");
-		RawItem item4 = new RawItem(4, username, datestring, "语文", "单选题", 0.6,"老大帅不帅" , "是/是", "是",  "> A <", 99.9,"");
-		items.add(item1);
-		items.add(item2);
-		items.add(item3);
-		items.add(item4);
 		Gson gson = new Gson();
-		//return gson.toJson(items);
-		return gson.toJson(rawItemService.queryRawItem(null));
+		items = rawItemService.queryRawItem(null);
+		return gson.toJson(items);
 	}
 	/**
 	 * 获取科目对应的题
@@ -182,7 +162,7 @@ public class ExamController {
 		jsonParam.put("createrId", username);
 		jsonParam.put("itemDate", date);
 		System.out.println(jsonParam.toString());
-		//rawItemService.addRawItem(jsonParam);
+		rawItemService.addRawItem(jsonParam);
 		return "ok";
 	}
 	/**
@@ -192,7 +172,7 @@ public class ExamController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="delete_item",method=RequestMethod.GET)
+	@RequestMapping(value="/delete_item",method=RequestMethod.GET)
 	@ResponseBody
 	public String deleteItem(String id, HttpServletRequest request){
 		if(id != null){
@@ -211,7 +191,7 @@ public class ExamController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="update_item",method=RequestMethod.GET)
+	@RequestMapping(value="/update_item",method=RequestMethod.GET)
 	@ResponseBody
 	public String updateItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
 		HttpSession session = request.getSession();
@@ -222,7 +202,7 @@ public class ExamController {
 		jsonParam.put("createrId", username);
 		jsonParam.put("itemDate", date);
 		System.out.println(jsonParam.toString());
-		//rawItemService.updateRawItem(jsonParam);
+		rawItemService.updateRawItem(jsonParam);
 		return "ok";
 	}
 }
