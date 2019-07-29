@@ -182,4 +182,12 @@ public class ExamController {
 		//rawItemService.addRawItem(jsonParam);
 		return "ok";
 	}
+	@RequestMapping(value="delete_item",method=RequestMethod.GET)
+	@ResponseBody
+	public String deleteItem(String id, HttpServletRequest request){
+		id = id.substring(7);
+		int i = Integer.valueOf(id);
+		System.out.println(id);
+		return "ok";
+	}
 }
