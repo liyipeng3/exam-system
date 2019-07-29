@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.neusoft.root.MD5;
 import com.neusoft.root.service.LoginService;
 
 @Controller
@@ -28,15 +27,15 @@ public class LoginController {
 		switch(result){
 		case 1:
 			session.setAttribute("username",username);
-			session.setAttribute("flag","admin");
+			session.setAttribute("flag", 3);
 			return "admin";
 		case 2:
 			session.setAttribute("username",username);
-			session.setAttribute("flag","student");
+			session.setAttribute("flag", 1);
 			return "student";
 		case 3:
 			session.setAttribute("username",username);
-			session.setAttribute("flag","teacher");
+			session.setAttribute("flag", 2);
 			return "teacher";
 		default:
 			return "用户名或密码错误";
