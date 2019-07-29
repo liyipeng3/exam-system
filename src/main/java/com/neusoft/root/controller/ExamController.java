@@ -62,6 +62,7 @@ public class ExamController {
 	@RequestMapping(value="/get_papers", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPapers(){
+		System.out.println("getpapers");
 		List<RawPaper> papers = new ArrayList<>();
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -72,6 +73,7 @@ public class ExamController {
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);
+		//papers = paperService.queryRawPaper(null);
 		Gson gson = new Gson();
 		return gson.toJson(papers);
 		//return gson.toJson(paperService.queryRawPaper(null));
@@ -85,10 +87,10 @@ public class ExamController {
 	@ResponseBody
 	public String getPaperSubjects(){
 		Subjects subjects = new Subjects();
-		subjects.add("语文");
+/*		subjects.add("语文");
 		subjects.add("数学");
-		subjects.add("英语");
-		//subjects.setSubjects(paperService.queryAllCourse());
+		subjects.add("英语");*/
+		subjects.setSubjects(paperService.queryPaperCourse());
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
@@ -101,11 +103,11 @@ public class ExamController {
 	@ResponseBody
 	public String getSubjects(){
 		Subjects subjects = new Subjects();
-		subjects.add("语文");
+/*		subjects.add("语文");
 		subjects.add("数学");
 		subjects.add("英语");
-		subjects.add("历史");
-		//subjects.setSubjects(courseService.queryAllCourse());
+		subjects.add("历史");*/
+		subjects.setSubjects(courseService.queryAllCourse());
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
@@ -133,8 +135,8 @@ public class ExamController {
 		items.add(item3);
 		items.add(item4);
 		Gson gson = new Gson();
-		return gson.toJson(items);
-		//return gson.toJson(rawItemService.getRawItem(null));
+		//return gson.toJson(items);
+		return gson.toJson(rawItemService.queryRawItem(null));
 	}
 	/**
 	 * 获取科目对应的题
@@ -197,7 +199,7 @@ public class ExamController {
 			id = id.substring(7);
 			int i = Integer.valueOf(id);
 			System.out.println(id);
-			//rawItemService.deleteRawItem(i);
+			rawItemService.deleteRawItem(i);
 			return "ok";
 		}
 		return "error";
