@@ -1758,17 +1758,40 @@
 
     $("#saveAndAddBtn").click(function (e) {
         var data;
-        if ($('#item_type option:selected').val() == 1) {
-            data = {
-                "questionEditor": $('#questionEditor p').text(),
-                "analysisEditor": $('#analysisEditor p').text()
-            };
-            var len = $('.keyRadio').children().length;
-            data['option_length'] = len - 2;
-            for (let i = 1; i <= len - 2; i++) {
-                data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
-            }
-        };
+        var option = $('#item_type option:selected').val();
+        switch (option) {
+            case 1:
+                var ans = $('input:radio:checked').parent().sibling().find(".questions_add").attr("id");
+                data = {
+                    "questionEditor": $('#questionEditor p').text(),
+                    "analysisEditor": $('#analysisEditor p').text()
+                };
+                var len = $('.keyRadio').children().length;
+                data['option_length'] = len - 2;
+                data["itemType"] = "单选题";
+                data['answer'] = ans;
+                for (let i = 1; i <= len - 2; i++) {
+                    data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
+                }
+                break;
+            case 2:
+                data = {
+                    "questionEditor": $('#questionEditor p').text(),
+                    "analysisEditor": $('#analysisEditor p').text()
+                };
+                var ans = $('input:radio:checked').parent().sibling().find('.questions_add').each(function (index, e) {
+                   data['answer' + index] = e.attr('id');
+                });
+                var len = $('.keyRadio').children().length;
+                data['option_length'] = len - 2;
+                data["itemType"] = "多选题";
+                for (let i = 1; i <= len - 2; i++) {
+                    data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
+                }
+                break;
+        }
+
+
         ajax_post("/exam/add_item", data);
     });
 
