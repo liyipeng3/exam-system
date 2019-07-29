@@ -78,6 +78,5 @@ public class ExamController {
 		items.add(item3);
 		Gson gson = new Gson();
 		return gson.toJson(items);
-	}
-	public
+	} 
 }
