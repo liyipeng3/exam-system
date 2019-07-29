@@ -14,7 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.neusoft.root.domain.MyLog;
-
+/**
+ * 
+ * 
+ * @author 何时谷雨
+ *
+ */
 @Controller
 @RequestMapping("/system")
 public class SystemController {

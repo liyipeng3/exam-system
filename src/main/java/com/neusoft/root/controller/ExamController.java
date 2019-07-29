@@ -24,22 +24,41 @@ import com.neusoft.root.service.CourseServiceImpl;
 import com.neusoft.root.service.PaperServiceImpl;
 import com.neusoft.root.service.RawItemServiceImpl;
 
+/**
+ * 
+ * 
+ * @author 何时谷雨
+ *
+ */
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
-	@Autowired
-	private PaperServiceImpl paperService;
-	@Autowired
-	private CourseServiceImpl courseService;
-	@Autowired
-	private RawItemServiceImpl rawItemService;
+/*	@Autowired
+	private PaperServiceImpl paperService;*/
+/*	@Autowired
+	private CourseServiceImpl courseService;*/
+/*	@Autowired
+	private RawItemServiceImpl rawItemService;*/
 	private String subject;
+	/**
+	 * 
+	 * 
+	 * @param paper_name
+	 * @param subject
+	 * @param method
+	 * @return
+	 */
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
 	public String paperSettings(String paper_name, String subject, String method) {
 		this.subject = subject;
 		return null;
 	}
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/get_papers", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPapers(){
@@ -57,6 +76,11 @@ public class ExamController {
 		return gson.toJson(papers);
 		//return gson.toJson(paperService.queryRawPaper(null));
 	}
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperSubjects(){
@@ -68,6 +92,11 @@ public class ExamController {
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/get_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getSubjects(){
@@ -80,6 +109,12 @@ public class ExamController {
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
+	/**
+	 * 
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/get_items", method=RequestMethod.GET)
 	@ResponseBody
 	public String getItems(HttpServletRequest request){
@@ -101,6 +136,13 @@ public class ExamController {
 		return gson.toJson(items);
 		//return gson.toJson(rawItemService.getRawItem(null));
 	}
+	/**
+	 * 添加试题
+	 * 
+	 * @param jsonParam
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/add_item",method=RequestMethod.POST)
 	@ResponseBody
 	public String addItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
@@ -113,6 +155,7 @@ public class ExamController {
 		jsonParam.put("createrId", username);
 		jsonParam.put("itemDate", date);
 		System.out.println(jsonParam.toString());
+		//rawItemService.addRawItem(jsonParam);
 		return "ok";
 	}
 }

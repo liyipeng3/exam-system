@@ -5,7 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
-
+/**
+ * S级权限拦截器
+ * 
+ * @author 何时谷雨
+ *
+ */
 public class SInterceptor implements HandlerInterceptor {
 
 	@Override

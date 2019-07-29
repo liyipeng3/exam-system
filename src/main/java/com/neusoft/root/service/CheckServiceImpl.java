@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.dao.TeacherMapper;
-import com.neusoft.root.domain.Check;
+import com.neusoft.root.domain.ParsedCheck;
+import com.neusoft.root.domain.RawCheck;
 
 @Service
 public class CheckServiceImpl implements CheckService{
@@ -16,31 +17,38 @@ public class CheckServiceImpl implements CheckService{
 	@Override
 	public void addCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-		Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
-		mapper.addCheck(check);
+		//Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
+		//mapper.addCheck(check);
 	}
 
 	@Override
 	public void deleteCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-		Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));	
-		mapper.deleteCheck(check);
+		//Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));	
+		//mapper.deleteCheck(check);
 	}
 
 	@Override
 	public void updateCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-		Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));		
-		mapper.updateCheck(check);
+		//Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));		
+		//mapper.updateCheck(check);
 	}
 
 	@Override
-	public List<Check> queryCheck(JSONObject json) {
+	public List<ParsedCheck> queryParsedCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-		Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
-		List<Check> list= mapper.queryCheck(check);
-		return list;
+		//Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
+		//List<Check> list= mapper.queryCheck(check);
+		return null;
 	}
+
+	@Override
+	public List<RawCheck> queryRawCheck(JSONObject json) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 }

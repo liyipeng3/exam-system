@@ -139,19 +139,19 @@
                                         class="nav-title">考试信息管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item nav-item-active" id="subNavItemQuestionMgr"><a
-                                        href="https://v..com/admin/testQuestions/#/list"><span
+                                        href="/html/exam/test_questions"><span
                                         class="nav-title">试题库</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
                                         href="/html/exam/paper_mgr_new"><span class="nav-title">试卷库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
-                                        href="https://admin..com/admin/result/mgr_new"><span
+                                        href="/html/exam/mgr_new"><span
                                         class="nav-title">成绩查询批改</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
-                                        href="https://new..com/ae/results/analysis/exam"><span
+                                        href="/html/exam/exam_analysis"><span
                                         class="nav-title">分析考试</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
-                                        href="https://new..com/ae/results/analysis/person"><span
+                                        href="/html/exam/student_analysis"><span
                                         class="nav-title">分析考生</span></a></li>
                             </ul>
                         </li>
@@ -162,10 +162,10 @@
                             <span class="nav-title">人员管理</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
-                                        href="https://v..com/admin/user/#/list"><span
+                                        href="/html/user/user_list"><span
                                         class="nav-title">考生信息</span></a></li>
                                 <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
-                                        href="https://admin..com/admin/user_reg"><span
+                                        href="/html/user/user_reg"><span
                                         class="nav-title">注册设置</span></a></li>
                             </ul>
                         </li>
@@ -176,13 +176,13 @@
                             <span class="nav-title">学习</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
-                                        href="https://admin..com/admin/file/manager"><span class="nav-title">知识库</span></a>
+                                        href="/html/study/manager"><span class="nav-title">知识库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
-                                        href="https://admin..com/course/course_mgr"><span class="nav-title">课程管理</span></a>
+                                        href="/html/study/course_mgr"><span class="nav-title">课程管理</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="https://admin..com/course/study_record_mgr/course"><span
+                                        href="/html/study/study_record_mgr"><span
                                         class="nav-title">学习记录</span></a></li>
                             </ul>
                         </li>
@@ -227,13 +227,13 @@
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemSystem"><a
-                                href="https://admin..com/admin/addtestqm#" class="menu-title"
+                                href="/html/exam/addtestqm#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="系统管理">
                             <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
                             <span class="nav-title">系统管理</span></a>
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
-                                        href="https://admin..com/admin/sub_admin_mgr"><span
+                                        href="/html/system/sub_admin_mgr"><span
                                         class="nav-title">子管理员设置</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemAdvancedSetMgr"><a
@@ -359,15 +359,14 @@
                                     <div role="tabpanel" class="tab-pane active" id="manualInput">
                                         <div class="batch-type">
                                             <span class="intro">科目</span>
-                                            <div class="simulationSelect testType">
+                                            <div class="simulationSelect">
                                                 <span class="title-font">选择科目</span>
                                                 <em class="glyphicon glyphicon-triangle-bottom"></em>
-                                                <div class="simulationOption subjects" style="display: none;">
+                                                <div class="simulationOption difficult subjects" style="display: none;">
+
                                                 </div>
                                             </div>
-                                            <select name="type" class="hidden subjects">
-                                                <option value="1" selected="">语文</option>
-
+                                            <select id="select_course_type" class="form-control hidden subjects_option">
                                             </select>
 
                                             <span class="intro">试题类型</span>
@@ -377,7 +376,6 @@
                                                 <div class="simulationOption testType" style="display: none;">
                                                     <div class="one">单选题</div>
                                                     <div class="two">多选题</div>
-                                                    <div class="three">判断题</div>
                                                     <div class="four">填空题</div>
                                                     <div class="five">问答题</div>
                                                 </div>
@@ -385,7 +383,6 @@
                                             <select name="type" id="item_type" class="form-control hidden">
                                                 <option value="1" selected="">单选题</option>
                                                 <option value="2">多选题</option>
-                                                <option value="3">判断题</option>
                                                 <option value="4">填空题</option>
                                                 <option value="5">问答题</option>
                                             </select>
@@ -400,7 +397,7 @@
                                                     <div class="three">困难</div>
                                                 </div>
                                             </div>
-                                            <select name="difficult" class="form-control hidden">
+                                            <select name="difficult" id="select_difficult" class="form-control hidden">
                                                 <option value="simple" selected="">简单</option>
                                                 <option value="middle">普通</option>
                                                 <option value="hard">困难</option>
@@ -1149,7 +1146,8 @@
                                                 </div>
                                                 <div class="wangEditor-container active">
                                                     <div id="questionEditor" class="questions_add wangEditor-txt"
-                                                         contenteditable="true" style="height: 85px;"><p><br></p></div>
+                                                         contenteditable="true" style="height: 85px;"><p><br>
+                                                    </p></div>
                                                 </div>
                                                 <input name="question" type="hidden"
                                                        value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
@@ -1270,8 +1268,9 @@
                                                 <div class="keyFillContent">
                                                     <div class="input-group">
                                                         <span class="input-group-addon">1</span>
-                                                        <div class="bootstrap-tagsinput"><input type="text"
-                                                                                                placeholder="请输入答案，按下回车添加同义词。">
+                                                        <div>
+                                                            <input type="text" name="keyFill" class="form-control"
+                                                                   placeholder="请输入答案">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1294,27 +1293,6 @@
 
                                                 <input name="answer1" type="hidden">
                                                 <input type="hidden" class="radioOrCheck" name="key1" value="1">
-                                                <div class="keyWordPanel">
-                                                    <div class="title" style="position: relative;">
-                                                        <span class="tip">关键词</span>
-                                                        <span class="intro">这里添加答案关键词</span><span
-                                                            class="keyWordBadge">?</span>
-                                                        <div id="keyWordContent">
-                                                            系统将自动根据关键字进行判分,每个核心词是普通词分数的2倍。并列关键词（或的关系）用 | 去分隔。
-                                                        </div>
-                                                    </div>
-                                                    <div class="key_block" id="keyBlock" style="display:none"></div>
-                                                    <input type="text" name="key_word" class="form-control"
-                                                           placeholder="添加关键词">
-                                                    <div class="button-bar">
-                                                        <button type="button" class="btn btn-gray btn-normal-word"
-                                                                id="normalWord"><em class="icons8-plus"></em>普通关键词
-                                                        </button>
-                                                        <button type="button" class="btn btn-warning btn-key-word"
-                                                                id="keyWord"><em class="icons8-plus"></em>核心关键词
-                                                        </button>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="analysisPanel">
                                                 <div class="title">
@@ -1580,6 +1558,7 @@
     var activeNavItem = 'subNavItemQuestionMgr';
 
     $(function () {
+
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
             e.preventDefault();
@@ -1634,62 +1613,6 @@
 <script type="text/javascript" src="../../js/auto-line-number.js"></script>
 <script type="text/javascript" src="../../js/markdown-v1.0.js"></script>
 <script>
-    var qt_type = "1";
-    $(function () {
-        $('div#text-input').froalaEditor({
-            key: 'AODOd2HLEBFZOTGHW==',
-            charCounterCount: false,
-            language: 'zh_cn',
-            spellcheck: false,
-            toolbarInline: false,
-            placeholderText: '请将当前所选题型的所有试题复制到这里',
-            pasteAllowLocalImages: true,
-            imageDefaultWidth: 'auto',//图片默认宽度
-            imageDefaultAlign: 'left',
-            wordAllowedStyleProps: [],//允许从word粘贴的标签的样式
-            htmlAllowedTags: ["p", "img", "br", "sub", "sup", "div"],//允许出现的标签
-            imageAllowedTypes: ["jpeg", "jpg", "png"],
-            imageUploadParam: "multipartFile",
-            imageUploadParams: {code: 1},
-            imageUploadURL: '/upload/image'//上传到本地服务器
-        })
-            .on('froalaEditor.contentChanged', function (e, editor) {
-                $('div#preview').html(markdown.toHTML(editor.html.get().replace(/<p>/g, "\n\n").replace(/<\/p>/g, "\n\n").replace(/<br>/g, "\n\n").replace(/auto;">/g, 'auto;">\n\n')));
-                // 标记答案
-                markAnswer(qt_type);
-                changeSize();
-                checkError();
-            });
-    });
-
-    // 标记答案
-    function markAnswer(type) {
-        var list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
-        if (type == "1" || type == "2") {
-            $(".question").each(function (index, element) {
-                var answer = $(this).find(".qt_answer").addClass("hidden").text().replace(/^答案[:：]/, "").toUpperCase();
-                for (var i = 0; i < list.length; i++) {
-                    if (answer.search(list[i]) != -1) {
-                        $(this).find(".key_" + list[i] + " .checkOrRadio").prop("checked", true);
-                    }
-                }
-            });
-        }
-    }
-
-    //当题号过长时改变字号
-    function changeSize() {
-        $(".question .qt_title .title").each(function (index, element) {
-            var $numWords = $(this).text().length;
-            if ($numWords == 4) {
-                $(this).css({"font-size": "20px"});
-            } else if ($numWords == 5) {
-                $(this).css({"font-size": "16px"});
-            } else if ($numWords > 5) {
-                $(this).css({"font-size": "14px"});
-            }
-        });
-    }
 
     //关键字提示信息的出现与隐藏
     $('.keyWordBadge').hover(function () {
@@ -1708,14 +1631,27 @@
     $('body').click(function () {
         $('.simulationOption').hide();
     });
-    $(".body-content .cont-r .tab-content .batch-type .simulationOption div").click(function (e) {
-        var idx = $(this).index();
-        $(this).parents('.simulationSelect').next().children().prop("selected", false);
-        e.stopPropagation();
-        var sel = $(this).text();
-        $(this).parents(".simulationSelect").children("span").text(sel);
-        $(this).parent().hide();
-        $(this).parents('.simulationSelect').next().children().eq(idx).prop('selected', 'selected').change()
+
+    $.getJSON("/exam/get_subjects", function (result) {
+
+        $.each(result.subjects, function (index, e) {
+
+            $subject_option = $("<option value=" + index + ">" + e + "</option>");
+            $subject = $("<div class='v" + index + "'>" + e + "</div>");
+
+            $('.subjects').append($subject);
+            $('.subjects_option').append($subject_option);
+        });
+
+        $(".body-content .cont-r .tab-content .batch-type .simulationOption div").click(function (e) {
+            var idx = $(this).index();
+            $(this).parents('.simulationSelect').next().children().prop("selected", false);
+            e.stopPropagation();
+            var sel = $(this).text();
+            $(this).parents(".simulationSelect").children("span").text(sel);
+            $(this).parent().hide();
+            $(this).parents('.simulationSelect').next().children().eq(idx).prop('selected', 'selected').change()
+        });
     });
 
     //答案乱序
@@ -1732,13 +1668,6 @@
         $(".answer-prompt").hide();
     });
 
-
-    $.getJSON("/exam/get_subjects", function (result) {
-        $.each(result.subjects, function (index, e) {
-            $subject = $("<div value=op" + index + ">" + e + "</div>");
-            $(".subjects").append($subject);
-        });
-    });
 
     function ajax_post(url, data) {
         $.ajax({
@@ -1757,44 +1686,107 @@
     };
 
     $("#saveAndAddBtn").click(function (e) {
-        var data;
+        var data = {};
         var option = $('#item_type option:selected').val();
+        var subject = $('#select_course_type option:selected').text();
+        var difficult = $('#select_difficult option:selected').text();
+        if ($('#questionEditor').text() == '') {
+            alert('请输入题干！');
+            return;
+        }
         switch (option) {
-            case 1:
-                var ans = $('input:radio:checked').parent().sibling().find(".questions_add").attr("id");
+            case '1':
+                var ans = $('input:radio:checked').parent().siblings().find(".questions_add").attr("id");
+                if (ans == 'questionEditor') {
+                    alert("请选择正确答案！");
+                    return;
+                }
                 data = {
                     "questionEditor": $('#questionEditor p').text(),
                     "analysisEditor": $('#analysisEditor p').text()
                 };
                 var len = $('.keyRadio').children().length;
+
+                data['subject'] = subject;
+                data['difficult'] = difficult;
                 data['option_length'] = len - 2;
                 data["itemType"] = "单选题";
                 data['answer'] = ans;
                 for (let i = 1; i <= len - 2; i++) {
-                    data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
+                    var ops = $('#key' + i + 'Editor p').text().trim();
+                    if (ops == "") {
+                        alert("请输入完整选项！");
+                        return;
+                    }
+                    data["key" + i + "Editor"] = ops;
                 }
                 break;
-            case 2:
+            case '2':
                 data = {
-                    "questionEditor": $('#questionEditor p').text(),
-                    "analysisEditor": $('#analysisEditor p').text()
+                    "questionEditor": $('#questionEditor').text(),
+                    "analysisEditor": $('#analysisEditor').text()
                 };
-                var ans = $('input:radio:checked').parent().sibling().find('.questions_add').each(function (index, e) {
-                   data['answer' + index] = e.attr('id');
+                if ($('input:checkbox:checked').length == 0) {
+                    alert("请至少选择一个选项！");
+                    return;
+                }
+                $('input:checkbox:checked').parent().siblings().find('.questions_add').each(function (index, e) {
+                    data['answer' + index + 1] = $(e).attr('id');
                 });
                 var len = $('.keyRadio').children().length;
+                data['subject'] = subject;
+                data['difficult'] = difficult;
                 data['option_length'] = len - 2;
                 data["itemType"] = "多选题";
                 for (let i = 1; i <= len - 2; i++) {
-                    data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
+                    var ans = $('#key' + i + 'Editor').text().trim();
+                    if (ans == '') {
+                        alert("请输入完整选项！");
+                        return;
+                    }
+                    data["key" + i + "Editor"] = ans;
+
                 }
                 break;
-            case 3:;
+            case '4':
+                data = {
+                    "questionEditor": $('#questionEditor').text(),
+                    "analysisEditor": $('#analysisEditor').text()
+                };
+                $('input:text').each(function (index, e) {
+                    var ans = $(e).val().trim();
+                    if (ans == '') {
+                        alert("请输入完整选项！");
+                        return;
+                    }
+                    data['answer' + index + 1] = ans;
+                });
+                var len = $('.keyFill').children().length;
+                data['option_length'] = len - 2;
+                data["itemType"] = "填空题";
+                data['subject'] = subject;
+                data['difficult'] = difficult;
+                break;
+            case '5':
+                data = {
+                    "questionEditor": $('#questionEditor').text(),
+                    "analysisEditor": $('#analysisEditor').text(),
+                    "answer": $('#clozeEditor').text()
+                };
+                if ($('#clozeEditor').text() == '') {
+                    alert("请输入答案！");
+                    return;
+                }
+                data["itemType"] = "问答题";
+                data['subject'] = subject;
+                data['difficult'] = difficult;
+
         }
-
-
+        //console.log(data);
         ajax_post("/exam/add_item", data);
+        alert("录入成功");
     });
+
 
 </script>
 <script type="text/javascript" src="../../js/admin_addQuestions.js"></script>
