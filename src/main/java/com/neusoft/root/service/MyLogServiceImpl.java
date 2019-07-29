@@ -46,7 +46,7 @@ public class MyLogServiceImpl implements MyLogService{
 		map.put("opType",myLog.getOpType());
 		map.put("opMsg",myLog.getOpMsg());
 		map.put("opPage",myLog.getOpPage());
-		mapper.updateClass(map);
+		mapper.updateMyLog(map);
 	}
 
 	@Override

@@ -5,11 +5,36 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.domain.Course;
-
+/**
+ * 课程
+ * @author Warriors
+ *
+ */
 public interface CourseService {
-	public void addCource(JSONObject json);
+	/**
+	 * 增加课程
+	 * @param json course串
+	 */
+	public void addCourse(JSONObject json);
+	/**
+	 * 删除课程
+	 * @param json course串
+	 */
 	public void deleteCourse(JSONObject json);
+	/**
+	 * 更新课程
+	 * @param json course串
+	 */
 	public void updateCourse(JSONObject json);
+	/**
+	 * 查询课程
+	 * @param json course串
+	 * @return 查询course结果list
+	 */
 	public List<Course> queryCourse(JSONObject json);
+	/**
+	 * 查询所有课程
+	 * @return 所有课程名list
+	 */
 	public List<String> queryAllCourse();
 }
