@@ -274,25 +274,6 @@ $(document).ready( function() {
 		});
 	});
 
-	//保存并新增
-	$("#saveAndAddBtn").click(function(e) {
-		var type=$("#asyncForm input[name=type]").val();
-		if(type==6){
-			var classification = $("#subForm input[name=classification]").val();
-			if(classification == "0"){
-				alert("请选择试题分类！");
-				return false;
-			}
-
-			saveComb();
-		}else {
-			if(checkForm()){
-				if(serializeForm()){
-					asyncSub();
-				}
-			}
-		}
-    });
 
 	//填空题添加多个
 	$("div.keyFill .addKeyFill").click(function(e) {

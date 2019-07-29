@@ -130,7 +130,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-sub-menu open" id="navItemExam"><a
-                                href="https://admin..com/admin/addtestqm#" class="menu-title"
+                                href="/html/exam/addtestqm#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="考试管理">
                             <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
                             <span class="nav-title">考试管理</span></a>
@@ -171,7 +171,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemCourse"><a
-                                href="https://admin..com/admin/addtestqm#" class="menu-title"
+                                href="/html/exam/addtestqm#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="学习">
                             <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
                             <span class="nav-title">学习</span></a>
@@ -340,7 +340,6 @@
         </div>
 
         <div class="viewFrameWork-body">
-            <!-- loading -->
             <div class="spinner-wrapper hidden" id="spinnerLoading">
                 <div class="spinner">
                     <div class="rect1"></div>
@@ -355,8 +354,6 @@
                 <div class="body-content">
                     <div class="cont-r">
                         <div role="tabpanel" class="tab-area tab-col2">
-                            <!-- Nav tabs -->
-                            <!-- Tab panes -->
                             <form action="https://admin..com/admin/addtestqm" name="form" method="post"
                                   id="subForm">
                                 <div class="tab-content">
@@ -366,17 +363,12 @@
                                             <div class="simulationSelect testType">
                                                 <span class="title-font">选择科目</span>
                                                 <em class="glyphicon glyphicon-triangle-bottom"></em>
-                                                <div class="simulationOption" style="display: none;">
-                                                    <div class="one">语文</div>
-                                                    <div class="two">数学</div>
-                                                    <div class="three">英语</div>
+                                                <div class="simulationOption subjects" style="display: none;">
                                                 </div>
                                             </div>
-                                            <select name="type" class="hidden">
+                                            <select name="type" class="hidden subjects">
                                                 <option value="1" selected="">语文</option>
-                                                <div class="one">语文</div>
-                                                <div class="two">数学</div>
-                                                <div class="three">英语</div>
+
                                             </select>
 
                                             <span class="intro">试题类型</span>
@@ -423,7 +415,6 @@
                                         <div class="combPanel" style="display:none;">
                                             <div class="title">
                                                 <span class="tip">题干</span>
-                                                <span class="intro">这里填写题目描述</span>
                                             </div>
                                             <div class="wangEditor-container">
                                                 <div id="combEditor" class="questions_add wangEditor-txt"
@@ -1160,13 +1151,11 @@
                                             <div class="descPanel">
                                                 <div class="title">
                                                     <span class="tip">题干</span>
-                                                    <span class="intro">这里填写题目描述</span>
                                                 </div>
                                                 <div class="wangEditor-container active">
                                                     <div id="questionEditor" class="questions_add wangEditor-txt"
                                                          contenteditable="true" style="height: 85px;"><p><br></p></div>
                                                 </div>
-
                                                 <input name="question" type="hidden"
                                                        value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
                                             </div>
@@ -1242,7 +1231,7 @@
                                                             class="plus-style icons8-plus"></i>添加一个选项
                                                     </button>
                                                 </div>
-                                            </div><!-- /.keyRadio keyPanel -->
+                                            </div>
                                             <div class="keyJudge keyPanel" style="display: none;">
                                                 <div class="title">
                                                     <span class="tip">选项</span>
@@ -1346,15 +1335,13 @@
                                                        value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
                                             </div>
                                         </div>
-                                    </div><!-- /#manualInput -->
-
-                                </div><!-- /.tab-content -->
+                                    </div>
+                                </div>
                                 <div role="tabpanel" class="tab-pane" id="batchInput"></div>
                             </form>
                             <script type="text/plain" id="editor"></script>
-
-                        </div><!-- /.tab-area tab-col2 -->
-                    </div><!-- /.cont-r -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1591,11 +1578,7 @@
     var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
     var tool_html = '';//消息内容
     var tool_count = 0;//消息数目
-    var user_id = "7387836";
-    var getAdminUrlPrefix = 'https://admin..com';
-    var getUrlPrefix = '';
-    var getAnalysisUrlPrefix = 'https://new..com';
-    var getStaticUrlPrefix = 'https://v..com';
+
 
     //当前request返回页面对应导航id
 
@@ -1616,8 +1599,8 @@
                 }
             })
         });
-
     });
+
 
     $(document).ready(function () {
         //    自管理员点击添加考生，添加试题，创建考试时的权限判断
@@ -1665,13 +1648,11 @@
             spellcheck: false,
             toolbarInline: false,
             placeholderText: '请将当前所选题型的所有试题复制到这里',
-//                pastePlain: true,//是否为纯文本粘贴
             pasteAllowLocalImages: true,
             imageDefaultWidth: 'auto',//图片默认宽度
             imageDefaultAlign: 'left',
             wordAllowedStyleProps: [],//允许从word粘贴的标签的样式
             htmlAllowedTags: ["p", "img", "br", "sub", "sup", "div"],//允许出现的标签
-//                imageMaxSize: 2 * 1024 * 1024,
             imageAllowedTypes: ["jpeg", "jpg", "png"],
             imageUploadParam: "multipartFile",
             imageUploadParams: {code: 1},
@@ -1683,28 +1664,6 @@
                 markAnswer(qt_type);
                 changeSize();
                 checkError();
-            })
-            .on('froalaEditor.image.error', function (e, editor, error, response) {
-                // Image too text-large.
-                if (error.code == 5) {
-                    alert("图片过大，无法上传");
-                }
-
-                // Invalid image type.s
-                else if (error.code == 6) {
-                    alert("不支持该图片类型，请上传jpeg, jpg, png, gif, svg+xml格式的图片");
-                }
-
-                // Response contains the original server response to the request if available.
-//                else if(!response.bizContent.success){
-//                    alert(response.bizContent.desc);
-//                }
-            })
-            .on('froalaEditor.image.uploaded', function (e, editor, response) {
-                //如果上传失败
-                if (response.bizContent) {
-                    alert(response.bizContent.desc);
-                }
             });
     });
 
@@ -1766,13 +1725,6 @@
 
     //答案乱序
 
-    // excle导入模态框
-    $(".excel_import").on("click", function () {
-        $('#excleImportModal').modal({
-            backdrop: "static",
-            keyboard: false
-        });
-    });
     $(".disorder-help").mouseover(function () {
         $(".disorder-prompt").show();
     }).mouseout(function () {
@@ -1785,24 +1737,39 @@
         $(".answer-prompt").hide();
     });
 
-    /*$.post("/exam/add_item", "{'hhh': '666'}", function () {
-        alert(666);
-    });*/
 
-    $.ajax({
-        url: "/exam/add_item",
-        method: "POST",
-        data: JSON.stringify({'cehsi': '10086'}),
-        dataType: 'text',
-        contentType:"application/json;charset=UTF-8",
-        success: function (msg) {
-            alert('success');
-        },
-        error: function (msg) {
-            alert('error');
-        }
+    $.getJSON("/exam/get_subjects", function (result) {
+        $.each(result.subjects, function (index, e) {
+            $subject = $("<div value=op" + index + ">" + e + "</div>");
+            $(".subjects").append($subject);
+        });
     });
 
+    function ajax_post(url, data) {
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: JSON.stringify(data),
+            dataType: 'text',
+            contentType: "application/json;charset=UTF-8",
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (msg) {
+                console.log(msg);
+            }
+        });
+    };
+
+    $("#saveAndAddBtn").click(function (e) {
+        var data = {
+            "题干": $('#questionEditor p').text(),
+            "key1Editor": $('#key1Editor p').text(),
+            "key2Editor": $('#key2Editor p').text(),
+            "analysisEditor": $('#analysisEditor p').text()
+        };
+        ajax_post("/exam/add_item", data);
+    });
 
 </script>
 <script type="text/javascript" src="../../js/admin_addQuestions.js"></script>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import java.text.SimpleDateFormat;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +23,13 @@ import com.google.gson.Gson;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
+import com.neusoft.root.service.GetPaperServiceImpl;
 
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
-/*	@Autowired
-	private GetPaperServiceImpl getpapersubjects;*/
+	@Autowired
+	private GetPaperServiceImpl getpapers;
 	private String subject;
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
@@ -48,17 +50,29 @@ public class ExamController {
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);
+//		papers = getpapers.getPaperCourse(null);
 		Gson gson = new Gson();
 		return gson.toJson(papers);
 	}
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperSubjects(){
-		//Subjects subjects = getpapersubjects.getPaperCourse(this.subject);
 		Subjects subjects = new Subjects();
 		subjects.add("语文");
 		subjects.add("数学");
 		subjects.add("英语");
+		
+		Gson gson = new Gson();
+		return gson.toJson(subjects);
+	}
+	@RequestMapping(value="/get_subjects", method=RequestMethod.GET)
+	@ResponseBody
+	public String getSubjects(){
+		Subjects subjects = new Subjects();
+		subjects.add("语文");
+		subjects.add("数学");
+		subjects.add("英语");
+		subjects.add("历史");
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
