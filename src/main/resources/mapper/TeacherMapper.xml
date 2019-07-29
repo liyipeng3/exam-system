@@ -5,20 +5,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.neusoft.root.dao.TeacherMapper">
 	<!-- 批阅试卷的增删改查 -->
-	<insert id="addCheck" parameterType="Check">
+	<insert id="addCheck" parameterType="RawCheck">
 		insert into check_table
 		values(#{studentId},#{paperId},#{teacherId},
 		#{singlechoiceScore},#{multichoiceScore},#{fillScore},
 		#{subjectiveScore},#{sumScore},#{checkDate})
 	</insert>
 
-	<delete id="deleteCheck" parameterType="Check">
+	<delete id="deleteCheck" parameterType="RawCheck">
 		delete from check_table
 		where student_id = #{studentId} and paper_id = #{paperId} and
 		teacher_id = #{teacherId}
 	</delete>
 
-	<update id="updateCheck" parameterType="Check">
+	<update id="updateCheck" parameterType="RawCheck">
 		update check_table
 		<set>
 			<if test="singlechoiceScore!=null and singlechoiceScore!=''">
@@ -44,7 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		teacher_id = #{teacherId}
 	</update>
 
-	<select id="queryCheck" parameterType="Check" resultMap="MyCheck">
+	<select id="queryCheck" parameterType="RawCheck" resultMap="MyRawCheck">
 		select *
 		from check_table
 		<where>
@@ -60,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
-	<resultMap type="Check" id="MyCheck">
+	<resultMap type="RawCheck" id="MyRawCheck">
 		<result column="student_id" property="studentId" />
 		<result column="paper_id" property="paperId" />
 		<result column="teacher_id" property="teacherId" />

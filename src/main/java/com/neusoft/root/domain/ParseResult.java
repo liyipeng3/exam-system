@@ -14,6 +14,8 @@ public class ParseResult {
 	public ParseResult(String studentId, Integer paperId, Map<String, Double> singlechoiceResult,
 			Map<String, Double> multichoiceResult, Map<String, Double> fillResult, Map<String, Double> subjectiveResult,
 			Map<String, Double> submitDate) {
+		
+		
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
