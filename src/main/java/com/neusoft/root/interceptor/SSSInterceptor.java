@@ -6,23 +6,24 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 
-public class TeacherInterceptor implements HandlerInterceptor {
+public class SSSInterceptor implements HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("flag");
-		if(username.equals("teacher")){
-			System.out.println(request.getRequestURI()+"通过教师身份认证:" + username);
+		String username = (String) session.getAttribute("username");
+		int flag = (int) session.getAttribute("flag");
+		if(flag >= 3){
+			System.out.println(request.getRequestURI()+"通过SSS级身份认证:" + username + flag);
 			return true;
 		}
 		else{
 			//response.sendRedirect("url");
-			System.out.println(request.getRequestURI()+"未通过教师身份认证:" + username);
+			System.out.println(request.getRequestURI()+"未通过SSS级身份认证:" + username + flag);
 			request.getRequestDispatcher("/login").forward(request, response);
 			return false;
 		}
 	}
-	
+
 }

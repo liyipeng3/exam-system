@@ -1,6 +1,7 @@
 package com.neusoft.root.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,24 +20,34 @@ public class TeacherServiceImpl implements TeacherService{
 	@Override
 	public void addTeacher(JSONObject json) {
 		// TODO Auto-generated method stub
-		
+		Teacher teacher = new Teacher(json.getString("teacherId"), json.getString("teacherName"), json.getString("teacherPassword"), json.getString("teacherAcademy"), json.getString("teacherMajor"), json.getString("teacherSchool"));
+		mapper.addTeacher(teacher);
 	}
 
 	@Override
 	public void deleteTeacher(JSONObject json) {
 		// TODO Auto-generated method stub
-		
+		Teacher teacher = new Teacher(json.getString("teacherId"), json.getString("teacherName"), json.getString("teacherPassword"), json.getString("teacherAcademy"), json.getString("teacherMajor"), json.getString("teacherSchool"));
+		mapper.deleteTeacher(teacher);
 	}
 
 	@Override
 	public void updateTeacher(JSONObject json) {
 		// TODO Auto-generated method stub
-		
+		Teacher teacher = new Teacher(json.getString("teacherId"), json.getString("teacherName"), json.getString("teacherPassword"), json.getString("teacherAcademy"), json.getString("teacherMajor"), json.getString("teacherSchool"));
+		Map<String, Object> map = new HashMap<>();
+		List<String> list = new ArrayList<String>();
+		list.add(teacher.getTeacherId());
+		map.put("ids",list);
+		map.put("teacherName",teacher.getTeacherName());
+		map.put("classSeats",teacher.getTeacherSchool());
+		mapper.updateClass(map);
 	}
 
 	@Override
 	public List<Teacher> queryTeacher(JSONObject json) {
 		// TODO Auto-generated method stub
+		Teacher teacher = new Teacher(json.getString("teacherId"), json.getString("teacherName"), json.getString("teacherPassword"), json.getString("teacherAcademy"), json.getString("teacherMajor"), json.getString("teacherSchool"));
 		return null;
 	}
 

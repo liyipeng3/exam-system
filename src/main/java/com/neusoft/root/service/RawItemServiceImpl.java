@@ -16,13 +16,14 @@ public class RawItemServiceImpl implements RawItemService{
 
 	@Autowired
 	TeacherMapper mapper;
-
 	@Override
 	public List<RawItem> getRawItem(String subjects) {
 		// TODO Auto-generated method stub
-		return null;
+		List<RawItem> list = new ArrayList<>();
+		RawItem rawItem = new RawItem(null, null, null, subjects, null, null, null, null, null, null, null, null);
+		list =mapper.queryRawItem(rawItem);
+		return list;
 	}
-
 	@Override
 	public void addRawItem(JSONObject json) {
 		// TODO Auto-generated method stub

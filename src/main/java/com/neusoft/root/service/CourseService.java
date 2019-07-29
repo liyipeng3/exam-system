@@ -11,5 +11,5 @@ public interface CourseService {
 	public void deleteCourse(JSONObject json);
 	public void updateCourse(JSONObject json);
 	public List<Course> queryCourse(JSONObject json);
-	public List<String> queryCourseAll();
+	public List<String> queryAllCourse();
 }
