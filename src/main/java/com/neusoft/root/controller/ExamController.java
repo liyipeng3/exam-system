@@ -205,8 +205,4 @@ public class ExamController {
 		rawItemService.updateRawItem(jsonParam);
 		return "ok";
 	}
-	@RequestMapping(value="/preupdate_item",method=RequestMethod.GET)
-	public String getCertainItem(){
-		return "/html/exam/updatetestqm";
-	}
 }
