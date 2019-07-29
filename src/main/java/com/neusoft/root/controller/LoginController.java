@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neusoft.root.MD5;
-import com.neusoft.root.service.LoginServiceImpl;
+import com.neusoft.root.service.LoginService;
 
 @Controller
 @RequestMapping("/login")
 public class LoginController {
 	@Autowired
-	LoginServiceImpl loginservice;
+	LoginService loginservice;
 	@RequestMapping(value="/checkAccount", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public String checkAccount(HttpServletRequest request, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
