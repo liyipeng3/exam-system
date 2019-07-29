@@ -82,9 +82,11 @@ public class ExamController {
 		Gson gson = new Gson();
 		return gson.toJson(items);
 	}
-	@RequestMapping(value="add_item",method=RequestMethod.POST)
+	@RequestMapping(value="/add_item",method=RequestMethod.GET)
+	@ResponseBody
 	public String addItem(@RequestBody JSONObject jsonParam){
+		System.out.println("6666666");
 		System.out.println(jsonParam.toString());
-		return null;
+		return "ok";
 	}
 }
