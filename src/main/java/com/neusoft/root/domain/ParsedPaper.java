@@ -1,14 +1,14 @@
 package com.neusoft.root.domain;
 
-import java.sql.Date;
 import java.util.List;
 
+//解析后的试卷
 public class ParsedPaper 
 {
 	private Integer paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
-	private String createrID;
-	private String createDate;
+	private String createrID; //创造者ID
+	private String createDate; //创造日期
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
 	private List<ParsedItem> singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#

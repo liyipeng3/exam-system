@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 
-import java.sql.Date;
+//日志表
 public class MyLog 
 {
 	private Integer logId;  //日志id
@@ -56,7 +56,6 @@ public class MyLog
 	}
 	public MyLog() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public int hashCode() {

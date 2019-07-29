@@ -1,8 +1,10 @@
 package com.neusoft.root.domain;
 
-public class Coursestudent {
-	private String courseId;
-	private String studentId;
+//课程To学生表
+public class Coursestudent 
+{
+	private String courseId; //课程ID
+	private String studentId; //学生ID
 	public String getCourseId() {
 		return courseId;
 	}

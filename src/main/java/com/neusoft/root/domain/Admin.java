@@ -1,10 +1,11 @@
 package com.neusoft.root.domain;
 
+//管理员表
 public class Admin {
 	
-	private String adminId;
-	private String adminName;
-	private String adminPassword;
+	private String adminId;  // 管理员ID
+	private String adminName; // 管理员姓名
+	private String adminPassword; // 管理员密码
 	
 	@Override
 	public int hashCode() 

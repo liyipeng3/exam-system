@@ -1,9 +1,10 @@
 package com.neusoft.root.domain;
 
+//教室表
 public class Class1 {
-	private String classId;
-	private String className;
-	private int classSeats;
+	private String classId; //教室ID
+	private String className; //班级名称
+	private int classSeats; //座位数目
 	public Class1(String classId, String className, int classSeats) {
 		super();
 		this.classId = classId;

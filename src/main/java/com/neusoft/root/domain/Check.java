@@ -1,18 +1,20 @@
 package com.neusoft.root.domain;
-//老师批卷最后的表
+
+//老师批卷后的表
 public class Check 
 {
-	private String studentId;
-	private Integer paperId;
-	private String teacherId;
-	private String singlechoiceScore;
-	private String multichoiceScore;
-	private String fillScore;
-	private String subjectiveScore;
-	private Double sumScore;
-	private String checkDate;
+	private String studentId;  // 学生ID
+	private Integer paperId; // 试卷ID 
+	private String teacherId; // 老师ID
+	private String singlechoiceScore; //单选题得分，格式：ID1,分数1###ID2,分数2
+	private String multichoiceScore; //多选题得分，格式：ID1,分数1###ID2,分数2
+	private String fillScore; //填空题得分，格式：ID1,分数1###ID2,分数2
+	private String subjectiveScore; //主观题得分，格式：ID1,分数1###ID2,分数2
+	private Double sumScore; //总分
+	private String checkDate; // 日期
 	public Check(String studentId, Integer paperId, String teacherId, String singlechoiceScore, String multichoiceScore,
-			String fillScore, String subjectiveScore, Double sumScore, String checkDate) {
+			String fillScore, String subjectiveScore, Double sumScore, String checkDate) 
+	{
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;

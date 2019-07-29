@@ -1,17 +1,15 @@
 package com.neusoft.root.domain;
 
-import java.sql.Date;
-
+//消息表
 public class Message 
 {
-	private Integer msgId;
-	private String msgDate;
-	private String senderId;
-	private String targetId;
-	private String msgType;
-	private String msgContext;
-	private String msgRole;
-	
+	private Integer msgId;  //消息ID
+	private String msgDate; //发送消息日期
+	private String senderId; //发送者ID
+	private String targetId; //接收者ID
+	private String msgType; //消息类型
+	private String msgContext; //消息内容 
+	private String msgRole; //消息角色 发送者，接收者
 	
 	public Message() {
 		super();
