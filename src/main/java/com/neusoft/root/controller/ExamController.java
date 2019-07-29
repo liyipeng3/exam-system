@@ -171,7 +171,6 @@ public class ExamController {
 	@RequestMapping(value="/add_item",method=RequestMethod.POST)
 	@ResponseBody
 	public String addItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
-		System.out.println("66666");
 		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
