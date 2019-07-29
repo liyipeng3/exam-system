@@ -1792,7 +1792,7 @@
     $.ajax({
         url: "/exam/add_item",
         method: "POST",
-        data: {'cehsi': '10086'},
+        data: JSON.stringify({'cehsi': '10086'}),
         dataType: 'text',
         contentType:"application/json;charset=UTF-8",
         success: function (msg) {
