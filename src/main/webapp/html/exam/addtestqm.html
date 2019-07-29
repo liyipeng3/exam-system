@@ -359,15 +359,14 @@
                                     <div role="tabpanel" class="tab-pane active" id="manualInput">
                                         <div class="batch-type">
                                             <span class="intro">科目</span>
-                                            <div class="simulationSelect testType">
+                                            <div class="simulationSelect">
                                                 <span class="title-font">选择科目</span>
                                                 <em class="glyphicon glyphicon-triangle-bottom"></em>
-                                                <div class="simulationOption subjects" style="display: none;">
+                                                <div class="simulationOption difficult subjects" style="display: none;">
+
                                                 </div>
                                             </div>
-                                            <select name="type" class="hidden subjects">
-                                                <option value="1" selected="">语文</option>
-
+                                            <select id="select_course_type" class="form-control hidden subjects_option">
                                             </select>
 
                                             <span class="intro">试题类型</span>
@@ -400,7 +399,7 @@
                                                     <div class="three">困难</div>
                                                 </div>
                                             </div>
-                                            <select name="difficult" class="form-control hidden">
+                                            <select name="difficult" id="select_difficult" class="form-control hidden">
                                                 <option value="simple" selected="">简单</option>
                                                 <option value="middle">普通</option>
                                                 <option value="hard">困难</option>
@@ -1580,6 +1579,7 @@
     var activeNavItem = 'subNavItemQuestionMgr';
 
     $(function () {
+
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
             e.preventDefault();
@@ -1634,62 +1634,6 @@
 <script type="text/javascript" src="../../js/auto-line-number.js"></script>
 <script type="text/javascript" src="../../js/markdown-v1.0.js"></script>
 <script>
-    var qt_type = "1";
-    $(function () {
-        $('div#text-input').froalaEditor({
-            key: 'AODOd2HLEBFZOTGHW==',
-            charCounterCount: false,
-            language: 'zh_cn',
-            spellcheck: false,
-            toolbarInline: false,
-            placeholderText: '请将当前所选题型的所有试题复制到这里',
-            pasteAllowLocalImages: true,
-            imageDefaultWidth: 'auto',//图片默认宽度
-            imageDefaultAlign: 'left',
-            wordAllowedStyleProps: [],//允许从word粘贴的标签的样式
-            htmlAllowedTags: ["p", "img", "br", "sub", "sup", "div"],//允许出现的标签
-            imageAllowedTypes: ["jpeg", "jpg", "png"],
-            imageUploadParam: "multipartFile",
-            imageUploadParams: {code: 1},
-            imageUploadURL: '/upload/image'//上传到本地服务器
-        })
-            .on('froalaEditor.contentChanged', function (e, editor) {
-                $('div#preview').html(markdown.toHTML(editor.html.get().replace(/<p>/g, "\n\n").replace(/<\/p>/g, "\n\n").replace(/<br>/g, "\n\n").replace(/auto;">/g, 'auto;">\n\n')));
-                // 标记答案
-                markAnswer(qt_type);
-                changeSize();
-                checkError();
-            });
-    });
-
-    // 标记答案
-    function markAnswer(type) {
-        var list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
-        if (type == "1" || type == "2") {
-            $(".question").each(function (index, element) {
-                var answer = $(this).find(".qt_answer").addClass("hidden").text().replace(/^答案[:：]/, "").toUpperCase();
-                for (var i = 0; i < list.length; i++) {
-                    if (answer.search(list[i]) != -1) {
-                        $(this).find(".key_" + list[i] + " .checkOrRadio").prop("checked", true);
-                    }
-                }
-            });
-        }
-    }
-
-    //当题号过长时改变字号
-    function changeSize() {
-        $(".question .qt_title .title").each(function (index, element) {
-            var $numWords = $(this).text().length;
-            if ($numWords == 4) {
-                $(this).css({"font-size": "20px"});
-            } else if ($numWords == 5) {
-                $(this).css({"font-size": "16px"});
-            } else if ($numWords > 5) {
-                $(this).css({"font-size": "14px"});
-            }
-        });
-    }
 
     //关键字提示信息的出现与隐藏
     $('.keyWordBadge').hover(function () {
@@ -1708,14 +1652,27 @@
     $('body').click(function () {
         $('.simulationOption').hide();
     });
-    $(".body-content .cont-r .tab-content .batch-type .simulationOption div").click(function (e) {
-        var idx = $(this).index();
-        $(this).parents('.simulationSelect').next().children().prop("selected", false);
-        e.stopPropagation();
-        var sel = $(this).text();
-        $(this).parents(".simulationSelect").children("span").text(sel);
-        $(this).parent().hide();
-        $(this).parents('.simulationSelect').next().children().eq(idx).prop('selected', 'selected').change()
+
+    $.getJSON("/exam/get_subjects", function (result) {
+
+        $.each(result.subjects, function (index, e) {
+
+            $subject_option = $("<option value=" + index + ">" + e + "</option>");
+            $subject = $("<div class='v" + index + "'>" + e + "</div>");
+
+            $('.subjects').append($subject);
+            $('.subjects_option').append($subject_option);
+        });
+
+        $(".body-content .cont-r .tab-content .batch-type .simulationOption div").click(function (e) {
+            var idx = $(this).index();
+            $(this).parents('.simulationSelect').next().children().prop("selected", false);
+            e.stopPropagation();
+            var sel = $(this).text();
+            $(this).parents(".simulationSelect").children("span").text(sel);
+            $(this).parent().hide();
+            $(this).parents('.simulationSelect').next().children().eq(idx).prop('selected', 'selected').change()
+        });
     });
 
     //答案乱序
@@ -1732,13 +1689,6 @@
         $(".answer-prompt").hide();
     });
 
-
-    $.getJSON("/exam/get_subjects", function (result) {
-        $.each(result.subjects, function (index, e) {
-            $subject = $("<div value=op" + index + ">" + e + "</div>");
-            $(".subjects").append($subject);
-        });
-    });
 
     function ajax_post(url, data) {
         $.ajax({
@@ -1757,30 +1707,51 @@
     };
 
     $("#saveAndAddBtn").click(function (e) {
-        var data;
+        var data = {};
         var option = $('#item_type option:selected').val();
+        if ($('#questionEditor p').text() == '') {
+            alert('请输入题干！');
+            return;
+        }
         switch (option) {
-            case 1:
-                var ans = $('input:radio:checked').parent().sibling().find(".questions_add").attr("id");
+            case '1':
+                var ans = $('input:radio:checked').parent().siblings().find(".questions_add").attr("id");
+                if (ans == 'questionEditor') {
+                    alert("请选择正确答案！");
+                    return;
+                }
                 data = {
                     "questionEditor": $('#questionEditor p').text(),
                     "analysisEditor": $('#analysisEditor p').text()
                 };
                 var len = $('.keyRadio').children().length;
+                var subject = $('#select_course_type option:selected').text();
+                var difficult = $('#select_difficult option:selected').text();
+                data['subject'] = subject;
+                data['difficult'] = difficult;
                 data['option_length'] = len - 2;
                 data["itemType"] = "单选题";
                 data['answer'] = ans;
                 for (let i = 1; i <= len - 2; i++) {
-                    data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
+                    var ops = $('#key' + i + 'Editor p').text().trim();
+                    if(ops == ""){
+                        alert("请输入完整选项！");
+                        return;
+                    }
+                    data["key" + i + "Editor"] = ops;
                 }
                 break;
-            case 2:
+            case '2':
                 data = {
                     "questionEditor": $('#questionEditor p').text(),
                     "analysisEditor": $('#analysisEditor p').text()
                 };
-                var ans = $('input:radio:checked').parent().sibling().find('.questions_add').each(function (index, e) {
-                   data['answer' + index] = e.attr('id');
+                $('input:radio:checked').parent().siblings().find('.questions_add').each(function (index, e) {
+                    if ($(e).attr('id') == 'questionEditor') {
+                        alert("请至少选择一个正确答案！");
+                        return;
+                    }
+                    data['answer' + index] = $(e).attr('id');
                 });
                 var len = $('.keyRadio').children().length;
                 data['option_length'] = len - 2;
@@ -1789,10 +1760,10 @@
                     data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
                 }
                 break;
-            case 3:;
+            case '3':
+                ;
         }
-
-
+        //console.log(data);
         ajax_post("/exam/add_item", data);
     });
 
