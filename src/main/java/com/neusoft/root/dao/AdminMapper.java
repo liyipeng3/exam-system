@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.neusoft.root.domain.Admin;
-import com.neusoft.root.domain.Check;
+import com.neusoft.root.domain.RawCheck;
 import com.neusoft.root.domain.Class1;
 import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.Forum;
@@ -15,7 +15,7 @@ import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.Message;
-import com.neusoft.root.domain.Result;
+import com.neusoft.root.domain.RawResult;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
@@ -78,8 +78,8 @@ public interface AdminMapper
 	public List<Message> queryMessage(Message message);
 	
 	//学生答题结果
-	public void addResult(Result result);
-	public List<Result> queryResult(Result result);
+	public void addResult(RawResult result);
+	public List<RawResult> queryResult(RawResult result);
 	
 	//论坛帖子的增加删除查询
 	public void addForum(Forum forum);
@@ -87,5 +87,5 @@ public interface AdminMapper
 	public List<Forum> queryForum(Forum forum);
 	
 	//老师批卷结果的查询
-	public List<Check> queryCheck(Check check);
+	public List<RawCheck> queryCheck(RawCheck check);
 }

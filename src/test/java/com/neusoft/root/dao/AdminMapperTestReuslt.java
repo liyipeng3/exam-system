@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.neusoft.root.domain.Admin;
 import com.neusoft.root.domain.MyLog;
-import com.neusoft.root.domain.Result;
+import com.neusoft.root.domain.RawResult;
 import com.neusoft.root.domain.Student;
 
 @RunWith(SpringRunner.class)
@@ -28,9 +28,9 @@ public class AdminMapperTestReuslt
 	{
 		try 
 		{
-			Result result1 = new Result("117371", 1, "1", "1", null, null,"2019-9-9");
-			List<Result> results = am.queryResult(result1);
-			for (Result result : results) 
+			RawResult result1 = new RawResult("117371", 1, "1", "1", null, null,"2019-9-9");
+			List<RawResult> results = am.queryResult(result1);
+			for (RawResult result : results) 
 			{
 				System.out.println(result);
 			}

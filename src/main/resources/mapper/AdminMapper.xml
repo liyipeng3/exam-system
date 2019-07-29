@@ -404,7 +404,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="exam_enddate" property="examEnddate" />
 	</resultMap>
 	
-	
 	<!-- 管理老师 -->
 	<insert id="addManageteacher" parameterType="Manageteacher">
 		insert into manageteacher_table 

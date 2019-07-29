@@ -14,7 +14,7 @@ import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
-import com.neusoft.root.domain.Result;
+import com.neusoft.root.domain.RawResult;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
@@ -42,7 +42,7 @@ public interface StudentMapper {
 	public List<RawPaper> queryPaper(RawPaper rawpaper);
 	
 	//答题result
-	public void addResult(Result result);
+	public void addResult(RawResult result);
 	
 	//学生
 	//改密码

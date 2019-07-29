@@ -19,7 +19,7 @@ import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
-import com.neusoft.root.domain.Result;
+import com.neusoft.root.domain.RawResult;
 import com.neusoft.root.domain.Student;
 
 
@@ -35,7 +35,7 @@ public class StudentMapperTestResult
 	{
 		try 
 		{
-			Result result = new Result("117371", 1, "1", "1", "1", "1","2019-8-5");
+			RawResult result = new RawResult("117371", 1, "1", "1", "1", "1","2019-8-5");
 			sm.addResult(result);
 		} 
 		catch (Exception e) 
