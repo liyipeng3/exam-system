@@ -24,6 +24,12 @@ import com.neusoft.root.service.CourseServiceImpl;
 import com.neusoft.root.service.PaperServiceImpl;
 import com.neusoft.root.service.RawItemServiceImpl;
 
+/**
+ * 
+ * 
+ * @author 何时谷雨
+ *
+ */
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
@@ -113,6 +119,7 @@ public class ExamController {
 		jsonParam.put("createrId", username);
 		jsonParam.put("itemDate", date);
 		System.out.println(jsonParam.toString());
+		rawItemService.addRawItem(jsonParam);
 		return "ok";
 	}
 }

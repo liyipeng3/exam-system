@@ -7,7 +7,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neusoft.root.domain.Student;
-
+/**
+ * 
+ * 
+ * @author 何时谷雨
+ *
+ */
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
