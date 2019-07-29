@@ -25,7 +25,7 @@ public interface AdminMapper
 	//管理员
 	public void addAdmin(Admin admin);
 	public void deleteAdmin(Admin admin);
-	public void updateAdmin(Map<String ,Object> admin);
+	public void updateAdmin(Map<String,Object> admin);
 	public List<Admin> queryAdmin(Admin admin);
 	
 	//学生
@@ -52,7 +52,7 @@ public interface AdminMapper
 	public void updateCourse(Map<String ,Object> course);
 	public List<Course> queryCourse(Course course);
 	
-
+	
 	//记录
 	public void addMyLog(MyLog myLog);
 	public void deleteMyLog(MyLog myLog);
