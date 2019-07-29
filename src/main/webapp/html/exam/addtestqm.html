@@ -1785,8 +1785,20 @@
         $(".answer-prompt").hide();
     });
 
-    $.post("/exam/add_item", "{'hhh': '666'}", function () {
+    /*$.post("/exam/add_item", "{'hhh': '666'}", function () {
         alert(666);
+    });*/
+
+    $.ajax({
+        url: "/exam/add_item",
+        method: "POST",
+        data: {'cehsi': '10086'},
+        success: function () {
+            alert('success');
+        },
+        error: function () {
+            alert('error');
+        }
     });
 
 
