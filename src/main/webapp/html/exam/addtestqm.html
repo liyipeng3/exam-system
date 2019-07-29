@@ -1763,10 +1763,10 @@
 
     $("#saveAndAddBtn").click(function (e) {
         var data = {
-            "题干": $('#questionEditor p').val(),
-            "key1Editor": $('#key1Editor p').val(),
-            "key2Editor": $('#key2Editor p').val(),
-            "analysisEditor": $('#analysisEditor p').val()
+            "题干": $('#questionEditor p').text(),
+            "key1Editor": $('#key1Editor p').text(),
+            "key2Editor": $('#key2Editor p').text(),
+            "analysisEditor": $('#analysisEditor p').text()
         };
         ajax_post("/exam/add_item", data);
     });
