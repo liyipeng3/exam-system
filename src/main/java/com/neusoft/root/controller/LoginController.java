@@ -31,7 +31,7 @@ public class LoginController {
 			return "admin";
 		case 2:
 			session.setAttribute("username",username);
-			session.setAttribute("flag", 1);
+			session.setAttribute("flag", 3);
 			return "student";
 		case 3:
 			session.setAttribute("username",username);
@@ -40,31 +40,6 @@ public class LoginController {
 		default:
 			return "用户名或密码错误";
 		}
-		/*System.out.println("用户名：" + username + "  密    码：" + password);
-		String password_md5 = MD5.toString("123");
-		System.out.println(password_md5);
-		if(username.equals("admin") && password.equals(password_md5)){
-			//建立会话对象，存储登录状态
-			HttpSession session = request.getSession();
-			session.setAttribute("username",username);
-			session.setAttribute("flag","admin");
-			return "admin";
-		}
-		else if(username.equals("teacher") && password.equals(password_md5)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("username",username);
-			session.setAttribute("flag","teacher");
-			return "teacher";
-		}
-		else if(username.equals("student") && password.equals(password_md5)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("username",username);
-			session.setAttribute("flag","student");
-			return "student";
-		}
-		else{
-			return "用户名或密码错误";
-		}*/
 	}
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public String logout(HttpServletRequest req){

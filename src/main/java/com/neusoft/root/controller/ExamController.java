@@ -20,13 +20,19 @@ import com.google.gson.Gson;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
+import com.neusoft.root.service.CourseServiceImpl;
 import com.neusoft.root.service.PaperServiceImpl;
+import com.neusoft.root.service.RawItemServiceImpl;
 
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
 	@Autowired
-	private PaperServiceImpl getpapers;
+	private PaperServiceImpl paperService;
+	@Autowired
+	private CourseServiceImpl courseService;
+	@Autowired
+	private RawItemServiceImpl rawItemService;
 	private String subject;
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
@@ -47,9 +53,9 @@ public class ExamController {
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);
-//		papers = getpapers.getPaperCourse(null);
 		Gson gson = new Gson();
 		return gson.toJson(papers);
+		//return gson.toJson(paperService.queryRawPaper(null));
 	}
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
@@ -58,7 +64,7 @@ public class ExamController {
 		subjects.add("语文");
 		subjects.add("数学");
 		subjects.add("英语");
-		
+		//subjects.setSubjects(paperService.queryAllCourse());
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
@@ -70,7 +76,7 @@ public class ExamController {
 		subjects.add("数学");
 		subjects.add("英语");
 		subjects.add("历史");
-		
+		//subjects.setSubjects(courseService.queryAllCourse());
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
@@ -93,10 +99,12 @@ public class ExamController {
 		items.add(item4);
 		Gson gson = new Gson();
 		return gson.toJson(items);
+		//return gson.toJson(rawItemService.getRawItem(null));
 	}
 	@RequestMapping(value="/add_item",method=RequestMethod.POST)
 	@ResponseBody
 	public String addItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
+		System.out.println("66666");
 		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
