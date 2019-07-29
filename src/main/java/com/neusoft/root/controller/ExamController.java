@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import java.text.SimpleDateFormat;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +23,13 @@ import com.google.gson.Gson;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
+import com.neusoft.root.service.GetPaperServiceImpl;
 
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
-/*	@Autowired
-	private GetPaperServiceImpl getpapersubjects;*/
+	@Autowired
+	private GetPaperServiceImpl getpapers;
 	private String subject;
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
@@ -54,7 +56,7 @@ public class ExamController {
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperSubjects(){
-		//Subjects subjects = getpapersubjects.getPaperCourse(this.subject);
+//		Subjects subjects = getpapersubjects.getPaperCourse(this.subject);
 		Subjects subjects = new Subjects();
 		subjects.add("语文");
 		subjects.add("数学");
@@ -87,6 +89,9 @@ public class ExamController {
 	public String addItem(@RequestBody JSONObject jsonParam){
 		System.out.println("6666666");
 		System.out.println(jsonParam.toString());
+		System.out.println(jsonParam.get("cehsi").toString());
+		System.out.println(jsonParam.getString("cehsi"));
+		System.out.println(jsonParam.getString("ceshi"));
 		return "ok";
 	}
 }
