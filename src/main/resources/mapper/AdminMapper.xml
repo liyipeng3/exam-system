@@ -509,6 +509,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="paperId!=null and paperId!=''">
 				and paper_id = #{paperId}
 			</if>
+			<if test="checked!=null and checked!=''">
+				and checked = #{checked}
+			</if>
 		</where>
 	</select>
 	
@@ -520,6 +523,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="fill_result" property="fillResult"/>
 		<result column="subjective_result" property="subjectiveResult"/>
 		<result column="submit_date" property="submitDate"/>
+		<result column="checked" property="checked"/>
 	</resultMap>
 	
 	<!-- 论坛管理 -->
@@ -597,5 +601,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="fill_score" property="fillScore"/>
 		<result column="subjective_score" property="subjectiveScore"/>
 		<result column="sum_score" property="sumScore"/>
+		<result column="check_date" property="checkDate"/>
 	</resultMap>
 </mapper>

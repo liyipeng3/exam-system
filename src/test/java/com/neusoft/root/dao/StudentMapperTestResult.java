@@ -35,18 +35,12 @@ public class StudentMapperTestResult
 	{
 		try 
 		{
-			RawResult result = new RawResult("117371", 1, "1", "1", "1", "1","2019-8-5");
+			RawResult result = new RawResult("117371", 1, "1", "1", "1", "1","2019-8-5","no");
 			sm.addResult(result);
 		} 
 		catch (Exception e) 
 		{
 			System.out.println(e);
 		}
-	}
-	
-	@Test
-	public void testQueryResult()
-	{
-		
 	}
 }

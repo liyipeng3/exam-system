@@ -269,7 +269,7 @@
                 paper += "<span class='select-box'><i class='icons8-checked-checkbox'></i></span></label>";
                 paper += "</td><td class='text-left'>" + e.paperName + "</td><td class='text-left' style='width:10%;'>";
                 paper += e.paperType + "</td><td class='text-left' style='width:12%;'>" + e.paperScore + "</td>";
-                paper += "<td class='text-left' style='width:12%;'>" + e.createrID + "</td>";
+                paper += "<td class='text-left' style='width:12%;'>" + e.createrId + "</td>";
                 paper += "<td class='text-left' style='width:16%;'>" + e.createDate + "</td></tr>";
                 $('tbody').append($(paper));
             });
@@ -280,7 +280,9 @@
                         .removeClass("active");
                 } else {
                     $(e.target).parents("tr")
-                        .addClass("active");
+                        .addClass("active")
+                        .siblings()
+                        .removeClass("active");
                 }
             });
         });

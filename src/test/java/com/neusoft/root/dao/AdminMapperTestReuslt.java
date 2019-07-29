@@ -28,7 +28,7 @@ public class AdminMapperTestReuslt
 	{
 		try 
 		{
-			RawResult result1 = new RawResult("117371", 1, "1", "1", null, null,"2019-9-9");
+			RawResult result1 = new RawResult("117371", 1, "1", "1", null, null,"2019-9-9","no");
 			List<RawResult> results = am.queryResult(result1);
 			for (RawResult result : results) 
 			{
