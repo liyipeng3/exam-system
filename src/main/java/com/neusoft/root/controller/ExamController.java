@@ -33,12 +33,12 @@ import com.neusoft.root.service.RawItemServiceImpl;
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
-/*	@Autowired
-	private PaperServiceImpl paperService;*/
-/*	@Autowired
-	private CourseServiceImpl courseService;*/
-/*	@Autowired
-	private RawItemServiceImpl rawItemService;*/
+	@Autowired
+	private PaperServiceImpl paperService;
+	@Autowired
+	private CourseServiceImpl courseService;
+	@Autowired
+	private RawItemServiceImpl rawItemService;
 	private String subject;
 	/**
 	 * 
@@ -160,6 +160,7 @@ public class ExamController {
 		items.add(item4);
 		Gson gson = new Gson();
 		return gson.toJson(items);
+		//return gson.toJson(rawItemService.getRawItem(this.subject));
 	}
 	/**
 	 * 添加试题
@@ -182,12 +183,44 @@ public class ExamController {
 		//rawItemService.addRawItem(jsonParam);
 		return "ok";
 	}
+	/**
+	 * 删除试题
+	 * 
+	 * @param id
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="delete_item",method=RequestMethod.GET)
 	@ResponseBody
 	public String deleteItem(String id, HttpServletRequest request){
-		id = id.substring(7);
-		int i = Integer.valueOf(id);
-		System.out.println(id);
+		if(id != null){
+			id = id.substring(7);
+			int i = Integer.valueOf(id);
+			System.out.println(id);
+			//rawItemService.deleteRawItem(i);
+			return "ok";
+		}
+		return "error";
+	}
+	/**
+	 * 更新试题
+	 * 
+	 * @param jsonParam
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="update_item",method=RequestMethod.GET)
+	@ResponseBody
+	public String updateItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String date = df.format(time);
+		jsonParam.put("createrId", username);
+		jsonParam.put("itemDate", date);
+		System.out.println(jsonParam.toString());
+		//rawItemService.updateRawItem(jsonParam);
 		return "ok";
 	}
 }
