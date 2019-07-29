@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import java.text.SimpleDateFormat;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +23,13 @@ import com.google.gson.Gson;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
+import com.neusoft.root.service.GetPaperServiceImpl;
 
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
-/*	@Autowired
-	private GetPaperServiceImpl getpapersubjects;*/
+	@Autowired
+	private GetPaperServiceImpl getpapers;
 	private String subject;
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
@@ -54,7 +56,7 @@ public class ExamController {
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperSubjects(){
-		//Subjects subjects = getpapersubjects.getPaperCourse(this.subject);
+//		Subjects subjects = getpapersubjects.getPaperCourse(this.subject);
 		Subjects subjects = new Subjects();
 		subjects.add("语文");
 		subjects.add("数学");
@@ -71,7 +73,7 @@ public class ExamController {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String datestring = df.format(time);
 		List<RawItem> items = new ArrayList<>();
-	 	RawItem item1 = new RawItem(1, "10011",datestring,"itemCourseType", "itemType", 0.1, "itemQuestion", "itemOption", "itemAnswer", "itemPicture", 0.1,"");
+		RawItem item1 = new RawItem(1, "10011",datestring,"itemCourseType", "itemType", 0.1, "itemQuestion", "itemOption", "itemAnswer", "itemPicture", 0.1,"");
 		RawItem item2 = new RawItem(2, "1008",datestring,"科目", "题型", 0.2, "题干", "选项", "答案", "配图路径", 0.2,"");
 		RawItem item3 = new RawItem(3, "1008611",datestring, "马克思主义原理", "送分题", 99.9, "老大帅不帅", "是/是", "是", "> A <", 99.9,"");
 		RawItem item4 = new RawItem(4, "10086", datestring, "语文", "单选题", 0.6,"老大帅不帅" , "是/是", "是",  "> A <", 99.9,"");
@@ -87,6 +89,9 @@ public class ExamController {
 	public String addItem(@RequestBody JSONObject jsonParam){
 		System.out.println("6666666");
 		System.out.println(jsonParam.toString());
+		System.out.println(jsonParam.get("cehsi").toString());
+		System.out.println(jsonParam.getString("cehsi"));
+		System.out.println(jsonParam.getString("ceshi"));
 		return "ok";
 	}
 }

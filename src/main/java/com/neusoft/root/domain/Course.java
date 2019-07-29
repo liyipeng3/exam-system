@@ -1,10 +1,11 @@
 package com.neusoft.root.domain;
 
+//课程表
 public class Course 
 {
-	private String courseId;
-	private String courseName;
-	private String courseType;
+	private String courseId;  // 课程ID
+	private String courseName; //课程名称
+ 	private String courseType;  //课程类型
 	public Course(String courseId, String courseName, String courseType) {
 		super();
 		this.courseId = courseId;
@@ -13,7 +14,6 @@ public class Course
 	}
 	public Course() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getCourseId() {
 		return courseId;

@@ -1,16 +1,16 @@
 package com.neusoft.root.domain;
 
-import java.sql.Date;
-
+//考试安排老师表
 public class Manageteacher {
-	private String classId;
-	private String teacherId;
-	private String courseId;
-	private String examName;
-	private String examBegindate;
-	private String examEnddate;
+	private String classId;  //教室ID
+	private String teacherId; //老师ID
+	private String courseId; //课程ID
+	private String examName; //考试名字
+	private String examBegindate; // 考试开始时间
+	private String examEnddate; //考试结束时间
 	public Manageteacher(String classId, String teacherId, String courseId, String examName, String examBegindate,
-			String examEnddate) {
+			String examEnddate) 
+	{
 		super();
 		this.classId = classId;
 		this.teacherId = teacherId;
@@ -121,5 +121,4 @@ public class Manageteacher {
 		return "Manageteacher [classId=" + classId + ", teacherId=" + teacherId + ", courseId=" + courseId
 				+ ", examName=" + examName + ", examBegindate=" + examBegindate + ", examEnddate=" + examEnddate + "]";
 	}
-	
 }

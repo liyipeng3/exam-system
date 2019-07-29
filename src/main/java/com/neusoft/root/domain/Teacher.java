@@ -1,12 +1,13 @@
 package com.neusoft.root.domain;
 
+//教室表
 public class Teacher {
-	private String teacherId;
-	private String teacherName;
-	private String teacherPassword;
-	private String teacherAcademy;
-	private String teacherMajor;
-	private String teacherSchool;
+	private String teacherId;  //教师ID
+	private String teacherName; //教师名字
+	private String teacherPassword; //教师密码
+	private String teacherAcademy; //教师学院
+	private String teacherMajor; // 教师专业
+	private String teacherSchool; // 教师学校
 	
 	public Teacher(String teacherId, String teacherName, String teacherPassword, String teacherAcademy,
 			String teacherMajor, String teacherSchool) {
