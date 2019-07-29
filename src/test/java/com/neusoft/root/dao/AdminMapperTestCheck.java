@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neusoft.root.domain.Admin;
-import com.neusoft.root.domain.Check;
+import com.neusoft.root.domain.RawCheck;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.Student;
@@ -31,8 +31,8 @@ public class AdminMapperTestCheck
 	{
 		try 
 		{
-			List<Check> list = am.queryCheck(null);
-			for (Check mt : list) 
+			List<RawCheck> list = am.queryCheck(null);
+			for (RawCheck mt : list) 
 			{
 				System.out.println(mt);
 			}

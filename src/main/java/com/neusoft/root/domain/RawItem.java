@@ -1,7 +1,8 @@
-﻿package com.neusoft.root.domain;
+package com.neusoft.root.domain;
 
 //解析前试题
-public class RawItem {
+public class RawItem 
+{
 	private Integer itemId; //题目ID
 	private String createrId; //创作者ID
 	private String itemDate; //创建日期

@@ -1,6 +1,6 @@
 package com.neusoft.root.domain;
 //学生答题结果
-public class Result {
+public class RawResult {
 	private String studentId; //学生ID
 	private Integer paperId; //试卷ID
 	private String singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
@@ -9,7 +9,7 @@ public class Result {
 	private String subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
 	private String submitDate; //答题日期
 	
-	public Result(String studentId, Integer paperId, String singlechoiceResult, String multichoiceResult,
+	public RawResult(String studentId, Integer paperId, String singlechoiceResult, String multichoiceResult,
 			String fillResult, String subjectiveResult, String submitDate) {
 		super();
 		this.studentId = studentId;
@@ -21,7 +21,7 @@ public class Result {
 		this.submitDate = submitDate;
 	}
 
-	public Result() {
+	public RawResult() {
 		super();
 	}
 
@@ -103,7 +103,7 @@ public class Result {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Result other = (Result) obj;
+		RawResult other = (RawResult) obj;
 		if (fillResult == null) {
 			if (other.fillResult != null)
 				return false;

@@ -71,6 +71,7 @@ public class AdminMapperTestMyLog
 	
 	@Test
 	public void testQueryMylog()
+	
 	{
 		try 
 		{
