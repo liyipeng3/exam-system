@@ -14,12 +14,12 @@ public class LoginInterceptor implements HandlerInterceptor {
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("flag");
 		if(username != null){
-			System.out.println("LoginInterceptor preHandle true:" + username);
+			System.out.println(request.getRequestURI()+"通过登录认证:" + username);
 			return true;
 		}
 		else{
 			//response.sendRedirect("url");
-			System.out.println("LoginInterceptor preHandle false:" + username);
+			System.out.println(request.getRequestURI()+"未通过登录认证:" + username);
 			request.getRequestDispatcher("/login").forward(request, response);
 			return false;
 		}

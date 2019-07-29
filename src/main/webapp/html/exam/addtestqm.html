@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="在线考试系统,网络考试系统,企业考试系统,在线考试平台,手机考试,移动考试">
+    <meta name="description" content="是一款免费,好用在线考试系统,可以用手机考试,支持多种客户端">
+    <meta name="author" content="">
+    <script async="" src="../../js/tingyun-rum-admin.js"></script>
+    <script type="text/javascript">
+        var opts = {};
+
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '东北大学软件园';
+        opts.rightsGrade = '8';
+
+    </script>
+    <title>考试云平台</title>
+    <link rel="shortcut icon" href="../../img/logo.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/admin_base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.bootgrid.css">
+    <!-- Include Editor style. -->
+    <link rel="stylesheet" type="text/css" href="../../css/froala_editor.pkgd.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/froala_style.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-tagsinput.css">
+    <link type="text/css" href="../../css/bootstrapSwitch.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/honeySwitch.css">
+    <link rel="stylesheet" href="../../css/wangEditor.min.css">
+    <link rel="stylesheet" href="../../css/wangEditor-custom.css">
+    <link rel="stylesheet" type="text/css" href="../../css/question_add.css">
+    <link rel="stylesheet" type="text/css" href="../../css/ksx-tab-base.css">
+    <style type="text/css">  .JColResizer {
+        table-layout: fixed;
+    }
+
+    .JColResizer > tbody > tr > td, .JColResizer > tbody > tr > th {
+        overflow: hidden;
+    }
+
+    .JCLRgrips {
+        height: 0px;
+        position: relative;
+    }
+
+    .JCLRgrip {
+        margin-left: -5px;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .JCLRgrip .JColResizer {
+        position: absolute;
+        background-color: red;
+        filter: alpha(opacity=1);
+        opacity: 0;
+        width: 10px;
+        height: 100%;
+        cursor: col-resize;
+        top: 0px
+    }
+
+    .JCLRLastGrip {
+        position: absolute;
+        width: 1px;
+    }
+
+    .JCLRgripDrag {
+        border-left: 1px dotted black;
+    }
+
+    .JCLRFlex {
+        width: auto !important;
+    }
+
+    .JCLRgrip.JCLRdisabledGrip .JColResizer {
+        cursor: default;
+        display: none;
+    }</style>
+    <style></style>
+</head>
+
+
+<body>
+<div class="viewFrameWork sidebar-full" id="viewFrameWork">
+    <div class="viewFrameWork-statusbar">
+        <a href="/index" class="status-left company-logo" title="logo"
+           id="companyLogo">
+            <!--对有没有logo进行判断-->
+            <img class="icon-logo logo-ksx" src="../../img/logo.png"></a>
+        <div class="status-middle toolbar">
+            <div class="body-toolbar clearfix">
+                <div class="body-toolbar-right pull-right toolbar-right-operation">
+                    <button type="button" class="btn btn-primary btn-size btn-reset">重置</button>
+                    <button type="button" class="btn btn-warning btn-size" id="saveAndAddBtn">录入</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-right">
+            <div class="status-item item-notification" id="stateMessage">
+                <i class="icon item-icon icon-p_top_message"></i>
+                <span class="message-count hidden"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="viewFrameWork-main">
+
+        <div class="viewFrameWork-sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-fold icon-unfold" id="sidebar-fold" data-toggle="tooltip" data-placement="right"
+                     data-container="body" title="" data-original-title="收起导航">
+                    <i class="icons8 icons8-icon"></i>
+                </div>
+                <div class="sidebar-nav">
+                    <ul class="sidebar-trans" id="ksxAdminSidebar">
+                        <li class="nav-item nav-item-index" id="navItemIndex">
+                            <a href="/index" data-toggle="tooltip"
+                               data-placement="right" data-container="body" title="" data-original-title="首页">
+                                <div class="nav-icon">
+                                    <i class="icon icon-a_nav_home icon-index"></i>
+                                </div>
+                                <span class="nav-title">首页</span>
+                            </a>
+                        </li>
+                        <li class="nav-item has-sub-menu open" id="navItemExam"><a
+                                href="/html/exam/addtestqm#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="考试管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_exam"></i></div>
+                            <span class="nav-title">考试管理</span></a>
+                            <ul class="sub-menu animate" style="height: 238px;">
+                                <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
+                                        href="/html/exam/exam_mgr_new"><span
+                                        class="nav-title">考试信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item nav-item-active" id="subNavItemQuestionMgr"><a
+                                        href="https://v..com/admin/testQuestions/#/list"><span
+                                        class="nav-title">试题库</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaperMgr"><a
+                                        href="/html/exam/paper_mgr_new"><span class="nav-title">试卷库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
+                                        href="https://admin..com/admin/result/mgr_new"><span
+                                        class="nav-title">成绩查询批改</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
+                                        href="https://new..com/ae/results/analysis/exam"><span
+                                        class="nav-title">分析考试</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItempersonAnalysis"><a
+                                        href="https://new..com/ae/results/analysis/person"><span
+                                        class="nav-title">分析考生</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemUser"><a
+                                href="/html/exam/addtestqm#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="人员管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_personnel"></i></div>
+                            <span class="nav-title">人员管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
+                                        href="https://v..com/admin/user/#/list"><span
+                                        class="nav-title">考生信息</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
+                                        href="https://admin..com/admin/user_reg"><span
+                                        class="nav-title">注册设置</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemCourse"><a
+                                href="/html/exam/addtestqm#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="学习">
+                            <div class="nav-icon"><i class="icon icon-a_nav_study"></i></div>
+                            <span class="nav-title">学习</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
+                                        href="https://admin..com/admin/file/manager"><span class="nav-title">知识库</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
+                                        href="https://admin..com/course/course_mgr"><span class="nav-title">课程管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
+                                        href="https://admin..com/course/study_record_mgr/course"><span
+                                        class="nav-title">学习记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item " id="navItemCustomProcess"><a
+                                href="https://v..com/admin/customprocess/" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="自定义任务">
+                            <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
+                            <span class="nav-title">自定义任务</span></a>
+                        </li>
+                        <li class="nav-item " id="navItemCertification"><a
+                                href="https://admin..com/certificate/certificate_center" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
+                            <div class="nav-icon"><i class="icon icon-p_leftnav_certification"></i></div>
+                            <span class="nav-title">认证中心</span></a></li>
+                        <li class="nav-item " id="navItemApplication"><a
+                                href="https://v..com/admin/application/#/list" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="报名审核">
+                            <div class="nav-icon"><i class="icon icon-a_nav_sign_up"></i></div>
+                            <span class="nav-title">报名审核</span></a></li>
+                        <li class="nav-item has-sub-menu" id="navItemPay"><a
+                                href="https://admin..com/admin/addtestqm#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="支付中心">
+                            <div class="nav-icon"><i class="icon icon-a_nav_pay"></i></div>
+                            <span class="nav-title">支付中心</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemPayCenter"><a
+                                        href="https://admin..com/account/admin_pay_center"><span
+                                        class="nav-title">充值</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPaySet"><a
+                                        href="https://admin..com/admin/user_pay_set">
+                                    <span class="nav-title">支付设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemConsumeRecord"><a
+                                        href="https://admin..com/account/admin_consume_record"><span
+                                        class="nav-title">消费记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOrderRecord"><a
+                                        href="https://admin..com/account/admin_order_record"><span
+                                        class="nav-title">充值记录</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemPayRecord"><a
+                                        href="https://admin..com/account/examinee_pay_record"><span
+                                        class="nav-title">考生付费记录</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-sub-menu" id="navItemSystem"><a
+                                href="https://admin..com/admin/addtestqm#" class="menu-title"
+                                data-toggle="tooltip" data-placement="right" data-container="body" title="系统管理">
+                            <div class="nav-icon"><i class="icon icon-a_nav_system"></i></div>
+                            <span class="nav-title">系统管理</span></a>
+                            <ul class="sub-menu animate">
+                                <li class="nav-item sub-nav-item" id="subNavItemSubAdminMgr"><a
+                                        href="https://admin..com/admin/sub_admin_mgr"><span
+                                        class="nav-title">子管理员设置</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAdvancedSetMgr"><a
+                                        href="https://admin..com/admin_info/advanced_setting"><span
+                                        class="nav-title">高级功能设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemAppSetting"><a
+                                        href="https://admin..com/admin/app_set"><span
+                                        class="nav-title">App设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemModify"><a
+                                        href="https://admin..com/admin/modify"><span
+                                        class="nav-title">个性化设置</span></a></li>
+                                <li class="nav-item sub-nav-item" id="subNavItemFollowApp"><a
+                                        href="https://admin..com/admin/follow_app"><span class="nav-title">关联公众号</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemDevInfoMgr"><a
+                                        href="https://admin..com/admin/dev_info_mgr"><span
+                                        class="nav-title">开发者信息管理</span></a>
+                                </li>
+                                <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
+                                        href="/html/system/admin_op_record"><span
+                                        class="nav-title">管理员操作记录</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-bottom sidebar-btn">
+                <ul class="sidebar-trans">
+                    <li class="nav-item">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_help"></i>
+                            </div>
+                            <span class="nav-title">帮助</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel person-servers-panel">
+                            <div class="btn-help">
+                                <i class="icon icon-a_help_document"></i>
+                                <p><a href="https://www.kancloud.cn/exam-star/ksxhelp_1/974046">帮助文档</a></p>
+                            </div>
+                            <div class="btn-service">
+                                <i class="icon icon-a_help_service"></i>
+                                <span>人工客服</span>
+                                <p>
+                                    可<a class="zhiCustomBtn gio-inquire-position" data-gio-position="管理端帮助在线咨询"
+                                        href="javascript:">在线咨询</a>或拔打电话<span>400-870-1477</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-user">
+                        <a class="sidebar-bottom-wrap" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="nav-icon">
+                                <i class="icon icon-a_nav_my"></i>
+                            </div>
+                            <span class="nav-title">东北大学软件园</span>
+                        </a>
+                        <div class="dropdown-menu company-info-panel user-info-panel">
+
+                            <div class="user-info">
+                                <div class="info-img">
+                                    <img src="../../img/default-pic.png" class="user_img" alt="">
+                                </div>
+                                <div class="info-detail clearfix">
+                                    <div class="user" id="user">
+                                        <span class="user-surname">东北大学软件园</span>
+                                        <i data-toggle="tooltip" data-placement="top" data-container="body" title=""
+                                           data-original-title="编辑信息">
+                                        </i>
+                                    </div>
+                                    <div class="company">
+                                        东北大学软件园
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="operate-group">
+                                <a class="operate-item exam-entrance" href="/student">
+                                    <i class="operate-icon icon-a_personal_switch"></i>
+                                    切换至考生端
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item exam-entrance"
+                                   href="https://admin..com/admin/admin_information">
+                                    <i class="operate-icon edit-info icon-a_personal_edit" data-toggle="tooltip"
+                                       data-placement="top" data-container="body" title="" data-original-title="编辑信息">
+                                        <i class="unread-notice"></i>
+                                    </i>
+                                    修改个人信息
+                                    <i class="operate-right-icon icon-a_enter"></i>
+                                </a>
+                                <a class="operate-item btn-exit" id="logoutBtn">
+                                    <i class="operate-icon icon-a_personal_exit"></i>
+                                    退出
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="viewFrameWork-body">
+            <div class="spinner-wrapper hidden" id="spinnerLoading">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+
+            <div class="body-wrapper">
+                <div class="body-content">
+                    <div class="cont-r">
+                        <div role="tabpanel" class="tab-area tab-col2">
+                            <form action="https://admin..com/admin/addtestqm" name="form" method="post"
+                                  id="subForm">
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="manualInput">
+                                        <div class="batch-type">
+                                            <span class="intro">科目</span>
+                                            <div class="simulationSelect testType">
+                                                <span class="title-font">选择科目</span>
+                                                <em class="glyphicon glyphicon-triangle-bottom"></em>
+                                                <div class="simulationOption subjects" style="display: none;">
+                                                </div>
+                                            </div>
+                                            <select name="type" class="hidden subjects">
+                                                <option value="1" selected="">语文</option>
+
+                                            </select>
+
+                                            <span class="intro">试题类型</span>
+                                            <div class="simulationSelect testType">
+                                                <span class="title-font">单选题</span>
+                                                <em class="glyphicon glyphicon-triangle-bottom"></em>
+                                                <div class="simulationOption testType" style="display: none;">
+                                                    <div class="one">单选题</div>
+                                                    <div class="two">多选题</div>
+                                                    <div class="three">判断题</div>
+                                                    <div class="four">填空题</div>
+                                                    <div class="five">问答题</div>
+                                                    <div class="six">组合题</div>
+                                                    <div class="seven">录音题</div>
+                                                </div>
+                                            </div>
+                                            <select name="type" class="form-control hidden">
+                                                <option value="1" selected="">单选题</option>
+                                                <option value="2">多选题</option>
+                                                <option value="3">判断题</option>
+                                                <option value="4">填空题</option>
+                                                <option value="5">问答题</option>
+                                                <option value="6">组合题</option>
+                                                <option value="7">录音题</option>
+                                            </select>
+
+                                            <span class="intro">试题难度</span>
+                                            <div class="simulationSelect difficult">
+                                                <span class="title-font">简单</span>
+                                                <em class="glyphicon glyphicon-triangle-bottom"></em>
+                                                <div class="simulationOption difficult" style="display: none;">
+                                                    <div class="one">简单</div>
+                                                    <div class="two">普通</div>
+                                                    <div class="three">困难</div>
+                                                </div>
+                                            </div>
+                                            <select name="difficult" class="form-control hidden">
+                                                <option value="simple" selected="">简单</option>
+                                                <option value="middle">普通</option>
+                                                <option value="hard">困难</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="combPanel" style="display:none;">
+                                            <div class="title">
+                                                <span class="tip">题干</span>
+                                            </div>
+                                            <div class="wangEditor-container">
+                                                <div id="combEditor" class="questions_add wangEditor-txt"
+                                                     contenteditable="true" style="height: 85px;"><p><br></p></div>
+                                            </div>
+
+                                            <input name="comb_question" type="hidden">
+                                        </div>
+
+                                        <div class="questionPanel" style="display:none;">
+                                            <div class="title">
+                                                <span class="tip">小题</span>
+                                            </div>
+                                            <div class="questionList"></div>
+                                        </div>
+
+                                        <div class="combBatchPanel" style="display:none;">
+                                            <div class="title">
+                                                <span class="tip">小题</span>
+                                                <span class="intro">选择录入的题型，并按格式输入题目，保存后将录入题目</span>
+                                            </div>
+                                            <div class="combBatchBlock">
+                                                <div class="button-bar">
+                                                    <input type="radio" name="insert_type" id="type1" class="hidden"
+                                                           value="1" checked="">
+                                                    <label class="btn btn-default" for="type1">单选题</label>
+                                                    <input type="radio" name="insert_type" id="type2" class="hidden"
+                                                           value="2">
+                                                    <label class="btn btn-default" for="type2">多选题</label>
+                                                    <input type="radio" name="insert_type" id="type3" class="hidden"
+                                                           value="3">
+                                                    <label class="btn btn-default" for="type3">判断题</label>
+                                                    <input type="radio" name="insert_type" id="type4" class="hidden"
+                                                           value="4">
+                                                    <label class="btn btn-default" for="type4">填空题</label>
+                                                    <input type="radio" name="insert_type" id="type5" class="hidden"
+                                                           value="5">
+                                                    <label class="btn btn-default" for="type5">问答题</label>
+                                                    <button type="button" class="btn btn-warning pull-right"
+                                                            id="importBtn">
+                                                        <span id="import" style="display:inline-block;">保存</span>
+                                                        <span id="import_questions" style="display:none;">导入中<span
+                                                                class="ani_dot">...</span></span>
+                                                    </button>
+                                                </div>
+                                                <div class="batch-cont" id="inputArea">
+                                                    <div class="batch-input clearfix">
+                                                        <div class="batch-input-box">
+                                                            <div class="toolbar">
+                                                                <span class="title">输入区：<span class="example"
+                                                                                              id="showExample">查看例题</span></span>
+                                                            </div>
+                                                            <div id="text-input"
+                                                                 class="box fr-box fr-ltr fr-basic fr-top">
+                                                                <div class="fr-toolbar fr-ltr fr-desktop fr-top fr-basic">
+                                                                    <button id="fullscreen-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            aria-pressed="false" title="全屏"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="fullscreen"><i
+                                                                            class="fa fa-expand" aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">全屏</span></button>
+                                                                    <button id="bold-1" type="button" tabindex="-1"
+                                                                            role="button" aria-pressed="false"
+                                                                            title="粗体 (Ctrl+B)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="bold"><i class="fa fa-bold"
+                                                                                               aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">粗体</span></button>
+                                                                    <button id="italic-1" type="button" tabindex="-1"
+                                                                            role="button" aria-pressed="false"
+                                                                            title="斜体 (Ctrl+I)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="italic"><i class="fa fa-italic"
+                                                                                                 aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">斜体</span></button>
+                                                                    <button id="underline-1" type="button" tabindex="-1"
+                                                                            role="button" aria-pressed="false"
+                                                                            title="下划线 (Ctrl+U)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="underline"><i
+                                                                            class="fa fa-underline"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">下划线</span></button>
+                                                                    <button id="strikeThrough-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            aria-pressed="false" title="删除线 (Ctrl+S)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="strikeThrough"><i
+                                                                            class="fa fa-strikethrough"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">删除线</span></button>
+                                                                    <button id="subscript-1" type="button" tabindex="-1"
+                                                                            role="button" aria-pressed="false"
+                                                                            title="下标"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="subscript"><i
+                                                                            class="fa fa-subscript"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">下标</span></button>
+                                                                    <button id="superscript-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            aria-pressed="false" title="上标"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="superscript"><i
+                                                                            class="fa fa-superscript"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">上标</span></button>
+                                                                    <div class="fr-separator fr-vs" role="separator"
+                                                                         aria-orientation="vertical"></div>
+                                                                    <button id="fontFamily-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            aria-controls="dropdown-menu-fontFamily-1"
+                                                                            aria-expanded="false" aria-haspopup="true"
+                                                                            title="字体"
+                                                                            class="fr-command fr-btn fr-dropdown fr-btn-font_awesome fr-selection"
+                                                                            data-cmd="fontFamily"><i class="fa fa-font"
+                                                                                                     aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">字体</span></button>
+                                                                    <div id="dropdown-menu-fontFamily-1"
+                                                                         class="fr-dropdown-menu" role="listbox"
+                                                                         aria-labelledby="fontFamily-1"
+                                                                         aria-hidden="true">
+                                                                        <div class="fr-dropdown-wrapper"
+                                                                             role="presentation">
+                                                                            <div class="fr-dropdown-content"
+                                                                                 role="presentation">
+                                                                                <ul class="fr-dropdown-list"
+                                                                                    role="presentation">
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontFamily"
+                                                                                            data-param1="Arial,Helvetica,sans-serif"
+                                                                                            style="font-family: Arial,Helvetica,sans-serif"
+                                                                                            title="Arial">Arial</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontFamily"
+                                                                                            data-param1="Georgia,serif"
+                                                                                            style="font-family: Georgia,serif"
+                                                                                            title="Georgia">Georgia</a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontFamily"
+                                                                                            data-param1="Impact,Charcoal,sans-serif"
+                                                                                            style="font-family: Impact,Charcoal,sans-serif"
+                                                                                            title="Impact">Impact</a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontFamily"
+                                                                                            data-param1="Tahoma,Geneva,sans-serif"
+                                                                                            style="font-family: Tahoma,Geneva,sans-serif"
+                                                                                            title="Tahoma">Tahoma</a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontFamily"
+                                                                                            data-param1="Times New Roman,Times,serif,-webkit-standard"
+                                                                                            style="font-family: Times New Roman,Times,serif,-webkit-standard"
+                                                                                            title="Times New Roman">Times
+                                                                                        New Roman</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontFamily"
+                                                                                            data-param1="Verdana,Geneva,sans-serif"
+                                                                                            style="font-family: Verdana,Geneva,sans-serif"
+                                                                                            title="Verdana">Verdana</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button id="fontSize-1" type="button" tabindex="-1"
+                                                                            role="button"
+                                                                            aria-controls="dropdown-menu-fontSize-1"
+                                                                            aria-expanded="false" aria-haspopup="true"
+                                                                            title="字号"
+                                                                            class="fr-command fr-btn fr-dropdown fr-btn-font_awesome fr-selection"
+                                                                            data-cmd="fontSize"><i
+                                                                            class="fa fa-text-height"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">字号</span></button>
+                                                                    <div id="dropdown-menu-fontSize-1"
+                                                                         class="fr-dropdown-menu" role="listbox"
+                                                                         aria-labelledby="fontSize-1"
+                                                                         aria-hidden="true">
+                                                                        <div class="fr-dropdown-wrapper"
+                                                                             role="presentation">
+                                                                            <div class="fr-dropdown-content"
+                                                                                 role="presentation">
+                                                                                <ul class="fr-dropdown-list"
+                                                                                    role="presentation">
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="8px" title="8">8</a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="9px" title="9">9</a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="10px"
+                                                                                            title="10">10</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="11px"
+                                                                                            title="11">11</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="12px"
+                                                                                            title="12">12</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="14px"
+                                                                                            title="14">14</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="18px"
+                                                                                            title="18">18</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="24px"
+                                                                                            title="24">24</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="30px"
+                                                                                            title="30">30</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="36px"
+                                                                                            title="36">36</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="48px"
+                                                                                            title="48">48</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="60px"
+                                                                                            title="60">60</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="72px"
+                                                                                            title="72">72</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="fontSize"
+                                                                                            data-param1="96px"
+                                                                                            title="96">96</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button id="color-1" type="button" tabindex="-1"
+                                                                            role="button" title="颜色"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="color" data-popup="true"><i
+                                                                            class="fa fa-tint"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">颜色</span></button>
+                                                                    <button id="inlineStyle-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            aria-controls="dropdown-menu-inlineStyle-1"
+                                                                            aria-expanded="false" aria-haspopup="true"
+                                                                            title="内联样式"
+                                                                            class="fr-command fr-btn fr-dropdown fr-btn-font_awesome"
+                                                                            data-cmd="inlineStyle"><i
+                                                                            class="fa fa-paint-brush"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">内联样式</span></button>
+                                                                    <div id="dropdown-menu-inlineStyle-1"
+                                                                         class="fr-dropdown-menu" role="listbox"
+                                                                         aria-labelledby="inlineStyle-1"
+                                                                         aria-hidden="true">
+                                                                        <div class="fr-dropdown-wrapper"
+                                                                             role="presentation">
+                                                                            <div class="fr-dropdown-content"
+                                                                                 role="presentation">
+                                                                                <ul class="fr-dropdown-list"
+                                                                                    role="presentation">
+                                                                                    <li role="presentation"><span
+                                                                                            style="font-size: 20px; color: red;"
+                                                                                            role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="inlineStyle"
+                                                                                            data-param1="font-size: 20px; color: red;"
+                                                                                            title="Big Red">Big Red</a></span>
+                                                                                    </li>
+                                                                                    <li role="presentation"><span
+                                                                                            style="font-size: 14px; color: blue;"
+                                                                                            role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="inlineStyle"
+                                                                                            data-param1="font-size: 14px; color: blue;"
+                                                                                            title="Small Blue">Small Blue</a></span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button id="paragraphStyle-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            aria-controls="dropdown-menu-paragraphStyle-1"
+                                                                            aria-expanded="false" aria-haspopup="true"
+                                                                            title="段落样式"
+                                                                            class="fr-command fr-btn fr-dropdown fr-btn-font_awesome"
+                                                                            data-cmd="paragraphStyle"><i
+                                                                            class="fa fa-magic"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">段落样式</span></button>
+                                                                    <div id="dropdown-menu-paragraphStyle-1"
+                                                                         class="fr-dropdown-menu" role="listbox"
+                                                                         aria-labelledby="paragraphStyle-1"
+                                                                         aria-hidden="true">
+                                                                        <div class="fr-dropdown-wrapper"
+                                                                             role="presentation">
+                                                                            <div class="fr-dropdown-content"
+                                                                                 role="presentation">
+                                                                                <ul class="fr-dropdown-list"
+                                                                                    role="presentation">
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command fr-text-gray"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphStyle"
+                                                                                            data-param1="fr-text-gray"
+                                                                                            title="Gray">Gray</a></li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command fr-text-bordered"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphStyle"
+                                                                                            data-param1="fr-text-bordered"
+                                                                                            title="Bordered">Bordered</a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command fr-text-spaced"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphStyle"
+                                                                                            data-param1="fr-text-spaced"
+                                                                                            title="Spaced">Spaced</a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command fr-text-uppercase"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphStyle"
+                                                                                            data-param1="fr-text-uppercase"
+                                                                                            title="Uppercase">Uppercase</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="fr-separator fr-vs" role="separator"
+                                                                         aria-orientation="vertical"></div>
+                                                                    <button id="paragraphFormat-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            aria-controls="dropdown-menu-paragraphFormat-1"
+                                                                            aria-expanded="false" aria-haspopup="true"
+                                                                            title="格式"
+                                                                            class="fr-command fr-btn fr-dropdown fr-btn-font_awesome fr-selection"
+                                                                            data-cmd="paragraphFormat"><i
+                                                                            class="fa fa-paragraph"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">格式</span></button>
+                                                                    <div id="dropdown-menu-paragraphFormat-1"
+                                                                         class="fr-dropdown-menu" role="listbox"
+                                                                         aria-labelledby="paragraphFormat-1"
+                                                                         aria-hidden="true">
+                                                                        <div class="fr-dropdown-wrapper"
+                                                                             role="presentation">
+                                                                            <div class="fr-dropdown-content"
+                                                                                 role="presentation">
+                                                                                <ul class="fr-dropdown-list"
+                                                                                    role="presentation">
+                                                                                    <li role="presentation"><p
+                                                                                            style="padding: 0 !important; margin: 0 !important;"
+                                                                                            role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphFormat"
+                                                                                            data-param1="N" title="正常">正常</a>
+                                                                                    </p></li>
+                                                                                    <li role="presentation"><h1
+                                                                                            style="padding: 0 !important; margin: 0 !important;"
+                                                                                            role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphFormat"
+                                                                                            data-param1="H1"
+                                                                                            title="标题1">标题1</a></h1>
+                                                                                    </li>
+                                                                                    <li role="presentation"><h2
+                                                                                            style="padding: 0 !important; margin: 0 !important;"
+                                                                                            role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphFormat"
+                                                                                            data-param1="H2"
+                                                                                            title="标题2">标题2</a></h2>
+                                                                                    </li>
+                                                                                    <li role="presentation"><h3
+                                                                                            style="padding: 0 !important; margin: 0 !important;"
+                                                                                            role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphFormat"
+                                                                                            data-param1="H3"
+                                                                                            title="标题3">标题3</a></h3>
+                                                                                    </li>
+                                                                                    <li role="presentation"><h4
+                                                                                            style="padding: 0 !important; margin: 0 !important;"
+                                                                                            role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="paragraphFormat"
+                                                                                            data-param1="H4"
+                                                                                            title="标题4">标题4</a></h4>
+                                                                                    </li>
+                                                                                    <li role="presentation">
+                                                                                        <pre style="padding: 0 !important; margin: 0 !important;"
+                                                                                             role="presentation"><a
+                                                                                                class="fr-command"
+                                                                                                tabindex="-1"
+                                                                                                role="option"
+                                                                                                data-cmd="paragraphFormat"
+                                                                                                data-param1="PRE"
+                                                                                                title="代码">代码</a></pre>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button id="align-1" type="button" tabindex="-1"
+                                                                            role="button"
+                                                                            aria-controls="dropdown-menu-align-1"
+                                                                            aria-expanded="false" aria-haspopup="true"
+                                                                            title="对齐方式"
+                                                                            class="fr-command fr-btn fr-dropdown fr-btn-font_awesome"
+                                                                            data-cmd="align"><i class="fa fa-align-left"
+                                                                                                aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">对齐方式</span></button>
+                                                                    <div id="dropdown-menu-align-1"
+                                                                         class="fr-dropdown-menu" role="listbox"
+                                                                         aria-labelledby="align-1" aria-hidden="true">
+                                                                        <div class="fr-dropdown-wrapper"
+                                                                             role="presentation">
+                                                                            <div class="fr-dropdown-content"
+                                                                                 role="presentation">
+                                                                                <ul class="fr-dropdown-list"
+                                                                                    role="presentation">
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command fr-title"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="align"
+                                                                                            data-param1="left"
+                                                                                            title="左对齐"><i
+                                                                                            class="fa fa-align-left"
+                                                                                            aria-hidden="true"></i><span
+                                                                                            class="fr-sr-only">左对齐</span></a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command fr-title"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="align"
+                                                                                            data-param1="center"
+                                                                                            title="居中"><i
+                                                                                            class="fa fa-align-center"
+                                                                                            aria-hidden="true"></i><span
+                                                                                            class="fr-sr-only">居中</span></a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command fr-title"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="align"
+                                                                                            data-param1="right"
+                                                                                            title="右对齐"><i
+                                                                                            class="fa fa-align-right"
+                                                                                            aria-hidden="true"></i><span
+                                                                                            class="fr-sr-only">右对齐</span></a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command fr-title"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="align"
+                                                                                            data-param1="justify"
+                                                                                            title="两端对齐"><i
+                                                                                            class="fa fa-align-justify"
+                                                                                            aria-hidden="true"></i><span
+                                                                                            class="fr-sr-only">两端对齐</span></a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button id="formatOL-1" type="button" tabindex="-1"
+                                                                            role="button" title="编号列表"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="formatOL"><i class="fa fa-list-ol"
+                                                                                                   aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">编号列表</span></button>
+                                                                    <button id="formatUL-1" type="button" tabindex="-1"
+                                                                            role="button" title="项目符号"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="formatUL"><i class="fa fa-list-ul"
+                                                                                                   aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">项目符号</span></button>
+                                                                    <button id="outdent-1" type="button" tabindex="-1"
+                                                                            role="button" title="减少缩进 (Ctrl+[)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="outdent"><i class="fa fa-outdent"
+                                                                                                  aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">减少缩进</span></button>
+                                                                    <button id="indent-1" type="button" tabindex="-1"
+                                                                            role="button" title="增加缩进 (Ctrl+])"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="indent"><i class="fa fa-indent"
+                                                                                                 aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">增加缩进</span></button>
+                                                                    <button id="quote-1" type="button" tabindex="-1"
+                                                                            role="button"
+                                                                            aria-controls="dropdown-menu-quote-1"
+                                                                            aria-expanded="false" aria-haspopup="true"
+                                                                            title="引用"
+                                                                            class="fr-command fr-btn fr-dropdown fr-btn-font_awesome"
+                                                                            data-cmd="quote"><i class="fa fa-quote-left"
+                                                                                                aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">引用</span></button>
+                                                                    <div id="dropdown-menu-quote-1"
+                                                                         class="fr-dropdown-menu" role="listbox"
+                                                                         aria-labelledby="quote-1" aria-hidden="true">
+                                                                        <div class="fr-dropdown-wrapper"
+                                                                             role="presentation">
+                                                                            <div class="fr-dropdown-content"
+                                                                                 role="presentation">
+                                                                                <ul class="fr-dropdown-list"
+                                                                                    role="presentation">
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="quote"
+                                                                                            data-param1="increase"
+                                                                                            title="Increase">增加引用</a>
+                                                                                    </li>
+                                                                                    <li role="presentation"><a
+                                                                                            class="fr-command"
+                                                                                            tabindex="-1" role="option"
+                                                                                            data-cmd="quote"
+                                                                                            data-param1="decrease"
+                                                                                            title="Decrease">删除引用</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="fr-separator fr-hs" role="separator"
+                                                                         aria-orientation="horizontal"></div>
+                                                                    <button id="insertLink-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            title="插入链接 (Ctrl+K)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="insertLink" data-popup="true"><i
+                                                                            class="fa fa-link"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">插入链接</span></button>
+                                                                    <button id="insertImage-1" type="button"
+                                                                            tabindex="-1" role="button"
+                                                                            title="插入图片 (Ctrl+P)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="insertImage" data-popup="true"><i
+                                                                            class="fa fa-image"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">插入图片</span></button>
+                                                                    <button id="insertVideo-1" type="button"
+                                                                            tabindex="-1" role="button" title="插入视频"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="insertVideo" data-popup="true"><i
+                                                                            class="fa fa-video-camera"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">插入视频</span></button>
+                                                                    <button id="insertFile-1" type="button"
+                                                                            tabindex="-1" role="button" title="上传文件"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="insertFile" data-popup="true"><i
+                                                                            class="fa fa-file-o" aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">上传文件</span></button>
+                                                                    <button id="insertTable-1" type="button"
+                                                                            tabindex="-1" role="button" title="插入表格"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="insertTable" data-popup="true"><i
+                                                                            class="fa fa-table"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">插入表格</span></button>
+                                                                    <div class="fr-separator fr-vs" role="separator"
+                                                                         aria-orientation="vertical"></div>
+                                                                    <button id="emoticons-1" type="button" tabindex="-1"
+                                                                            role="button" title="表情"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="emoticons" data-popup="true"><i
+                                                                            class="fa fa-smile-o"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">表情</span></button>
+                                                                    <button id="specialCharacters-1" type="button"
+                                                                            tabindex="-1" role="button" title="特殊字符"
+                                                                            class="fr-command fr-btn fr-btn-text"
+                                                                            data-cmd="specialCharacters"
+                                                                            data-modal="true"><span
+                                                                            style="text-align: center;">Ω</span><span
+                                                                            class="fr-sr-only">特殊字符</span></button>
+                                                                    <button id="insertHR-1" type="button" tabindex="-1"
+                                                                            role="button" title="插入水平线"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="insertHR"><i class="fa fa-minus"
+                                                                                                   aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">插入水平线</span></button>
+                                                                    <button id="selectAll-1" type="button" tabindex="-1"
+                                                                            role="button" title="全选"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="selectAll"><i
+                                                                            class="fa fa-mouse-pointer"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">全选</span></button>
+                                                                    <button id="clearFormatting-1" type="button"
+                                                                            tabindex="-1" role="button" title="格式化删除"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="clearFormatting"><i
+                                                                            class="fa fa-eraser" aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">格式化删除</span></button>
+                                                                    <div class="fr-separator fr-vs" role="separator"
+                                                                         aria-orientation="vertical"></div>
+                                                                    <button id="print-1" type="button" tabindex="-1"
+                                                                            role="button" title="打印"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="print"><i class="fa fa-print"
+                                                                                                aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">打印</span></button>
+                                                                    <button id="help-1" type="button" tabindex="-1"
+                                                                            role="button" title="帮帮我 (Ctrl+/)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="help" data-modal="true"><i
+                                                                            class="fa fa-question"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">帮帮我</span></button>
+                                                                    <button id="html-1" type="button" tabindex="-1"
+                                                                            role="button" aria-pressed="false"
+                                                                            title="代码视图"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome"
+                                                                            data-cmd="html"><i class="fa fa-code"
+                                                                                               aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">代码视图</span></button>
+                                                                    <div class="fr-separator fr-vs" role="separator"
+                                                                         aria-orientation="vertical"></div>
+                                                                    <button id="undo-1" type="button" tabindex="-1"
+                                                                            role="button" aria-disabled="true"
+                                                                            title="撤消 (Ctrl+Z)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome fr-disabled"
+                                                                            data-cmd="undo"><i class="fa fa-rotate-left"
+                                                                                               aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">撤消</span></button>
+                                                                    <button id="redo-1" type="button" tabindex="-1"
+                                                                            role="button" aria-disabled="true"
+                                                                            title="重复 (Ctrl+Shift+Z)"
+                                                                            class="fr-command fr-btn fr-btn-font_awesome fr-disabled"
+                                                                            data-cmd="redo"><i
+                                                                            class="fa fa-rotate-right"
+                                                                            aria-hidden="true"></i><span
+                                                                            class="fr-sr-only">重复</span></button>
+                                                                </div>
+                                                                <div class="fr-wrapper show-placeholder" dir="ltr">
+                                                                    <div class="fr-element fr-view" dir="ltr"
+                                                                         contenteditable="true" aria-disabled="false"
+                                                                         spellcheck="false"><p><br></p></div>
+                                                                    <span class="fr-placeholder"
+                                                                          style="font-size: 12px; line-height: 31px; margin-top: 0px; padding-top: 16px; padding-left: 16px; margin-left: 0px; padding-right: 16px; margin-right: 0px; text-align: start;">请将当前所选题型的所有试题复制到这里</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="batch-preview-box">
+                                                            <div class="toolbar">
+                                                                <span class="title">检查区：</span>
+                                                                <span class="error-text" id="errorText">
+                                                                                   共<span class="count"
+                                                                                          id="errorCount"></span>处错误，请参照例题修改
+                                                                               </span>
+                                                                <button class="btn btn-s-blue" id="nextError">下一处
+                                                                </button>
+                                                            </div>
+                                                            <div class="box">
+                                                                <div id="preview"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="question-content">
+                                            <div class="descPanel">
+                                                <div class="title">
+                                                    <span class="tip">题干</span>
+                                                </div>
+                                                <div class="wangEditor-container active">
+                                                    <div id="questionEditor" class="questions_add wangEditor-txt"
+                                                         contenteditable="true" style="height: 85px;"><p><br></p></div>
+                                                </div>
+                                                <input name="question" type="hidden"
+                                                       value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
+                                            </div>
+                                            <div class="keyRadio keyPanel">
+                                                <div class="title">
+                                                    <span class="tip">选项</span>
+                                                    <span class="intro">单/多选题的选项范围从&nbsp;2&nbsp;到&nbsp;20&nbsp;</span>
+                                                </div>
+                                                <div class="keyList">
+                                                    <div class="keyLeft">
+                                                        <input type="radio" class="radioOrCheck" name="keyChk">
+                                                    </div>
+                                                    <div class="keyRight keyRight1">
+                                                        <div class="wangEditor-container">
+                                                            <div id="key1Editor" class="questions_add wangEditor-txt"
+                                                                 contenteditable="true" style="height: 85px;"><p><br>
+                                                            </p></div>
+                                                        </div>
+
+                                                        <input name="answer1" type="hidden"
+                                                               value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
+                                                    </div>
+                                                </div>
+                                                <div class="keyList">
+                                                    <div class="keyLeft">
+                                                        <input type="radio" class="radioOrCheck" name="keyChk">
+                                                    </div>
+                                                    <div class="keyRight keyRight2">
+                                                        <div class="wangEditor-container">
+                                                            <div id="key2Editor" class="questions_add wangEditor-txt"
+                                                                 contenteditable="true" style="height: 85px;"><p><br>
+                                                            </p></div>
+                                                        </div>
+
+                                                        <input name="answer2" type="hidden"
+                                                               value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
+                                                    </div>
+                                                </div>
+                                                <div class="keyList">
+                                                    <div class="keyLeft">
+                                                        <input type="radio" class="radioOrCheck" name="keyChk">
+                                                    </div>
+                                                    <div class="keyRight keyRight3">
+                                                        <div class="wangEditor-container">
+                                                            <div id="key3Editor" class="questions_add wangEditor-txt"
+                                                                 contenteditable="true" style="height: 85px;"><p><br>
+                                                            </p></div>
+                                                        </div>
+
+                                                        <input name="answer3" type="hidden"
+                                                               value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
+                                                    </div>
+                                                    <a href="javascript:void(0);" class="removeKey icons8-delete"></a>
+                                                </div>
+                                                <div class="keyList">
+                                                    <div class="keyLeft">
+                                                        <input type="radio" class="radioOrCheck" name="keyChk">
+                                                    </div>
+                                                    <div class="keyRight keyRight4">
+                                                        <div class="wangEditor-container">
+                                                            <div id="key4Editor" class="questions_add wangEditor-txt"
+                                                                 contenteditable="true" style="height: 85px;"><p><br>
+                                                            </p></div>
+                                                        </div>
+
+                                                        <input name="answer4" type="hidden"
+                                                               value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
+                                                    </div>
+                                                    <a href="javascript:void(0);" class="removeKey icons8-delete"></a>
+                                                </div>
+                                                <div class="addKeyBtn">
+                                                    <button type="button" class="btn btn-l-gray addKey"><i
+                                                            class="plus-style icons8-plus"></i>添加一个选项
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="keyJudge keyPanel" style="display: none;">
+                                                <div class="title">
+                                                    <span class="tip">选项</span>
+                                                    <span class="intro">选择正确或者错误（默认正确）</span>
+                                                </div>
+                                                <input type="radio" class="hidden" name="keyChk" id="judgeYes" value=""
+                                                       checked="">
+                                                <label for="judgeYes" class="btn btn-border-gray">正确</label>
+                                                <input type="radio" class="hidden" name="keyChk" id="judgeNo" value="">
+                                                <label for="judgeNo" class="btn btn-border-gray">错误</label>
+                                                <input type="hidden" class="radioOrCheck" name="key1" id="keyYes"
+                                                       value="">
+                                                <input type="hidden" class="radioOrCheck" name="key2" id="keyNo"
+                                                       value="">
+                                            </div>
+                                            <div class="keyFill keyPanel" style="display: none;">
+                                                <div class="title">
+                                                    <span class="tip">答案</span>
+                                                    <span class="intro">请填写每个填空的答案<i
+                                                            class="icons8-help answer-help"></i></span>
+                                                    <div class="answer-prompt" style="display: none">
+                                                        <span class="importent">同义词</span><br>
+                                                        同义词是答案的关键信息。填写后，系统可根据同义词自动判分。<span class="importent">一个答案有不同的答法，可加入多个同义词，满足其一即可得分。</span>
+                                                        （如：china 和 CHINA）
+                                                    </div>
+                                                    <div class="pull-right form-group answer_disorder_container">
+                                                        <div class="col-sm-9">
+                                                            <span class="switch-on switch-all answerDisorder"
+                                                                  style="border-color: rgb(77, 143, 225); box-shadow: rgb(77, 143, 225) 0px 0px 0px 16px inset; background-color: rgb(77, 143, 225);"><span
+                                                                    class="slider"></span></span>
+                                                        </div>
+                                                        <label class="placeholder">答案乱序<i
+                                                                class="icons8-help disorder-help"></i></label>
+                                                        <div class="disorder-prompt" style="display: none">
+                                                            <span class="importent">答案乱序</span><br>
+                                                            只需要对相应的关键信息，而 <span class="importent">对答案的顺序不做要求。</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="keyFillContent">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">1</span>
+                                                        <div class="bootstrap-tagsinput"><input type="text"
+                                                                                                placeholder="请输入答案，按下回车添加同义词。">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="addKeyFillBtn">
+                                                    <button type="button" class="btn btn-l-gray addKeyFill"><i
+                                                            class="plus-style icons8-plus" style="top: 0"></i>增加一个填空
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="keyCloze keyPanel" style="display: none;">
+                                                <div class="title">
+                                                    <span class="tip">答案</span>
+                                                    <span class="intro">这里填写答案</span>
+                                                </div>
+                                                <div class="wangEditor-container">
+                                                    <div id="clozeEditor" class="questions_add wangEditor-txt"
+                                                         contenteditable="true" style="height: 85px;"><p><br></p></div>
+                                                </div>
+
+                                                <input name="answer1" type="hidden">
+                                                <input type="hidden" class="radioOrCheck" name="key1" value="1">
+                                                <div class="keyWordPanel">
+                                                    <div class="title" style="position: relative;">
+                                                        <span class="tip">关键词</span>
+                                                        <span class="intro">这里添加答案关键词</span><span
+                                                            class="keyWordBadge">?</span>
+                                                        <div id="keyWordContent">
+                                                            系统将自动根据关键字进行判分,每个核心词是普通词分数的2倍。并列关键词（或的关系）用 | 去分隔。
+                                                        </div>
+                                                    </div>
+                                                    <div class="key_block" id="keyBlock" style="display:none"></div>
+                                                    <input type="text" name="key_word" class="form-control"
+                                                           placeholder="添加关键词">
+                                                    <div class="button-bar">
+                                                        <button type="button" class="btn btn-gray btn-normal-word"
+                                                                id="normalWord"><em class="icons8-plus"></em>普通关键词
+                                                        </button>
+                                                        <button type="button" class="btn btn-warning btn-key-word"
+                                                                id="keyWord"><em class="icons8-plus"></em>核心关键词
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="analysisPanel">
+                                                <div class="title">
+                                                    <span class="tip">解析</span>
+                                                    <span class="intro">这里填写该问题对应的答案解释</span>
+                                                </div>
+                                                <div class="wangEditor-container">
+                                                    <div id="analysisEditor" class="questions_add wangEditor-txt"
+                                                         contenteditable="true" style="height: 85px;"><p><br></p></div>
+                                                </div>
+
+                                                <input name="analysis" type="hidden"
+                                                       value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="batchInput"></div>
+                            </form>
+                            <script type="text/plain" id="editor"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--超管后台新版本通知-->
+<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-600 change-log-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title"></div>
+                <div class="version"></div>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="getChangeBtn">知道了</button>
+                    <a href="https://www..com/change/log/" target="_blank" class="more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="asyncForm" style="display: none">
+    <input type="hidden" name="id" value="">
+    <input type="hidden" name="classification" value="">
+    <input type="hidden" name="label" value="">
+    <input type="hidden" name="type" value="1">
+    <input type="hidden" name="tab_num" value="">
+    <input type="hidden" name="status" value="enable">
+    <input type="hidden" name="difficult" value="">
+    <input type="hidden" name="encrypt" value="">
+    <input type="hidden" name="normalWords" value="">
+    <input type="hidden" name="keyWords" value="">
+    <input type="hidden" name="disorder" value="1">
+    <textarea name="question"></textarea>
+    <textarea name="analysis"></textarea>
+    <div></div>
+</form>
+
+<div class="modal fade" id="typeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document" style="width:500px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">试题分类</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="400px" name="selTypeModal" id="selTypeModal"
+                        src="../../html/saved_resource.html">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-small" role="document" style="width:500px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">试题标签</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="400px" name="selLabelModal" id="selLabelModal"
+                        src="../../html/saved_resource(1).html">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="qtExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">例题示范</h4>
+            </div>
+            <div class="modal-body">
+                <div class="accordion batch-cont" id="accordion1">
+                    <div class="accordion-group">
+                        <h2>单选题</h2>
+                        <div id="collapse1" class="b-example accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <h3>输入规范</h3>
+                                <p>
+                                    1、题号支持1.和1、和(1)三种格式。<br>
+                                    2、选项支持A.和A、两种格式，最多支持 20 个选项。<br>
+                                    3、答案中请勿加分隔符或空格
+                                </p>
+                                <h3>输入范例</h3>
+                                <p>
+                                    <span>1.驾驶人有下列哪种违法行为一次记6分</span><br>
+                                    <span>A、使用其他车辆行驶证</span><br>
+                                    <span>B、饮酒后驾驶机动车</span><br>
+                                    <span>C、车速超过规定时速50%以上</span><br>
+                                    <span>D、违法占用应急车道行驶</span><br>
+                                    <span>答案:D</span><br>
+                                    <span>解析:请仔细阅读交规<span style="color:#F00">(若无解析本行可不填)</span></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion batch-cont" id="accordion2" style="display:none">
+                    <div class="accordion-group">
+                        <h2>多选题</h2>
+                        <div id="collapse2" class="b-example accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <h3>输入规范</h3>
+                                <p>
+                                    1、题号支持1.和1、和(1)三种格式。<br>
+                                    2、选项支持A.和A、两种格式，最多支持 20 个选项。<br>
+                                    3、答案中请勿加分隔符或空格
+                                </p>
+                                <h3>输入范例</h3>
+                                <p>
+                                    <span>1.驾驶人有下列哪种违法行为一次记6分？</span><br>
+                                    <span>A、使用其他车辆行驶证</span><br>
+                                    <span>B、饮酒后驾驶机动车</span><br>
+                                    <span>C、车速超过规定时速50%以上</span><br>
+                                    <span>D、违法占用应急车道行驶</span><br>
+                                    <span>答案:ABCD</span><br>
+                                    <span>解析:请仔细阅读交规<span style="color:#F00">(若无解析本行可不填)</span></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion batch-cont" id="accordion3" style="display:none">
+                    <div class="accordion-group">
+                        <h2>判断题</h2>
+                        <div id="collapse3" class="b-example accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <h3>输入规范</h3>
+                                <p>
+                                    1、题号支持1.和1、(1）三种格式。<br>
+                                    2、答案支持正确、错误和对、错两种格式。
+
+                                </p>
+                                <h3>输入范例</h3>
+                                <p>
+                                    <span>1.国际象棋起源于英国吗？</span><br>
+                                    <span>答案:对</span><br>
+                                    <span>解析:请仔细阅读交规<span style="color:#F00">(若无解析本行可不填)</span></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion batch-cont" id="accordion4" style="display:none">
+                    <div class="accordion-group">
+                        <h2>填空题</h2>
+                        <div id="collapse4" class="b-example accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <h3>输入规范</h3>
+                                <p>
+                                    1、题号支持1.和1、(1）三种格式。<br>
+                                    2、若有多空，请使用竖线|分隔
+                                </p>
+                                <h3>输入范例</h3>
+                                <span>1.我国古典四大名著是&nbsp;(&nbsp;)&nbsp;(&nbsp;)&nbsp;(&nbsp;)&nbsp;(&nbsp;)</span><br>
+                                <span>答案:红楼梦|水浒传|三国演义|西游记</span><br>
+                                <span>解析:请仔细阅读交规<span style="color:#F00">(若无解析本行可不填)</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion batch-cont" id="accordion5" style="display:none">
+                    <div class="accordion-group">
+                        <h2>问答题</h2>
+                        <div id="collapse5" class="b-example accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <h3>输入规范</h3>
+                                <p>
+                                    1、题号支持1.和1、(1）三种格式。<br>
+                                    2、支持人工判卷
+                                </p>
+                                <h3>输入范例</h3>
+                                <span>1.请论述全球化对国家政治产生了哪些深刻的影响？</span><br>
+                                <span>答案:全球化使国家主权受到一定的制约； 全球化对政府的治理提出了更高的要求。</span><br>
+                                <span>解析:请仔细阅读交规<span style="color:#F00">(若无解析本行可不填)</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-close" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="saveQuestionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="z-index: 99999;">
+    <div class="modal-dialog modal-small" role="document" style="width:440px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="icon-a_success"></span>
+
+                <h4 class="modal-title">试题保存成功</h4>
+            </div>
+            <div class="modal-body">
+                <span>试题保存成功，是否去创建考试？</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="paperList">继续录题</button>
+                <button type="button" class="btn btn-primary" id="createExam">去创建考试</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.bootgrid-ksx.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="../../js/colResizable-1.6.min.js"></script>
+<script type="text/javascript" src="../../js/admin-base.js"></script>
+<script>
+    // these are global constant
+    var LOCAL_URL = window.location.href;
+    var USER_ROLE = 'admin';
+    var rights = '8';
+    var surname = "东北大学软件园";
+    var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
+    var tool_html = '';//消息内容
+    var tool_count = 0;//消息数目
+
+
+    //当前request返回页面对应导航id
+
+    var activeNavItem = 'subNavItemQuestionMgr';
+
+    $(function () {
+        // 更新消息已读
+        $("#getChangeBtn").click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/admin/read_public',
+                type: 'get',
+                cache: false,
+                dataType: 'json',
+                success: function (msg) {
+                    $("#changeLogModal").modal('hide');
+                }
+            })
+        });
+    });
+
+
+    $(document).ready(function () {
+        //    自管理员点击添加考生，添加试题，创建考试时的权限判断
+        $("#staff,#test,#exam").on("click", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var type = $(this).prop("id");
+            var url = $(this).prop("href");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                headers: {"cache-control": "no-cache"},
+                dataType: "json",
+                url: "/admin/checkout_sub_admin_right",
+                data: "type=" + type,
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = url;
+                    } else {
+                        alert(msg.desc);
+                    }
+                }
+
+            })
+        });
+    });
+</script>
+<script type="text/javascript" src="../../js/froala_editor.pkgd.min.js"></script>
+<script type="text/javascript" src="../../js/zh_cn.js"></script>
+<script src="../../js/bootstrapSwitch.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-tagsinput.js"></script>
+<script src="../../js/honeySwitch.js"></script>
+<script src="../../js/wangEditor.js"></script>
+<script src="../../js/fileUpload.js"></script>
+<script src="../../js/mediaUpload.js"></script>
+<script type="text/javascript" src="../../js/auto-line-number.js"></script>
+<script type="text/javascript" src="../../js/markdown-v1.0.js"></script>
+<script>
+    var qt_type = "1";
+    $(function () {
+        $('div#text-input').froalaEditor({
+            key: 'AODOd2HLEBFZOTGHW==',
+            charCounterCount: false,
+            language: 'zh_cn',
+            spellcheck: false,
+            toolbarInline: false,
+            placeholderText: '请将当前所选题型的所有试题复制到这里',
+            pasteAllowLocalImages: true,
+            imageDefaultWidth: 'auto',//图片默认宽度
+            imageDefaultAlign: 'left',
+            wordAllowedStyleProps: [],//允许从word粘贴的标签的样式
+            htmlAllowedTags: ["p", "img", "br", "sub", "sup", "div"],//允许出现的标签
+            imageAllowedTypes: ["jpeg", "jpg", "png"],
+            imageUploadParam: "multipartFile",
+            imageUploadParams: {code: 1},
+            imageUploadURL: '/upload/image'//上传到本地服务器
+        })
+            .on('froalaEditor.contentChanged', function (e, editor) {
+                $('div#preview').html(markdown.toHTML(editor.html.get().replace(/<p>/g, "\n\n").replace(/<\/p>/g, "\n\n").replace(/<br>/g, "\n\n").replace(/auto;">/g, 'auto;">\n\n')));
+                // 标记答案
+                markAnswer(qt_type);
+                changeSize();
+                checkError();
+            });
+    });
+
+    // 标记答案
+    function markAnswer(type) {
+        var list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
+        if (type == "1" || type == "2") {
+            $(".question").each(function (index, element) {
+                var answer = $(this).find(".qt_answer").addClass("hidden").text().replace(/^答案[:：]/, "").toUpperCase();
+                for (var i = 0; i < list.length; i++) {
+                    if (answer.search(list[i]) != -1) {
+                        $(this).find(".key_" + list[i] + " .checkOrRadio").prop("checked", true);
+                    }
+                }
+            });
+        }
+    }
+
+    //当题号过长时改变字号
+    function changeSize() {
+        $(".question .qt_title .title").each(function (index, element) {
+            var $numWords = $(this).text().length;
+            if ($numWords == 4) {
+                $(this).css({"font-size": "20px"});
+            } else if ($numWords == 5) {
+                $(this).css({"font-size": "16px"});
+            } else if ($numWords > 5) {
+                $(this).css({"font-size": "14px"});
+            }
+        });
+    }
+
+    //关键字提示信息的出现与隐藏
+    $('.keyWordBadge').hover(function () {
+        $(this).css({"background": "#A9B3BF"});
+        $('#keyWordContent').css({"display": "block"});
+    }, function () {
+        $(this).css({"background": "#ddd"});
+        $('#keyWordContent').css({"display": "none"});
+    });
+    // 试题类型以及难度选择
+    $(".body-content .cont-r .tab-content .batch-type .simulationSelect").click(function (e) {
+        e.stopPropagation();
+        $(this).children(".simulationOption").show();
+        $(this).siblings(".simulationSelect").children(".simulationOption").hide();
+    });
+    $('body').click(function () {
+        $('.simulationOption').hide();
+    });
+    $(".body-content .cont-r .tab-content .batch-type .simulationOption div").click(function (e) {
+        var idx = $(this).index();
+        $(this).parents('.simulationSelect').next().children().prop("selected", false);
+        e.stopPropagation();
+        var sel = $(this).text();
+        $(this).parents(".simulationSelect").children("span").text(sel);
+        $(this).parent().hide();
+        $(this).parents('.simulationSelect').next().children().eq(idx).prop('selected', 'selected').change()
+    });
+
+    //答案乱序
+
+    $(".disorder-help").mouseover(function () {
+        $(".disorder-prompt").show();
+    }).mouseout(function () {
+        $(".disorder-prompt").hide();
+    });
+
+    $(".answer-help").mouseover(function () {
+        $(".answer-prompt").show();
+    }).mouseout(function () {
+        $(".answer-prompt").hide();
+    });
+
+
+    $.getJSON("/exam/get_subjects", function (result) {
+        $.each(result.subjects, function (index, e) {
+            $subject = $("<div value=op" + index + ">" + e + "</div>");
+            $(".subjects").append($subject);
+        });
+    });
+
+    function ajax_post(url, data) {
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: JSON.stringify(data),
+            dataType: 'text',
+            contentType: "application/json;charset=UTF-8",
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (msg) {
+                console.log(msg);
+            }
+        });
+    };
+
+    $("#saveAndAddBtn").click(function (e) {
+        var data = {
+            "题干": $('#questionEditor p').text(),
+            "key1Editor": $('#key1Editor p').text(),
+            "key2Editor": $('#key2Editor p').text(),
+            "analysisEditor": $('#analysisEditor p').text()
+        };
+        ajax_post("/exam/add_item", data);
+    });
+
+</script>
+<script type="text/javascript" src="../../js/admin_addQuestions.js"></script>
+</body>
+</html>

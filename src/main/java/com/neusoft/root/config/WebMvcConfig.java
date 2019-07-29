@@ -16,13 +16,19 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**");
-		registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/teacher", "/student");
+				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**","/exam*","/exam/**");
+/*		registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
+				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/teacher*", "/teacher/**", "/student*", "/student/**","/exam*","/exam/**");
 		registry.addInterceptor(new TeacherInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/index", "/student");
+				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/index*", "/index/**", "/student*", "/student/**","/exam*","/exam/**");
 		registry.addInterceptor(new StudentInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
-				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/index", "/teacher");
+				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/index*", "/index/**", "/teacher*", "/teacher/**","/exam*","/exam/**");*/
+		registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
+				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/teacher*", "/teacher/**", "/student*", "/student/**","/exam*","/exam/**");
+		registry.addInterceptor(new TeacherInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
+				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/index*", "/index/**", "/student*", "/student/**","/exam*","/exam/**");
+		registry.addInterceptor(new StudentInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
+				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/index*", "/index/**", "/teacher*", "/teacher/**","/exam*","/exam/**");
 	}
     @Override
     public void addCorsMappings(CorsRegistry registry) {

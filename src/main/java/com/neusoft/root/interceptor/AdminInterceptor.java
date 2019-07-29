@@ -14,12 +14,12 @@ public class AdminInterceptor implements HandlerInterceptor {
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("flag");
 		if(username.equals("admin")){
-			System.out.println("AdminInterceptor preHandle true:" + username);
+			System.out.println(request.getRequestURI()+"通过管理员身份认证:" + username);
 			return true;
 		}
 		else{
 			//response.sendRedirect("url");
-			System.out.println("AdminInterceptor preHandle false:" + username);
+			System.out.println(request.getRequestURI()+"未通过管理员身份认证:" + username);
 			request.getRequestDispatcher("/login").forward(request, response);
 			return false;
 		}

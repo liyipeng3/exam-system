@@ -231,7 +231,7 @@
             <div class="sidebar-bottom sidebar-btn">
                 <ul class="sidebar-trans">
                     <li class="nav-item nav-item-user">
-                        <a class="sidebar-bottom-wrap" href="./index.html">
+                        <a class="sidebar-bottom-wrap" href="/index">
                             <div class="nav-icon">
                                 <i class="icon icon-p_leftnav_return icon-admin"></i>
                             </div>
@@ -614,7 +614,7 @@
 
     $('.sidebar-nav .nav-item').each(function () { //根据导航菜单名的字数调整消息数字的位置
         var font_size = $(this).find('a').attr('title').length;//字数
-        var left_px = 38 + 18 * font_size; //每个字数大约偏移18px，最初偏移为38px;
+        var left_px = 38 + 18 * 2; //每个字数大约偏移18px，最初偏移为38px;
         $(this).find('.show-num').css('left', left_px.toString() + 'px');
     });
 </script>

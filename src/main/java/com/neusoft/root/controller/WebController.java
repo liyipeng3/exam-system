@@ -65,6 +65,14 @@ public class WebController {
 	public String student_analysis() {
 		return "/html/exam/student_analysis.html";
 	}
+	@RequestMapping("/html/exam/addtestqm")
+	public String addtestqm() {
+		return "/html/exam/addtestqm.html";
+	}
+	@RequestMapping("/html/exam/add_item")
+	public String add_item() {
+		return "/html/exam/add_item.html";
+	}
 	@RequestMapping("/html/user/user_list")
 	public String user_list() {
 		return "/html/user/user_list.html";

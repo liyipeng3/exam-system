@@ -36,9 +36,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="adminId!=null and adminId!=''">
 				and admin_id = #{adminId}
 			</if>
-			<if test="adminName!=null and adminName!=''">
-				and admin_name = #{adminName}
-			</if>
 			<if test="adminPassword!=null and adminPassword!=''">
 				and admin_password = #{adminPassword}
 			</if>

@@ -14,12 +14,12 @@ public class TeacherInterceptor implements HandlerInterceptor {
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("flag");
 		if(username.equals("teacher")){
-			System.out.println("TeacherInterceptor preHandle true:" + username);
+			System.out.println(request.getRequestURI()+"通过教师身份认证:" + username);
 			return true;
 		}
 		else{
 			//response.sendRedirect("url");
-			System.out.println("TeacherInterceptor preHandle false:" + username);
+			System.out.println(request.getRequestURI()+"未通过教师身份认证:" + username);
 			request.getRequestDispatcher("/login").forward(request, response);
 			return false;
 		}

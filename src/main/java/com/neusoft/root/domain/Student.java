@@ -1,12 +1,13 @@
 package com.neusoft.root.domain;
 
+//学生表
 public class Student {
-	private String studentId;
-	private String studentName;
-	private String studentPassword;
-	private String studentAcademy;
-	private String studentMajor;
-	private String studentSchool;
+	private String studentId; //学生ID
+	private String studentName; //学生姓名
+	private String studentPassword; //学生密码
+	private String studentAcademy; //学生学院
+	private String studentMajor; //学生专业
+	private String studentSchool; //学生学校
 	
 	@Override
 	public int hashCode() {
