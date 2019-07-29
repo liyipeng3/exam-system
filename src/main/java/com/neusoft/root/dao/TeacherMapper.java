@@ -3,7 +3,7 @@
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import com.mysql.cj.protocol.Message;
-import com.neusoft.root.domain.Check;
+import com.neusoft.root.domain.RawCheck;
 import com.neusoft.root.domain.Courseteacher;
 import com.neusoft.root.domain.Coursestudent;
 import com.neusoft.root.domain.Forum;
@@ -17,10 +17,10 @@ import com.neusoft.root.domain.Teacher;
 @Mapper 
 public interface TeacherMapper {
 	//批阅试卷增删改查
-	public void addCheck(Check check);
-	public void deleteCheck(Check check);
-	public void updateCheck(Check check);
-	public List<Check> queryCheck(Check check);
+	public void addCheck(RawCheck check);
+	public void deleteCheck(RawCheck check);
+	public void updateCheck(RawCheck check);
+	public List<RawCheck> queryCheck(RawCheck check);
 	
 	//对老师课程查询 
 	public List<Courseteacher> queryCourseteacher(Courseteacher courseteacher);

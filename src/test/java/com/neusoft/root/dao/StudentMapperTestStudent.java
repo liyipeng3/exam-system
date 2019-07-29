@@ -19,7 +19,7 @@ import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
-import com.neusoft.root.domain.Result;
+import com.neusoft.root.domain.RawResult;
 import com.neusoft.root.domain.Student;
 
 

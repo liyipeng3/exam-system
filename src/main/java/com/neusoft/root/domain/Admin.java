@@ -75,11 +75,5 @@ public class Admin {
 	public String toString() {
 		return "Admin [adminPassword=" + adminPassword + ", adminId=" + adminId + ", adminName=" + adminName + "]";
 	}
-
-
-
-
-
-
 }
 	

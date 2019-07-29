@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.dao.AdminMapper;
 import com.neusoft.root.dao.TeacherMapper;
+import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.RawItem;
 
 @Service
@@ -28,6 +29,21 @@ public class RawItemServiceImpl implements RawItemService{
 	public void addRawItem(JSONObject json) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void deleteRawItem(RawItem rawItem) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateRawItem(RawItem rawItem) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public List<ParsedItem> queryRawItem(RawItem rawItem) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

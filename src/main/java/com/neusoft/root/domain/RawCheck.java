@@ -1,7 +1,7 @@
 package com.neusoft.root.domain;
 
 //老师批卷后的表
-public class Check 
+public class RawCheck 
 {
 	private String studentId;  // 学生ID
 	private Integer paperId; // 试卷ID 
@@ -12,7 +12,7 @@ public class Check
 	private String subjectiveScore; //主观题得分，格式：ID1,分数1###ID2,分数2
 	private Double sumScore; //总分
 	private String checkDate; // 日期
-	public Check(String studentId, Integer paperId, String teacherId, String singlechoiceScore, String multichoiceScore,
+	public RawCheck(String studentId, Integer paperId, String teacherId, String singlechoiceScore, String multichoiceScore,
 			String fillScore, String subjectiveScore, Double sumScore, String checkDate) 
 	{
 		super();
@@ -26,7 +26,7 @@ public class Check
 		this.sumScore = sumScore;
 		this.checkDate = checkDate;
 	}
-	public Check() {
+	public RawCheck() {
 		super();
 	}
 	public String getStudentId() {
@@ -106,7 +106,7 @@ public class Check
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Check other = (Check) obj;
+		RawCheck other = (RawCheck) obj;
 		if (checkDate == null) {
 			if (other.checkDate != null)
 				return false;

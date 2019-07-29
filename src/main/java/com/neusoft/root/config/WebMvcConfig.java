@@ -16,13 +16,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
+		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/error", "/css/**", "/js/**",
 				"/fonts/**", "/img/**", "/login*", "/login/**", "/register*", "/register/**");
-		/*registry.addInterceptor(new SSSInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
+		/*registry.addInterceptor(new SSSInterceptor()).addPathPatterns("/**").excludePathPatterns("/error", "/css/**", "/js/**",
 				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/teacher*", "/teacher/**", "/student*", "/student/**", "/exam*", "/exam/**");
-		registry.addInterceptor(new SSInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
+		registry.addInterceptor(new SSInterceptor()).addPathPatterns("/**").excludePathPatterns("/error", "/css/**", "/js/**",
 				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/index*", "/index/**", "/student*", "/student/**");
-		registry.addInterceptor(new SInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**", "/js/**",
+		registry.addInterceptor(new SInterceptor()).addPathPatterns("/**").excludePathPatterns("/error", "/css/**", "/js/**",
 				"/fonts/**", "/img/**", "/html/**", "/login*", "/login/**", "/register*", "/register/**", "/index*", "/index/**", "/teacher*", "/teacher/**", "/exam*", "/exam/**");*/
 	}
     @Override

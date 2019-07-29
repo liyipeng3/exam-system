@@ -13,17 +13,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neusoft.root.service.LoginService;
-
+/**
+ * 登录控制器，控制登录登出
+ * 
+ * @author 何时谷雨
+ *
+ */
 @Controller
 @RequestMapping("/login")
 public class LoginController {
 	@Autowired
 	LoginService loginservice;
+	/**
+	 * 登录
+	 * 
+	 * @param request
+	 * @param username 用户名
+	 * @param password 密码
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException
+	 */
 	@RequestMapping(value="/checkAccount", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public String checkAccount(HttpServletRequest request, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		int result = loginservice.Login(username, password);
 		HttpSession session = request.getSession();
+		//设置session内容，权限设置
 		switch(result){
 		case 1:
 			session.setAttribute("username",username);
@@ -40,36 +56,17 @@ public class LoginController {
 		default:
 			return "用户名或密码错误";
 		}
-		/*System.out.println("用户名：" + username + "  密    码：" + password);
-		String password_md5 = MD5.toString("123");
-		System.out.println(password_md5);
-		if(username.equals("admin") && password.equals(password_md5)){
-			//建立会话对象，存储登录状态
-			HttpSession session = request.getSession();
-			session.setAttribute("username",username);
-			session.setAttribute("flag","admin");
-			return "admin";
-		}
-		else if(username.equals("teacher") && password.equals(password_md5)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("username",username);
-			session.setAttribute("flag","teacher");
-			return "teacher";
-		}
-		else if(username.equals("student") && password.equals(password_md5)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("username",username);
-			session.setAttribute("flag","student");
-			return "student";
-		}
-		else{
-			return "用户名或密码错误";
-		}*/
 	}
+	/**
+	 * 登出
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
-	public String logout(HttpServletRequest req){
-		HttpSession session = req.getSession();
-		session.invalidate();
+	public String logout(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.invalidate();//清除session
 		return "redirect:/login";
 	}
 }

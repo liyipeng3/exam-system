@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.neusoft.root.domain.Check;
+import com.neusoft.root.domain.RawCheck;
 
 
 @RunWith(SpringRunner.class)
@@ -69,8 +69,8 @@ public class TeacherMapperTestCheck
 	{
 		try 
 		{
-			Check check = new Check("117371", 1, "234", "1", "1", "1", "1", 20.0, "2019-8-6");
-			for (Check check2 : tm.queryCheck(check)) 
+			RawCheck check = new RawCheck("117371", 1, "234", "1", "1", "1", "1", 20.0, "2019-8-6");
+			for (RawCheck check2 : tm.queryCheck(check)) 
 			{
 				System.out.println(check2);
 			}
