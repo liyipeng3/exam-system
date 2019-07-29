@@ -108,7 +108,7 @@
                                     <span>搜索</span></button></div></div></form> </div><button
                                         data-v-3a050ba5="" type="button"
                                         class="el-button el-btn-advance el-button--text el-button--medium el-popover__reference"
-                                        aria-describedby="el-popover-6267" tabindex="0"><span>
+                                        tabindex="0"><span>
           高级搜索<i data-v-3a050ba5="" class="el-icon-arrow-down el-icon--right"></i></span></button></span></div>
                         </div>
                     </div>
@@ -124,11 +124,11 @@
         <section class="el-container">
             <aside class="el-aside viewFrameWork-sidebar full" style="width: 300px;">
                 <ul role="menubar" class="el-menu-vertical el-menu">
-                    <li class="el-menu-item item-collapse el-tooltip item" aria-describedby="el-tooltip-4366"
+                    <li class="el-menu-item item-collapse el-tooltip item"
                         tabindex="0"><i class="el-icon-d-arrow-left"></i></li>
                     <a href="/index">
                         <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip"
-                            aria-describedby="el-tooltip-7549" style="padding-left: 20px;"><i
+                             style="padding-left: 20px;"><i
 
                                 class="icon icon-a_nav_home"></i><span class="title">首页</span></li>
                     </a><a href="/html/exam/test_questions#">
@@ -634,8 +634,8 @@
                 item += e.itemId + '</div></td><td class="el-table_1_column_8  " colspan="1" rowspan="1">';
                 item += '<div class="cell el-tooltip" style="width: 179px;"></div></td>';
                 item += '<td class="el-table_1_column_9  " colspan="1" rowspan="1"><div class="cell">';
-                item += '<i aria-describedby="el-tooltip-6949" class="el-icon icon-a_operate_edit el-tooltip item" tabindex="0"></i>';
-                item += '<i aria-describedby="el-tooltip-6578" class="el-icon icon-a_operate_delete el-tooltip item" tabindex="0"></i>';
+                item += '<i class="el-icon icon-a_operate_edit el-tooltip item" tabindex="0"></i>';
+                item += '<i id="delete_"'+e.itemId + ' class="el-icon icon-a_operate_delete el-tooltip item" tabindex="0"></i>';
                 item += '</div></td></tr>';
                 $('tbody').append($(item));
             });
@@ -662,6 +662,15 @@
         });
         $('#add_question').click(function () {
            window.location.href="/html/exam/addtestqm";
+        });
+        $('.icon-a_operate_delete').click(function () {
+            $.get("/exam/delete_item", ($(this).attr("id")), function (msg) {
+                if(msg=='ok'){
+                    alert("删除成功！");
+                } else {
+                    alert("删除失败！");
+                }
+            })
         });
     });
 </script>

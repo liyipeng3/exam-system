@@ -634,7 +634,7 @@ $("#searchStateModal .btn-search").click(function () {
             account: account
         },
         success: function (msg) {
-            var code = msg.code ? msg.code : #00000,
+            var code = msg.code ? msg.code : "#00000",
                 colorCss = "",//用以标记结果颜色和样式
                 iconClass = "",//图标
                 tipStr = msg.desc ? msg.desc : '查询出现问题，请稍后再试';
