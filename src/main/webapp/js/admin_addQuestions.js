@@ -284,13 +284,11 @@ $(document).ready( function() {
 		var html='<div class="keyFillContent keyFillContentAdd">'+
 				 '	  <div class="input-group">'+
 				 '		  <span class="input-group-addon">'+(keyLength+1)+'</span>'+
-				 '		  <input type="text" name="keyFill"  class="form-control" placeholder="请输入答案，按下回车添加同义词。">'+
+				 '		  <input type="text" name="keyFill"  class="form-control" placeholder="请输入答案">'+
 				 '	  </div>'+
 				 '	  <a href="javascript:void(0);" class="removeKeyFill icons8-delete"></a>'+
 				 '</div>';
 		$("div.addKeyFillBtn").before(html);
-		$("input.form-control").attr("data-role","tagsinput");
-		$("input.form-control").tagsinput();
     });
 
 	//填空题删除多个

@@ -376,7 +376,6 @@
                                                 <div class="simulationOption testType" style="display: none;">
                                                     <div class="one">单选题</div>
                                                     <div class="two">多选题</div>
-                                                    <div class="three">判断题</div>
                                                     <div class="four">填空题</div>
                                                     <div class="five">问答题</div>
                                                 </div>
@@ -384,7 +383,6 @@
                                             <select name="type" id="item_type" class="form-control hidden">
                                                 <option value="1" selected="">单选题</option>
                                                 <option value="2">多选题</option>
-                                                <option value="3">判断题</option>
                                                 <option value="4">填空题</option>
                                                 <option value="5">问答题</option>
                                             </select>
@@ -1148,7 +1146,8 @@
                                                 </div>
                                                 <div class="wangEditor-container active">
                                                     <div id="questionEditor" class="questions_add wangEditor-txt"
-                                                         contenteditable="true" style="height: 85px;"><p><br></p></div>
+                                                         contenteditable="true" style="height: 85px;"><p><br>
+                                                    </p></div>
                                                 </div>
                                                 <input name="question" type="hidden"
                                                        value="&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
@@ -1269,8 +1268,9 @@
                                                 <div class="keyFillContent">
                                                     <div class="input-group">
                                                         <span class="input-group-addon">1</span>
-                                                        <div class="bootstrap-tagsinput"><input type="text"
-                                                                                                placeholder="请输入答案，按下回车添加同义词。">
+                                                        <div>
+                                                            <input type="text" name="keyFill" class="form-control"
+                                                                   placeholder="请输入答案">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1293,27 +1293,6 @@
 
                                                 <input name="answer1" type="hidden">
                                                 <input type="hidden" class="radioOrCheck" name="key1" value="1">
-                                                <div class="keyWordPanel">
-                                                    <div class="title" style="position: relative;">
-                                                        <span class="tip">关键词</span>
-                                                        <span class="intro">这里添加答案关键词</span><span
-                                                            class="keyWordBadge">?</span>
-                                                        <div id="keyWordContent">
-                                                            系统将自动根据关键字进行判分,每个核心词是普通词分数的2倍。并列关键词（或的关系）用 | 去分隔。
-                                                        </div>
-                                                    </div>
-                                                    <div class="key_block" id="keyBlock" style="display:none"></div>
-                                                    <input type="text" name="key_word" class="form-control"
-                                                           placeholder="添加关键词">
-                                                    <div class="button-bar">
-                                                        <button type="button" class="btn btn-gray btn-normal-word"
-                                                                id="normalWord"><em class="icons8-plus"></em>普通关键词
-                                                        </button>
-                                                        <button type="button" class="btn btn-warning btn-key-word"
-                                                                id="keyWord"><em class="icons8-plus"></em>核心关键词
-                                                        </button>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="analysisPanel">
                                                 <div class="title">
@@ -1709,7 +1688,9 @@
     $("#saveAndAddBtn").click(function (e) {
         var data = {};
         var option = $('#item_type option:selected').val();
-        if ($('#questionEditor p').text() == '') {
+        var subject = $('#select_course_type option:selected').text();
+        var difficult = $('#select_difficult option:selected').text();
+        if ($('#questionEditor').text() == '') {
             alert('请输入题干！');
             return;
         }
@@ -1725,8 +1706,7 @@
                     "analysisEditor": $('#analysisEditor p').text()
                 };
                 var len = $('.keyRadio').children().length;
-                var subject = $('#select_course_type option:selected').text();
-                var difficult = $('#select_difficult option:selected').text();
+
                 data['subject'] = subject;
                 data['difficult'] = difficult;
                 data['option_length'] = len - 2;
@@ -1734,7 +1714,7 @@
                 data['answer'] = ans;
                 for (let i = 1; i <= len - 2; i++) {
                     var ops = $('#key' + i + 'Editor p').text().trim();
-                    if(ops == ""){
+                    if (ops == "") {
                         alert("请输入完整选项！");
                         return;
                     }
@@ -1743,29 +1723,70 @@
                 break;
             case '2':
                 data = {
-                    "questionEditor": $('#questionEditor p').text(),
-                    "analysisEditor": $('#analysisEditor p').text()
+                    "questionEditor": $('#questionEditor').text(),
+                    "analysisEditor": $('#analysisEditor').text()
                 };
-                $('input:radio:checked').parent().siblings().find('.questions_add').each(function (index, e) {
-                    if ($(e).attr('id') == 'questionEditor') {
-                        alert("请至少选择一个正确答案！");
-                        return;
-                    }
-                    data['answer' + index] = $(e).attr('id');
+                if ($('input:checkbox:checked').length == 0) {
+                    alert("请至少选择一个选项！");
+                    return;
+                }
+                $('input:checkbox:checked').parent().siblings().find('.questions_add').each(function (index, e) {
+                    data['answer' + index + 1] = $(e).attr('id');
                 });
                 var len = $('.keyRadio').children().length;
+                data['subject'] = subject;
+                data['difficult'] = difficult;
                 data['option_length'] = len - 2;
                 data["itemType"] = "多选题";
                 for (let i = 1; i <= len - 2; i++) {
-                    data["key" + i + "Editor"] = $('#key' + i + 'Editor p').text();
+                    var ans = $('#key' + i + 'Editor').text().trim();
+                    if (ans == '') {
+                        alert("请输入完整选项！");
+                        return;
+                    }
+                    data["key" + i + "Editor"] = ans;
+
                 }
                 break;
-            case '3':
-                ;
+            case '4':
+                data = {
+                    "questionEditor": $('#questionEditor').text(),
+                    "analysisEditor": $('#analysisEditor').text()
+                };
+                $('input:text').each(function (index, e) {
+                    var ans = $(e).val().trim();
+                    if (ans == '') {
+                        alert("请输入完整选项！");
+                        return;
+                    }
+                    data['answer' + index + 1] = ans;
+                });
+                var len = $('.keyFill').children().length;
+                data['option_length'] = len - 2;
+                data["itemType"] = "填空题";
+                data['subject'] = subject;
+                data['difficult'] = difficult;
+                break;
+            case '5':
+                data = {
+                    "questionEditor": $('#questionEditor').text(),
+                    "analysisEditor": $('#analysisEditor').text(),
+                    "answer": $('#clozeEditor').text()
+                };
+                if ($('#clozeEditor').text() == '') {
+                    alert("请输入答案！");
+                    return;
+                }
+                data["itemType"] = "问答题";
+                data['subject'] = subject;
+                data['difficult'] = difficult;
+
         }
         //console.log(data);
         ajax_post("/exam/add_item", data);
+        alert("录入成功");
     });
+
 
 </script>
 <script type="text/javascript" src="../../js/admin_addQuestions.js"></script>
