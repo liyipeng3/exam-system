@@ -28,6 +28,63 @@ public class RawItemServiceImpl implements RawItemService{
 	@Override
 	public void addRawItem(JSONObject json) {
 		// TODO Auto-generated method stub
+		int i,j;
+		Double diffcult =0.0 ;
+		String option =null;
+		j= json.getInteger("option_length");
+		if(json.getString("difficult").equals("简单"))
+		{
+			diffcult = 1.0;
+		}
+		else if(json.getString("difficult").equals("普通"))
+		{
+			diffcult =3.0;
+		}
+		else if(json.getString("difficult").equals("困难"))
+		{
+			diffcult = 5.0;
+		}
+		for(i=1;i<=j;i++)
+		{
+			option = option+json.getString("key"+i+"Editor")+"###";
+		}
+		if(json.getString("itemType").equals("单选题"))
+		{
+			
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), null, 5.0, json.getString("analysisEditor"));
+			mapper.addRawItem(item);
+		}
+		else if(json.getString("itemType").equals("多选题")){
+			int k = 1;
+			String answer =null;
+			while(json.getString("answer"+k) != null){
+				answer = answer+json.getString(json.getString("answer"+k))+"###";
+				k++;
+			}
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, null, 6.0, json.getString("analysisEditor"));
+			mapper.addRawItem(item);
+		}
+		else if(json.getString("itemType").equals("填空题"))
+		{
+			int k=1;
+			String answer =null;
+			while(json.getString("answer"+k) != null){
+				answer = answer+json.getString(json.getString("answer"+k))+"###";
+				k++;
+			}
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, null, 7.0, json.getString("analysisEditor"));
+			mapper.addRawItem(item);
+			
+		}
+		else if(json.getString("itemType").equals("问答题"))
+		{
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString("answer"), null, 10.0, json.getString("analysisEditor"));
+			mapper.addRawItem(item);
+		}
+		else {
+			System.out.println("无效题目类型！！！");
+			System.exit(0);
+		}
 		
 	}
 	@Override

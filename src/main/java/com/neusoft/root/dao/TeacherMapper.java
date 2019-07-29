@@ -11,6 +11,7 @@ import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.MyLog;
 import com.neusoft.root.domain.RawPaper;
+import com.neusoft.root.domain.RawResult;
 import com.neusoft.root.domain.Student;
 import com.neusoft.root.domain.Teacher;
 
@@ -65,5 +66,8 @@ public interface TeacherMapper {
 	
 	//管理老师
 	public List<Manageteacher> queryManageteacher(Manageteacher manageteacher);
+
+	//老师查询学生答卷
+	public List<RawResult> queryResult(RawResult rawResult);
 
 }

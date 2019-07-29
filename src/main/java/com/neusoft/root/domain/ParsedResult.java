@@ -11,11 +11,10 @@ public class ParsedResult {
 	private Map<String, Double> fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> submitDate; //答题日期
+	private String checked;  //是否被批阅
 	public ParsedResult(String studentId, Integer paperId, Map<String, Double> singlechoiceResult,
 			Map<String, Double> multichoiceResult, Map<String, Double> fillResult, Map<String, Double> subjectiveResult,
-			Map<String, Double> submitDate) {
-		
-		
+			Map<String, Double> submitDate, String checked) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
@@ -24,9 +23,11 @@ public class ParsedResult {
 		this.fillResult = fillResult;
 		this.subjectiveResult = subjectiveResult;
 		this.submitDate = submitDate;
+		this.checked = checked;
 	}
 	public ParsedResult() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	public String getStudentId() {
 		return studentId;
@@ -70,10 +71,17 @@ public class ParsedResult {
 	public void setSubmitDate(Map<String, Double> submitDate) {
 		this.submitDate = submitDate;
 	}
+	public String getChecked() {
+		return checked;
+	}
+	public void setChecked(String checked) {
+		this.checked = checked;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((checked == null) ? 0 : checked.hashCode());
 		result = prime * result + ((fillResult == null) ? 0 : fillResult.hashCode());
 		result = prime * result + ((multichoiceResult == null) ? 0 : multichoiceResult.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
@@ -92,6 +100,11 @@ public class ParsedResult {
 		if (getClass() != obj.getClass())
 			return false;
 		ParsedResult other = (ParsedResult) obj;
+		if (checked == null) {
+			if (other.checked != null)
+				return false;
+		} else if (!checked.equals(other.checked))
+			return false;
 		if (fillResult == null) {
 			if (other.fillResult != null)
 				return false;
@@ -131,8 +144,9 @@ public class ParsedResult {
 	}
 	@Override
 	public String toString() {
-		return "ParseResult [studentId=" + studentId + ", paperId=" + paperId + ", singlechoiceResult="
+		return "ParsedResult [studentId=" + studentId + ", paperId=" + paperId + ", singlechoiceResult="
 				+ singlechoiceResult + ", multichoiceResult=" + multichoiceResult + ", fillResult=" + fillResult
-				+ ", subjectiveResult=" + subjectiveResult + ", submitDate=" + submitDate + "]";
+				+ ", subjectiveResult=" + subjectiveResult + ", submitDate=" + submitDate + ", checked=" + checked
+				+ "]";
 	}
 }

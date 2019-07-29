@@ -52,7 +52,6 @@ public interface AdminMapper
 	public void updateCourse(Map<String ,Object> course);
 	public List<Course> queryCourse(Course course);
 	
-	
 	//记录
 	public void addMyLog(MyLog myLog);
 	public void deleteMyLog(MyLog myLog);

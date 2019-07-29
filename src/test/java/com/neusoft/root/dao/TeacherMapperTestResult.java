@@ -17,7 +17,7 @@ import com.neusoft.root.domain.RawCheck;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TeacherMapperTestCheck 
+public class TeacherMapperTestResult 
 {
 	@Autowired
 	private TeacherMapper tm;
