@@ -6,11 +6,37 @@ import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
-
+/**
+ * 试题
+ * @author Warriors
+ *
+ */
 public interface RawItemService {
+	/**
+	 * 获取科目所有题目
+	 * @param subjects 科目
+	 * @return 该科目所有题目
+	 */
 	public List<RawItem> getRawItem(String subjects);
+	/**
+	 * 增加试题
+	 * @param json rawitem串
+	 */
 	public void addRawItem(JSONObject json);
-	public void deleteRawItem(RawItem rawItem);
-	public void updateRawItem(RawItem rawItem);
-	public List<ParsedItem> queryRawItem(RawItem rawItem);
+	/**
+	 * 删除试题
+	 * @param rawItem rawitem串
+	 */
+	public void deleteRawItem(JSONObject json);
+	/**
+	 * 更新试题
+	 * @param rawItem rawitem串
+	 */
+	public void updateRawItem(JSONObject json);
+	/**
+	 * 查询试题
+	 * @param rawItem rawitem串
+	 * @return parseditem的list
+	 */
+	public List<ParsedItem> queryRawItem(JSONObject json);
 }
