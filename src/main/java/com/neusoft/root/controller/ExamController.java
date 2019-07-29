@@ -23,13 +23,13 @@ import com.google.gson.Gson;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
-import com.neusoft.root.service.GetPaperServiceImpl;
+import com.neusoft.root.service.PaperServiceImpl;
 
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
 	@Autowired
-	private GetPaperServiceImpl getpapers;
+	private PaperServiceImpl getpapers;
 	private String subject;
 	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
 	@ResponseBody
