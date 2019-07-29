@@ -1791,13 +1791,14 @@
 
     $.ajax({
         url: "/exam/add_item",
-        method: "GET",
+        method: "POST",
         data: {'cehsi': '10086'},
         dataType: 'text',
-        success: function () {
+        contentType:"application/json;charset=UTF-8",
+        success: function (msg) {
             alert('success');
         },
-        error: function () {
+        error: function (msg) {
             alert('error');
         }
     });

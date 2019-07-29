@@ -182,7 +182,7 @@
         //第三方需求，隐藏logo和退出，返回
         $(function () {
             //获取cookie
-            var thirdParty = getCookie('thirdParty');
+            var thirdParty = 'false';
 
             if (thirdParty == 'true') {
                 $("#logoutBtn, .back-icon").addClass("hidden");
@@ -190,42 +190,8 @@
         });
     });
 
-    // set cookie
-    function setCookie(cookieName, cookieValue, expiresTime) {
-        $("#spinnerLoading").addClass("hide");
-
-        $.ajax({
-            type: "POST",
-            url: "/account/set_cookie",
-            dataType: "json",
-            data: "cookieName=" + cookieName + "&cookieValue=" + cookieValue + "&expiresTime=" + expiresTime,
-            success: function (msg) {
-                $("#spinnerLoading").removeClass("hide");
-                return msg;
-            },
-            error: function (msg) {
-                $("#spinnerLoading").removeClass("hide");
-            }
-        });
-
-    }
 
 
-    // get cookie
-    function getCookie(c_name) {
-        if (document.cookie.length > 0) {
-            c_start = document.cookie.indexOf(c_name + "=")
-            if (c_start != -1) {
-                c_start = c_start + c_name.length + 1;
-                c_end = document.cookie.indexOf(";", c_start);
-                if (c_end == -1) {
-                    c_end = document.cookie.length
-                }
-                return unescape(document.cookie.substring(c_start, c_end));
-            }
-        }
-        return "";
-    }
 </script>
 <script src="./js/jquery.qrcode.min.js"></script>
 <script type="text/javascript">
