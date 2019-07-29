@@ -27,7 +27,7 @@
                     <div data-v-3a050ba5="" class="body-toolbar clearfix">
                         <div data-v-3a050ba5="" class="toolbar-left fl">
                             <button type="button"
-                                    class="el-button el-button--primary el-button--small" primary=""><i
+                                    class="el-button el-button--primary el-button--small" id="add_question"><i
                                     class="icon-a_circle_plus"></i><span>添加试题</span></button>
                             <div data-v-3a050ba5="" class="el-dropdown"><span data-v-3a050ba5=""
                                                                               class="el-button-repeat el-dropdown-selfdefine"
@@ -715,7 +715,6 @@
 
                 }
             });
-
             $('#select_all').change(function () {
                 if ($(this).hasClass('is-checked')) {
                     $('.my_item').addClass('is-checked');
@@ -724,6 +723,9 @@
 
                 }
             });
+        });
+        $('#add_question').click(function () {
+           window.location.href="/html/exam/addtestqm";
         });
     });
 </script>

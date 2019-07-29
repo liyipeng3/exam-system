@@ -1783,7 +1783,11 @@
         $(".answer-prompt").show();
     }).mouseout(function () {
         $(".answer-prompt").hide();
-    })
+    });
+
+    $.post("/exam/add_item", {'hhh': '666'}, function () {
+        alert(666);
+    });
 
 </script>
 <script type="text/javascript" src="../../js/admin_addQuestions.js"></script>
