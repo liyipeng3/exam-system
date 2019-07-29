@@ -24,7 +24,7 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public void addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
-		//RawPaper rawPaper = new RawPaper(paperId, paperName, createrId, createDate, paperType, paperIndex, singlechoiceQuestion, multichoiceQuestion, fillQuestion, subjectiveQuestion, paperScore, paperSecrecy, paperRemark);
+		//RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), createDate, paperType, paperIndex, singlechoiceQuestion, multichoiceQuestion, fillQuestion, subjectiveQuestion, paperScore, paperSecrecy, paperRemark);
 	}
 
 	@Override

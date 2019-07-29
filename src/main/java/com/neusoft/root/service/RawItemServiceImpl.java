@@ -21,7 +21,7 @@ public class RawItemServiceImpl implements RawItemService{
 	public List<RawItem> queryRawItem(String subjects) {
 		// TODO Auto-generated method stub
 		List<RawItem> list = new ArrayList<>();
-		RawItem rawItem = new RawItem(null, null, null, subjects, null, null, null, null, null, null, null, null);
+		RawItem rawItem = new RawItem((Integer)0, "", "", subjects, "", (Double)0.0, "", "", "", "", (Double)0.0, "");
 		list =mapper.queryRawItem(rawItem);
 		return list;
 	}
@@ -51,7 +51,7 @@ public class RawItemServiceImpl implements RawItemService{
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
-			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), null, 5.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
 			mapper.addRawItem(item);
 		}
 		else if(json.getString("itemType").equals("多选题")){
@@ -61,7 +61,7 @@ public class RawItemServiceImpl implements RawItemService{
 				answer = answer+json.getString(json.getString("answer"+k))+"###";
 				k++;
 			}
-			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, null, 6.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, "", 6.0, json.getString("analysisEditor"));
 			mapper.addRawItem(item);
 		}
 		else if(json.getString("itemType").equals("填空题"))
@@ -72,13 +72,13 @@ public class RawItemServiceImpl implements RawItemService{
 				answer = answer+json.getString(json.getString("answer"+k))+"###";
 				k++;
 			}
-			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, null, 7.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, "", 7.0, json.getString("analysisEditor"));
 			mapper.addRawItem(item);
 			
 		}
 		else if(json.getString("itemType").equals("问答题"))
 		{
-			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString("answer"), null, 10.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString("answer"), "", 10.0, json.getString("analysisEditor"));
 			mapper.addRawItem(item);
 		}
 		else {
@@ -90,7 +90,7 @@ public class RawItemServiceImpl implements RawItemService{
 	@Override
 	public void deleteRawItem(Integer id) {
 		// TODO Auto-generated method stub
-		RawItem item = new RawItem(id, null, null, null, null, null, null, null, null, null, null, null);
+		RawItem item = new RawItem(id, "", "", "", "", (Double)0.0, "", "", "", "", (Double)0.0, "");
 		mapper.deleteRawItem(item);
 	}
 	@Override
@@ -119,7 +119,7 @@ public class RawItemServiceImpl implements RawItemService{
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), null, 5.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
 			mapper.updateRawItem(item);;
 		}
 		else if(json.getString("itemType").equals("多选题")){
@@ -129,7 +129,7 @@ public class RawItemServiceImpl implements RawItemService{
 				answer = answer+json.getString(json.getString("answer"+k))+"###";
 				k++;
 			}
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, null, 6.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, "", 6.0, json.getString("analysisEditor"));
 			mapper.updateRawItem(item);
 		}
 		else if(json.getString("itemType").equals("填空题"))
@@ -140,13 +140,13 @@ public class RawItemServiceImpl implements RawItemService{
 				answer = answer+json.getString(json.getString("answer"+k))+"###";
 				k++;
 			}
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, null, 7.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, "", 7.0, json.getString("analysisEditor"));
 			mapper.queryRawItem(item);
 			
 		}
 		else if(json.getString("itemType").equals("问答题"))
 		{
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString("answer"), null, 10.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString("answer"), "", 10.0, json.getString("analysisEditor"));
 			mapper.queryRawItem(item);
 		}
 		else {
@@ -160,7 +160,7 @@ public class RawItemServiceImpl implements RawItemService{
 		// TODO Auto-generated method stub
 		List<RawItem> list = new ArrayList<>();
 		List<ParsedItem> list2 = new ArrayList<>();
-		RawItem rawItem = new RawItem(null, null, null, subjects, null, null, null, null, null, null, null, null);
+		RawItem rawItem = new RawItem((Integer)0, "", "", subjects, "", (Double)0.0, "", "", "", "", (Double)0.0, "");
 		list =mapper.queryRawItem(rawItem);
 		for(RawItem item:list)
 		{
