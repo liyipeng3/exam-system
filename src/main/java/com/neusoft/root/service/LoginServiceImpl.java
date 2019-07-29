@@ -16,7 +16,7 @@ public class LoginServiceImpl implements LoginService{
 	@Override
 	public int Login(String username, String password) {
 		// TODO Auto-generated method stub
-		Admin admin = new Admin(null, username, password);
+		Admin admin = new Admin(username,null, password);
 		Student student = new Student(null, username, password, null, null, null);
 		Teacher teacher = new Teacher(null, username, password, null, null, null);
 		if(mapper.queryAdmin(admin).size()!=0)

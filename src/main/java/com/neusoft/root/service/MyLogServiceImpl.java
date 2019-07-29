@@ -1,12 +1,15 @@
 package com.neusoft.root.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.dao.AdminMapper;
 import com.neusoft.root.domain.MyLog;
 
@@ -15,18 +18,44 @@ public class MyLogServiceImpl implements MyLogService{
 
 	@Autowired
 	AdminMapper mapper;
+
 	@Override
-	public void addMyLog(MyLog myLog) {
+	public void addMyLog(JSONObject json) {
 		// TODO Auto-generated method stub
+		MyLog myLog = new MyLog(json.getInteger("logId"), json.getString("opId"), json.getString("opDate"), json.getString("opType"), json.getString("opMsg"), json.getString("opPage"));
 		mapper.addMyLog(myLog);
 	}
-	
+
 	@Override
-	public List<MyLog> queryMyLog() {
+	public void deleteMyLog(JSONObject json) {
 		// TODO Auto-generated method stub
-		List<MyLog> myLog = new ArrayList<>();
-		myLog = mapper.queryMyLog(null);
-		return myLog;
+		MyLog myLog = new MyLog(json.getInteger("logId"), json.getString("opId"), json.getString("opDate"), json.getString("opType"), json.getString("opMsg"), json.getString("opPage"));
+		mapper.deleteMyLog(myLog);
 	}
+
+	@Override
+	public void updateMyLog(JSONObject json) {
+		// TODO Auto-generated method stub
+		MyLog myLog = new MyLog(json.getInteger("logId"), json.getString("opId"), json.getString("opDate"), json.getString("opType"), json.getString("opMsg"), json.getString("opPage"));
+		Map<String, Object> map = new HashMap<>();
+		List<String> list = new ArrayList<String>();
+		list.add(myLog.getOpId());
+		map.put("ids",list);
+		map.put("opId",myLog.getOpId());
+		map.put("opDate",myLog.getOpDate());
+		map.put("opType",myLog.getOpType());
+		map.put("opMsg",myLog.getOpMsg());
+		map.put("opPage",myLog.getOpPage());
+		mapper.updateClass(map);
+	}
+
+	@Override
+	public List<MyLog> queryMyLog(JSONObject json) {
+		// TODO Auto-generated method stub
+		MyLog myLog = new MyLog(json.getInteger("logId"), json.getString("opId"), json.getString("opDate"), json.getString("opType"), json.getString("opMsg"), json.getString("opPage"));
+		List<MyLog> list = mapper.queryMyLog(myLog);
+		return list;
+	}
+	
 	
 }

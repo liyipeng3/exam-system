@@ -11,7 +11,7 @@ import com.neusoft.root.dao.TeacherMapper;
 import com.neusoft.root.domain.RawItem;
 
 @Service
-public class GetRawItemServiceImpl implements GetRawItemService{
+public class RawItemServiceImpl implements RawItemService{
 
 	@Autowired
 	TeacherMapper mapper;
@@ -19,9 +19,15 @@ public class GetRawItemServiceImpl implements GetRawItemService{
 	public List<RawItem> getRawItem(String subjects) {
 		// TODO Auto-generated method stub
 		List<RawItem> list = new ArrayList<>();
-		RawItem rawItem = new RawItem(null, null, null, null, subjects, null, null, null, null, null, null, null);
+		RawItem rawItem = new RawItem(null, null, null, subjects, null, null, null, null, null, null, null, null);
 		list =mapper.queryRawItem(rawItem);
 		return list;
+	}
+	@Override
+	public void addRawItem(RawItem rawItem) {
+		// TODO Auto-generated method stub
+		mapper.addRawItem(rawItem);
+		
 	}
 
 	

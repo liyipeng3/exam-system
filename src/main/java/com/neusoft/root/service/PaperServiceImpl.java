@@ -14,7 +14,7 @@ import com.neusoft.root.domain.Subjects;
 
 
 @Service
-public class GetPaperServiceImpl implements GetPaperService{
+public class PaperServiceImpl implements PaperService{
 	@Autowired
 	TeacherMapper teachermapper;
 
