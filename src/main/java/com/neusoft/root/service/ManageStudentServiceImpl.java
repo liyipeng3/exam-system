@@ -34,22 +34,17 @@ public class ManageStudentServiceImpl implements ManageStudentService{
 
 	@Override
 	public void updateManagestudent(JSONObject json) {
-		/*// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		Managestudent managestudent = new Managestudent(json.getString("classId"), json.getString("studentId"), json.getString("courseId"), json.getString("examName"), json.getString("examBegindate"), json.getString("examEnddate"));
-		Map<String, Object> map = new HashMap<>();
-		List<String> list = new ArrayList<String>();
-		list.add();
-		map.put("ids",list);
-		map.put("className",class1.getClassName());
-		map.put("classSeats",class1.getClassSeats());
-		mapper.updateClass(map);*/
+		mapper.updateManagestudent(managestudent);
 	}
 
 	@Override
 	public List<Managestudent> queryManagestudent(JSONObject json) {
 		// TODO Auto-generated method stub
-		//Managestudent managestudent = new Managestudent(json.getString("classId"), json.getString("studentId"), json.getString("courseId"), json.getString("examName"), json.getString("examBegindate"), json.getString("examEnddate"));
-		return null;
+		Managestudent managestudent = new Managestudent(json.getString("classId"), json.getString("studentId"), json.getString("courseId"), json.getString("examName"), json.getString("examBegindate"), json.getString("examEnddate"));
+		List<Managestudent> list = mapper.queryManagestudent(managestudent);
+		return list;
 	}
 
 	

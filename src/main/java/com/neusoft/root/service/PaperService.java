@@ -15,6 +15,5 @@ public interface PaperService {
 	public void deleteRawPaper(JSONObject json);
 	public void updateRawPaper(JSONObject json);
 	public List<ParsedPaper> queryRawPaper(JSONObject json);
-	public List<String> queryAllCourse();
 	
 }

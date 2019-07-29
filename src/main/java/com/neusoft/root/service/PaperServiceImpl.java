@@ -41,14 +41,6 @@ public class PaperServiceImpl implements PaperService{
 	public List<ParsedPaper> queryRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public List<String> queryAllCourse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
+	}	
 	
 }

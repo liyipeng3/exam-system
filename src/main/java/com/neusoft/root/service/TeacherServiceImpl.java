@@ -40,15 +40,19 @@ public class TeacherServiceImpl implements TeacherService{
 		list.add(teacher.getTeacherId());
 		map.put("ids",list);
 		map.put("teacherName",teacher.getTeacherName());
-		map.put("classSeats",teacher.getTeacherSchool());
-		mapper.updateClass(map);
+		map.put("teacherPassword",teacher.getTeacherPassword());
+		map.put("teacherAcademy",teacher.getTeacherName());
+		map.put("teacherMajor",teacher.getTeacherMajor());
+		map.put("teacherSchool",teacher.getTeacherSchool());
+		mapper.updateTeacher(map);
 	}
 
 	@Override
 	public List<Teacher> queryTeacher(JSONObject json) {
 		// TODO Auto-generated method stub
 		Teacher teacher = new Teacher(json.getString("teacherId"), json.getString("teacherName"), json.getString("teacherPassword"), json.getString("teacherAcademy"), json.getString("teacherMajor"), json.getString("teacherSchool"));
-		return null;
+		List<Teacher> list = mapper.queryTeacher(teacher);
+		return list;
 	}
 
 	
