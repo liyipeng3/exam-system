@@ -1,7 +1,9 @@
 package com.neusoft.root.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,9 +48,18 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public List<String> queryPaperCourse() {
 		// TODO Auto-generated method stub
-		List<String> list = new ArrayList<>();
-		
-		return null;
+		List<RawPaper> list = mapper.queryRawPaper(null);
+		Set<String> set = new HashSet<>();
+		for(RawPaper x:list)
+		{
+			set.add(x.getPaperType());
+		}
+		List<String> list2 = new ArrayList<>();
+		for(String s:set)
+		{
+			list2.add(s);
+		}
+		return list2;
 	}	
 	
 	
