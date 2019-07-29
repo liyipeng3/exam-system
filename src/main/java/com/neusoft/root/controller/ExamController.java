@@ -50,17 +50,29 @@ public class ExamController {
 		papers.add(paper1);
 		papers.add(paper2);
 		papers.add(paper3);
+//		papers = getpapers.getPaperCourse(null);
 		Gson gson = new Gson();
 		return gson.toJson(papers);
 	}
 	@RequestMapping(value="/get_paper_subjects", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperSubjects(){
-//		Subjects subjects = getpapersubjects.getPaperCourse(this.subject);
 		Subjects subjects = new Subjects();
 		subjects.add("语文");
 		subjects.add("数学");
 		subjects.add("英语");
+		
+		Gson gson = new Gson();
+		return gson.toJson(subjects);
+	}
+	@RequestMapping(value="/get_subjects", method=RequestMethod.GET)
+	@ResponseBody
+	public String getSubjects(){
+		Subjects subjects = new Subjects();
+		subjects.add("语文");
+		subjects.add("数学");
+		subjects.add("英语");
+		subjects.add("历史");
 		Gson gson = new Gson();
 		return gson.toJson(subjects);
 	}
@@ -92,6 +104,7 @@ public class ExamController {
 		System.out.println(jsonParam.get("cehsi").toString());
 		System.out.println(jsonParam.getString("cehsi"));
 		System.out.println(jsonParam.getString("ceshi"));
+		
 		return "ok";
 	}
 }
