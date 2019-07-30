@@ -88,4 +88,6 @@ public interface AdminMapper
 	
 	//老师批卷结果的查询
 	public List<RawCheck> queryCheck(RawCheck check);
+	
+	
 }
