@@ -548,6 +548,7 @@
     $(document).ready(function () {
         $.getJSON("/exam/get_items", function (result) {
             $.each(result, function (index, e) {
+                var difficult = '';
                 var item = '<tr class="el-table__row"><td class="el-table_1_column_1  el-table-column--selection" colspan="1" rowspan="1">';
                 item += '<div class="cell"><label class="el-checkbox" role="checkbox"><span aria-checked="mixed" class="el-checkbox__input my_item">';
                 item += '<span class="el-checkbox__inner"></span><input aria-hidden="true" class="el-checkbox__original" type="checkbox" value="">';
@@ -559,7 +560,14 @@
                 item += '<div class="cell el-tooltip" style="width: 660px;">';
                 item += e.itemQuestion + '</div></td><td class="el-table_1_column_5  " colspan="1" rowspan="1">';
                 item += '<div class="cell el-tooltip" style="width: 79px;">';
-                item += e.itemIndex + '</div></td><td class="el-table_1_column_6  " colspan="1" rowspan="1">';
+                if(e.itemIndex<2){
+                    difficult = "简单";
+                } else if(e.itemIndex<4){
+                    difficult = "普通";
+                } else {
+                    difficult = "困难";
+                }
+                item += difficult + '</div></td><td class="el-table_1_column_6  " colspan="1" rowspan="1">';
                 item += '<div class="cell el-tooltip" style="width: 199px;"></div></td>';
                 item += '<td class="el-table_1_column_7  " colspan="1" rowspan="1"><div class="cell el-tooltip" style="width: 119px;">';
                 item += e.itemId + '</div></td><td class="el-table_1_column_8  " colspan="1" rowspan="1">';

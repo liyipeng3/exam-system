@@ -1757,7 +1757,7 @@
             return;
         }
         var data = {};
-        data['id'] = item_id;
+        data['id'] = String(item_id);
         var option = $('#item_type option:selected').val();
         var subject = $('#select_course_type option:selected').text();
         var difficult = $('#select_difficult option:selected').text();
