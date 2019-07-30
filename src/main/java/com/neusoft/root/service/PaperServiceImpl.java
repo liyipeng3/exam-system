@@ -177,9 +177,10 @@ System.out.println("((");
 
 
 	@Override
-	public List<ParsedPaper> queryParsedPaper() {
+	public List<ParsedPaper> queryParsedPaper(Integer id) {
 		// TODO Auto-generated method stub
-		List<RawPaper> list = mapper.queryRawPaper(null);
+		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
+		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
 		List<ParsedPaper> list2 = new ArrayList<>();
 		ItemService service = new ItemServiceImpl();
 		Integer ID =0;
