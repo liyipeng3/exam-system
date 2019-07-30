@@ -91,7 +91,7 @@ public class Test {
 		Gson gson = new Gson();
 		String json = gson.toJson(item);
 		json = json.substring(0, json.length()-1);
-		json = json + ",option_length:" + item.getItemOption().size() + ",answer_length:" + item.getItemAnswer().size() + "}";
+		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
 /*		String[] sp = json.split(",");
 		for(int i = 0; i < sp.length; i++){
 			String[] spp = sp[i].split(":");

@@ -40,7 +40,7 @@ public class ExamController {
 	@Autowired
 	private CourseServiceImpl courseService;
 	@Autowired
-	private ItemServiceImpl rawItemService;
+	private ItemServiceImpl itemService;
 	private String subject;
 	/**
 	 * 
@@ -116,7 +116,7 @@ public class ExamController {
 	public String getItems(HttpServletRequest request){
 		List<RawItem> items = new ArrayList<>();
 		Gson gson = new Gson();
-		items = rawItemService.queryRawItem("");
+		items = itemService.queryRawItem("");
 		return gson.toJson(items);
 	}
 	/**
@@ -165,7 +165,7 @@ public class ExamController {
 		if(jsonParam.getString("itemType").equals("问答题")){
 			jsonParam.put("option_length", 1);
 		}
-		rawItemService.addRawItem(jsonParam);
+		itemService.addRawItem(jsonParam);
 		return "ok";
 	}
 	/**
@@ -182,7 +182,7 @@ public class ExamController {
 			id = id.substring(7);
 			int i = Integer.valueOf(id);
 			System.out.println(id);
-			rawItemService.deleteRawItem(i);
+			itemService.deleteRawItem(i);
 			return "ok";
 		}
 		return "error";
@@ -208,7 +208,7 @@ public class ExamController {
 			jsonParam.put("option_length", 1);
 		}
 		System.out.println(jsonParam.toString());
-		rawItemService.updateRawItem(jsonParam);
+		itemService.updateRawItem(jsonParam);
 		return "ok";
 	}
 	/**
@@ -220,7 +220,26 @@ public class ExamController {
 	@RequestMapping(value="/get_item_by_id",method=RequestMethod.GET)
 	@ResponseBody
 	public String getItemById(Integer id, HttpServletRequest request){
-		System.out.println(id);
+		ParsedItem item = itemService.queryParsedItem(id).get(0);
+		List<String> rawanswers = item.getItemAnswer();
+		List<String> options = item.getItemOption();
+		List<String> answers = new ArrayList<>();
+		for(int i = 0; i < item.getItemAnswer().size(); i++){
+			for(int j = 0; j < item.getItemOption().size(); j++){
+				if(item.getItemAnswer().get(i).equals(item.getItemOption().get(j))){
+					int choice = j + 1;
+					String answer = "key"+ choice + "Editor";
+					answers.add(answer);
+				}
+			}
+		}
+		item.setItemAnswer(answers);
+		Gson gson = new Gson();
+		String json = gson.toJson(item);
+		json = json.substring(0, json.length()-1);
+		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
+		return json;
+		/*System.out.println(id);
 		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
@@ -278,7 +297,7 @@ public class ExamController {
 		Gson gson = new Gson();
 		String json = gson.toJson(item);
 		json = json.substring(0, json.length()-1);
-		json = json + ",option_length:" + item.getItemOption().size() + ",answer_length:" + item.getItemAnswer().size() + "}";
-		return json;
+		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
+		return json;*/
 	}
 }
