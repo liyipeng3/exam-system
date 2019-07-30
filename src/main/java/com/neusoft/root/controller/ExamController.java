@@ -67,7 +67,6 @@ public class ExamController {
 		List<RawPaper> papers = new ArrayList<>();
 		papers = paperService.queryRawPaper();
 		Gson gson = new Gson();
-		System.out.println(paperService.queryParsedPaper(1).get(0));
 		return gson.toJson(papers);
 	}
 	/**
