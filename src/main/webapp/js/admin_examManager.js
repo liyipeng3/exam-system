@@ -88,7 +88,7 @@ $(document).ready(function () {
         }
     }
     $("#grid-data").bootgrid({
-        ajax: true,
+        ajax: false,
         ajaxSettings: {
             method: "POST",
             cache: false
