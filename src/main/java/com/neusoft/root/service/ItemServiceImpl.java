@@ -1,4 +1,4 @@
-package com.neusoft.root.service;
+﻿package com.neusoft.root.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +40,7 @@ public class ItemServiceImpl implements ItemService{
 		Double diffcult =0.0 ;
 		String option = "";
 		j= json.getInteger("option_length");
+		System.out.println(json);
 		if(json.getString("difficult").equals("简单"))
 		{
 			diffcult = 1.0;
@@ -52,17 +53,19 @@ public class ItemServiceImpl implements ItemService{
 		{
 			diffcult = 5.0;
 		}
+		System.out.println("@@@");
 		for(i=1;i<=j;i++)
 		{
 			option = option+json.getString("key"+i+"Editor")+"###";
 		}
 
 		option = option.substring(0, option.length()-3);
-			
+			System.out.println("!!!");
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
-			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer1")), "", 5.0, json.getString("analysisEditor"));
+			System.out.println(item.toString());
 			mapper.addRawItem(item);
 		}
 		else if(json.getString("itemType").equals("多选题")){
@@ -97,6 +100,7 @@ public class ItemServiceImpl implements ItemService{
 		}
 		else {
 			System.out.println("无效题目类型！！！");
+			System.out.println(json);
 			System.exit(0);
 		}
 		
@@ -134,8 +138,8 @@ public class ItemServiceImpl implements ItemService{
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
-			mapper.updateRawItem(item);;
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer1")), "", 5.0, json.getString("analysisEditor"));
+			mapper.updateRawItem(item);
 		}
 		else if(json.getString("itemType").equals("多选题")){
 			int k = 1;
@@ -158,16 +162,17 @@ public class ItemServiceImpl implements ItemService{
 			}
 			answer = answer.substring(0, answer.length()-3);
 			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), "", answer, "", 7.0, json.getString("analysisEditor"));
-			mapper.queryRawItem(item);
+			mapper.updateRawItem(item);
 			
 		}
 		else if(json.getString("itemType").equals("问答题"))
 		{
 			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), "", json.getString("answer"), "", 10.0, json.getString("analysisEditor"));
-			mapper.queryRawItem(item);
+			mapper.updateRawItem(item);
 		}
 		else {
 			System.out.println("无效题目类型！！！");
+			System.out.println(json);
 			System.exit(0);
 		}
 		
@@ -193,7 +198,7 @@ public class ItemServiceImpl implements ItemService{
 			List<String> answer = new ArrayList<>();
 			for(int j=0;j<line1.length;j++)
 			{
-				answer.add(line[j]);
+				answer.add(line1[j]);
 			}
 			list2.add(new ParsedItem(item.getItemId(),item.getCreaterId(), item.getItemDate(), item.getItemCoursetype(), item.getItemType(), item.getItemIndex(),item.getItemQuestion(), list3, answer, item.getItemPicture(), item.getItemScore(), item.getItemParse()));
 		}
