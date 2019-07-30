@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
+import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
@@ -64,7 +65,7 @@ public class ExamController {
 	public String getPapers(){
 		System.out.println("getpapers");
 		List<RawPaper> papers = new ArrayList<>();
-		long time = System.currentTimeMillis();
+/*		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String datestring = df.format(time);
 		RawPaper paper1 = new RawPaper(1,"test1", "1",datestring, "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
@@ -72,11 +73,10 @@ public class ExamController {
 		RawPaper paper3 = new RawPaper(3, "test3","3", datestring, "语文", 0.3, "choice", "fill", "subjective", "hhhhh", 100.0, "sss", "sss");
 		papers.add(paper1);
 		papers.add(paper2);
-		papers.add(paper3);
-		//papers = paperService.queryRawPaper(null);
+		papers.add(paper3);*/
+		papers = paperService.queryRawPaper();
 		Gson gson = new Gson();
 		return gson.toJson(papers);
-		//return gson.toJson(paperService.queryRawPaper(null));
 	}
 	/**
 	 * 获得试卷的所有科目
@@ -115,7 +115,7 @@ public class ExamController {
 	public String getItems(HttpServletRequest request){
 		List<RawItem> items = new ArrayList<>();
 		Gson gson = new Gson();
-		items = rawItemService.queryRawItem(null);
+		items = rawItemService.queryRawItem("");
 		return gson.toJson(items);
 	}
 	/**
@@ -164,7 +164,6 @@ public class ExamController {
 		if(jsonParam.getString("itemType").equals("问答题")){
 			jsonParam.put("option_length", 1);
 		}
-		System.out.println(jsonParam.toString());
 		rawItemService.addRawItem(jsonParam);
 		return "ok";
 	}
@@ -204,8 +203,25 @@ public class ExamController {
 		String date = df.format(time);
 		jsonParam.put("createrId", username);
 		jsonParam.put("itemDate", date);
+		if(jsonParam.getString("itemType").equals("问答题")){
+			jsonParam.put("option_length", 1);
+		}
 		System.out.println(jsonParam.toString());
 		rawItemService.updateRawItem(jsonParam);
 		return "ok";
+	}
+	/**
+	 * 按题号获取解析后题目
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/get_item_by_id",method=RequestMethod.GET)
+	@ResponseBody
+	public String getItemById(Integer id){
+		ParsedItem item = new ParsedItem();
+		item.setItemType("问答题");
+		Gson gson = new Gson();
+		return gson.toJson(item);
 	}
 }
