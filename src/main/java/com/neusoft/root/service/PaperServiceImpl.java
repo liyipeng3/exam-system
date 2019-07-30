@@ -40,30 +40,31 @@ public class PaperServiceImpl implements PaperService{
 		{
 			diffcult = 5.0;
 		}
-		Integer num = json.getInteger("singleQuestionNum");
 		String singlequestion = "";
-		for(int i=1;i<=num;i++)
+		int i=1;
+		while(json.getString("singleQuestion"+i)!=null)
 		{
 			singlequestion = singlequestion+json.getInteger("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			i++;
 		}
-			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
-		num = json.getInteger("mutiQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getInteger("mutiQuestion"+i)!=null)
 		{
 			mutiquestion = mutiquestion+json.getInteger("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
 		}
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
-		num = json.getInteger("fillQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getInteger("fillQuestion"+i)!=null)
 		{
 			fillquestion = fillquestion+json.getInteger("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
 		}
 			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
-		num = json.getInteger("subjectiveQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getInteger("subjectiveQuestion"+i)!=null)
 		{
 			subjectivequestion = subjectivequestion+json.getInteger("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
 		}
@@ -118,31 +119,31 @@ public class PaperServiceImpl implements PaperService{
 		{
 			diffcult = 5.0;
 		}
-		Integer num = json.getInteger("singleQuestionNum");
 		String singlequestion = "";
-		for(int i=1;i<=num;i++)
+		int i=1;
+		while(json.getString("singleQuestion"+i)!=null)
 		{
 			singlequestion = singlequestion+json.getInteger("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			i++;
 		}
-			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
-		num = json.getInteger("mutiQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getInteger("mutiQuestion"+i)!=null)
 		{
 			mutiquestion = mutiquestion+json.getInteger("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
 		}
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
-		num = json.getInteger("fillQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getInteger("fillQuestion"+i)!=null)
 		{
 			fillquestion = fillquestion+json.getInteger("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
 		}
-
-		fillquestion = fillquestion.substring(0, fillquestion.length()-3);
+			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
-		num = json.getInteger("subjectiveQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getInteger("subjectiveQuestion"+i)!=null)
 		{
 			subjectivequestion = subjectivequestion+json.getInteger("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
 		}

@@ -20,9 +20,8 @@ public class MyLogServiceImpl implements MyLogService{
 	AdminMapper mapper;
 
 	@Override
-	public void addMyLog(JSONObject json) {
+	public void addMyLog(MyLog myLog) {
 		// TODO Auto-generated method stub
-		MyLog myLog = new MyLog(json.getInteger("logId"), json.getString("opId"), json.getString("opDate"), json.getString("opType"), json.getString("opMsg"), json.getString("opPage"));
 		mapper.addMyLog(myLog);
 	}
 

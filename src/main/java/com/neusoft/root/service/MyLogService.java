@@ -15,22 +15,22 @@ import com.neusoft.root.domain.MyLog;
 public interface MyLogService {
 	/**
 	 * 增加log
-	 * @param json mylog串
+	 * @param mylog
 	 */
-	public void addMyLog(JSONObject json);
+	public void addMyLog(MyLog myLog);
 	/**
 	 * 删除log
-	 * @param json mylog串
+	 * @param json
 	 */
 	public void deleteMyLog(JSONObject json);
 	/**
 	 * 更新log
-	 * @param json mylog串
+	 * @param json
 	 */
 	public void updateMyLog(JSONObject json);
 	/**
 	 * 查询log
-	 * @param json mylog串
+	 * @param json
 	 * @return 查询结果list
 	 */
 	public List<MyLog> queryMyLog(JSONObject json);
