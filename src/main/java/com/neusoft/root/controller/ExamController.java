@@ -115,8 +115,8 @@ public class ExamController {
 	@ResponseBody
 	public String getItems(HttpServletRequest request){
 		List<RawItem> items = new ArrayList<>();
-		Gson gson = new Gson();
 		items = itemService.queryRawItem("");
+		Gson gson = new Gson();
 		return gson.toJson(items);
 	}
 	/**
@@ -127,12 +127,12 @@ public class ExamController {
 	@RequestMapping(value="get_subject_items")
 	@ResponseBody
 	public String getSubjectItems(HttpServletRequest request){
-		HttpSession session = request.getSession();
+		List<RawItem> items = new ArrayList<>();
+/*		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String datestring = df.format(time);
-		List<RawItem> items = new ArrayList<>();
 		RawItem item1 = new RawItem(1, "10011",datestring,"itemCourseType", "itemType", 0.1, "itemQuestion", "itemOption", "itemAnswer", "itemPicture", 0.1,"");
 		RawItem item2 = new RawItem(2, "1008",datestring,"科目", "题型", 0.2, "题干", "选项", "答案", "配图路径", 0.2,"");
 		RawItem item3 = new RawItem(3, "1008611",datestring, "马克思主义原理", "送分题", 99.9, "老大帅不帅", "是/是", "是", "> A <", 99.9,"");
@@ -140,10 +140,10 @@ public class ExamController {
 		items.add(item1);
 		items.add(item2);
 		items.add(item3);
-		items.add(item4);
+		items.add(item4);*/
+		items = itemService.queryRawItem("");
 		Gson gson = new Gson();
 		return gson.toJson(items);
-		//return gson.toJson(rawItemService.getRawItem(this.subject));
 	}
 	/**
 	 * 添加试题
@@ -221,23 +221,25 @@ public class ExamController {
 	@ResponseBody
 	public String getItemById(Integer id, HttpServletRequest request){
 		ParsedItem item = itemService.queryParsedItem(id).get(0);
-		List<String> rawanswers = item.getItemAnswer();
-		List<String> options = item.getItemOption();
-		List<String> answers = new ArrayList<>();
-		for(int i = 0; i < item.getItemAnswer().size(); i++){
-			for(int j = 0; j < item.getItemOption().size(); j++){
-				if(item.getItemAnswer().get(i).equals(item.getItemOption().get(j))){
-					int choice = j + 1;
-					String answer = "key"+ choice + "Editor";
-					answers.add(answer);
+		System.out.println(item);
+		if(!item.getItemType().equals("问答题") && !item.getItemType().equals("填空题")){
+			List<String> answers = new ArrayList<>();
+			for(int i = 0; i < item.getItemAnswer().size(); i++){
+				for(int j = 0; j < item.getItemOption().size(); j++){
+					if(item.getItemAnswer().get(i).equals(item.getItemOption().get(j))){
+						int choice = j + 1;
+						String answer = "key"+ choice + "Editor";
+						answers.add(answer);
+					}
 				}
 			}
+			item.setItemAnswer(answers);
 		}
-		item.setItemAnswer(answers);
 		Gson gson = new Gson();
 		String json = gson.toJson(item);
 		json = json.substring(0, json.length()-1);
 		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
+		System.out.println(json);
 		return json;
 		/*System.out.println(id);
 		HttpSession session = request.getSession();
