@@ -64,7 +64,7 @@ public class ExamController {
 	public String getPapers(){
 		System.out.println("getpapers");
 		List<RawPaper> papers = new ArrayList<>();
-		long time = System.currentTimeMillis();
+/*		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String datestring = df.format(time);
 		RawPaper paper1 = new RawPaper(1,"test1", "1",datestring, "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
@@ -72,11 +72,10 @@ public class ExamController {
 		RawPaper paper3 = new RawPaper(3, "test3","3", datestring, "语文", 0.3, "choice", "fill", "subjective", "hhhhh", 100.0, "sss", "sss");
 		papers.add(paper1);
 		papers.add(paper2);
-		papers.add(paper3);
-		//papers = paperService.queryRawPaper(null);
+		papers.add(paper3);*/
+		papers = paperService.queryRawPaper();
 		Gson gson = new Gson();
 		return gson.toJson(papers);
-		//return gson.toJson(paperService.queryRawPaper(null));
 	}
 	/**
 	 * 获得试卷的所有科目
