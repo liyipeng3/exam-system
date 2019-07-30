@@ -41,61 +41,33 @@ public class PaperServiceImpl implements PaperService{
 			diffcult = 5.0;
 		}
 		Integer num = json.getInteger("singleQuestionNum");
-		String singlequestion = null;
+		String singlequestion = "";
 		for(int i=1;i<=num;i++)
 		{
 			singlequestion = singlequestion+json.getInteger("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
 		}
-		if(singlequestion==null)
-		{
-			singlequestion = "";
-		}
-		else 
-		{
 			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
-		}
-		String mutiquestion = null;
+		String mutiquestion = "";
 		num = json.getInteger("mutiQuestionNum");
 		for(int i=1;i<=num;i++)
 		{
 			mutiquestion = mutiquestion+json.getInteger("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
 		}
-		if(mutiquestion==null)
-		{
-			mutiquestion = "";
-		}
-		else 
-		{
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
-		}
-		String fillquestion = null;
+		String fillquestion = "";
 		num = json.getInteger("fillQuestionNum");
 		for(int i=1;i<=num;i++)
 		{
 			fillquestion = fillquestion+json.getInteger("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
 		}
-		if(fillquestion==null)
-		{
-			fillquestion = "";
-		}
-		else 
-		{
 			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
-		}
-		String subjectivequestion = null;
+		String subjectivequestion = "";
 		num = json.getInteger("subjectiveQuestionNum");
 		for(int i=1;i<=num;i++)
 		{
 			subjectivequestion = subjectivequestion+json.getInteger("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
 		}
-		if(subjectivequestion==null)
-		{
-			subjectivequestion = "";
-		}
-		else 
-		{
 			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
-		}
 		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
 		mapper.addRawPaper(rawPaper);
 	}
@@ -147,61 +119,35 @@ public class PaperServiceImpl implements PaperService{
 			diffcult = 5.0;
 		}
 		Integer num = json.getInteger("singleQuestionNum");
-		String singlequestion = null;
+		String singlequestion = "";
 		for(int i=1;i<=num;i++)
 		{
 			singlequestion = singlequestion+json.getInteger("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
 		}
-		if(singlequestion==null)
-		{
-			singlequestion = "";
-		}
-		else 
-		{
 			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
-		}
-		String mutiquestion = null;
+		String mutiquestion = "";
 		num = json.getInteger("mutiQuestionNum");
 		for(int i=1;i<=num;i++)
 		{
 			mutiquestion = mutiquestion+json.getInteger("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
 		}
-		if(mutiquestion==null)
-		{
-			mutiquestion = "";
-		}
-		else 
-		{
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
-		}
-		String fillquestion = null;
+		String fillquestion = "";
 		num = json.getInteger("fillQuestionNum");
 		for(int i=1;i<=num;i++)
 		{
 			fillquestion = fillquestion+json.getInteger("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
 		}
-		if(fillquestion==null)
-		{
-			fillquestion = "";
-		}
-		else 
-		{
-			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
-		}
-		String subjectivequestion = null;
+
+		fillquestion = fillquestion.substring(0, fillquestion.length()-3);
+		String subjectivequestion = "";
 		num = json.getInteger("subjectiveQuestionNum");
 		for(int i=1;i<=num;i++)
 		{
 			subjectivequestion = subjectivequestion+json.getInteger("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
 		}
-		if(subjectivequestion==null)
-		{
-			subjectivequestion = "";
-		}
-		else 
-		{
-			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
-		}
+
+		subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
 		mapper.updateRawPaper(rawPaper);
 	}
