@@ -11,13 +11,19 @@ import com.neusoft.root.domain.RawItem;
  * @author Warriors
  *
  */
-public interface RawItemService {
+public interface ItemService {
 	/**
 	 * 获取科目所有题目
 	 * @param subjects 科目
 	 * @return 该科目所有题目
 	 */
 	public List<RawItem> queryRawItem(String subjects);
+	/**
+	 * 获取科目所有题目
+	 * @param ID 
+	 * @return 该科目所有题目
+	 */
+	public List<RawItem> queryRawItem(Integer ID);
 	/**
 	 * 增加试题
 	 * @param json rawitem串
@@ -35,8 +41,14 @@ public interface RawItemService {
 	public void updateRawItem(JSONObject json);
 	/**
 	 * 查询试题
-	 * @param rawItem rawitem串
+	 * @param subjects 科目
 	 * @return parseditem的list
 	 */
 	public List<ParsedItem> queryParsedItem(String subjects);
+	/**
+	 * 查询试题
+	 * @param rawItem rawitem串
+	 * @return parseditem的list
+	 */
+	public List<ParsedItem> queryParsedItem(Integer ID);
 }

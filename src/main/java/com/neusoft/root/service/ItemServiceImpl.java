@@ -13,7 +13,7 @@ import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.RawItem;
 
 @Service
-public class RawItemServiceImpl implements RawItemService{
+public class ItemServiceImpl implements ItemService{
 
 	@Autowired
 	TeacherMapper mapper;
@@ -195,15 +195,29 @@ public class RawItemServiceImpl implements RawItemService{
 			}
 			String [] line1 = null;
 			line1 = item.getItemAnswer().split("###");
-			String answer = null;
+			List<String> answer = new ArrayList<>();
 			for(int j=0;j<line1.length;j++)
 			{
-				answer = answer+line1[j]+",";
+				answer.add(line[j]);
 			}
-			answer = answer.substring(0, answer.length()-1);
 			list2.add(new ParsedItem(item.getItemId(),item.getCreaterId(), item.getItemDate(), item.getItemCoursetype(), item.getItemType(), item.getItemIndex(),item.getItemQuestion(), list3, answer, item.getItemPicture(), item.getItemScore(), item.getItemParse()));
 		}
 		return list2;
+	}
+	@Override
+	public List<RawItem> queryRawItem(Integer ID) {
+		// TODO Auto-generated method stub
+		RawItem item = new RawItem(ID, "", "", "", "", 0.0, "", "", "", "", 0.0, "");
+		List<RawItem> items = mapper.queryRawItem(item);
+		return items;
+	}
+	@Override
+	public List<ParsedItem> queryParsedItem(Integer ID) {
+		// TODO Auto-generated method stub
+		RawItem item = new RawItem(ID, "", "", "", "", 0.0, "", "", "", "", 0.0, "");
+		List<RawItem> items = mapper.queryRawItem(item);
+		
+		return null;
 	}
 	
 

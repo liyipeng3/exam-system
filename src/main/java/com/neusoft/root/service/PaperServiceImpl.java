@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.dao.TeacherMapper;
+import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
+import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 
 import com.neusoft.root.domain.Subjects;
@@ -24,6 +26,20 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public void addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
+		Double diffcult = 0.0;
+		int  j= json.getInteger("option_length");
+		if(json.getString("difficult").equals("简单"))
+		{
+			diffcult = 1.0;
+		}
+		else if(json.getString("difficult").equals("普通"))
+		{
+			diffcult =3.0;
+		}
+		else if(json.getString("difficult").equals("困难"))
+		{
+			diffcult = 5.0;
+		}
 		Integer num = json.getInteger("singleQuestionNum");
 		String singlequestion = null;
 		for(int i=1;i<=num;i++)
@@ -80,7 +96,7 @@ public class PaperServiceImpl implements PaperService{
 		{
 			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		}
-		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), json.getDouble("paperIndex"), singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
+		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
 		mapper.addRawPaper(rawPaper);
 	}
 
@@ -116,6 +132,20 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public void updateRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
+		Double diffcult = 0.0;
+		int  j= json.getInteger("option_length");
+		if(json.getString("difficult").equals("简单"))
+		{
+			diffcult = 1.0;
+		}
+		else if(json.getString("difficult").equals("普通"))
+		{
+			diffcult =3.0;
+		}
+		else if(json.getString("difficult").equals("困难"))
+		{
+			diffcult = 5.0;
+		}
 		Integer num = json.getInteger("singleQuestionNum");
 		String singlequestion = null;
 		for(int i=1;i<=num;i++)
@@ -172,7 +202,7 @@ public class PaperServiceImpl implements PaperService{
 		{
 			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		}
-		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), json.getDouble("paperIndex"), singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
+		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
 		mapper.updateRawPaper(rawPaper);
 	}
 
@@ -192,10 +222,23 @@ public class PaperServiceImpl implements PaperService{
 		// TODO Auto-generated method stub
 		List<RawPaper> list = mapper.queryRawPaper(null);
 		List<ParsedPaper> list2 = new ArrayList<>();
-		for(RawPaper paper:list)
+		Integer ID =0;
+		/*for(RawPaper paper:list)
 		{
-			//ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(), paper.getPaperType(), paperIndex, singlechoiceQuestion, multichoiceQuestion, fillQuestion, subjectiveQuestion, paperScore, paperSecrecy, paperRemark);
-		}
+			List<ParsedItem> singlequestion ;
+			String [] question1 = paper.getSinglechoiceQuestion().split("###");
+			for(int i=0;i<question1.length;i++)
+			{
+				String [] line = question1[i].split(",");
+				if(line.length!=0)
+				{
+					ID = Integer.valueOf(line[0]);
+				}
+				RawItem item = new RawItem(ID, "", "", "", "",0.0 , "", "", "", "", 0.0, "");
+				singlequestion = mapper.
+			}
+			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(), paper.getPaperType(), paper.getPaperIndex(), singlechoiceQuestion, multichoiceQuestion, fillQuestion, subjectiveQuestion, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
+		}*/
 		return list2;
 		
 	}	

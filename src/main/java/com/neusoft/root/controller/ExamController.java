@@ -22,7 +22,7 @@ import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
 import com.neusoft.root.service.CourseServiceImpl;
 import com.neusoft.root.service.PaperServiceImpl;
-import com.neusoft.root.service.RawItemServiceImpl;
+import com.neusoft.root.service.ItemServiceImpl;
 
 /**
  * 
@@ -38,7 +38,7 @@ public class ExamController {
 	@Autowired
 	private CourseServiceImpl courseService;
 	@Autowired
-	private RawItemServiceImpl rawItemService;
+	private ItemServiceImpl rawItemService;
 	private String subject;
 	/**
 	 * 
