@@ -24,7 +24,7 @@ public interface PaperService {
 	 * 删除试卷
 	 * @param json rawpaper串
 	 */
-	public void deleteRawPaper(JSONObject json);
+	public void deleteRawPaper(Integer id);
 	/**
 	 * 更新试卷
 	 * @param json rawpaper串
@@ -32,10 +32,14 @@ public interface PaperService {
 	public void updateRawPaper(JSONObject json);
 	/**
 	 * 查询paper
-	 * @param json rawpaper串
+	 * @return rawpaper的list
+	 */
+	public List<RawPaper> queryRawPaper();
+	/**
+	 * 查询paper
 	 * @return parsedpaper的list
 	 */
-	public List<ParsedPaper> queryRawPaper(JSONObject json);
+	public List<ParsedPaper> queryParsedPaper();
 	/**
 	 * 获取所有课程
 	 * @return 课程名字的list
