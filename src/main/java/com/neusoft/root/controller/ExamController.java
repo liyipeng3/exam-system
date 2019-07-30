@@ -161,6 +161,9 @@ public class ExamController {
 		String date = df.format(time);
 		jsonParam.put("createrId", username);
 		jsonParam.put("itemDate", date);
+		if(jsonParam.getString("itemType").equals("问答题")){
+			jsonParam.put("option_length", 1);
+		}
 		System.out.println(jsonParam.toString());
 		rawItemService.addRawItem(jsonParam);
 		return "ok";
