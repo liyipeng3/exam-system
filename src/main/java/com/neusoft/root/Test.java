@@ -59,17 +59,28 @@ public class Test {
 		String date = df.format(time);
 		ParsedItem item = new ParsedItem();
 		item.setCreaterId("admin");
-		item.setItemType("多选题");
+		item.setItemType("填空题");
 		item.setItemDate(date);
-		List<String> answers = new ArrayList<>();
+		List<String> panswers = new ArrayList<>();
 		List<String> options = new ArrayList<>();
 		options.add("a");
 		options.add("b");
 		options.add("c");
-		answers.add("a");
-		answers.add("b");
-		item.setItemAnswer(answers);
+		panswers.add("a");
+		panswers.add("b");
+		item.setItemAnswer(panswers);
 		item.setItemOption(options);
+		List<String> answers = new ArrayList<>();
+		for(int i = 0; i < item.getItemAnswer().size(); i++){
+			for(int j = 0; j < item.getItemOption().size(); j++){
+				if(item.getItemAnswer().get(i).equals(item.getItemOption().get(j))){
+					int choice = j + 1;
+					String answer = "key"+ choice + "Editor";
+					answers.add(answer);
+				}
+			}
+		}
+		item.setItemAnswer(answers);
 		item.setItemCoursetype("语文");
 		item.setItemId(1);
 		item.setItemIndex(3.0);
@@ -81,7 +92,7 @@ public class Test {
 		String json = gson.toJson(item);
 		json = json.substring(0, json.length()-1);
 		json = json + ",option_length:" + item.getItemOption().size() + ",answer_length:" + item.getItemAnswer().size() + "}";
-		String[] sp = json.split(",");
+/*		String[] sp = json.split(",");
 		for(int i = 0; i < sp.length; i++){
 			String[] spp = sp[i].split(":");
 			String temp = spp[0].substring(1, spp[0].length()-1);
@@ -97,7 +108,8 @@ public class Test {
 					spp[1] = "困难";
 				}
 			}
-		}
+		}*/
+		
 		System.out.println(json);
 	}
 }
