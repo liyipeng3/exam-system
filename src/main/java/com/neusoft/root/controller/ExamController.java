@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
@@ -218,10 +219,36 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/get_item_by_id",method=RequestMethod.GET)
 	@ResponseBody
-	public String getItemById(Integer id){
+	public String getItemById(Integer id, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String date = df.format(time);
 		ParsedItem item = new ParsedItem();
-		item.setItemType("问答题");
+		item.setItemType("多选题");
+		item.setCreaterId(username);
+		item.setItemDate(date);
+		List<String> answers = new ArrayList<>();
+		List<String> options = new ArrayList<>();
+		options.add("a");
+		options.add("b");
+		options.add("c");
+		answers.add("a");
+		answers.add("b");
+		item.setItemAnswer(answers);
+		item.setItemOption(options);
+		item.setItemCoursetype("语文");
+		item.setItemId(1);
+		item.setItemIndex(4.0);
+		item.setItemParse("hhh");
+		item.setItemPicture("无");
+		item.setItemQuestion("dbiasdbis?");
+		item.setItemScore(0.3);
 		Gson gson = new Gson();
-		return gson.toJson(item);
+		String json = gson.toJson(item);
+		json = json.substring(0, json.length()-1);
+		json = json + ",option_length:" + item.getItemOption().size() + ",answer_length:" + item.getItemAnswer().size() + "}";
+		return json;
 	}
 }

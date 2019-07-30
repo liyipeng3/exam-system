@@ -56,8 +56,31 @@ public class Test {
 		System.out.println(gson.toJson(papers));*/
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String datestring = df.format(time);
-		System.out.println(datestring);
-		ParsedItem pi = new ParsedItem();
+		String date = df.format(time);
+		ParsedItem item = new ParsedItem();
+		item.setCreaterId("admin");
+		item.setItemType("多选题");
+		item.setItemDate(date);
+		List<String> answers = new ArrayList<>();
+		List<String> options = new ArrayList<>();
+		options.add("a");
+		options.add("b");
+		options.add("c");
+		answers.add("a");
+		answers.add("b");
+		item.setItemAnswer(answers);
+		item.setItemOption(options);
+		item.setItemCoursetype("语文");
+		item.setItemId(1);
+		item.setItemIndex(4.0);
+		item.setItemParse("hhh");
+		item.setItemPicture("无");
+		item.setItemQuestion("dbiasdbis?");
+		item.setItemScore(0.3);
+		Gson gson = new Gson();
+		String json = gson.toJson(item);
+		json = json.substring(0, json.length()-1);
+		json = json + ",option_length:" + item.getItemOption().size() + ",answer_length:" + item.getItemAnswer().size() + "}";
+		System.out.println(json);
 	}
 }
