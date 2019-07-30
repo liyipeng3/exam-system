@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Student;
+import com.neusoft.root.service.PaperServiceImpl;
 
 public class Test {
 	public static void main(String[] args){
@@ -54,7 +55,7 @@ public class Test {
 		papers.add(paper2);
 		papers.add(paper3);
 		System.out.println(gson.toJson(papers));*/
-		long time = System.currentTimeMillis();
+		/*long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String date = df.format(time);
 		ParsedItem item = new ParsedItem();
@@ -92,7 +93,7 @@ public class Test {
 		String json = gson.toJson(item);
 		json = json.substring(0, json.length()-1);
 		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
-/*		String[] sp = json.split(",");
+		String[] sp = json.split(",");
 		for(int i = 0; i < sp.length; i++){
 			String[] spp = sp[i].split(":");
 			String temp = spp[0].substring(1, spp[0].length()-1);
@@ -108,8 +109,8 @@ public class Test {
 					spp[1] = "困难";
 				}
 			}
-		}*/
+		}
 		
-		System.out.println(json);
+		System.out.println(json);*/
 	}
 }
