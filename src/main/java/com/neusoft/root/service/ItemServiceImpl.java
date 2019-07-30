@@ -133,9 +133,10 @@ public class ItemServiceImpl implements ItemService{
 			option = option.substring(0, option.length()-3);
 		if(json.getString("itemType").equals("单选题"))
 		{
-			
+			System.out.println("hhhhhhh");
 			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
-			mapper.updateRawItem(item);;
+			System.out.println(item);
+			mapper.updateRawItem(item);
 		}
 		else if(json.getString("itemType").equals("多选题")){
 			int k = 1;
