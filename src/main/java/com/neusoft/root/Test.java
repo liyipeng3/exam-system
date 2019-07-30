@@ -72,7 +72,7 @@ public class Test {
 		item.setItemOption(options);
 		item.setItemCoursetype("语文");
 		item.setItemId(1);
-		item.setItemIndex(4.0);
+		item.setItemIndex(3.0);
 		item.setItemParse("hhh");
 		item.setItemPicture("无");
 		item.setItemQuestion("dbiasdbis?");
@@ -81,6 +81,23 @@ public class Test {
 		String json = gson.toJson(item);
 		json = json.substring(0, json.length()-1);
 		json = json + ",option_length:" + item.getItemOption().size() + ",answer_length:" + item.getItemAnswer().size() + "}";
+		String[] sp = json.split(",");
+		for(int i = 0; i < sp.length; i++){
+			String[] spp = sp[i].split(":");
+			String temp = spp[0].substring(1, spp[0].length()-1);
+			if(temp.equals("itemIndex")){
+				System.out.println();
+				if(spp[1].equals("1.0")){
+					spp[i] = "简单"; 
+				}
+				if(spp[1].equals("3.0")){
+					spp[1] = "普通";
+				}
+				if(spp[1].equals("5.0")){
+					spp[1] = "困难";
+				}
+			}
+		}
 		System.out.println(json);
 	}
 }
