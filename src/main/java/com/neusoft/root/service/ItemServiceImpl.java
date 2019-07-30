@@ -21,7 +21,7 @@ public class ItemServiceImpl implements ItemService{
 	public List<RawItem> queryRawItem(String subjects) {
 		// TODO Auto-generated method stub
 		List<RawItem> list = new ArrayList<>();
-		if(subjects.equals(""))
+		if(subjects==null||subjects=="")
 		{
 			list =mapper.queryRawItem(null);
 			return list;
