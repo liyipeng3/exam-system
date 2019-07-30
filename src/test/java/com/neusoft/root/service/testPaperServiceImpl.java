@@ -43,7 +43,7 @@ public class testPaperServiceImpl {
 		json.put("paperScore",0.9);
 		json.put("paperSecrecy","qu11");
 		json.put("paperRemark","qu12");
-		test.updateRawPaper(json);;
+		test.updateRawPaper(json);
 		//test.addRawPaper(json);
 	}
 }
