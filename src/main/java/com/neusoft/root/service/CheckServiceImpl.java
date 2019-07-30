@@ -17,7 +17,7 @@ public class CheckServiceImpl implements CheckService{
 	@Override
 	public void addCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-	/*	int count =1;
+		/*int count =1;
 		String singleQuestion ="";
 		while(json.getString("singlechoiceScore"+count)!=null)
 		{

@@ -228,7 +228,7 @@ public class ItemServiceImpl implements ItemService{
 			{
 				answer.add(line1[j]);
 			}
-			items2.add(new ParsedItem(item.getItemId(),item.getCreaterId(), item.getItemDate(), item.getItemCoursetype(), item.getItemType(), item.getItemIndex(),item.getItemQuestion(), list3, answer, item.getItemPicture(), item.getItemScore(), item.getItemParse()));
+			items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
 		}
 		return items2;
 	}
