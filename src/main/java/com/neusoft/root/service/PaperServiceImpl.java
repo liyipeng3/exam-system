@@ -27,7 +27,7 @@ public class PaperServiceImpl implements PaperService{
 	public void addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
 		Double diffcult = 0.0;
-		int  j= json.getInteger("option_length");
+		//int  j= json.getInteger("option_length");
 		if(json.getString("difficult").equals("简单"))
 		{
 			diffcult = 1.0;
@@ -105,7 +105,7 @@ public class PaperServiceImpl implements PaperService{
 	public void updateRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
 		Double diffcult = 0.0;
-		int  j= json.getInteger("option_length");
+		//int  j= json.getInteger("option_length");
 		if(json.getString("difficult").equals("简单"))
 		{
 			diffcult = 1.0;

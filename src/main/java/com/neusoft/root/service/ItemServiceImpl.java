@@ -92,7 +92,7 @@ public class ItemServiceImpl implements ItemService{
 		}
 		else if(json.getString("itemType").equals("问答题"))
 		{
-			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString("answer"), "", 10.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), "", json.getString("answer"), "", 10.0, json.getString("analysisEditor"));
 			mapper.addRawItem(item);
 		}
 		else {
@@ -163,7 +163,7 @@ public class ItemServiceImpl implements ItemService{
 		}
 		else if(json.getString("itemType").equals("问答题"))
 		{
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString("answer"), "", 10.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), "", json.getString("answer"), "", 10.0, json.getString("analysisEditor"));
 			mapper.queryRawItem(item);
 		}
 		else {

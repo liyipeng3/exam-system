@@ -220,6 +220,7 @@ public class ExamController {
 	@RequestMapping(value="/get_item_by_id",method=RequestMethod.GET)
 	@ResponseBody
 	public String getItemById(Integer id, HttpServletRequest request){
+		System.out.println(id);
 		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
@@ -269,7 +270,7 @@ public class ExamController {
 		item.setItemAnswer(answers);
 		item.setItemCoursetype("语文");
 		item.setItemId(1);
-		item.setItemIndex(4.0);
+		item.setItemIndex(3.0);
 		item.setItemParse("hhh");
 		item.setItemPicture("无");
 		item.setItemQuestion("dbiasdbis?");
