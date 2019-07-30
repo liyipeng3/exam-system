@@ -363,7 +363,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="paperName!=null and paperName!=''">
 				and paper_name = #{paperName}
 			</if>
-			<if test="createrId!=null and createId!=''">
+			<if test="createrId!=null and createrId!=''">
 				and creater_id = #{createrId}
 			</if>
 			<if test="paperType!=null and paperType!=''">

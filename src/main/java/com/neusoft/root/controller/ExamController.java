@@ -64,10 +64,10 @@ public class ExamController {
 	@RequestMapping(value="/get_papers", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPapers(){
-		System.out.println("getpapers");
 		List<RawPaper> papers = new ArrayList<>();
 		papers = paperService.queryRawPaper();
 		Gson gson = new Gson();
+		System.out.println(paperService.queryParsedPaper(1).get(0));
 		return gson.toJson(papers);
 	}
 	/**
