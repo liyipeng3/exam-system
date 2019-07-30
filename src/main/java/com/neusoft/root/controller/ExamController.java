@@ -226,18 +226,47 @@ public class ExamController {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String date = df.format(time);
 		ParsedItem item = new ParsedItem();
-		item.setItemType("多选题");
 		item.setCreaterId(username);
 		item.setItemDate(date);
-		List<String> answers = new ArrayList<>();
+		List<String> panswers = new ArrayList<>();
 		List<String> options = new ArrayList<>();
-		options.add("a");
-		options.add("b");
-		options.add("c");
-		answers.add("a");
-		answers.add("b");
-		item.setItemAnswer(answers);
+		if(id == 1){
+			item.setItemType("单选题");
+			options.add("a");
+			options.add("b");
+			options.add("c");
+			panswers.add("b");
+		}
+		if(id == 2){
+			item.setItemType("多选题");
+			options.add("a");
+			options.add("b");
+			options.add("c");
+			panswers.add("a");
+			panswers.add("b");
+		}
+		if(id == 3){
+			item.setItemType("填空题");
+			panswers.add("填空题答案1");
+			panswers.add("填空题答案2");
+		}
+		if(id == 4){
+			item.setItemType("问答题");
+			panswers.add("问答题答案");
+		}
+		item.setItemAnswer(panswers);
 		item.setItemOption(options);
+		List<String> answers = new ArrayList<>();
+		for(int i = 0; i < item.getItemAnswer().size(); i++){
+			for(int j = 0; j < item.getItemOption().size(); j++){
+				if(item.getItemAnswer().get(i).equals(item.getItemOption().get(j))){
+					int choice = j + 1;
+					String answer = "key"+ choice + "Editor";
+					answers.add(answer);
+				}
+			}
+		}
+		item.setItemAnswer(answers);
 		item.setItemCoursetype("语文");
 		item.setItemId(1);
 		item.setItemIndex(4.0);
