@@ -808,8 +808,8 @@
                     <div class="form-row">
                         <div class="row-label">组卷方式：</div>
                         <div class="row-content paper-type-group">
-                            <button type="button" data-value="1" class="btn btn-default btn-sm">选题组卷</button>
-                            <button type="button" data-value="3" class="btn btn-default btn-sm not-selected">随机组卷
+                            <button type="button" data-value="1" class="btn btn-default btn-sm create_method">选题组卷</button>
+                            <button type="button" data-value="3" class="btn btn-default btn-sm create_method not-selected">随机组卷
                             </button>
                             <input type="hidden" class="" name="paper_type" value="1">
                         </div>
@@ -927,7 +927,7 @@
 <script type="text/javascript" src="../../js/admin_paperManager.js"></script>
 <script>
     $(function () {
-        $.getJSON("/exam/get_paper_subjects", function (result) {
+        $.getJSON("/exam/get_subjects", function (result) {
             $.each(result.subjects, function (index, e) {
                 $subject = $("<label style='margin-left: 5px'>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>");
                 $("#select_subject").append($subject);
@@ -974,6 +974,18 @@
                     $('.select-item').addClass("active");
                 }
             });
+        });
+        $('#confirmCreatePaper').click(function () {
+            let url = "/html/exam/paper_manual_add";
+            url += "?paperName=" + $('#paperName').val();
+            var substr = String($('input:radio:checked').val());
+            if(substr=='undefined'){
+                alert("请选择科目!");
+                return;
+            }
+            url += "&subject=" + substr;
+            url += "&method=" + $('.create_method').not('.not-selected').text().trim();
+            window.location.href = url;
         });
     });
 </script>
