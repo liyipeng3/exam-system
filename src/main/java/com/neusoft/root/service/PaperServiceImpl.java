@@ -54,6 +54,7 @@ public class PaperServiceImpl implements PaperService{
 		while(json.getString("mutiQuestion"+i)!=null)
 		{
 			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
+			i++;
 		}
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
@@ -61,6 +62,7 @@ public class PaperServiceImpl implements PaperService{
 		while(json.getString("fillQuestion"+i)!=null)
 		{
 			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
+			i++;
 		}
 			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
@@ -68,6 +70,7 @@ public class PaperServiceImpl implements PaperService{
 		while(json.getString("subjectiveQuestion"+i)!=null)
 		{
 			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
+			i++;
 		}
 			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
@@ -122,6 +125,7 @@ public class PaperServiceImpl implements PaperService{
 		}
 		String singlequestion = "";
 		int i=1;
+		System.out.println("###");
 		while(json.getString("singleQuestion"+i)!=null)
 		{
 			singlequestion = singlequestion+json.getString("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
@@ -130,27 +134,34 @@ public class PaperServiceImpl implements PaperService{
 		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
 		i=1;
+		System.out.println("!!!");
 		while(json.getString("mutiQuestion"+i)!=null)
 		{
 			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
+			i++;
 		}
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
 		i=1;
+		System.out.println("&&");
 		while(json.getString("fillQuestion"+i)!=null)
 		{
 			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
+			i++;
 		}
 			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
 		i=1;
+		System.out.println("@@@");
 		while(json.getString("subjectiveQuestion"+i)!=null)
 		{
 			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
+			i++;
 		}
-
+System.out.println("((");
 		subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
+		System.out.println(rawPaper.toString());
 		mapper.updateRawPaper(rawPaper);
 	}
 
