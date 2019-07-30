@@ -112,7 +112,7 @@ public class ItemServiceImpl implements ItemService{
 		// TODO Auto-generated method stub
 		int i,j;
 		Double diffcult =0.0 ;
-		String option =null;
+		String option ="";
 		j= json.getInteger("option_length");
 		if(json.getString("difficult").equals("简单"))
 		{
@@ -130,15 +130,7 @@ public class ItemServiceImpl implements ItemService{
 		{
 			option = option+json.getString("key"+i+"Editor")+"###";
 		}
-		if(option==null)
-		{
-			option ="";
-		}
-		else
-		{
 			option = option.substring(0, option.length()-3);
-			
-		}
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
@@ -147,7 +139,7 @@ public class ItemServiceImpl implements ItemService{
 		}
 		else if(json.getString("itemType").equals("多选题")){
 			int k = 1;
-			String answer =null;
+			String answer ="";
 			while(json.getString("answer"+k) != null){
 				answer = answer+json.getString(json.getString("answer"+k))+"###";
 				k++;
@@ -159,13 +151,13 @@ public class ItemServiceImpl implements ItemService{
 		else if(json.getString("itemType").equals("填空题"))
 		{
 			int k=1;
-			String answer =null;
+			String answer ="";
 			while(json.getString("answer"+k) != null){
 				answer = answer+json.getString(json.getString("answer"+k))+"###";
 				k++;
 			}
 			answer = answer.substring(0, answer.length()-3);
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, answer, "", 7.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), "", answer, "", 7.0, json.getString("analysisEditor"));
 			mapper.queryRawItem(item);
 			
 		}
