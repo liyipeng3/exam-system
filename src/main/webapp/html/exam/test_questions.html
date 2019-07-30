@@ -539,8 +539,8 @@
     </section>
 </div>
 <script type="text/javascript" src="../../js/axios.min.js"></script>
-<script type="text/javascript" src="../../js/element-ui.js"></script>
-<script type="text/javascript" src="../../js/mint-ui.js"></script>
+<!--<script type="text/javascript" src="../../js/element-ui.js"></script>
+<script type="text/javascript" src="../../js/mint-ui.js"></script>-->
 <script type="text/javascript" src="../../js/ksxing.js"></script>
 <script type="text/javascript" src="../../js/manifest.bcc1d48291623be65c56.js"></script>
 <script type="text/javascript" src="../../js/vendor.878de6c8ea2b304033fa.js"></script>
@@ -565,12 +565,19 @@
                 item += e.itemId + '</div></td><td class="el-table_1_column_8  " colspan="1" rowspan="1">';
                 item += '<div class="cell el-tooltip" style="width: 179px;"></div></td>';
                 item += '<td class="el-table_1_column_9  " colspan="1" rowspan="1"><div class="cell">';
-                item += '<i class="el-icon icon-a_operate_edit el-tooltip item" tabindex="0"></i>';
+                item += '<i id="delete_' + e.itemId + '" class="el-icon icon-a_operate_edit el-tooltip item" tabindex="0"></i>';
                 item += '<i id="delete_' + e.itemId + '" class="el-icon icon-a_operate_delete el-tooltip item" tabindex="0"></i>';
                 item += '</div></td></tr>';
                 $('tbody').append($(item));
             });
             $('.el-pagination__total').text("共 " + $('tbody').children().length / 2 + " 条");
+            $('.icon-a_operate_edit').on('click', function (e) {
+                //console.log(e.target);
+                //console.log(String($(e.target).attr("id")).substring(7));
+
+
+                window.location.href = '/html/exam/updatetestqm?id=' +  String($(e.target).attr("id")).substring(7);
+            });
             $('.icon-a_operate_delete').click(function (e) {
                 var msg = "您确定要删除吗吗？";
                 if (confirm(msg) == false) {
