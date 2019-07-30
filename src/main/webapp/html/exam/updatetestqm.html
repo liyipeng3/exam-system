@@ -1243,10 +1243,11 @@
                                                 <div class="keyFillContent">
                                                     <div class="input-group">
                                                         <span class="input-group-addon">1</span>
-                                                        <div>
-                                                            <input type="text" name="keyFill" class="form-control"
-                                                                   placeholder="请输入答案">
-                                                        </div>
+
+                                                        <input type="text" name="keyFill" class="form-control"
+                                                               id="input1Editor"
+                                                               placeholder="请输入答案">
+
                                                     </div>
                                                 </div>
 
@@ -1526,7 +1527,7 @@
     var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
     var tool_html = '';//消息内容
     var tool_count = 0;//消息数目
-    var item_id = String(window.location.href).split('=')[1]
+    var item_id = String(window.location.href).split('=')[1];
 
 
     //当前request返回页面对应导航id
@@ -1578,8 +1579,16 @@
         });
 
         $.getJSON("/exam/get_item_by_id", 'id=' + item_id, function (e) {
-
             console.log(e.itemType);
+            if (e.itemIndex < 2) {
+                $('.difficult div.one').trigger('click');
+            } else if (e.itemIndex < 4) {
+                $('.difficult div.two').trigger('click');
+            } else {
+                $('.difficult div.three').trigger('click');
+            }
+            console.log(e.itemCoursetype);
+            $(".subjects div:contains(" + e.itemCoursetype + ")").trigger('click');
             switch (e.itemType) {
                 case "问答题":
                     $('.testType  div.five').trigger('click');
@@ -1590,13 +1599,69 @@
                 case "单选题":
                     $('#questionEditor').text(e.itemQuestion);
                     $('#analysisEditor').text(e.itemParse);
-
+                    var x = 0;
+                    while ($('.keyRadio').children().length - 2 != e.option_length) {
+                        if ($('.keyRadio').children().length - 2 < e.option_length) {
+                            $('.addKey').trigger('click');
+                        } else {
+                            $('.removeKey').trigger('click');
+                        }
+                        x++;
+                        if (x > 20) {
+                            break;
+                        }
+                    }
+                    for (var i = 1; i <= e.option_length; i++) {
+                        $('#key' + i + "Editor").text(e.itemOption[i - 1]);
+                    }
+                    console.log(e.itemAnswer[0]);
+                    $('#' + e.itemAnswer[0]).parent().parent().parent()
+                        .siblings('.keyLeft').children('input').attr('checked', 'true');
                     break;
                 case "填空题":
                     $('.testType  div.four').trigger('click');
+                    $('#questionEditor').text(e.itemQuestion);
+                    $('#analysisEditor').text(e.itemParse);
+                    var x = 0;
+                    while ($('.keyFill').children().length - 2 != e.answer_length) {
+                        if ($('.keyFill').children().length - 2 < e.answer_length) {
+                            $('.addKeyFill').trigger('click');
+
+                        } else {
+                            $('.removeKeyFill ').trigger('click');
+                        }
+                        x++;
+                        if (x > 20) {
+                            break;
+                        }
+                    }
+                    for (var i = 1; i <= e.answer_length; i++) {
+                        $("#input" + i + "Editor").val(e.itemAnswer[i - 1]);
+                    }
                     break;
                 case "多选题":
                     $('.testType  div.two').trigger('click');
+                    $('#questionEditor').text(e.itemQuestion);
+                    $('#analysisEditor').text(e.itemParse);
+                    var x = 0;
+                    while ($('.keyRadio').children().length - 2 != e.option_length) {
+                        if ($('.keyRadio').children().length - 2 < e.option_length) {
+                            $('.addKey').trigger('click');
+                        } else {
+                            $('.removeKey').trigger('click');
+                        }
+                        x++;
+                        if (x > 20) {
+                            break;
+                        }
+                    }
+                    for (var i = 1; i <= e.option_length; i++) {
+                        $('#key' + i + "Editor").text(e.itemOption[i - 1]);
+                    }
+                    $.each(e.itemAnswer, function (index, e) {
+                        $('#' + e).parent().parent().parent()
+                            .siblings('.keyLeft').children('input').prop('checked', true);
+                    });
                     break;
             }
         });
@@ -1687,7 +1752,7 @@
 
     $("#saveAndAddBtn").click(function () {
         //console.log(String(window.location.href).split('=')[1]);
-        var msg = "您确定要提交录入吗？";
+        var msg = "您确定要保存吗？";
         if (confirm(msg) == false) {
             return;
         }
@@ -1790,7 +1855,7 @@
         //console.log(data);
 
         ajax_post("/exam/update_item", data);
-        alert("录入成功");
+        window.location.href = "/html/exam/test_questions";
     });
 
 </script>
