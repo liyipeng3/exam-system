@@ -125,7 +125,7 @@ public class PaperServiceImpl implements PaperService{
 		}
 		String singlequestion = "";
 		int i=1;
-		System.out.println("###");
+		//System.out.println("###");
 		while(json.getString("singleQuestion"+i)!=null)
 		{
 			singlequestion = singlequestion+json.getString("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
@@ -134,7 +134,7 @@ public class PaperServiceImpl implements PaperService{
 		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
 		i=1;
-		System.out.println("!!!");
+	//	System.out.println("!!!");
 		while(json.getString("mutiQuestion"+i)!=null)
 		{
 			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
@@ -143,7 +143,7 @@ public class PaperServiceImpl implements PaperService{
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
 		i=1;
-		System.out.println("&&");
+		//System.out.println("&&");
 		while(json.getString("fillQuestion"+i)!=null)
 		{
 			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
@@ -152,16 +152,16 @@ public class PaperServiceImpl implements PaperService{
 			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
 		i=1;
-		System.out.println("@@@");
+		//System.out.println("@@@");
 		while(json.getString("subjectiveQuestion"+i)!=null)
 		{
 			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
 			i++;
 		}
-System.out.println("((");
+//System.out.println("((");
 		subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
-		System.out.println(rawPaper.toString());
+		//System.out.println(rawPaper.toString());
 		mapper.updateRawPaper(rawPaper);
 	}
 
@@ -184,6 +184,7 @@ System.out.println("((");
 		List<ParsedPaper> list2 = new ArrayList<>();
 		ItemService service = new ItemServiceImpl();
 		Integer ID =0;
+		//System.out.println("@@@");
 		for(RawPaper paper:list)
 		{
 			List<ParsedItem> q1 = new ArrayList<>() ;
@@ -194,14 +195,18 @@ System.out.println("((");
 				String [] line = question1[i].split(",");
 				if(line.length!=0)
 				{
+				//	System.out.println("!!!");
 					ID = Integer.valueOf(line[0]);
+				//	System.out.println(ID);
 				}
 				questionservice1 = service.queryParsedItem(ID);
 				for(ParsedItem x:questionservice1)
 				{
+				//	System.out.println(x.toString());
 					q1.add(x);
 				}
 			}
+		//	System.out.println(q1.toString());
 			List<ParsedItem> q2 = new ArrayList<>() ;
 			List<ParsedItem> questionservice2 ;
 			String [] question2 = paper.getMultichoiceQuestion().split("###");
@@ -250,6 +255,7 @@ System.out.println("((");
 					q4.add(x);
 				}
 			}
+		//	System.out.println(q1.toString()+q2.toString()+q3.toString()+q4.toString());
 			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
 			list2.add(parsedPaper);	
 			
