@@ -193,7 +193,7 @@ public class ItemServiceImpl implements ItemService{
 			List<String> answer = new ArrayList<>();
 			for(int j=0;j<line1.length;j++)
 			{
-				answer.add(line[j]);
+				answer.add(line1[j]);
 			}
 			list2.add(new ParsedItem(item.getItemId(),item.getCreaterId(), item.getItemDate(), item.getItemCoursetype(), item.getItemType(), item.getItemIndex(),item.getItemQuestion(), list3, answer, item.getItemPicture(), item.getItemScore(), item.getItemParse()));
 		}
