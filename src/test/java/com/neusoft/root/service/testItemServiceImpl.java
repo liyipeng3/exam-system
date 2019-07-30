@@ -29,7 +29,7 @@ public class testItemServiceImpl {
 		//json.put("itemType", "sss");
 		json.put("questionEditor", "aaa");
 		json.put("answer1", "key1Editor");
-		json.put("analysisEditor", "jjjtd");
+		json.put("analysisEditor", "tttd");
 		json.put("itemId", 7);
 		test.updateRawItem(json);
 	}

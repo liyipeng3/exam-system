@@ -18,11 +18,11 @@ public class testPaperServiceImpl {
 	{
 		JSONObject json = new JSONObject();
 		json.put("paperId", 5);
-		json.put("difficult", "简单题");
-		json.put("singleQuestion1","qu1");
-		json.put("singleQuestion2","qu2");
-		json.put("mutiQuestion1","qu3");
-		json.put("mutiQuestion2","qu");
+		json.put("difficult", "普通题");
+		json.put("singleQuestion1","1");
+		json.put("singleQuestion2","2");
+		json.put("mutiQuestion1","3");
+		json.put("mutiQuestion2","2");
 		json.put("singleScore1",0.8);
 		json.put("singleScore2",0.8);
 		json.put("mutiScore1",0.8);
@@ -39,11 +39,11 @@ public class testPaperServiceImpl {
 		json.put("createrId","qu9");
 		json.put("createDate","qu10");
 		json.put("paperType","qu");
-		json.put("paperIndex",0.8);
+		//json.put("paperIndex",5.0);
 		json.put("paperScore",0.9);
 		json.put("paperSecrecy","qu11");
 		json.put("paperRemark","qu12");
-		test.updateRawPaper(json);
+		//System.out.println(test.queryParsedPaper(5).toString());
 		//test.addRawPaper(json);
 	}
 }
