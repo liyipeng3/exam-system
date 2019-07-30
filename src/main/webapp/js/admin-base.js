@@ -357,27 +357,6 @@ $(function () {
         }
     });
 
-
-    //读取用户自定义LOGO
-    if ($("#companyLogo").length > 0) {
-        var _this = $("#companyLogo");
-
-        $.ajax({
-            type: "GET",
-            cache: false,
-            dataType: "json",
-            url: "/admin/modify_get_logo",
-            success: function (msg) {
-                if (msg.success) {
-                    var logo_url = msg.bizContent.logoUrl;
-                    var img = '<img class="icon-logo logo-ksx" src="' + logo_url + '" />';
-                    $(_this).append(img);
-                }
-            }
-        });
-    }
-
-
     if ($(".sidebar-fold").hasClass("icon-unfold")) {
         $('.sidebar-nav [data-toggle="tooltip"]').tooltip('destroy');
     }
