@@ -317,7 +317,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				paper_name = #{paperName},
 			</if>
 			<if test="createrId!=null and createrId!=''">
-				creater_id = #{createrID},
+				creater_id = #{createrId},
 			</if>
 			<if test="createDate!=null and createDate!=''">
 				create_date = #{createDate},
