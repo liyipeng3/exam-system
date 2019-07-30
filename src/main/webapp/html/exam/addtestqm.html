@@ -1661,10 +1661,7 @@
     };
 
     $("#saveAndAddBtn").click(function () {
-        var msg = "您确定要提交录入吗？";
-        if (confirm(msg)==false){
-            return;
-        }
+
         var data = {};
         var option = $('#item_type option:selected').val();
         var subject = $('#select_course_type option:selected').text();
@@ -1761,6 +1758,10 @@
 
         }
         //console.log(data);
+        var msg = "您确定要提交录入吗？";
+        if (confirm(msg)==false){
+            return;
+        }
         ajax_post("/exam/add_item", data);
         alert("录入成功");
     });
