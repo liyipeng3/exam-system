@@ -17,8 +17,52 @@ public class CheckServiceImpl implements CheckService{
 	@Override
 	public void addCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-		//Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
-		//mapper.addCheck(check);
+	/*	int count =1;
+		String singleQuestion ="";
+		while(json.getString("singlechoiceScore"+count)!=null)
+		{
+			singleQuestion = singleQuestion+json.getString("singlechoiceScore"+count)+"###";
+			count++;
+		}
+		if(count!=1)
+		{
+			singleQuestion = singleQuestion.substring(0, singleQuestion.length()-3);
+		}
+		count =1;
+		String multiQuestion ="";
+		while(json.getString("multichoiceScore"+count)!=null)
+		{
+			multiQuestion = multiQuestion+json.getString("multichoiceScore"+count)+"###";
+			count++;
+		}
+		if(count!=1)
+		{
+			singleQuestion = singleQuestion.substring(0, singleQuestion.length()-3);
+		}
+		count =1;
+		String singleQuestion ="";
+		while(json.getString("singleQuestion")!=null)
+		{
+			singleQuestion = singleQuestion+json.getString("singleQuestion"+count)+"###";
+			count++;
+		}
+		if(count!=1)
+		{
+			singleQuestion = singleQuestion.substring(0, singleQuestion.length()-3);
+		}	
+		count =1;
+		String singleQuestion ="";
+		while(json.getString("singleQuestion")!=null)
+		{
+			singleQuestion = singleQuestion+json.getString("singleQuestion"+count)+"###";
+			count++;
+		}
+		if(count!=1)
+		{
+			singleQuestion = singleQuestion.substring(0, singleQuestion.length()-3);
+		}
+		RawCheck check = new RawCheck(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), , json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
+		mapper.addCheck(check);*/
 	}
 
 	@Override
