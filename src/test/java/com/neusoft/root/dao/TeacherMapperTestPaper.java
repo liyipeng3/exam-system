@@ -62,23 +62,23 @@ public class TeacherMapperTestPaper
 	@Test
 	public void testUpdateRawPaper() 
 	{
-		/*try 
+		try 
 		{
 			RawPaper rp = new RawPaper();
-			rp.setPaperId(2);
+			rp.setPaperId(1);
 			rp.setPaperSecrecy("公开");
 			tm.updateRawPaper(rp);
 		} 
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}*/
+		}
 	}
 	
 	@Test
 	public void testQuerytestUpdateRawPaper()
 	{
-		try 
+		/*try 
 		{
 			List<RawPaper> list = tm.queryRawPaper(null);
 			for (RawPaper paper : list) 
@@ -89,6 +89,6 @@ public class TeacherMapperTestPaper
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}
+		}*/
 	}
 }

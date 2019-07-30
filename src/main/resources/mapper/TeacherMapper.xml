@@ -310,8 +310,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from paper_table where paper_id = #{paperId}
 	</delete>
 
-	<update id="updateRawPaper" parameterType="Map">
-		update rawpaper_table
+	<update id="updateRawPaper" parameterType="RawPaper">
+		update paper_table
 		<set>
 			<if test="paperName!=null and paperName!=''">
 				paper_name = #{paperName},
