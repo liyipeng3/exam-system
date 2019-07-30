@@ -67,7 +67,6 @@ public class ExamController {
 		List<RawPaper> papers = new ArrayList<>();
 		papers = paperService.queryRawPaper();
 		Gson gson = new Gson();
-		System.out.println(paperService.queryParsedPaper(1).get(0));
 		return gson.toJson(papers);
 	}
 	/**
@@ -185,7 +184,7 @@ public class ExamController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="/update_item",method=RequestMethod.GET)
+	@RequestMapping(value="/update_item",method=RequestMethod.POST)
 	@ResponseBody
 	public String updateItem(@RequestBody JSONObject jsonParam, HttpServletRequest request){
 		HttpSession session = request.getSession();
@@ -212,6 +211,7 @@ public class ExamController {
 	@ResponseBody
 	public String getItemById(Integer id, HttpServletRequest request){
 		ParsedItem item = itemService.queryParsedItem(id).get(0);
+		System.out.println(item);
 		if(!item.getItemType().equals("问答题") && !item.getItemType().equals("填空题")){
 			List<String> answers = new ArrayList<>();
 			for(int i = 0; i < item.getItemAnswer().size(); i++){
