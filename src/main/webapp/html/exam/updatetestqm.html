@@ -1853,7 +1853,7 @@
 
         }
         //console.log(data);
-        data['id'] = String(item_id);
+        data['itemId'] = String(item_id);
         ajax_post("/exam/update_item", data);
         window.location.href = "/html/exam/test_questions";
     });
