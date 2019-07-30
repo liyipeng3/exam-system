@@ -238,7 +238,7 @@ public class ItemServiceImpl implements ItemService{
 			}
 			items2.add(new ParsedItem(item.getItemId(),item.getCreaterId(), item.getItemDate(), item.getItemCoursetype(), item.getItemType(), item.getItemIndex(),item.getItemQuestion(), list3, answer, item.getItemPicture(), item.getItemScore(), item.getItemParse()));
 		}
-		return null;
+		return items2;
 	}
 	
 
