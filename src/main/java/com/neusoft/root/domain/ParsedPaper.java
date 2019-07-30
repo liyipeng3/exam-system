@@ -7,7 +7,7 @@ public class ParsedPaper
 {
 	private Integer paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
-	private String createrID; //创造者ID
+	private String createrId; //创造者ID
 	private String createDate; //创造日期
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
@@ -18,14 +18,14 @@ public class ParsedPaper
 	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
-	public ParsedPaper(Integer paperId, String paperName, String createrID, String createDate, String paperType,
+	public ParsedPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
 			Double paperIndex, List<ParsedItem> singlechoiceQuestion, List<ParsedItem> multichoiceQuestion,
 			List<ParsedItem> fillQuestion, List<ParsedItem> subjectiveQuestion, Double paperScore, String paperSecrecy,
 			String paperRemark) {
 		super();
 		this.paperId = paperId;
 		this.paperName = paperName;
-		this.createrID = createrID;
+		this.createrId = createrId;
 		this.createDate = createDate;
 		this.paperType = paperType;
 		this.paperIndex = paperIndex;
@@ -39,6 +39,7 @@ public class ParsedPaper
 	}
 	public ParsedPaper() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	public Integer getPaperId() {
 		return paperId;
@@ -52,11 +53,11 @@ public class ParsedPaper
 	public void setPaperName(String paperName) {
 		this.paperName = paperName;
 	}
-	public String getCreaterID() {
-		return createrID;
+	public String getCreaterId() {
+		return createrId;
 	}
-	public void setCreaterID(String createrID) {
-		this.createrID = createrID;
+	public void setCreaterId(String createrId) {
+		this.createrId = createrId;
 	}
 	public String getCreateDate() {
 		return createDate;
@@ -123,7 +124,7 @@ public class ParsedPaper
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
-		result = prime * result + ((createrID == null) ? 0 : createrID.hashCode());
+		result = prime * result + ((createrId == null) ? 0 : createrId.hashCode());
 		result = prime * result + ((fillQuestion == null) ? 0 : fillQuestion.hashCode());
 		result = prime * result + ((multichoiceQuestion == null) ? 0 : multichoiceQuestion.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
@@ -151,10 +152,10 @@ public class ParsedPaper
 				return false;
 		} else if (!createDate.equals(other.createDate))
 			return false;
-		if (createrID == null) {
-			if (other.createrID != null)
+		if (createrId == null) {
+			if (other.createrId != null)
 				return false;
-		} else if (!createrID.equals(other.createrID))
+		} else if (!createrId.equals(other.createrId))
 			return false;
 		if (fillQuestion == null) {
 			if (other.fillQuestion != null)
@@ -215,11 +216,10 @@ public class ParsedPaper
 	}
 	@Override
 	public String toString() {
-		return "ParsedPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrID=" + createrID
+		return "ParsedPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
 				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
 				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
 				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
 				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
 	}
-	
 }
