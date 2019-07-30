@@ -1757,7 +1757,7 @@
             return;
         }
         var data = {};
-        data['id'] = String(item_id);
+
         var option = $('#item_type option:selected').val();
         var subject = $('#select_course_type option:selected').text();
         var difficult = $('#select_difficult option:selected').text();
@@ -1853,7 +1853,7 @@
 
         }
         //console.log(data);
-
+        data['id'] = String(item_id);
         ajax_post("/exam/update_item", data);
         window.location.href = "/html/exam/test_questions";
     });
