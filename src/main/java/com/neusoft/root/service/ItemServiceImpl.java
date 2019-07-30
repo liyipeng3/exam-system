@@ -73,7 +73,7 @@ public class ItemServiceImpl implements ItemService{
 		}
 		else if(json.getString("itemType").equals("多选题")){
 			int k = 1;
-			String answer =null;
+			String answer ="";
 			while(json.getString("answer"+k) != null){
 				answer = answer+json.getString(json.getString("answer"+k))+"###";
 				k++;
@@ -85,7 +85,7 @@ public class ItemServiceImpl implements ItemService{
 		else if(json.getString("itemType").equals("填空题"))
 		{
 			int k=1;
-			String answer =null;
+			String answer ="";
 			while(json.getString("answer"+k) != null){
 				answer = answer+json.getString(json.getString("answer"+k))+"###";
 				k++;
