@@ -29,7 +29,7 @@
                             <button type="button"
                                     class="el-button el-button--primary el-button--small" id="add_question"><i
                                     class="icon-a_circle_plus"></i><span>添加试题</span></button>
-                            <button data-v-3a050ba5="" type="button"
+                            <button type="button"
                                     class="el-button el-button--primary el-button--small is-plain"><i
                                     class="icon-a_btn_delete"></i><span>批量删除</span></button>
                         </div>
@@ -579,16 +579,16 @@
                 window.location.href = '/html/exam/updatetestqm?id=' +  String($(e.target).attr("id")).substring(7);
             });
             $('.icon-a_operate_delete').click(function (e) {
-                var msg = "您确定要删除吗吗？";
+                /*var msg = "您确定要删除吗吗？";
                 if (confirm(msg) == false) {
                     return;
-                }
+                }*/
                 $.get("/exam/delete_item", "id=" + ($(e.target).attr("id")), function (msg) {
                     e.stopPropagation();
                     if (msg == 'ok') {
-                        alert("删除成功！");
+                        console.log("删除成功！");
                     } else {
-                        alert("删除失败！");
+                        console.log("删除失败！");
                     }
                     ;
                     window.location.reload();
@@ -617,6 +617,23 @@
         });
         $('#add_question').click(function () {
             window.location.href = "/html/exam/addtestqm";
+        });
+        $('.is-plain').click(function () {
+            var msg = "您确定要批量删除吗？";
+            if (confirm(msg) == false) {
+                return;
+            }
+            $('.is-checked').each(function (index, e) {
+                var del_id = $(e).parent().parent().parent().siblings(".el-table_1_column_7").find('div').text();
+                $.get("/exam/delete_item", "id=delete_" + del_id, function (msg) {
+                    if (msg == 'ok') {
+                        console.log("删除成功！");
+                    } else {
+                        console.log("删除失败！");
+                    }
+                });
+            });
+            window.location.reload();
         });
 
     });
