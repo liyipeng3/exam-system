@@ -216,7 +216,7 @@ public class ExamController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value="get_item_by_id",method=RequestMethod.GET)
+	@RequestMapping(value="/get_item_by_id",method=RequestMethod.GET)
 	@ResponseBody
 	public String getItemById(Integer id){
 		ParsedItem item = new ParsedItem();
