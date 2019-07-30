@@ -56,8 +56,60 @@ public class Test {
 		System.out.println(gson.toJson(papers));*/
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String datestring = df.format(time);
-		System.out.println(datestring);
-		ParsedItem pi = new ParsedItem();
+		String date = df.format(time);
+		ParsedItem item = new ParsedItem();
+		item.setCreaterId("admin");
+		item.setItemType("填空题");
+		item.setItemDate(date);
+		List<String> panswers = new ArrayList<>();
+		List<String> options = new ArrayList<>();
+		options.add("a");
+		options.add("b");
+		options.add("c");
+		panswers.add("a");
+		panswers.add("b");
+		item.setItemAnswer(panswers);
+		item.setItemOption(options);
+		List<String> answers = new ArrayList<>();
+		for(int i = 0; i < item.getItemAnswer().size(); i++){
+			for(int j = 0; j < item.getItemOption().size(); j++){
+				if(item.getItemAnswer().get(i).equals(item.getItemOption().get(j))){
+					int choice = j + 1;
+					String answer = "key"+ choice + "Editor";
+					answers.add(answer);
+				}
+			}
+		}
+		item.setItemAnswer(answers);
+		item.setItemCoursetype("语文");
+		item.setItemId(1);
+		item.setItemIndex(3.0);
+		item.setItemParse("hhh");
+		item.setItemPicture("无");
+		item.setItemQuestion("dbiasdbis?");
+		item.setItemScore(0.3);
+		Gson gson = new Gson();
+		String json = gson.toJson(item);
+		json = json.substring(0, json.length()-1);
+		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
+/*		String[] sp = json.split(",");
+		for(int i = 0; i < sp.length; i++){
+			String[] spp = sp[i].split(":");
+			String temp = spp[0].substring(1, spp[0].length()-1);
+			if(temp.equals("itemIndex")){
+				System.out.println();
+				if(spp[1].equals("1.0")){
+					spp[i] = "简单"; 
+				}
+				if(spp[1].equals("3.0")){
+					spp[1] = "普通";
+				}
+				if(spp[1].equals("5.0")){
+					spp[1] = "困难";
+				}
+			}
+		}*/
+		
+		System.out.println(json);
 	}
 }

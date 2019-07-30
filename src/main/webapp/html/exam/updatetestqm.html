@@ -355,7 +355,7 @@
 
                                             <span class="intro">试题类型</span>
                                             <div class="simulationSelect testType">
-                                                <span class="title-font">单选题</span>
+                                                <span class="title-font" id="change_type">单选题</span>
                                                 <em class="glyphicon glyphicon-triangle-bottom"></em>
                                                 <div class="simulationOption testType" style="display: none;">
                                                     <div class="one">单选题</div>
@@ -1526,6 +1526,7 @@
     var adjust_t, adjust_l;//对引导层位置进行调整的两个变量
     var tool_html = '';//消息内容
     var tool_count = 0;//消息数目
+    var item_id = String(window.location.href).split('=')[1]
 
 
     //当前request返回页面对应导航id
@@ -1574,6 +1575,30 @@
                 }
 
             })
+        });
+
+        $.getJSON("/exam/get_item_by_id", 'id=' + item_id, function (e) {
+
+            console.log(e.itemType);
+            switch (e.itemType) {
+                case "问答题":
+                    $('.testType  div.five').trigger('click');
+                    $('#questionEditor').text(e.itemQuestion);
+                    $('#analysisEditor').text(e.itemParse);
+                    $('#clozeEditor').text(e.itemAnswer[0]);
+                    break;
+                case "单选题":
+                    $('#questionEditor').text(e.itemQuestion);
+                    $('#analysisEditor').text(e.itemParse);
+
+                    break;
+                case "填空题":
+                    $('.testType  div.four').trigger('click');
+                    break;
+                case "多选题":
+                    $('.testType  div.two').trigger('click');
+                    break;
+            }
         });
     });
 </script>
@@ -1661,11 +1686,13 @@
     };
 
     $("#saveAndAddBtn").click(function () {
+        //console.log(String(window.location.href).split('=')[1]);
         var msg = "您确定要提交录入吗？";
-        if (confirm(msg)==false){
+        if (confirm(msg) == false) {
             return;
         }
         var data = {};
+        data['id'] = item_id;
         var option = $('#item_type option:selected').val();
         var subject = $('#select_course_type option:selected').text();
         var difficult = $('#select_difficult option:selected').text();
@@ -1761,11 +1788,10 @@
 
         }
         //console.log(data);
-        ajax_post("/exam/add_item", data);
+
+        ajax_post("/exam/update_item", data);
         alert("录入成功");
     });
-
-    console.log(window.location.href);
 
 </script>
 <script type="text/javascript" src="../../js/admin_addQuestions.js"></script>

@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.dao.TeacherMapper;
+import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
+import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 
 import com.neusoft.root.domain.Subjects;
@@ -24,63 +26,51 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public void addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
-		Integer num = json.getInteger("singleQuestionNum");
-		String singlequestion = null;
-		for(int i=1;i<=num;i++)
+		Double diffcult = 0.0;
+		//int  j= json.getInteger("option_length");
+		if(json.getString("difficult").equals("简单题"))
 		{
-			singlequestion = singlequestion+json.getInteger("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			diffcult = 1.0;
 		}
-		if(singlequestion==null)
+		else if(json.getString("difficult").equals("普通题"))
 		{
-			singlequestion = "";
+			diffcult =3.0;
 		}
-		else 
+		else if(json.getString("difficult").equals("困难题"))
 		{
-			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+			diffcult = 5.0;
 		}
-		String mutiquestion = null;
-		num = json.getInteger("mutiQuestionNum");
-		for(int i=1;i<=num;i++)
+		String singlequestion = "";
+		int i=1;
+		while(json.getString("singleQuestion"+i)!=null)
 		{
-			mutiquestion = mutiquestion+json.getInteger("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
+			singlequestion = singlequestion+json.getString("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			i++;
 		}
-		if(mutiquestion==null)
+		
+		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+		String mutiquestion = "";
+		i=1;
+		while(json.getString("mutiQuestion"+i)!=null)
 		{
-			mutiquestion = "";
+			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
 		}
-		else 
-		{
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
-		}
-		String fillquestion = null;
-		num = json.getInteger("fillQuestionNum");
-		for(int i=1;i<=num;i++)
+		String fillquestion = "";
+		i=1;
+		while(json.getString("fillQuestion"+i)!=null)
 		{
-			fillquestion = fillquestion+json.getInteger("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
+			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
 		}
-		if(fillquestion==null)
-		{
-			fillquestion = "";
-		}
-		else 
-		{
 			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
-		}
-		String subjectivequestion = null;
-		num = json.getInteger("subjectiveQuestionNum");
-		for(int i=1;i<=num;i++)
+		String subjectivequestion = "";
+		i=1;
+		while(json.getString("subjectiveQuestion"+i)!=null)
 		{
-			subjectivequestion = subjectivequestion+json.getInteger("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
+			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
 		}
-		if(subjectivequestion==null)
-		{
-			subjectivequestion = "";
-		}
-		else 
-		{
 			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
-		}
-		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), json.getDouble("paperIndex"), singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
+		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
 		mapper.addRawPaper(rawPaper);
 	}
 
@@ -116,63 +106,51 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public void updateRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
-		Integer num = json.getInteger("singleQuestionNum");
-		String singlequestion = null;
-		for(int i=1;i<=num;i++)
+		Double diffcult = 0.0;
+		//int  j= json.getInteger("option_length");
+		if(json.getString("difficult").equals("简单题"))
 		{
-			singlequestion = singlequestion+json.getInteger("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			diffcult = 1.0;
 		}
-		if(singlequestion==null)
+		else if(json.getString("difficult").equals("普通题"))
 		{
-			singlequestion = "";
+			diffcult =3.0;
 		}
-		else 
+		else if(json.getString("difficult").equals("困难题"))
 		{
-			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+			diffcult = 5.0;
 		}
-		String mutiquestion = null;
-		num = json.getInteger("mutiQuestionNum");
-		for(int i=1;i<=num;i++)
+		String singlequestion = "";
+		int i=1;
+		while(json.getString("singleQuestion"+i)!=null)
 		{
-			mutiquestion = mutiquestion+json.getInteger("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
+			singlequestion = singlequestion+json.getString("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			i++;
 		}
-		if(mutiquestion==null)
+		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+		String mutiquestion = "";
+		i=1;
+		while(json.getString("mutiQuestion"+i)!=null)
 		{
-			mutiquestion = "";
+			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
 		}
-		else 
-		{
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
-		}
-		String fillquestion = null;
-		num = json.getInteger("fillQuestionNum");
-		for(int i=1;i<=num;i++)
+		String fillquestion = "";
+		i=1;
+		while(json.getString("fillQuestion"+i)!=null)
 		{
-			fillquestion = fillquestion+json.getInteger("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
+			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
 		}
-		if(fillquestion==null)
-		{
-			fillquestion = "";
-		}
-		else 
-		{
 			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
-		}
-		String subjectivequestion = null;
-		num = json.getInteger("subjectiveQuestionNum");
-		for(int i=1;i<=num;i++)
+		String subjectivequestion = "";
+		i=1;
+		while(json.getString("subjectiveQuestion"+i)!=null)
 		{
-			subjectivequestion = subjectivequestion+json.getInteger("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
+			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
 		}
-		if(subjectivequestion==null)
-		{
-			subjectivequestion = "";
-		}
-		else 
-		{
-			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
-		}
-		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), json.getDouble("paperIndex"), singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
+
+		subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
+		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
 		mapper.updateRawPaper(rawPaper);
 	}
 
@@ -192,9 +170,77 @@ public class PaperServiceImpl implements PaperService{
 		// TODO Auto-generated method stub
 		List<RawPaper> list = mapper.queryRawPaper(null);
 		List<ParsedPaper> list2 = new ArrayList<>();
+		ItemService service = new ItemServiceImpl();
+		Integer ID =0;
 		for(RawPaper paper:list)
 		{
-			//ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(), paper.getPaperType(), paperIndex, singlechoiceQuestion, multichoiceQuestion, fillQuestion, subjectiveQuestion, paperScore, paperSecrecy, paperRemark);
+			List<ParsedItem> q1 = new ArrayList<>() ;
+			List<ParsedItem> questionservice1 ;
+			String [] question1 = paper.getSinglechoiceQuestion().split("###");
+			for(int i=0;i<question1.length;i++)
+			{
+				String [] line = question1[i].split(",");
+				if(line.length!=0)
+				{
+					ID = Integer.valueOf(line[0]);
+				}
+				questionservice1 = service.queryParsedItem(ID);
+				for(ParsedItem x:questionservice1)
+				{
+					q1.add(x);
+				}
+			}
+			List<ParsedItem> q2 = new ArrayList<>() ;
+			List<ParsedItem> questionservice2 ;
+			String [] question2 = paper.getMultichoiceQuestion().split("###");
+			for(int i=0;i<question2.length;i++)
+			{
+				String [] line = question2[i].split(",");
+				if(line.length!=0)
+				{
+					ID = Integer.valueOf(line[0]);
+				}
+				questionservice2 = service.queryParsedItem(ID);
+				for(ParsedItem x:questionservice2)
+				{
+					q2.add(x);
+				}
+			}
+			List<ParsedItem> q3 = new ArrayList<>() ;
+			List<ParsedItem> questionservice3 ;
+			String [] question3 = paper.getFillQuestion().split("###");
+			for(int i=0;i<question3.length;i++)
+			{
+				String [] line = question3[i].split(",");
+				if(line.length!=0)
+				{
+					ID = Integer.valueOf(line[0]);
+				}
+				questionservice3 = service.queryParsedItem(ID);
+				for(ParsedItem x:questionservice3)
+				{
+					q3.add(x);
+				}
+			}
+			List<ParsedItem> q4 = new ArrayList<>() ;
+			List<ParsedItem> questionservice4 ;
+			String [] question4 = paper.getSubjectiveQuestion().split("###");
+			for(int i=0;i<question4.length;i++)
+			{
+				String [] line = question4[i].split(",");
+				if(line.length!=0)
+				{
+					ID = Integer.valueOf(line[0]);
+				}
+				questionservice4 = service.queryParsedItem(ID);
+				for(ParsedItem x:questionservice4)
+				{
+					q4.add(x);
+				}
+			}
+			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
+			list2.add(parsedPaper);	
+			
 		}
 		return list2;
 		
