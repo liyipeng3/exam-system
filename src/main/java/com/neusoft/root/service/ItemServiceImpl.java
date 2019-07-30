@@ -21,9 +21,17 @@ public class ItemServiceImpl implements ItemService{
 	public List<RawItem> queryRawItem(String subjects) {
 		// TODO Auto-generated method stub
 		List<RawItem> list = new ArrayList<>();
-		RawItem rawItem = new RawItem((Integer)0, "", "", subjects, "", (Double)0.0, "", "", "", "", (Double)0.0, "");
-		list =mapper.queryRawItem(rawItem);
-		return list;
+		if(subjects.equals(""))
+		{
+			list =mapper.queryRawItem(null);
+			return list;
+		}
+		else
+		{
+			RawItem rawItem = new RawItem((Integer)0, "", "", subjects, "", (Double)0.0, "", "", "", "", (Double)0.0, "");
+			list =mapper.queryRawItem(rawItem);
+			return list;
+		}
 	}
 	@Override
 	public void addRawItem(JSONObject json) {
@@ -216,7 +224,25 @@ public class ItemServiceImpl implements ItemService{
 		// TODO Auto-generated method stub
 		RawItem item = new RawItem(ID, "", "", "", "", 0.0, "", "", "", "", 0.0, "");
 		List<RawItem> items = mapper.queryRawItem(item);
-		
+		List<ParsedItem> items2 = new ArrayList<>();
+		for(RawItem xItem:items)
+		{
+			List<String> list3 = new ArrayList<>();
+			String [] line = null;
+			line = xItem.getItemOption().split("###");
+			for(int i=0;i<line.length;i++)
+			{
+				list3.add(line[i]);
+			}
+			String [] line1 = null;
+			line1 = xItem.getItemAnswer().split("###");
+			List<String> answer = new ArrayList<>();
+			for(int j=0;j<line1.length;j++)
+			{
+				answer.add(line[j]);
+			}
+			items2.add(new ParsedItem(item.getItemId(),item.getCreaterId(), item.getItemDate(), item.getItemCoursetype(), item.getItemType(), item.getItemIndex(),item.getItemQuestion(), list3, answer, item.getItemPicture(), item.getItemScore(), item.getItemParse()));
+		}
 		return null;
 	}
 	
