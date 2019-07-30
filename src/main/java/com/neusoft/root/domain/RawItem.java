@@ -203,5 +203,4 @@ public class RawItem
 				+ itemQuestion + ", itemOption=" + itemOption + ", itemAnswer=" + itemAnswer + ", itemPicture="
 				+ itemPicture + ", itemScore=" + itemScore + ", itemParse=" + itemParse + "]";
 	}
-	
 }

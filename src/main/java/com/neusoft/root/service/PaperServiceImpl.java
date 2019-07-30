@@ -28,44 +28,49 @@ public class PaperServiceImpl implements PaperService{
 		// TODO Auto-generated method stub
 		Double diffcult = 0.0;
 		//int  j= json.getInteger("option_length");
-		if(json.getString("difficult").equals("简单"))
+		if(json.getString("difficult").equals("简单题"))
 		{
 			diffcult = 1.0;
 		}
-		else if(json.getString("difficult").equals("普通"))
+		else if(json.getString("difficult").equals("普通题"))
 		{
 			diffcult =3.0;
 		}
-		else if(json.getString("difficult").equals("困难"))
+		else if(json.getString("difficult").equals("困难题"))
 		{
 			diffcult = 5.0;
 		}
-		Integer num = json.getInteger("singleQuestionNum");
 		String singlequestion = "";
-		for(int i=1;i<=num;i++)
+		int i=1;
+		while(json.getString("singleQuestion"+i)!=null)
 		{
-			singlequestion = singlequestion+json.getInteger("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			singlequestion = singlequestion+json.getString("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			i++;
 		}
-			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+		
+		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
-		num = json.getInteger("mutiQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getString("mutiQuestion"+i)!=null)
 		{
-			mutiquestion = mutiquestion+json.getInteger("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
+			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
+			i++;
 		}
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
-		num = json.getInteger("fillQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getString("fillQuestion"+i)!=null)
 		{
-			fillquestion = fillquestion+json.getInteger("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
+			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
+			i++;
 		}
 			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
-		num = json.getInteger("subjectiveQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		while(json.getString("subjectiveQuestion"+i)!=null)
 		{
-			subjectivequestion = subjectivequestion+json.getInteger("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
+			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
+			i++;
 		}
 			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
@@ -106,49 +111,57 @@ public class PaperServiceImpl implements PaperService{
 		// TODO Auto-generated method stub
 		Double diffcult = 0.0;
 		//int  j= json.getInteger("option_length");
-		if(json.getString("difficult").equals("简单"))
+		if(json.getString("difficult").equals("简单题"))
 		{
 			diffcult = 1.0;
 		}
-		else if(json.getString("difficult").equals("普通"))
+		else if(json.getString("difficult").equals("普通题"))
 		{
 			diffcult =3.0;
 		}
-		else if(json.getString("difficult").equals("困难"))
+		else if(json.getString("difficult").equals("困难题"))
 		{
 			diffcult = 5.0;
 		}
-		Integer num = json.getInteger("singleQuestionNum");
 		String singlequestion = "";
-		for(int i=1;i<=num;i++)
+		int i=1;
+		System.out.println("###");
+		while(json.getString("singleQuestion"+i)!=null)
 		{
-			singlequestion = singlequestion+json.getInteger("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			singlequestion = singlequestion+json.getString("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
+			i++;
 		}
-			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
-		num = json.getInteger("mutiQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		System.out.println("!!!");
+		while(json.getString("mutiQuestion"+i)!=null)
 		{
-			mutiquestion = mutiquestion+json.getInteger("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
+			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
+			i++;
 		}
 			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
-		num = json.getInteger("fillQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		System.out.println("&&");
+		while(json.getString("fillQuestion"+i)!=null)
 		{
-			fillquestion = fillquestion+json.getInteger("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
+			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
+			i++;
 		}
-
-		fillquestion = fillquestion.substring(0, fillquestion.length()-3);
+			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
-		num = json.getInteger("subjectiveQuestionNum");
-		for(int i=1;i<=num;i++)
+		i=1;
+		System.out.println("@@@");
+		while(json.getString("subjectiveQuestion"+i)!=null)
 		{
-			subjectivequestion = subjectivequestion+json.getInteger("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
+			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
+			i++;
 		}
-
+System.out.println("((");
 		subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
+		System.out.println(rawPaper.toString());
 		mapper.updateRawPaper(rawPaper);
 	}
 
@@ -164,9 +177,10 @@ public class PaperServiceImpl implements PaperService{
 
 
 	@Override
-	public List<ParsedPaper> queryParsedPaper() {
+	public List<ParsedPaper> queryParsedPaper(Integer id) {
 		// TODO Auto-generated method stub
-		List<RawPaper> list = mapper.queryRawPaper(null);
+		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
+		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
 		List<ParsedPaper> list2 = new ArrayList<>();
 		ItemService service = new ItemServiceImpl();
 		Integer ID =0;

@@ -64,19 +64,10 @@ public class ExamController {
 	@RequestMapping(value="/get_papers", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPapers(){
-		System.out.println("getpapers");
 		List<RawPaper> papers = new ArrayList<>();
-/*		long time = System.currentTimeMillis();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String datestring = df.format(time);
-		RawPaper paper1 = new RawPaper(1,"test1", "1",datestring, "语文", 0.1,"choice", "fill", "subjective", "hhh", 100.0, "sss", "sss");
-		RawPaper paper2 = new RawPaper(2,"test2","2", datestring, "语文", 0.2, "choice", "fill", "subjective", "hhhh", 100.0, "sss", "sss");
-		RawPaper paper3 = new RawPaper(3, "test3","3", datestring, "语文", 0.3, "choice", "fill", "subjective", "hhhhh", 100.0, "sss", "sss");
-		papers.add(paper1);
-		papers.add(paper2);
-		papers.add(paper3);*/
 		papers = paperService.queryRawPaper();
 		Gson gson = new Gson();
+		System.out.println(paperService.queryParsedPaper(1).get(0));
 		return gson.toJson(papers);
 	}
 	/**
@@ -221,7 +212,6 @@ public class ExamController {
 	@ResponseBody
 	public String getItemById(Integer id, HttpServletRequest request){
 		ParsedItem item = itemService.queryParsedItem(id).get(0);
-		System.out.println(item);
 		if(!item.getItemType().equals("问答题") && !item.getItemType().equals("填空题")){
 			List<String> answers = new ArrayList<>();
 			for(int i = 0; i < item.getItemAnswer().size(); i++){
@@ -239,67 +229,6 @@ public class ExamController {
 		String json = gson.toJson(item);
 		json = json.substring(0, json.length()-1);
 		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
-		System.out.println(json);
 		return json;
-		/*System.out.println(id);
-		HttpSession session = request.getSession();
-		String username = session.getAttribute("username").toString();
-		long time = System.currentTimeMillis();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String date = df.format(time);
-		ParsedItem item = new ParsedItem();
-		item.setCreaterId(username);
-		item.setItemDate(date);
-		List<String> panswers = new ArrayList<>();
-		List<String> options = new ArrayList<>();
-		if(id == 1){
-			item.setItemType("单选题");
-			options.add("a");
-			options.add("b");
-			options.add("c");
-			panswers.add("b");
-		}
-		if(id == 2){
-			item.setItemType("多选题");
-			options.add("a");
-			options.add("b");
-			options.add("c");
-			panswers.add("a");
-			panswers.add("b");
-		}
-		if(id == 3){
-			item.setItemType("填空题");
-			panswers.add("填空题答案1");
-			panswers.add("填空题答案2");
-		}
-		if(id == 4){
-			item.setItemType("问答题");
-			panswers.add("问答题答案");
-		}
-		item.setItemAnswer(panswers);
-		item.setItemOption(options);
-		List<String> answers = new ArrayList<>();
-		for(int i = 0; i < item.getItemAnswer().size(); i++){
-			for(int j = 0; j < item.getItemOption().size(); j++){
-				if(item.getItemAnswer().get(i).equals(item.getItemOption().get(j))){
-					int choice = j + 1;
-					String answer = "key"+ choice + "Editor";
-					answers.add(answer);
-				}
-			}
-		}
-		item.setItemAnswer(answers);
-		item.setItemCoursetype("语文");
-		item.setItemId(1);
-		item.setItemIndex(3.0);
-		item.setItemParse("hhh");
-		item.setItemPicture("无");
-		item.setItemQuestion("dbiasdbis?");
-		item.setItemScore(0.3);
-		Gson gson = new Gson();
-		String json = gson.toJson(item);
-		json = json.substring(0, json.length()-1);
-		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
-		return json;*/
 	}
 }

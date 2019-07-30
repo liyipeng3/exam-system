@@ -39,7 +39,7 @@ public interface PaperService {
 	 * 查询paper
 	 * @return parsedpaper的list
 	 */
-	public List<ParsedPaper> queryParsedPaper();
+	public List<ParsedPaper> queryParsedPaper(Integer ID);
 	/**
 	 * 获取所有课程
 	 * @return 课程名字的list

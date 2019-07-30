@@ -310,14 +310,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from paper_table where paper_id = #{paperId}
 	</delete>
 
-	<update id="updateRawPaper" parameterType="Map">
-		update rawpaper_table
+	<update id="updateRawPaper" parameterType="RawPaper">
+		update paper_table
 		<set>
 			<if test="paperName!=null and paperName!=''">
 				paper_name = #{paperName},
 			</if>
 			<if test="createrId!=null and createrId!=''">
-				creater_id = #{createrID},
+				creater_id = #{createrId},
 			</if>
 			<if test="createDate!=null and createDate!=''">
 				create_date = #{createDate},
@@ -363,7 +363,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="paperName!=null and paperName!=''">
 				and paper_name = #{paperName}
 			</if>
-			<if test="createrId!=null and createId!=''">
+			<if test="createrId!=null and createrId!=''">
 				and creater_id = #{createrId}
 			</if>
 			<if test="paperType!=null and paperType!=''">

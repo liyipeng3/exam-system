@@ -65,7 +65,7 @@ public class TeacherMapperTestPaper
 		/*try 
 		{
 			RawPaper rp = new RawPaper();
-			rp.setPaperId(2);
+			rp.setPaperId(1);
 			rp.setPaperSecrecy("公开");
 			tm.updateRawPaper(rp);
 		} 
