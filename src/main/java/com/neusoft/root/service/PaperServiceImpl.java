@@ -222,10 +222,12 @@ public class PaperServiceImpl implements PaperService{
 		// TODO Auto-generated method stub
 		List<RawPaper> list = mapper.queryRawPaper(null);
 		List<ParsedPaper> list2 = new ArrayList<>();
+		ItemService service = new ItemServiceImpl();
 		Integer ID =0;
-		/*for(RawPaper paper:list)
+		for(RawPaper paper:list)
 		{
-			List<ParsedItem> singlequestion ;
+			List<ParsedItem> q1 = new ArrayList<>() ;
+			List<ParsedItem> questionservice1 ;
 			String [] question1 = paper.getSinglechoiceQuestion().split("###");
 			for(int i=0;i<question1.length;i++)
 			{
@@ -234,11 +236,64 @@ public class PaperServiceImpl implements PaperService{
 				{
 					ID = Integer.valueOf(line[0]);
 				}
-				RawItem item = new RawItem(ID, "", "", "", "",0.0 , "", "", "", "", 0.0, "");
-				singlequestion = mapper.
+				questionservice1 = service.queryParsedItem(ID);
+				for(ParsedItem x:questionservice1)
+				{
+					q1.add(x);
+				}
 			}
-			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(), paper.getPaperType(), paper.getPaperIndex(), singlechoiceQuestion, multichoiceQuestion, fillQuestion, subjectiveQuestion, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
-		}*/
+			List<ParsedItem> q2 = new ArrayList<>() ;
+			List<ParsedItem> questionservice2 ;
+			String [] question2 = paper.getMultichoiceQuestion().split("###");
+			for(int i=0;i<question2.length;i++)
+			{
+				String [] line = question2[i].split(",");
+				if(line.length!=0)
+				{
+					ID = Integer.valueOf(line[0]);
+				}
+				questionservice2 = service.queryParsedItem(ID);
+				for(ParsedItem x:questionservice2)
+				{
+					q2.add(x);
+				}
+			}
+			List<ParsedItem> q3 = new ArrayList<>() ;
+			List<ParsedItem> questionservice3 ;
+			String [] question3 = paper.getFillQuestion().split("###");
+			for(int i=0;i<question3.length;i++)
+			{
+				String [] line = question3[i].split(",");
+				if(line.length!=0)
+				{
+					ID = Integer.valueOf(line[0]);
+				}
+				questionservice3 = service.queryParsedItem(ID);
+				for(ParsedItem x:questionservice3)
+				{
+					q3.add(x);
+				}
+			}
+			List<ParsedItem> q4 = new ArrayList<>() ;
+			List<ParsedItem> questionservice4 ;
+			String [] question4 = paper.getSubjectiveQuestion().split("###");
+			for(int i=0;i<question4.length;i++)
+			{
+				String [] line = question4[i].split(",");
+				if(line.length!=0)
+				{
+					ID = Integer.valueOf(line[0]);
+				}
+				questionservice4 = service.queryParsedItem(ID);
+				for(ParsedItem x:questionservice4)
+				{
+					q4.add(x);
+				}
+			}
+			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
+			list2.add(parsedPaper);	
+			
+		}
 		return list2;
 		
 	}	
