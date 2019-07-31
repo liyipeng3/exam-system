@@ -181,7 +181,7 @@
         var datastr = "subject=" + getParam('subject') + "&itemType=" + getParam('type');
         $.getJSON("/exam/get_certain_items", datastr, function (result) {
             //console.log(e);
-            console.log(result);
+            //console.log(result);
             $.each(result, function (index, e) {
                 var item = '<tr id="id-' + e.itemId + '">'
                     + '<td class="select-cell" style=""><label class="select-label"><input '
@@ -278,7 +278,7 @@
                 }
             }
         });
-        console.log(ids);
+        //console.log(ids);
         if (ids == "") {
             alert("请选择试题！");
             return;

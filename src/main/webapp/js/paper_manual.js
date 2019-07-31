@@ -458,7 +458,7 @@ $(document).ready(function () {
         e.stopPropagation();
         e.preventDefault();
         var type = $(this).parents().parents().siblings("span").text();
-        console.log(this);
+        //console.log(this);
         var subject = getParam('subject');
         subject = decodeURI(subject);
         showSelQuestions(this, type, subject);
@@ -1117,22 +1117,26 @@ function serializeForm_paper() {
 
 //异步提交表单保存试卷
 function asyncPaperSub(obj) {
-    var dataForm = $('#asyncForm_paper').serialize();
+    var dataForm = $('#asyncForm_paper').serializeArray();
+    var data = {};
+    $(dataForm).each(function(index, obj){
+        data[obj.name] = obj.value;
+    });
+    console.log(data);
     $.ajax({
         type: "POST",
-        cache: false,
-        headers: {"cache-control": "no-cache"},
         dataType: "json",
         url: ajaxUrl,
-        data: dataForm + "&t=" + Math.random(),
+        data: data,
+        contentType: 'application/json',
         success: function (msg) {
-            if (msg.success == true || msg.msg == true) {
+            if (msg.status == 'ok') {
                 if ($("#savePaperBtn").hasClass('addPaperOnly')) {
                     // 只创建试卷
-                    window.location.href = '../html/exam/paper_mgr_new.html';
+                    window.location.href = '/html/exam/paper_mgr_new.html';
                 } else {
                     // 继续创建考试
-                    window.location.href = "/admin/exam_add?paper_info_id=" + msg.bizContent;
+                    window.location.href = "/html/exam/exam_add?paper_info_id=" + msg.paper_id;
                 }
             } else {
                 alert("保存失败！");
@@ -1189,7 +1193,7 @@ function paperTypeShowTemp() {
         $("div.questionContet_simple , div.group_questionShow , div.group_questionAdd").remove();
         $("div.group_title").append($("#paperTpye2").html());
     }
-    ajaxUrl = "./html/exam/paper_add_new";
+    ajaxUrl = "/exam/add_paper";
 }
 
 //根据试题类型创建新增试题DOM
@@ -1279,6 +1283,7 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         per_time = $(parentDom).parents(".group_simple").find("input[name=test_peer_time]").val();
     }
     if (obj.type == "1" || obj.type == "2") {
+        //console.log('单选或者');
         //内容填充
         try {
             if (obj.answer1 != undefined) {
@@ -1825,14 +1830,12 @@ function selQuestion(ids, num, type) {
             //异步读取试题数据
             $.ajax({
                 type: "GET",
-                cache: false,
-                headers: {"cache-control": "no-cache"},
                 dataType: "json",
                 url: "/exam/load_data",
                 data: "id=" + value,
                 async: false,
                 success: function (msg) {
-                    var jsonData = msg.bizContent;
+                    var jsonData = msg;
                     //创建添加试题DOM
                     $(tr).find('.empty_q_tip').hide(); //隐藏空空如也
                     createQuestionsViewFn(jsonData, $(tr).find(".group_title"), 'select');

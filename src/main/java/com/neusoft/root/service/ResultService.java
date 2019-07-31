@@ -22,12 +22,18 @@ public interface ResultService {
 	 * @param json rawresult串
 	 * @return rawresult的list
 	 */
-	public List<RawResult> queryRawResult(JSONObject json);
+	public List<RawResult> queryRawResult(String teacherId);
 	/**
 	 * 查询结果
-	 * @param json rawresult串
+	 * @param json 老师
 	 * @return parsedresult的list
 	 */
-	public List<ParsedResult> queryParsedResult(JSONObject json);
-	
+	public List<ParsedResult> queryParsedResult(String teacherId);
+	/**
+	 * 更新学生答卷是否被批改
+	 * @param studentId 学生ID
+	 * @param paperId 试卷ID
+	 * @param teacherId 老师ID
+	 */
+	public void update(String studentId,String paperId,String teacherId);
 }
