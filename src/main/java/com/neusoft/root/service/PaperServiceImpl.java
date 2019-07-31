@@ -48,6 +48,7 @@ public class PaperServiceImpl implements PaperService{
 		String paperType = list.get(0).getCourseType();
 		String singlequestion = "";
 		String testid1 = json.getString("testIds1");
+		if(testid1!=null&&(!testid1.equals("")))
 		testid1 = testid1.substring(0, testid1.length()-1);
 		String line1[] = testid1.split(",");
 		String querstionscores1 = json.getString("questionScores1");
@@ -61,6 +62,7 @@ public class PaperServiceImpl implements PaperService{
 		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
 		String testid2 = json.getString("testIds2");
+		if(testid2!=null&&(!testid2.equals("")))
 		testid2 = testid2.substring(0, testid2.length()-1);
 		String line2[] = testid2.split(",");
 		String querstionscores2 = json.getString("questionScores2");
@@ -74,6 +76,7 @@ public class PaperServiceImpl implements PaperService{
 		mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
 		String testid3 = json.getString("testIds3");
+		if(testid3!=null&&(!testid3.equals("")))
 		testid3 = testid3.substring(0, testid3.length()-1);
 		String line3[] = testid3.split(",");
 		String querstionscores3 = json.getString("questionScores3");
@@ -87,6 +90,7 @@ public class PaperServiceImpl implements PaperService{
 		fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
 		String testid4 = json.getString("testIds4");
+		if(testid4!=null&&(!testid4.equals("")))
 		testid4 = testid4.substring(0, testid4.length()-1);
 		String line4[] = testid4.split(",");
 		String querstionscores4 = json.getString("questionScores4");
@@ -416,7 +420,7 @@ public class PaperServiceImpl implements PaperService{
 	//	System.out.println("PaperID"+PaperId);
 		List<ParsedPaper> list3 = service2.queryParsedPaper(PaperId);
 				
-			//	System.out.println("最终"+list3.get(0));
+			//	System.out.printl`n("最终"+list3.get(0));
 		return list3.get(0);
 	}	
 	public static Set<Integer> getRandom(Integer wantLength,Integer itemLength) 
