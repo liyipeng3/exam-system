@@ -512,19 +512,19 @@
                         <div role="tabpanel" class="tab-area tab-col4">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active step1">
-                                    <a href="./paper_add_new.html#createTest1"
+                                    <a href="./paper_add_new#createTest1"
                                        aria-controls="create1" role="tab" data-toggle="tab">
                                         第一步:创建试卷
                                     </a>
                                 </li>
                                 <li role="presentation" class="step3">
-                                    <a href="./paper_add_new.html#createTest3"
+                                    <a href="./paper_add_new#createTest3"
                                        aria-controls="create3" role="tab" data-toggle="">
                                         第二步:添加试题
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a href="./paper_add_new.html#createTest4"
+                                    <a href="./paper_add_new#createTest4"
                                        aria-controls="create4" role="tab" data-toggle="">
                                         第三步:发布考试
                                     </a>
@@ -533,7 +533,7 @@
                             <div class="line"></div>
                             <div class="lineLeft"></div>
                             <div class="lineRight"></div>
-                            <form action="./paper_add_new.html" name="form" method="post"
+                            <form action="./paper_add_new" name="form" method="post"
                                   id="subForm">
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="createTest1">
@@ -598,7 +598,7 @@
                                                 <h3>
                                                     <input name="" type="radio" value="" checked="checked">从试卷库中选择一张试卷
                                                 </h3>
-                                                <a href="./paper_add_new.html#"
+                                                <a href="./paper_add_new#"
                                                    class="blue-link" id="selPaperLink">
                                                     <span>选择试卷</span>
                                                 </a>
@@ -696,13 +696,13 @@
                                             <input type="hidden" class="" name="paper_set_num" value="">
                                             <p class="buttonP">
                                                 <a class="button"
-                                                   href="./paper_add_new.html#"
+                                                   href="./paper_add_new#"
                                                    id="previewBtn">预览</a>
                                                 <a class="button"
-                                                   href="./paper_add_new.html#"
+                                                   href="./paper_add_new#"
                                                    id="saveBtn">保存</a>
                                                 <a class="button"
-                                                   href="./paper_add_new.html#"
+                                                   href="./paper_add_new#"
                                                    id="downloadBtn">下载</a>
                                             </p>
                                             <!-- 3-2结束 -->
@@ -926,7 +926,7 @@
 </script>
 <script>
     $(function () {
-        $.getJSON("/exam/get_paper_subjects", function (result) {
+        $.getJSON("/exam/get_subjects", function (result) {
             $.each(result.subjects, function (index, e) {
                 $subject = $("<label>" + e + " <input name='subject' type='radio' value=\'" + e + "'></label>");
                 $("#select_subject").append($subject);
