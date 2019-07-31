@@ -35,7 +35,7 @@ public class StudentMapperTestResult
 	{
 		try 
 		{
-			RawResult result = new RawResult("117371", "1", "1","1", "1", "1", "1","2019-8-5","no");
+			RawResult result = new RawResult("117371", 1, "1","1", "1", "1", "1","2019-8-5","no");
 			sm.addResult(result);
 		} 
 		catch (Exception e) 

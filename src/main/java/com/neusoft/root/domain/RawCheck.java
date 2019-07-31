@@ -4,7 +4,7 @@ package com.neusoft.root.domain;
 public class RawCheck 
 {
 	private String studentId;  // 学生ID
-	private String paperId; // 试卷ID 
+	private Integer paperId; // 试卷ID 
 	private String teacherId; // 老师ID
 	private String singlechoiceScore; //单选题得分，格式：ID1,分数1###ID2,分数2
 	private String multichoiceScore; //多选题得分，格式：ID1,分数1###ID2,分数2
@@ -12,7 +12,7 @@ public class RawCheck
 	private String subjectiveScore; //主观题得分，格式：ID1,分数1###ID2,分数2
 	private Double sumScore; //总分
 	private String checkDate; // 日期
-	public RawCheck(String studentId, String paperId, String teacherId, String singlechoiceScore,
+	public RawCheck(String studentId, Integer paperId, String teacherId, String singlechoiceScore,
 			String multichoiceScore, String fillScore, String subjectiveScore, Double sumScore, String checkDate) {
 		super();
 		this.studentId = studentId;
@@ -27,7 +27,6 @@ public class RawCheck
 	}
 	public RawCheck() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getStudentId() {
 		return studentId;
@@ -35,10 +34,10 @@ public class RawCheck
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	public String getPaperId() {
+	public Integer getPaperId() {
 		return paperId;
 	}
-	public void setPaperId(String paperId) {
+	public void setPaperId(Integer paperId) {
 		this.paperId = paperId;
 	}
 	public String getTeacherId() {
@@ -161,5 +160,4 @@ public class RawCheck
 				+ fillScore + ", subjectiveScore=" + subjectiveScore + ", sumScore=" + sumScore + ", checkDate="
 				+ checkDate + "]";
 	}
-	
 }

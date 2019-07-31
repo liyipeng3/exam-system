@@ -43,7 +43,7 @@ public class TeacherMapperTestCheck
 	{
 		try 
 		{
-			RawCheck check2 = new RawCheck("1", "1", "1", "1", "1", "1", "1", 10.0, "2019-7-2");
+			RawCheck check2 = new RawCheck("1", 1, "1", "1", "1", "1", "1", 10.0, "2019-7-2");
 			tm.deleteCheck(check2);
 		} 
 		catch (Exception e) 
