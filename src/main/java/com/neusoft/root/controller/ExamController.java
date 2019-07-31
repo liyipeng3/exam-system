@@ -320,8 +320,6 @@ public class ExamController {
 	@ResponseBody
 	public String loadData(HttpServletRequest request, Integer id){
 		ParsedItem item = itemService.queryParsedItem(id).get(0);
-		long time = System.currentTimeMillis();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String json = "{\"_id\":{\"timestamp\":1563789001,\"machineIdentifier\":5030166,\"processIdentifier\":29405,\"counter\":3855673,\"timeSecond\":1563789001,\"date\":1563789001000,\"time\":1563789001000},\"status\":\"enable\"";
 		json += ",\"classification\":\"514885\",\"cop_id\":\"140092\",\"label\":\"\",\"classificatonName\":\"示例\",\"encrypt\":\"0\"";
 		System.out.println(item);
@@ -366,7 +364,6 @@ public class ExamController {
 			}
 			String C="";
 			for(int i=0;i<answers.size();i++){
-				int j = i+1;
 				int k = 0;
 				while(k<options.size()){
 					if(answers.get(i).equals(options.get(k))){
@@ -381,6 +378,7 @@ public class ExamController {
 			json += ",\"tab_num\":"+"\""+options.size()+"\"";
 		}
 		else if(type.equals("4")){
+			String answer = "";
 			for(int i=0;i<answers.size();i++){
 				int j = i+1;
 				json += ",\"answer"+j+"\":"+"\""+answers.get(i)+"\"";
@@ -388,16 +386,17 @@ public class ExamController {
 			}
 			json += ",\"test_ans_right"+"\":"+"\"";
 			for(int i=0;i<answers.size();i++){
-				int j = i+1;
-				json += ","+answers.get(i);
+				answer += ","+answers.get(i);
 			}
+			answer=answer.substring(1);
+			json += answer;
 			json += "\"";
 			json += ",\"tab_num\":"+"\""+0+"\"";
 		}
 		else{
-			json += ",\"answer"+1+"\":"+"\""+"此题没有正确答案，需要人工判分"+"\"";
+			json += ",\"answer"+1+"\":"+"\""+answers.get(0)+"\"";
 			json += ",\"key"+1+"\":"+"\""+1+"\"";
-			json += ",\"test_ans_right"+"\":"+"\""+"此题没有正确答案，需要人工判分"+"\"";
+			json += ",\"test_ans_right"+"\":"+"\""+answers.get(0)+"\"";
 			json += ",\"tab_num\":"+"\""+0+"\"";
 		}
 		json += "}";
