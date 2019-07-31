@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import javax.validation.constraints.Pattern.Flag;
+
 import org.hibernate.validator.internal.util.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -329,6 +331,7 @@ public class PaperServiceImpl implements PaperService{
 		{
 			System.out.println("试卷Id不唯一！！！");
 			System.exit(0);
+			return null;
 		}
 		else
 		{
@@ -336,106 +339,160 @@ public class PaperServiceImpl implements PaperService{
 			RawPaper rawPaper2 = list.get(0);
 			List<ParsedItem> q1 = new ArrayList<>() ;
 			List<ParsedItem> questionservice1 ;
-			String [] question1 = rawPaper2.getSinglechoiceQuestion().split("###");
-			for(int i=0;i<question1.length;i++)
-			{
-				String [] line = question1[i].split(",");
-				if(line.length!=0)
-				{
-			//		System.out.println("!!!");
-					ID = Integer.valueOf(line[0]);
-			//		System.out.println(ID);
-				}
-			//	System.out.println("2");
-				questionservice1 = service.queryParsedItem(ID);
-				//System.out.println(questionservice1==null);
-				for(ParsedItem x:questionservice1)
-				{
-					x.setItemScore(Double.valueOf(line[1]));
-					//System.out.println(x.toString());
-					q1.add(x);
-				}
-			}
-		//	System.out.println("q1"+q1.toString());
-			List<ParsedItem> q2 = new ArrayList<>();
-			List<ParsedItem> q3 = new ArrayList<>() ;
-			List<ParsedItem> q4 = new ArrayList<>() ;
-			List<ParsedItem> questionservice2 ;
-		/*	System.out.println("kule");
-			System.out.println("!!!"+paper.getMultichoiceQuestion()+"!!!");*/
-			if(rawPaper2.getMultichoiceQuestion()!=null&&(!rawPaper2.getMultichoiceQuestion().equals("")))
-			{
-			//	System.out.println("11");
-				String [] question2 = rawPaper2.getMultichoiceQuestion().split("###");
-				for(int i=0;i<question2.length;i++)
-				{
-					String [] line = question2[i].split(",");
-					if(line.length!=0)
-					{
-				//		System.out.println("Id"+line[0]);
-						ID = Integer.valueOf(line[0]);
-					}
-				//	System.out.println("Id"+ID);
-					questionservice2 = service.queryParsedItem(ID);
-				//	System.out.println("接受"+questionservice2);
-					for(ParsedItem x:questionservice2)
-					{
-						q2.add(x);
-					//	System.out.println(x);
-					}
-				}
-		
-			//	System.out.println(q2.toString());
-			}
+			String num1[] = rawPaper2.getSinglechoiceQuestion().split("$$$");
+			String num2[] = rawPaper2.getMultichoiceQuestion().split("$$$");
+			String num3[] = rawPaper2.getFillQuestion().split("$$$");
+			String num4[]  =rawPaper2.getSubjectiveQuestion().split("$$$");
+			int flag = 0;
+			int count = num1.length+num2.length+num3.length+num4.length;
+			List<String> itemsType = new ArrayList<>();
+			List<String> itemsTitle = new ArrayList<>();
+			List<List<ParsedItem>> items = new ArrayList<>();
 			
-			//System.out.println("出不来？"+q1.toString());
-			if(rawPaper2.getFillQuestion()!=null&&(!rawPaper2.getFillQuestion().equals("")))
+			int k1 =0;
+			int k2 =0;
+			int k3 =0;
+			int k4 =0;
+			for(int i=0;i<count;i++)
 			{
-				List<ParsedItem> questionservice3 ;
-				String [] question3 = rawPaper2.getFillQuestion().split("###");
-				for(int i=0;i<question3.length;i++)
+				List<ParsedItem> item = new ArrayList<>();
+				flag =0;
+				if(num1.length!=0&&num1.length>k1)
 				{
-					String [] line = question3[i].split(",");
-					if(line.length!=0)
+					String apple1[] = num1[k1].split("###");
+					String banana1[] = apple1[0].split(",");
+					if(banana1[3].equals("i"))
 					{
-						ID = Integer.valueOf(line[0]);
-					}
-					questionservice3 = service.queryParsedItem(ID);
-					for(ParsedItem x:questionservice3)
-					{
-						q3.add(x);
-					}
-				}	
-			}
-			if(rawPaper2.getSubjectiveQuestion()!=null&&(!rawPaper2.getSubjectiveQuestion().equals("")))
-			{
-				List<ParsedItem> questionservice4 ;
-				String [] question4 = rawPaper2.getSubjectiveQuestion().split("###");
-				for(int i=0;i<question4.length;i++)
-				{
-					String [] line = question4[i].split(",");
-					if(line.length!=0)
-					{
-						ID = Integer.valueOf(line[0]);
-					}
-					questionservice4 = service.queryParsedItem(ID);
-					for(ParsedItem x:questionservice4)
-					{
-						
-						q4.add(x);
+						flag = 1;
 					}
 				}
+				if(num2.length!=0&&flag==0&&num2.length>k2)
+				{
+					String apple2[] = num2[k2].split("###");
+					String banana2[] = apple2[0].split(",");
+					if(banana2[3].equals("i"))
+					{
+						flag = 2;
+					}
+				}
+				if(num3.length!=0&&flag==0&&num3.length>k3)
+				{
+					String apple3[] = num3[k3].split("###");
+					String banana3[] = apple3[0].split(",");
+					if(banana3[3].equals("i"))
+					{
+						flag = 3;
+					}
+				}
+				if(num4.length!=0&&flag==0&&num4.length>k4)
+				{
+					String apple4[] = num4[k4].split("###");
+					String banana4[] = apple4[0].split(",");
+					if(banana4[3].equals("i"))
+					{
+						flag = 4;
+					}
+				}
+				if(flag==1)
+				{
+					String apple[] = num1[k1].split("###");
+					String type = "";
+					for(int j=0;j<apple.length;j++)
+					{
+						String banana[] = apple[j].split(",");
+						type = banana[2];
+						Integer itemid = Integer.valueOf(banana[0]);
+						List<ParsedItem> itemlist= service.queryParsedItem(itemid);
+						if(itemlist.size()!=1)
+						{
+							System.out.println("查询试题ID不唯一！！！");
+						}
+						else {
+							item.add(itemlist.get(0));
+						}
+					}
+					itemsTitle.add(type);
+					itemsType.add("1");
+					k1++;
+				}
+				else if(flag==2)
+				{
+					String apple[] = num2[k2].split("###");
+					String type = "";
+					for(int j=0;j<apple.length;j++)
+					{
+						String banana[] = apple[j].split(",");
+						type = banana[2];
+						Integer itemid = Integer.valueOf(banana[0]);
+						List<ParsedItem> itemlist= service.queryParsedItem(itemid);
+						if(itemlist.size()!=1)
+						{
+							System.out.println("查询试题ID不唯一！！！");
+						}
+						else {
+							item.add(itemlist.get(0));
+						}
+					}
+					itemsTitle.add(type);
+					itemsType.add("2");
+					k2++;
+				}
+				else if(flag==3)
+				{
+					String apple[] = num3[k3].split("###");
+					String type = "";
+					for(int j=0;j<apple.length;j++)
+					{
+						String banana[] = apple[j].split(",");
+						type = banana[2];
+						Integer itemid = Integer.valueOf(banana[0]);
+						List<ParsedItem> itemlist= service.queryParsedItem(itemid);
+						if(itemlist.size()!=1)
+						{
+							System.out.println("查询试题ID不唯一！！！");
+						}
+						else {
+							item.add(itemlist.get(0));
+						}
+					}
+					itemsTitle.add(type);
+					itemsType.add("4");
+					k3++;
+				}
+				else if(flag==4)
+				{
+					String apple[] = num4[k4].split("###");
+					String type = "";
+					for(int j=0;j<apple.length;j++)
+					{
+						String banana[] = apple[j].split(",");
+						type = banana[2];
+						Integer itemid = Integer.valueOf(banana[0]);
+						List<ParsedItem> itemlist= service.queryParsedItem(itemid);
+						if(itemlist.size()!=1)
+						{
+							System.out.println("查询试题ID不唯一！！！");
+						}
+						else {
+							item.add(itemlist.get(0));
+						}
+					}
+					itemsTitle.add(type);
+					itemsType.add("5");
+					k4++;
+				}
+				else {
+					System.out.println("找不到试题顺序");
+				}
+				
+				items.add(item);
 			}
-			//!!!
-			//System.out.println("出不来？"+q1.toString());
-			//ParsedPaper parsedPaper = new ParsedPaper(paperId, paperName, createrId, createDate, paperType, paperIndex, items, itemsTitle, itemsType, paperScore, paperSecrecy, paperRemark)
-			//list2 = parsedPaper;	
-			
+			ParsedPaper paper = new ParsedPaper(rawPaper2.getPaperId(), rawPaper2.getPaperName(), rawPaper2.getCreaterId(), rawPaper2.getCreateDate(), rawPaper2.getPaperType(), rawPaper2.getPaperIndex(), items, itemsTitle, itemsType, rawPaper2.getPaperScore(), rawPaper2.getPaperSecrecy(), rawPaper2.getPaperRemark());
+					//System.out.println("@@"+list2.toString());
+					return paper;	
 		
 		}
-		ParsedPaper paper = new ParsedPaper();
-		//System.out.println("@@"+list2.toString());
-		return paper;	
+		
 		
 	}
 

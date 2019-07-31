@@ -517,4 +517,53 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="submit_date" property="submitDate"/>
 		<result column="checked" property="checked"/>
 	</resultMap>
+	
+	<!-- 管理考试 -->
+	<insert id="addExam" parameterType="Exam">
+		insert into exam_table(paper_id,createrId,exam_name,exam_type,pass_score,sum_score,create_date,exam_begin,exam_end,exam_last,exam_remark)
+		values(#{paperId},#{createrId},#{examName},#{exam_type},#{passScore},#{sumScore},#{createDate},#{examBegin},#{examEnd},#{examLast},#{examRemark})
+	</insert>
+	<select id="queryExam" parameterType="Exam" resultMap="MyExam">
+		select *
+		from exam_table
+		<where>
+			<if test="examId!=null and examId!=''">
+				and exam_id = #{examId}
+			</if>
+			<if test="paperId!=null and paperId!=''">
+				and paper_id = #{paperId}
+			</if>
+			<if test="createrId!=null and createrId!=''">
+				and creater_id = #{createrId}
+			</if>
+			<if test="examName!=null and examName!=''">
+				and exam_name = #{examName}
+			</if>
+			<if test="examType!=null and examType!=''">
+				and exam_name = #{examName}
+			</if>
+			<if test="createDate!=null and createDate!=''">
+				and exam_date = #{createDate}
+			</if>
+			<if test="examRemark!=null and examRemark!=''">
+				and exam_remark = #{examRemark}
+			</if>
+		</where>
+	</select>
+	
+	<resultMap type="Exam" id="MyExam">
+		<id column="exam_id" property="examId"/>
+		<result column="paper_id" property="paperId"/>
+		<result column="creater_id" property="createrId"/>
+		<result column="exam_name" property="examName"/>
+		<result column="exam_type" property="examType"/>
+		<result column="pass_score" property="passScore"/>
+		<result column="sum_score" property="sumScore"/>
+		<result column="create_date" property="createDate"/>
+		<result column="exam_begin" property="examBegin"/>
+		<result column="exam_end" property="examEnd"/>
+		<result column="exam_last" property="examLast"/>
+		<result column="exam_remark" property="examRemark"/>
+	</resultMap>
+	
 </mapper>

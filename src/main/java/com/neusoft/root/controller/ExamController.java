@@ -26,6 +26,7 @@ import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
 import com.neusoft.root.service.CourseServiceImpl;
+import com.neusoft.root.service.ExamServiceImpl;
 import com.neusoft.root.service.PaperServiceImpl;
 import com.neusoft.root.service.ItemServiceImpl;
 
@@ -44,6 +45,8 @@ public class ExamController {
 	private CourseServiceImpl courseService;
 	@Autowired
 	private ItemServiceImpl itemService;
+	@Autowired
+	private ExamServiceImpl examService;
 	private String subject;
 	/**
 	 * 
@@ -422,13 +425,33 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/add_exam",method=RequestMethod.POST)
 	@ResponseBody
-	public String addExam(@RequestBody JSONObject jsonObject){
+	public String addExam(@RequestBody JSONObject jsonObject, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String date = df.format(time);
 		System.out.println(jsonObject.toJSONString());
-		
-		String result = "{\"status\":\"ok\"}";
+		jsonObject.put("createrId", username);
+		jsonObject.put("createDate", date);
+		jsonObject.put("passScore", jsonObject.getString("passMark"));
+		jsonObject.put("examBegin", jsonObject.getString("examStartTime"));
+		jsonObject.put("examEnd", jsonObject.getString("examEndTime"));
+		jsonObject.put("examLast", jsonObject.getString("examTime"));
+		jsonObject.put("examRemark", jsonObject.getString("beforeAnswerNotice"));
+		int id = examService.addExam(jsonObject);
+		String result = "{\"exam_id\":\""+id+"\",\"status\":\"ok\"}";
 		return result;
 	}
-	
+	@RequestMapping(value="/get_exam",method=RequestMethod.GET)
+	@ResponseBody
+	public String getExam(){
+		Gson gson = new Gson();
+		JSONObject json = new JSONObject();
+		json.put("examId", "");
+		examService.queryExam(json);
+		return "ok";
+	}
 	/**
 	 * 按id获取试卷信息
 	 * 

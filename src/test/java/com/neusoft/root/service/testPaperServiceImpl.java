@@ -16,12 +16,12 @@ public class testPaperServiceImpl {
 	@Test
 	public void testaddRawPaper()
 	{
-		/*JSONObject json = new JSONObject();
-		json.put("paperId", 5);
-		json.put("difficult", "普通题");
-		json.put("singleQuestion1","1");
-		json.put("singleQuestion2","2");
-		json.put("mutiQuestion1","3");
+		JSONObject json = new JSONObject();
+		json.put("paperId", 1);
+		json.put("paperName", "普通题");
+		json.put("testIds1","1");
+		json.put("testIds2","2");
+		json.put("testType1","3");
 		json.put("mutiQuestion2","2");
 		json.put("singleScore1",0.8);
 		json.put("singleScore2",0.8);
@@ -42,11 +42,12 @@ public class testPaperServiceImpl {
 		//json.put("paperIndex",5.0);
 		json.put("paperScore",0.9);
 		json.put("paperSecrecy","qu11");
-		json.put("paperRemark","qu12");*/
+		json.put("paperRemark","qu12");
 		//System.out.println(test.queryParsedPaper(5).toString());
 		//test.addRawPaper(json);
 		//System.out.println(test.createPaper("ddd","单选题" ).toString());
-		System.out.println(test.randPaper("dddddd","ddd", "id"));
+		//System.out.println(test.randPaper("dddddd","ddd", "id"));
+		test.addRawPaper(json);
 		
 	}
 }
