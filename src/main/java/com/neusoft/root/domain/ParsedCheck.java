@@ -6,7 +6,7 @@ import java.util.Map;
 public class ParsedCheck 
 {
 	private String studentId;  // 学生ID
-	private Integer paperId; // 试卷ID 
+	private String paperId; // 试卷ID 
 	private String teacherId; // 老师ID
 	private Map<String, Double> singlechoiceScore; //单选题得分，格式：ID1,分数1###ID2,分数2
 	private Map<String, Double> multichoiceScore; //多选题得分，格式：ID1,分数1###ID2,分数2
@@ -14,10 +14,7 @@ public class ParsedCheck
 	private Map<String, Double> subjectiveScore; //主观题得分，格式：ID1,分数1###ID2,分数2
 	private Double sumScore; //总分
 	private String checkDate; // 日期
-	public ParsedCheck() {
-		super();
-	}
-	public ParsedCheck(String studentId, Integer paperId, String teacherId, Map<String, Double> singlechoiceScore,
+	public ParsedCheck(String studentId, String paperId, String teacherId, Map<String, Double> singlechoiceScore,
 			Map<String, Double> multichoiceScore, Map<String, Double> fillScore, Map<String, Double> subjectiveScore,
 			Double sumScore, String checkDate) {
 		super();
@@ -31,16 +28,20 @@ public class ParsedCheck
 		this.sumScore = sumScore;
 		this.checkDate = checkDate;
 	}
+	public ParsedCheck() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getStudentId() {
 		return studentId;
 	}
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	public Integer getPaperId() {
+	public String getPaperId() {
 		return paperId;
 	}
-	public void setPaperId(Integer paperId) {
+	public void setPaperId(String paperId) {
 		this.paperId = paperId;
 	}
 	public String getTeacherId() {
@@ -158,7 +159,7 @@ public class ParsedCheck
 	}
 	@Override
 	public String toString() {
-		return "ParseCheck [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
+		return "ParsedCheck [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
 				+ ", singlechoiceScore=" + singlechoiceScore + ", multichoiceScore=" + multichoiceScore + ", fillScore="
 				+ fillScore + ", subjectiveScore=" + subjectiveScore + ", sumScore=" + sumScore + ", checkDate="
 				+ checkDate + "]";

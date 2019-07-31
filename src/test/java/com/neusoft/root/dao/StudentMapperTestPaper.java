@@ -35,7 +35,7 @@ public class StudentMapperTestPaper
 		try 
 		{
 			RawPaper np = new RawPaper();
-			np.setPaperId(1);
+			np.setPaperId("1");
 			np.setPaperSecrecy("公开");
 			for (RawPaper paper : sm.queryPaper(np)) 
 			{

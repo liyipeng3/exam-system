@@ -82,7 +82,7 @@ public class TeacherMapperTestPaper
 		try 
 		{
 			RawPaper rp = new RawPaper();
-			rp.setPaperId(1);
+			rp.setPaperId("1");
 			List<RawPaper> list = tm.queryRawPaper(rp);
 			PaperHelper ph = new PaperHelper(list.get(0));
 			System.out.println(1);

@@ -983,21 +983,6 @@ function savePaperFn(url) {
         }
     });
     var dataForm = $('#subForm').serializeArray();
-
-
-    //是否开启自定义考试背景
-    if($(".switch-examBg").hasClass("switch-on")) {
-        dataForm += "&examBgIsDefault=1";
-        dataForm += "&mExamBgIsDefault=1";
-	}else {
-        dataForm += "&examBgIsDefault=0";
-        dataForm += "&mExamBgIsDefault=0";
-	}
-	if($(".switch-waterMark").hasClass("switch-on")){
-        dataForm += "&isWatermark=1";
-    }else {
-        dataForm += "&isWatermark=0";
-    }
     var data = {};
     $(dataForm).each(function(index, obj){
         data[obj.name] = obj.value;
