@@ -48,56 +48,72 @@ public class PaperServiceImpl implements PaperService{
 		String paperType = list.get(0).getCourseType();
 		String singlequestion = "";
 		String testid1 = json.getString("testIds1");
-		testid1 = testid1.substring(0, testid1.length()-1);
-		String line1[] = testid1.split(",");
-		String querstionscores1 = json.getString("questionScores1");
-		querstionscores1 = querstionscores1.substring(0,  querstionscores1.length()-1);
-		String scores1[] = querstionscores1.split(",");
-		for(int i=0;i<line1.length;i++)
+		if(testid1!=null&&(!testid1.equals("")))
 		{
-			singlequestion = singlequestion+line1[i]+","+Double.valueOf(scores1[i])+"###";
+			testid1 = testid1.substring(0, testid1.length()-1);
+			String line1[] = testid1.split(",");
+			String querstionscores1 = json.getString("questionScores1");
+			querstionscores1 = querstionscores1.substring(0,  querstionscores1.length()-1);
+			String scores1[] = querstionscores1.split(",");
+			for(int i=0;i<line1.length;i++)
+			{
+				singlequestion = singlequestion+line1[i]+","+Double.valueOf(scores1[i])+"###";
+			}
+			if(!singlequestion.equals(""))
+			singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		}
-		if(!singlequestion.equals(""))
-		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
+		
 		String mutiquestion = "";
 		String testid2 = json.getString("testIds2");
-		testid2 = testid2.substring(0, testid2.length()-1);
-		String line2[] = testid2.split(",");
-		String querstionscores2 = json.getString("questionScores2");
-		querstionscores2 = querstionscores2.substring(0,  querstionscores2.length()-1);
-		String scores2[] = querstionscores2.split(",");
-		for(int i=0;i<line2.length;i++)
+		if(testid2!=null&&(!testid2.equals("")))
 		{
-			mutiquestion = mutiquestion+line2[i]+","+Double.valueOf(scores2[i])+"###";
+			testid2 = testid2.substring(0, testid2.length()-1);
+			String line2[] = testid2.split(",");
+			String querstionscores2 = json.getString("questionScores2");
+			querstionscores2 = querstionscores2.substring(0,  querstionscores2.length()-1);
+			String scores2[] = querstionscores2.split(",");
+			for(int i=0;i<line2.length;i++)
+			{
+				mutiquestion = mutiquestion+line2[i]+","+Double.valueOf(scores2[i])+"###";
+			}
+			if(!mutiquestion.equals(""))
+			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		}
-		if(!mutiquestion.equals(""))
-		mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
+		
 		String fillquestion = "";
 		String testid3 = json.getString("testIds3");
-		testid3 = testid3.substring(0, testid3.length()-1);
-		String line3[] = testid3.split(",");
-		String querstionscores3 = json.getString("questionScores3");
-		querstionscores3 = querstionscores3.substring(0,  querstionscores3.length()-1);
-		String scores3[] = querstionscores3.split(",");
-		for(int i=0;i<line3.length;i++)
+		if(testid3!=null&&(!testid3.equals("")))
 		{
-			fillquestion = fillquestion+line3[i]+","+scores3[i]+"###";
+			testid3 = testid3.substring(0, testid3.length()-1);
+			String line3[] = testid3.split(",");
+			String querstionscores3 = json.getString("questionScores3");
+			querstionscores3 = querstionscores3.substring(0,  querstionscores3.length()-1);
+			String scores3[] = querstionscores3.split(",");
+			for(int i=0;i<line3.length;i++)
+			{
+				fillquestion = fillquestion+line3[i]+","+scores3[i]+"###";
+			}
+			if(!fillquestion.equals(""))
+			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		}
-		if(!fillquestion.equals(""))
-		fillquestion = fillquestion.substring(0, fillquestion.length()-3);
+		
 		String subjectivequestion = "";
 		String testid4 = json.getString("testIds4");
-		testid4 = testid4.substring(0, testid4.length()-1);
-		String line4[] = testid4.split(",");
-		String querstionscores4 = json.getString("questionScores4");
-		querstionscores4 = querstionscores4.substring(0,  querstionscores4.length()-1);
-		String scores4[] = querstionscores4.split(",");
-		for(int i=0;i<line4.length;i++)
+		if(testid4!=null&&(!testid4.equals("")))
 		{
-			subjectivequestion = subjectivequestion+line4[i]+","+scores4[i]+"###";
+			testid4 = testid4.substring(0, testid4.length()-1);
+			String line4[] = testid4.split(",");
+			String querstionscores4 = json.getString("questionScores4");
+			querstionscores4 = querstionscores4.substring(0,  querstionscores4.length()-1);
+			String scores4[] = querstionscores4.split(",");
+			for(int i=0;i<line4.length;i++)
+			{
+				subjectivequestion = subjectivequestion+line4[i]+","+scores4[i]+"###";
+			}
+			if(!subjectivequestion.equals(""))
+				subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
 		}
-		if(!subjectivequestion.equals(""))
-			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
+	
 		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), date, paperType, 3.0, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("totalScore"), "保密", current);
 		mapper.addRawPaper(rawPaper);
 		rawPaper.setPaperId(null);
@@ -416,7 +432,7 @@ public class PaperServiceImpl implements PaperService{
 	//	System.out.println("PaperID"+PaperId);
 		List<ParsedPaper> list3 = service2.queryParsedPaper(PaperId);
 				
-			//	System.out.println("最终"+list3.get(0));
+			//	System.out.printl`n("最终"+list3.get(0));
 		return list3.get(0);
 	}	
 	public static Set<Integer> getRandom(Integer wantLength,Integer itemLength) 
