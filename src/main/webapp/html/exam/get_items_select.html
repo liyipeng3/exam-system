@@ -4,22 +4,22 @@
     <meta charset="utf-8">
     <title>考试云平台</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="shortcut icon" href="https://s0.kaoshixing.com/static/base/images/new_logo.ico">
+    <link rel="shortcut icon" href="/img/logo.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css"
-          href="https://s1.kaoshixing.com/static/plugins/bootstrap/css/bootstrap.min.css?v=246e02790957">
-    <link rel="stylesheet" type="text/css" href="https://s1.kaoshixing.com/static/base/css/ksx-base.css?v=c903185c7f57">
+          href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/ksx-base.css">
 
     <link rel="stylesheet" type="text/css"
-          href="https://s1.kaoshixing.com/static/plugins/bootgrid/jquery.bootgrid.css?v=84a2bdf12957">
+          href="/css/jquery.bootgrid.css">
     <link rel="stylesheet" type="text/css"
-          href="https://s3.kaoshixing.com/static/plugins/pikaday/pikaday.css?v=8e3f4c24fd57">
+          href="/css/pikaday.css">
     <link rel="stylesheet" type="text/css"
-          href="https://s1.kaoshixing.com/static/plugins/IconFont/css/styles.min.css?v=155b8a0f0957">
+          href="/css/styles.min.css">
     <link rel="stylesheet" type="text/css"
-          href="https://s0.kaoshixing.com/static/base/css/modal_content_style.css?v=915fb621dd57">
+          href="/css/modal_content_style.css">
     <style>
         /*.modal_btn_default {*/
         /*line-height: 18px;*/
@@ -63,226 +63,111 @@
 <body>
 <div>
     <form action="/admin/select_type" name="form" method="get" id="subForm">
-        <input type="hidden" class="" name="search" value="true">
-        <div class="topSelDiv">
-            <div class="topContent">
-                <div>
-                    <div class="form-group question_type">
-                        <label>试题分类：</label>
-                        <div id="selTypeLink">
-                            <span>选择分类</span>
-
-                        </div>
-                        <input type="hidden" class="" name="classification" value="">
-                        <input type="hidden" class="" name="exam_status" value="">
-
-                    </div>
-                    <div id="type_dialog">
-                        <iframe width="100%" height="300px" style="border:0px;margin:0 auto;" name="selTypeModal"
-                                id="selTypeModal"></iframe>
-                    </div>
-
-                    <div class="form-group">
-                        <label>试题难度：</label>
-                        <select name="difficult" class="modal_select select_nomal">
-                            <option value="" selected="">请选择</option>
-                            <option value="simple">简单</option>
-                            <option value="middle">普通</option>
-                            <option value="hard">困难</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>试题状态：</label>
-                        <select name="status" class="modal_select select_nomal">
-                            <option value="" selected="">请选择</option>
-                            <option value="enable">正常</option>
-                            <option value="disable">禁用</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>创建时间：</label>
-                        <div class="calendar"><em></em><input name="dateForm" type="text" id="dateForm" value=""></div>
-                        <span>到</span>
-                        <div class="calendar"><em></em><input name="dateTo" type="text" id="dateTo" value=""></div>
-                    </div>
-
-                </div>
-                <div class="toolbarBottom">
-                    <a class="btn modal_btn_default btn_off" href="#" id="resetBtn">重置</a>
-                    <a class="btn modal_btn_default btn_on" href="#" id="searchBtn">搜索</a>
-                </div>
-            </div>
-
-
-            <div role="tabpanel" class="tab-area tab-col2">
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active">
-                        <div class="rqm-table2 com-drop">
-                            <table id="grid-data" class="table bootgrid-table" aria-busy="false">
-                                <thead>
-                                <tr>
-                                    <th class="select-cell"><label class="select-label"><input name="select"
-                                                                                               type="checkbox"
-                                                                                               class="select-box"
-                                                                                               value="all"
-                                                                                               {{ctx.checked}}=""><span
-                                            class="select-box"><i class="icons8-checked-checkbox"></i></span></label>
-                                    </th>
-                                    <th data-column-id="type" class="text-left" style="width:8%;"><a
-                                            href="javascript:void(0);" class="column-header-anchor "><span class="text">题型</span><span
-                                            class="icon glyphicon "></span></a></th>
-                                    <th data-column-id="classification" class="text-left" style="width:10%;"><a
-                                            href="javascript:void(0);" class="column-header-anchor sortable"><span
-                                            class="text">分类</span><span class="icon glyphicon "></span></a></th>
-                                    <th data-column-id="content" class="text-left" style=""><a
-                                            href="javascript:void(0);" class="column-header-anchor "><span class="text">试题内容</span><span
-                                            class="icon glyphicon "></span></a></th>
-                                    <th data-column-id="difficult" class="text-left" style="width:8%;"><a
-                                            href="javascript:void(0);" class="column-header-anchor sortable"><span
-                                            class="text">难度</span><span class="icon glyphicon "></span></a></th>
-                                    <th data-column-id="createTime" class="text-left" style="width:20%;"><a
-                                            href="javascript:void(0);" class="column-header-anchor sortable"><span
-                                            class="text">创建时间</span><span class="icon glyphicon "></span></a></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr data-row-id="5d3586c94cc11672dd3ad532">
-                                    <td class="select-cell" style="{{ctx.style}}"><label class="select-label"><input
-                                            name="select" type="checkbox" class="select-box"
-                                            value="5d3586c94cc11672dd3ad532"><span class="select-box"><i
-                                            class="icons8-checked-checkbox"></i></span></label></td>
-                                    <td class="text-left" style="width:8%;">多选</td>
-                                    <td class="text-left" style="width:10%;">试题分类/示例</td>
-                                    <td class="text-left" style="">以接待对象为标准划分的接待类型有
-                                    </td>
-                                    <td class="text-left" style="width:8%;">简单</td>
-                                    <td class="text-left" style="width:20%;">2016-09-14 11:40</td>
-                                </tr>
-                                <tr data-row-id="5d3586c94cc11672dd3ad531">
-                                    <td class="select-cell" style="{{ctx.style}}"><label class="select-label"><input
-                                            name="select" type="checkbox" class="select-box"
-                                            value="5d3586c94cc11672dd3ad531"><span class="select-box"><i
-                                            class="icons8-checked-checkbox"></i></span></label></td>
-                                    <td class="text-left" style="width:8%;">多选</td>
-                                    <td class="text-left" style="width:10%;">试题分类/示例</td>
-                                    <td class="text-left" style="">以目的的不同为标准划分的拜访类型有
-                                    </td>
-                                    <td class="text-left" style="width:8%;">简单</td>
-                                    <td class="text-left" style="width:20%;">2016-09-14 11:40</td>
-                                </tr>
-                                <tr data-row-id="5d3586c94cc11672dd3ad530">
-                                    <td class="select-cell" style="{{ctx.style}}"><label class="select-label"><input
-                                            name="select" type="checkbox" class="select-box"
-                                            value="5d3586c94cc11672dd3ad530"><span class="select-box"><i
-                                            class="icons8-checked-checkbox"></i></span></label></td>
-                                    <td class="text-left" style="width:8%;">多选</td>
-                                    <td class="text-left" style="width:10%;">试题分类/示例</td>
-                                    <td class="text-left" style="">名片的作用有
-                                    </td>
-                                    <td class="text-left" style="width:8%;">简单</td>
-                                    <td class="text-left" style="width:20%;">2016-09-14 11:40</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <div id="grid-data-footer" class="bootgrid-footer container-fluid">
-                                <div class="row">
-                                    <div class="col-sm-6 infoBar">
-                                        <div class="infos">共3项记录</div>
-                                        <div class="actions btn-group">
-                                            <div class="btn-group">
-                                                <button class="btn btn-default dropdown-toggle" type="button"
-                                                        data-toggle="dropdown"><span
-                                                        class="dropdown-text page-count-span">每页10项</span> <span
-                                                        class="caret"></span></button>
-                                                <ul class="dropdown-menu pull-right" role="menu">
-                                                    <li class="active" aria-selected="true"><a href="#10"
-                                                                                               class="dropdown-item dropdown-item-button">10</a>
-                                                    </li>
-                                                    <li aria-selected="false"><a href="#20"
-                                                                                 class="dropdown-item dropdown-item-button">20</a>
-                                                    </li>
-                                                    <li aria-selected="false"><a href="#50"
-                                                                                 class="dropdown-item dropdown-item-button">50</a>
-                                                    </li>
-                                                    <li aria-selected="false"><a href="#100"
-                                                                                 class="dropdown-item dropdown-item-button">100</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="btn-group">
-                                                <button class="btn btn-default dropdown-toggle" type="button"
-                                                        data-toggle="dropdown"><span class="dropdown-text"><span
-                                                        class="icon glyphicon icons8-settings"></span>自定义设置</span> <span
-                                                        class="caret"></span></button>
-                                                <ul class="dropdown-menu pull-right custom-settings" role="menu">
-                                                    <li><label class="dropdown-item"><input name="id" type="checkbox"
-                                                                                            value="1"
-                                                                                            class="dropdown-item-checkbox">
-                                                    </label></li>
-                                                    <li><label class="dropdown-item"><input name="type" type="checkbox"
-                                                                                            value="1"
-                                                                                            class="dropdown-item-checkbox"
-                                                                                            checked="checked">
-                                                        题型</label></li>
-                                                    <li><label class="dropdown-item"><input name="status"
-                                                                                            type="checkbox" value="1"
-                                                                                            class="dropdown-item-checkbox">
-                                                        状态</label></li>
-                                                    <li><label class="dropdown-item"><input name="classification"
-                                                                                            type="checkbox" value="1"
-                                                                                            class="dropdown-item-checkbox"
-                                                                                            checked="checked">
-                                                        分类</label></li>
-                                                    <li><label class="dropdown-item"><input name="content"
-                                                                                            type="checkbox" value="1"
-                                                                                            class="dropdown-item-checkbox"
-                                                                                            checked="checked">
-                                                        试题内容</label></li>
-                                                    <li><label class="dropdown-item"><input name="difficult"
-                                                                                            type="checkbox" value="1"
-                                                                                            class="dropdown-item-checkbox"
-                                                                                            checked="checked">
-                                                        难度</label></li>
-                                                    <li><label class="dropdown-item"><input name="createTime"
-                                                                                            type="checkbox" value="1"
-                                                                                            class="dropdown-item-checkbox"
-                                                                                            checked="checked">
-                                                        创建时间</label></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="pagination">
-                                            <li class="first disabled" aria-disabled="true"><a href="#first"
-                                                                                               class="button"><i
-                                                    class="icons8-icon"></i></a></li>
-                                            <li class="prev disabled" aria-disabled="true"><a href="#prev"
-                                                                                              class="button"><i
-                                                    class="icons8-back-filled"></i></a></li>
-                                            <li class="page-1 active" aria-disabled="false" aria-selected="true"><a
-                                                    href="#1" class="button">1</a></li>
-                                            <li class="next disabled" aria-disabled="true"><a href="#next"
-                                                                                              class="button"><i
-                                                    class="icons8-forward-filled"></i></a></li>
-                                            <li class="last disabled" aria-disabled="true"><a href="#last"
-                                                                                              class="button"><i
-                                                    class="icons8-icon-3"></i></a></li>
-                                        </ul>
-                                    </div>
+        <div role="tabpanel" class="tab-area tab-col2">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active">
+                    <div class="rqm-table2 com-drop">
+                        <table class="table bootgrid-table" aria-busy="false">
+                            <thead>
+                            <tr>
+                                <th class="select-cell"><label class="select-label">
+                                    <input id="select_all" name="select" type="checkbox" class="select-box" value="all">
+                                    <span class="select-box"><i class="icons8-checked-checkbox"></i></span></label>
+                                </th>
+                                <th data-column-id="type" class="text-left" style="width:8%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                        class="text">题型</span><span
+                                        class="icon glyphicon "></span></a></th>
+                                <th data-column-id="classification" class="text-left" style="width:10%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">分类</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="content" class="text-left" style=""><a
+                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                        class="text">试题内容</span><span
+                                        class="icon glyphicon "></span></a></th>
+                                <th data-column-id="difficult" class="text-left" style="width:8%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">难度</span><span class="icon glyphicon "></span></a></th>
+                                <th data-column-id="createTime" class="text-left" style="width:20%;"><a
+                                        href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                        class="text">创建时间</span><span class="icon glyphicon "></span></a></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr data-row-id="5d3586c94cc11672dd3ad532">
+                                <td class="select-cell" style=""><label class="select-label"><input
+                                        name="select" type="checkbox" class="select-box"
+                                        value="5d3586c94cc11672dd3ad532"><span class="select-box"><i
+                                        class="icons8-checked-checkbox"></i></span></label></td>
+                                <td class="text-left" style="width:8%;">多选</td>
+                                <td class="text-left" style="width:10%;">试题分类/示例</td>
+                                <td class="text-left" style="">以接待对象为标准划分的接待类型有
+                                </td>
+                                <td class="text-left" style="width:8%;">简单</td>
+                                <td class="text-left" style="width:20%;">2016-09-14 11:40</td>
+                            </tr>
+                            <tr data-row-id="5d3586c94cc11672dd3ad531">
+                                <td class="select-cell" style=""><label class="select-label"><input
+                                        name="select" type="checkbox" class="select-box"
+                                        value="5d3586c94cc11672dd3ad531"><span class="select-box"><i
+                                        class="icons8-checked-checkbox"></i></span></label></td>
+                                <td class="text-left" style="width:8%;">多选</td>
+                                <td class="text-left" style="width:10%;">试题分类/示例</td>
+                                <td class="text-left" style="">以目的的不同为标准划分的拜访类型有
+                                </td>
+                                <td class="text-left" style="width:8%;">简单</td>
+                                <td class="text-left" style="width:20%;">2016-09-14 11:40</td>
+                            </tr>
+                            <tr data-row-id="5d3586c94cc11672dd3ad530">
+                                <td class="select-cell" style=""><label class="select-label"><input
+                                        name="select" type="checkbox" class="select-box"
+                                        value="5d3586c94cc11672dd3ad530"><span class="select-box"><i
+                                        class="icons8-checked-checkbox"></i></span></label></td>
+                                <td class="text-left" style="width:8%;">多选</td>
+                                <td class="text-left" style="width:10%;">试题分类/示例</td>
+                                <td class="text-left" style="">名片的作用有
+                                </td>
+                                <td class="text-left" style="width:8%;">简单</td>
+                                <td class="text-left" style="width:20%;">2016-09-14 11:40</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="grid-data-foot" class="bootgrid-footer container-fluid">
+                            <div class="row">
+                                <div class="col-sm-6 infoBar">
+                                    <div class="infos">共3项记录</div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="pagination">
+                                        <li class="first disabled" aria-disabled="true"><a href="#first"
+                                                                                           class="button"><i
+                                                class="icons8-icon"></i></a></li>
+                                        <li class="prev disabled" aria-disabled="true"><a href="#prev"
+                                                                                          class="button"><i
+                                                class="icons8-back-filled"></i></a></li>
+                                        <li class="page-1 active" aria-disabled="false" aria-selected="true"><a
+                                                href="#1" class="button">1</a></li>
+                                        <li class="next disabled" aria-disabled="true"><a href="#next"
+                                                                                          class="button"><i
+                                                class="icons8-forward-filled"></i></a></li>
+                                        <li class="last disabled" aria-disabled="true"><a href="#last"
+                                                                                          class="button"><i
+                                                class="icons8-icon-3"></i></a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="buttonP">
-                <a class="btn modal_btn_default btn_off" href="#" id="closeBtn">关闭</a>
-                <a class="btn modal_btn_default btn_on" href="#" id="saveBtn">保存</a>
-            </div>
         </div>
+
+        <div class="buttonP">
+            <a class="btn modal_btn_default btn_off" href="#" id="closeBtn">关闭</a>
+            <a class="btn modal_btn_default btn_on" href="#" id="saveBtn">保存</a>
+        </div>
+
     </form>
 </div>
 
@@ -315,117 +200,45 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="https://s3.kaoshixing.com/static/base/js/jquery.min.js?v=8101d596b257"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript"
-        src="https://s5.kaoshixing.com/static/plugins/bootstrap/js/bootstrap.min.js?v=87d37353ad57"></script>
+        src="/js/bootstrap.min.js"></script>
 <script type="text/javascript"
-        src="https://s4.kaoshixing.com/static/plugins/bootgrid/jquery.bootgrid-ksx.js?v=1ed6da953f57"></script>
-<script type="text/javascript" src="https://s0.kaoshixing.com/static/plugins/pikaday/moment.js?v=94dde4ec2657"></script>
+        src="/js/jquery.bootgrid-ksx.js"></script>
+<script type="text/javascript" src="/js/moment.js"></script>
 <script type="text/javascript"
-        src="https://s1.kaoshixing.com/static/plugins/pikaday/pikaday.js?v=5c81b2646857"></script>
+        src="/js/pikaday.js"></script>
 <script type="text/javascript"
-        src="https://s3.kaoshixing.com/static/plugins/pikaday/pikaday.jquery.js?v=67f9aeffb457"></script>
+        src="/js/pikaday.jquery.js"></script>
 <script type="text/javascript">
     var labelOpen = '0';
     $(document).ready(function () {
-        //日历多语言
-        var datePikadayLang = {
-            previousMonth: '上一月',
-            nextMonth: '下一月',
-            months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-            weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-            weekdaysShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
-        };
-
-        //初始化日历控件
-        var $dateForm = $('#dateForm').pikaday({
-            firstDay: 1,
-            format: 'YYYY-MM-DD',
-            minDate: new Date('2000-01-01'),
-            maxDate: new Date('2020-12-31'),
-            yearRange: [2000, 2030],
-            i18n: datePikadayLang
-        });
-        var $dateTo = $('#dateTo').pikaday({
-            firstDay: 1,
-            format: 'YYYY-MM-DD',
-            minDate: new Date('2000-01-01'),
-            maxDate: new Date('2020-12-31'),
-            yearRange: [2000, 2030],
-            i18n: datePikadayLang
+        var datastr = "subject=" + getParam('subject') + "&itemType=" + getParam('type');
+        $.getJSON("/exam/get_certain_items", datastr, function (e) {
+           //console.log(e);
         });
 
-        //初始化表格
-        function test() {
-            $("#grid-data").bootgrid({
-                ajax: true,
-                ajaxSettings: {
-                    method: "POST",
-                    cache: false
-                },
-                url: "/admin/showtestqm_grid/",
-                selection: true,
-                padding: 1,
-                rowSelect: true,
-                // keepSelection:true,
-                navigation: 2,
-                multiSelect: true,
-                post: function () {
-                    var sortOrder = $("#grid-data").bootgrid("getSortDictionary");
-                    var sortKey, sortOrderValue;
-                    var testStatus = $("select[name=status]").find("option:selected").val();
-                    var testType = parent.selType;
-                    var commitIds = parent.commit_ids;
-                    var testClassification = $("input[name=classification]").val();
-                    var label;
-                    label = $("input[name=label]").val();
-                    if (labelOpen == 0) {
-                        label = '';
-                    }
-                    var testDifficult = $("select[name=difficult]").find("option:selected").val();
-                    var testStartTime = $("input[name=dateForm]").val();
-                    var testEndTime = $("input[name=dateTo]").val();
-                    $.each(sortOrder, function (name, value) {
-                        sortKey = name;
-                        sortOrderValue = value;
-                    });
-                    return {
-                        "sortKey": sortKey,
-                        "sortOrder": sortOrderValue,
-                        "status": testStatus,
-                        "testType": testType,
-                        "commitIds": commitIds,
-                        "testDifficult": testDifficult,
-                        "label": label,
-                        "testClassification": testClassification,
-                        "testStartTime": testStartTime,
-                        "testEndTime": testEndTime
-                    };
-                }
-            });
-        }
 
-        test();
+        $('input.select-box, td.text-left').click(function (e) {
+            if ($(e.target).parents("tr").hasClass("active")) {
+                $(e.target).parents("tr")
+                    .removeClass("active");
+            } else {
+                $(e.target).parents("tr")
+                    .addClass("active");
+            }
+        });
 
-        //全选
-//        $(".checkAll").change(function(e) {
-//            if($(this).is(":checked")){
-//                $(".checkSimple").each(function(index, element) {
-//                    $(this).attr("checked" , "checked");
-//                });
-//            }else{
-//                $(".checkSimple").each(function(index, element) {
-//                    $(this).removeAttr("checked");
-//                });
-//            }
-//        });
-        //选择分类
-        $("body").on("click", "#selTypeLink", function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-            $('#type_dialog').show();
-            showSelType(this);
+        $('#select_all').change(function () {
+            if ($(this).parents().parents().parents("tr").hasClass('active')) {
+                $('.select-box').not('#select_all').each(function (index, e) {
+                    $(e).parents().parents().parents("tr").addClass('active');
+                });
+            } else {
+                $('.select-box').not('#select_all').each(function (index, e) {
+                    $(e).parents().parents().parents("tr").removeClass('active');
+                });
+            }
         });
 
         // 选择标签
@@ -463,22 +276,6 @@
         $(this).text(t);
     });
 
-    //显示选择分类对话框
-    function showSelType(obj) {
-        selTypeModal.location.href = "/admin/tree/tests_class3";
-    }
-
-    //关闭选择分类对话框
-    function hideSelType(obj) {
-        $('#type_dialog').hide();
-    }
-
-    //接受选择分类数据
-    function selType(id, name) {
-        $("input[name=classification]").val(id);
-        $("#selTypeLink").text('已选择');
-    }
-
     //显示选择标签对话框
     function showSelLabel(obj) {
         selLabelModal.location.href = "/admin/tree/tests_label";
@@ -486,27 +283,6 @@
             backdrop: "static",
             keyboard: false
         });
-    }
-
-    function selType(ids, names) {
-        $("input[name=classification]").val(ids);
-        $("#selTypeLink span").text(names.substr(0, names.length - 1));
-    }
-
-    //关闭选择标签对话框
-    function hideSelLabel(obj) {
-        $('#labelModal').modal('hide');
-    }
-
-    // 接受选择标签数据
-    function selLabel(data) {
-        var ids = '';
-        for (var i = 0; i < data.length; i++) {
-            ids += data[i].id + ',';
-        }
-        ids = ids.slice(0, ids.length - 1);
-        $("input[name=label]").val(ids);
-        $("#selLabelLink").text('已选择');
     }
 
     //接受考试选择
@@ -536,26 +312,15 @@
 </script>
 <script>
     function getParam(paramName) {
-        paramValue = "";
-        isFound = false;
-        if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
-            arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&");
-            i = 0;
-            while (i < arrSource.length && !isFound) {
-                if (arrSource[i].indexOf("=") > 0) {
-                    if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) {
-                        paramValue = arrSource[i].split("=")[1];
-                        isFound = true;
-                    }
-                }
-                i++;
-            }
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == paramName){return pair[1];}
         }
-        return paramValue;
+        return(false);
     }
 </script>
-
-
 <div class="pika-single is-hidden is-bound" style=""></div>
 <div class="pika-single is-hidden is-bound" style=""></div>
 </body>
