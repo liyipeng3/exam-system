@@ -313,7 +313,7 @@ public class ExamController {
 	@RequestMapping(value="/load_data",method=RequestMethod.GET)
 	@ResponseBody
 	public String loadData(HttpServletRequest request, Integer id){
-		ParsedItem item = itemService.queryParsedItem(1).get(0);
+		ParsedItem item = itemService.queryParsedItem(id).get(0);
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String json = "{\"_id\":{\"timestamp\":1563789001,\"machineIdentifier\":5030166,\"processIdentifier\":29405,\"counter\":3855673,\"timeSecond\":1563789001,\"date\":1563789001000,\"time\":1563789001000},\"status\":\"enable\"";
