@@ -3,18 +3,19 @@ package com.neusoft.root.domain;
 import java.util.Map;
 
 //学生答题结果
-public class ParsedResult {
+public class ParsedResult 
+{
 	private String studentId; //学生ID
 	private Integer paperId; //试卷ID
 	private Map<String, Double> singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> multichoiceResult; //多选题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
-	private Map<String, Double> submitDate; //答题日期
+	private String submitDate; //答题日期
 	private String checked;  //是否被批阅
 	public ParsedResult(String studentId, Integer paperId, Map<String, Double> singlechoiceResult,
 			Map<String, Double> multichoiceResult, Map<String, Double> fillResult, Map<String, Double> subjectiveResult,
-			Map<String, Double> submitDate, String checked) {
+			String submitDate, String checked) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
@@ -27,7 +28,6 @@ public class ParsedResult {
 	}
 	public ParsedResult() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getStudentId() {
 		return studentId;
@@ -65,10 +65,10 @@ public class ParsedResult {
 	public void setSubjectiveResult(Map<String, Double> subjectiveResult) {
 		this.subjectiveResult = subjectiveResult;
 	}
-	public Map<String, Double> getSubmitDate() {
+	public String getSubmitDate() {
 		return submitDate;
 	}
-	public void setSubmitDate(Map<String, Double> submitDate) {
+	public void setSubmitDate(String submitDate) {
 		this.submitDate = submitDate;
 	}
 	public String getChecked() {
