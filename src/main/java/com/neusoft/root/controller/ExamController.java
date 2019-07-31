@@ -303,6 +303,12 @@ public class ExamController {
 	public String addPaperChecking(@RequestBody JSONObject jsonObject){
 		return "ok";
 	}
+	/**
+	 * 添加试卷
+	 * 
+	 * @param jsonObject
+	 * @return
+	 */
 	@RequestMapping(value="/add_paper",method=RequestMethod.POST)
 	@ResponseBody
 	public String addPaper(@RequestBody JSONObject jsonObject){
