@@ -178,13 +178,14 @@ public class PaperServiceImpl implements PaperService{
 
 	@Override
 	public List<ParsedPaper> queryParsedPaper(Integer id) {
+		System.out.println("paper"+id);
 		// TODO Auto-generated method stub
 		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
 		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
 		List<ParsedPaper> list2 = new ArrayList<>();
 		ItemService service = new ItemServiceImpl();
 		Integer ID =0;
-		//System.out.println("@@@");
+		System.out.println("@@@");
 		for(RawPaper paper:list)
 		{
 			List<ParsedItem> q1 = new ArrayList<>() ;
@@ -195,18 +196,20 @@ public class PaperServiceImpl implements PaperService{
 				String [] line = question1[i].split(",");
 				if(line.length!=0)
 				{
-				//	System.out.println("!!!");
+					System.out.println("!!!");
 					ID = Integer.valueOf(line[0]);
-				//	System.out.println(ID);
+					System.out.println(ID);
 				}
+				System.out.println("2");
 				questionservice1 = service.queryParsedItem(ID);
+				System.out.println(questionservice1==null);
 				for(ParsedItem x:questionservice1)
 				{
-				//	System.out.println(x.toString());
+					System.out.println(x.toString());
 					q1.add(x);
 				}
 			}
-		//	System.out.println(q1.toString());
+			System.out.println(q1.toString());
 			List<ParsedItem> q2 = new ArrayList<>() ;
 			List<ParsedItem> questionservice2 ;
 			String [] question2 = paper.getMultichoiceQuestion().split("###");
