@@ -25,7 +25,7 @@ $(document).ready(function () {
     getDateTo();
 
     //展开和收起
-    $(".toolbar-setting .btn-href-collapse").on("click", function (e) {
+    /*$(".toolbar-setting .btn-href-collapse").on("click", function (e) {
         // e.stopPropagation();
         // e.preventDefault();
         var _this = $(this);
@@ -44,7 +44,7 @@ $(document).ready(function () {
     $(".toolbar-setting .btn-href-collapse").on("mouseout", function (e) {
         $(".toolbar-setting a").css('color', '#3A3E51');
         $(".toolbar-setting span").css('color', '#B4B6BD');
-    });
+    });*/
 
 
     //选择部门

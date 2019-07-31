@@ -6,6 +6,15 @@ var ajaxUrl = ""; //保存提交URL，根据不同模板判断
 var exsit_ids = "";//整个试卷中已经添加的试题的id
 var selType = ""; //存储试题分类
 var commit_ids = "";//存储已选试题id
+function getParam(paramName) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == paramName){return pair[1];}
+    }
+    return(false);
+}
 var typeObject = {
     "1": [],
     "2": [],
@@ -442,16 +451,22 @@ $(document).ready(function () {
     });
 
     //选题组卷选择试题
-    $("body").on("click", ".group_simple a.selQuestionLink", function (e) {
+    $("body").on("click", "a.selQuestionLink", function (e) {
         e.stopPropagation();
         e.preventDefault();
-        showSelQuestions(this);
+        var type = $(e.target).parents().parents().parents().siblings(".questionTypeText").text();
+        var subject = getParam('subject');
+        subject = decodeURI(subject);
+        showSelQuestions(this, type, subject);
     });
     //选题组卷管理试题
     $("body").on("click", ".group_simple a.modifyQuestionLink", function (e) {
         e.stopPropagation();
         e.preventDefault();
-        showModifyQuestions(this);
+        var type = $(e.target).parents().parents().parents().siblings(".questionTypeText").text();
+        var subject = getParam('subject');
+
+        showSelQuestions(this, type, subject);
     });
     //抽题、随机组卷选择试题分类
     $("body").on("click", ".group_simple .selQuestionsTypeLink", function (e) {
@@ -1769,7 +1784,7 @@ function updateFillDifficultFn() {
 }
 
 //选题组卷，显示选择试题对话框
-function showSelQuestions(obj) {
+function showSelQuestions(obj, type, subject) {
     selType = $(obj).parents(".group_simple").attr("questiontype");
     //不显示已选择的试题
     $(obj).parents(".group_main").find(".group_simple").each(function (index, element) {
@@ -1778,7 +1793,8 @@ function showSelQuestions(obj) {
             commit_ids = commit_ids + commit_divs[i].getAttribute("questionid") + ',';
         }
     });
-    selQuestionFrame.location.href = "/admin/select_type";
+    var url = "/html/exam/get_items_select?type=" + type + "&subject=" + subject;
+    selQuestionFrame.location.href = url;
     $('#questionsModal').modal({
         backdrop: "static",
         keyboard: false
