@@ -1,5 +1,9 @@
 package com.neusoft.root.service;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.alibaba.fastjson.JSONObject;
+import com.neusoft.root.domain.ParsedPaper;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class testPaperServiceImpl {
@@ -16,7 +21,7 @@ public class testPaperServiceImpl {
 	@Test
 	public void testaddRawPaper()
 	{
-		JSONObject json = new JSONObject();
+		/*JSONObject json = new JSONObject();
 		json.put("paperId", 1);
 		json.put("paperName", "普通题");
 		json.put("testIds1","1");
@@ -48,6 +53,9 @@ public class testPaperServiceImpl {
 		//System.out.println(test.createPaper("ddd","单选题" ).toString());
 		//System.out.println(test.randPaper("dddddd","ddd", "id"));
 		test.addRawPaper(json);
+*/		
 		
+		ParsedPaper c=  test.queryParsedPaper(1);
+		System.out.println(c);
 	}
 }
