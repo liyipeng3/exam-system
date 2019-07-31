@@ -1,8 +1,11 @@
 ﻿package com.neusoft.root.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,8 @@ public class PaperServiceImpl implements PaperService{
 	TeacherMapper mapper;
 	@Autowired
 	ItemService service ;
+	@Autowired
+	PaperService service2;
 	@Override
 	public void addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
@@ -285,7 +290,106 @@ public class PaperServiceImpl implements PaperService{
 			}
 		}
 		return list2;
+	}
+
+	@Override
+	public ParsedPaper randPaper(String name, String subjects,String ID) {
+		// TODO Auto-generated method stub
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
+		String date = df.format(new Date());// new Date()为获取当前系统时间
+		//System.out.println(date);
+		String current = Long.toString(System.currentTimeMillis());
+		List<ParsedItem> list = service.queryParsedItem(subjects);
+		List<ParsedItem> list2 = new ArrayList<>();
+		Set<Integer> arr = getRandom(10, list.size());
+		ParsedItem item;
+		String singlechoiceQuestion = "";
+		String multichoiceQuestion = "";
+		String fillQuestion = "";
+		String subjectiveQuestion = "";
+		Double paperScore = 0.0;
+		for(Integer x:arr)
+		{
+			list2 = service.queryParsedItem(x);
+			if(list2.size()!=1)
+			{
+				System.out.println("相同题目id查到多道题");
+			}
+			else 
+			{
+				item = list2.get(0);
+				if(item.getItemType().equals("单选题"))
+				{
+					singlechoiceQuestion = singlechoiceQuestion+item.getItemId()+","+item.getItemScore()+"###";
+				}
+				else if(item.getItemType().equals("多选题"))
+				{
+					multichoiceQuestion = multichoiceQuestion+item.getItemId()+","+item.getItemScore()+"###";
+				}
+				else if(item.getItemType().equals("填空题"))
+				{
+					fillQuestion = fillQuestion+item.getItemId()+","+item.getItemScore()+"###";
+				}
+				else if(item.getItemType().equals("主观题"))
+				{
+					subjectiveQuestion = subjectiveQuestion+item.getItemId()+","+item.getItemScore()+"###";
+				}
+				else
+				{
+					System.out.println("无效题目类型！");
+				}
+			}
+			
+		}
+		if(singlechoiceQuestion!="")
+		{
+			singlechoiceQuestion = singlechoiceQuestion.substring(0, singlechoiceQuestion.length()-3);
+		}
+		if(multichoiceQuestion!="")
+		{
+			multichoiceQuestion = multichoiceQuestion.substring(0, multichoiceQuestion.length()-3);
+		}
+		if(fillQuestion!="")
+		{
+			fillQuestion = fillQuestion.substring(0, fillQuestion.length()-3);
+		}
+		if(subjectiveQuestion!="")
+		{
+			subjectiveQuestion = subjectiveQuestion.substring(0, subjectiveQuestion.length()-3);
+		}
+		RawPaper paper = new RawPaper(0, name, ID, date, subjects, (Double)3.0, singlechoiceQuestion, multichoiceQuestion, fillQuestion, subjectiveQuestion, paperScore, "保密",current);
+		mapper.addRawPaper(paper);
+		RawPaper paper3= new RawPaper();
+		paper3.setPaperName(name);
+		paper3.setPaperRemark(current);
+		List<RawPaper>  paper2=  mapper.queryRawPaper(paper3);
+		Integer PaperId = paper2.get(0).getPaperId();
+		List<ParsedPaper> list3 = service2.queryParsedPaper(PaperId);
+				
+				
+		return list3.get(0);
 	}	
+	public static Set<Integer> getRandom(Integer wantLength,Integer itemLength) 
+	{
+		Set<Integer> numberSet = new HashSet<>();
+		if (wantLength>=itemLength) 
+		{
+			for(int i=0;i<itemLength;i++)
+			{
+				numberSet.add(i);
+			}
+			return numberSet;
+		}
+		else
+		{
+			Random random = new Random();
+			while(numberSet.size()<wantLength)
+			{
+				numberSet.add(random.nextInt(itemLength));
+			}
+			return numberSet;
+		}
+	}
 	
 	
 }
