@@ -68,7 +68,7 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line1.length!=scores1.length)
 					{
-						singlequestion = singlequestion+line1[i]+"???"+scores1[0]+"???"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
+						singlequestion = singlequestion+line1[i]+"???"+scores1[0]+"???"+json.getString("testTittle"+x)+"???"+x+"###";
 					}
 					else
 					{
