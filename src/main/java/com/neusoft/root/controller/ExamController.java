@@ -350,7 +350,7 @@ public class ExamController {
 		json += ",\"id\":"+"\""+item.getItemId()+"\"";
 		json += ",\"difficult\":"+"\""+diffcult+"\"";
 		json += ",\"analysis\":"+"\""+item.getItemParse()+"\"";
-		json += ",\"type\":"+"\""+item.getItemType()+"\"";
+		json += ",\"type\":"+"\""+type+"\"";
 		json += ",\"question\":"+"\""+item.getItemQuestion()+"\"";
 		json += ",\"tab_num\":"+"\""+options.size()+"\"";
 		for(int i=0;i<options.size();i++){
