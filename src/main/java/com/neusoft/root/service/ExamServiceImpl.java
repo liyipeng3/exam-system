@@ -20,7 +20,8 @@ public class ExamServiceImpl implements ExamService
 	@Autowired 
 	TeacherMapper teachermapper;
 	
-	public void addExam(JSONObject json)
+	@Override
+	public Integer addExam(JSONObject json)
 	{
 		Integer paperId = Integer.valueOf(json.getString("paperId"));
 		String createrId = json.getString("createrId");
@@ -43,12 +44,15 @@ public class ExamServiceImpl implements ExamService
 		
 		Exam exam = new Exam(1, paperId, createrId, examName, examType, passScore, sumScore, createDate, examBegin, examEnd, examLast, examRemark);
 		teachermapper.addExam(exam);
+		exam.setExamId(null);
+		return teachermapper.queryExam(exam).get(0).getExamId();
 	}
 	
 	@Override
-	public List<Exam> queryExam(JSONObject json) {
+	public List<Exam> queryExam(JSONObject json) 
+	{
 		String examId = json.getString("examId");
-		if (examId==null&&(!examId.equals(""))) 
+		if (examId==null||examId.equals("")) 
 		{
 			return teachermapper.queryExam(null);
 		}

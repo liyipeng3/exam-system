@@ -75,6 +75,4 @@ public interface TeacherMapper {
 	public void addExam(Exam exam);
 	public List<Exam> queryExam(Exam exam);
 	
-	
-	
 }
