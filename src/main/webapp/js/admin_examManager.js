@@ -55,10 +55,11 @@ $('#setExamTop').click(function (e) {
             $('#examTopModal').modal('hide');
         }
     })
-})
+});
 
 
 $(document).ready(function () {
+
     //初始化日历控件
     laydate.render({
         elem: "#dateFrom"

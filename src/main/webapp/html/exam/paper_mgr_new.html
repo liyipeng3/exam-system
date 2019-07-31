@@ -951,7 +951,7 @@
                 paper += '</td></tr>';
                 $('tbody').append($(paper));
             });
-            $('input.select-box, td.text-left').change(function (e) {
+            $('input.select-box, td.text-left').click(function (e) {
 
                 if ($(e.target).parents("tr").hasClass("active")) {
                     $(e.target).parents("tr")

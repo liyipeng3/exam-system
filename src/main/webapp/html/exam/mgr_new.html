@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://admin..com/admin/result/mgr_new -->
 <html lang="zh-CN">
 
 <head>
@@ -582,7 +581,7 @@
             </div>
             <div class="modal-body">
                 <iframe width="100%" height="100%" name="selTypeModal" id="selTypeModal"
-                        src="../../html/saved_resource.html"></iframe>
+                        src="./select_exam.html"></iframe>
             </div>
         </div>
     </div>
@@ -1365,40 +1364,7 @@
     $('#exportFile').click(function () {
         $("#exportFileModal").modal('show');
     });
-    //导出附件链接
-    $('#startExportLinks').click(function () {
-        $.ajax({
-            type: 'GET',
-            url: '/admin/attachment/download/',
-            cache: false,
-            headers: {
-                "cache-control": "no-cache"
-            },
-            dataType: 'json',
-            data: 'examInfoId=' + exam_info_id,
-            success: function (mesg) {
-                if (mesg.success) {
-                    $("#exportFileModal").modal('hide');
-                    $("#exportingFileModal .title").text("导出中...");
-                    $("#exportingFileModal .content").text("").append("<p>正在导出考生答案</p><p>成功后即可进入'消息中心'下载</p>");
-                    $("#exportingFileModal").modal('show');
-                } else {
-                    if (mesg.code == '61522') {
-                        $("#exportFileModal").modal('hide');
-                        $("#exportingFileModal .title").text("");
-                        $("#exportingFileModal .content").text("正在导出本场考试的附件链接");
-                        $("#exportingFileModal").modal('show');
-                    }
-                    if (mesg.code == '61523') {
-                        $("#exportFileModal").modal('hide');
-                        $("#exportingFileModal .title").text("导出失败");
-                        $("#exportingFileModal .content").text("");
-                        $("#exportingFileModal").modal('show');
-                    }
-                }
-            },
-        })
-    });
+
 </script>
 <script type="text/javascript" src="../../js/admin_mark_paper.js"></script>
 </body>
