@@ -272,11 +272,13 @@ public class PaperServiceImpl implements PaperService{
 	public List<ParsedItem> createPaper(String subjects,String type) {
 		// TODO Auto-generated method stub
 		List<ParsedItem> list = service.queryParsedItem(subjects);
+	//	System.out.println(list.toString());
 		List<ParsedItem> list2 = new ArrayList<>();
 		for(ParsedItem item:list)
 		{
-			if(item.getItemType().equals("type"))
+			if(item.getItemType().equals(type))
 			{
+				//System.out.println("!!");
 				list2.add(item);
 			}
 		}
