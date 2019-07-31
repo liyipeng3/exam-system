@@ -117,14 +117,14 @@ public class ExamController {
 	 */
 	@RequestMapping(value="get_certain_items",method=RequestMethod.GET)
 	@ResponseBody
-	public String getSubjectItems(HttpServletRequest request, String itemType, String subject){
+	public String getCertainItems(HttpServletRequest request/*, String itemType, String subject*/){
 		List<ParsedItem> items = new ArrayList<>();
 		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String datestring = df.format(time);
-		List<String> options = new ArrayList<>();
+		/*List<String> options = new ArrayList<>();
 		options.add("asdsda");
 		options.add("dasdasdas");
 		ParsedItem item1 = new ParsedItem(1, username, datestring, "语文", "单选题", 0.1, "dasdasdasdasd??????", options, options, "itemPicture", 9.9, "itemParse");
@@ -134,12 +134,10 @@ public class ExamController {
 		items.add(item1);
 		items.add(item2);
 		items.add(item3);
-		items.add(item4);
+		items.add(item4);*/
 		//items = paperService.createPaper(subject, itemType);
-		List<ParsedItem> test = new ArrayList<>();
-		//test = paperService.createPaper("语文", "单选题");
+		items = paperService.createPaper("语文", "单选题");
 		Gson gson = new Gson();
-		System.out.println(gson.toJson(test));
 		return gson.toJson(items);
 	}
 	/**
