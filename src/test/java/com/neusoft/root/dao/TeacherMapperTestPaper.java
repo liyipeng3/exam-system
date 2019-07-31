@@ -18,6 +18,7 @@ import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
 import com.neusoft.root.domain.MyLog;
+import com.neusoft.root.domain.PaperHelper;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Student;
 
@@ -80,15 +81,17 @@ public class TeacherMapperTestPaper
 	{
 		try 
 		{
-			List<RawPaper> list = tm.queryRawPaper(null);
-			for (RawPaper paper : list) 
-			{
-				System.out.println(paper);
-			}
+			RawPaper rp = new RawPaper();
+			rp.setPaperId(1);
+			List<RawPaper> list = tm.queryRawPaper(rp);
+			PaperHelper ph = new PaperHelper(list.get(0));
+			System.out.println(1);
 		} 
 		catch (Exception e) 
 		{
 			System.out.println(e);
 		}
+		
+		
 	}
 }
