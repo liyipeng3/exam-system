@@ -358,9 +358,26 @@ public class ExamController {
 			json += ",\"answer"+j+"\":"+"\""+options.get(i)+"\"";
 			json += ",\"key"+j+"\":"+"\""+j+"\"";
 		}
-		for(int i=0;i<answers.size();i++){
-			int j = i+1;
-			json += ",\"test_ans_right"+j+"\":"+"\""+answers.get(i)+"\"";
+		if(type.equals("1")||type.equals("2")){
+			for(int i=0;i<answers.size();i++){
+				int j = i+1;
+				int k = 0;
+				while(k<options.size()){
+					if(answers.get(i).equals(options.get(k))){
+						break;
+					}
+					k++;
+				}
+				int c = 65 + k;
+				char C = (char)c;
+				json += ",\"test_ans_right"+"\":"+"\""+C+"\"";
+			}
+		}
+		else{
+			for(int i=0;i<answers.size();i++){
+				int j = i+1;
+				json += ",\"test_ans_right"+"\":"+"\""+answers.get(i)+"\"";
+			}
 		}
 		json += "}";
 		return json;
