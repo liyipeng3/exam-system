@@ -440,6 +440,7 @@ public class ExamController {
 		System.out.println(paper);
 		JsonObject json = new JsonObject();
 		json.addProperty("paperName", paper.getPaperName());
+		json.addProperty("paperSubject", paper.getPaperType());
 		json.addProperty("score", paper.getPaperScore());
 		json.addProperty("createrId", paper.getCreaterId());
 		json.addProperty("createDate", paper.getCreateDate());
@@ -455,6 +456,7 @@ public class ExamController {
 		json.addProperty("itemsNumber", String.valueOf(num));*/
 		JsonObject json = new JsonObject();
 		json.addProperty("paperName", "语文期末");
+		json.addProperty("paperSubject", "语文");
 		json.addProperty("score", "100");
 		json.addProperty("createrId", "teacher");
 		json.addProperty("createDate", "2019-11-11 11:11");
