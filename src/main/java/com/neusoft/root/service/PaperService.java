@@ -38,6 +38,12 @@ public interface PaperService {
 	public List<RawPaper> queryRawPaper();
 	/**
 	 * 查询paper
+	 * @param id 
+	 * @return 试卷
+	 */
+	public RawPaper queryRawPaper(Integer id);
+	/**
+	 * 查询paper
 	 * @return parsedpaper的list
 	 */
 	public ParsedPaper queryParsedPaper(Integer id);

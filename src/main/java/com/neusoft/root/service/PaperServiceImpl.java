@@ -554,6 +554,15 @@ public class PaperServiceImpl implements PaperService{
 		}
 	}
 
+	@Override
+	public RawPaper queryRawPaper(Integer id) {
+		// TODO Auto-generated method stub
+		RawPaper paper = new RawPaper();
+		paper.setPaperId(id);
+		List<RawPaper> list = mapper.queryRawPaper(paper);
+		return list.get(0);
+	}
+
 	
 	
 }
