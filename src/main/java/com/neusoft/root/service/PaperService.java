@@ -52,5 +52,11 @@ public interface PaperService {
 	 * @param type 题型
 	 */
 	public List<ParsedItem> createPaper(String subjects,String type);
-	
+	/**
+	 * 随机组卷
+	 * @param name 试卷名字
+	 * @param subjects 科目
+	 * @return 试卷
+	 */
+	public ParsedPaper randPaper(String name,String subjects,String ID);
 }
