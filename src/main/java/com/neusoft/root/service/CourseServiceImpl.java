@@ -20,33 +20,37 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public void addCourse(JSONObject json) {
 		// TODO Auto-generated method stub
-		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"));
+		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"),json.getString("courseBegin"),json.getString("courseEnd"),json.getString("courseRemark"),json.getString("courseStatus"));
 		mapper.addCource(course);
 	}
 
 	@Override
-	public void deleteCourse(JSONObject json) {
+	public void deleteCourse(String courseId) {
 		// TODO Auto-generated method stub
-		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"));
+		Course course = new Course();
+		course.setCourseId(courseId);
 		mapper.deleteCourse(course);
 	}
 	@Override
 	public void updateCourse(JSONObject json) {
 		// TODO Auto-generated method stub
-		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"));
+		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"),json.getString("courseBegin"),json.getString("courseEnd"),json.getString("courseRemark"),json.getString("courseStatus"));
 		Map<String, Object> map = new HashMap<>();
-		List<String> list = new ArrayList<String>();
-		list.add(course.getCourseId());
-		map.put("ids",list);
+		map.put("ids",course.getCourseId());
 		map.put("courseName",course.getCourseName());
 		map.put("courseType",course.getCourseType());
+		map.put("courseBegin", course.getCourseBegin());
+		map.put("courseEnd", course.getCourseEnd());
+		map.put("courseRemark", course.getCourseRemark());
+		map.put("courseStatus", course.getCourseStatus());
 		mapper.updateCourse(map);
 	}
 
 	@Override
-	public List<Course> queryCourse(JSONObject json) {
+	public List<Course> queryCourse(String id) {
 		// TODO Auto-generated method stub
-		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"));
+		Course course = new Course();
+		course.setCourseId(id);
 		List<Course> list = mapper.queryCourse(course);
 		return list;
 	}

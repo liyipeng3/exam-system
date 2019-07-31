@@ -6,11 +6,20 @@ public class Course
 	private String courseId;  // 课程ID
 	private String courseName; //课程名称
  	private String courseType;  //课程类型
-	public Course(String courseId, String courseName, String courseType) {
+ 	private String courseBegin;  // 开始时间
+ 	private String courseEnd;  // 结束时间
+ 	private String courseRemark; // 描述
+ 	private String courseStatus; // 状态
+	public Course(String courseId, String courseName, String courseType, String courseBegin, String courseEnd,
+			String courseRemark, String courseStatus) {
 		super();
 		this.courseId = courseId;
 		this.courseName = courseName;
 		this.courseType = courseType;
+		this.courseBegin = courseBegin;
+		this.courseEnd = courseEnd;
+		this.courseRemark = courseRemark;
+		this.courseStatus = courseStatus;
 	}
 	public Course() {
 		super();
@@ -33,12 +42,40 @@ public class Course
 	public void setCourseType(String courseType) {
 		this.courseType = courseType;
 	}
+	public String getCourseBegin() {
+		return courseBegin;
+	}
+	public void setCourseBegin(String courseBegin) {
+		this.courseBegin = courseBegin;
+	}
+	public String getCourseEnd() {
+		return courseEnd;
+	}
+	public void setCourseEnd(String courseEnd) {
+		this.courseEnd = courseEnd;
+	}
+	public String getCourseRemark() {
+		return courseRemark;
+	}
+	public void setCourseRemark(String courseRemark) {
+		this.courseRemark = courseRemark;
+	}
+	public String getCourseStatus() {
+		return courseStatus;
+	}
+	public void setCourseStatus(String courseStatus) {
+		this.courseStatus = courseStatus;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((courseBegin == null) ? 0 : courseBegin.hashCode());
+		result = prime * result + ((courseEnd == null) ? 0 : courseEnd.hashCode());
 		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
 		result = prime * result + ((courseName == null) ? 0 : courseName.hashCode());
+		result = prime * result + ((courseRemark == null) ? 0 : courseRemark.hashCode());
+		result = prime * result + ((courseStatus == null) ? 0 : courseStatus.hashCode());
 		result = prime * result + ((courseType == null) ? 0 : courseType.hashCode());
 		return result;
 	}
@@ -51,6 +88,16 @@ public class Course
 		if (getClass() != obj.getClass())
 			return false;
 		Course other = (Course) obj;
+		if (courseBegin == null) {
+			if (other.courseBegin != null)
+				return false;
+		} else if (!courseBegin.equals(other.courseBegin))
+			return false;
+		if (courseEnd == null) {
+			if (other.courseEnd != null)
+				return false;
+		} else if (!courseEnd.equals(other.courseEnd))
+			return false;
 		if (courseId == null) {
 			if (other.courseId != null)
 				return false;
@@ -61,6 +108,16 @@ public class Course
 				return false;
 		} else if (!courseName.equals(other.courseName))
 			return false;
+		if (courseRemark == null) {
+			if (other.courseRemark != null)
+				return false;
+		} else if (!courseRemark.equals(other.courseRemark))
+			return false;
+		if (courseStatus == null) {
+			if (other.courseStatus != null)
+				return false;
+		} else if (!courseStatus.equals(other.courseStatus))
+			return false;
 		if (courseType == null) {
 			if (other.courseType != null)
 				return false;
@@ -70,6 +127,8 @@ public class Course
 	}
 	@Override
 	public String toString() {
-		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", courseType=" + courseType + "]";
+		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", courseType=" + courseType
+				+ ", courseBegin=" + courseBegin + ", courseEnd=" + courseEnd + ", courseRemark=" + courseRemark
+				+ ", courseStatus=" + courseStatus + "]";
 	}
 }
