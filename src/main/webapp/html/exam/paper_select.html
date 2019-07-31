@@ -274,7 +274,6 @@
                 $('tbody').append($(paper));
             });
             $('input.select-box, td.text-left').click(function (e) {
-
                 if ($(e.target).parents("tr").hasClass("active")) {
                     $(e.target).parents("tr")
                         .removeClass("active");
@@ -342,4 +341,15 @@
 <div class="pika-single is-hidden is-bound" style=""></div>
 <div class="pika-single is-hidden is-bound" style=""></div>
 </body>
+<script>
+    function getParam(paramName) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == paramName){return pair[1];}
+        }
+        return(false);
+    }
+</script>
 </html>
