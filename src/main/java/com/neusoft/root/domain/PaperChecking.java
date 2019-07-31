@@ -1,5 +1,6 @@
 package com.neusoft.root.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PaperChecking
@@ -12,6 +13,14 @@ public class PaperChecking
 	private List<ItemChecking> fillItem;
 	private List<ItemChecking> subjectiveItem;
 	private Double studentScore;
+	
+	public void init()
+	{
+		singleItem = new ArrayList<ItemChecking>();
+		multiItem = new ArrayList<ItemChecking>();
+		fillItem = new ArrayList<ItemChecking>();
+		subjectiveItem = new ArrayList<ItemChecking>();
+	}
 	public PaperChecking(String studentId, String paperId, String teacherId, List<ItemChecking> singleItem,
 			List<ItemChecking> multiItem, List<ItemChecking> fillItem, List<ItemChecking> subjectiveItem,
 			Double studentScore) {
@@ -27,7 +36,6 @@ public class PaperChecking
 	}
 	public PaperChecking() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getStudentId() {
 		return studentId;

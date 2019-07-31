@@ -3,6 +3,7 @@ package com.neusoft.root.service;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
+import com.neusoft.root.domain.PaperChecking;
 import com.neusoft.root.domain.ParsedCheck;
 import com.neusoft.root.domain.RawCheck;
 /**
@@ -38,4 +39,11 @@ public interface CheckService {
 	 * @return 查询parsedcheck结果list
 	 */
 	public List<ParsedCheck> queryParsedCheck(JSONObject json);
+	
+	/**
+	 * 你需要给我studentId,paperId,teacherId
+	 * @param json
+	 * @return
+	 */
+	public List<PaperChecking> queryPaperChecking(JSONObject json);
 }

@@ -1,5 +1,7 @@
 package com.neusoft.root.domain;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 //学生答题结果
@@ -8,15 +10,17 @@ public class ParsedResult
 	private String studentId; //学生ID
 	private Integer paperId; //试卷ID
 	private String teacherId;
-	private Map<String, Double> singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
-	private Map<String, Double> multichoiceResult; //多选题结果，格式：ID1，分数1###ID2，分数2###
-	private Map<String, Double> fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
-	private Map<String, Double> subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
+	private Map<String, List<String>> singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
+	private Map<String, List<String>> multichoiceResult; //多选题结果，格式：ID1，分数1###ID2，分数2###
+	private Map<String, List<String>> fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
+	private Map<String, List<String>> subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
 	private String submitDate; //答题日期
 	private String checked;  //是否被批阅
-	public ParsedResult(String studentId, Integer paperId, String teacherId, Map<String, Double> singlechoiceResult,
-			Map<String, Double> multichoiceResult, Map<String, Double> fillResult, Map<String, Double> subjectiveResult,
-			String submitDate, String checked) {
+	
+	public ParsedResult(String studentId, Integer paperId, String teacherId,
+			Map<String, List<String>> singlechoiceResult, Map<String, List<String>> multichoiceResult,
+			Map<String, List<String>> fillResult, Map<String, List<String>> subjectiveResult, String submitDate,
+			String checked) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
@@ -28,63 +32,88 @@ public class ParsedResult
 		this.submitDate = submitDate;
 		this.checked = checked;
 	}
-	public ParsedResult() {
+
+	public ParsedResult() 
+	{
 		super();
+		singlechoiceResult = new HashMap<>();
+		multichoiceResult = new HashMap<>();
+		fillResult = new HashMap<>();
+		subjectiveResult = new HashMap<>();
 	}
+
 	public String getStudentId() {
 		return studentId;
 	}
+
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
+
 	public Integer getPaperId() {
 		return paperId;
 	}
+
 	public void setPaperId(Integer paperId) {
 		this.paperId = paperId;
 	}
+
 	public String getTeacherId() {
 		return teacherId;
 	}
+
 	public void setTeacherId(String teacherId) {
 		this.teacherId = teacherId;
 	}
-	public Map<String, Double> getSinglechoiceResult() {
+
+	public Map<String, List<String>> getSinglechoiceResult() {
 		return singlechoiceResult;
 	}
-	public void setSinglechoiceResult(Map<String, Double> singlechoiceResult) {
+
+	public void setSinglechoiceResult(Map<String, List<String>> singlechoiceResult) {
 		this.singlechoiceResult = singlechoiceResult;
 	}
-	public Map<String, Double> getMultichoiceResult() {
+
+	public Map<String, List<String>> getMultichoiceResult() {
 		return multichoiceResult;
 	}
-	public void setMultichoiceResult(Map<String, Double> multichoiceResult) {
+
+	public void setMultichoiceResult(Map<String, List<String>> multichoiceResult) {
 		this.multichoiceResult = multichoiceResult;
 	}
-	public Map<String, Double> getFillResult() {
+
+	public Map<String, List<String>> getFillResult() {
 		return fillResult;
 	}
-	public void setFillResult(Map<String, Double> fillResult) {
+
+	public void setFillResult(Map<String, List<String>> fillResult) {
 		this.fillResult = fillResult;
 	}
-	public Map<String, Double> getSubjectiveResult() {
+
+	public Map<String, List<String>> getSubjectiveResult() {
 		return subjectiveResult;
 	}
-	public void setSubjectiveResult(Map<String, Double> subjectiveResult) {
+
+	public void setSubjectiveResult(Map<String, List<String>> subjectiveResult) {
 		this.subjectiveResult = subjectiveResult;
 	}
+
 	public String getSubmitDate() {
 		return submitDate;
 	}
+
 	public void setSubmitDate(String submitDate) {
 		this.submitDate = submitDate;
 	}
+
 	public String getChecked() {
 		return checked;
 	}
+
 	public void setChecked(String checked) {
 		this.checked = checked;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -100,6 +129,7 @@ public class ParsedResult
 		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -156,6 +186,7 @@ public class ParsedResult
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "ParsedResult [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
