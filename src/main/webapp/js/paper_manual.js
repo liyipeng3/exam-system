@@ -1117,13 +1117,17 @@ function serializeForm_paper() {
 
 //异步提交表单保存试卷
 function asyncPaperSub(obj) {
-    var dataForm = $('#asyncForm_paper').serialize();
-    console.log(JSON.stringify(dataForm));
+    var dataForm = $('#asyncForm_paper').serializeArray();
+    var data = {};
+    $(dataForm).each(function(index, obj){
+        data[obj.name] = obj.value;
+    });
+    console.log(data);
     $.ajax({
         type: "POST",
         dataType: "json",
         url: ajaxUrl,
-        data: JSON.stringify(dataForm),
+        data: data,
         contentType: 'application/json',
         success: function (msg) {
             if (msg.status == 'ok') {
