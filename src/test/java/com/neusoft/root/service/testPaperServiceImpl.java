@@ -16,7 +16,7 @@ public class testPaperServiceImpl {
 	@Test
 	public void testaddRawPaper()
 	{
-		JSONObject json = new JSONObject();
+		/*JSONObject json = new JSONObject();
 		json.put("paperId", 5);
 		json.put("difficult", "普通题");
 		json.put("singleQuestion1","1");
@@ -42,9 +42,11 @@ public class testPaperServiceImpl {
 		//json.put("paperIndex",5.0);
 		json.put("paperScore",0.9);
 		json.put("paperSecrecy","qu11");
-		json.put("paperRemark","qu12");
+		json.put("paperRemark","qu12");*/
 		//System.out.println(test.queryParsedPaper(5).toString());
 		//test.addRawPaper(json);
-		System.out.println(test.createPaper("ddd","单选题" ).toString());
+		//System.out.println(test.createPaper("ddd","单选题" ).toString());
+		System.out.println(test.randPaper("dddddd","ddd", "id"));
+		
 	}
 }

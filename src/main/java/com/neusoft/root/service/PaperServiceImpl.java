@@ -202,21 +202,21 @@ public class PaperServiceImpl implements PaperService{
 				String [] line = question1[i].split(",");
 				if(line.length!=0)
 				{
-					//System.out.println("!!!");
+					System.out.println("!!!");
 					ID = Integer.valueOf(line[0]);
-					//System.out.println(ID);
+					System.out.println(ID);
 				}
-			//	System.out.println("2");
+				System.out.println("2");
 				questionservice1 = service.queryParsedItem(ID);
 				//System.out.println(questionservice1==null);
 				for(ParsedItem x:questionservice1)
 				{
 					x.setItemScore(Double.valueOf(line[1]));
-				//	System.out.println(x.toString());
+					//System.out.println(x.toString());
 					q1.add(x);
 				}
 			}
-		//	System.out.println(q1.toString());
+			System.out.println(q1.toString());
 			List<ParsedItem> q2 = new ArrayList<>() ;
 			List<ParsedItem> questionservice2 ;
 			String [] question2 = paper.getMultichoiceQuestion().split("###");
@@ -227,12 +227,15 @@ public class PaperServiceImpl implements PaperService{
 				{
 					ID = Integer.valueOf(line[0]);
 				}
+				System.out.println(ID);
 				questionservice2 = service.queryParsedItem(ID);
 				for(ParsedItem x:questionservice2)
 				{
 					q2.add(x);
+					System.out.println(x);
 				}
 			}
+			System.out.println(q2.toString());
 			List<ParsedItem> q3 = new ArrayList<>() ;
 			List<ParsedItem> questionservice3 ;
 			String [] question3 = paper.getFillQuestion().split("###");
@@ -266,11 +269,12 @@ public class PaperServiceImpl implements PaperService{
 					q4.add(x);
 				}
 			}
-		//	System.out.println(q1.toString()+q2.toString()+q3.toString()+q4.toString());
+			//System.out.println(q1.toString());
 			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
 			list2.add(parsedPaper);	
 			
 		}
+		//System.out.println("@@"+list2.toString());
 		return list2;
 		
 	}
@@ -300,10 +304,12 @@ public class PaperServiceImpl implements PaperService{
 		String date = df.format(new Date());// new Date()为获取当前系统时间
 		//System.out.println(date);
 		String current = Long.toString(System.currentTimeMillis());
-		List<ParsedItem> list = service.queryParsedItem(subjects);
-		List<ParsedItem> list2 = new ArrayList<>();
+		List<RawItem> list = service.queryRawItem(subjects);
+		//List<RawItem> list1 = mapper.queryRawItem(rawItem)
+		//ParsedItem list2 ;
 		Set<Integer> arr = getRandom(10, list.size());
-		ParsedItem item;
+		System.out.println("随机数"+arr.toString());
+		RawItem item;
 		String singlechoiceQuestion = "";
 		String multichoiceQuestion = "";
 		String fillQuestion = "";
@@ -311,14 +317,8 @@ public class PaperServiceImpl implements PaperService{
 		Double paperScore = 0.0;
 		for(Integer x:arr)
 		{
-			list2 = service.queryParsedItem(x);
-			if(list2.size()!=1)
-			{
-				System.out.println("相同题目id查到多道题");
-			}
-			else 
-			{
-				item = list2.get(0);
+			//Integer itemId = list.get(x).getItemId();
+				item = list.get(x);
 				if(item.getItemType().equals("单选题"))
 				{
 					singlechoiceQuestion = singlechoiceQuestion+item.getItemId()+","+item.getItemScore()+"###";
@@ -339,7 +339,6 @@ public class PaperServiceImpl implements PaperService{
 				{
 					System.out.println("无效题目类型！");
 				}
-			}
 			
 		}
 		if(singlechoiceQuestion!="")
@@ -367,7 +366,7 @@ public class PaperServiceImpl implements PaperService{
 		Integer PaperId = paper2.get(0).getPaperId();
 		List<ParsedPaper> list3 = service2.queryParsedPaper(PaperId);
 				
-				
+				System.out.println(list3.get(0));
 		return list3.get(0);
 	}	
 	public static Set<Integer> getRandom(Integer wantLength,Integer itemLength) 
@@ -383,7 +382,7 @@ public class PaperServiceImpl implements PaperService{
 		}
 		else
 		{
-			Random random = new Random();
+			Random random = new Random(System.currentTimeMillis());
 			while(numberSet.size()<wantLength)
 			{
 				numberSet.add(random.nextInt(itemLength));

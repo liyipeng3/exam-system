@@ -64,7 +64,7 @@ public class ItemServiceImpl implements ItemService{
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
-			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer1")), "", 5.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
 			System.out.println(item.toString());
 			mapper.addRawItem(item);
 		}
@@ -138,7 +138,7 @@ public class ItemServiceImpl implements ItemService{
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer1")), "", 5.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
 			mapper.updateRawItem(item);
 		}
 		else if(json.getString("itemType").equals("多选题")){
@@ -219,7 +219,8 @@ public class ItemServiceImpl implements ItemService{
 		item.setItemId(ID);
 		try {
 			List<RawItem> items = mapper.queryRawItem(item);
-		//	System.out.println("@@@");
+			//System.out.println("@@@");
+			System.out.println("item"+items.toString());
 			List<ParsedItem> items2 = new ArrayList<>();
 		//	System.out.println("!!!");
 			for(RawItem xItem:items)
@@ -239,8 +240,9 @@ public class ItemServiceImpl implements ItemService{
 					answer.add(line1[j]);
 				}
 				items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
-	//		System.out.println(xItem.toString());
+		//System.out.println(xItem.toString());
 			}
+			//System.out.println(items2);
 			return items2;
 		} catch (Exception e) {
 			System.out.println(e);
