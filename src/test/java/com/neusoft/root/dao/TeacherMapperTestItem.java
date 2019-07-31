@@ -77,9 +77,11 @@ public class TeacherMapperTestItem
 	@Test
 	public void testQueryRawItem()
 	{
-		/*try 
+		try 
 		{
-			List<RawItem> list = tm.queryRawItem(null);
+			RawItem rawItem = new RawItem();
+			rawItem.setItemId(new Integer(6));
+			List<RawItem> list = tm.queryRawItem(rawItem);
 			for (RawItem ri : list) 
 			{
 				System.out.println(ri);
@@ -88,6 +90,6 @@ public class TeacherMapperTestItem
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}*/
+		}
 	}
 }

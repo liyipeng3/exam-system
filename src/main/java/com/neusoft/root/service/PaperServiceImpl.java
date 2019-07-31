@@ -1,4 +1,4 @@
-package com.neusoft.root.service;
+﻿package com.neusoft.root.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,7 +22,8 @@ import com.neusoft.root.domain.Subjects;
 public class PaperServiceImpl implements PaperService{
 	@Autowired
 	TeacherMapper mapper;
-
+	@Autowired
+	ItemService service ;
 	@Override
 	public void addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
@@ -178,11 +179,12 @@ public class PaperServiceImpl implements PaperService{
 
 	@Override
 	public List<ParsedPaper> queryParsedPaper(Integer id) {
+		System.out.println("paper"+id);
 		// TODO Auto-generated method stub
 		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
 		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
 		List<ParsedPaper> list2 = new ArrayList<>();
-		ItemService service = new ItemServiceImpl();
+		//ItemService service = new ItemServiceImpl();
 		Integer ID =0;
 		//System.out.println("@@@");
 		for(RawPaper paper:list)
@@ -195,13 +197,16 @@ public class PaperServiceImpl implements PaperService{
 				String [] line = question1[i].split(",");
 				if(line.length!=0)
 				{
-				//	System.out.println("!!!");
+					//System.out.println("!!!");
 					ID = Integer.valueOf(line[0]);
-				//	System.out.println(ID);
+					//System.out.println(ID);
 				}
+			//	System.out.println("2");
 				questionservice1 = service.queryParsedItem(ID);
+				//System.out.println(questionservice1==null);
 				for(ParsedItem x:questionservice1)
 				{
+					x.setItemScore(Double.valueOf(line[1]));
 				//	System.out.println(x.toString());
 					q1.add(x);
 				}
@@ -252,6 +257,7 @@ public class PaperServiceImpl implements PaperService{
 				questionservice4 = service.queryParsedItem(ID);
 				for(ParsedItem x:questionservice4)
 				{
+					
 					q4.add(x);
 				}
 			}
@@ -267,13 +273,14 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public List<ParsedItem> createPaper(String subjects,String type) {
 		// TODO Auto-generated method stub
-		ItemService service = new ItemServiceImpl();
 		List<ParsedItem> list = service.queryParsedItem(subjects);
+	//	System.out.println(list.toString());
 		List<ParsedItem> list2 = new ArrayList<>();
 		for(ParsedItem item:list)
 		{
-			if(item.getItemType().equals("type"))
+			if(item.getItemType().equals(type))
 			{
+				//System.out.println("!!");
 				list2.add(item);
 			}
 		}

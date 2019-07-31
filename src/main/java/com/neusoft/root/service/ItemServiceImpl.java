@@ -16,7 +16,7 @@ import com.neusoft.root.domain.RawItem;
 public class ItemServiceImpl implements ItemService{
 
 	@Autowired
-	TeacherMapper mapper;
+	private TeacherMapper mapper;
 	@Override
 	public List<RawItem> queryRawItem(String subjects) {
 		// TODO Auto-generated method stub
@@ -214,28 +214,38 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public List<ParsedItem> queryParsedItem(Integer ID) {
 		// TODO Auto-generated method stub
-		RawItem item = new RawItem(ID, "", "", "", "", 0.0, "", "", "", "", 0.0, "");
-		List<RawItem> items = mapper.queryRawItem(item);
-		List<ParsedItem> items2 = new ArrayList<>();
-		for(RawItem xItem:items)
-		{
-			List<String> list3 = new ArrayList<>();
-			String [] line = null;
-			line = xItem.getItemOption().split("###");
-			for(int i=0;i<line.length;i++)
+		System.out.println(ID+"!!!");
+		RawItem item = new RawItem();
+		item.setItemId(ID);
+		try {
+			List<RawItem> items = mapper.queryRawItem(item);
+		//	System.out.println("@@@");
+			List<ParsedItem> items2 = new ArrayList<>();
+		//	System.out.println("!!!");
+			for(RawItem xItem:items)
 			{
-				list3.add(line[i]);
+				List<String> list3 = new ArrayList<>();
+				String [] line = null;
+				line = xItem.getItemOption().split("###");
+				for(int i=0;i<line.length;i++)
+				{
+					list3.add(line[i]);
+				}
+				String [] line1 = null;
+				line1 = xItem.getItemAnswer().split("###");
+				List<String> answer = new ArrayList<>();
+				for(int j=0;j<line1.length;j++)
+				{
+					answer.add(line1[j]);
+				}
+				items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
+	//		System.out.println(xItem.toString());
 			}
-			String [] line1 = null;
-			line1 = xItem.getItemAnswer().split("###");
-			List<String> answer = new ArrayList<>();
-			for(int j=0;j<line1.length;j++)
-			{
-				answer.add(line1[j]);
-			}
-			items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
+			return items2;
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
 		}
-		return items2;
 	}
 	
 

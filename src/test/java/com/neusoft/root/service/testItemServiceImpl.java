@@ -31,6 +31,7 @@ public class testItemServiceImpl {
 		json.put("answer1", "key1Editor");
 		json.put("analysisEditor", "tttd");
 		json.put("itemId", 7);
-		test.updateRawItem(json);
+		System.out.println(test.queryParsedItem(new Integer(6)));
 	}
+
 }
