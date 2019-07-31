@@ -125,24 +125,7 @@ public class ExamController {
 		itemType = URLDecoder.decode(itemType, "utf-8");
 		subject = URLDecoder.decode(subject, "utf-8");
 		System.out.println(itemType+subject);
-		/*HttpSession session = request.getSession();
-		String username = session.getAttribute("username").toString();
-		long time = System.currentTimeMillis();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String datestring = df.format(time);
-		List<String> options = new ArrayList<>();
-		options.add("asdsda");
-		options.add("dasdasdas");
-		ParsedItem item1 = new ParsedItem(1, username, datestring, "语文", "单选题", 0.1, "dasdasdasdasd??????", options, options, "itemPicture", 9.9, "itemParse");
-		ParsedItem item2 = new ParsedItem(2, username, datestring, "语文", "单选题", 0.1, "dasdasdasdasd??????", options, options, "itemPicture", 9.9, "itemParse");
-		ParsedItem item3 = new ParsedItem(3, username, datestring, "语文", "单选题", 0.1, "dasdasdasdasd??????", options, options, "itemPicture", 9.9, "itemParse");
-		ParsedItem item4 = new ParsedItem(4, username, datestring, "语文", "单选题", 0.1, "dasdasdasdasd??????", options, options, "itemPicture", 9.9, "itemParse");
-		items.add(item1);
-		items.add(item2);
-		items.add(item3);
-		items.add(item4);*/
-		//items = paperService.createPaper(subject, itemType);
-		items = paperService.createPaper("语文", "单选题");
+		items = paperService.createPaper(subject, itemType);
 		Gson gson = new Gson();
 		return gson.toJson(items);
 	}
@@ -247,10 +230,18 @@ public class ExamController {
 	}*/
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
-	public String getParsedPaper(){
-		ParsedPaper parsePaper = paperService.queryParsedPaper((Integer)1).get(0);
+	public String getParsedPaper(int id){
+		ParsedPaper parsePaper = paperService.queryParsedPaper(id).get(0);
 		Gson gson = new Gson();
 		String json = gson.toJson(parsePaper);
 		return json;
 	}
+	/*@RequestMapping(value="/get_random_paper",method=RequestMethod.GET)
+	@ResponseBody
+	public String getRandomPaper(){
+		ParsedPaper parsePaper = paperService.randomPaper("语文月考", "语文").get(0);
+		Gson gson = new Gson();
+		String json = gson.toJson(parsePaper);
+		return json;
+	}*/
 }
