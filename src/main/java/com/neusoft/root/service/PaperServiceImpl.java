@@ -386,7 +386,7 @@ public class PaperServiceImpl implements PaperService{
 	//	System.out.println("PaperID"+PaperId);
 		List<ParsedPaper> list3 = service2.queryParsedPaper(PaperId);
 				
-				System.out.println("最终"+list3.get(0));
+			//	System.out.println("最终"+list3.get(0));
 		return list3.get(0);
 	}	
 	public static Set<Integer> getRandom(Integer wantLength,Integer itemLength) 
