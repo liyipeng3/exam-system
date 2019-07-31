@@ -1,0 +1,379 @@
+/*适用于后端返回的状态，如次数达到上线，没有权限，需要关注公众号等等*/
+html{
+    width: 100%;
+    height: 100%;
+    background-image: url(/img/pc-bg.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body{
+    height: 100%;
+    background: transparent;
+    -webkit-overflow-scrolling : touch;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-top: 150px;
+}
+
+/*.header-wrapper*/
+.header-wrapper{
+    height: 70px;
+    width: 100%;
+    line-height: 70px;
+    padding-left: 220px;
+    padding-right: 400px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(153,153,153,0.10);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+}
+.header-wrapper .exam-name{
+    font-size: 18px;
+    color: #3A3E51;
+    padding-left: 20px;
+}
+.header-wrapper .logo-wrapper{
+    height: 100%;
+    width: 211px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: right;
+}
+.header-wrapper .logo-wrapper .icon-logo{
+    max-width: 90%;
+    max-height: 54.3%;
+}
+.header-wrapper .user{
+    position: absolute;
+    right: 210px;
+    top: 0;
+    max-width: 160px;
+}
+.header-wrapper .user .icon{
+    color: #1A8CFE;
+    font-size: 16px;
+    margin-right: 7px;
+    line-height: 70px;
+}
+.header-wrapper .logout{
+    position: absolute;
+    top: 18px;
+    right: 80px;
+    padding:0 20px;
+    line-height: 32px;
+    height: 34px;
+}
+
+
+/*强制关注公众号*/
+.wrapper.wrapper-follow-app{
+    padding-top: 80px;
+}
+.wrapper.wrapper-follow-app .mask-layer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    left: 0;
+}
+.wrapper.wrapper-follow-app .mask-layer img{
+    width: 100%;
+    position: absolute;
+    bottom: 100px;
+}
+.wrapper.wrapper-follow-app .wechat-block{
+    width: 380px;
+    height: 480px;
+    background: #FFF;
+    box-shadow: 0 2px 10px 0 rgba(58,62,81,0.20);
+    border-radius: 8px;
+    margin: auto;
+    padding-top: 80px;
+    position: relative;
+    z-index: 2;
+}
+.wrapper.wrapper-follow-app .wechat-block .title{
+    font-size: 20px;
+    color: #3A3E51;
+    margin-bottom: 45px;
+    padding: 0 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.wrapper.wrapper-follow-app .wechat-block .qrcode{
+    width: 180px;
+    height: 180px;
+    background: #fbfbfb;
+    margin: auto;
+    margin-bottom: 45px;
+}
+.wrapper.wrapper-follow-app .wechat-block .qrcode img{
+    width: 100%;
+    height: 100%;
+}
+.wrapper.wrapper-follow-app .wechat-block .intro{
+    font-size: 18px;
+    color: #3A3E51;
+}
+
+/*考前说明,身份验证*/
+.wrapper{
+    overflow: hidden;
+}
+.wrapper .panel-block{
+    max-height: 650px;
+    width: 380px;
+    background: #FFF;
+    box-shadow: 0 2px 10px 0 rgba(58,62,81,0.20);
+    border-radius: 4px;
+    margin: 0 auto 20px;
+    padding: 40px 20px 32px;
+}
+.wrapper .panel-block.panel-l{
+    width: 440px;
+}
+.wrapper .panel-block .title{
+    font-size: 20px;
+    line-height: 26px;
+    color: #3A3E51;
+    padding: 0 10px;
+    margin-bottom: 15px;
+}
+.wrapper .panel-block .content{
+    font-size: 13px;
+    color: #B4B6BD;
+    word-break: break-all;
+    margin-bottom: 20px;
+    text-align: initial;
+    padding:0 20px
+}
+.wrapper .panel-block .input-row{
+    padding-bottom: 20px;
+    position: relative;
+}
+.wrapper .panel-block .input-row .error-info{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #FF0000;
+    position: absolute;
+    bottom: 2px;
+}
+
+
+.wrapper .panel-block .content + .btn-row{
+    margin-top: 25px;
+}
+
+
+
+/*需滚动页*/
+.wrapper .panel-block.panel-scroll{
+    height: 400px;
+}
+.wrapper .panel-block.panel-scroll .content{
+    height: 200px;
+    overflow: auto;
+}
+/*需设置密码*/
+.wrapper .panel-block.panel-scroll.panel-password{
+    height: 444px;
+}
+
+
+/*省略*/
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.btn-fix{
+    padding: 0;
+}
+.btn-w-120{
+    width: 120px;
+}
+.btn-h-40{
+    line-height: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.input-check{
+    width: 100%;
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    padding-right: 25px;
+    position: relative;
+    height: 28px;
+    line-height: 26px;
+}
+.input-check input{
+    display: block;
+    color: #666;
+    font-size: 12px;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: none;
+    text-align: center;
+    border-radius: 4px;
+}
+.input-check .icon-check{
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    line-height: inherit;
+    display: none;
+}
+
+.input-check.success .icon-check{
+    color: #1A8CFE;
+    display: none;
+}
+.input-check.error{
+    border: 1px solid #FF0000;
+}
+.input-check.error .icon-check{
+    color: #FF0000;
+    display: initial;
+}
+
+
+@media (max-width: 767px) {
+    html{
+        background-image: url(../images/mobile-bg.png);
+    }
+    .wrapper{
+        padding-top: 100px;
+    }
+    /*强制关注公众号*/
+    .wrapper.wrapper-follow-app .wechat-block{
+        height: 360px;
+        width: 335px;
+        max-width: 100%;
+        padding-top: 40px;
+    }
+    .wrapper.wrapper-follow-app .wechat-block .title{
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    .wrapper.wrapper-follow-app .wechat-block .qrcode{
+        margin-bottom: 30px;
+    }
+    .wrapper.wrapper-follow-app .wechat-block .intro{
+        font-size: 16px;
+    }
+
+    /*考前说明*/
+    .wrapper .panel-block{
+        width: auto;
+        padding: 25px 35px;
+        border-radius: 8px;
+    }
+    .wrapper .panel-block .icon-logo{
+        margin-bottom: 20px;
+    }
+    .wrapper .panel-block .icon-logo img{
+        height: 30px;
+    }
+
+    .wrapper .panel-block .title{
+        font-size: 16px;
+        line-height: 21px;
+        margin-bottom: 15px;
+    }
+
+    .wrapper .panel-block.panel-scroll{
+        height: 340px;
+    }
+    .wrapper .panel-block.panel-scroll .content{
+        height: 140px;
+    }
+
+    /*需设置密码*/
+    .wrapper .panel-block.panel-scroll.panel-password{
+        height: 384px;
+    }
+
+
+    .modal-pc-message .modal-content{
+        border-radius: 8px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: none;
+    }
+    .modal-pc-message .modal-content .modal-header,
+    .modal-pc-message .modal-content .modal-footer{
+        display: none;
+    }
+    .modal-pc-message .modal-content .modal-body{
+        padding: 30px 0;
+        text-align: center;
+        font-size: 18px;
+        color: #3A3E51;
+        line-height: 27px;
+    }
+    .modal-pc-message .modal-content .modal-footer{
+        padding: 0;
+        font-size: 0;
+        border-top: 1px solid #e5e5e5;
+    }
+    .modal-pc-message .modal-content .modal-footer .btn{
+        width: 50%;
+        margin: 0;
+        font-size: 18px;
+        border: none;
+        background: transparent;
+        height: 49px;
+        border-radius: 0;
+    }
+    .modal-pc-message .modal-content .modal-footer .btn.btn-default{
+        color: #3A3E51;
+        border-right: 1px solid #e5e5e5;
+    }
+    .modal-pc-message .modal-content .modal-footer .btn.btn-primary{
+        color: #1A8CFE;
+    }
+    /*只有一个按钮，一般是知道了*/
+    .modal-pc-message .modal-content .modal-footer.modal-footer-tab1 .btn{
+        width: 100%;
+    }
+
+
+
+
+}
+
+/*超小屏幕手机，5s，se等等*/
+@media (max-width: 374px) {
+    .wrapper.wrapper-follow-app .wechat-block{
+        height: 340px;
+        width: 280px;
+    }
+    .wrapper.wrapper-follow-app .wechat-block .qrcode{
+        width: 160px;
+        height: 160px;
+    }
+
+
+}
+
+.blue-link {
+    color: #1A8CFE;
+}

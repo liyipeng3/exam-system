@@ -416,7 +416,7 @@ html, body {
 .modal-user-info .modal-header {
     height: 135px;
     background-color: #B4B6BD;
-    background-image: url(../../exam/images/user/header-bg.png);
+    background-image: url(/img/header-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
