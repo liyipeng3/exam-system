@@ -1,7 +1,7 @@
 package com.neusoft.root.domain;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 //解析后的试卷
 public class ParsedPaper 
@@ -37,7 +37,9 @@ public class ParsedPaper
 	}
 	public ParsedPaper() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.items = new ArrayList<List<ParsedItem>>();
+		this.itemsTitle = new ArrayList<>();
+		this.itemsType = new ArrayList<>();
 	}
 	public Integer getPaperId() {
 		return paperId;
