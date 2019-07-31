@@ -184,7 +184,7 @@ public class PaperServiceImpl implements PaperService{
 		List<ParsedPaper> list2 = new ArrayList<>();
 		ItemService service = new ItemServiceImpl();
 		Integer ID =0;
-		//System.out.println("@@@");
+		System.out.println("@@@");
 		for(RawPaper paper:list)
 		{
 			List<ParsedItem> q1 = new ArrayList<>() ;
@@ -195,18 +195,19 @@ public class PaperServiceImpl implements PaperService{
 				String [] line = question1[i].split(",");
 				if(line.length!=0)
 				{
-				//	System.out.println("!!!");
+					System.out.println("!!!");
+					System.out.println(line[0]);
 					ID = Integer.valueOf(line[0]);
-				//	System.out.println(ID);
+					System.out.println(ID);
 				}
 				questionservice1 = service.queryParsedItem(ID);
 				for(ParsedItem x:questionservice1)
 				{
-				//	System.out.println(x.toString());
+					System.out.println(x.toString());
 					q1.add(x);
 				}
 			}
-		//	System.out.println(q1.toString());
+			System.out.println(q1.toString());
 			List<ParsedItem> q2 = new ArrayList<>() ;
 			List<ParsedItem> questionservice2 ;
 			String [] question2 = paper.getMultichoiceQuestion().split("###");
@@ -255,7 +256,7 @@ public class PaperServiceImpl implements PaperService{
 					q4.add(x);
 				}
 			}
-		//	System.out.println(q1.toString()+q2.toString()+q3.toString()+q4.toString());
+			System.out.println(q1.toString()+q2.toString()+q3.toString()+q4.toString());
 			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
 			list2.add(parsedPaper);	
 			

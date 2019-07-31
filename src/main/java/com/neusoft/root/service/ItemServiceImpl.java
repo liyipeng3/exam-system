@@ -214,9 +214,13 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public List<ParsedItem> queryParsedItem(Integer ID) {
 		// TODO Auto-generated method stub
-		RawItem item = new RawItem(ID, "", "", "", "", 0.0, "", "", "", "", 0.0, "");
+		System.out.println(ID+"!!!");
+		RawItem item = new RawItem();
+		item.setItemId(ID);
 		List<RawItem> items = mapper.queryRawItem(item);
+		System.out.println("@@@");
 		List<ParsedItem> items2 = new ArrayList<>();
+		System.out.println("!!!");
 		for(RawItem xItem:items)
 		{
 			List<String> list3 = new ArrayList<>();
@@ -234,6 +238,7 @@ public class ItemServiceImpl implements ItemService{
 				answer.add(line1[j]);
 			}
 			items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
+		System.out.println(xItem.toString());
 		}
 		return items2;
 	}
