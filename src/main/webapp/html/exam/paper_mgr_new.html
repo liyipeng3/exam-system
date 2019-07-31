@@ -401,9 +401,6 @@
                                 <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
                                         href="/html/user/user_list"><span
                                         class="nav-title">考生信息</span></a></li>
-                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
-                                        href="/html/user/user_reg"><span
-                                        class="nav-title">注册设置</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemCourse"><a
@@ -418,9 +415,6 @@
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
                                         href="/html/study/course_mgr"><span class="nav-title">课程管理</span></a>
                                 </li>
-                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="/html/study/study_record_mgr"><span
-                                        class="nav-title">学习记录</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item " id="navItemCustomProcess"><a
@@ -808,8 +802,10 @@
                     <div class="form-row">
                         <div class="row-label">组卷方式：</div>
                         <div class="row-content paper-type-group">
-                            <button type="button" data-value="1" class="btn btn-default btn-sm create_method">选题组卷</button>
-                            <button type="button" data-value="3" class="btn btn-default btn-sm create_method not-selected">随机组卷
+                            <button type="button" data-value="1" class="btn btn-default btn-sm create_method">选题组卷
+                            </button>
+                            <button type="button" data-value="3"
+                                    class="btn btn-default btn-sm create_method not-selected">随机组卷
                             </button>
                             <input type="hidden" class="" name="paper_type" value="1">
                         </div>
@@ -979,7 +975,7 @@
             let url = "/html/exam/paper_manual_add";
             url += "?paperName=" + $('#paperName').val();
             var substr = String($('input:radio:checked').val());
-            if(substr=='undefined'){
+            if (substr == 'undefined') {
                 alert("请选择科目!");
                 return;
             }

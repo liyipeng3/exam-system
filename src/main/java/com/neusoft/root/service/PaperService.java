@@ -38,9 +38,15 @@ public interface PaperService {
 	public List<RawPaper> queryRawPaper();
 	/**
 	 * 查询paper
+	 * @param id 
+	 * @return 试卷
+	 */
+	public RawPaper queryRawPaper(Integer id);
+	/**
+	 * 查询paper
 	 * @return parsedpaper的list
 	 */
-	public List<ParsedPaper> queryParsedPaper(Integer id);
+	public ParsedPaper queryParsedPaper(Integer id);
 	/**
 	 * 获取所有课程
 	 * @return 课程名字的list
@@ -58,5 +64,5 @@ public interface PaperService {
 	 * @param subjects 科目
 	 * @return 试卷
 	 */
-	public List<ParsedPaper> randPaper(String name,String subjects,String ID);
+	public ParsedPaper randPaper(String name,String subjects,String ID);
 }

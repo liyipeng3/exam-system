@@ -164,9 +164,6 @@
                                 <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
                                         href="/html/user/user_list"><span
                                         class="nav-title">考生信息</span></a></li>
-                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
-                                        href="/html/user/user_reg"><span
-                                        class="nav-title">注册设置</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemCourse"><a
@@ -181,9 +178,7 @@
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
                                         href="/html/study/course_mgr"><span class="nav-title">课程管理</span></a>
                                 </li>
-                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="/html/study/study_record_mgr"><span
-                                        class="nav-title">学习记录</span></a></li>
+
                             </ul>
                         </li>
                         <li class="nav-item " id="navItemCustomProcess"><a
@@ -1658,8 +1653,7 @@
                 console.log(msg);
             }
         });
-    };
-
+    }
     $("#saveAndAddBtn").click(function () {
 
         var data = {};
@@ -1759,7 +1753,7 @@
         }
         //console.log(data);
         var msg = "您确定要提交录入吗？";
-        if (confirm(msg)==false){
+        if (confirm(msg) == false) {
             return;
         }
         ajax_post("/exam/add_item", data);

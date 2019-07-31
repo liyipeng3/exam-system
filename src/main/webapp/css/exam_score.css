@@ -1,0 +1,429 @@
+.active {
+  color: #1A8CFE;
+}
+.main {
+  position: relative;
+  padding-top: 100px;
+  padding-left: 0;
+  padding-right: 0;
+  background: -webkit-linear-gradient(left, #268ffb, #4bcafd);
+}
+.exam-picture-right {
+  width: 180px;
+  position: absolute;
+  top: 90px;
+  right: 0;
+}
+.exam-picture-left {
+  width: 180px;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+}
+.content-again {
+  position: absolute !important;
+  z-index: -10;
+  max-height: unset !important;
+  opacity: 0;
+}
+.content-again .exam-result {
+  margin-top: 0 !important;
+}
+.content-again .exam-result .exam-user-info .exam-user-header {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto !important;
+  padding-top: 10px !important;
+}
+.content-again .examinee-rank-list:nth-child(n+5) {
+  display: block !important;
+}
+.content {
+  width: 740px;
+  padding: 0;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+.content .exam-result {
+  width: 600px;
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 30px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  margin: 60px 0 0;
+}
+.content .exam-result .exam-result-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.content .exam-result .exam-common {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.content .exam-result .exam-login-none {
+  width: 110px;
+  background: #F7F8FA;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #6D717C;
+  text-align: center;
+  margin-top: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 8px 0;
+}
+.content .exam-result .exam-login-none .exam-login-code {
+  font-size: 20px;
+  color: #FE8545;
+}
+.content .exam-result .exam-login-none a {
+  text-decoration: underline;
+}
+.content .exam-result .exam-user-info {
+  max-width: 33.33%;
+}
+.content .exam-result .exam-user-info .exam-user-header {
+  margin: -42px auto 0;
+  text-align: center;
+}
+.content .exam-result .exam-user-info .exam-user-header img {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  width: 80px;
+  height: 80px;
+}
+.content .exam-result .exam-user-info .exam-user-name {
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  margin: 12px auto 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.content .exam-result .exam-result-score {
+  text-align: center;
+  color: #1A8CFE;
+  font-size: 20px;
+}
+.content .exam-result .exam-result-score span {
+  display: inline-block;
+}
+.content .exam-result .exam-result-score .score {
+  font-size: 44px;
+  font-weight: 500;
+}
+.content .exam-result .exam-result-score .star-big img {
+  margin: 10px 10px 0 0;
+  width: 14px;
+}
+.content .exam-result .exam-result-score .star-small {
+  vertical-align: top;
+}
+.content .exam-result .exam-result-score .star-small img {
+  width: 10px;
+}
+.content .exam-result .exam-result-remark {
+  font-size: 14px;
+  color: #B4B6BD;
+  text-align: center;
+}
+.content .exam-result .exam-result-remark a {
+  text-decoration: underline;
+}
+/*蓝色链接*/
+.content .exam-result .exam-result-remark .blue-link,
+.content .exam-result .exam-result-remark .blue-link a {
+  color: #1A8CFE;
+}
+.content .exam-result .exam-result-analyze {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.content .exam-result .exam-result-analyze .exam-result-analyze-common {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+}
+.content .exam-result .exam-result-analyze .exam-result-percentage {
+  font-size: 18px;
+  color: #1A8CFE;
+}
+.content .exam-result .exam-result-analyze .exam-result-percentage-icon {
+  color: #3A3E51;
+}
+.content .exam-result .exam-result-analyze .exam-result-percentage-icon span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.content .exam-result .exam-result-analyze .exam-result-percentage-icon img {
+  vertical-align: text-bottom;
+  width: 15px;
+  margin-right: 4px;
+}
+.content .exam-result .exam-result-analyze .span-space {
+  opacity: 0.1;
+  background: #3A3E51;
+  margin-top: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1px;
+  height: 40px;
+}
+.content .exam-result .exam-nothing-open {
+  text-align: center;
+}
+.content .exam-result .exam-nothing-open .exam-user-header {
+  margin: -42px auto 0;
+  text-align: center;
+}
+.content .exam-result .exam-nothing-open .exam-user-header img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+.content .exam-result .exam-nothing-open .exam-user-name {
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  margin: 12px auto 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.content .exam-result .exam-nothing-open .exam-nothing-img {
+  width: 34%;
+  margin: 30px 0 20px;
+}
+.content .exam-result .exam-nothing-open .exam-release-notice {
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #B4B6BD;
+}
+.content .exam-result-right {
+  height: 100%;
+  margin: 60px 0 0 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.content .exam-result-right .exam-ewm-box {
+  width: 120px;
+  padding-top: 5px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0 2px 10px 0 rgba(58, 62, 81, 0.1);
+          box-shadow: 0 2px 10px 0 rgba(58, 62, 81, 0.1);
+  border-radius: 4px;
+  text-align: center;
+}
+.content .exam-result-right .exam-share-info {
+  background: #F1F3F8;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 12px;
+}
+.content .exam-result-right .exam-handle-box {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.content .exam-result-right .exam-handle-box div {
+  width: 120px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+.content .exam-result-right .exam-handle-box .exam-look-analye, .content .exam-result-right .exam-handle-box .exam-look-correct-comment{
+  margin-bottom: 10px;
+}
+.content .exam-result {
+  padding-bottom: 20px;
+}
+.examinee {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px dashed #dedede;
+}
+.examinee-label {
+  background: #F7F8FA;
+  border-radius: 100px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 10px;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 24px;
+  font-size: 12px;
+  color: #B4B6BD;
+}
+.examinee-label span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.examinee-label span:nth-child(1) {
+  width: 36px;
+  -webkit-box-flex-group: 2;
+}
+.examinee-label span:nth-child(2) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 36px;
+}
+.examinee-label span:nth-child(3) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 90px;
+}
+.examinee-label span:nth-child(4) {
+  width: 36px;
+  text-align: right;
+  -webkit-box-flex-group: 2;
+}
+.examinee-rank-list .user-rank-icon {
+  width: 32px;
+}
+.examinee-rank-list .user-account {
+  margin-left: 80px;
+  width: 100px;
+}
+.examinee-rank-list .user-name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.examinee-rank-list .user-name span {
+  width: 104px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.examinee-rank-list .user-score {
+  width: 80px;
+}
+#certificateModal .content {
+  width: 100%;
+}
+.modal-certificate .modal-body {
+  text-align: center;
+}
+.modal-certificate .modal-body .content .champion {
+  width: 248px;
+  margin: auto;
+}
+.modal-certificate .modal-body .content .champion img {
+  width: 100%;
+}
+@media screen and (max-width: 480px) {
+  .modal-certificate .modal-header {
+    height: 109px;
+  }
+  .modal-certificate .modal-header .champion {
+    width: 100%;
+    position: absolute;
+    top: -32.7px;
+    left: 0;
+    text-align: center;
+  }
+  .modal-certificate .modal-header .champion img {
+    width: 248px;
+  }
+}
+#redPacketModal .modal-dialog.modal-410 {
+  width: 400px;
+  height: 284px;
+  margin-top: 180px;
+  padding: 0 20px;
+  background-image: url("https://s6.kaoshixing.com/ksxing_static/admin/weixinPay/images/red_packet_bg_PC.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #FFF;
+  text-align: center;
+}
+#redPacketModal .modal-header {
+  margin-bottom: 50px;
+}
+#redPacketModal .modal-header .close {
+  color: #FFF;
+  margin-right: -14px;
+  margin-top: -4px;
+  opacity: .8;
+}
+#redPacketModal .modal-dialog .modal-content {
+  background: none!important;
+}
+#redPacketModal .congratulations {
+  width: 200px;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+#redPacketModal .congratulations span {
+  display: inline-block;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+#redPacketModal .amount {
+  font-size: 16px;
+  margin-top: 10px;
+}
+#redPacketModal .amount span {
+  font-size: 34px;
+  /*font-weight: 400;*/
+}
+#redPacketModal .red-packet-tips {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 30px;
+}
+
+/*批改评语弹窗*/
+.correct_comment_modal .modal-body{
+  /*height: 250px;*/
+  padding:0 40px 40px 40px;
+  height: auto;
+  color:#9b9b9b;
+}
+.correct_comment_modal .modal-header{
+  text-align: center;
+  height:auto;
+  padding:50px 15px 18px 15px;
+}
+.correct_comment_modal .modal-dialog{
+  overflow: auto;
+  max-height: calc(100% - 440px); /*减去2倍margin-top*/
+  height: auto;
+  margin-top:220px;
+  width:440px;
+}
+.correct_comment_modal .modal-content{
+  width:440px;
+  min-height:220px;
+}
+.correct_comment_modal .modal-title{
+  font-size:20px;
+  color:#3a3e51;
+}

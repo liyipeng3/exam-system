@@ -16,7 +16,7 @@ $(document).ready(function () {
     $("#selTypeLink").click(function (e) {
         e.stopPropagation();
         e.preventDefault();
-        showSelType(this);
+        //showSelType(this);
     });
 
 

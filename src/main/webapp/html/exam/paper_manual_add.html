@@ -178,9 +178,6 @@
                                 <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
                                         href="https://v.com/admin/user/#/list"><span
                                         class="nav-title">考生信息</span></a></li>
-                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
-                                        href="https://admin.com/admin/user_reg"><span
-                                        class="nav-title">注册设置</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemCourse"><a
@@ -198,9 +195,7 @@
                                         href="https://admin.com/course/course_mgr"><span
                                         class="nav-title">课程管理</span></a>
                                 </li>
-                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="https://admin.com/course/study_record_mgr/course"><span
-                                        class="nav-title">学习记录</span></a></li>
+
                             </ul>
                         </li>
                         <li class="nav-item " id="navItemCustomProcess"><a
@@ -721,7 +716,7 @@
     var activeNavItem = 'subNavItemExamMgr';
     $(function () {
 
-        $('.edit-paper-name, .paperName').val(decodeURI(getParam('paperName')));
+        $('.edit-paper-name, input[name="paperName"], input[name="paperName"]').val(decodeURI(getParam('paperName')));
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
             e.preventDefault();
@@ -747,6 +742,7 @@
         //     $(".unread-notice").hide();
         //
         // });
+
 
         //    自管理员点击添加考生，添加试题，创建考试时的权限判断
         /*$("#staff,#test,#exam").on("click", function (e) {

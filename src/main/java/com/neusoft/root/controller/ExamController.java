@@ -232,7 +232,7 @@ public class ExamController {
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
 	public String getParsedPaper(int id){
-		ParsedPaper parsePaper = paperService.queryParsedPaper(id).get(0);
+		ParsedPaper parsePaper = paperService.queryParsedPaper(id);
 		Gson gson = new Gson();
 		String json = gson.toJson(parsePaper);
 		return json;
@@ -424,7 +424,46 @@ public class ExamController {
 	@ResponseBody
 	public String addExam(@RequestBody JSONObject jsonObject){
 		System.out.println(jsonObject.toJSONString());
+		
 		String result = "{\"status\":\"ok\"}";
 		return result;
+	}
+	
+	/**
+	 * 按id获取试卷信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/get_paper_info",method=RequestMethod.GET)
+	@ResponseBody
+	public String getPaperInfo(int id){
+		/*ParsedPaper paper = paperService.queryParsedPaper(id);
+		System.out.println(paper);
+		JsonObject json = new JsonObject();
+		json.addProperty("paperName", paper.getPaperName());
+		json.addProperty("paperSubject", paper.getPaperType());
+		json.addProperty("score", paper.getPaperScore());
+		json.addProperty("createrId", paper.getCreaterId());
+		json.addProperty("createDate", paper.getCreateDate());
+		json.addProperty("paperRemark", paper.getPaperRemark());
+		int num = 0;
+		List<List<ParsedItem>> ITEMS =  paper.getItems();
+		for(int i = 0; i < ITEMS.size(); i++){
+			List<ParsedItem> items = ITEMS.get(i);
+			for(int j = 0; j < items.size(); j++){
+				num++;
+			}
+		}
+		json.addProperty("itemsNumber", String.valueOf(num));*/
+		JsonObject json = new JsonObject();
+		json.addProperty("paperName", "语文期末");
+		json.addProperty("paperSubject", "语文");
+		json.addProperty("score", "100");
+		json.addProperty("createrId", "teacher");
+		json.addProperty("createDate", "2019-11-11 11:11");
+		json.addProperty("paperRemark", "请勿作弊");
+		json.addProperty("itemsNumber", "20");
+		return json.toString();
 	}
 }
