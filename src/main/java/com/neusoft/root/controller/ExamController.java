@@ -124,7 +124,6 @@ public class ExamController {
 		List<ParsedItem> items = new ArrayList<>();
 		itemType = URLDecoder.decode(itemType, "utf-8");
 		subject = URLDecoder.decode(subject, "utf-8");
-		System.out.println(itemType+subject);
 		items = paperService.createPaper(subject, itemType);
 		Gson gson = new Gson();
 		return gson.toJson(items);

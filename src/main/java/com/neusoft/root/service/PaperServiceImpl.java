@@ -273,8 +273,9 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public List<ParsedItem> createPaper(String subjects,String type) {
 		// TODO Auto-generated method stub
+		//System.out.println(subjects+type);
 		List<ParsedItem> list = service.queryParsedItem(subjects);
-	//	System.out.println(list.toString());
+		//System.out.println(list.toString());
 		List<ParsedItem> list2 = new ArrayList<>();
 		for(ParsedItem item:list)
 		{
