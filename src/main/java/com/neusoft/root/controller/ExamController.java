@@ -29,6 +29,7 @@ import com.neusoft.root.service.CourseServiceImpl;
 import com.neusoft.root.service.ExamServiceImpl;
 import com.neusoft.root.service.PaperServiceImpl;
 import com.neusoft.root.service.ItemServiceImpl;
+import com.neusoft.root.service.MyServiceImp;
 
 /**
  * 
@@ -47,6 +48,8 @@ public class ExamController {
 	private ItemServiceImpl itemService;
 	@Autowired
 	private ExamServiceImpl examService;
+	@Autowired
+	private MyServiceImp myService;
 	private String subject;
 	/**
 	 * 
@@ -235,9 +238,13 @@ public class ExamController {
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
 	public String getParsedPaper(int id){
-		ParsedPaper parsePaper = paperService.queryParsedPaper(id);
+		//ParsedPaper parsePaper1 = paperService.queryParsedPaper(id);
+		ParsedPaper parsePaper2 = myService.queryParsedPaper(id);
 		Gson gson = new Gson();
-		String json = gson.toJson(parsePaper);
+		//System.out.println(gson.toJson(parsePaper1));
+		System.out.println(gson.toJson(parsePaper2));
+		//String json = gson.toJson(parsePaper1);
+		String json = gson.toJson(parsePaper2);
 		return json;
 	}
 	/**
@@ -455,6 +462,7 @@ public class ExamController {
 		Gson gson = new Gson();
 		JSONObject json = new JSONObject();
 		json.put("examId", "");
+		System.out.println(gson.toJson(examService.queryExam(json)));
 		return gson.toJson(examService.queryExam(json));
 	}
 	/**

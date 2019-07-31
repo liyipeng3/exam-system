@@ -20,7 +20,7 @@ public class testMyServiceImpl {
 	@Test
 	public void testqueryParsedPaper()
 	{
-		ParsedPaper pp = test.queryParsedPaper(1);
+		ParsedPaper pp = test.queryParsedPaper(2);
 		System.out.println(pp);
 	}
 }
