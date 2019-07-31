@@ -54,18 +54,10 @@ public class PaperServiceImpl implements PaperService{
 		String singlequestion = "";
 		String mutiquestion = "";
 		String fillquestion = "";
-		boolean flag1 =false;
-		boolean flag2 = false;
-		boolean flag3 = false;
-		boolean flag4 = false;
 		while(json.getString("testType"+x)!=null)
 		{
 			if(json.getString("testType"+x).equals("1"))//单选
 			{
-				if(flag1==true)
-				{
-					singlequestion = singlequestion+"$$$";
-				}
 				String testid1 = json.getString("testIds"+x);
 				testid1 = testid1.substring(0, testid1.length()-1);
 				String line1[] = testid1.split(",");
@@ -76,24 +68,19 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line1.length!=scores1.length)
 					{
-						singlequestion = singlequestion+line1[i]+","+scores1[0]+","+json.getString("testTittle"+x)+","+x+"###";
+						singlequestion = singlequestion+line1[i]+"\\?\\?\\?"+scores1[0]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
 					}
 					else
 					{
-						singlequestion = singlequestion+line1[i]+","+scores1[i]+","+json.getString("testTittle"+x)+","+x+"###";
+						singlequestion = singlequestion+line1[i]+"\\?\\?\\?"+scores1[i]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
 					}
 					
 				}
 				if(!singlequestion.equals(""))
 				singlequestion = singlequestion.substring(0, singlequestion.length()-3);
-				flag1 = true;
 			}
 			else if(json.getString("testType"+x).equals("2"))//多选
 			{
-				if(flag2==true)
-				{
-					mutiquestion = mutiquestion+"$$$";
-				}
 				String testid2 = json.getString("testIds"+x);
 				testid2 = testid2.substring(0, testid2.length()-1);
 				String line2[] = testid2.split(",");
@@ -104,24 +91,20 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line2.length!=scores2.length)
 					{
-						mutiquestion = mutiquestion+line2[i]+","+scores2[0]+","+json.getString("testTittle"+x)+","+x+"###";
+						mutiquestion = mutiquestion+line2[i]+"\\?\\?\\?"+scores2[0]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
 					}
 					else
 					{
-						mutiquestion = mutiquestion+line2[i]+","+scores2[i]+","+json.getString("testTittle"+x)+","+x+"###";
+						mutiquestion = mutiquestion+line2[i]+"\\?\\?\\?"+scores2[i]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
 					}
 					
 				}
 				if(!mutiquestion.equals(""))
 				mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
-				flag2 = true;
 			}
 			else if(json.getString("testType"+x).equals("4"))//填空
 			{
-				if(flag3==true)
-				{
-					fillquestion = fillquestion+"$$$";
-				}
+				
 				String testid3 = json.getString("testIds"+x);
 				testid3 = testid3.substring(0, testid3.length()-1);
 				String line3[] = testid3.split(",");
@@ -132,24 +115,21 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line3.length!=scores3.length)
 					{
-						fillquestion = fillquestion+line3[i]+","+scores3[0]+","+json.getString("testTittle"+x)+","+x+"###";
+						fillquestion = fillquestion+line3[i]+"\\?\\?\\?"+scores3[0]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
 					}
 					else
 					{
-						fillquestion = fillquestion+line3[i]+","+scores3[i]+","+json.getString("testTittle"+x)+","+x+"###";	
+						fillquestion = fillquestion+line3[i]+"\\?\\?\\?"+scores3[i]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";	
 					}
 					
 				}
 				if(!fillquestion.equals(""))
 				fillquestion = fillquestion.substring(0, fillquestion.length()-3);
-				flag3  =true;
+				
 			}
 			else if(json.getString("testType"+x).equals("5"))//主观
 			{
-				if(flag4==true)
-				{
-					subjectivequestion = subjectivequestion+"$$$";
-				}
+				
 				String testid4 = json.getString("testIds4");
 				testid4 = testid4.substring(0, testid4.length()-1);
 				String line4[] = testid4.split(",");
@@ -160,17 +140,16 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line4.length!=scores4.length)
 					{
-						subjectivequestion = subjectivequestion+line4[i]+","+scores4[0]+","+json.getString("testTittle"+x)+","+x+"###";
+						subjectivequestion = subjectivequestion+line4[i]+"\\?\\?\\?"+scores4[0]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
 					}
 					else
 					{
-						subjectivequestion = subjectivequestion+line4[i]+","+scores4[i]+","+json.getString("testTittle"+x)+","+x+"###";
+						subjectivequestion = subjectivequestion+line4[i]+"\\?\\?\\?"+scores4[i]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
 					}
 				
 				}
 				if(!subjectivequestion.equals(""))
 				subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
-				flag4 = true;
 			}
 			else
 			{
