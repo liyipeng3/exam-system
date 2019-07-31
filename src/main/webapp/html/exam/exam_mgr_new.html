@@ -426,7 +426,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr data-row-id="300397">
+                            <tr class="select-item">
                                 <td class="select-cell" style="">
                                     <label class="select-label">
                                         <input name="select" type="checkbox" class="select-box" value="300397"><span
@@ -461,7 +461,7 @@
                                        data-original-title="考生答题状态查询"></a>
                                 </td>
                             </tr>
-                            <tr data-row-id="300380">
+                            <tr class="select-item">
                                 <td class="select-cell" style="">
                                     <label class="select-label">
                                         <input name="select" type="checkbox" class="select-box" value="300380"><span
@@ -496,7 +496,7 @@
                                        data-original-title="考生答题状态查询"></a>
                                 </td>
                             </tr>
-                            <tr data-row-id="299613">
+                            <tr class="select-item">
                                 <td class="select-cell" style="">
                                     <label class="select-label">
                                         <input name="select" type="checkbox" class="select-box" value="299613"><span
@@ -935,7 +935,7 @@
                     .addClass("active");
             }
         });
-        $("#select_all").change(function () {
+        $("#select_all").click(function () {
             if ($(this).hasClass("active")) {
                 $(this).removeClass("active");
                 $('.select-item').removeClass("active");
