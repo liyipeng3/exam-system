@@ -235,7 +235,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 管理课程 -->
 	<insert id="addCource" parameterType="Course">
 		insert into course_table 
-		values(#{courseId},#{courseName},#{courseType})
+		values(#{courseId},#{courseName},#{courseType},#{courseBegin},#{courseEnd},#{courseRemark},#{courseStatus})
 	</insert>
 	
 	<delete id="deleteCourse" parameterType="Course">
@@ -250,6 +250,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 			<if test="courseType!=null and courseType!=''">
 				course_type = #{courseType},
+			</if>
+			<if test="courseBegin!=null and courseBegin!=''">
+				course_begin = #{courseBegin},
+			</if>
+			<if test="courseEnd!=null and courseEnd!=''">
+				course_end = #{courseEnd},
+			</if>
+			<if test="courseRemark!=null and courseRemark!=''">
+				course_remark = #{courseRemark},
+			</if>
+			<if test="courseStatus!=null and courseStatus!=''">
+				course_status = #{courseStatus},
 			</if>
 		</set>
 		where course_id in
@@ -278,6 +290,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<id column="course_id" property="courseId"/>
 		<result column="course_name" property="courseName"/>
 		<result column="course_type" property="courseType"/>
+		<result column="course_begin" property="courseBegin"/>
+		<result column="course_end" property="courseEnd"/>
+		<result column="course_remark" property="courseRemark"/>
+		<result column="course_status" property="courseStatus"/>
 	</resultMap>
 	
 	<!-- 管理日志 -->
