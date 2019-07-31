@@ -37,7 +37,7 @@ public class PaperServiceImpl implements PaperService{
 	@Autowired
 	AdminMapper AdminMapper;
 	@Override
-	public String addRawPaper(JSONObject json) {
+	public Integer addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
 		String date = df.format(new Date());// new Date()为获取当前系统时间
@@ -47,6 +47,21 @@ public class PaperServiceImpl implements PaperService{
 		course.setCourseId(courseid);
 		List<Course> list = AdminMapper.queryCourse(course);
 		String paperType = list.get(0).getCourseType();
+		int x = 1;
+		while(json.getString("testType"+x)!=null)
+		{
+			
+			
+			
+			
+			
+			
+			
+			
+			x++;
+		}
+		
+		
 		String singlequestion = "";
 		String testid1 = json.getString("testIds1");
 		testid1 = testid1.substring(0, testid1.length()-1);
@@ -102,11 +117,7 @@ public class PaperServiceImpl implements PaperService{
 		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), date, paperType, 3.0, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("totalScore"), "保密", current);
 		mapper.addRawPaper(rawPaper);
 		rawPaper.setPaperId(null);
-<<<<<<< HEAD
-		String id = mapper.queryRawPaper(rawPaper).get(0).getPaperId();
-=======
 		Integer id = mapper.queryRawPaper(rawPaper).get(0).getPaperId();
->>>>>>> parent of 1e98cd3... 444
 		return id;
 	}
 
@@ -130,7 +141,7 @@ public class PaperServiceImpl implements PaperService{
 
 
 	@Override
-	public void deleteRawPaper(String id) {
+	public void deleteRawPaper(Integer id) {
 		// TODO Auto-generated method stub
 		RawPaper rawPaper = new RawPaper(id, "", "","", "", "", (Double)0.0, "", "","", "", (Double)0.0, "", "");
 		mapper.deleteRawPaper(rawPaper);
@@ -217,7 +228,7 @@ public class PaperServiceImpl implements PaperService{
 
 
 	@Override
-	public List<ParsedPaper> queryParsedPaper(String id) {
+	public List<ParsedPaper> queryParsedPaper(Integer id) {
 		System.out.println("paper"+id);
 		// TODO Auto-generated method stub
 		RawPaper rawPaper = new RawPaper(id, "", "", "", "","", 0.0, "", "","", "", (Double)0.0, "", "");
