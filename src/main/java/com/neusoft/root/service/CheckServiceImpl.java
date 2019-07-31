@@ -1,4 +1,4 @@
-package com.neusoft.root.service;
+/*package com.neusoft.root.service;
 
 import static org.assertj.core.api.Assertions.setAllowComparingPrivateFields;
 
@@ -271,7 +271,7 @@ public class CheckServiceImpl implements CheckService{
 		return true; 
 	}
 	
-	/*public static void main(String[] args) 
+	public static void main(String[] args) 
 	{
 		List<String> list1 = new ArrayList<>();
 		list1.add("A");
@@ -281,5 +281,6 @@ public class CheckServiceImpl implements CheckService{
 		list2.add("C");
 		System.out.println(isListEqual(list1, list2));
 		
-	}*/
+	}
 }
+*/
