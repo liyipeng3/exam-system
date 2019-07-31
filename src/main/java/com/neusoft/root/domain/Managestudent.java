@@ -1,4 +1,4 @@
-package com.neusoft.root.domain;
+  package com.neusoft.root.domain;
 
 //考试安排学生表
 public class Managestudent 

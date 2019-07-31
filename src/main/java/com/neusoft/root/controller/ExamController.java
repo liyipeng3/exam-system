@@ -290,6 +290,7 @@ public class ExamController {
 	@RequestMapping(value="/get_paper_checking",method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperChecking(String studentId, String paperId){
+		
 		return "ok";
 	}
 	/**
@@ -303,19 +304,35 @@ public class ExamController {
 	public String addPaperChecking(@RequestBody JSONObject jsonObject){
 		return "ok";
 	}
-	/*{"_id":{"timestamp":1563789001,"machineIdentifier":5030166,"processIdentifier":29405,"counter":3855673,"timeSecond":1563789001,"date":1563789001000,"time":1563789001000},"status":"enable",
-		"create_date":1478088009632,"classification":"514885","key3":"1",
-		"answer1":"清晨","key1":"0","tab_num":"3","question":"拜访他人应选择（）,并应提前打招呼。",
-		"answer3":"节假日的下午或平日的晚饭后 ","answer2":"用餐时间",
-		"creater":"wupengcheng@ksxing.com","key2":"0","cop_id":"140092",
-		"type":"1","difficult":"simple","label":"","labelName":"","classificatonName":"示例",
-		"encrypt":"0","id":"5d3586c94cc11672dd3ad539","test_ans_right":"C","analysis":"无"}*/
+	/**
+	 * 添加试卷
+	 * 
+	 * @param jsonObject
+	 * @return
+	 */
+	@RequestMapping(value="/add_paper",method=RequestMethod.POST)
+	@ResponseBody
+	public String addPaper(@RequestBody JSONObject jsonObject, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		jsonObject.put("createrId", username);
+		System.out.println(jsonObject.toJSONString());
+		//int id = paperService.addRawPaper(jsonObject);
+		//String result = "{\"paper_id\":\""+id+"\",\"status\":\"ok\"}";
+		String result = "{\"paper_id\":\""+1+"\",\"status\":\"ok\"}";
+		return result;
+	}
+	/**
+	 * 加载题目信息
+	 * 
+	 * @param request
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value="/load_data",method=RequestMethod.GET)
 	@ResponseBody
 	public String loadData(HttpServletRequest request, Integer id){
 		ParsedItem item = itemService.queryParsedItem(id).get(0);
-		long time = System.currentTimeMillis();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String json = "{\"_id\":{\"timestamp\":1563789001,\"machineIdentifier\":5030166,\"processIdentifier\":29405,\"counter\":3855673,\"timeSecond\":1563789001,\"date\":1563789001000,\"time\":1563789001000},\"status\":\"enable\"";
 		json += ",\"classification\":\"514885\",\"cop_id\":\"140092\",\"label\":\"\",\"classificatonName\":\"示例\",\"encrypt\":\"0\"";
 		System.out.println(item);
@@ -352,15 +369,14 @@ public class ExamController {
 		json += ",\"analysis\":"+"\""+item.getItemParse()+"\"";
 		json += ",\"type\":"+"\""+type+"\"";
 		json += ",\"question\":"+"\""+item.getItemQuestion()+"\"";
-		json += ",\"tab_num\":"+"\""+options.size()+"\"";
-		for(int i=0;i<options.size();i++){
-			int j = i+1;
-			json += ",\"answer"+j+"\":"+"\""+options.get(i)+"\"";
-			json += ",\"key"+j+"\":"+"\""+j+"\"";
-		}
 		if(type.equals("1")||type.equals("2")){
-			for(int i=0;i<answers.size();i++){
+			for(int i=0;i<options.size();i++){
 				int j = i+1;
+				json += ",\"answer"+j+"\":"+"\""+options.get(i)+"\"";
+				json += ",\"key"+j+"\":"+"\""+j+"\"";
+			}
+			String C="";
+			for(int i=0;i<answers.size();i++){
 				int k = 0;
 				while(k<options.size()){
 					if(answers.get(i).equals(options.get(k))){
@@ -369,17 +385,46 @@ public class ExamController {
 					k++;
 				}
 				int c = 65 + k;
-				char C = (char)c;
-				json += ",\"test_ans_right"+"\":"+"\""+C+"\"";
+				C += (char)c;
 			}
+			json += ",\"test_ans_right"+"\":"+"\""+C+"\"";
+			json += ",\"tab_num\":"+"\""+options.size()+"\"";
 		}
-		else{
+		else if(type.equals("4")){
+			String answer = "";
 			for(int i=0;i<answers.size();i++){
 				int j = i+1;
-				json += ",\"test_ans_right"+"\":"+"\""+answers.get(i)+"\"";
+				json += ",\"answer"+j+"\":"+"\""+answers.get(i)+"\"";
+				json += ",\"key"+j+"\":"+"\""+1+"\"";
 			}
+			json += ",\"test_ans_right"+"\":"+"\"";
+			for(int i=0;i<answers.size();i++){
+				answer += ","+answers.get(i);
+			}
+			answer=answer.substring(1);
+			json += answer;
+			json += "\"";
+			json += ",\"tab_num\":"+"\""+0+"\"";
+		}
+		else{
+			json += ",\"answer"+1+"\":"+"\""+answers.get(0)+"\"";
+			json += ",\"key"+1+"\":"+"\""+1+"\"";
+			json += ",\"test_ans_right"+"\":"+"\""+answers.get(0)+"\"";
+			json += ",\"tab_num\":"+"\""+0+"\"";
 		}
 		json += "}";
 		return json;
+	}
+	/**
+	 * 创建考试
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/add_exam",method=RequestMethod.POST)
+	@ResponseBody
+	public String addExam(@RequestBody JSONObject jsonObject){
+		System.out.println(jsonObject.toJSONString());
+		String result = "{\"status\":\"ok\"}";
+		return result;
 	}
 }
