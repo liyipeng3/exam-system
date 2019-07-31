@@ -28,7 +28,7 @@ public class TeacherMapperTestResult
 		try 
 		{
 			RawResult rr = new RawResult();
-			rr.setTeacherId("1");
+			rr.setTeacherId("227372");
 			rr.setChecked("no");
 			for (RawResult r1 : tm.queryResult(rr)) 
 			{

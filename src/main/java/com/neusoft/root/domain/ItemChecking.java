@@ -1,26 +1,26 @@
 package com.neusoft.root.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.DocFlavor.STRING;
 
 public class ItemChecking
 {
 	private String itemType;
-	private String itemMeg;
-	private List<String> ItemOption; 
+	private String itemQuestion;
+	private List<String> itemOption; 
 	private List<String> studentAnswer;
 	private List<String> rightAnswer;
 	private String remark;
 	private Double itemScore;
 	private Double studentScore;
 	private String isRight;
-	public ItemChecking(String itemType, String itemMeg, List<String> itemOption, List<String> studentAnswer,
+	public ItemChecking(String itemType, String itemQuestion, List<String> itemOption, List<String> studentAnswer,
 			List<String> rightAnswer, String remark, Double itemScore, Double studentScore, String isRight) {
 		super();
 		this.itemType = itemType;
-		this.itemMeg = itemMeg;
-		ItemOption = itemOption;
+		this.itemQuestion = itemQuestion;
+		this.itemOption = itemOption;
 		this.studentAnswer = studentAnswer;
 		this.rightAnswer = rightAnswer;
 		this.remark = remark;
@@ -30,7 +30,9 @@ public class ItemChecking
 	}
 	public ItemChecking() {
 		super();
-		// TODO Auto-generated constructor stub
+		itemOption = new ArrayList<>();
+		studentAnswer = new ArrayList<>();
+		rightAnswer = new ArrayList<>();
 	}
 	public String getItemType() {
 		return itemType;
@@ -38,17 +40,17 @@ public class ItemChecking
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
 	}
-	public String getItemMeg() {
-		return itemMeg;
+	public String getItemQuestion() {
+		return itemQuestion;
 	}
-	public void setItemMeg(String itemMeg) {
-		this.itemMeg = itemMeg;
+	public void setItemQuestion(String itemQuestion) {
+		this.itemQuestion = itemQuestion;
 	}
 	public List<String> getItemOption() {
-		return ItemOption;
+		return itemOption;
 	}
 	public void setItemOption(List<String> itemOption) {
-		ItemOption = itemOption;
+		this.itemOption = itemOption;
 	}
 	public List<String> getStudentAnswer() {
 		return studentAnswer;
@@ -90,9 +92,9 @@ public class ItemChecking
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((ItemOption == null) ? 0 : ItemOption.hashCode());
 		result = prime * result + ((isRight == null) ? 0 : isRight.hashCode());
-		result = prime * result + ((itemMeg == null) ? 0 : itemMeg.hashCode());
+		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
+		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
 		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
 		result = prime * result + ((itemType == null) ? 0 : itemType.hashCode());
 		result = prime * result + ((remark == null) ? 0 : remark.hashCode());
@@ -110,20 +112,20 @@ public class ItemChecking
 		if (getClass() != obj.getClass())
 			return false;
 		ItemChecking other = (ItemChecking) obj;
-		if (ItemOption == null) {
-			if (other.ItemOption != null)
-				return false;
-		} else if (!ItemOption.equals(other.ItemOption))
-			return false;
 		if (isRight == null) {
 			if (other.isRight != null)
 				return false;
 		} else if (!isRight.equals(other.isRight))
 			return false;
-		if (itemMeg == null) {
-			if (other.itemMeg != null)
+		if (itemOption == null) {
+			if (other.itemOption != null)
 				return false;
-		} else if (!itemMeg.equals(other.itemMeg))
+		} else if (!itemOption.equals(other.itemOption))
+			return false;
+		if (itemQuestion == null) {
+			if (other.itemQuestion != null)
+				return false;
+		} else if (!itemQuestion.equals(other.itemQuestion))
 			return false;
 		if (itemScore == null) {
 			if (other.itemScore != null)
@@ -159,8 +161,9 @@ public class ItemChecking
 	}
 	@Override
 	public String toString() {
-		return "ItemChecking [itemType=" + itemType + ", itemMeg=" + itemMeg + ", ItemOption=" + ItemOption
+		return "ItemChecking [itemType=" + itemType + ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption
 				+ ", studentAnswer=" + studentAnswer + ", rightAnswer=" + rightAnswer + ", remark=" + remark
 				+ ", itemScore=" + itemScore + ", studentScore=" + studentScore + ", isRight=" + isRight + "]";
 	}
+	
 }
