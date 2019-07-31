@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.neusoft.root.domain.ParsedItem;
+import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
@@ -110,14 +111,14 @@ public class ExamController {
 		return gson.toJson(items);
 	}
 	/**
-	 * 获取科目对应的题
+	 * 获取科目和题型对应的题
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value="get_subject_items")
+	@RequestMapping(value="get_certain_items",method=RequestMethod.GET)
 	@ResponseBody
-	public String getSubjectItems(HttpServletRequest request){
-		List<RawItem> items = new ArrayList<>();
+	public String getSubjectItems(HttpServletRequest request, String itemType, String subject){
+		List<ParsedItem> items = new ArrayList<>();
 /*		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
@@ -131,7 +132,7 @@ public class ExamController {
 		items.add(item2);
 		items.add(item3);
 		items.add(item4);*/
-		items = itemService.queryRawItem("");
+		items = paperService.createPaper(subject, itemType);
 		Gson gson = new Gson();
 		return gson.toJson(items);
 	}
@@ -234,4 +235,12 @@ public class ExamController {
 	public String getItemByType(){
 		
 	}*/
+	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
+	@ResponseBody
+	public String getParsedPaper(){
+		ParsedPaper parsePaper = paperService.queryParsedPaper((Integer)1).get(0);
+		Gson gson = new Gson();
+		String json = gson.toJson(parsePaper);
+		return json;
+	}
 }
