@@ -427,4 +427,30 @@ public class ExamController {
 		String result = "{\"status\":\"ok\"}";
 		return result;
 	}
+	/**
+	 * 按id获取试卷信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/get_paper_info",method=RequestMethod.GET)
+	@ResponseBody
+	public String getPaperInfo(int id){
+		ParsedPaper paper = paperService.queryParsedPaper(id);
+		JsonObject json = new JsonObject();
+		json.addProperty("score", paper.getPaperScore());
+		json.addProperty("createrId", paper.getCreaterId());
+		json.addProperty("createDate", paper.getCreateDate());
+		json.addProperty("paperRemark", paper.getPaperRemark());
+		int num = 0;
+		List<List<ParsedItem>> ITEMS =  paper.getItems();
+		for(int i = 0; i < ITEMS.size(); i++){
+			List<ParsedItem> items = ITEMS.get(i);
+			for(int j = 0; j < items.size(); j++){
+				num++;
+			}
+		}
+		json.addProperty("itemsNumber", String.valueOf(num));
+		return json.toString();
+	}
 }
