@@ -317,9 +317,9 @@ public class ExamController {
 		String username = session.getAttribute("username").toString();
 		jsonObject.put("createrId", username);
 		System.out.println(jsonObject.toJSONString());
-		//int id = paperService.addRawPaper(jsonObject);
-		//String result = "{\"paper_id\":\""+id+"\",\"status\":\"ok\"}";
-		String result = "{\"paper_id\":\""+1+"\",\"status\":\"ok\"}";
+		int id = paperService.addRawPaper(jsonObject);
+		String result = "{\"paper_id\":\""+id+"\",\"status\":\"ok\"}";
+		//String result = "{\"paper_id\":\""+1+"\",\"status\":\"ok\"}";
 		return result;
 	}
 	/**

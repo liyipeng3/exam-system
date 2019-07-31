@@ -1127,8 +1127,8 @@ function asyncPaperSub(obj) {
         type: "POST",
         dataType: "json",
         url: ajaxUrl,
-        data: data,
-        contentType: 'application/json',
+        data: JSON.stringify(data),
+        contentType: 'application/json;charset=UTF-8',
         success: function (msg) {
             if (msg.status == 'ok') {
                 if ($("#savePaperBtn").hasClass('addPaperOnly')) {

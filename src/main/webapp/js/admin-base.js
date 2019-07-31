@@ -559,7 +559,7 @@ $("#confirmOkBtn").click(function () {
     }
     //弹窗跳转逻辑优化  1.优先在哪点的回到哪 2.最差也是都回到列表页面
     if (type == 'exam') {
-        if (url.indexOf('/admin/exam_add') != -1) { //创建考试的情况
+        if (url.indexOf('/html/exam/exam_add') != -1) { //创建考试的情况
             var okModalRef = window.localStorage.getItem('okModalExamRef');
             if (okModalRef == 'index') {
                 jumpUrl = '/account/admin/index';
