@@ -20,7 +20,7 @@ public interface CourseService {
 	 * 删除课程
 	 * @param json course串
 	 */
-	public void deleteCourse(JSONObject json);
+	public void deleteCourse(String courseId);
 	/**
 	 * 更新课程
 	 * @param json course串
@@ -31,7 +31,7 @@ public interface CourseService {
 	 * @param json course串
 	 * @return 查询course结果list
 	 */
-	public List<Course> queryCourse(JSONObject json);
+	public List<Course> queryCourse(String id);
 	/**
 	 * 查询所有课程
 	 * @return 所有课程名list
