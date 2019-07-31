@@ -313,7 +313,7 @@ public class ExamController {
 	@ResponseBody
 	public String addPaper(@RequestBody JSONObject jsonObject){
 		System.out.println(jsonObject.toJSONString());
-		return "ok";
+		return "{\"id\":\"1\",\"status\":\"ok\"}";
 	}
 	/*{"_id":{"timestamp":1563789001,"machineIdentifier":5030166,"processIdentifier":29405,"counter":3855673,"timeSecond":1563789001,"date":1563789001000,"time":1563789001000},"status":"enable",
 		"create_date":1478088009632,"classification":"514885","key3":"1",
