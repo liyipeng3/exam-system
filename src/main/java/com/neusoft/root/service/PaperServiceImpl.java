@@ -72,7 +72,15 @@ public class PaperServiceImpl implements PaperService{
 				String scores1[] = querstionscores1.split(",");
 				for(int i=0;i<line1.length;i++)
 				{
-					singlequestion = singlequestion+line1[i]+","+scores1[i]+","+json.getString("testTittle"+x)+","+x+"###";
+					if(line1.length!=scores1.length)
+					{
+						singlequestion = singlequestion+line1[i]+","+scores1[0]+","+json.getString("testTittle"+x)+","+x+"###";
+					}
+					else
+					{
+						singlequestion = singlequestion+line1[i]+","+scores1[i]+","+json.getString("testTittle"+x)+","+x+"###";
+					}
+					
 				}
 				if(!singlequestion.equals(""))
 				singlequestion = singlequestion.substring(0, singlequestion.length()-3);
@@ -92,7 +100,15 @@ public class PaperServiceImpl implements PaperService{
 				String scores2[] = querstionscores2.split(",");
 				for(int i=0;i<line2.length;i++)
 				{
-					mutiquestion = mutiquestion+line2[i]+","+scores2[i]+","+json.getString("testTittle"+x)+","+x+"###";
+					if(line2.length!=scores2.length)
+					{
+						mutiquestion = mutiquestion+line2[i]+","+scores2[0]+","+json.getString("testTittle"+x)+","+x+"###";
+					}
+					else
+					{
+						mutiquestion = mutiquestion+line2[i]+","+scores2[i]+","+json.getString("testTittle"+x)+","+x+"###";
+					}
+					
 				}
 				if(!mutiquestion.equals(""))
 				mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
@@ -112,7 +128,15 @@ public class PaperServiceImpl implements PaperService{
 				String scores3[] = querstionscores3.split(",");
 				for(int i=0;i<line3.length;i++)
 				{
-					fillquestion = fillquestion+line3[i]+","+scores3[i]+","+json.getString("testTittle"+x)+","+x+"###";
+					if(line3.length!=scores3.length)
+					{
+						fillquestion = fillquestion+line3[i]+","+scores3[0]+","+json.getString("testTittle"+x)+","+x+"###";
+					}
+					else
+					{
+						fillquestion = fillquestion+line3[i]+","+scores3[i]+","+json.getString("testTittle"+x)+","+x+"###";	
+					}
+					
 				}
 				if(!fillquestion.equals(""))
 				fillquestion = fillquestion.substring(0, fillquestion.length()-3);
@@ -132,7 +156,15 @@ public class PaperServiceImpl implements PaperService{
 				String scores4[] = querstionscores4.split(",");
 				for(int i=0;i<line4.length;i++)
 				{
-					subjectivequestion = subjectivequestion+line4[i]+","+scores4[i]+","+json.getString("testTittle"+x)+","+x+"###";
+					if(line4.length!=scores4.length)
+					{
+						subjectivequestion = subjectivequestion+line4[i]+","+scores4[0]+","+json.getString("testTittle"+x)+","+x+"###";
+					}
+					else
+					{
+						subjectivequestion = subjectivequestion+line4[i]+","+scores4[i]+","+json.getString("testTittle"+x)+","+x+"###";
+					}
+				
 				}
 				if(!subjectivequestion.equals(""))
 				subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
