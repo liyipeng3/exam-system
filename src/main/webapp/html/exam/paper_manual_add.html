@@ -721,7 +721,7 @@
     var activeNavItem = 'subNavItemExamMgr';
     $(function () {
 
-        $('.edit-paper-name').val(decodeURI(getParam('paperName')));
+        $('.edit-paper-name, .paperName').val(decodeURI(getParam('paperName')));
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
             e.preventDefault();
