@@ -441,6 +441,8 @@ public class PaperServiceImpl implements PaperService{
 							System.out.println("查询试题ID不唯一！！！");
 						}
 						else {
+							Double itemScore = Double.valueOf(banana[1]);
+							itemlist.get(0).setItemScore(itemScore);
 							item.add(itemlist.get(0));
 						}
 					}
@@ -463,6 +465,8 @@ public class PaperServiceImpl implements PaperService{
 							System.out.println("查询试题ID不唯一！！！");
 						}
 						else {
+							Double itemScore = Double.valueOf(banana[1]);
+							itemlist.get(0).setItemScore(itemScore);
 							item.add(itemlist.get(0));
 						}
 					}
@@ -485,6 +489,8 @@ public class PaperServiceImpl implements PaperService{
 							System.out.println("查询试题ID不唯一！！！");
 						}
 						else {
+							Double itemScore = Double.valueOf(banana[1]);
+							itemlist.get(0).setItemScore(itemScore);
 							item.add(itemlist.get(0));
 						}
 					}
@@ -507,6 +513,8 @@ public class PaperServiceImpl implements PaperService{
 							System.out.println("查询试题ID不唯一！！！");
 						}
 						else {
+							Double itemScore = Double.valueOf(banana[1]);
+							itemlist.get(0).setItemScore(itemScore);
 							item.add(itemlist.get(0));
 						}
 					}
