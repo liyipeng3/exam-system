@@ -303,6 +303,12 @@ public class ExamController {
 	public String addPaperChecking(@RequestBody JSONObject jsonObject){
 		return "ok";
 	}
+	@RequestMapping(value="/add_paper",method=RequestMethod.POST)
+	@ResponseBody
+	public String addPaper(@RequestBody JSONObject jsonObject){
+		System.out.println(jsonObject.toJSONString());
+		return "ok";
+	}
 	/*{"_id":{"timestamp":1563789001,"machineIdentifier":5030166,"processIdentifier":29405,"counter":3855673,"timeSecond":1563789001,"date":1563789001000,"time":1563789001000},"status":"enable",
 		"create_date":1478088009632,"classification":"514885","key3":"1",
 		"answer1":"清晨","key1":"0","tab_num":"3","question":"拜访他人应选择（）,并应提前打招呼。",
@@ -352,13 +358,12 @@ public class ExamController {
 		json += ",\"analysis\":"+"\""+item.getItemParse()+"\"";
 		json += ",\"type\":"+"\""+type+"\"";
 		json += ",\"question\":"+"\""+item.getItemQuestion()+"\"";
-		json += ",\"tab_num\":"+"\""+options.size()+"\"";
-		for(int i=0;i<options.size();i++){
-			int j = i+1;
-			json += ",\"answer"+j+"\":"+"\""+options.get(i)+"\"";
-			json += ",\"key"+j+"\":"+"\""+j+"\"";
-		}
 		if(type.equals("1")||type.equals("2")){
+			for(int i=0;i<options.size();i++){
+				int j = i+1;
+				json += ",\"answer"+j+"\":"+"\""+options.get(i)+"\"";
+				json += ",\"key"+j+"\":"+"\""+j+"\"";
+			}
 			String C="";
 			for(int i=0;i<answers.size();i++){
 				int j = i+1;
@@ -371,14 +376,29 @@ public class ExamController {
 				}
 				int c = 65 + k;
 				C += (char)c;
-				json += ",\"test_ans_right"+"\":"+"\""+C+"\"";
 			}
+			json += ",\"test_ans_right"+"\":"+"\""+C+"\"";
+			json += ",\"tab_num\":"+"\""+options.size()+"\"";
 		}
-		else{
+		else if(type.equals("4")){
 			for(int i=0;i<answers.size();i++){
 				int j = i+1;
-				json += ",\"test_ans_right"+"\":"+"\""+answers.get(i)+"\"";
+				json += ",\"answer"+j+"\":"+"\""+answers.get(i)+"\"";
+				json += ",\"key"+j+"\":"+"\""+1+"\"";
 			}
+			json += ",\"test_ans_right"+"\":"+"\"";
+			for(int i=0;i<answers.size();i++){
+				int j = i+1;
+				json += ","+answers.get(i);
+			}
+			json += "\"";
+			json += ",\"tab_num\":"+"\""+0+"\"";
+		}
+		else{
+			json += ",\"answer"+1+"\":"+"\""+"此题没有正确答案，需要人工判分"+"\"";
+			json += ",\"key"+1+"\":"+"\""+1+"\"";
+			json += ",\"test_ans_right"+"\":"+"\""+"此题没有正确答案，需要人工判分"+"\"";
+			json += ",\"tab_num\":"+"\""+0+"\"";
 		}
 		json += "}";
 		return json;
