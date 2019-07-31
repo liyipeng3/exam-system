@@ -105,7 +105,6 @@ public class ResultServiceImpl implements ResultService{
 		if(subResult!="")
 			subResult = subResult.substring(0,subResult.length()-3);
 		RawResult result = new RawResult(json.getString("studentId"), json.getInteger("paperId"),json.getString("teacherId"), singlechoiceResult, multichoiceResult, fillResult, subResult, json.getString("submitDate"),"no");
-		System.out.println(result);
 		mapper.addResult(result);
 	}
 
