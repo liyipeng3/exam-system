@@ -210,7 +210,6 @@ public class ExamController {
 	@ResponseBody
 	public String getItemById(Integer id, HttpServletRequest request){
 		ParsedItem item = itemService.queryParsedItem(id).get(0);
-		System.out.println(item);
 		if(!item.getItemType().equals("问答题") && !item.getItemType().equals("填空题")){
 			List<String> answers = new ArrayList<>();
 			for(int i = 0; i < item.getItemAnswer().size(); i++){
@@ -230,4 +229,9 @@ public class ExamController {
 		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
 		return json;
 	}
+/*	@RequestMapping(value="get_item_by_type",method=RequestMethod.GET)
+	@ResponseBody
+	public String getItemByType(){
+		
+	}*/
 }

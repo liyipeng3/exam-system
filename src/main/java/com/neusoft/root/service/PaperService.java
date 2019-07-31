@@ -6,6 +6,7 @@ import java.util.List;
 import javax.security.auth.Subject;
 
 import com.alibaba.fastjson.JSONObject;
+import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
@@ -45,5 +46,11 @@ public interface PaperService {
 	 * @return 课程名字的list
 	 */
 	public List<String> queryPaperCourse();
+	/**
+	 * 随机组卷
+	 * @param subjects 科目
+	 * @param type 题型
+	 */
+	public List<ParsedItem> createPaper(String subjects,String type);
 	
 }
