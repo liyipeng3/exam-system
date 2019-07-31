@@ -1279,6 +1279,7 @@ function createQuestionsViewFn(obj, parentDom, q_type, create_type) {
         per_time = $(parentDom).parents(".group_simple").find("input[name=test_peer_time]").val();
     }
     if (obj.type == "1" || obj.type == "2") {
+        //console.log('单选或者');
         //内容填充
         try {
             if (obj.answer1 != undefined) {
