@@ -458,7 +458,7 @@ $(document).ready(function () {
         e.stopPropagation();
         e.preventDefault();
         var type = $(this).parents().parents().siblings("span").text();
-        console.log(this);
+        //console.log(this);
         var subject = getParam('subject');
         subject = decodeURI(subject);
         showSelQuestions(this, type, subject);
@@ -1825,14 +1825,12 @@ function selQuestion(ids, num, type) {
             //异步读取试题数据
             $.ajax({
                 type: "GET",
-                cache: false,
-                headers: {"cache-control": "no-cache"},
                 dataType: "json",
                 url: "/exam/load_data",
                 data: "id=" + value,
                 async: false,
                 success: function (msg) {
-                    var jsonData = msg.bizContent;
+                    var jsonData = msg;
                     //创建添加试题DOM
                     $(tr).find('.empty_q_tip').hide(); //隐藏空空如也
                     createQuestionsViewFn(jsonData, $(tr).find(".group_title"), 'select');
