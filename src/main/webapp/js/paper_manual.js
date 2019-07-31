@@ -250,7 +250,7 @@ $(document).ready(function () {
     $("body").on("click", "a.addKeyFill", function (e) {
         // $(".questionContent .keyFillContent_first .bootstrap-tagsinput").eq(0).hide();
         var parentDom = $(this).parents(".questionContent");
-        var keyLength = parentDom.find("input[name=keyFill]").length;
+        var keyLength = parentDom.find("input[name=keyFill]").length - 1;
         if (keyLength >= 20) {
             alert("最多只能有20个填空选项。");
             return;

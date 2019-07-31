@@ -283,8 +283,8 @@ $(document).ready( function() {
 		}
 		var html='<div class="keyFillContent keyFillContentAdd">'+
 				 '	  <div class="input-group">'+
-				 '		  <span class="input-group-addon">'+(keyLength+1)+'</span>'+
-				 '		  <input type="text" name="keyFill"  class="form-control" placeholder="请输入答案">'+
+				 '		  <span class="input-group-addon">'+(keyLength)+'</span>'+
+				 '		  <input type="text" name="keyFill"  id="input'+keyLength+'Editor" class="form-control" placeholder="请输入答案">'+
 				 '	  </div>'+
 				 '	  <a href="javascript:void(0);" class="removeKeyFill icons8-delete"></a>'+
 				 '</div>';

@@ -13,28 +13,6 @@ $(function () {
         $("#spinnerLoading").addClass("hidden");
     });
 
-
-    //创建导航逻辑
-    $(function () {
-        //读取导航（根据模块权限动态生成）
-        if ($("#ksxAdminSidebar").length > 0) {
-            $.ajax({
-                type: "POST",
-                cache: false,
-                dataType: "json",
-                url: "/admin/getAllRights",
-                success: function (msg) {
-                    if (msg.success) {
-                        //生成导航
-                        createSidebar(msg.bizContent);
-                        //标记当前导航项
-                        getActiveNav();
-                    }
-                }
-            })
-        }
-
-
         //生成导航
         function createSidebar(data) {
             var menuList = [
@@ -390,7 +368,7 @@ $(function () {
 
     //初始化系统消息
     var POPOVER_HTML = '';
-    $.ajax({
+    /*$.ajax({
         type: 'POST',
         cache: false,
         headers: {"cache-control": "no-cache"},
@@ -398,12 +376,6 @@ $(function () {
         url: '/account/notification/',
         success: function (msg) {
             var tool_count = msg.bizContent.unreadCount;
-            //样式调整，先注释
-            /*var tool_html = '';
-
-            if(tool_count==0){
-                tool_html = '<span>暂无消息</span>'
-            }*/
 
             // 未读标志
             if (tool_count > 9) {
@@ -413,7 +385,6 @@ $(function () {
             } else {
                 $('#stateMessage .message-count').addClass('hidden');
             }
-
 
             // notifications是最新的消息，最多为5条，添加支消息框
             for (var i = 0; i < msg.bizContent.notifications.length; i++) {
@@ -437,7 +408,7 @@ $(function () {
             POPOVER_HTML = tool_html;
 
         }
-    });
+    });*/
 
 
     // 若点击消息内部链接，则认为消息已读
@@ -457,11 +428,8 @@ $(function () {
 
 
     $("#stateMessage").click(function () {
-        window.location.href = "/account/notification/";
+        //window.location.href = "/account/notification/";
     });
-
-
-});
 
 
 // set cookie

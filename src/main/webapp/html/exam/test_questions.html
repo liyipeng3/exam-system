@@ -29,7 +29,7 @@
                             <button type="button"
                                     class="el-button el-button--primary el-button--small" id="add_question"><i
                                     class="icon-a_circle_plus"></i><span>添加试题</span></button>
-                            <button data-v-3a050ba5="" type="button"
+                            <button type="button"
                                     class="el-button el-button--primary el-button--small is-plain"><i
                                     class="icon-a_btn_delete"></i><span>批量删除</span></button>
                         </div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="header-right">
                     <div data-v-ce850100="" class="el-badge item item-notification"><a data-v-ce850100=""
-                                                                                       href="https://admin.com/account/notification/1"><i
+                                                                                       href="/account/notification/1"><i
                             data-v-ce850100="" class="icon-p_top_message icon item-icon"></i></a><sup
                             class="el-badge__content is-fixed" style="display: none;"></sup></div>
                 </div>
@@ -548,6 +548,7 @@
     $(document).ready(function () {
         $.getJSON("/exam/get_items", function (result) {
             $.each(result, function (index, e) {
+                var difficult = '';
                 var item = '<tr class="el-table__row"><td class="el-table_1_column_1  el-table-column--selection" colspan="1" rowspan="1">';
                 item += '<div class="cell"><label class="el-checkbox" role="checkbox"><span aria-checked="mixed" class="el-checkbox__input my_item">';
                 item += '<span class="el-checkbox__inner"></span><input aria-hidden="true" class="el-checkbox__original" type="checkbox" value="">';
@@ -559,7 +560,14 @@
                 item += '<div class="cell el-tooltip" style="width: 660px;">';
                 item += e.itemQuestion + '</div></td><td class="el-table_1_column_5  " colspan="1" rowspan="1">';
                 item += '<div class="cell el-tooltip" style="width: 79px;">';
-                item += e.itemIndex + '</div></td><td class="el-table_1_column_6  " colspan="1" rowspan="1">';
+                if(e.itemIndex<2){
+                    difficult = "简单";
+                } else if(e.itemIndex<4){
+                    difficult = "普通";
+                } else {
+                    difficult = "困难";
+                }
+                item += difficult + '</div></td><td class="el-table_1_column_6  " colspan="1" rowspan="1">';
                 item += '<div class="cell el-tooltip" style="width: 199px;"></div></td>';
                 item += '<td class="el-table_1_column_7  " colspan="1" rowspan="1"><div class="cell el-tooltip" style="width: 119px;">';
                 item += e.itemId + '</div></td><td class="el-table_1_column_8  " colspan="1" rowspan="1">';
@@ -579,18 +587,17 @@
                 window.location.href = '/html/exam/updatetestqm?id=' +  String($(e.target).attr("id")).substring(7);
             });
             $('.icon-a_operate_delete').click(function (e) {
-                var msg = "您确定要删除吗吗？";
+                /*var msg = "您确定要删除吗吗？";
                 if (confirm(msg) == false) {
                     return;
-                }
+                }*/
                 $.get("/exam/delete_item", "id=" + ($(e.target).attr("id")), function (msg) {
                     e.stopPropagation();
                     if (msg == 'ok') {
-                        alert("删除成功！");
+                        console.log("删除成功！");
                     } else {
-                        alert("删除失败！");
+                        console.log("删除失败！");
                     }
-                    ;
                     window.location.reload();
                 });
             });
@@ -617,6 +624,23 @@
         });
         $('#add_question').click(function () {
             window.location.href = "/html/exam/addtestqm";
+        });
+        $('.is-plain').click(function () {
+            var msg = "您确定要批量删除吗？";
+            if (confirm(msg) == false) {
+                return;
+            }
+            $('.is-checked').each(function (index, e) {
+                var del_id = $(e).parent().parent().parent().siblings(".el-table_1_column_7").find('div').text();
+                $.get("/exam/delete_item", "id=delete_" + del_id, function (msg) {
+                    if (msg == 'ok') {
+                        console.log("删除成功！");
+                    } else {
+                        console.log("删除失败！");
+                    }
+                });
+            });
+            window.location.reload();
         });
 
     });
