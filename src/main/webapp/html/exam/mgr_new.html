@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/styles.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/jquery.bootgrid.css">
-    <link rel="stylesheet" type="text/css" href="../../js/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/ksx-tab-base.css">
     <link rel="stylesheet" type="text/css" href="../../css/result_mgr_new.css">
     <style type="text/css">  .JColResizer {
@@ -325,9 +325,6 @@
                                 <li class="nav-item sub-nav-item" id="subNavItemCourseMgr"><a
                                         href="/html/study/course_mgr"><span class="nav-title">课程管理</span></a>
                                 </li>
-                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="/html/study/study_record_mgr"><span
-                                        class="nav-title">学习记录</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item " id="navItemCustomProcess"><a href="https://v..com/admin/customprocess/"
@@ -335,8 +332,7 @@
                                                                            data-placement="right" data-container="body"
                                                                            title="自定义任务">
                             <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i></div>
-                            <span class="nav-title">自定义任务</span><img class="mark-beta"
-                                                                     src="../../img/a_nav_beta.svg"></a></li>
+                            <span class="nav-title">自定义任务</span></a></li>
                         <li class="nav-item " id="navItemCertification"><a
                                 href="https://admin..com/certificate/certificate_center" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
@@ -660,7 +656,7 @@
             </div>
             <div class="modal-body">
                 <iframe width="100%" height="100%" name="selTypeModal" id="selTypeModal"
-                        src="#"></iframe>
+                        src="./select_exam.html"></iframe>
             </div>
         </div>
     </div>
@@ -1036,7 +1032,7 @@
     var exam_info_id = '';
     var domain = "140092";
     var user_name = "18800418032@140092";
-    var jwt = "{{ jwt_info }}";
+    var jwt = "";
     var skip_exam = "";
     var usersArray = [];
     var storageLock = true;
@@ -1055,7 +1051,7 @@
             post: function () {
                 var sortOrder = $("#grid-data").bootgrid("getSortDictionary");
                 var sort_key, sort_order;
-                var exam_info_id =;
+                var exam_info_id =1;
                 var user_name = $("input[name=name_search]").val();
                 var dep_id = $("input[name=dep_search]").val();
                 var is_grade = $("input[name=grade_search]").val();
@@ -1430,45 +1426,10 @@
     $('#exportFile').click(function () {
         $("#exportFileModal").modal('show');
     });
-    //导出附件链接
-    $('#startExportLinks').click(function () {
-        $.ajax({
-            type: 'GET',
-            url: '/admin/attachment/download/',
-            cache: false,
-            headers: {"cache-control": "no-cache"},
-            dataType: 'json',
-            data: 'examInfoId=' + exam_info_id,
-            success: function (mesg) {
-                if (mesg.success) {
-                    $("#exportFileModal").modal('hide');
-                    $("#exportingFileModal .title").text("导出中...");
-                    $("#exportingFileModal .content").text("").append("<p>正在导出考生答案</p><p>成功后即可进入'消息中心'下载</p>");
-                    $("#exportingFileModal").modal('show');
-                } else {
-                    if (mesg.code == '61522') {
-                        $("#exportFileModal").modal('hide');
-                        $("#exportingFileModal .title").text("");
-                        $("#exportingFileModal .content").text("正在导出本场考试的附件链接");
-                        $("#exportingFileModal").modal('show');
-                    }
-                    if (mesg.code == '61523') {
-                        $("#exportFileModal").modal('hide');
-                        $("#exportingFileModal .title").text("导出失败");
-                        $("#exportingFileModal .content").text("");
-                        $("#exportingFileModal").modal('show');
-                    }
-                }
-            },
-        })
-    });
 
-    $('#selTypeModal').modal().hide();
+
 </script>
 <script type="text/javascript" src="../../js/admin_mark_paper.js"></script>
-
-
 <div class="modal-backdrop fade in"></div>
-
 </body>
 </html>

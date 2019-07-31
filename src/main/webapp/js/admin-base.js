@@ -95,12 +95,6 @@ $(function () {
                             id: 'CourseMgr',
                             url: getAdminUrlPrefix + '/course/course_mgr',
                             show: data.allowCourseManager
-                        },
-                        {
-                            title: '学习记录',
-                            id: 'CourseRecord',
-                            url: getAdminUrlPrefix + '/course/study_record_mgr/course',
-                            show: data.allowStudyRecord
                         }
                     ]
                 },

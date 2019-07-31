@@ -2734,11 +2734,6 @@ webpackJsonp([1], {
                     id: "CourseMgr",
                     url: a.apiBase("admin") + "/course/course_mgr",
                     show: n.allowCourseManager
-                }, {
-                    title: "学习记录",
-                    id: "CourseRecord",
-                    url: a.apiBase("admin") + "/course/study_record_mgr/course",
-                    show: n.allowStudyRecord
                 }]
             }, {
                 title: "自定义任务",

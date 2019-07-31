@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
@@ -15,23 +16,27 @@
     <link href="../../css/application.f204953ac24050f3f543b9fbc1fe1cdd.css" rel="stylesheet">
     <style></style>
 </head>
+
 <body>
 <div id="app">
     <section class="el-container viewFrameWork admin is-vertical" element-loading-text="拼命加载中"
              element-loading-background="rgba(0, 0, 0, 0.8)">
         <header class="el-header viewFrameWork-header" style="height: 70px;">
             <div class="header">
-                <div class="header-left"><a href="https://admin.com/account/admin/index"><img
-                        src="../../img/logo.png" alt="" class="item item-logo"></a></div>
+                <div class="header-left">
+                    <a href="https://admin.com/account/admin/index">
+                        <img src="../../img/logo.png" alt="" class="item item-logo">
+                    </a>
+                </div>
                 <div class="header-middle">
                     <div data-v-3a050ba5="" class="body-toolbar clearfix">
                         <div data-v-3a050ba5="" class="toolbar-left fl">
-                            <button type="button"
-                                    class="el-button el-button--primary el-button--small" id="add_question"><i
-                                    class="icon-a_circle_plus"></i><span>添加试题</span></button>
-                            <button type="button"
-                                    class="el-button el-button--primary el-button--small is-plain"><i
-                                    class="icon-a_btn_delete"></i><span>批量删除</span></button>
+                            <button type="button" class="el-button el-button--primary el-button--small"
+                                    id="add_question"><i class="icon-a_circle_plus"></i><span>添加试题</span>
+                            </button>
+                            <button type="button" class="el-button el-button--primary el-button--small is-plain"><i
+                                    class="icon-a_btn_delete"></i><span>批量删除</span>
+                            </button>
                         </div>
                         <div data-v-3a050ba5="" class="toolbar-right fr">
                             <div data-v-3a050ba5="" class="ksx-search-group">
@@ -40,7 +45,9 @@
                                     <input type="text" autocomplete="off" placeholder="请输入试题或选项内容"
                                            class="el-input__inner"><span class="el-input__prefix"><i
                                         data-v-3a050ba5="" class="el-icon-search"></i></span>
-                                    <div class="el-input-group__append"><span data-v-3a050ba5="">搜索</span></div>
+
+                                    <div class="el-input-group__append"><span data-v-3a050ba5="">搜索</span>
+                                    </div>
                                 </div>
                                 <span data-v-3a050ba5=""><div role="tooltip" id="el-popover-6267" aria-hidden="true"
                                                               class="el-popover el-popper ksx-advanced-search"
@@ -68,48 +75,69 @@
                                         data-v-3a050ba5=""
                                         class="el-dropdown-link save-difficult el-dropdown-selfdefine"
                                         aria-haspopup="list" aria-controls="dropdown-menu-6921" role="button"
-                                        tabindex="0">请选择</span> <ul data-v-3a050ba5=""
-                                                                    class="el-dropdown-menu el-popper"
-                                                                    id="dropdown-menu-6921" style="display: none;"><li
-                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">单选题</li> <li
-                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">多选题</li> <li
-                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">判断题</li> <li
-                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">填空题</li> <li
-                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">问答题</li> <li
-                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">组合题</li> <li
-                                        data-v-3a050ba5="" tabindex="-1"
-                                        class="el-dropdown-menu__item">录音题</li></ul></div></div></div>
-                                    </div></div> <div data-v-3a050ba5="" class="el-form-item el-form-item--mini"><label
-                                        class="el-form-item__label" style="width: 70px;">试题难度</label><div
-                                        class="el-form-item__content" style="margin-left: 70px;"><div data-v-3a050ba5=""
-                                                                                                      class="block-col-2 el-row"><div
-                                        data-v-3a050ba5="" class="el-col el-col-12"><div data-v-3a050ba5=""
-                                                                                         class="el-dropdown"><span
-                                        data-v-3a050ba5=""
-                                        class="el-dropdown-link save-difficult el-dropdown-selfdefine"
-                                        aria-haspopup="list" aria-controls="dropdown-menu-9302" role="button"
-                                        tabindex="0">请选择</span> <ul data-v-3a050ba5=""
-                                                                    class="el-dropdown-menu el-popper"
-                                                                    id="dropdown-menu-9302" style="display: none;"><li
-                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">简单</li> <li
-                                        data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">普通</li> <li
-                                        data-v-3a050ba5="" tabindex="-1"
-                                        class="el-dropdown-menu__item">困难</li></ul></div></div></div></div></div> <div
-                                        data-v-3a050ba5="" class="el-form-item el-form-item--mini"><label
-                                        class="el-form-item__label" style="width: 70px;"></label><div
-                                        class="el-form-item__content" style="margin-left: 70px;"><div data-v-3a050ba5=""
-                                                                                                      class="el-form-choose tc">
-                  请选择
-                </div></div></div></div></div> <div data-v-3a050ba5=""
-                                                    class="el-form-item tc fixed-bottom el-form-item--mini"><div
-                                        class="el-form-item__content" style="margin-left: 70px;"><button
-                                        data-v-3a050ba5="" type="button"
-                                        class="el-button el-btn-search el-button--primary el-button--mini">
-                                    <span>搜索</span></button></div></div></form> </div><button
-                                        data-v-3a050ba5="" type="button"
-                                        class="el-button el-btn-advance el-button--text el-button--medium el-popover__reference"
-                                        tabindex="0"><span>
-          高级搜索<i data-v-3a050ba5="" class="el-icon-arrow-down el-icon--right"></i></span></button></span></div>
+                                        tabindex="0">请选择</span>
+                                        <ul data-v-3a050ba5="" class="el-dropdown-menu el-popper"
+                                            id="dropdown-menu-6921" style="display: none;">
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">单选题</li>
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">多选题</li>
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">判断题</li>
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">填空题</li>
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">问答题</li>
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">组合题</li>
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">录音题</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-v-3a050ba5="" class="el-form-item el-form-item--mini">
+                        <label class="el-form-item__label" style="width: 70px;">试题难度</label>
+                        <div class="el-form-item__content" style="margin-left: 70px;">
+                            <div data-v-3a050ba5="" class="block-col-2 el-row">
+                                <div data-v-3a050ba5="" class="el-col el-col-12">
+                                    <div data-v-3a050ba5="" class="el-dropdown"><span data-v-3a050ba5=""
+                                                                                      class="el-dropdown-link save-difficult el-dropdown-selfdefine"
+                                                                                      aria-haspopup="list"
+                                                                                      aria-controls="dropdown-menu-9302"
+                                                                                      role="button"
+                                                                                      tabindex="0">请选择</span>
+                                        <ul data-v-3a050ba5="" class="el-dropdown-menu el-popper"
+                                            id="dropdown-menu-9302"
+                                            style="display: none;">
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">简单</li>
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">普通</li>
+                                            <li data-v-3a050ba5="" tabindex="-1" class="el-dropdown-menu__item">困难</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-v-3a050ba5="" class="el-form-item el-form-item--mini">
+                        <label class="el-form-item__label" style="width: 70px;"></label>
+                        <div class="el-form-item__content" style="margin-left: 70px;">
+                            <div data-v-3a050ba5="" class="el-form-choose tc">请选择</div>
+                        </div>
+                    </div>
+        </div>
+        </div>
+        <div data-v-3a050ba5="" class="el-form-item tc fixed-bottom el-form-item--mini">
+            <div class="el-form-item__content" style="margin-left: 70px;">
+                <button data-v-3a050ba5="" type="button"
+                        class="el-button el-btn-search el-button--primary el-button--mini"> <span>搜索</span>
+                </button>
+            </div>
+        </div>
+        </form>
+        </div>
+        <button data-v-3a050ba5="" type="button"
+                class="el-button el-btn-advance el-button--text el-button--medium el-popover__reference"
+                tabindex="0"><span>
+          高级搜索<i data-v-3a050ba5="" class="el-icon-arrow-down el-icon--right"></i></span>
+        </button>
+        </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,108 +145,147 @@
                     <div data-v-ce850100="" class="el-badge item item-notification"><a data-v-ce850100=""
                                                                                        href="/account/notification/1"><i
                             data-v-ce850100="" class="icon-p_top_message icon item-icon"></i></a><sup
-                            class="el-badge__content is-fixed" style="display: none;"></sup></div>
+                            class="el-badge__content is-fixed" style="display: none;"></sup>
+                    </div>
                 </div>
             </div>
         </header>
         <section class="el-container">
             <aside class="el-aside viewFrameWork-sidebar full" style="width: 300px;">
                 <ul role="menubar" class="el-menu-vertical el-menu">
-                    <li class="el-menu-item item-collapse el-tooltip item"
-                        tabindex="0"><i class="el-icon-d-arrow-left"></i></li>
+                    <li class="el-menu-item item-collapse el-tooltip item" tabindex="0"><i
+                            class="el-icon-d-arrow-left"></i>
+                    </li>
                     <a href="/index">
+                        <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip" style="padding-left: 20px;"><i
+                                class="icon icon-a_nav_home"></i><span class="title">首页</span>
+                        </li>
+                    </a>
+                    <a href="/html/exam/test_questions#">
+                        <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu is-active is-opened"
+                            aria-describedby="el-tooltip-7909" tabindex="0" aria-expanded="true">
+                            <div class="el-submenu__title" style="padding-left: 20px;"><i
+                                    class="icon icon-a_nav_exam"></i>
+                                <span>考试管理</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                            </div>
+                            <ul role="menu" class="el-menu el-menu--inline" style="" data-old-padding-top=""
+                                data-old-padding-bottom="" data-old-overflow="">
+                                <a href="/html/exam/exam_mgr_new">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">考试信息管理</span>
+                                    </li>
+                                </a>
+                                <a href="/html/exam/test_questions">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
+                                        style="padding-left: 40px;"><span class="title">试题库</span>
+                                    </li>
+                                </a>
+                                <a href="/html/exam/paper_mgr_new">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">试卷库</span>
+                                    </li>
+                                </a>
+                                <a href="/html/exam/mgr_new">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">成绩查询批改</span>
+                                    </li>
+                                </a>
+                                <a href="/html/exam/exam_analysis">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">分析考试</span>
+                                    </li>
+                                </a>
+                                <a href="/html/exam/student_analysis">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">分析考生</span>
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+                    </a>
+                    <a href="/html/exam/test_questions#">
+                        <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
+                            aria-describedby="el-tooltip-6361" tabindex="0">
+                            <div class="el-submenu__title" style="padding-left: 20px;"><i
+                                    class="icon icon-a_nav_personnel"></i> <span>人员管理</span><i
+                                    class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                            </div>
+                            <ul role="menu" class="el-menu el-menu--inline" style="display: none;">
+                                <a href="/html/user/user_list">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">考生信息</span>
+                                    </li>
+                                </a>
+                                <a href="/html/user/user_reg">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">注册设置</span>
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+                    </a>
+                    <a href="/html/exam/test_questions#">
+                        <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
+                            aria-describedby="el-tooltip-341" tabindex="0">
+                            <div class="el-submenu__title" style="padding-left: 20px;"><i
+                                    class="icon icon-a_nav_study"></i>
+                                <span>学习</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                            </div>
+                            <ul role="menu" class="el-menu el-menu--inline" style="display: none;">
+                                <a href="/html/study/manager">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">知识库</span>
+                                    </li>
+                                </a>
+                                <a href="/html/study/course_mgr">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">课程管理</span>
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+                    </a>
+                    <a href="https://v.com/admin/customprocess/#/list">
                         <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip"
-                            style="padding-left: 20px;"><i
+                            aria-describedby="el-tooltip-3304" style="padding-left: 20px;"><i
+                                class="icon icon-a_icon_nav_process"></i> <span class="title">自定义任务</span>
 
-                                class="icon icon-a_nav_home"></i><span class="title">首页</span></li>
-                    </a><a href="/html/exam/test_questions#">
-                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu is-active is-opened"
-                        aria-describedby="el-tooltip-7909" tabindex="0" aria-expanded="true">
-                        <div class="el-submenu__title" style="padding-left: 20px;"><i class="icon icon-a_nav_exam"></i>
-                            <span>考试管理</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
-                        <ul role="menu" class="el-menu el-menu--inline" style="" data-old-padding-top=""
-                            data-old-padding-bottom="" data-old-overflow=""><a
-                                href="/html/exam/exam_mgr_new">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">考试信息管理</span></li>
-                        </a><a href="/html/exam/test_questions">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
-                                style="padding-left: 40px;"><span class="title">试题库</span></li>
-                        </a><a href="/html/exam/paper_mgr_new">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">试卷库</span></li>
-                        </a><a href="/html/exam/mgr_new">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">成绩查询批改</span></li>
-                        </a><a href="/html/exam/exam_analysis">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">分析考试</span></li>
-                        </a><a href="/html/exam/student_analysis">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">分析考生</span></li>
-                        </a></ul>
-                    </li>
-                </a><a href="/html/exam/test_questions#">
-                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
-                        aria-describedby="el-tooltip-6361" tabindex="0">
-                        <div class="el-submenu__title" style="padding-left: 20px;"><i
-                                class="icon icon-a_nav_personnel"></i> <span>人员管理</span><i
-                                class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
-                        <ul role="menu" class="el-menu el-menu--inline" style="display: none;"><a
-                                href="/html/user/user_list">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">考生信息</span></li>
-                        </a><a href="/html/user/user_reg">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">注册设置</span></li>
-                        </a></ul>
-                    </li>
-                </a><a href="/html/exam/test_questions#">
-                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
-                        aria-describedby="el-tooltip-341" tabindex="0">
-                        <div class="el-submenu__title" style="padding-left: 20px;"><i class="icon icon-a_nav_study"></i>
-                            <span>学习</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
-                        <ul role="menu" class="el-menu el-menu--inline" style="display: none;"><a
-                                href="/html/study/manager">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">知识库</span></li>
-                        </a><a href="/html/study/course_mgr">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">课程管理</span></li>
-                        </a><a href="/html/study/study_record_mgr">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">学习记录</span></li>
-                        </a></ul>
-                    </li>
-                </a><a href="https://v.com/admin/customprocess/#/list">
-                    <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip" aria-describedby="el-tooltip-3304"
-                        style="padding-left: 20px;"><i class="icon icon-a_icon_nav_process"></i> <img
-                            src="../../img/a_nav_beta.svg" class="mark-beta"><span class="title">自定义任务</span></li>
-                </a><a href="https://admin.com/certificate/certificate_center">
-                    <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip" aria-describedby="el-tooltip-4728"
-                        style="padding-left: 20px;"><i class="icon icon-p_leftnav_certification"></i> <span
-                            class="title">认证中心</span></li>
-                </a><a href="https://v.com/admin/application/#/list">
-                    <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip" aria-describedby="el-tooltip-5041"
-                        style="padding-left: 20px;"><i class="icon icon-a_nav_sign_up"></i> <span
-                            class="title">报名审核</span>
-                    </li>
-                </a><a href="/html/exam/test_questions#">
-                    <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
-                        aria-describedby="el-tooltip-5575" tabindex="0">
-                        <div class="el-submenu__title" style="padding-left: 20px;"><i
-                                class="icon icon-a_nav_system"></i> <span>系统管理</span><i
-                                class="el-submenu__icon-arrow el-icon-arrow-down"></i></div>
-                        <ul role="menu" class="el-menu el-menu--inline" style="display: none;"><a
-                                href="/html/system/sub_admin_mgr">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">子管理员设置</span></li>
-                        </a><a href="/html/system/admin_op_record">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><span
-                                    class="title">管理员操作记录</span></li>
-                        </a></ul>
-                    </li>
-                </a>
+                        </li>
+                    </a>
+                    <a href="https://admin.com/certificate/certificate_center">
+                        <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip"
+                            aria-describedby="el-tooltip-4728" style="padding-left: 20px;"><i
+                                class="icon icon-p_leftnav_certification"></i> <span class="title">认证中心</span>
+                        </li>
+                    </a>
+                    <a href="https://v.com/admin/application/#/list">
+                        <li role="menuitem" tabindex="0" class="el-menu-item el-tooltip"
+                            aria-describedby="el-tooltip-5041" style="padding-left: 20px;"><i
+                                class="icon icon-a_nav_sign_up"></i> <span class="title">报名审核</span>
+
+                        </li>
+                    </a>
+                    <a href="/html/exam/test_questions#">
+                        <li role="menuitem" aria-haspopup="true" class="el-tooltip el-submenu"
+                            aria-describedby="el-tooltip-5575" tabindex="0">
+                            <div class="el-submenu__title" style="padding-left: 20px;"><i
+                                    class="icon icon-a_nav_system"></i> <span>系统管理</span><i
+                                    class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                            </div>
+                            <ul role="menu" class="el-menu el-menu--inline" style="display: none;">
+                                <a href="/html/system/sub_admin_mgr">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">子管理员设置</span>
+                                    </li>
+                                </a>
+                                <a href="/html/system/admin_op_record">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
+                                        <span class="title">管理员操作记录</span>
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+                    </a>
                     <div class="fixed-bottom"><span class="el-tooltip" aria-describedby="el-tooltip-1239" tabindex="0"><div
                             role="tooltip" id="el-popover-5605" aria-hidden="true"
                             class="el-popover el-popper ksx-popver el-global-help" tabindex="0"
@@ -229,31 +296,38 @@
                             class="icon icon-a_help_service"></i> <div class="content">
                   人工客服
                   <div>可<a href="javascript:" data-gio-position="管理端帮助在线咨询" target="_blank"
-                           class="link">在线咨询</a>或拨打电话<span class="phone">400-870-1477</span></div></div></div> </div><li
-                            role="menuitem" tabindex="0" class="el-menu-item el-popover__reference"
-                            aria-describedby="el-popover-5605" style="padding-left: 20px;"><i
-                            class="icon icon-a_nav_help"></i> <img src="../../img/a_nav_new.svg"
-                                                                   class="mark-help"> <span class="title">帮助</span></li></span>
-                        <span class="el-tooltip" aria-describedby="el-tooltip-8838" tabindex="0"><div role="tooltip"
-                                                                                                      id="el-popover-2704"
-                                                                                                      aria-hidden="true"
-                                                                                                      class="el-popover el-popper ksx-popver el-global-company-info"
-                                                                                                      tabindex="0"
-                                                                                                      style="width: 285px; display: none;"><div
-                                class="user el-row"><div class="user-character"><img
-                                src="../../img/default-pic.png" alt=""></div> <div class="user-info"><div
-                                class="user-surname"><div class="name ellipse">
+                           class="link">在线咨询</a>或拨打电话<span class="phone">400-870-1477</span>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <li role="menuitem" tabindex="0" class="el-menu-item el-popover__reference"
+                        aria-describedby="el-popover-5605" style="padding-left: 20px;"><i
+                            class="icon icon-a_nav_help"></i>  <span class="title">帮助</span>
+                    </li>
+                    </span> <span class="el-tooltip" aria-describedby="el-tooltip-8838" tabindex="0"><div role="tooltip"
+                                                                                                          id="el-popover-2704"
+                                                                                                          aria-hidden="true"
+                                                                                                          class="el-popover el-popper ksx-popver el-global-company-info"
+                                                                                                          tabindex="0"
+                                                                                                          style="width: 285px; display: none;"><div
+                            class="user el-row"><div class="user-character"><img
+                            src="../../img/default-pic.png" alt=""></div> <div class="user-info"><div
+                            class="user-surname"><div class="name ellipse">
                         东北大学软件园
                       </div></div> <div class="company-name ellipse">东北大学软件园</div></div></div> <ul
-                                class="operate-group"><li class="operate-item"><i
-                                class="operate-icon icon-a_personal_switch"></i>
+                            class="operate-group"><li class="operate-item"><i
+                            class="operate-icon icon-a_personal_switch"></i>
                   切换至考生端<i class="operate-right-icon icon-a_enter"></i></li> <li class="operate-item"><i
-                                class="operate-icon icon-a_personal_edit"></i>
+                            class="operate-icon icon-a_personal_edit"></i>
                   修改个人信息<i class="operate-right-icon icon-a_enter"></i></li> <li class="operate-item"><i
-                                class="operate-icon icon-a_personal_exit"></i>退出
+                            class="operate-icon icon-a_personal_exit"></i>退出
                 </li></ul> </div><li role="menuitem" tabindex="0" class="el-menu-item ellipse el-popover__reference"
                                      aria-describedby="el-popover-2704" style="padding-left: 20px;"><i
-                                class="icon icon-a_nav_my"></i> <span class="title">东北大学软件园</span></li></span></div>
+                            class="icon icon-a_nav_my"></i> <span class="title">东北大学软件园</span>
+                    </li>
+                    </span>
+                    </div>
                     <div class="nav-color-padding"></div>
                 </ul>
             </aside>
@@ -296,14 +370,16 @@
                                                     <tr class="">
                                                         <th colspan="1" rowspan="1"
                                                             class="el-table_1_column_1   el-table-column--selection  is-leaf">
-                                                            <div class="cell"><label role="checkbox"
-                                                                                     class="el-checkbox"><span
-                                                                    aria-checked="mixed"
-                                                                    class="el-checkbox__input" id="select_all"><span
-                                                                    class="el-checkbox__inner"></span><input
-                                                                    type="checkbox" aria-hidden="true"
-                                                                    class="el-checkbox__original" value=""></span>
-                                                            </label></div>
+                                                            <div class="cell">
+                                                                <label role="checkbox" class="el-checkbox"><span
+                                                                        aria-checked="mixed" class="el-checkbox__input"
+                                                                        id="select_all"><span
+                                                                        class="el-checkbox__inner"></span>
+                                                                        <input type="checkbox" aria-hidden="true"
+                                                                               class="el-checkbox__original" value="">
+                                                                        </span>
+                                                                </label>
+                                                            </div>
                                                         </th>
                                                         <th colspan="1" rowspan="1"
                                                             class="el-table_1_column_2     is-leaf">
@@ -331,7 +407,8 @@
                                                         </th>
                                                         <th colspan="1" rowspan="1"
                                                             class="el-table_1_column_8     is-leaf is-sortable">
-                                                            <div class="cell"><span class="caret-wrapper"></span></div>
+                                                            <div class="cell"><span class="caret-wrapper"></span>
+                                                            </div>
                                                         </th>
                                                         <th colspan="1" rowspan="1"
                                                             class="el-table_1_column_9   is-leaf">
@@ -357,9 +434,7 @@
                                                         <col name="el-table_1_column_8" width="180">
                                                         <col name="el-table_1_column_9" width="166">
                                                     </colgroup>
-                                                    <tbody id="ele_main">
-
-                                                    </tbody>
+                                                    <tbody id="ele_main"></tbody>
                                                 </table>
                                             </div>
                                             <div class="el-table__fixed-right" style="width: 166px; height: 495px;">
@@ -377,9 +452,7 @@
                                                             <col name="el-table_1_column_8" width="180">
                                                             <col name="el-table_1_column_9" width="166">
                                                         </colgroup>
-                                                        <thead class="">
-
-                                                        </thead>
+                                                        <thead class=""></thead>
                                                     </table>
                                                 </div>
                                                 <div class="el-table__fixed-body-wrapper"
@@ -413,28 +486,42 @@
                                                 class="el-select-dropdown__wrap el-scrollbar__wrap"
                                                 style="margin-bottom: -17px; margin-right: -17px;"><ul
                                                 class="el-scrollbar__view el-select-dropdown__list"><li
-                                                class="el-select-dropdown__item selected"><span>10条/页</span></li><li
-                                                class="el-select-dropdown__item"><span>20条/页</span></li><li
-                                                class="el-select-dropdown__item"><span>50条/页</span></li><li
-                                                class="el-select-dropdown__item"><span>100条/页</span></li></ul></div><div
-                                                class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb"
-                                                                                             style="transform: translateX(0%);"></div></div><div
-                                                class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb"
-                                                                                           style="transform: translateY(0%);"></div></div></div>
-                                            </div></div></span>
+                                                class="el-select-dropdown__item selected"><span>10条/页</span>
+                                            </li>
+                                            <li class="el-select-dropdown__item"><span>20条/页</span>
+                                            </li>
+                                            <li class="el-select-dropdown__item"><span>50条/页</span>
+                                            </li>
+                                            <li class="el-select-dropdown__item"><span>100条/页</span>
+                                            </li>
+                                            </ul>
+                                        </div>
+                                        <div class="el-scrollbar__bar is-horizontal">
+                                            <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                        </div>
+                                        <div class="el-scrollbar__bar is-vertical">
+                                            <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </span>
                                             <button type="button" disabled="disabled" class="btn-prev"><i
-                                                    class="el-icon el-icon-arrow-left"></i></button>
+                                                    class="el-icon el-icon-arrow-left"></i>
+                                            </button>
                                             <ul class="el-pager">
                                                 <li class="number active">1</li>
                                                 <li class="number">2</li>
                                                 <li class="number">3</li>
                                             </ul>
                                             <button type="button" class="btn-next"><i
-                                                    class="el-icon el-icon-arrow-right"></i></button>
+                                                    class="el-icon el-icon-arrow-right"></i>
+                                            </button>
                                             <span class="el-pagination__jump">前往<div
                                                     class="el-input el-pagination__editor is-in-pagination"><input
                                                     type="number" autocomplete="off" min="1" class="el-input__inner"
-                                                    max="3"></div>页</span></div>
+                                                    max="3"></div>页</span>
+                                        </div>
                                         <div class="el-loading-mask" style="display: none;">
                                             <div class="el-loading-spinner">
                                                 <svg viewBox="25 25 50 50" class="circular">
@@ -448,15 +535,19 @@
                             <div class="el-dialog__wrapper" style="display: none;">
                                 <div class="el-dialog el-dialog--center" style="margin-top: 60px;">
                                     <div class="el-dialog__header"><span class="el-dialog__title"></span>
+
                                         <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
-                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                                class="el-dialog__close el-icon el-icon-close"></i>
+                                        </button>
                                     </div>
                                     <div class="el-dialog__footer">
                                         <div class="dialog-footer">
                                             <button type="button" class="el-button closeBtn el-button--default">
-                                                <span>关闭</span></button>
+                                                <span>关闭</span>
+                                            </button>
                                             <button type="button" class="el-button saveBtn el-button--default">
-                                                <span>选择</span></button>
+                                                <span>选择</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -464,15 +555,19 @@
                             <div class="el-dialog__wrapper" style="display: none;">
                                 <div class="el-dialog el-dialog--center" style="margin-top: 60px;">
                                     <div class="el-dialog__header"><span class="el-dialog__title">管理试题分类</span>
+
                                         <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
-                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                                class="el-dialog__close el-icon el-icon-close"></i>
+                                        </button>
                                     </div>
                                     <div class="el-dialog__footer">
                                         <div class="dialog-footer">
                                             <button type="button" class="el-button closeBtn el-button--default">
-                                                <span>关闭</span></button>
+                                                <span>关闭</span>
+                                            </button>
                                             <button type="button" class="el-button saveBtn el-button--default">
-                                                <span>选择</span></button>
+                                                <span>选择</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -480,15 +575,19 @@
                             <div class="el-dialog__wrapper" style="display: none;">
                                 <div class="el-dialog el-dialog--center" style="margin-top: 60px;">
                                     <div class="el-dialog__header"><span class="el-dialog__title">管理试题分类</span>
+
                                         <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
-                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                                class="el-dialog__close el-icon el-icon-close"></i>
+                                        </button>
                                     </div>
                                     <div class="el-dialog__footer">
                                         <div class="dialog-footer">
                                             <button type="button" class="el-button closeBtn el-button--default">
-                                                <span>关闭</span></button>
+                                                <span>关闭</span>
+                                            </button>
                                             <button type="button" class="el-button saveBtn el-button--default">
-                                                <span>选择</span></button>
+                                                <span>选择</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -496,15 +595,19 @@
                             <div class="el-dialog__wrapper" style="display: none;">
                                 <div class="el-dialog el-dialog--center" style="margin-top: 60px;">
                                     <div class="el-dialog__header"><span class="el-dialog__title"></span>
+
                                         <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
-                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                                class="el-dialog__close el-icon el-icon-close"></i>
+                                        </button>
                                     </div>
                                     <div class="el-dialog__footer">
                                         <div class="dialog-footer">
                                             <button type="button" class="el-button closeBtn el-button--default">
-                                                <span>关闭</span></button>
+                                                <span>关闭</span>
+                                            </button>
                                             <button type="button" class="el-button saveBtn el-button--default">
-                                                <span>选择</span></button>
+                                                <span>选择</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -513,14 +616,20 @@
                                 <div data-v-641a9f46="" class="el-dialog__wrapper update-dialog" style="display: none;">
                                     <div class="el-dialog el-dialog--center" style="width: 30%; margin-top: 15vh;">
                                         <div class="el-dialog__header"><span class="el-dialog__title">批量更新</span>
+
                                             <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
-                                                    class="el-dialog__close el-icon el-icon-close"></i></button>
+                                                    class="el-dialog__close el-icon el-icon-close"></i>
+                                            </button>
                                         </div>
                                         <div class="el-dialog__footer"><span data-v-641a9f46="" class="dialog-footer"><button
                                                 data-v-641a9f46="" type="button" class="el-button el-button--default">
-                                            <span>取 消</span></button> <button data-v-641a9f46="" type="button"
-                                                                              class="el-button el-button--primary">
-                                            <span>确 定</span></button></span></div>
+                                            <span>取 消</span>
+                                    </button>
+                                    <button data-v-641a9f46="" type="button"
+                                            class="el-button el-button--primary"> <span>确 定</span>
+                                    </button>
+                                    </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -534,7 +643,8 @@
                 <svg viewBox="25 25 50 50" class="circular">
                     <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
                 </svg>
-                <p class="el-loading-text">拼命加载中</p></div>
+                <p class="el-loading-text">拼命加载中</p>
+            </div>
         </div>
     </section>
 </div>
@@ -559,9 +669,9 @@
                 item += '<div class="cell el-tooltip" style="width: 660px;">';
                 item += e.itemQuestion + '</div></td><td class="el-table_1_column_5  " colspan="1" rowspan="1">';
                 item += '<div class="cell el-tooltip" style="width: 79px;">';
-                if(e.itemIndex<2){
+                if (e.itemIndex < 2) {
                     difficult = "简单";
-                } else if(e.itemIndex<4){
+                } else if (e.itemIndex < 4) {
                     difficult = "普通";
                 } else {
                     difficult = "困难";
@@ -583,7 +693,7 @@
                 //console.log(String($(e.target).attr("id")).substring(7));
 
 
-                window.location.href = '/html/exam/updatetestqm?id=' +  String($(e.target).attr("id")).substring(7);
+                window.location.href = '/html/exam/updatetestqm?id=' + String($(e.target).attr("id")).substring(7);
             });
             $('.icon-a_operate_delete').click(function (e) {
                 /*var msg = "您确定要删除吗吗？";
@@ -645,4 +755,5 @@
     });
 </script>
 </body>
+
 </html>

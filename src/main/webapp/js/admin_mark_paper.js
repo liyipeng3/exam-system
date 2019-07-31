@@ -645,7 +645,7 @@ $(document).ready(function () {
 
 //显示考试对话框
 function showSelType(obj) {
-    selTypeModal.location.href = "/admin/result/score_sel_exam";
+    //selTypeModal.location.href = "/admin/result/score_sel_exam";
     $('#typeModal').modal({
         backdrop: "static",
         keyboard: false
