@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import org.hibernate.validator.internal.util.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +37,7 @@ public class PaperServiceImpl implements PaperService{
 	@Autowired
 	AdminMapper AdminMapper;
 	@Override
-	public Integer addRawPaper(JSONObject json) {
+	public String addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
 		String date = df.format(new Date());// new Date()为获取当前系统时间
@@ -171,11 +172,11 @@ public class PaperServiceImpl implements PaperService{
 		}
 		
 	
-		/*RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), date, paperType, 3.0, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("totalScore"), "保密", current);
+		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), date, paperType, 3.0, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("totalScore"), "保密", current);
 		mapper.addRawPaper(rawPaper);
 		rawPaper.setPaperId(null);
-		Integer id = mapper.queryRawPaper(rawPaper).get(0).getPaperId();
-		*/return null;
+		String id = mapper.queryRawPaper(rawPaper).get(0).getPaperId();
+		return id;
 	}
 
 	@Override
@@ -198,9 +199,9 @@ public class PaperServiceImpl implements PaperService{
 
 
 	@Override
-	public void deleteRawPaper(Integer id) {
+	public void deleteRawPaper(String id) {
 		// TODO Auto-generated method stub
-		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
+		RawPaper rawPaper = new RawPaper(id, "", "","", "", "", (Double)0.0, "", "","", "", (Double)0.0, "", "");
 		mapper.deleteRawPaper(rawPaper);
 	
 	}
@@ -356,10 +357,10 @@ public class PaperServiceImpl implements PaperService{
 
 
 	@Override
-	public List<ParsedPaper> queryParsedPaper(Integer id) {
+	public List<ParsedPaper> queryParsedPaper(String id) {
 		System.out.println("paper"+id);
 		// TODO Auto-generated method stub
-		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
+		RawPaper rawPaper = new RawPaper(id, "", "", "", "","", 0.0, "", "","", "", (Double)0.0, "", "");
 		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
 		List<ParsedPaper> list2 = new ArrayList<>();
 		//ItemService service = new ItemServiceImpl();
@@ -461,7 +462,7 @@ public class PaperServiceImpl implements PaperService{
 			}
 			
 			//System.out.println("出不来？"+q1.toString());
-			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
+			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperTitle(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
 			list2.add(parsedPaper);	
 			
 		}
@@ -489,7 +490,7 @@ public class PaperServiceImpl implements PaperService{
 	}
 
 	@Override
-	public ParsedPaper randPaper(String name, String subjects,String ID) {
+	public List<ParsedPaper> randPaper(String name, String subjects,String ID) {
 		// TODO Auto-generated method stub
 	//	System.out.println(name+subjects+ID);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
@@ -556,7 +557,7 @@ public class PaperServiceImpl implements PaperService{
 		paper3.setPaperName(name);
 		paper3.setPaperRemark(current);
 		List<RawPaper>  paper2=  mapper.queryRawPaper(paper3);
-		Integer PaperId = paper2.get(0).getPaperId();
+		String  PaperId = paper2.get(0).getPaperId();
 	//	System.out.println("PaperID"+PaperId);
 		List<ParsedPaper> list3 = service2.queryParsedPaper(PaperId);
 				
@@ -584,6 +585,7 @@ public class PaperServiceImpl implements PaperService{
 			return numberSet;
 		}
 	}
+
 	
 	
 }
