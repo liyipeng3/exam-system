@@ -1118,21 +1118,21 @@ function serializeForm_paper() {
 //异步提交表单保存试卷
 function asyncPaperSub(obj) {
     var dataForm = $('#asyncForm_paper').serialize();
+    console.log(JSON.stringify(dataForm));
     $.ajax({
         type: "POST",
-        cache: false,
-        headers: {"cache-control": "no-cache"},
         dataType: "json",
         url: ajaxUrl,
-        data: dataForm + "&t=" + Math.random(),
+        data: JSON.stringify(dataForm),
+        contentType: 'application/json',
         success: function (msg) {
-            if (msg.success == true || msg.msg == true) {
+            if (msg.status == 'ok') {
                 if ($("#savePaperBtn").hasClass('addPaperOnly')) {
                     // 只创建试卷
-                    window.location.href = '../html/exam/paper_mgr_new.html';
+                    window.location.href = '/html/exam/paper_mgr_new.html';
                 } else {
                     // 继续创建考试
-                    window.location.href = "/admin/exam_add?paper_info_id=" + msg.bizContent;
+                    window.location.href = "/html/exam/exam_add?paper_info_id=" + msg.paper_id;
                 }
             } else {
                 alert("保存失败！");
@@ -1189,7 +1189,7 @@ function paperTypeShowTemp() {
         $("div.questionContet_simple , div.group_questionShow , div.group_questionAdd").remove();
         $("div.group_title").append($("#paperTpye2").html());
     }
-    ajaxUrl = "./html/exam/paper_add_new";
+    ajaxUrl = "/exam/add_paper";
 }
 
 //根据试题类型创建新增试题DOM
