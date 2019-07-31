@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,17 +116,21 @@ public class ExamController {
 	 * 获取科目和题型对应的题
 	 * 
 	 * @return
+	 * @throws UnsupportedEncodingException 
 	 */
 	@RequestMapping(value="get_certain_items",method=RequestMethod.GET)
 	@ResponseBody
-	public String getCertainItems(HttpServletRequest request/*, String itemType, String subject*/){
+	public String getCertainItems(HttpServletRequest request, String itemType, String subject) throws UnsupportedEncodingException{
 		List<ParsedItem> items = new ArrayList<>();
-		HttpSession session = request.getSession();
+		itemType = URLDecoder.decode(itemType, "utf-8");
+		subject = URLDecoder.decode(subject, "utf-8");
+		System.out.println(itemType+subject);
+		/*HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String datestring = df.format(time);
-		/*List<String> options = new ArrayList<>();
+		List<String> options = new ArrayList<>();
 		options.add("asdsda");
 		options.add("dasdasdas");
 		ParsedItem item1 = new ParsedItem(1, username, datestring, "语文", "单选题", 0.1, "dasdasdasdasd??????", options, options, "itemPicture", 9.9, "itemParse");
