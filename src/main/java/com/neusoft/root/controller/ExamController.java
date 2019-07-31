@@ -449,8 +449,7 @@ public class ExamController {
 		Gson gson = new Gson();
 		JSONObject json = new JSONObject();
 		json.put("examId", "");
-		examService.queryExam(json);
-		return "ok";
+		return gson.toJson(examService.queryExam(json));
 	}
 	/**
 	 * 按id获取试卷信息
