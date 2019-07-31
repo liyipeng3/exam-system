@@ -69,5 +69,6 @@ public interface TeacherMapper {
 
 	//老师查询学生答卷
 	public List<RawResult> queryResult(RawResult rawResult);
-
+	
+	
 }

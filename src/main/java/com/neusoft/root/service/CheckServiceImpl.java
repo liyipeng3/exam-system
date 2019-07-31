@@ -1,5 +1,6 @@
 package com.neusoft.root.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,13 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.dao.TeacherMapper;
+import com.neusoft.root.domain.ItemChecking;
+import com.neusoft.root.domain.PaperChecking;
 import com.neusoft.root.domain.ParsedCheck;
 import com.neusoft.root.domain.RawCheck;
+import com.neusoft.root.domain.RawResult;
 
 @Service
 public class CheckServiceImpl implements CheckService{
 	@Autowired
 	TeacherMapper mapper;
+	
 	@Override
 	public void addCheck(JSONObject json) {
 		// TODO Auto-generated method stub
@@ -93,6 +98,42 @@ public class CheckServiceImpl implements CheckService{
 		return null;
 	}
 
+	@Override
+	public List<PaperChecking> queryPaperChecking(JSONObject json) 
+	{
+		List<PaperChecking> checkings = new ArrayList<>();
+		
+		RawResult rr = new RawResult();
+		rr.setStudentId(json.getString("studentId"));
+		rr.setPaperId(Integer.valueOf(json.getString("paperId")));
+		rr.setTeacherId(json.getString("teacherId"));
+		List<RawResult> rawResults = mapper.queryResult(rr);
+		if (rawResults.size()==0) 
+		{
+			System.out.println("逻辑错误");
+			System.exit(1);
+		}
+		RawResult result = rawResults.get(0);
+		
+		Integer itemId;
+		String studentAnswer;
+		String[] line;
+		String[] detail;
+ 		if (result.getSinglechoiceResult()!=null&&(!result.getSinglechoiceResult().equals(""))) 
+		{
+			line = result.getSinglechoiceResult().split("###");
+			 
+			for (int i = 0; i < line.length; i++) 
+			{
+				detail = line[i].split("???");
+				itemId = Integer.valueOf(detail[0]);
+				studentAnswer = detail[1];
+				
+			}
+		}
+		return null;
+	}
 
+	
 	
 }
