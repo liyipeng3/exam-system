@@ -323,6 +323,18 @@ public class ExamController {
 		List<String> answers = item.getItemAnswer();
 		Double index = item.getItemIndex();
 		String type = item.getItemType();
+		if(type.equals("单选题")){
+			type="1";
+		}
+		if(type.equals("多选题")){
+			type="2";
+		}
+		if(type.equals("填空题")){
+			type="4";
+		}
+		if(type.equals("问答题")){
+			type="5";
+		}
 		String diffcult = "";
 		if(index==1.0){
 			diffcult="简单";
