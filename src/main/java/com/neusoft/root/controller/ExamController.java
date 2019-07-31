@@ -440,6 +440,7 @@ public class ExamController {
 		jsonObject.put("examLast", jsonObject.getString("examTime"));
 		jsonObject.put("examRemark", jsonObject.getString("beforeAnswerNotice"));
 		int id = examService.addExam(jsonObject);
+		System.out.println(id);
 		String result = "{\"exam_id\":\""+id+"\",\"status\":\"ok\"}";
 		return result;
 	}

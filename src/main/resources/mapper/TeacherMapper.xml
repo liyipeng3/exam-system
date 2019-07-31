@@ -520,8 +520,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 管理考试 -->
 	<insert id="addExam" parameterType="Exam">
-		insert into exam_table(paper_id,createrId,exam_name,exam_type,pass_score,sum_score,create_date,exam_begin,exam_end,exam_last,exam_remark)
-		values(#{paperId},#{createrId},#{examName},#{exam_type},#{passScore},#{sumScore},#{createDate},#{examBegin},#{examEnd},#{examLast},#{examRemark})
+		insert into exam_table(paper_id,creater_id,exam_name,exam_type,pass_score,sum_score,create_date,exam_begin,exam_end,exam_last,exam_remark)
+		values(#{paperId},#{createrId},#{examName},#{examType},#{passScore},#{sumScore},#{createDate},#{examBegin},#{examEnd},#{examLast},#{examRemark})
 	</insert>
 	<select id="queryExam" parameterType="Exam" resultMap="MyExam">
 		select *
@@ -540,10 +540,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and exam_name = #{examName}
 			</if>
 			<if test="examType!=null and examType!=''">
-				and exam_name = #{examName}
+				and exam_type = #{examType}
 			</if>
 			<if test="createDate!=null and createDate!=''">
-				and exam_date = #{createDate}
+				and create_date = #{createDate}
 			</if>
 			<if test="examRemark!=null and examRemark!=''">
 				and exam_remark = #{examRemark}
