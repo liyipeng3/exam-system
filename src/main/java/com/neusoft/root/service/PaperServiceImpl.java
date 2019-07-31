@@ -1,5 +1,7 @@
 ﻿package com.neusoft.root.service;
 
+import static org.mockito.Mockito.lenient;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.neusoft.root.dao.AdminMapper;
 import com.neusoft.root.dao.TeacherMapper;
+import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
@@ -29,58 +33,76 @@ public class PaperServiceImpl implements PaperService{
 	ItemService service ;
 	@Autowired
 	PaperService service2;
+	@Autowired
+	AdminMapper AdminMapper;
 	@Override
-	public void addRawPaper(JSONObject json) {
+	public Integer addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
-		Double diffcult = 0.0;
-		//int  j= json.getInteger("option_length");
-		if(json.getString("difficult").equals("简单题"))
-		{
-			diffcult = 1.0;
-		}
-		else if(json.getString("difficult").equals("普通题"))
-		{
-			diffcult =3.0;
-		}
-		else if(json.getString("difficult").equals("困难题"))
-		{
-			diffcult = 5.0;
-		}
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
+		String date = df.format(new Date());// new Date()为获取当前系统时间
+		String current = String.valueOf(System.currentTimeMillis());
+		String courseid = json.getString("paperType");
+		Course course = new Course();
+		course.setCourseId(courseid);
+		List<Course> list = AdminMapper.queryCourse(course);
+		String paperType = list.get(0).getCourseType();
 		String singlequestion = "";
-		int i=1;
-		while(json.getString("singleQuestion"+i)!=null)
+		String testid1 = json.getString("testIds1");
+		testid1 = testid1.substring(0, testid1.length()-1);
+		String line1[] = testid1.split(",");
+		String querstionscores1 = json.getString("questionScores1");
+		querstionscores1 = querstionscores1.substring(0,  querstionscores1.length()-1);
+		String scores1[] = querstionscores1.split(",");
+		for(int i=0;i<line1.length;i++)
 		{
-			singlequestion = singlequestion+json.getString("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
-			i++;
+			singlequestion = singlequestion+line1[i]+","+Double.valueOf(scores1[i])+"###";
 		}
-		
+		if(!singlequestion.equals(""))
 		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
-		i=1;
-		while(json.getString("mutiQuestion"+i)!=null)
+		String testid2 = json.getString("testIds2");
+		testid2 = testid2.substring(0, testid2.length()-1);
+		String line2[] = testid2.split(",");
+		String querstionscores2 = json.getString("questionScores2");
+		querstionscores2 = querstionscores2.substring(0,  querstionscores2.length()-1);
+		String scores2[] = querstionscores2.split(",");
+		for(int i=0;i<line2.length;i++)
 		{
-			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
-			i++;
+			mutiquestion = mutiquestion+line2[i]+","+Double.valueOf(scores2[i])+"###";
 		}
-			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
+		if(!mutiquestion.equals(""))
+		mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
-		i=1;
-		while(json.getString("fillQuestion"+i)!=null)
+		String testid3 = json.getString("testIds3");
+		testid3 = testid3.substring(0, testid3.length()-1);
+		String line3[] = testid3.split(",");
+		String querstionscores3 = json.getString("questionScores3");
+		querstionscores3 = querstionscores3.substring(0,  querstionscores3.length()-1);
+		String scores3[] = querstionscores3.split(",");
+		for(int i=0;i<line3.length;i++)
 		{
-			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
-			i++;
+			fillquestion = fillquestion+line3[i]+","+scores3[i]+"###";
 		}
-			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
+		if(!fillquestion.equals(""))
+		fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
-		i=1;
-		while(json.getString("subjectiveQuestion"+i)!=null)
+		String testid4 = json.getString("testIds4");
+		testid4 = testid4.substring(0, testid4.length()-1);
+		String line4[] = testid4.split(",");
+		String querstionscores4 = json.getString("questionScores4");
+		querstionscores4 = querstionscores4.substring(0,  querstionscores4.length()-1);
+		String scores4[] = querstionscores4.split(",");
+		for(int i=0;i<line4.length;i++)
 		{
-			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
-			i++;
+			subjectivequestion = subjectivequestion+line4[i]+","+scores4[i]+"###";
 		}
+		if(!subjectivequestion.equals(""))
 			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
-		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
+		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), date, paperType, 3.0, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("totalScore"), "保密", current);
 		mapper.addRawPaper(rawPaper);
+		rawPaper.setPaperId(null);
+		Integer id = mapper.queryRawPaper(rawPaper).get(0).getPaperId();
+		return id;
 	}
 
 	@Override
@@ -114,60 +136,67 @@ public class PaperServiceImpl implements PaperService{
 
 	@Override
 	public void updateRawPaper(JSONObject json) {
-		// TODO Auto-generated method stub
-		Double diffcult = 0.0;
-		//int  j= json.getInteger("option_length");
-		if(json.getString("difficult").equals("简单题"))
-		{
-			diffcult = 1.0;
-		}
-		else if(json.getString("difficult").equals("普通题"))
-		{
-			diffcult =3.0;
-		}
-		else if(json.getString("difficult").equals("困难题"))
-		{
-			diffcult = 5.0;
-		}
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
+		String date = df.format(new Date());// new Date()为获取当前系统时间
+		String current = String.valueOf(System.currentTimeMillis());
+		String courseid = json.getString("paperType");
+		Course course = new Course();
+		course.setCourseId(courseid);
+		List<Course> list = AdminMapper.queryCourse(course);
+		String paperType = list.get(0).getCourseType();
 		String singlequestion = "";
-		int i=1;
-		//System.out.println("###");
-		while(json.getString("singleQuestion"+i)!=null)
+		String testid1 = json.getString("testIds1");
+		testid1 = testid1.substring(0, testid1.length()-1);
+		String line1[] = testid1.split(",");
+		String querstionscores1 = json.getString("questionScores1");
+		querstionscores1 = querstionscores1.substring(0,  querstionscores1.length()-1);
+		String scores1[] = querstionscores1.split(",");
+		for(int i=0;i<line1.length;i++)
 		{
-			singlequestion = singlequestion+json.getString("singleQuestion"+i)+","+json.getDouble("singleScore"+i)+"###";
-			i++;
+			singlequestion = singlequestion+line1[i]+","+Double.valueOf(scores1[i])+"###";
 		}
+		if(!singlequestion.equals(""))
 		singlequestion = singlequestion.substring(0, singlequestion.length()-3);
 		String mutiquestion = "";
-		i=1;
-	//	System.out.println("!!!");
-		while(json.getString("mutiQuestion"+i)!=null)
+		String testid2 = json.getString("testIds2");
+		testid2 = testid2.substring(0, testid2.length()-1);
+		String line2[] = testid2.split(",");
+		String querstionscores2 = json.getString("questionScores2");
+		querstionscores2 = querstionscores2.substring(0,  querstionscores2.length()-1);
+		String scores2[] = querstionscores2.split(",");
+		for(int i=0;i<line2.length;i++)
 		{
-			mutiquestion = mutiquestion+json.getString("mutiQuestion"+i)+","+json.getDouble("mutiScore"+i)+"###";
-			i++;
+			mutiquestion = mutiquestion+line2[i]+","+Double.valueOf(scores2[i])+"###";
 		}
-			mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
+		if(!mutiquestion.equals(""))
+		mutiquestion = mutiquestion.substring(0, mutiquestion.length()-3);
 		String fillquestion = "";
-		i=1;
-		//System.out.println("&&");
-		while(json.getString("fillQuestion"+i)!=null)
+		String testid3 = json.getString("testIds3");
+		testid3 = testid3.substring(0, testid3.length()-1);
+		String line3[] = testid3.split(",");
+		String querstionscores3 = json.getString("questionScores3");
+		querstionscores3 = querstionscores3.substring(0,  querstionscores3.length()-1);
+		String scores3[] = querstionscores3.split(",");
+		for(int i=0;i<line3.length;i++)
 		{
-			fillquestion = fillquestion+json.getString("fillQuestion"+i)+","+json.getDouble("fillScore"+i)+"###";
-			i++;
+			fillquestion = fillquestion+line3[i]+","+scores3[i]+"###";
 		}
-			fillquestion = fillquestion.substring(0, fillquestion.length()-3);
+		if(!fillquestion.equals(""))
+		fillquestion = fillquestion.substring(0, fillquestion.length()-3);
 		String subjectivequestion = "";
-		i=1;
-		//System.out.println("@@@");
-		while(json.getString("subjectiveQuestion"+i)!=null)
+		String testid4 = json.getString("testIds4");
+		testid4 = testid4.substring(0, testid4.length()-1);
+		String line4[] = testid4.split(",");
+		String querstionscores4 = json.getString("questionScores4");
+		querstionscores4 = querstionscores4.substring(0,  querstionscores4.length()-1);
+		String scores4[] = querstionscores4.split(",");
+		for(int i=0;i<line4.length;i++)
 		{
-			subjectivequestion = subjectivequestion+json.getString("subjectiveQuestion"+i)+","+json.getDouble("subjectiveScore"+i)+"###";
-			i++;
+			subjectivequestion = subjectivequestion+line4[i]+","+scores4[i]+"###";
 		}
-//System.out.println("((");
-		subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
-		RawPaper rawPaper = new RawPaper(json.getInteger("paperId"), json.getString("paperName"),json.getString("createrId"), json.getString("createDate"), json.getString("paperType"), diffcult, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("paperScore"), json.getString("paperSecrecy"), json.getString("paperRemark"));
-		//System.out.println(rawPaper.toString());
+		if(!subjectivequestion.equals(""))
+			subjectivequestion = subjectivequestion.substring(0, subjectivequestion.length()-3);
+		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), date, paperType, 3.0, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("totalScore"), "保密", current);
 		mapper.updateRawPaper(rawPaper);
 	}
 
@@ -358,6 +387,7 @@ public class PaperServiceImpl implements PaperService{
 				{
 					System.out.println("无效题目类型！");
 				}
+				paperScore = paperScore + item.getItemScore();
 			
 		}
 		if(singlechoiceQuestion!="")
