@@ -114,4 +114,16 @@ public class WebController {
 	public String admin_op_record() {
 		return "/html/system/admin_op_record.html";
 	}
+	@RequestMapping("/exam")
+	public String exam() {
+		return "/exam.html";
+	}
+	@RequestMapping("/exam_start")
+	public String exam_start() {
+		return "/exam_start.html";
+	}
+	@RequestMapping("/exam_result")
+	public String exam_result() {
+		return "/exam_result.html";
+	}
 }

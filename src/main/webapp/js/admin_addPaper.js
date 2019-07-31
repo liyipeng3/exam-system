@@ -177,13 +177,13 @@ $(document).ready(function () {
         if (id == "") {
             alert("请选择试卷");
         } else {
-            window.location.href = "/admin/exam_add?paper_info_id=" + id;
+            window.location.href = "/html/exam/exam_add?paper_info_id=" + id;
         }
     });
     //到第三步发布考试
     $("#jumpToExamPublish").click(function (e) {
         var id = $(this).attr("paper_info_id");
-        window.location.href = "/admin/exam_add?paper_info_id=" + id;
+        window.location.href = "/html/exam/exam_add?paper_info_id=" + id;
     });
 
     //空白试卷手工写入题目

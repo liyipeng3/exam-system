@@ -20,7 +20,7 @@ public interface PaperService {
 	 * 增加试卷
 	 * @param json rawpaper串
 	 */
-	public void addRawPaper(JSONObject json);
+	public Integer addRawPaper(JSONObject json);
 	/**
 	 * 删除试卷
 	 * @param json rawpaper串

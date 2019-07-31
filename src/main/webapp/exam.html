@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript">
+        var opts = {};
+        opts.userId = '7387836';
+        opts.companyId = '140092';
+        opts.companyName = '东北大学软件园';
+        opts.rightsGrade = '8';
+    </script>
+    <title>试卷名字</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href="https://s0.kaoshixing.com/static/base/images/new_logo.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="./做试卷_files/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./做试卷_files/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="./做试卷_files/style.css">
+    <link rel="stylesheet" type="text/css" href="./做试卷_files/base.css">
+    <link rel="stylesheet" type="text/css" href="./做试卷_files/exam_style.css">
+    <style>
+    </style>
+    <link rel="stylesheet" href="./做试卷_files/wangEditor.min.css">
+</head>
+
+<body>
+<!-- loading -->
+<div class="spinner-wrapper hide hidden" id="spinnerLoading">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<!--提示弹窗-->
+<div class="ksx-success">
+    <div class="text"><i class="icon-a_success set_success"></i>
+        <label></label>
+    </div>
+</div>
+<div class="ksx-error">
+    <div class="text"><i class="icon-m_exam_error set_success"></i>
+        <label></label>
+    </div>
+</div>
+<div class="ksx-warn">
+    <div class="text"><i class="icon-a_warning set_success"></i>
+        <label></label>
+    </div>
+</div>
+<div class="loading-box hidden pc-loading-box" role="dialog">
+    <div class="loading-inner">
+        <p class="loading-title">交卷中</p>
+        <div class="loading-line">
+            <p class="loading-num"><span>0%</span>
+
+            </p>
+            <div class="loading-bg"><span class="loading-develop"></span>
+
+            </div>
+        </div>
+        <p class="loading-label">正在提交答案...</p>
+    </div>
+</div>
+<div class="submit-notice">
+    <div class="notice-text"><span class="notice-time">3</span>s后即将进行强制交卷，如有疑问请联系相关考试负责人</div>
+</div>
+<div class="main exam-mode">
+    <div class="header-wrapper">
+        <div class="logo-wrapper">
+            <a href="https://exam.kaoshixing.com/exam" title="logo">
+                <img class="icon-logo logo-ksx" src="./做试卷_files/logo-transparent-header.svg">
+            </a>
+        </div>
+        <div class="exam-name ellipsis">试卷名字</div>
+        <div class="user ellipsis"><i class="icon icon-a_nav_my"></i>
+            东北大学软件园
+        </div>
+        <a type="button" class="btn btn-default logout" id="logoutBtn"> <i
+                class="icon icon-a_btn_sign_out btn-icon-left"></i>
+            退出</a>
+    </div>
+    <div class="body-wrapper">
+        <div class="body paper">
+            <div class="questions">
+                <div class="questions-title" id="">单选题(共10题，合计30.0分)</div>
+                <div class="questions-content">
+                    <div class="question-content" id="5d3586c94cc11672dd3ad53b" data-id="5d3586c94cc11672dd3ad53b"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">1.</span>
+                            在机场、商厦、地铁等公共场所乘自动扶梯时应靠（）站立,另一侧供有急事赶路的人快行。(3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53b1" name="keyChk_questions_5d3586c94cc11672dd3ad53b"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad53b1"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 左侧 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53b2" name="keyChk_questions_5d3586c94cc11672dd3ad53b"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad53b2"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 右侧 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53b3" name="keyChk_questions_5d3586c94cc11672dd3ad53b"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad53b3"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 中间  </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad53a" data-id="5d3586c94cc11672dd3ad53a"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">2.</span>
+                            一般性的拜访多以（）为最佳交往时间。(3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53a1" name="keyChk_questions_5d3586c94cc11672dd3ad53a"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad53a1"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 1小时左右 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53a2" name="keyChk_questions_5d3586c94cc11672dd3ad53a"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad53a2"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 半小时左右 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53a3" name="keyChk_questions_5d3586c94cc11672dd3ad53a"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad53a3"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 十分钟左右  </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad539" data-id="5d3586c94cc11672dd3ad539"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">3.</span>
+                            拜访他人应选择（）,并应提前打招呼。(3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5391" name="keyChk_questions_5d3586c94cc11672dd3ad539"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5391"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 清晨 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5392" name="keyChk_questions_5d3586c94cc11672dd3ad539"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5392"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 用餐时间 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5393" name="keyChk_questions_5d3586c94cc11672dd3ad539"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5393"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 节假日的下午或平日的晚饭后  </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad538" data-id="5d3586c94cc11672dd3ad538"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">4.</span>
+                            在参加各种社交宴请宾客中,要注意从座椅的（）侧入座,动作应轻而缓,轻松自然。(3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5381" name="keyChk_questions_5d3586c94cc11672dd3ad538"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5381"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 前侧 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5382" name="keyChk_questions_5d3586c94cc11672dd3ad538"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5382"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 左侧 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5383" name="keyChk_questions_5d3586c94cc11672dd3ad538"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5383"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 右侧  </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad52a" data-id="5d3586c94cc11672dd3ad52a"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">5.</span>
+                            日常生活中邻里之间应。 (3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad52a1" name="keyChk_questions_5d3586c94cc11672dd3ad52a"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad52a1"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 互尊互谅 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad52a2" name="keyChk_questions_5d3586c94cc11672dd3ad52a"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad52a2"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 互不来往 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad52a3" name="keyChk_questions_5d3586c94cc11672dd3ad52a"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad52a3"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 不必考虑邻里关系
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad529" data-id="5d3586c94cc11672dd3ad529"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">6.</span>
+                            做客时入座动作要。 (3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5291" name="keyChk_questions_5d3586c94cc11672dd3ad529"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5291"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 快捷 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5292" name="keyChk_questions_5d3586c94cc11672dd3ad529"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5292"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 轻稳 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5293" name="keyChk_questions_5d3586c94cc11672dd3ad529"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5293"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 缓慢
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad528" data-id="5d3586c94cc11672dd3ad528"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">7.</span>
+                            正式交往场合我们的仪表仪容要给人()的感觉。 (3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5281" name="keyChk_questions_5d3586c94cc11672dd3ad528"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5281"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 随意、整齐、干净 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5282" name="keyChk_questions_5d3586c94cc11672dd3ad528"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5282"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 漂亮、美观、时髦 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5283" name="keyChk_questions_5d3586c94cc11672dd3ad528"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5283"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 端庄、大方、美观
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad527" data-id="5d3586c94cc11672dd3ad527"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">8.</span>
+                            客人来访时,我们要为客人打开房门。当房门向外开时()进。 (3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5271" name="keyChk_questions_5d3586c94cc11672dd3ad527"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5271"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 客人先进 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5272" name="keyChk_questions_5d3586c94cc11672dd3ad527"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5272"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 我们先进 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5273" name="keyChk_questions_5d3586c94cc11672dd3ad527"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5273"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 同时进门
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad526" data-id="5d3586c94cc11672dd3ad526"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">9.</span>
+                            与他人在正式场合交谈时要严肃认真,还要注意语言的。 (3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5261" name="keyChk_questions_5d3586c94cc11672dd3ad526"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5261"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 准确规范 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5262" name="keyChk_questions_5d3586c94cc11672dd3ad526"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5262"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 慢条斯理 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5263" name="keyChk_questions_5d3586c94cc11672dd3ad526"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5263"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 声音洪亮
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad525" data-id="5d3586c94cc11672dd3ad525"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">10.</span>
+                            递接文件或名片时应当注意字体的。 (3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5251" name="keyChk_questions_5d3586c94cc11672dd3ad525"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5251"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 正面朝向对方 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5252" name="keyChk_questions_5d3586c94cc11672dd3ad525"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5252"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 侧面朝向对方 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad5253" name="keyChk_questions_5d3586c94cc11672dd3ad525"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5253"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 反面朝向对方
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="questions">
+                <div class="questions-title" id="sum_item1">多选题(共3题，合计15.0分，漏选错选不得分)</div>
+                <div class="questions-content">
+                    <div class="question-content" id="5d3586c94cc11672dd3ad532" data-id="5d3586c94cc11672dd3ad532"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="2" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">1.</span>
+                            以接待对象为标准划分的接待类型有 (5.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select multi-select a. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5321" name="keyChk_questions_5d3586c94cc11672dd3ad532"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5321"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">A. 公务接待
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select b. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5322" name="keyChk_questions_5d3586c94cc11672dd3ad532"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5322"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">B. 商务接待
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select c. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5323" name="keyChk_questions_5d3586c94cc11672dd3ad532"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5323"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">C. 上访接待
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select d. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5324" name="keyChk_questions_5d3586c94cc11672dd3ad532"
+                                       data-name="key4">
+                                <label for="5d3586c94cc11672dd3ad5324"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">D. 消费接待
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select e. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5325" name="keyChk_questions_5d3586c94cc11672dd3ad532"
+                                       data-name="key5">
+                                <label for="5d3586c94cc11672dd3ad5325"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">E. 朋友接待
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad531" data-id="5d3586c94cc11672dd3ad531"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="2" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">2.</span>
+                            以目的的不同为标准划分的拜访类型有 (5.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select multi-select a. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5311" name="keyChk_questions_5d3586c94cc11672dd3ad531"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5311"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">A. 商业拜访
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select b. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5312" name="keyChk_questions_5d3586c94cc11672dd3ad531"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5312"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">B. 政治拜访
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select c. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5313" name="keyChk_questions_5d3586c94cc11672dd3ad531"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5313"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">C. 情感拜访
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select d. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5314" name="keyChk_questions_5d3586c94cc11672dd3ad531"
+                                       data-name="key4">
+                                <label for="5d3586c94cc11672dd3ad5314"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">D. 礼节性拜访
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select e. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5315" name="keyChk_questions_5d3586c94cc11672dd3ad531"
+                                       data-name="key5">
+                                <label for="5d3586c94cc11672dd3ad5315"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">E. 公务拜访
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad530" data-id="5d3586c94cc11672dd3ad530"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="2" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">3.</span>
+                            名片的作用有 (5.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select multi-select a. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5301" name="keyChk_questions_5d3586c94cc11672dd3ad530"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad5301"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">A. 代替通话
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select b. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5302" name="keyChk_questions_5d3586c94cc11672dd3ad530"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad5302"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">B. 代替便函
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select c. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5303" name="keyChk_questions_5d3586c94cc11672dd3ad530"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad5303"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">C. 代替请柬
+ </span>
+
+                                </label>
+                            </div>
+                            <div class="select multi-select d. ">
+                                <input type="checkbox" class="radioOrCheck hidden" data-type="2"
+                                       id="5d3586c94cc11672dd3ad5304" name="keyChk_questions_5d3586c94cc11672dd3ad530"
+                                       data-name="key4">
+                                <label for="5d3586c94cc11672dd3ad5304"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct2"></i></span>
+                                    <span class="words">D. 便于通知
+ </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="questions">
+                <div class="questions-title" id="sum_item2">填空题(共3题，合计21.0分)</div>
+                <div class="questions-content">
+                    <div class="question-content" id="5d3586c94cc11672dd3ad535" data-id="5d3586c94cc11672dd3ad535"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="4" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">1.</span>
+                            男性公务员应保持面部清洁，不蓄胡须，不留大鬓角（）（）（）发长要求 (7.0分)
+                        </div>
+                        <div class="answers">
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">1</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key1" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">2</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key2" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">3</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key3" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad534" data-id="5d3586c94cc11672dd3ad534"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="4" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">2.</span>
+                            个人形象分（）（）（）（）和综合型五种类型。 (7.0分)
+                        </div>
+                        <div class="answers">
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">1</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key1" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">2</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key2" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">3</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key3" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">4</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key4" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad533" data-id="5d3586c94cc11672dd3ad533"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="4" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">3.</span>
+                            打招呼的方式一般有（）（）（）（） (7.0分)
+                        </div>
+                        <div class="answers">
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">1</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key1" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">2</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key2" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">3</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key3" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="filled">
+                                <div class="input-group"><span class="input-group-addon">4</span>
+
+                                    <div class="expanding-wrapper" style="position:relative">
+                                        <textarea name="key4" data-type="4" class="keyFill form-control expanding"
+                                                  onpaste="return false" oncopy="return false"
+                                                  style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>
+                                        <pre class="expanding-clone"
+                                             style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 28px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>
+
+                                    </div>
+                                </div>
+                            </dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="questions">
+                <div class="questions-title" id="sum_item3">问答题(共2题，合计18.0分)</div>
+                <div class="questions-content">
+                    <div class="question-content" id="5d3586c94cc11672dd3ad537" data-id="5d3586c94cc11672dd3ad537"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="5" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">1.</span>
+                            请简单表述一下中国在饮食方面的礼仪 (9.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="filled">
+                                <div class="wangEditor-container">
+                                    <div class="wangEditor-menu-container clearfix">
+                                        <div class="menu-group clearfix">
+                                            <div class="menu-item clearfix"><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1"><i class="wangeditor-menu-img-table"></i></a><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1" class="selected" style="display: none;"><i
+                                                    class="wangeditor-menu-img-table"></i></a>
+
+                                                <div class="menu-tip" style="width: 33px; margin-left: -16.5px;">表格
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu-group clearfix">
+                                            <div class="menu-item clearfix"><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1"><i class="wangeditor-menu-img-picture"></i></a><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1" class="selected" style="display: none;"><i
+                                                    class="wangeditor-menu-img-picture"></i></a>
+
+                                                <div class="menu-tip" style="width: 178px; margin-left: -89px;">
+                                                    图片（文件大小不超过1M）
+                                                </div>
+                                            </div>
+                                            <div class="menu-item clearfix"><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1"><i class="wangeditor-menu-img-upload"></i></a><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1" style="display: none;"><i
+                                                    class="wangeditor-menu-img-upload"></i></a>
+
+                                                <div class="menu-tip" style="width: 206px; margin-left: -103px;">
+                                                    上传附件（文件大小不超过5M）
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu-group clearfix">
+                                            <div class="menu-item clearfix"><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1"><i class="wangeditor-menu-img-enlarge2"></i></a><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1" class="selected" style="display: none;"><i
+                                                    class="wangeditor-menu-img-shrink2"></i></a>
+
+                                                <div class="menu-tip" style="width: 33px; margin-left: -16.5px;">全屏
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="keyCloze wangEditor-txt" data-type="5"
+                                         id="keyCloze_5d3586c94cc11672dd3ad537"
+                                         style="min-height: 250px; height: 219px;" contenteditable="true">
+                                        <p>
+                                            <br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="key1" value="">
+                                <input type="file" name="uploadFile" class="wang-upload-file hidden">
+                                <div class="file-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-content" id="5d3586c94cc11672dd3ad536" data-id="5d3586c94cc11672dd3ad536"
+                         data-commit="false">
+                        <div class="question-operation operation-icon icon-mark" data-type="5" data-toggle="tooltip"
+                             data-placement="top" data-container="body" title="" data-original-title="标记本题"><i
+                                class="icon icon-p_exam_tag_de"></i>
+
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">2.</span>
+                            请简单说一下你对礼仪的认识与理解 (9.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="filled">
+                                <div class="wangEditor-container">
+                                    <div class="wangEditor-menu-container clearfix">
+                                        <div class="menu-group clearfix">
+                                            <div class="menu-item clearfix"><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1"><i class="wangeditor-menu-img-table"></i></a><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1" class="selected" style="display: none;"><i
+                                                    class="wangeditor-menu-img-table"></i></a>
+
+                                                <div class="menu-tip" style="width: 33px; margin-left: -16.5px;">表格
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu-group clearfix">
+                                            <div class="menu-item clearfix"><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1"><i class="wangeditor-menu-img-picture"></i></a><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1" class="selected" style="display: none;"><i
+                                                    class="wangeditor-menu-img-picture"></i></a>
+
+                                                <div class="menu-tip" style="width: 178px; margin-left: -89px;">
+                                                    图片（文件大小不超过1M）
+                                                </div>
+                                            </div>
+                                            <div class="menu-item clearfix"><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1"><i class="wangeditor-menu-img-upload"></i></a><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1" style="display: none;"><i
+                                                    class="wangeditor-menu-img-upload"></i></a>
+
+                                                <div class="menu-tip" style="width: 206px; margin-left: -103px;">
+                                                    上传附件（文件大小不超过5M）
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu-group clearfix">
+                                            <div class="menu-item clearfix"><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1"><i class="wangeditor-menu-img-enlarge2"></i></a><a
+                                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#"
+                                                    tabindex="-1" class="selected" style="display: none;"><i
+                                                    class="wangeditor-menu-img-shrink2"></i></a>
+
+                                                <div class="menu-tip" style="width: 33px; margin-left: -16.5px;">全屏
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="keyCloze wangEditor-txt" data-type="5"
+                                         id="keyCloze_5d3586c94cc11672dd3ad536"
+                                         style="min-height: 250px; height: 219px;" contenteditable="true">
+                                        <p>
+                                            <br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="key1" value="">
+                                <input type="file" name="uploadFile" class="wang-upload-file hidden">
+                                <div class="file-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tech-support"><span class="company-name">考试星</span>
+            提供技术支持
+        </div>
+    </div>
+    <div class="nav-wrapper">
+        <div class="nav nav-status nav-operation">
+            <ul class="menu-items">
+                <li class="menu-item menu-item-time ">
+                    <div class="item-label">剩余时间</div>
+                    <div class="item-data" id="timeDown">00:56:11</div>
+                </li>
+                <li class="menu-item menu-item-process">
+                    <div class="item-label">当前进度</div>
+                    <div class="item-data"><span id="commitCount">0</span>/<span id="totalCount">18</span>
+
+                    </div>
+                    <div class="item-process">
+                        <div class="item-process-bar" id="commitProcess" style="width: 0px;"></div>
+                    </div>
+                </li>
+                <li class="menu-item menu-item-fontsize"><span class="item-icon fontsize-minus">－</span>
+                    <span class="item-label">字号</span>
+                    <span class="item-icon fontsize-plus">＋</span>
+
+                </li>
+                <li class="menu-item menu-item-lang" id="switchLangBtn"><i
+                        class="icon item-icon icon-a_landing_english"></i>
+                    <span class="item-label">English</span>
+
+                </li>
+            </ul>
+        </div>
+        <button class="btn btn-primary btn-nav" id="endExamBtn">提交</button>
+    </div>
+</div>
+<input type="hidden" class="had-save-mark">
+<div class="alert alert-ksx hidden" role="alert" id="minTimeLimitAlert"><span id="limitMinTimeCount">4</span>分钟后才能交卷
+</div>
+<div class="modal fade ksx" id="timeResetModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-pc-message modal-time-reset" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span>
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">您的交卷时间已被修改为</div>
+                <div class="delay-time"></div>
+                <div class="tip">请及时调整答题进度</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="numberCardModal" id="numberCardModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-number-card" role="document">
+        <div class="fold_btn" id="answercardFoldBtn"><i class="icon icons8-icon" data-toggle="tooltip"
+                                                        data-placement="top" data-container="body" title=""
+                                                        data-original-title="收起"></i>
+        </div>
+        <div class="open_btn" id="answercardOpenBtn"><i class="icon icons8-icon-3" data-toggle="tooltip"
+                                                        data-placement="top" data-container="body" title=""
+                                                        data-original-title="展开"></i>
+        </div>
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body">
+                <div class="title">
+                    <div class="title_border"></div>
+                    <div class="title_content">答题卡</div>
+                </div>
+                <div class="card-content-list">
+                    <div class="card-content">
+                        <div class="card-content-title">单选题(共10题，合计30.0分)</div>
+                        <div class="box-list">
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad53b"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad53b"
+                                    questionsid="5d3586c94cc11672dd3ad53b" num="questions_5d3586c94cc11672dd3ad53b"
+                                    perscore="3.0">1</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad53a"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad53a"
+                                    questionsid="5d3586c94cc11672dd3ad53a" num="questions_5d3586c94cc11672dd3ad53a"
+                                    perscore="3.0">2</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad539"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad539"
+                                    questionsid="5d3586c94cc11672dd3ad539" num="questions_5d3586c94cc11672dd3ad539"
+                                    perscore="3.0">3</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad538"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad538"
+                                    questionsid="5d3586c94cc11672dd3ad538" num="questions_5d3586c94cc11672dd3ad538"
+                                    perscore="3.0">4</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad52a"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad52a"
+                                    questionsid="5d3586c94cc11672dd3ad52a" num="questions_5d3586c94cc11672dd3ad52a"
+                                    perscore="3.0">5</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad529"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad529"
+                                    questionsid="5d3586c94cc11672dd3ad529" num="questions_5d3586c94cc11672dd3ad529"
+                                    perscore="3.0">6</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad528"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad528"
+                                    questionsid="5d3586c94cc11672dd3ad528" num="questions_5d3586c94cc11672dd3ad528"
+                                    perscore="3.0">7</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad527"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad527"
+                                    questionsid="5d3586c94cc11672dd3ad527" num="questions_5d3586c94cc11672dd3ad527"
+                                    perscore="3.0">8</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad526"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad526"
+                                    questionsid="5d3586c94cc11672dd3ad526" num="questions_5d3586c94cc11672dd3ad526"
+                                    perscore="3.0">9</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad525"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad525"
+                                    questionsid="5d3586c94cc11672dd3ad525" num="questions_5d3586c94cc11672dd3ad525"
+                                    perscore="3.0">10</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                        </div>
+                        <div class="split"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-content-title">多选题(共3题，合计15.0分，漏选错选不得分)</div>
+                        <div class="box-list">
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad532"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad532"
+                                    questionsid="5d3586c94cc11672dd3ad532" num="questions_5d3586c94cc11672dd3ad532"
+                                    perscore="5.0">1</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad531"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad531"
+                                    questionsid="5d3586c94cc11672dd3ad531" num="questions_5d3586c94cc11672dd3ad531"
+                                    perscore="5.0">2</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad530"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad530"
+                                    questionsid="5d3586c94cc11672dd3ad530" num="questions_5d3586c94cc11672dd3ad530"
+                                    perscore="5.0">3</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                        </div>
+                        <div class="split"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-content-title">填空题(共3题，合计21.0分)</div>
+                        <div class="box-list">
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad535"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad535"
+                                    questionsid="5d3586c94cc11672dd3ad535" num="questions_5d3586c94cc11672dd3ad535"
+                                    perscore="7.0">1</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad534"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad534"
+                                    questionsid="5d3586c94cc11672dd3ad534" num="questions_5d3586c94cc11672dd3ad534"
+                                    perscore="7.0">2</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad533"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad533"
+                                    questionsid="5d3586c94cc11672dd3ad533" num="questions_5d3586c94cc11672dd3ad533"
+                                    perscore="7.0">3</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                        </div>
+                        <div class="split"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-content-title">问答题(共2题，合计18.0分)</div>
+                        <div class="box-list">
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad537"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad537"
+                                    questionsid="5d3586c94cc11672dd3ad537" num="questions_5d3586c94cc11672dd3ad537"
+                                    perscore="9.0">1</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                            <div class="box normal-box question_cbox s1"><a
+                                    class="iconBox questions_5d3586c94cc11672dd3ad536"
+                                    href="https://exam.kaoshixing.com/exam/exam_start/300380#5d3586c94cc11672dd3ad536"
+                                    questionsid="5d3586c94cc11672dd3ad536" num="questions_5d3586c94cc11672dd3ad536"
+                                    perscore="9.0">2</a>
+                                <span class="box icon-box question_marked"></span>
+
+                            </div>
+                        </div>
+                        <div class="split"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer"><span class="box icon-box s2"></span>
+                <span class="icon-label">已答</span>
+                <span class="box icon-box s1"></span>
+                <span class="icon-label">未答</span>
+                <span class="box icon-box marked"></span>
+                <span class="icon-label">标记</span>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="endExamModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span>
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="confirmEndExamBtn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="resultInquireModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body">
+                <div class="modal-title">交卷中，请耐心等待...</div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body">
+                <div class="modal-title">本场考试已开启防切屏限制，
+                    <br>切换页面0次后将会进行强制交卷，
+                    <br>请知悉！
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message modal-logout" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span>
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">您是否要退出登录？</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="confirmLogoutBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./做试卷_files/jquery.min.js"></script>
+<script type="text/javascript" src="./做试卷_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./做试卷_files/bootstrap-dialog.min.js"></script>
+<script type="text/javascript">
+    var companyId = "140092"; //公司id
+    var exam_info_id = "300380"; //考试ID
+    var exam_results_id = "15230004"; //考试关联ID
+</script>
+<script type="text/javascript" src="./做试卷_files/exam-base.js"></script>
+<script type="text/javascript">
+    //提示弹窗
+    function showSuccessTip(text) {
+        $(".ksx-success .text label").text(text);
+        $(".ksx-success").show();
+        $(".ksx-success").fadeOut(3000);
+    }
+
+    function showErrorTip(text) {
+        $(".ksx-error .text label").text(text);
+        $(".ksx-error").show();
+        $(".ksx-error").fadeOut(3000);
+    }
+
+    function showWarnTip(text) {
+        $(".ksx-warn .text label").text(text);
+        $(".ksx-warn").show();
+        $(".ksx-warn").fadeOut(3000);
+    }
+</script>
+<script type="text/javascript" src="./做试卷_files/wangEditor.js"></script>
+<script type="text/javascript" src="./做试卷_files/uploadFile.js"></script>
+<script type="text/javascript" src="./做试卷_files/basic.js"></script>
+<script type="text/javascript" src="./做试卷_files/swfobject.js"></script>
+<script type="text/javascript" src="./做试卷_files/recorder.js"></script>
+<script type="text/javascript" src="./做试卷_files/expanding.js"></script>
+<script type="text/javascript" src="./做试卷_files/stickUp.min.js"></script>
+<script type="text/javascript" src="./做试卷_files/screenfull.js"></script>
+<script type="text/javascript" src="./做试卷_files/jquery.webcam.js"></script>
+<script type="text/javascript" src="./做试卷_files/exam_answer.js"></script>
+<script type="text/javascript">
+    //考试计时
+    var timeDownInterval;
+    //考试剩余总时长
+    var answer_time_left = parseInt(3600);
+    //全屏防作弊参数
+    var set_full_screen = "1";
+    var exitSwicthStatus = "new"; //new-第一次考试  doing-非第一次考试，会从下列请求获取到该参数，给变量赋值后，再将其作为参数放到请求里。后端需要该参数对第一次进考试时的情况进行处理
+    //切换次数
+    var blur_count = "0";
+    var cuttingScreenCount = ""; //已切屏次数
+    //考生id
+    var examUserId = "7387836";
+    //无操作防作弊静止时间
+    var quietSecond = "0";
+    //设置无操作防作弊
+    var setQuietCheat = "0";
+    //拍照防作弊参数
+    var capture = "0";
+    //答题时长（是否不限时长
+    var examTimeRestrict = '1';
+    //是否显示水印 0--不显示；1--显示
+    var isWatermark = '0';
+    //最短答题时长
+    var setMinExamTime = '0';
+    var minExamTime = '0';
+    var totalExamTime = '60';
+</script>
+</body>
+
+</html>

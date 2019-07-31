@@ -463,7 +463,7 @@
 
                                     <div id="selection_score" style="display:none" data-placement="bottom"
                                          title="漏选按正确选项个数计算分数，错选不给分">
-                        </span>
+                                        </span>
                                         <span name="vacant" class="hidden">按空给分</span>
                                         <span class="inline-ite" name="option_peer_score_show"
                                               style="display:none;margin-left: 10px;"><span name="selection">每个选项</span>
@@ -721,7 +721,7 @@
     var activeNavItem = 'subNavItemExamMgr';
     $(function () {
 
-        $('.edit-paper-name').val(getParam('paperName'));
+        $('.edit-paper-name, .paperName').val(decodeURI(getParam('paperName')));
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
             e.preventDefault();
