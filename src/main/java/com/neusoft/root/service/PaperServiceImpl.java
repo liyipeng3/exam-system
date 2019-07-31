@@ -206,6 +206,7 @@ public class PaperServiceImpl implements PaperService{
 				//System.out.println(questionservice1==null);
 				for(ParsedItem x:questionservice1)
 				{
+					x.setItemScore(Double.valueOf(line[1]));
 				//	System.out.println(x.toString());
 					q1.add(x);
 				}
@@ -256,6 +257,7 @@ public class PaperServiceImpl implements PaperService{
 				questionservice4 = service.queryParsedItem(ID);
 				for(ParsedItem x:questionservice4)
 				{
+					
 					q4.add(x);
 				}
 			}
