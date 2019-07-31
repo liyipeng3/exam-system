@@ -128,7 +128,7 @@ $(document).ready(function () {
     var ksxSaveData = sessionStorage.getItem('ksxSaveData');
 
     if(ksxSaveData == '1'){
-        $('#saveBtn').attr('disabled',true)
+        //$('#saveBtn').attr('disabled',true)
     }
 	//提交表单
 	$("#saveBtn").click(function (e) {
@@ -944,6 +944,18 @@ function checkForm() {
 	}
 	return true;
 }
+
+function getParam(paramName) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == paramName) {
+            return pair[1];
+        }
+    }
+    return (false);
+}
 //异步保存fn
 var has_obj_question;
 function savePaperFn(url) {
@@ -987,7 +999,9 @@ function savePaperFn(url) {
     $(dataForm).each(function(index, obj){
         data[obj.name] = obj.value;
     });
+    data['paperId'] = getParam('paper_info_id');
     console.log(JSON.stringify(data));
+
 
 	$.ajax({
         type: "POST",
@@ -1005,45 +1019,24 @@ function savePaperFn(url) {
 				// 	post_exam_info(msg.bizContent.paperId);
 				// }
 				//管理员体验地址
-				var url = msg.bizContent.trialExamLink;
+				//var url = msg.bizContent.trialExamLink;
                 var isSkipLogin = $('input[name=skipLogin]').val();
 				// var password = msg.bizContent.examPwd;
 				$("#trialExamBtn").html('<span class="try-exam guide-btn">考一下</span>');
 				$("#loading").hide();
 				// 短信内容
-				var notification = msg.bizContent.msgContent.split(',');
-				$('.notification .notificationContent').text(notification[0]);
-                $('.notification .notificationUrl').text(notification[1]);
+				//var notification = msg.bizContent.msgContent.split(',');
+				//$('.notification .notificationContent').text("666");
+                //$('.notification .notificationUrl').text("888");
 
                 if($("input[name='setProcess']").val()==1){
                     $("#cannotLinkModal").modal("show");
                 }
                 else{
-                    showSelOk(msg.bizContent.examId, msg.bizContent.examLink, msg.bizContent.examPwd,url,'exam',isSkipLogin);
+                    //showSelOk(msg.bizContent.examId, msg.bizContent.examLink, msg.bizContent.examPwd,url,'exam',isSkipLogin);
+                    alert('考试创建成功!');
+                    window.location.reload();
                 }
-
-
-				//推送gio
-				//考试id，考试分类，考试时长，考试登录类型，试题数量
-                var examId_var = msg.bizContent.examId;
-                var examType_var = $("#selTypeLink span").text();
-                var examDuration_var = $("input[name=examTime]").val();
-                var examLoginType = $("input[name=skipLogin]").val();
-                var loginTypeJson = {
-                    0: '账号密码登录',
-                    1: '免登录考试',
-                    2: '微信免登录考试'
-                };
-                var examLoginType_var = loginTypeJson[examLoginType];
-
-                ksxProbe.gioTrack('publishExamSuccess', 1, {
-                    'examId_var' : examId_var,
-                    'examType_var': examType_var,
-                    'examDuration_var': examDuration_var,
-                    'examLoginType_var': examLoginType_var,
-                    'questionCount_var': questionCount_var
-                });
-
 
 			} else {
 				alert("操作失败，请联系管理员！");

@@ -13,6 +13,6 @@ import com.neusoft.root.domain.Teacher;
  */
 public interface ExamService 
 {
-	public void addExam(JSONObject json);
+	public Integer addExam(JSONObject json);
 	public List<Exam> queryExam(JSONObject json);
 }
