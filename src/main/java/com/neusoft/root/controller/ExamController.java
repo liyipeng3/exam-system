@@ -444,9 +444,14 @@ public class ExamController {
 		String result = "{\"exam_id\":\""+id+"\",\"status\":\"ok\"}";
 		return result;
 	}
-	@RequestMapping(value="/get_exam",method=RequestMethod.GET)
+	/**
+	 * 获取考试列表
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/get_exams",method=RequestMethod.GET)
 	@ResponseBody
-	public String getExam(){
+	public String getExams(){
 		Gson gson = new Gson();
 		JSONObject json = new JSONObject();
 		json.put("examId", "");

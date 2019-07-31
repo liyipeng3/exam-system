@@ -319,7 +319,7 @@ public class PaperServiceImpl implements PaperService{
 
 	@Override
 	public ParsedPaper queryParsedPaper(Integer id) {
-		System.out.println("paper"+id);
+		//System.out.println("paper"+id);
 		// TODO Auto-generated method stub
 		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
 		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
@@ -339,60 +339,117 @@ public class PaperServiceImpl implements PaperService{
 			RawPaper rawPaper2 = list.get(0);
 			List<ParsedItem> q1 = new ArrayList<>() ;
 			List<ParsedItem> questionservice1 ;
-			String num1[] = rawPaper2.getSinglechoiceQuestion().split("$$$");
-			String num2[] = rawPaper2.getMultichoiceQuestion().split("$$$");
-			String num3[] = rawPaper2.getFillQuestion().split("$$$");
-			String num4[]  =rawPaper2.getSubjectiveQuestion().split("$$$");
+				String num1[] = rawPaper2.getSinglechoiceQuestion().split("\\$\\$\\$");
+				String num2[] = rawPaper2.getMultichoiceQuestion().split("\\$\\$\\$");
+				String num3[] = rawPaper2.getFillQuestion().split("\\$\\$\\$");
+				String num4[]  =rawPaper2.getSubjectiveQuestion().split("\\$\\$\\$");
+			
 			int flag = 0;
 			int count = num1.length+num2.length+num3.length+num4.length;
+			
 			List<String> itemsType = new ArrayList<>();
 			List<String> itemsTitle = new ArrayList<>();
 			List<List<ParsedItem>> items = new ArrayList<>();
-			
+			if(num1[0].equals(""))
+			{
+				count--;
+			}
+			if(num2[0].equals(""))
+			{
+				count--;
+			}
+			if(num3[0].equals(""))
+			{
+				count--;
+			}
+			if(num4[0].equals(""))
+			{
+				count--;
+			}
+			//System.out.println(num1[0]+"!"+num2[1]+"!"+num3[0]+"!"+num4[0]+count);
 			int k1 =0;
 			int k2 =0;
 			int k3 =0;
 			int k4 =0;
-			for(int i=0;i<count;i++)
+			
+			for(int i=1;i<=count;i++)
 			{
+				boolean flag1 =false;
+				boolean flag2 =false;
+				boolean flag3 = false;
+				boolean flag4 = false;
 				List<ParsedItem> item = new ArrayList<>();
 				flag =0;
-				if(num1.length!=0&&num1.length>k1)
+				//System.out.println("test1 "+(num1.length!=0));
+				//System.out.println("test1 "+(num1.length>k1));
+				//System.out.println("test1 "+(!num1[0].equals("")));
+				if(num1.length!=0&&num1.length>k1&&(!num1[0].equals("")))
 				{
 					String apple1[] = num1[k1].split("###");
+					System.out.println(num1[k1].toString());
 					String banana1[] = apple1[0].split(",");
-					if(banana1[3].equals("i"))
+					String iString = String.valueOf(i);
+					System.out.println(banana1[3]);
+					System.out.println(iString);
+					if(banana1[3].equals(iString))
 					{
+						System.out.println("!!!");
 						flag = 1;
+						flag1 =true;
+					}else
+					{
+						flag1 =false;
 					}
 				}
-				if(num2.length!=0&&flag==0&&num2.length>k2)
+				if(num2.length!=0&&flag==0&&num2.length>k2&&(!num2[0].equals(""))&&(!flag1)&&(!flag2)&&(!flag3)&&(!flag4))
 				{
+				//	System.out.println("多选题");
 					String apple2[] = num2[k2].split("###");
 					String banana2[] = apple2[0].split(",");
-					if(banana2[3].equals("i"))
+					String iString = String.valueOf(i);
+					if(banana2[3].equals(iString))
 					{
 						flag = 2;
+						flag2 =true;
 					}
-				}
-				if(num3.length!=0&&flag==0&&num3.length>k3)
+					else
+					{
+						flag2 =false;
+					}
+				}else if(num3.length!=0&&flag==0&&num3.length>k3&&(!num3[0].equals(""))&&(!flag1)&&(!flag2)&&(!flag3)&&(!flag4))
 				{
 					String apple3[] = num3[k3].split("###");
 					String banana3[] = apple3[0].split(",");
-					if(banana3[3].equals("i"))
+				/*	for(int u =0;u<banana3.length;u++)
+					{
+						System.out.println(banana3[u]);
+					}*/
+					String iString = String.valueOf(i);
+					if(banana3[3].equals(iString))
 					{
 						flag = 3;
+						flag3 = true;
+					}
+					else
+					{
+						flag3 = false;
 					}
 				}
-				if(num4.length!=0&&flag==0&&num4.length>k4)
+				else if(num4.length!=0&&flag==0&&num4.length>k4&&(!num4[0].equals(""))&&(!flag1)&&(!flag2)&&(!flag3)&&(!flag4))
 				{
 					String apple4[] = num4[k4].split("###");
 					String banana4[] = apple4[0].split(",");
-					if(banana4[3].equals("i"))
+					String iString = String.valueOf(i);
+					if(banana4[3].equals(iString))
 					{
 						flag = 4;
+						flag4 = true;
+					}
+					else{
+						flag4 = false;
 					}
 				}
+				System.out.println("flag"+flag);
 				if(flag==1)
 				{
 					String apple[] = num1[k1].split("###");
@@ -408,6 +465,8 @@ public class PaperServiceImpl implements PaperService{
 							System.out.println("查询试题ID不唯一！！！");
 						}
 						else {
+							Double itemScore = Double.valueOf(banana[1]);
+							itemlist.get(0).setItemScore(itemScore);
 							item.add(itemlist.get(0));
 						}
 					}
@@ -430,6 +489,8 @@ public class PaperServiceImpl implements PaperService{
 							System.out.println("查询试题ID不唯一！！！");
 						}
 						else {
+							Double itemScore = Double.valueOf(banana[1]);
+							itemlist.get(0).setItemScore(itemScore);
 							item.add(itemlist.get(0));
 						}
 					}
@@ -452,6 +513,8 @@ public class PaperServiceImpl implements PaperService{
 							System.out.println("查询试题ID不唯一！！！");
 						}
 						else {
+							Double itemScore = Double.valueOf(banana[1]);
+							itemlist.get(0).setItemScore(itemScore);
 							item.add(itemlist.get(0));
 						}
 					}
@@ -474,6 +537,8 @@ public class PaperServiceImpl implements PaperService{
 							System.out.println("查询试题ID不唯一！！！");
 						}
 						else {
+							Double itemScore = Double.valueOf(banana[1]);
+							itemlist.get(0).setItemScore(itemScore);
 							item.add(itemlist.get(0));
 						}
 					}
@@ -486,9 +551,12 @@ public class PaperServiceImpl implements PaperService{
 				}
 				
 				items.add(item);
+				System.out.println("item:::"+item);
+				
 			}
+			System.out.println("item"+items.toString());
 			ParsedPaper paper = new ParsedPaper(rawPaper2.getPaperId(), rawPaper2.getPaperName(), rawPaper2.getCreaterId(), rawPaper2.getCreateDate(), rawPaper2.getPaperType(), rawPaper2.getPaperIndex(), items, itemsTitle, itemsType, rawPaper2.getPaperScore(), rawPaper2.getPaperSecrecy(), rawPaper2.getPaperRemark());
-					//System.out.println("@@"+list2.toString());
+					//System.out.println("@@"+paper.toString());
 					return paper;	
 		
 		}
