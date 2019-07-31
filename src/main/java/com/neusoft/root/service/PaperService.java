@@ -20,12 +20,12 @@ public interface PaperService {
 	 * 增加试卷
 	 * @param json rawpaper串
 	 */
-	public Integer addRawPaper(JSONObject json);
+	public String addRawPaper(JSONObject json);
 	/**
 	 * 删除试卷
 	 * @param json rawpaper串
 	 */
-	public void deleteRawPaper(Integer id);
+	public void deleteRawPaper(String id);
 	/**
 	 * 更新试卷
 	 * @param json rawpaper串
@@ -40,7 +40,7 @@ public interface PaperService {
 	 * 查询paper
 	 * @return parsedpaper的list
 	 */
-	public List<ParsedPaper> queryParsedPaper(Integer ID);
+	public List<ParsedPaper> queryParsedPaper(String id);
 	/**
 	 * 获取所有课程
 	 * @return 课程名字的list
@@ -58,5 +58,5 @@ public interface PaperService {
 	 * @param subjects 科目
 	 * @return 试卷
 	 */
-	public ParsedPaper randPaper(String name,String subjects,String ID);
+	public List<ParsedPaper> randPaper(String name,String subjects,String ID);
 }
