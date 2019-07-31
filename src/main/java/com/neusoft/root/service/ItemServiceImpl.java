@@ -219,9 +219,9 @@ public class ItemServiceImpl implements ItemService{
 		item.setItemId(ID);
 		try {
 			List<RawItem> items = mapper.queryRawItem(item);
-			System.out.println("@@@");
+		//	System.out.println("@@@");
 			List<ParsedItem> items2 = new ArrayList<>();
-			System.out.println("!!!");
+		//	System.out.println("!!!");
 			for(RawItem xItem:items)
 			{
 				List<String> list3 = new ArrayList<>();
@@ -239,7 +239,7 @@ public class ItemServiceImpl implements ItemService{
 					answer.add(line1[j]);
 				}
 				items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
-			System.out.println(xItem.toString());
+	//		System.out.println(xItem.toString());
 			}
 			return items2;
 		} catch (Exception e) {
