@@ -8,26 +8,34 @@ public class PaperChecking
 	private String studentId;
 	private String paperId;
 	private String teacherId;
-	private List<List<ItemChecking>> items;
-	private List<String> itemsTitle;
-	private List<String> itemsType;
+	private List<ItemChecking> singleItem;
+	private List<ItemChecking> multiItem;
+	private List<ItemChecking> fillItem;
+	private List<ItemChecking> subjectiveItem;
 	private Double studentScore;
-	private Double sumScore;
-	public PaperChecking(String studentId, String paperId, String teacherId, List<List<ItemChecking>> items,
-			List<String> itemsTitle, List<String> itemsType, Double studentScore, Double sumScore) {
+	
+	public void init()
+	{
+		singleItem = new ArrayList<ItemChecking>();
+		multiItem = new ArrayList<ItemChecking>();
+		fillItem = new ArrayList<ItemChecking>();
+		subjectiveItem = new ArrayList<ItemChecking>();
+	}
+	public PaperChecking(String studentId, String paperId, String teacherId, List<ItemChecking> singleItem,
+			List<ItemChecking> multiItem, List<ItemChecking> fillItem, List<ItemChecking> subjectiveItem,
+			Double studentScore) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
 		this.teacherId = teacherId;
-		this.items = items;
-		this.itemsTitle = itemsTitle;
-		this.itemsType = itemsType;
+		this.singleItem = singleItem;
+		this.multiItem = multiItem;
+		this.fillItem = fillItem;
+		this.subjectiveItem = subjectiveItem;
 		this.studentScore = studentScore;
-		this.sumScore = sumScore;
 	}
 	public PaperChecking() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getStudentId() {
 		return studentId;
@@ -47,23 +55,29 @@ public class PaperChecking
 	public void setTeacherId(String teacherId) {
 		this.teacherId = teacherId;
 	}
-	public List<List<ItemChecking>> getItems() {
-		return items;
+	public List<ItemChecking> getSingleItem() {
+		return singleItem;
 	}
-	public void setItems(List<List<ItemChecking>> items) {
-		this.items = items;
+	public void setSingleItem(List<ItemChecking> singleItem) {
+		this.singleItem = singleItem;
 	}
-	public List<String> getItemsTitle() {
-		return itemsTitle;
+	public List<ItemChecking> getMultiItem() {
+		return multiItem;
 	}
-	public void setItemsTitle(List<String> itemsTitle) {
-		this.itemsTitle = itemsTitle;
+	public void setMultiItem(List<ItemChecking> multiItem) {
+		this.multiItem = multiItem;
 	}
-	public List<String> getItemsType() {
-		return itemsType;
+	public List<ItemChecking> getFillItem() {
+		return fillItem;
 	}
-	public void setItemsType(List<String> itemsType) {
-		this.itemsType = itemsType;
+	public void setFillItem(List<ItemChecking> fillItem) {
+		this.fillItem = fillItem;
+	}
+	public List<ItemChecking> getSubjectiveItem() {
+		return subjectiveItem;
+	}
+	public void setSubjectiveItem(List<ItemChecking> subjectiveItem) {
+		this.subjectiveItem = subjectiveItem;
 	}
 	public Double getStudentScore() {
 		return studentScore;
@@ -71,23 +85,17 @@ public class PaperChecking
 	public void setStudentScore(Double studentScore) {
 		this.studentScore = studentScore;
 	}
-	public Double getSumScore() {
-		return sumScore;
-	}
-	public void setSumScore(Double sumScore) {
-		this.sumScore = sumScore;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((items == null) ? 0 : items.hashCode());
-		result = prime * result + ((itemsTitle == null) ? 0 : itemsTitle.hashCode());
-		result = prime * result + ((itemsType == null) ? 0 : itemsType.hashCode());
+		result = prime * result + ((fillItem == null) ? 0 : fillItem.hashCode());
+		result = prime * result + ((multiItem == null) ? 0 : multiItem.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
+		result = prime * result + ((singleItem == null) ? 0 : singleItem.hashCode());
 		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
 		result = prime * result + ((studentScore == null) ? 0 : studentScore.hashCode());
-		result = prime * result + ((sumScore == null) ? 0 : sumScore.hashCode());
+		result = prime * result + ((subjectiveItem == null) ? 0 : subjectiveItem.hashCode());
 		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
@@ -100,25 +108,25 @@ public class PaperChecking
 		if (getClass() != obj.getClass())
 			return false;
 		PaperChecking other = (PaperChecking) obj;
-		if (items == null) {
-			if (other.items != null)
+		if (fillItem == null) {
+			if (other.fillItem != null)
 				return false;
-		} else if (!items.equals(other.items))
+		} else if (!fillItem.equals(other.fillItem))
 			return false;
-		if (itemsTitle == null) {
-			if (other.itemsTitle != null)
+		if (multiItem == null) {
+			if (other.multiItem != null)
 				return false;
-		} else if (!itemsTitle.equals(other.itemsTitle))
-			return false;
-		if (itemsType == null) {
-			if (other.itemsType != null)
-				return false;
-		} else if (!itemsType.equals(other.itemsType))
+		} else if (!multiItem.equals(other.multiItem))
 			return false;
 		if (paperId == null) {
 			if (other.paperId != null)
 				return false;
 		} else if (!paperId.equals(other.paperId))
+			return false;
+		if (singleItem == null) {
+			if (other.singleItem != null)
+				return false;
+		} else if (!singleItem.equals(other.singleItem))
 			return false;
 		if (studentId == null) {
 			if (other.studentId != null)
@@ -130,10 +138,10 @@ public class PaperChecking
 				return false;
 		} else if (!studentScore.equals(other.studentScore))
 			return false;
-		if (sumScore == null) {
-			if (other.sumScore != null)
+		if (subjectiveItem == null) {
+			if (other.subjectiveItem != null)
 				return false;
-		} else if (!sumScore.equals(other.sumScore))
+		} else if (!subjectiveItem.equals(other.subjectiveItem))
 			return false;
 		if (teacherId == null) {
 			if (other.teacherId != null)
@@ -145,7 +153,7 @@ public class PaperChecking
 	@Override
 	public String toString() {
 		return "PaperChecking [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
-				+ ", items=" + items + ", itemsTitle=" + itemsTitle + ", itemsType=" + itemsType + ", studentScore="
-				+ studentScore + ", sumScore=" + sumScore + "]";
+				+ ", singleItem=" + singleItem + ", multiItem=" + multiItem + ", fillItem=" + fillItem
+				+ ", subjectiveItem=" + subjectiveItem + ", studentScore=" + studentScore + "]";
 	}
 }
