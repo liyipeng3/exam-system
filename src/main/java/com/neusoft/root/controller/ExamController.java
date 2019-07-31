@@ -424,9 +424,11 @@ public class ExamController {
 	@ResponseBody
 	public String addExam(@RequestBody JSONObject jsonObject){
 		System.out.println(jsonObject.toJSONString());
+		
 		String result = "{\"status\":\"ok\"}";
 		return result;
 	}
+	
 	/**
 	 * 按id获取试卷信息
 	 * 
