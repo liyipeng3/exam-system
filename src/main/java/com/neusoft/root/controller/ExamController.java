@@ -232,7 +232,7 @@ public class ExamController {
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
 	public String getParsedPaper(int id){
-		ParsedPaper parsePaper = paperService.queryParsedPaper(id).get(0);
+		ParsedPaper parsePaper = paperService.queryParsedPaper(id);
 		Gson gson = new Gson();
 		String json = gson.toJson(parsePaper);
 		return json;
