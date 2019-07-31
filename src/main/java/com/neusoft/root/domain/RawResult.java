@@ -4,7 +4,7 @@ package com.neusoft.root.domain;
 
 public class RawResult {
 	private String studentId; //学生ID
-	private Integer paperId; //试卷ID
+	private String paperId; //试卷ID
 	private String teacherId;
 	private String singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
 	private String multichoiceResult; //多选题结果，格式：ID1，分数1###ID2，分数2###
@@ -12,7 +12,7 @@ public class RawResult {
 	private String subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
 	private String submitDate; //答题日期
 	private String checked; //是否被批阅  
-	public RawResult(String studentId, Integer paperId, String teacherId, String singlechoiceResult,
+	public RawResult(String studentId, String paperId, String teacherId, String singlechoiceResult,
 			String multichoiceResult, String fillResult, String subjectiveResult, String submitDate, String checked) {
 		super();
 		this.studentId = studentId;
@@ -35,10 +35,10 @@ public class RawResult {
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	public Integer getPaperId() {
+	public String getPaperId() {
 		return paperId;
 	}
-	public void setPaperId(Integer paperId) {
+	public void setPaperId(String paperId) {
 		this.paperId = paperId;
 	}
 	public String getTeacherId() {

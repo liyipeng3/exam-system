@@ -3,10 +3,11 @@ package com.neusoft.root.domain;
 //解析前试卷
 public class RawPaper 
 {
-	private Integer paperId; //试卷ID，唯一
+	private String paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
 	private String createrId; //创作者ID
 	private String createDate; //创作日期
+	private String paperTitle;  //所属答题类型
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
 	private String singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
@@ -16,14 +17,16 @@ public class RawPaper
 	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
-	public RawPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
-			Double paperIndex, String singlechoiceQuestion, String multichoiceQuestion, String fillQuestion,
-			String subjectiveQuestion, Double paperScore, String paperSecrecy, String paperRemark) {
+	public RawPaper(String paperId, String paperName, String createrId, String createDate, String paperTitle,
+			String paperType, Double paperIndex, String singlechoiceQuestion, String multichoiceQuestion,
+			String fillQuestion, String subjectiveQuestion, Double paperScore, String paperSecrecy,
+			String paperRemark) {
 		super();
 		this.paperId = paperId;
 		this.paperName = paperName;
 		this.createrId = createrId;
 		this.createDate = createDate;
+		this.paperTitle = paperTitle;
 		this.paperType = paperType;
 		this.paperIndex = paperIndex;
 		this.singlechoiceQuestion = singlechoiceQuestion;
@@ -38,10 +41,10 @@ public class RawPaper
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Integer getPaperId() {
+	public String getPaperId() {
 		return paperId;
 	}
-	public void setPaperId(Integer paperId) {
+	public void setPaperId(String paperId) {
 		this.paperId = paperId;
 	}
 	public String getPaperName() {
@@ -61,6 +64,12 @@ public class RawPaper
 	}
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
+	}
+	public String getPaperTitle() {
+		return paperTitle;
+	}
+	public void setPaperTitle(String paperTitle) {
+		this.paperTitle = paperTitle;
 	}
 	public String getPaperType() {
 		return paperType;
@@ -130,6 +139,7 @@ public class RawPaper
 		result = prime * result + ((paperRemark == null) ? 0 : paperRemark.hashCode());
 		result = prime * result + ((paperScore == null) ? 0 : paperScore.hashCode());
 		result = prime * result + ((paperSecrecy == null) ? 0 : paperSecrecy.hashCode());
+		result = prime * result + ((paperTitle == null) ? 0 : paperTitle.hashCode());
 		result = prime * result + ((paperType == null) ? 0 : paperType.hashCode());
 		result = prime * result + ((singlechoiceQuestion == null) ? 0 : singlechoiceQuestion.hashCode());
 		result = prime * result + ((subjectiveQuestion == null) ? 0 : subjectiveQuestion.hashCode());
@@ -194,6 +204,11 @@ public class RawPaper
 				return false;
 		} else if (!paperSecrecy.equals(other.paperSecrecy))
 			return false;
+		if (paperTitle == null) {
+			if (other.paperTitle != null)
+				return false;
+		} else if (!paperTitle.equals(other.paperTitle))
+			return false;
 		if (paperType == null) {
 			if (other.paperType != null)
 				return false;
@@ -214,9 +229,11 @@ public class RawPaper
 	@Override
 	public String toString() {
 		return "RawPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
-				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
-				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
-				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
-				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
+				+ ", createDate=" + createDate + ", paperTitle=" + paperTitle + ", paperType=" + paperType
+				+ ", paperIndex=" + paperIndex + ", singlechoiceQuestion=" + singlechoiceQuestion
+				+ ", multichoiceQuestion=" + multichoiceQuestion + ", fillQuestion=" + fillQuestion
+				+ ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore=" + paperScore + ", paperSecrecy="
+				+ paperSecrecy + ", paperRemark=" + paperRemark + "]";
 	}
+	
 }

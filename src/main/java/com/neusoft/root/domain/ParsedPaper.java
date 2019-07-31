@@ -5,10 +5,11 @@ import java.util.List;
 //解析后的试卷
 public class ParsedPaper 
 {
-	private Integer paperId; //试卷ID，唯一
+	private String paperId; //试卷ID，唯一
 	private String paperName; //试卷名称，唯一
 	private String createrId; //创造者ID
 	private String createDate; //创造日期
+	private String paperTitle; //所属大题
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
 	private List<ParsedItem> singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
@@ -18,15 +19,16 @@ public class ParsedPaper
 	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
-	public ParsedPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
-			Double paperIndex, List<ParsedItem> singlechoiceQuestion, List<ParsedItem> multichoiceQuestion,
-			List<ParsedItem> fillQuestion, List<ParsedItem> subjectiveQuestion, Double paperScore, String paperSecrecy,
-			String paperRemark) {
+	public ParsedPaper(String paperId, String paperName, String createrId, String createDate, String paperTitle,
+			String paperType, Double paperIndex, List<ParsedItem> singlechoiceQuestion,
+			List<ParsedItem> multichoiceQuestion, List<ParsedItem> fillQuestion, List<ParsedItem> subjectiveQuestion,
+			Double paperScore, String paperSecrecy, String paperRemark) {
 		super();
 		this.paperId = paperId;
 		this.paperName = paperName;
 		this.createrId = createrId;
 		this.createDate = createDate;
+		this.paperTitle = paperTitle;
 		this.paperType = paperType;
 		this.paperIndex = paperIndex;
 		this.singlechoiceQuestion = singlechoiceQuestion;
@@ -41,10 +43,10 @@ public class ParsedPaper
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Integer getPaperId() {
+	public String getPaperId() {
 		return paperId;
 	}
-	public void setPaperId(Integer paperId) {
+	public void setPaperId(String paperId) {
 		this.paperId = paperId;
 	}
 	public String getPaperName() {
@@ -64,6 +66,12 @@ public class ParsedPaper
 	}
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
+	}
+	public String getPaperTitle() {
+		return paperTitle;
+	}
+	public void setPaperTitle(String paperTitle) {
+		this.paperTitle = paperTitle;
 	}
 	public String getPaperType() {
 		return paperType;
@@ -133,6 +141,7 @@ public class ParsedPaper
 		result = prime * result + ((paperRemark == null) ? 0 : paperRemark.hashCode());
 		result = prime * result + ((paperScore == null) ? 0 : paperScore.hashCode());
 		result = prime * result + ((paperSecrecy == null) ? 0 : paperSecrecy.hashCode());
+		result = prime * result + ((paperTitle == null) ? 0 : paperTitle.hashCode());
 		result = prime * result + ((paperType == null) ? 0 : paperType.hashCode());
 		result = prime * result + ((singlechoiceQuestion == null) ? 0 : singlechoiceQuestion.hashCode());
 		result = prime * result + ((subjectiveQuestion == null) ? 0 : subjectiveQuestion.hashCode());
@@ -197,6 +206,11 @@ public class ParsedPaper
 				return false;
 		} else if (!paperSecrecy.equals(other.paperSecrecy))
 			return false;
+		if (paperTitle == null) {
+			if (other.paperTitle != null)
+				return false;
+		} else if (!paperTitle.equals(other.paperTitle))
+			return false;
 		if (paperType == null) {
 			if (other.paperType != null)
 				return false;
@@ -217,9 +231,10 @@ public class ParsedPaper
 	@Override
 	public String toString() {
 		return "ParsedPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
-				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
-				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
-				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
-				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
+				+ ", createDate=" + createDate + ", paperTitle=" + paperTitle + ", paperType=" + paperType
+				+ ", paperIndex=" + paperIndex + ", singlechoiceQuestion=" + singlechoiceQuestion
+				+ ", multichoiceQuestion=" + multichoiceQuestion + ", fillQuestion=" + fillQuestion
+				+ ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore=" + paperScore + ", paperSecrecy="
+				+ paperSecrecy + ", paperRemark=" + paperRemark + "]";
 	}
 }

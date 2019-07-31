@@ -4,7 +4,7 @@ package com.neusoft.root.domain;
 public class RawCheck 
 {
 	private String studentId;  // 学生ID
-	private Integer paperId; // 试卷ID 
+	private String paperId; // 试卷ID 
 	private String teacherId; // 老师ID
 	private String singlechoiceScore; //单选题得分，格式：ID1,分数1###ID2,分数2
 	private String multichoiceScore; //多选题得分，格式：ID1,分数1###ID2,分数2
@@ -12,9 +12,8 @@ public class RawCheck
 	private String subjectiveScore; //主观题得分，格式：ID1,分数1###ID2,分数2
 	private Double sumScore; //总分
 	private String checkDate; // 日期
-	public RawCheck(String studentId, Integer paperId, String teacherId, String singlechoiceScore, String multichoiceScore,
-			String fillScore, String subjectiveScore, Double sumScore, String checkDate) 
-	{
+	public RawCheck(String studentId, String paperId, String teacherId, String singlechoiceScore,
+			String multichoiceScore, String fillScore, String subjectiveScore, Double sumScore, String checkDate) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
@@ -28,6 +27,7 @@ public class RawCheck
 	}
 	public RawCheck() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	public String getStudentId() {
 		return studentId;
@@ -35,10 +35,10 @@ public class RawCheck
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	public Integer getPaperId() {
+	public String getPaperId() {
 		return paperId;
 	}
-	public void setPaperId(Integer paperId) {
+	public void setPaperId(String paperId) {
 		this.paperId = paperId;
 	}
 	public String getTeacherId() {
@@ -156,12 +156,10 @@ public class RawCheck
 	}
 	@Override
 	public String toString() {
-		return "Check [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
+		return "RawCheck [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
 				+ ", singlechoiceScore=" + singlechoiceScore + ", multichoiceScore=" + multichoiceScore + ", fillScore="
 				+ fillScore + ", subjectiveScore=" + subjectiveScore + ", sumScore=" + sumScore + ", checkDate="
 				+ checkDate + "]";
 	}
-	
-	
 	
 }

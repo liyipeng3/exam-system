@@ -302,8 +302,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 试卷管理 -->
 	<insert id="addRawPaper" parameterType="RawPaper">
-		insert into paper_table (paper_name,creater_id,create_date,paper_type,paper_index,singlechoice_question,multichoice_question,fill_question,subjective_question,paper_score,paper_secrecy,paper_remark)
-		values(#{paperName},#{createrId},#{createDate},#{paperType},#{paperIndex},#{singlechoiceQuestion},#{multichoiceQuestion},#{fillQuestion},#{subjectiveQuestion},#{paperScore},#{paperSecrecy},#{paperRemark})
+		insert into paper_table (paper_id,paper_name,creater_id,create_date,paper_title,paper_type,paper_index,singlechoice_question,multichoice_question,fill_question,subjective_question,paper_score,paper_secrecy,paper_remark)
+		values(#{paperId},#{paperName},#{createrId},#{createDate},#{paperTitle},#{paperType},#{paperIndex},#{singlechoiceQuestion},#{multichoiceQuestion},#{fillQuestion},#{subjectiveQuestion},#{paperScore},#{paperSecrecy},#{paperRemark})
 	</insert>
 	
 	<delete id="deleteRawPaper" parameterType="RawPaper">
@@ -321,6 +321,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 			<if test="createDate!=null and createDate!=''">
 				create_date = #{createDate},
+			</if>
+			<if test="paperTitle!=null and paperTitle!=''">
+				paper_title = #{paperTitle},
 			</if>
 			<if test="paperType!=null and paperType!=''">
 				paper_type = #{paperType},
@@ -366,6 +369,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="createrId!=null and createrId!=''">
 				and creater_id = #{createrId}
 			</if>
+			<if test="paperTitle!=null and paperTitle!=''">
+				paper_title = #{paperTitle},
+			</if>
 			<if test="paperType!=null and paperType!=''">
 				and paper_type = #{paperType}
 			</if>
@@ -382,6 +388,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="paper_name" property="paperName" />
 		<result column="creater_id" property="createrId" />
 		<result column="create_date" property="createDate" />
+		<result column="paper_title" property="paperTitle" />
 		<result column="paper_type" property="paperType" />
 		<result column="paper_index" property="paperIndex" />
 		<result column="singlechoice_question" property="singlechoiceQuestion" />
