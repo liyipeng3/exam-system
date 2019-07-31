@@ -68,11 +68,11 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line1.length!=scores1.length)
 					{
-						singlequestion = singlequestion+line1[i]+"\\?\\?\\?"+scores1[0]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
+						singlequestion = singlequestion+line1[i]+"???"+scores1[0]+"???"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
 					}
 					else
 					{
-						singlequestion = singlequestion+line1[i]+"\\?\\?\\?"+scores1[i]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
+						singlequestion = singlequestion+line1[i]+"???"+scores1[i]+"???"+json.getString("testTittle"+x)+"???"+x+"###";
 					}
 					
 				}
@@ -91,11 +91,11 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line2.length!=scores2.length)
 					{
-						mutiquestion = mutiquestion+line2[i]+"\\?\\?\\?"+scores2[0]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
+						mutiquestion = mutiquestion+line2[i]+"???"+scores2[0]+"???"+json.getString("testTittle"+x)+"???"+x+"###";
 					}
 					else
 					{
-						mutiquestion = mutiquestion+line2[i]+"\\?\\?\\?"+scores2[i]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
+						mutiquestion = mutiquestion+line2[i]+"???"+scores2[i]+"???"+json.getString("testTittle"+x)+"???"+x+"###";
 					}
 					
 				}
@@ -115,11 +115,11 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line3.length!=scores3.length)
 					{
-						fillquestion = fillquestion+line3[i]+"\\?\\?\\?"+scores3[0]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
+						fillquestion = fillquestion+line3[i]+"???"+scores3[0]+"???"+json.getString("testTittle"+x)+"???"+x+"###";
 					}
 					else
 					{
-						fillquestion = fillquestion+line3[i]+"\\?\\?\\?"+scores3[i]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";	
+						fillquestion = fillquestion+line3[i]+"???"+scores3[i]+"???"+json.getString("testTittle"+x)+"???"+x+"###";	
 					}
 					
 				}
@@ -140,11 +140,11 @@ public class PaperServiceImpl implements PaperService{
 				{
 					if(line4.length!=scores4.length)
 					{
-						subjectivequestion = subjectivequestion+line4[i]+"\\?\\?\\?"+scores4[0]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
+						subjectivequestion = subjectivequestion+line4[i]+"???"+scores4[0]+"???"+json.getString("testTittle"+x)+"???"+x+"###";
 					}
 					else
 					{
-						subjectivequestion = subjectivequestion+line4[i]+"\\?\\?\\?"+scores4[i]+"\\?\\?\\?"+json.getString("testTittle"+x)+"\\?\\?\\?"+x+"###";
+						subjectivequestion = subjectivequestion+line4[i]+"???"+scores4[i]+"???"+json.getString("testTittle"+x)+"???"+x+"###";
 					}
 				
 				}
