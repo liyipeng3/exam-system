@@ -371,8 +371,13 @@ public class PaperServiceImpl implements PaperService{
 			int k2 =0;
 			int k3 =0;
 			int k4 =0;
+			
 			for(int i=1;i<=count;i++)
 			{
+				boolean flag1 =false;
+				boolean flag2 =false;
+				boolean flag3 = false;
+				boolean flag4 = false;
 				List<ParsedItem> item = new ArrayList<>();
 				flag =0;
 				//System.out.println("test1 "+(num1.length!=0));
@@ -388,10 +393,15 @@ public class PaperServiceImpl implements PaperService{
 					System.out.println(iString);
 					if(banana1[3].equals(iString))
 					{
-					//	System.out.println("!!!");
+						System.out.println("!!!");
 						flag = 1;
+						flag1 =true;
+					}else
+					{
+						flag1 =false;
 					}
-				}else if(num2.length!=0&&flag==0&&num2.length>k2&&(!num2[0].equals("")))
+				}
+				if(num2.length!=0&&flag==0&&num2.length>k2&&(!num2[0].equals(""))&&(!flag1)&&(!flag2)&&(!flag3)&&(!flag4))
 				{
 				//	System.out.println("多选题");
 					String apple2[] = num2[k2].split("###");
@@ -400,8 +410,13 @@ public class PaperServiceImpl implements PaperService{
 					if(banana2[3].equals(iString))
 					{
 						flag = 2;
+						flag2 =true;
 					}
-				}else if(num3.length!=0&&flag==0&&num3.length>k3&&(!num3[0].equals("")))
+					else
+					{
+						flag2 =false;
+					}
+				}else if(num3.length!=0&&flag==0&&num3.length>k3&&(!num3[0].equals(""))&&(!flag1)&&(!flag2)&&(!flag3)&&(!flag4))
 				{
 					String apple3[] = num3[k3].split("###");
 					String banana3[] = apple3[0].split(",");
@@ -413,9 +428,14 @@ public class PaperServiceImpl implements PaperService{
 					if(banana3[3].equals(iString))
 					{
 						flag = 3;
+						flag3 = true;
+					}
+					else
+					{
+						flag3 = false;
 					}
 				}
-				else if(num4.length!=0&&flag==0&&num4.length>k4&&(!num4[0].equals("")))
+				else if(num4.length!=0&&flag==0&&num4.length>k4&&(!num4[0].equals(""))&&(!flag1)&&(!flag2)&&(!flag3)&&(!flag4))
 				{
 					String apple4[] = num4[k4].split("###");
 					String banana4[] = apple4[0].split(",");
@@ -423,9 +443,13 @@ public class PaperServiceImpl implements PaperService{
 					if(banana4[3].equals(iString))
 					{
 						flag = 4;
+						flag4 = true;
+					}
+					else{
+						flag4 = false;
 					}
 				}
-	//			System.out.println("flag"+flag);
+				System.out.println("flag"+flag);
 				if(flag==1)
 				{
 					String apple[] = num1[k1].split("###");
@@ -527,9 +551,10 @@ public class PaperServiceImpl implements PaperService{
 				}
 				
 				items.add(item);
+				System.out.println("item:::"+item);
 				
 			}
-			//System.out.println(items.toString());
+			System.out.println("item"+items.toString());
 			ParsedPaper paper = new ParsedPaper(rawPaper2.getPaperId(), rawPaper2.getPaperName(), rawPaper2.getCreaterId(), rawPaper2.getCreateDate(), rawPaper2.getPaperType(), rawPaper2.getPaperIndex(), items, itemsTitle, itemsType, rawPaper2.getPaperScore(), rawPaper2.getPaperSecrecy(), rawPaper2.getPaperRemark());
 					//System.out.println("@@"+paper.toString());
 					return paper;	
