@@ -69,14 +69,14 @@
         <p class="loading-label">正在提交答案...</p>
     </div>
 </div>
-<div class="submit-notice">
+<div class="submit-notice hidden">
     <div class="notice-text"><span class="notice-time">3</span>s后即将进行强制交卷，如有疑问请联系相关考试负责人</div>
 </div>
 <div class="main exam-mode">
     <div class="header-wrapper">
         <div class="logo-wrapper">
             <a href="https://exam..com/exam" title="logo">
-                <img class="icon-logo logo-ksx" src="/img/logo-transparent-header.svg">
+                <img class="icon-logo logo-ksx" src="/img/logo.png">
             </a>
         </div>
         <div class="exam-name ellipsis">试卷名字</div>
@@ -1439,7 +1439,7 @@
     //考试计时
     var timeDownInterval;
     //考试剩余总时长
-    var answer_time_left = parseInt(6);
+    var answer_time_left = parseInt(6000);
     //全屏防作弊参数
     var set_full_screen = "1";
     var exitSwicthStatus = "new"; //new-第一次考试  doing-非第一次考试，会从下列请求获取到该参数，给变量赋值后，再将其作为参数放到请求里。后端需要该参数对第一次进考试时的情况进行处理
