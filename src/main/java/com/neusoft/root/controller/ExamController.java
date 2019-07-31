@@ -359,6 +359,7 @@ public class ExamController {
 			json += ",\"key"+j+"\":"+"\""+j+"\"";
 		}
 		if(type.equals("1")||type.equals("2")){
+			String C="";
 			for(int i=0;i<answers.size();i++){
 				int j = i+1;
 				int k = 0;
@@ -369,7 +370,7 @@ public class ExamController {
 					k++;
 				}
 				int c = 65 + k;
-				char C = (char)c;
+				C += (char)c;
 				json += ",\"test_ans_right"+"\":"+"\""+C+"\"";
 			}
 		}
