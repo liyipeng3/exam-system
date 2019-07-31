@@ -325,7 +325,7 @@ public class PaperServiceImpl implements PaperService{
 		//ItemService service = new ItemServiceImpl();
 		Integer ID =0;
 		//System.out.println("@@@");)
-		if(list.size()!=0)
+		if(list.size()!=1)
 		{
 			System.out.println("试卷Id不唯一！！！");
 			System.exit(0);
