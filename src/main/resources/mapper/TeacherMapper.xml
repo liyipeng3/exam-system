@@ -497,6 +497,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="paperId!=null and paperId!=''">
 				and paper_id = #{paperId}
 			</if>
+			<if test="teacherId!=null and teacherId!=''">
+				and teacher_id = #{teacherId}
+			</if>
 			<if test="checked!=null and checked!=''">
 				and checked = #{checked}
 			</if>
@@ -506,6 +509,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<resultMap type="RawResult" id="MyRawResult">
 		<result column="student_id" property="studentId"/>
 		<result column="paper_id" property="paperId"/>
+		<result column="teacher_id" property="teacherId"/>
 		<result column="singlechoice_result" property="singlechoiceResult"/>
 		<result column="multichoice_result" property="multichoiceResult"/>
 		<result column="fill_result" property="fillResult"/>

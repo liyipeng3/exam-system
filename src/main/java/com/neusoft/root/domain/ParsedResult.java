@@ -7,18 +7,20 @@ public class ParsedResult
 {
 	private String studentId; //学生ID
 	private Integer paperId; //试卷ID
+	private String teacherId;
 	private Map<String, Double> singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> multichoiceResult; //多选题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
 	private Map<String, Double> subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
 	private String submitDate; //答题日期
 	private String checked;  //是否被批阅
-	public ParsedResult(String studentId, Integer paperId, Map<String, Double> singlechoiceResult,
+	public ParsedResult(String studentId, Integer paperId, String teacherId, Map<String, Double> singlechoiceResult,
 			Map<String, Double> multichoiceResult, Map<String, Double> fillResult, Map<String, Double> subjectiveResult,
 			String submitDate, String checked) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
+		this.teacherId = teacherId;
 		this.singlechoiceResult = singlechoiceResult;
 		this.multichoiceResult = multichoiceResult;
 		this.fillResult = fillResult;
@@ -40,6 +42,12 @@ public class ParsedResult
 	}
 	public void setPaperId(Integer paperId) {
 		this.paperId = paperId;
+	}
+	public String getTeacherId() {
+		return teacherId;
+	}
+	public void setTeacherId(String teacherId) {
+		this.teacherId = teacherId;
 	}
 	public Map<String, Double> getSinglechoiceResult() {
 		return singlechoiceResult;
@@ -89,6 +97,7 @@ public class ParsedResult
 		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
 		result = prime * result + ((subjectiveResult == null) ? 0 : subjectiveResult.hashCode());
 		result = prime * result + ((submitDate == null) ? 0 : submitDate.hashCode());
+		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
 	@Override
@@ -140,13 +149,18 @@ public class ParsedResult
 				return false;
 		} else if (!submitDate.equals(other.submitDate))
 			return false;
+		if (teacherId == null) {
+			if (other.teacherId != null)
+				return false;
+		} else if (!teacherId.equals(other.teacherId))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "ParsedResult [studentId=" + studentId + ", paperId=" + paperId + ", singlechoiceResult="
-				+ singlechoiceResult + ", multichoiceResult=" + multichoiceResult + ", fillResult=" + fillResult
-				+ ", subjectiveResult=" + subjectiveResult + ", submitDate=" + submitDate + ", checked=" + checked
-				+ "]";
+		return "ParsedResult [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
+				+ ", singlechoiceResult=" + singlechoiceResult + ", multichoiceResult=" + multichoiceResult
+				+ ", fillResult=" + fillResult + ", subjectiveResult=" + subjectiveResult + ", submitDate=" + submitDate
+				+ ", checked=" + checked + "]";
 	}
 }
