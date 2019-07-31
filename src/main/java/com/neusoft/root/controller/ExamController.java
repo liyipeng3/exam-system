@@ -455,6 +455,7 @@ public class ExamController {
 		Gson gson = new Gson();
 		JSONObject json = new JSONObject();
 		json.put("examId", "");
+		System.out.println(gson.toJson(examService.queryExam(json)));
 		return gson.toJson(examService.queryExam(json));
 	}
 	/**
