@@ -1,5 +1,6 @@
 package com.neusoft.root.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //解析后的试卷
@@ -11,17 +12,15 @@ public class ParsedPaper
 	private String createDate; //创造日期
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
-	private List<ParsedItem> singlechoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
-	private List<ParsedItem> multichoiceQuestion;  // 选择题,格式为:ID1,分数1# ID2,分数2#
-	private List<ParsedItem> fillQuestion; //填空题,格式为ID1,分数1# ID2,分数2#
-	private List<ParsedItem> subjectiveQuestion; //主观题格式为ID1,分数1# ID2,分数2#
+	private List<List<ParsedItem>> items;  // 选择题,格式为:ID1,分数1# ID2,分数2#
+	private List<String> itemsTitle;  // 选择题,格式为:ID1,分数1# ID2,分数2#
+	private List<String> itemsType;  // 选择题,格式为:ID1,分数1# ID2,分数2#
 	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
 	public ParsedPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
-			Double paperIndex, List<ParsedItem> singlechoiceQuestion, List<ParsedItem> multichoiceQuestion,
-			List<ParsedItem> fillQuestion, List<ParsedItem> subjectiveQuestion, Double paperScore, String paperSecrecy,
-			String paperRemark) {
+			Double paperIndex, List<List<ParsedItem>> items, List<String> itemsTitle, List<String> itemsType,
+			Double paperScore, String paperSecrecy, String paperRemark) {
 		super();
 		this.paperId = paperId;
 		this.paperName = paperName;
@@ -29,17 +28,18 @@ public class ParsedPaper
 		this.createDate = createDate;
 		this.paperType = paperType;
 		this.paperIndex = paperIndex;
-		this.singlechoiceQuestion = singlechoiceQuestion;
-		this.multichoiceQuestion = multichoiceQuestion;
-		this.fillQuestion = fillQuestion;
-		this.subjectiveQuestion = subjectiveQuestion;
+		this.items = items;
+		this.itemsTitle = itemsTitle;
+		this.itemsType = itemsType;
 		this.paperScore = paperScore;
 		this.paperSecrecy = paperSecrecy;
 		this.paperRemark = paperRemark;
 	}
 	public ParsedPaper() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.items = new ArrayList<List<ParsedItem>>();
+		this.itemsTitle = new ArrayList<>();
+		this.itemsType = new ArrayList<>();
 	}
 	public Integer getPaperId() {
 		return paperId;
@@ -77,29 +77,23 @@ public class ParsedPaper
 	public void setPaperIndex(Double paperIndex) {
 		this.paperIndex = paperIndex;
 	}
-	public List<ParsedItem> getSinglechoiceQuestion() {
-		return singlechoiceQuestion;
+	public List<List<ParsedItem>> getItems() {
+		return items;
 	}
-	public void setSinglechoiceQuestion(List<ParsedItem> singlechoiceQuestion) {
-		this.singlechoiceQuestion = singlechoiceQuestion;
+	public void setItems(List<List<ParsedItem>> items) {
+		this.items = items;
 	}
-	public List<ParsedItem> getMultichoiceQuestion() {
-		return multichoiceQuestion;
+	public List<String> getItemsTitle() {
+		return itemsTitle;
 	}
-	public void setMultichoiceQuestion(List<ParsedItem> multichoiceQuestion) {
-		this.multichoiceQuestion = multichoiceQuestion;
+	public void setItemsTitle(List<String> itemsTitle) {
+		this.itemsTitle = itemsTitle;
 	}
-	public List<ParsedItem> getFillQuestion() {
-		return fillQuestion;
+	public List<String> getItemsType() {
+		return itemsType;
 	}
-	public void setFillQuestion(List<ParsedItem> fillQuestion) {
-		this.fillQuestion = fillQuestion;
-	}
-	public List<ParsedItem> getSubjectiveQuestion() {
-		return subjectiveQuestion;
-	}
-	public void setSubjectiveQuestion(List<ParsedItem> subjectiveQuestion) {
-		this.subjectiveQuestion = subjectiveQuestion;
+	public void setItemsType(List<String> itemsType) {
+		this.itemsType = itemsType;
 	}
 	public Double getPaperScore() {
 		return paperScore;
@@ -125,8 +119,9 @@ public class ParsedPaper
 		int result = 1;
 		result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
 		result = prime * result + ((createrId == null) ? 0 : createrId.hashCode());
-		result = prime * result + ((fillQuestion == null) ? 0 : fillQuestion.hashCode());
-		result = prime * result + ((multichoiceQuestion == null) ? 0 : multichoiceQuestion.hashCode());
+		result = prime * result + ((items == null) ? 0 : items.hashCode());
+		result = prime * result + ((itemsTitle == null) ? 0 : itemsTitle.hashCode());
+		result = prime * result + ((itemsType == null) ? 0 : itemsType.hashCode());
 		result = prime * result + ((paperId == null) ? 0 : paperId.hashCode());
 		result = prime * result + ((paperIndex == null) ? 0 : paperIndex.hashCode());
 		result = prime * result + ((paperName == null) ? 0 : paperName.hashCode());
@@ -134,8 +129,6 @@ public class ParsedPaper
 		result = prime * result + ((paperScore == null) ? 0 : paperScore.hashCode());
 		result = prime * result + ((paperSecrecy == null) ? 0 : paperSecrecy.hashCode());
 		result = prime * result + ((paperType == null) ? 0 : paperType.hashCode());
-		result = prime * result + ((singlechoiceQuestion == null) ? 0 : singlechoiceQuestion.hashCode());
-		result = prime * result + ((subjectiveQuestion == null) ? 0 : subjectiveQuestion.hashCode());
 		return result;
 	}
 	@Override
@@ -157,15 +150,20 @@ public class ParsedPaper
 				return false;
 		} else if (!createrId.equals(other.createrId))
 			return false;
-		if (fillQuestion == null) {
-			if (other.fillQuestion != null)
+		if (items == null) {
+			if (other.items != null)
 				return false;
-		} else if (!fillQuestion.equals(other.fillQuestion))
+		} else if (!items.equals(other.items))
 			return false;
-		if (multichoiceQuestion == null) {
-			if (other.multichoiceQuestion != null)
+		if (itemsTitle == null) {
+			if (other.itemsTitle != null)
 				return false;
-		} else if (!multichoiceQuestion.equals(other.multichoiceQuestion))
+		} else if (!itemsTitle.equals(other.itemsTitle))
+			return false;
+		if (itemsType == null) {
+			if (other.itemsType != null)
+				return false;
+		} else if (!itemsType.equals(other.itemsType))
 			return false;
 		if (paperId == null) {
 			if (other.paperId != null)
@@ -202,24 +200,13 @@ public class ParsedPaper
 				return false;
 		} else if (!paperType.equals(other.paperType))
 			return false;
-		if (singlechoiceQuestion == null) {
-			if (other.singlechoiceQuestion != null)
-				return false;
-		} else if (!singlechoiceQuestion.equals(other.singlechoiceQuestion))
-			return false;
-		if (subjectiveQuestion == null) {
-			if (other.subjectiveQuestion != null)
-				return false;
-		} else if (!subjectiveQuestion.equals(other.subjectiveQuestion))
-			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "ParsedPaper [paperId=" + paperId + ", paperName=" + paperName + ", createrId=" + createrId
-				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex
-				+ ", singlechoiceQuestion=" + singlechoiceQuestion + ", multichoiceQuestion=" + multichoiceQuestion
-				+ ", fillQuestion=" + fillQuestion + ", subjectiveQuestion=" + subjectiveQuestion + ", paperScore="
-				+ paperScore + ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
+				+ ", createDate=" + createDate + ", paperType=" + paperType + ", paperIndex=" + paperIndex + ", items="
+				+ items + ", itemsTitle=" + itemsTitle + ", itemsType=" + itemsType + ", paperScore=" + paperScore
+				+ ", paperSecrecy=" + paperSecrecy + ", paperRemark=" + paperRemark + "]";
 	}
 }

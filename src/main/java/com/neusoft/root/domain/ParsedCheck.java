@@ -14,9 +14,6 @@ public class ParsedCheck
 	private Map<String, Double> subjectiveScore; //主观题得分，格式：ID1,分数1###ID2,分数2
 	private Double sumScore; //总分
 	private String checkDate; // 日期
-	public ParsedCheck() {
-		super();
-	}
 	public ParsedCheck(String studentId, Integer paperId, String teacherId, Map<String, Double> singlechoiceScore,
 			Map<String, Double> multichoiceScore, Map<String, Double> fillScore, Map<String, Double> subjectiveScore,
 			Double sumScore, String checkDate) {
@@ -30,6 +27,9 @@ public class ParsedCheck
 		this.subjectiveScore = subjectiveScore;
 		this.sumScore = sumScore;
 		this.checkDate = checkDate;
+	}
+	public ParsedCheck() {
+		super();
 	}
 	public String getStudentId() {
 		return studentId;
@@ -158,7 +158,7 @@ public class ParsedCheck
 	}
 	@Override
 	public String toString() {
-		return "ParseCheck [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
+		return "ParsedCheck [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
 				+ ", singlechoiceScore=" + singlechoiceScore + ", multichoiceScore=" + multichoiceScore + ", fillScore="
 				+ fillScore + ", subjectiveScore=" + subjectiveScore + ", sumScore=" + sumScore + ", checkDate="
 				+ checkDate + "]";

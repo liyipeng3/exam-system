@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.reflection.wrapper.BaseWrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neusoft.root.domain.RawCheck;
+
 
 
 @RunWith(SpringRunner.class)
@@ -41,8 +43,8 @@ public class TeacherMapperTestCheck
 	{
 		try 
 		{
-			RawCheck check = new RawCheck("117372", 1, "227371", "1", "1", "1", "1", 10.0, "2019-8-6");
-			tm.deleteCheck(check);
+			RawCheck check2 = new RawCheck("1", 1, "1", "1", "1", "1", "1", 10.0, "2019-7-2");
+			tm.deleteCheck(check2);
 		} 
 		catch (Exception e) 
 		{

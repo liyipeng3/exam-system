@@ -12,9 +12,8 @@ public class RawCheck
 	private String subjectiveScore; //主观题得分，格式：ID1,分数1###ID2,分数2
 	private Double sumScore; //总分
 	private String checkDate; // 日期
-	public RawCheck(String studentId, Integer paperId, String teacherId, String singlechoiceScore, String multichoiceScore,
-			String fillScore, String subjectiveScore, Double sumScore, String checkDate) 
-	{
+	public RawCheck(String studentId, Integer paperId, String teacherId, String singlechoiceScore,
+			String multichoiceScore, String fillScore, String subjectiveScore, Double sumScore, String checkDate) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
@@ -156,12 +155,9 @@ public class RawCheck
 	}
 	@Override
 	public String toString() {
-		return "Check [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
+		return "RawCheck [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
 				+ ", singlechoiceScore=" + singlechoiceScore + ", multichoiceScore=" + multichoiceScore + ", fillScore="
 				+ fillScore + ", subjectiveScore=" + subjectiveScore + ", sumScore=" + sumScore + ", checkDate="
 				+ checkDate + "]";
 	}
-	
-	
-	
 }
