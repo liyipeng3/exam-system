@@ -9,12 +9,15 @@ var commit_ids = "";//存储已选试题id
 function getParam(paramName) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
-    for (var i=0;i<vars.length;i++) {
+    for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");
-        if(pair[0] == paramName){return pair[1];}
+        if (pair[0] == paramName) {
+            return pair[1];
+        }
     }
-    return(false);
+    return (false);
 }
+
 var typeObject = {
     "1": [],
     "2": [],
@@ -454,7 +457,8 @@ $(document).ready(function () {
     $("body").on("click", "a.selQuestionLink", function (e) {
         e.stopPropagation();
         e.preventDefault();
-        var type = $(e.target).parents().parents().parents().siblings(".questionTypeText").text();
+        var type = $(this).parents().parents().siblings("span").text();
+        console.log(this);
         var subject = getParam('subject');
         subject = decodeURI(subject);
         showSelQuestions(this, type, subject);
@@ -465,7 +469,7 @@ $(document).ready(function () {
         e.preventDefault();
         var type = $(e.target).parents().parents().parents().siblings(".questionTypeText").text();
         var subject = getParam('subject');
-
+        subject = decodeURI(subject);
         showSelQuestions(this, type, subject);
     });
     //抽题、随机组卷选择试题分类
@@ -1824,8 +1828,8 @@ function selQuestion(ids, num, type) {
                 cache: false,
                 headers: {"cache-control": "no-cache"},
                 dataType: "json",
-                url: "/admin/load_data",
-                data: "&id=" + value,
+                url: "/exam/load_data",
+                data: "id=" + value,
                 async: false,
                 success: function (msg) {
                     var jsonData = msg.bizContent;
