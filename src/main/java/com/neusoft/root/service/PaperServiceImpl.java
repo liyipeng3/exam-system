@@ -1,4 +1,4 @@
-package com.neusoft.root.service;
+﻿package com.neusoft.root.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -258,7 +258,7 @@ public class PaperServiceImpl implements PaperService{
 					q4.add(x);
 				}
 			}
-		//	System.out.println(q1.toString()+q2.toString()+q3.toString()+q4.toString());
+			System.out.println(q1.toString()+q2.toString()+q3.toString()+q4.toString());
 			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
 			list2.add(parsedPaper);	
 			
