@@ -1,4 +1,4 @@
-package com.neusoft.root.service;
+﻿package com.neusoft.root.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -179,8 +179,8 @@ public class PaperServiceImpl implements PaperService{
 
 
 	@Override
-	public List<ParsedPaper> queryParsedPaper(Integer id) 
-	{
+	public List<ParsedPaper> queryParsedPaper(Integer id) {
+		System.out.println("paper"+id);
 		// TODO Auto-generated method stub
 		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
 		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
@@ -199,11 +199,12 @@ public class PaperServiceImpl implements PaperService{
 				if(line.length!=0)
 				{
 					System.out.println("!!!");
-					System.out.println(line[0]);
 					ID = Integer.valueOf(line[0]);
 					System.out.println(ID);
 				}
+				System.out.println("2");
 				questionservice1 = service.queryParsedItem(ID);
+				System.out.println(questionservice1==null);
 				for(ParsedItem x:questionservice1)
 				{
 					System.out.println(x.toString());
