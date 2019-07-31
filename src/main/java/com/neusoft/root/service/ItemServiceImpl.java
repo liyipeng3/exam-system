@@ -36,6 +36,7 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public void addRawItem(JSONObject json) {
 		// TODO Auto-generated method stub
+		System.out.println(json.toJSONString());
 		int i,j;
 		Double diffcult =0.0 ;
 		String option = "";

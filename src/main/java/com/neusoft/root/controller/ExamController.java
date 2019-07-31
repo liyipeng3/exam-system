@@ -222,11 +222,6 @@ public class ExamController {
 		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
 		return json;
 	}
-/*	@RequestMapping(value="get_item_by_type",method=RequestMethod.GET)
-	@ResponseBody
-	public String getItemByType(){
-		
-	}*/
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
 	public String getParsedPaper(int id){
@@ -235,12 +230,14 @@ public class ExamController {
 		String json = gson.toJson(parsePaper);
 		return json;
 	}
-	/*@RequestMapping(value="/get_random_paper",method=RequestMethod.GET)
+	@RequestMapping(value="/get_random_paper",method=RequestMethod.GET)
 	@ResponseBody
-	public String getRandomPaper(){
-		ParsedPaper parsePaper = paperService.randomPaper("语文月考", "语文").get(0);
+	public String getRandomPaper(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		ParsedPaper parsePaper = paperService.randPaper("语文月考", "语文", username);
 		Gson gson = new Gson();
 		String json = gson.toJson(parsePaper);
 		return json;
-	}*/
+	}
 }

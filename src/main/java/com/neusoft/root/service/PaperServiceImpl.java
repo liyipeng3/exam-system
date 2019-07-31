@@ -296,6 +296,7 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public ParsedPaper randPaper(String name, String subjects,String ID) {
 		// TODO Auto-generated method stub
+		System.out.println(name+subjects+ID);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
 		String date = df.format(new Date());// new Date()为获取当前系统时间
 		//System.out.println(date);
