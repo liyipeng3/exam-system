@@ -393,7 +393,7 @@
             $("#grid-data").bootgrid("reload");
             e.preventDefault(); //必须在此位置阻止textarea默认的换行行为
         }
-    })
+    });
     //点击搜索
     $("body").on("click", "#searchBtn", function (e) {
         e.stopPropagation();
@@ -427,8 +427,8 @@
         $(".select-box").each(function (index, element) {
             if ($(this).is(":checked")) {
                 var id = $(this).val();
-                parent.location.href = "/admin/result/mgr_new?examInfoId=" + id
-                return;
+                parent.location.href = "/admin/result/mgr_new?examInfoId=" + id;
+
             }
         });
     });

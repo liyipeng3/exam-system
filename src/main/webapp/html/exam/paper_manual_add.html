@@ -178,9 +178,6 @@
                                 <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
                                         href="https://v.com/admin/user/#/list"><span
                                         class="nav-title">考生信息</span></a></li>
-                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
-                                        href="https://admin.com/admin/user_reg"><span
-                                        class="nav-title">注册设置</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemCourse"><a
@@ -719,7 +716,7 @@
     var activeNavItem = 'subNavItemExamMgr';
     $(function () {
 
-        $('.edit-paper-name, .paperName').val(decodeURI(getParam('paperName')));
+        $('.edit-paper-name, input[name="paperName"], input[name="paperName"]').val(decodeURI(getParam('paperName')));
         // 更新消息已读
         $("#getChangeBtn").click(function (e) {
             e.preventDefault();

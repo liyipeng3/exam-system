@@ -70,12 +70,6 @@ $(function () {
                             id: 'UserMgr',
                             url: getStaticUrlPrefix + "/admin/user/#/list",
                             show: data.allowUserMgr
-                        },
-                        {
-                            title: '注册设置',
-                            id: 'UserReg',
-                            url: getAdminUrlPrefix + '/admin/user_reg',
-                            show: data.allowUserReg
                         }
                     ]
                 },
