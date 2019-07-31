@@ -351,9 +351,6 @@
                                 <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a
                                         href="/html/user/user_list"><span
                                         class="nav-title">考生信息</span></a></li>
-                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
-                                        href="/html/user/user_reg"><span
-                                        class="nav-title">注册设置</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemCourse"><a
@@ -370,9 +367,6 @@
                                         href="/html/study/course_mgr"><span
                                         class="nav-title">课程管理</span></a>
                                 </li>
-                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="/html/study/study_record_mgr"><span
-                                        class="nav-title">学习记录</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item " id="navItemCustomProcess"><a
@@ -897,6 +891,28 @@
         //
         // });
 
+
+        $('.btn-step1').click(function () {
+            let url = "/html/exam/paper_manual_add";
+            url += "?paperName=" + $("input[name=paper_name]").val();
+            var substr = String($('input:radio:checked').val());
+            if (substr == 'undefined') {
+                alert("请选择科目!");
+                return;
+            }
+
+            if ($("input[name=paper_name]").val() == "") {
+                alert("请输入试卷名称");
+                return;
+            } else if ($("input[name=paper_name]").val().length > 50) {
+                alert("试卷名称不得大于50字！");
+                return;
+            }
+            url += "&subject=" + substr;
+            url += "&method=" + $('.create_method').not('.not-selected').text().trim();
+            window.location.href = url;
+        });
+
         //    自管理员点击添加考生，添加试题，创建考试时的权限判断
         $("#staff,#test,#exam").on("click", function (e) {
             e.stopPropagation();
@@ -945,7 +961,7 @@
         $('.in-lib').hide();
         $('.pick-random').hide();
         //点击下一步切换标签，跳转到第二步
-        $('.btn-step1').click(function () {
+        /*$('.btn-step1').click(function () {
             if ($("input[name=paper_name]").val() == "") {
                 alert("请输入试卷名称");
                 return;
@@ -964,7 +980,7 @@
             $("input[name=classification]").val("");
             var type = "";
             manualInputTest("/exam/add_paper", type);
-        });
+        });*/
 
         // //跳转到3-1
         // $('.btn-step2').click(function() {

@@ -1,0 +1,129 @@
+.active {
+  color: #1A8CFE;
+}
+.examinee {
+  margin-top: 20px;
+  color: #3A3E51;
+}
+.examinee-title {
+  text-align: center;
+}
+.examinee-title .examinee-underline {
+  width: 40px;
+  height: 1px;
+  background: #DEDEDE;
+  display: inline-block;
+  vertical-align: middle;
+}
+.examinee-title span:nth-child(2) {
+  margin: 0 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.wrapper {
+  padding-top: 120px;
+}
+.wrapper .panel-block.panel-scroll {
+  height: auto;
+  max-height: 93%;
+  overflow: auto;
+}
+.wrapper .panel-block.panel-scroll .content {
+  height: auto !important;
+  overflow: unset !important;
+}
+.examinee-label {
+  background: #F7F8FA;
+  border-radius: 100px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 10px;
+  text-align: left;
+  line-height: 24px;
+  font-size: 12px;
+  color: #B4B6BD;
+}
+.examinee-label span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.examinee-label span:nth-child(1) {
+  width: 10%;
+}
+.examinee-label span:nth-child(2) {
+  width: 40%;
+}
+.examinee-label span:nth-child(3) {
+  width: 30%;
+}
+.examinee-label span:nth-child(4) {
+  width: 15.5%;
+  text-align: right;
+}
+/*排行样式*/
+.examinee-rank {
+  text-align: left;
+}
+.examinee-rank-list {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 10px;
+  margin-bottom: 12px;
+}
+.examinee-rank-list span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.examinee-rank-list .user-rank-icon {
+  width: 10%;
+}
+.examinee-rank-list .user-rank-icon img {
+  width: 24px;
+  height: 24px;
+}
+.examinee-rank-list .user-rank-three-after span {
+  border-radius: 50%;
+  background: #F7F8FA;
+  border: 1px solid #F1F3F8;
+  text-align: center;
+  line-height: 18px;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+}
+.examinee-rank-list .user-name {
+  width: 38.6%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.examinee-rank-list .user-account {
+  width: 25%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.examinee-rank-list .user-score {
+  text-align: right;
+  width: 20%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 13% 0 0 0;
+  }
+  .wrapper .panel-block {
+    width: 92.5%;
+    margin: 0 auto;
+    max-height: 96%;
+    overflow: auto;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 25px 10px;
+  }
+  .wrapper .panel-block .content {
+    padding: 0 40px;
+  }
+}

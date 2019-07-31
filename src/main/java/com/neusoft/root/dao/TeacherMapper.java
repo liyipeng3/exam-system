@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.mysql.cj.protocol.Message;
 import com.neusoft.root.domain.RawCheck;
 import com.neusoft.root.domain.Courseteacher;
+import com.neusoft.root.domain.Exam;
 import com.neusoft.root.domain.Coursestudent;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Manageteacher;
@@ -69,6 +70,11 @@ public interface TeacherMapper {
 
 	//老师查询学生答卷
 	public List<RawResult> queryResult(RawResult rawResult);
+	
+	//管理考试
+	public void addExam(Exam exam);
+	public List<Exam> queryExam(Exam exam);
+	
 	
 	
 }
