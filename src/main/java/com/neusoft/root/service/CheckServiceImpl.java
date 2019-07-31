@@ -81,28 +81,28 @@ public class CheckServiceImpl implements CheckService{
 		{
 			subQuestion = subQuestion.substring(0, subQuestion.length()-3);
 		}
-		RawCheck check = new RawCheck(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), singleQuestion, multiQuestion, fillQuestion, subQuestion, json.getDouble("sumScore"), json.getString("checkDate"));
+		RawCheck check = new RawCheck(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), singleQuestion, multiQuestion, fillQuestion, subQuestion, json.getDouble("sumScore"), json.getString("checkDate"));
 		mapper.addCheck(check);
 	}
 
 	@Override
 	public void deleteCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-		RawCheck check = new RawCheck(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));	
+		RawCheck check = new RawCheck(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));	
 		mapper.deleteCheck(check);
 	}
 
 	@Override
 	public void updateCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-		//Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));		
+		//Check check = new Check(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));		
 		//mapper.updateCheck(check);
 	}
 
 	@Override
 	public List<ParsedCheck> queryParsedCheck(JSONObject json) {
 		// TODO Auto-generated method stub
-		//Check check = new Check(json.getString("studentId"), json.getInteger("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
+		//Check check = new Check(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
 		//List<Check> list= mapper.queryCheck(check);
 		return null;
 	}
@@ -121,7 +121,7 @@ public class CheckServiceImpl implements CheckService{
 		//查出学生答题结果
 		RawResult rr = new RawResult();
 		rr.setStudentId(json.getString("studentId"));
-		rr.setPaperId(Integer.valueOf(json.getString("paperId")));
+		rr.setPaperId(json.getString("paperId"));
 		rr.setTeacherId(json.getString("teacherId"));
 		List<RawResult> rawResults = mapper.queryResult(rr);
 		if (rawResults.size()==0) 
@@ -133,7 +133,7 @@ public class CheckServiceImpl implements CheckService{
 		
 		//查询出试卷
 		RawPaper rawPaper = new RawPaper();
-		rawPaper.setPaperId(Integer.valueOf(json.getString("paperId")));
+		rawPaper.setPaperId(json.getString("paperId"));
 		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
 		PaperHelper ph = new PaperHelper(list.get(0));
 		
