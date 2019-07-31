@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.neusoft.root.domain.ParsedItem;
+import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
 import com.neusoft.root.domain.Subjects;
@@ -110,29 +113,20 @@ public class ExamController {
 		return gson.toJson(items);
 	}
 	/**
-	 * 获取科目对应的题
+	 * 获取科目和题型对应的题
 	 * 
 	 * @return
+	 * @throws UnsupportedEncodingException 
 	 */
-	@RequestMapping(value="get_subject_items")
+	@RequestMapping(value="get_certain_items",method=RequestMethod.GET)
 	@ResponseBody
-	public String getSubjectItems(HttpServletRequest request){
-		List<RawItem> items = new ArrayList<>();
-/*		HttpSession session = request.getSession();
-		String username = session.getAttribute("username").toString();
-		long time = System.currentTimeMillis();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String datestring = df.format(time);
-		RawItem item1 = new RawItem(1, "10011",datestring,"itemCourseType", "itemType", 0.1, "itemQuestion", "itemOption", "itemAnswer", "itemPicture", 0.1,"");
-		RawItem item2 = new RawItem(2, "1008",datestring,"科目", "题型", 0.2, "题干", "选项", "答案", "配图路径", 0.2,"");
-		RawItem item3 = new RawItem(3, "1008611",datestring, "马克思主义原理", "送分题", 99.9, "老大帅不帅", "是/是", "是", "> A <", 99.9,"");
-		RawItem item4 = new RawItem(4, username, datestring, "语文", "单选题", 0.6,"老大帅不帅" , "是/是", "是",  "> A <", 99.9,"");
-		items.add(item1);
-		items.add(item2);
-		items.add(item3);
-		items.add(item4);*/
-		items = itemService.queryRawItem("");
+	public String getCertainItems(HttpServletRequest request, String itemType, String subject) throws UnsupportedEncodingException{
+		List<ParsedItem> items = new ArrayList<>();
+		itemType = URLDecoder.decode(itemType, "utf-8");
+		subject = URLDecoder.decode(subject, "utf-8");
+		items = paperService.createPaper(subject, itemType);
 		Gson gson = new Gson();
+		System.out.println(gson.toJson(items));
 		return gson.toJson(items);
 	}
 	/**
@@ -210,7 +204,6 @@ public class ExamController {
 	@ResponseBody
 	public String getItemById(Integer id, HttpServletRequest request){
 		ParsedItem item = itemService.queryParsedItem(id).get(0);
-		System.out.println(item);
 		if(!item.getItemType().equals("问答题") && !item.getItemType().equals("填空题")){
 			List<String> answers = new ArrayList<>();
 			for(int i = 0; i < item.getItemAnswer().size(); i++){
@@ -228,6 +221,36 @@ public class ExamController {
 		String json = gson.toJson(item);
 		json = json.substring(0, json.length()-1);
 		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
+		return json;
+	}
+	/**
+	 * 获取完整试卷
+	 * 
+	 * @param id 试卷id
+	 * @return
+	 */
+	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
+	@ResponseBody
+	public String getParsedPaper(int id){
+		ParsedPaper parsePaper = paperService.queryParsedPaper(id).get(0);
+		Gson gson = new Gson();
+		String json = gson.toJson(parsePaper);
+		return json;
+	}
+	/**
+	 * 随机组卷
+	 * 
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/get_random_paper",method=RequestMethod.GET)
+	@ResponseBody
+	public String getRandomPaper(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		ParsedPaper parsePaper = paperService.randPaper("语文月考", "语文", username);
+		Gson gson = new Gson();
+		String json = gson.toJson(parsePaper);
 		return json;
 	}
 }

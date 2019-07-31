@@ -16,7 +16,7 @@ import com.neusoft.root.domain.RawItem;
 public class ItemServiceImpl implements ItemService{
 
 	@Autowired
-	TeacherMapper mapper;
+	private TeacherMapper mapper;
 	@Override
 	public List<RawItem> queryRawItem(String subjects) {
 		// TODO Auto-generated method stub
@@ -64,7 +64,7 @@ public class ItemServiceImpl implements ItemService{
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
-			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer1")), "", 5.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem((Integer)0,json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
 			System.out.println(item.toString());
 			mapper.addRawItem(item);
 		}
@@ -138,7 +138,7 @@ public class ItemServiceImpl implements ItemService{
 		if(json.getString("itemType").equals("单选题"))
 		{
 			
-			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer1")), "", 5.0, json.getString("analysisEditor"));
+			RawItem item = new RawItem(json.getInteger("itemId"),json.getString("createrId"),json.getString("itemDate"), json.getString("subject"), json.getString("itemType"), diffcult, json.getString("questionEditor"), option, json.getString(json.getString("answer")), "", 5.0, json.getString("analysisEditor"));
 			mapper.updateRawItem(item);
 		}
 		else if(json.getString("itemType").equals("多选题")){
@@ -214,28 +214,41 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public List<ParsedItem> queryParsedItem(Integer ID) {
 		// TODO Auto-generated method stub
-		RawItem item = new RawItem(ID, "", "", "", "", 0.0, "", "", "", "", 0.0, "");
-		List<RawItem> items = mapper.queryRawItem(item);
-		List<ParsedItem> items2 = new ArrayList<>();
-		for(RawItem xItem:items)
-		{
-			List<String> list3 = new ArrayList<>();
-			String [] line = null;
-			line = xItem.getItemOption().split("###");
-			for(int i=0;i<line.length;i++)
+	//	System.out.println(ID+"!!!");
+		RawItem item = new RawItem();
+		item.setItemId(ID);
+		try {
+	//		System.out.println("before    "+item);
+			List<RawItem> items = mapper.queryRawItem(item);
+			//System.out.println("@@@");
+	//	System.out.println("item   "+items.toString());
+			List<ParsedItem> items2 = new ArrayList<>();
+		//	System.out.println("!!!");
+			for(RawItem xItem:items)
 			{
-				list3.add(line[i]);
+				List<String> list3 = new ArrayList<>();
+				String [] line = null;
+				line = xItem.getItemOption().split("###");
+				for(int i=0;i<line.length;i++)
+				{
+					list3.add(line[i]);
+				}
+				String [] line1 = null;
+				line1 = xItem.getItemAnswer().split("###");
+				List<String> answer = new ArrayList<>();
+				for(int j=0;j<line1.length;j++)
+				{
+					answer.add(line1[j]);
+				}
+				items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
+		//System.out.println(xItem.toString());
 			}
-			String [] line1 = null;
-			line1 = xItem.getItemAnswer().split("###");
-			List<String> answer = new ArrayList<>();
-			for(int j=0;j<line1.length;j++)
-			{
-				answer.add(line1[j]);
-			}
-			items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
+			//System.out.println("item 返回"+items2);
+			return items2;
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
 		}
-		return items2;
 	}
 	
 
