@@ -1170,7 +1170,7 @@ function paperTypeShowTemp() {
         $("div.questionContet_simple , div.group_questionShow , div.group_questionAdd").remove();
         $("div.group_title").append($("#paperTpye2").html());
     }
-    ajaxUrl = "./html/exam/paper_add_new.html";
+    ajaxUrl = "./html/exam/paper_add_new";
 }
 
 //根据试题类型创建新增试题DOM
