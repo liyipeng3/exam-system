@@ -245,12 +245,112 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/get_random_paper",method=RequestMethod.GET)
 	@ResponseBody
-	public String getRandomPaper(HttpServletRequest request){
+	public String getRandomPaper(HttpServletRequest request, String paperName, String subject){
 		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
-		ParsedPaper parsePaper = paperService.randPaper("语文月考", "语文", username);
+		ParsedPaper parsePaper = paperService.randPaper(paperName, subject, username);
 		Gson gson = new Gson();
 		String json = gson.toJson(parsePaper);
+		return json;
+	}
+	/**
+	 * 提交答卷
+	 * 
+	 * @param jsonObject
+	 * @return
+	 */
+	@RequestMapping(value="/add_result",method=RequestMethod.POST)
+	@ResponseBody
+	public String addResult(@RequestBody JSONObject jsonObject){
+		
+		return "ok";
+	}
+	/**
+	 * 获得学生答卷列表
+	 * 
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/get_raw_result",method=RequestMethod.GET)
+	@ResponseBody
+	public String getRawResult(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		/*Gson gson = new Gson();
+		String json = gson.toJson();*/
+		return "ok";
+	}
+	/**
+	 * 获得学生答卷
+	 * 
+	 * @param studentId
+	 * @param paperId
+	 * @return
+	 */
+	@RequestMapping(value="/get_paper_checking",method=RequestMethod.GET)
+	@ResponseBody
+	public String getPaperChecking(String studentId, String paperId){
+		return "ok";
+	}
+	/**
+	 * 提交批改结果
+	 * 
+	 * @param jsonObject
+	 * @return
+	 */
+	@RequestMapping(value="/add_paper_checking")
+	@ResponseBody
+	public String addPaperChecking(@RequestBody JSONObject jsonObject){
+		return "ok";
+	}
+	/*{"_id":{"timestamp":1563789001,"machineIdentifier":5030166,"processIdentifier":29405,"counter":3855673,"timeSecond":1563789001,"date":1563789001000,"time":1563789001000},"status":"enable",
+		"create_date":1478088009632,"classification":"514885","key3":"1",
+		"answer1":"清晨","key1":"0","tab_num":"3","question":"拜访他人应选择（）,并应提前打招呼。",
+		"answer3":"节假日的下午或平日的晚饭后 ","answer2":"用餐时间",
+		"creater":"wupengcheng@ksxing.com","key2":"0","cop_id":"140092",
+		"type":"1","difficult":"simple","label":"","labelName":"","classificatonName":"示例",
+		"encrypt":"0","id":"5d3586c94cc11672dd3ad539","test_ans_right":"C","analysis":"无"}*/
+	@RequestMapping(value="/load_item",method=RequestMethod.GET)
+	@ResponseBody
+	public String loadItem(HttpServletRequest request, Integer id){
+		ParsedItem item = itemService.queryParsedItem(1).get(0);
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String json = "{\"_id\":{\"timestamp\":1563789001,\"machineIdentifier\":5030166,\"processIdentifier\":29405,\"counter\":3855673,\"timeSecond\":1563789001,\"date\":1563789001000,\"time\":1563789001000},\"status\":\"enable\"";
+		json += ",\"classification\":\"514885\",\"cop_id\":\"140092\",\"label\":\"\",\"classificatonName\":\"示例\",\"encrypt\":\"0\"";
+		System.out.println(item);
+		List<String> options = item.getItemOption();
+		List<String> answers = item.getItemAnswer();
+		Double index = item.getItemIndex();
+		String type = item.getItemType();
+		String diffcult = "";
+		if(index==1.0){
+			diffcult="简单";
+		}
+		if(index==3.0){
+			diffcult="普通";
+		}
+		if(index==5.0){
+			diffcult="困难";
+		}
+		json += ",\"create_date\":"+"\""+item.getItemDate()+"\"";
+		json += ",\"creater\":"+"\""+item.getCreaterId()+"\"";
+		json += ",\"id\":"+"\""+item.getItemId()+"\"";
+		json += ",\"difficult\":"+"\""+diffcult+"\"";
+		json += ",\"analysis\":"+"\""+item.getItemParse()+"\"";
+		json += ",\"type\":"+"\""+item.getItemType()+"\"";
+		json += ",\"question\":"+"\""+item.getItemQuestion()+"\"";
+		json += ",\"tab_num\":"+"\""+options.size()+"\"";
+		for(int i=0;i<options.size();i++){
+			int j = i+1;
+			json += ",\"answer"+j+"\":"+"\""+options.get(i)+"\"";
+			json += ",\"key"+j+"\":"+"\""+j+"\"";
+		}
+		for(int i=0;i<answers.size();i++){
+			int j = i+1;
+			json += ",\"test_ans_right"+j+"\":"+"\""+answers.get(i)+"\"";
+		}
+		json += "}";
 		return json;
 	}
 }
