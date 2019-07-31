@@ -1,10 +1,17 @@
 package com.neusoft.root.dao;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 import org.apache.ibatis.javassist.expr.NewArray;
 import org.junit.Test;
@@ -13,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.mysql.cj.xdevapi.Result;
 import com.neusoft.root.domain.Admin;
 import com.neusoft.root.domain.Forum;
 import com.neusoft.root.domain.Managestudent;
@@ -33,7 +41,7 @@ public class TeacherMapperTestTeacher
 	@Test
 	public void testQueryStudent()
 	{
-		try 
+		/*try 
 		{
 			RawResult rawResult = new RawResult();
 			rawResult.setChecked("no");
@@ -46,6 +54,41 @@ public class TeacherMapperTestTeacher
 		catch (Exception e) 
 		{
 			System.out.println(e);
+		}*/
+		/*//
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
+		String date = df.format(new Date());// new Date()为获取当前系统时间
+		System.out.println(date);*/
+		/*时间戳*/
+		//System.out.println(System.currentTimeMillis());
+		
+		for (Integer i : getRandom(10, 35)) 
+		{
+			System.out.println(i);
 		}
 	}
+	
+	
+	public static Set<Integer> getRandom(Integer wantLength,Integer itemLength) 
+	{
+		Set<Integer> numberSet = new HashSet<>();
+		if (wantLength>=itemLength) 
+		{
+			for(int i=0;i<itemLength;i++)
+			{
+				numberSet.add(i);
+			}
+			return numberSet;
+		}
+		else
+		{
+			Random random = new Random(System.currentTimeMillis());
+			while(numberSet.size()<wantLength)
+			{
+				numberSet.add(random.nextInt(itemLength));
+			}
+			return numberSet;
+		}
+	}
+	
 }

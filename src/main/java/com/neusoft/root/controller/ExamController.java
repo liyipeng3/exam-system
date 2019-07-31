@@ -126,6 +126,7 @@ public class ExamController {
 		subject = URLDecoder.decode(subject, "utf-8");
 		items = paperService.createPaper(subject, itemType);
 		Gson gson = new Gson();
+		System.out.println(gson.toJson(items));
 		return gson.toJson(items);
 	}
 	/**
@@ -222,6 +223,12 @@ public class ExamController {
 		json = json + ",\"option_length\":" + item.getItemOption().size() + ",\"answer_length\":" + item.getItemAnswer().size() + "}";
 		return json;
 	}
+	/**
+	 * 获取完整试卷
+	 * 
+	 * @param id 试卷id
+	 * @return
+	 */
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
 	public String getParsedPaper(int id){
@@ -230,6 +237,12 @@ public class ExamController {
 		String json = gson.toJson(parsePaper);
 		return json;
 	}
+	/**
+	 * 随机组卷
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/get_random_paper",method=RequestMethod.GET)
 	@ResponseBody
 	public String getRandomPaper(HttpServletRequest request){

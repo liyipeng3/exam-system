@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neusoft.root.domain.RawCheck;
+import com.neusoft.root.domain.RawResult;
 
 
 @RunWith(SpringRunner.class)
@@ -21,63 +22,22 @@ public class TeacherMapperTestResult
 {
 	@Autowired
 	private TeacherMapper tm;
-		
 	@Test
-	public void testAddCheck()
-	{
-		/*try 
-		{
-			RawCheck check = new RawCheck("117372", 1, "227371", "1", "1", "1", "1", 10.0, "2019-8-6");
-			tm.addCheck(check);
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}*/
-	}
-	
-	@Test
-	public void testDeleteCheck()
+	public void testQueryResult()
 	{
 		try 
 		{
-			RawCheck check = new RawCheck("117372", 1, "227371", "1", "1", "1", "1", 10.0, "2019-8-6");
-			tm.deleteCheck(check);
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}
-	}
-	
-	@Test
-	public void testUpdateCheck()
-	{
-		/*try 
-		{
-			RawCheck check = new RawCheck("117371", 1, "227371", "1", "1", "1", "1", 20.0, "2019-8-6");
-			tm.updateCheck(check);
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e);
-		}*/
-	}
-	
-	@Test
-	public void testQueryCheck()
-	{
-		/*try 
-		{
-			RawCheck check = new RawCheck("117371", 1, "227371", "1", "1", "1", "1", 20.0, "2019-8-6");
-			for (RawCheck check2 : tm.queryCheck(check)) 
+			RawResult rr = new RawResult();
+			rr.setTeacherId("1");
+			rr.setChecked("no");
+			for (RawResult r1 : tm.queryResult(rr)) 
 			{
-				System.out.println(check2);
+				System.out.println(r1);
 			}
 		} 
 		catch (Exception e) 
 		{
 			System.out.println(e);
-		}*/
+		}
 	}
 }

@@ -202,11 +202,11 @@ public class PaperServiceImpl implements PaperService{
 				String [] line = question1[i].split(",");
 				if(line.length!=0)
 				{
-					System.out.println("!!!");
+			//		System.out.println("!!!");
 					ID = Integer.valueOf(line[0]);
-					System.out.println(ID);
+			//		System.out.println(ID);
 				}
-				System.out.println("2");
+			//	System.out.println("2");
 				questionservice1 = service.queryParsedItem(ID);
 				//System.out.println(questionservice1==null);
 				for(ParsedItem x:questionservice1)
@@ -216,60 +216,78 @@ public class PaperServiceImpl implements PaperService{
 					q1.add(x);
 				}
 			}
-			System.out.println(q1.toString());
-			List<ParsedItem> q2 = new ArrayList<>() ;
-			List<ParsedItem> questionservice2 ;
-			String [] question2 = paper.getMultichoiceQuestion().split("###");
-			for(int i=0;i<question2.length;i++)
-			{
-				String [] line = question2[i].split(",");
-				if(line.length!=0)
-				{
-					ID = Integer.valueOf(line[0]);
-				}
-				System.out.println(ID);
-				questionservice2 = service.queryParsedItem(ID);
-				for(ParsedItem x:questionservice2)
-				{
-					q2.add(x);
-					System.out.println(x);
-				}
-			}
-			System.out.println(q2.toString());
+		//	System.out.println("q1"+q1.toString());
+			List<ParsedItem> q2 = new ArrayList<>();
 			List<ParsedItem> q3 = new ArrayList<>() ;
-			List<ParsedItem> questionservice3 ;
-			String [] question3 = paper.getFillQuestion().split("###");
-			for(int i=0;i<question3.length;i++)
-			{
-				String [] line = question3[i].split(",");
-				if(line.length!=0)
-				{
-					ID = Integer.valueOf(line[0]);
-				}
-				questionservice3 = service.queryParsedItem(ID);
-				for(ParsedItem x:questionservice3)
-				{
-					q3.add(x);
-				}
-			}
 			List<ParsedItem> q4 = new ArrayList<>() ;
-			List<ParsedItem> questionservice4 ;
-			String [] question4 = paper.getSubjectiveQuestion().split("###");
-			for(int i=0;i<question4.length;i++)
+			List<ParsedItem> questionservice2 ;
+		/*	System.out.println("kule");
+			System.out.println("!!!"+paper.getMultichoiceQuestion()+"!!!");*/
+			if(paper.getMultichoiceQuestion()!=null&&(!paper.getMultichoiceQuestion().equals("")))
 			{
-				String [] line = question4[i].split(",");
-				if(line.length!=0)
+			//	System.out.println("11");
+				String [] question2 = paper.getMultichoiceQuestion().split("###");
+				for(int i=0;i<question2.length;i++)
 				{
-					ID = Integer.valueOf(line[0]);
+					String [] line = question2[i].split(",");
+					if(line.length!=0)
+					{
+				//		System.out.println("Id"+line[0]);
+						ID = Integer.valueOf(line[0]);
+					}
+				//	System.out.println("Id"+ID);
+					questionservice2 = service.queryParsedItem(ID);
+				//	System.out.println("接受"+questionservice2);
+					for(ParsedItem x:questionservice2)
+					{
+						q2.add(x);
+					//	System.out.println(x);
+					}
 				}
-				questionservice4 = service.queryParsedItem(ID);
-				for(ParsedItem x:questionservice4)
+		
+			//	System.out.println(q2.toString());
+			}
+			
+			//System.out.println("出不来？"+q1.toString());
+			if(paper.getFillQuestion()!=null&&(!paper.getFillQuestion().equals("")))
+			{
+				List<ParsedItem> questionservice3 ;
+				String [] question3 = paper.getFillQuestion().split("###");
+				for(int i=0;i<question3.length;i++)
 				{
-					
-					q4.add(x);
+					String [] line = question3[i].split(",");
+					if(line.length!=0)
+					{
+						ID = Integer.valueOf(line[0]);
+					}
+					questionservice3 = service.queryParsedItem(ID);
+					for(ParsedItem x:questionservice3)
+					{
+						q3.add(x);
+					}
+				}	
+			}
+			if(paper.getSubjectiveQuestion()!=null&&(!paper.getSubjectiveQuestion().equals("")))
+			{
+				List<ParsedItem> questionservice4 ;
+				String [] question4 = paper.getSubjectiveQuestion().split("###");
+				for(int i=0;i<question4.length;i++)
+				{
+					String [] line = question4[i].split(",");
+					if(line.length!=0)
+					{
+						ID = Integer.valueOf(line[0]);
+					}
+					questionservice4 = service.queryParsedItem(ID);
+					for(ParsedItem x:questionservice4)
+					{
+						
+						q4.add(x);
+					}
 				}
 			}
-			//System.out.println(q1.toString());
+			
+			//System.out.println("出不来？"+q1.toString());
 			ParsedPaper parsedPaper = new ParsedPaper(paper.getPaperId(), paper.getPaperName(), paper.getCreaterId(), paper.getCreateDate(),paper.getPaperType(), paper.getPaperIndex(), q1, q2, q3, q4, paper.getPaperScore(), paper.getPaperSecrecy(), paper.getPaperRemark());
 			list2.add(parsedPaper);	
 			
@@ -300,7 +318,7 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public ParsedPaper randPaper(String name, String subjects,String ID) {
 		// TODO Auto-generated method stub
-		System.out.println(name+subjects+ID);
+	//	System.out.println(name+subjects+ID);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
 		String date = df.format(new Date());// new Date()为获取当前系统时间
 		//System.out.println(date);
@@ -309,7 +327,7 @@ public class PaperServiceImpl implements PaperService{
 		//List<RawItem> list1 = mapper.queryRawItem(rawItem)
 		//ParsedItem list2 ;
 		Set<Integer> arr = getRandom(10, list.size());
-		System.out.println("随机数"+arr.toString());
+	//	System.out.println("随机数"+arr.toString());
 		RawItem item;
 		String singlechoiceQuestion = "";
 		String multichoiceQuestion = "";
@@ -365,9 +383,10 @@ public class PaperServiceImpl implements PaperService{
 		paper3.setPaperRemark(current);
 		List<RawPaper>  paper2=  mapper.queryRawPaper(paper3);
 		Integer PaperId = paper2.get(0).getPaperId();
+	//	System.out.println("PaperID"+PaperId);
 		List<ParsedPaper> list3 = service2.queryParsedPaper(PaperId);
 				
-				System.out.println(list3.get(0));
+			//	System.out.println("最终"+list3.get(0));
 		return list3.get(0);
 	}	
 	public static Set<Integer> getRandom(Integer wantLength,Integer itemLength) 

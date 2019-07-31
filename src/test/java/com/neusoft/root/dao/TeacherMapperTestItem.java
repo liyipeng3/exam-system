@@ -79,12 +79,13 @@ public class TeacherMapperTestItem
 	{
 		try 
 		{
-			RawItem rawItem = new RawItem();
-			rawItem.setItemId(new Integer(6));
-			List<RawItem> list = tm.queryRawItem(rawItem);
-			for (RawItem ri : list) 
+			RawItem ri = new RawItem();
+			Integer integer = new Integer(1);
+			ri.setItemId(integer);
+			List<RawItem> list = tm.queryRawItem(ri);
+			for (RawItem ri1 : list) 
 			{
-				System.out.println(ri);
+				System.out.println(ri1);
 			}
 		} 
 		catch (Exception e) 

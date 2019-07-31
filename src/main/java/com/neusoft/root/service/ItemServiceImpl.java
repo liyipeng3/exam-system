@@ -36,7 +36,6 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public void addRawItem(JSONObject json) {
 		// TODO Auto-generated method stub
-		System.out.println(json.toJSONString());
 		int i,j;
 		Double diffcult =0.0 ;
 		String option = "";
@@ -215,13 +214,14 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public List<ParsedItem> queryParsedItem(Integer ID) {
 		// TODO Auto-generated method stub
-		System.out.println(ID+"!!!");
+	//	System.out.println(ID+"!!!");
 		RawItem item = new RawItem();
 		item.setItemId(ID);
 		try {
+	//		System.out.println("before    "+item);
 			List<RawItem> items = mapper.queryRawItem(item);
 			//System.out.println("@@@");
-			System.out.println("item"+items.toString());
+	//	System.out.println("item   "+items.toString());
 			List<ParsedItem> items2 = new ArrayList<>();
 		//	System.out.println("!!!");
 			for(RawItem xItem:items)
@@ -243,7 +243,7 @@ public class ItemServiceImpl implements ItemService{
 				items2.add(new ParsedItem(xItem.getItemId(),xItem.getCreaterId(), xItem.getItemDate(), xItem.getItemCoursetype(), xItem.getItemType(), xItem.getItemIndex(),xItem.getItemQuestion(), list3, answer, xItem.getItemPicture(), xItem.getItemScore(), xItem.getItemParse()));
 		//System.out.println(xItem.toString());
 			}
-			//System.out.println(items2);
+			//System.out.println("item 返回"+items2);
 			return items2;
 		} catch (Exception e) {
 			System.out.println(e);
