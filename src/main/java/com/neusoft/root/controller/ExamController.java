@@ -447,7 +447,9 @@ public class ExamController {
 	@ResponseBody
 	public String getExam(){
 		Gson gson = new Gson();
-		
+		JSONObject json = new JSONObject();
+		json.put("examId", "");
+		examService.queryExam(json);
 		return "ok";
 	}
 	/**
