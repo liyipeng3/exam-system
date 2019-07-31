@@ -36,7 +36,6 @@ public class CheckServiceImpl implements CheckService{
 	
 	@Override
 	public void addCheck(JSONObject json) {
-		// TODO Auto-generated method stub
 		int count =1;
 		String singleQuestion ="";
 		while(json.getString("singlechoiceScore"+count)!=null)
@@ -87,21 +86,18 @@ public class CheckServiceImpl implements CheckService{
 
 	@Override
 	public void deleteCheck(JSONObject json) {
-		// TODO Auto-generated method stub
 		RawCheck check = new RawCheck(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));	
 		mapper.deleteCheck(check);
 	}
 
 	@Override
 	public void updateCheck(JSONObject json) {
-		// TODO Auto-generated method stub
 		//Check check = new Check(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));		
 		//mapper.updateCheck(check);
 	}
 
 	@Override
 	public List<ParsedCheck> queryParsedCheck(JSONObject json) {
-		// TODO Auto-generated method stub
 		//Check check = new Check(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
 		//List<Check> list= mapper.queryCheck(check);
 		return null;
@@ -109,7 +105,6 @@ public class CheckServiceImpl implements CheckService{
 
 	@Override
 	public List<RawCheck> queryRawCheck(JSONObject json) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

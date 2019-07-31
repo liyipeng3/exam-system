@@ -46,4 +46,5 @@ public interface CheckService {
 	 * @return
 	 */
 	public List<PaperChecking> queryPaperChecking(JSONObject json);
+	
 }
