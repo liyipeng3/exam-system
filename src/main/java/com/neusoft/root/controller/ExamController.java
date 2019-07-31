@@ -310,9 +310,9 @@ public class ExamController {
 		"creater":"wupengcheng@ksxing.com","key2":"0","cop_id":"140092",
 		"type":"1","difficult":"simple","label":"","labelName":"","classificatonName":"示例",
 		"encrypt":"0","id":"5d3586c94cc11672dd3ad539","test_ans_right":"C","analysis":"无"}*/
-	@RequestMapping(value="/load_item",method=RequestMethod.GET)
+	@RequestMapping(value="/load_data",method=RequestMethod.GET)
 	@ResponseBody
-	public String loadItem(HttpServletRequest request, Integer id){
+	public String loadData(HttpServletRequest request, Integer id){
 		ParsedItem item = itemService.queryParsedItem(1).get(0);
 		long time = System.currentTimeMillis();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
