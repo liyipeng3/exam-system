@@ -82,6 +82,10 @@ public class WebController {
 	public String add_item() {
 		return "/html/exam/add_item.html";
 	}
+	@RequestMapping("/html/exam/get_items_select")
+	public String get_items_select() {
+		return "/html/exam/get_items_select.html";
+	}
 	@RequestMapping("/html/user/user_list")
 	public String user_list() {
 		return "/html/user/user_list.html";
