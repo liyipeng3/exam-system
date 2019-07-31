@@ -210,8 +210,6 @@
                             <ul class="sub-menu animate">
                                 <li class="nav-item sub-nav-item" id="subNavItemUserMgr"><a href="/html/user/user_list"><span
                                         class="nav-title">考生信息</span></a></li>
-                                <li class="nav-item sub-nav-item" id="subNavItemUserReg"><a
-                                        href="/html/user/user_reg"><span class="nav-title">注册设置</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-sub-menu" id="navItemCourse"><a href="/html/exam/exam_add#"
@@ -230,9 +228,6 @@
                                         href="/html/study/course_mgr"><span
                                         class="nav-title">课程管理</span></a>
                                 </li>
-                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="/html/study/study_record_mgr"><span
-                                        class="nav-title">学习记录</span></a></li>
                             </ul>
                         </li>
                         <li class="nav-item " id="navItemCustomProcess"><a href="https://v..com/admin/customprocess/"
@@ -421,14 +416,13 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-sm-2 control-label">考试分类</label>
+                                                            <label class="col-sm-2 control-label">科目</label>
                                                             <div class="col-sm-10">
                                                                 <input type="hidden" class="" name="examStyle"
                                                                        value="236914">
                                                                 <button type="button" class="btn btn-default btn-sm"
                                                                         id="selTypeLink">
-                                                                    <span>考试分类</span>
-                                                                    <i class="icon icon-a_btn_classify btn-icon-right"></i>
+                                                                    <span id="paper_subject">科目</span>
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -451,21 +445,21 @@
                                                             </div>
                                                         </div>
 
-                                                       <div class="form-group">
-                                                           <!-- <label class="col-sm-2 control-label setProcess">
-                                                                关联自定义任务
-                                                                <i class="icons8-help" data-container="body"
-                                                                   data-toggle="popover" data-placement="top"
-                                                                   data-trigger="hover"
-                                                                   data-content="开启后，需在自定义任务中添加该考试，考生方可进入。可考部门与可考人员请您前往任务页面进行设置"
-                                                                   data-original-title="" title=""></i>
-                                                            </label>-->
+                                                        <div class="form-group">
+                                                            <!-- <label class="col-sm-2 control-label setProcess">
+                                                                 关联自定义任务
+                                                                 <i class="icons8-help" data-container="body"
+                                                                    data-toggle="popover" data-placement="top"
+                                                                    data-trigger="hover"
+                                                                    data-content="开启后，需在自定义任务中添加该考试，考生方可进入。可考部门与可考人员请您前往任务页面进行设置"
+                                                                    data-original-title="" title=""></i>
+                                                             </label>-->
 
                                                             <div class="col-sm-2">
 
-																		<!--<span class="switch-off switch-hidden isProcess"
-                                                                              style="border-color: rgb(223, 223, 223); box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; background-color: rgb(255, 255, 255);"><span
-                                                                                class="slider"></span>--></span>
+                                                                <!--<span class="switch-off switch-hidden isProcess"
+                                                                      style="border-color: rgb(223, 223, 223); box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; background-color: rgb(255, 255, 255);"><span
+                                                                        class="slider"></span>--></span>
                                                                 <input type="hidden" value="" name="setProcess">
                                                             </div>
                                                         </div>
@@ -680,19 +674,6 @@
             <div class="modal-body">
                 <iframe width="100%" height="400px" name="selTypeModal" id="selTypeModal"
                         src="./saved_resource.html"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">指定考试部门</h4>
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="500px" name="selGroupModal" id="selGroupModal"
-                        src="./#"></iframe>
             </div>
         </div>
     </div>
@@ -1142,6 +1123,16 @@
 
 
     $(document).ready(function () {
+        $.getJSON("/exam/get_paper_info", "id=" + getParam("paper_info_id"), function (e) {
+            $(".paper-name").text(e.paperName);
+            $(".paper-total-score").text(e.score);
+            $(".paper-create-user-name").text(e.createrId);
+            $(".paper-test-count").text(e.itemsNumber);
+            $(".paper-created-time").text(e.createDate);
+            $("#paper_subject").text(e.paperSubject);
+        });
+
+
         //    自管理员点击添加考生，添加试题，创建考试时的权限判断
         $("#staff,#test,#exam").on("click", function (e) {
             e.stopPropagation();
@@ -1746,6 +1737,21 @@
     //关闭指定部门对话框
     function hideSelTargetDep(obj) {
         $('#targetDepModal').modal('hide');
+    }
+
+
+</script>
+<script>
+    function getParam(paramName) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == paramName) {
+                return pair[1];
+            }
+        }
+        return (false);
     }
 </script>
 </body>

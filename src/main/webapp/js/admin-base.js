@@ -70,12 +70,6 @@ $(function () {
                             id: 'UserMgr',
                             url: getStaticUrlPrefix + "/admin/user/#/list",
                             show: data.allowUserMgr
-                        },
-                        {
-                            title: '注册设置',
-                            id: 'UserReg',
-                            url: getAdminUrlPrefix + '/admin/user_reg',
-                            show: data.allowUserReg
                         }
                     ]
                 },
@@ -95,12 +89,6 @@ $(function () {
                             id: 'CourseMgr',
                             url: getAdminUrlPrefix + '/course/course_mgr',
                             show: data.allowCourseManager
-                        },
-                        {
-                            title: '学习记录',
-                            id: 'CourseRecord',
-                            url: getAdminUrlPrefix + '/course/study_record_mgr/course',
-                            show: data.allowStudyRecord
                         }
                     ]
                 },
