@@ -22,6 +22,8 @@ import com.neusoft.root.domain.Subjects;
 public class PaperServiceImpl implements PaperService{
 	@Autowired
 	TeacherMapper mapper;
+	@Autowired
+	ItemService service ;
 
 	@Override
 	public void addRawPaper(JSONObject json) {
@@ -177,12 +179,13 @@ public class PaperServiceImpl implements PaperService{
 
 
 	@Override
-	public List<ParsedPaper> queryParsedPaper(Integer id) {
+	public List<ParsedPaper> queryParsedPaper(Integer id) 
+	{
 		// TODO Auto-generated method stub
 		RawPaper rawPaper = new RawPaper(id, "", "", "", "", 0.0, "", "","", "", (Double)0.0, "", "");
 		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
 		List<ParsedPaper> list2 = new ArrayList<>();
-		ItemService service = new ItemServiceImpl();
+		//ItemService service = new ItemServiceImpl();
 		Integer ID =0;
 		System.out.println("@@@");
 		for(RawPaper paper:list)

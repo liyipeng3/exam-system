@@ -27,7 +27,7 @@ public class testPaperServiceImpl {
 		json.put("singleScore2",0.8);
 		json.put("mutiScore1",0.8);
 		json.put("mutiScore2",0.8);
-		json.put("fillQuestion1","qu4");
+		json.put("fillQuestion1","");
 		json.put("fillQuestion2","qu5");
 		json.put("fillScore1",0.8);
 		json.put("fillScore2",0.8);
