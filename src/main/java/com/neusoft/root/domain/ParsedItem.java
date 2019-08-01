@@ -5,18 +5,18 @@ import java.util.List;
 //解析后的题目
 public class ParsedItem 
 {
-	private Integer itemId; //题目ID
-	private String createrId;  //创作者ID
-	private String itemDate; //创造日期
-	private String itemCoursetype;  // 题目类型，java，c++
-	private String itemType; //题目类型，多选题，单选题，填空题，主观题
-	private Double itemIndex; //试题难度 
-	private String itemQuestion; //试题题干
-	private List<String> itemOption; //试题选项
-	private List<String> itemAnswer; //试题答案
-	private String itemPicture; //试题路径
-	private Double itemScore; //试题分数
-	private String itemParse; //题目解析 
+	private Integer itemId; 				//题目ID
+	private String createrId;  				//创作者ID
+	private String itemDate; 				//创造日期
+	private String itemCoursetype;  		// 题目类型，java，c++
+	private String itemType; 				//题目类型，多选题，单选题，填空题，主观题
+	private Double itemIndex; 				//试题难度 
+	private String itemQuestion; 			//试题题干
+	private List<String> itemOption; 		//试题选项
+	private List<String> itemAnswer; 		//试题答案
+	private String itemPicture; 			//试题路径
+	private Double itemScore; 				//试题分数
+	private String itemParse; 				//题目解析 
 	
 	public Integer getItemId() {
 		return itemId;
