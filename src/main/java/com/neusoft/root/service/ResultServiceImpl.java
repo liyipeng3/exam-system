@@ -75,20 +75,22 @@ public class ResultServiceImpl implements ResultService{
 					 String answerx = json.getString("test_ans");
 					 String answer[] = answerx.split(",");
 					 List<String> endanswer = new ArrayList<>();
-					 for(int i=0;i<answer.length-1;i++)
+					 System.out.println(answer.length);
+					 for(int i=0;i<answer.length;i++)
 					 {
 						 for(int k=1;k<=20;k++)
 						 {
 							 if(answer[i].equals("key"+k))
 							 {
 								 List<String> itemanswer = itemlist.get(0).getItemAnswer();
-								 endanswer.add(itemanswer.get(k));
+								 endanswer.add(itemanswer.get(k-1 ));
 							 }
 						 }
 					 }
 					 String itemtype = itemlist.get(0).getItemType();
 					 if(itemtype.equals("单选题"))
 					 {
+						 System.out.println(answer[0]);
 						 single = single+itemId+"???"+endanswer.get(0)+"###";
 					 }
 					 else if(itemtype.equals("多选题"))
