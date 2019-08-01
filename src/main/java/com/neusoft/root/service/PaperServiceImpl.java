@@ -586,19 +586,19 @@ public class PaperServiceImpl implements PaperService{
 				item = list.get(x);
 				if(item.getItemType().equals("单选题"))
 				{
-					singlechoiceQuestion = singlechoiceQuestion+item.getItemId()+","+item.getItemScore()+"###";
+					singlechoiceQuestion = singlechoiceQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"单选题"+"???"+"1"+"###";
 				}
 				else if(item.getItemType().equals("多选题"))
 				{
-					multichoiceQuestion = multichoiceQuestion+item.getItemId()+","+item.getItemScore()+"###";
+					multichoiceQuestion = multichoiceQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"多选题"+"???"+"2"+"###";
 				}
 				else if(item.getItemType().equals("填空题"))
 				{
-					fillQuestion = fillQuestion+item.getItemId()+","+item.getItemScore()+"###";
+					fillQuestion = fillQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"填空题"+"???"+"3"+"###";
 				}
 				else if(item.getItemType().equals("主观题"))
 				{
-					subjectiveQuestion = subjectiveQuestion+item.getItemId()+","+item.getItemScore()+"###";
+					subjectiveQuestion = subjectiveQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"主观题"+"???"+"4"+"###";
 				}
 				else
 				{
