@@ -3,18 +3,19 @@ package com.neusoft.root.domain;
 //解析前试题
 public class RawItem 
 {
-	private Integer itemId; //题目ID
-	private String createrId; //创作者ID
-	private String itemDate; //创建日期
-	private String itemCoursetype;  // 题目类型，java，c++
-	private String itemType; //题目类型，多选题，单选题，填空题，主观题
-	private Double itemIndex; //试题难度 
-	private String itemQuestion; //试题题干
-	private String itemOption; //试题选项
-	private String itemAnswer; //试题答案
-	private String itemPicture; //试题路径
-	private Double itemScore; // 题目总分
-	private String itemParse; // 题目解析
+	private Integer itemId; 				//题目ID
+	private String createrId; 				//创作者ID
+	private String itemDate;	 			//创建日期
+	private String itemCoursetype;  		// 题目类型，java，c++
+	private String itemType; 				//题目类型，多选题，单选题，填空题，主观题
+	private Double itemIndex; 				//试题难度 
+	private String itemQuestion; 			//试题题干
+	private String itemOption; 				//试题选项
+	private String itemAnswer; 				//试题答案
+	private String itemPicture; 			//试题路径
+	private Double itemScore; 				// 题目总分
+	private String itemParse; 				// 题目解析
+	
 	public RawItem(Integer itemId, String createrId, String itemDate, String itemCoursetype, String itemType,
 			Double itemIndex, String itemQuestion, String itemOption, String itemAnswer, String itemPicture,
 			Double itemScore, String itemParse) {
