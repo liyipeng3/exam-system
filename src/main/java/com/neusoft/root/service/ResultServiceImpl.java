@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.dao.AdminMapper;
+import com.neusoft.root.dao.StudentMapper;
 import com.neusoft.root.dao.TeacherMapper;
 import com.neusoft.root.domain.Exam;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.ParsedResult;
 import com.neusoft.root.domain.RawResult;
+import com.neusoft.root.domain.Student;
 
 @Service
 public class ResultServiceImpl implements ResultService{
@@ -30,7 +32,7 @@ public class ResultServiceImpl implements ResultService{
 	@Autowired
 	ItemService ItemService;
 	@Autowired
-	AdminMapper AdminMapper;
+	StudentMapper student;
 	@Override
 	public void addResult(List<JSONObject> jsonx) {
 		// TODO Auto-generated method stub
@@ -73,9 +75,10 @@ public class ResultServiceImpl implements ResultService{
 				 else
 				 {
 					 String answerx = json.getString("test_ans");
+					// System.out.println("answerx"+answerx);
 					 String answer[] = answerx.split(",");
 					 List<String> endanswer = new ArrayList<>();
-					 System.out.println(answer.length);
+					// System.out.println(answer.length);
 					 for(int i=0;i<answer.length;i++)
 					 {
 						 for(int k=1;k<=20;k++)
@@ -90,7 +93,7 @@ public class ResultServiceImpl implements ResultService{
 					 String itemtype = itemlist.get(0).getItemType();
 					 if(itemtype.equals("单选题"))
 					 {
-						 System.out.println(answer[0]);
+					//	 System.out.println(answer[0]);
 						 single = single+itemId+"???"+endanswer.get(0)+"###";
 					 }
 					 else if(itemtype.equals("多选题"))
@@ -105,7 +108,8 @@ public class ResultServiceImpl implements ResultService{
 					 else if(itemtype.equals("填空题"))
 					 {
 						 fill = fill+itemId+"???";
-						String an[] = answerx.split("||");
+						String an[] = answerx.split("\\|\\|");
+					//	System.out.println(answerx.length());
 						for(int l=0;l<an.length;l++)
 						{
 							fill = fill+an[l]+"!!!";
@@ -125,11 +129,16 @@ public class ResultServiceImpl implements ResultService{
 			}
 			
 		}
+		if(!single.equals(""))
 		single = single.substring(0, single.length()-3);
+		if(!multi.equals(""))
 		multi = multi.substring(0, multi.length()-3);
+		if(!fill.equals(""))
 		fill = fill.substring(0, fill.length()-3);
+		if(!subjective.equals(""))
 		subjective = subjective.substring(0, subjective.length()-3);
 		RawResult result = new RawResult(studentId, paperId, teacherId, single, multi, fill, subjective, date, "yes");
-		AdminMapper.addResult(result);
+		System.out.println(result);
+		student.addResult(result);
 	}	
 }
