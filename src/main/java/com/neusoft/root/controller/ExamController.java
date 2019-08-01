@@ -353,6 +353,18 @@ public class ExamController {
 		return json.toJSONString();
 	}
 	/**
+	 * 上交学生答卷
+	 * 
+	 * @param jsonObject
+	 * @return
+	 */
+	@RequestMapping(value="/post_result",method=RequestMethod.POST)
+	@ResponseBody
+	public String postResult(@RequestBody JSONObject jsonObject){
+		System.out.println();
+		return "ok";
+	}
+	/**
 	 * 提交批改结果
 	 * 
 	 * @param jsonObject
