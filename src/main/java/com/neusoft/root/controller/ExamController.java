@@ -261,7 +261,6 @@ public class ExamController {
 		Gson gson = new Gson();
 		String json = gson.toJson(parsedPaper);
 		String postJson = gson.toJson(itemsScore);
-		System.out.println(postJson);
 		json = json.substring(0,json.length()-1);
 		postJson = "\"itemsScore\":"+postJson+"}";
 		json = json+","+"\"examTime\":"+time+","+postJson;
