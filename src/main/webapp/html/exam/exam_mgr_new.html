@@ -48,11 +48,7 @@
                             创建考试
                         </button>
                     </a>
-                    <button type="button" class="btn btn-default inactive" disabled="" id="batchExport"><i
-                            class="icons8-upload btn-icon-left"></i>
-                        导出信息
-                    </button>
-                    <button type="button" class="btn btn-default inactive" disabled="" id="batchDel"><i
+                    <button type="button" class="btn btn-default" id="batchDel"><i
                             class="icons8-trash-can btn-icon-left"></i>
                         删除
                     </button>
@@ -138,10 +134,8 @@
                             <a href="/index" data-toggle="tooltip" data-placement="right" data-container="body" title=""
                                data-original-title="首页">
                                 <div class="nav-icon"><i class="icon icon-a_nav_home icon-index"></i>
-
                                 </div>
                                 <span class="nav-title">首页</span>
-
                             </a>
                         </li>
                         <li class="nav-item has-sub-menu open" id="navItemExam">
@@ -155,7 +149,6 @@
                                 <li class="nav-item sub-nav-item nav-item-active" id="subNavItemExamMgr"><a
                                         href="/html/exam/exam_mgr_new"><span
                                         class="nav-title">考试信息管理</span></a>
-
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemQuestionMgr"><a
                                         href="/html/exam/test_questions"><span
@@ -211,14 +204,14 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item " id="navItemCustomProcess">
+                      <!--  <li class="nav-item " id="navItemCustomProcess">
                             <a href="https://v.com/admin/customprocess/" class="menu-title" data-toggle="tooltip"
                                data-placement="right" data-container="body" title="自定义任务">
                                 <div class="nav-icon"><i class="icon icon-a_icon_nav_process"></i>
                                 </div>
                                 <span class="nav-title">自定义任务</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li class="nav-item " id="navItemCertification">
                             <a href="https://admin.com/certificate/certificate_center" class="menu-title"
                                data-toggle="tooltip" data-placement="right" data-container="body" title="认证中心">
@@ -346,7 +339,7 @@
             <div class="body-wrapper">
                 <div class="body-content">
                     <div class="table-responsive">
-                        <div class="JCLRgrips" style="width: 1685px;">
+                        <div class="JCLRgrips" style="width: 1650px;">
                             <div class="JCLRgrip" style="left: 60px; height: 99px;">
                                 <div class="JColResizer"></div>
                             </div>
@@ -414,11 +407,11 @@
                                         href="javascript:void(0);" class="column-header-anchor sortable"><span
                                         class="text">创建时间</span><span class="icon glyphicon "></span></a>
                                 </th>
-                                <th data-column-id="setProcess" class="text-left" style="width: 12.4%;"><a
+                                <th data-column-id="setProcess" class="text-left" style="width: 2.4%;"><a
                                         href="javascript:void(0);" class="column-header-anchor sortable"><span
-                                        class="text">关联任务</span><span class="icon glyphicon "></span></a>
+                                        class="text"></span><span class="icon glyphicon "></span></a>
                                 </th>
-                                <th data-column-id="sender" class="text-left" style="width: 8.2%;"><a
+                                <th data-column-id="sender" class="text-left" style="width: 18.2%;"><a
                                         href="javascript:void(0);" class="column-header-anchor "><span
                                         class="text">操作</span><span class="icon glyphicon icons8-settings"></span></a>
 
@@ -440,7 +433,7 @@
                                 <td class="text-left" style="">2019-08-03 21:09</td>
                                 <td class="text-left" style="">东北大学软件园</td>
                                 <td class="text-left" style="">2019-07-31 21:09</td>
-                                <td class="text-left" style="">否</td>
+                                <td class="text-left" style=""></td>
                                 <td class="text-left" style="">
                                     <a href="#" data-growing-title="updateExam" class="icon-a_operate_edit updateExam"
                                        examid="300397" data-toggle="tooltip" data-placement="top" data-container="body"
@@ -451,10 +444,6 @@
                                     <a href="#" data-growing-title="linkScore" class="icon-a_operate_mark linkScore"
                                        data-toggle="tooltip" data-placement="top" data-container="body" title=""
                                        examid="300397" data-original-title="成绩查询批改"></a>
-                                    <a href="#" data-growing-title="linkAnalysis"
-                                       class="icon-a_operate_analysis linkAnalysis" data-toggle="tooltip"
-                                       data-container="body" data-placement="top" title="" examid="300397"
-                                       examname="考试题目" data-original-title="统计分析"></a>
                                     <a href="#" data-growing-title="searchState"
                                        class="icon-a_operate_dspmsg searchState" data-toggle="tooltip"
                                        data-placement="top" data-container="body" title="" examid="300397"
@@ -475,7 +464,7 @@
                                 <td class="text-left" style="">2019-08-03 20:29</td>
                                 <td class="text-left" style="">东北大学软件园</td>
                                 <td class="text-left" style="">2019-07-31 20:31</td>
-                                <td class="text-left" style="">否</td>
+                                <td class="text-left" style=""></td>
                                 <td class="text-left" style="">
                                     <a href="#" data-growing-title="updateExam" class="icon-a_operate_edit updateExam"
                                        examid="300380" data-toggle="tooltip" data-placement="top" data-container="body"
@@ -486,10 +475,6 @@
                                     <a href="#" data-growing-title="linkScore" class="icon-a_operate_mark linkScore"
                                        data-toggle="tooltip" data-placement="top" data-container="body" title=""
                                        examid="300380" data-original-title="成绩查询批改"></a>
-                                    <a href="#" data-growing-title="linkAnalysis"
-                                       class="icon-a_operate_analysis linkAnalysis" data-toggle="tooltip"
-                                       data-container="body" data-placement="top" title="" examid="300380"
-                                       examname="试卷名字" data-original-title="统计分析"></a>
                                     <a href="#" data-growing-title="searchState"
                                        class="icon-a_operate_dspmsg searchState" data-toggle="tooltip"
                                        data-placement="top" data-container="body" title="" examid="300380"
@@ -510,7 +495,7 @@
                                 <td class="text-left" style="">2019-08-02 20:43</td>
                                 <td class="text-left" style="">东北大学软件园</td>
                                 <td class="text-left" style="">2019-07-30 20:43</td>
-                                <td class="text-left" style="">否</td>
+                                <td class="text-left" style=""></td>
                                 <td class="text-left" style="">
                                     <a href="#" data-growing-title="updateExam" class="icon-a_operate_edit updateExam"
                                        examid="299613" data-toggle="tooltip" data-placement="top" data-container="body"
@@ -521,10 +506,6 @@
                                     <a href="#" data-growing-title="linkScore" class="icon-a_operate_mark linkScore"
                                        data-toggle="tooltip" data-placement="top" data-container="body" title=""
                                        examid="299613" data-original-title="成绩查询批改"></a>
-                                    <a href="#" data-growing-title="linkAnalysis"
-                                       class="icon-a_operate_analysis linkAnalysis" data-toggle="tooltip"
-                                       data-container="body" data-placement="top" title="" examid="299613"
-                                       examname="考试题目" data-original-title="统计分析"></a>
                                     <a href="#" data-growing-title="searchState"
                                        class="icon-a_operate_dspmsg searchState" data-toggle="tooltip"
                                        data-placement="top" data-container="body" title="" examid="299613"
@@ -621,7 +602,7 @@
                                             <li>
                                                 <label class="dropdown-item">
                                                     <input name="setProcess" type="checkbox" value="1"
-                                                           class="dropdown-item-checkbox" checked="checked">关联任务</label>
+                                                           class="dropdown-item-checkbox" checked="checked"></label>
                                             </li>
                                             <li>
                                                 <label class="dropdown-item">
@@ -925,25 +906,56 @@
 
     $(document).ready(function () {
 
-        $('input.select-box, td.text-left').click(function (e) {
 
-            if ($(e.target).parents().parents().parents("tr").hasClass("active")) {
-                $(e.target).parents().parents().parents("tr")
-                    .removeClass("active");
-            } else {
-                $(e.target).parents().parents().parents("tr")
-                    .addClass("active");
-            }
+
+        $.getJSON("/exam/get_exams", function (result) {
+            $.each(result, function (index, e) {
+
+                var exam = '<tr class="select-item">'
+                    + '<td class="select-cell" style="">'
+                    + '<label class="select-label">'
+                    + '<input name="select" type="checkbox" class="select-box" value="300397">'
+                    + '<span class="select-box"><i class="icons8-checked-checkbox"></i></span>'
+                    + '</label>'
+                    + '</td>'
+                    + '<td class="text-left" style="">' + e.examName + '</td>'
+                    + '<td class="text-left" style="">' + e.examType + '</td>'
+                    + '<td class="text-left" style="">' + e.sumScore + '</td>'
+                    + '<td class="text-left" style="">' + e.examBegin + '</td>'
+                    + '<td class="text-left" style="">' + e.examEnd + '</td>'
+                    + '<td class="text-left" style="">' + e.createrId + '</td>'
+                    + '<td class="text-left" style="">' + e.createDate + '</td>'
+                    + '<td class="text-left" style=""></td>'
+                    + '<td class="text-left" style="">'
+                    + '<a href="#" data-growing-title="updateExam" class="icon-a_operate_edit updateExam" examid="300397" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="编辑"></a>'
+                    + '<a href="#" data-growing-title="linkExam" class="icon-a_operate_link linkExam" examid="300397" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="考试链接"></a>'
+                    + '<a href="#" data-growing-title="linkScore" class="icon-a_operate_mark linkScore" data-toggle="tooltip" data-placement="top" data-container="body" title="" examid="300397" data-original-title="成绩查询批改"></a>'
+                    + '<a href="#" data-growing-title="searchState" class="icon-a_operate_dspmsg searchState" data-toggle="tooltip" data-placement="top" data-container="body" title="" examid="300397" data-original-title="考生答题状态查询"></a>'
+                    + '</td>'
+                    + '</tr>';
+                $('tbody').append($(exam));
+            });
+            $('input.select-box, td.text-left').click(function (e) {
+
+                if ($(e.target).parents().parents().parents("tr").hasClass("active")) {
+                    $(e.target).parents().parents().parents("tr")
+                        .removeClass("active");
+                } else {
+                    $(e.target).parents().parents().parents("tr")
+                        .addClass("active");
+                }
+            });
+            $("#select_all").click(function () {
+                if ($(this).hasClass("active")) {
+                    $(this).removeClass("active");
+                    $('.select-item').removeClass("active");
+                } else {
+                    $(this).addClass("active");
+                    $('.select-item').addClass("active");
+                }
+            });
         });
-        $("#select_all").click(function () {
-            if ($(this).hasClass("active")) {
-                $(this).removeClass("active");
-                $('.select-item').removeClass("active");
-            } else {
-                $(this).addClass("active");
-                $('.select-item').addClass("active");
-            }
-        });
+
 
         // $("#user").click(function(){
         //     window.location.href="/admin/admin_information";
