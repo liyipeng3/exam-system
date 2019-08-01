@@ -1,8 +1,10 @@
 $(function () {
     var getExamEndTimeInterval; //获取考试时间的定时器，在交卷后需要清除该定时器
+    var result = new Set();
 
     $.ajaxSettings.async = false;
     $.getJSON("/exam/get_parsed_paper_exam", "examId=" + getParam("exam_id"), function (e) {
+        answer_time_left = parseInt(e.examTime)*60;
         var len = e.items.length - 1;
         for(var i = 1; i <= len; i++){
             var bigItem = '';
@@ -577,11 +579,15 @@ $(function () {
         //问答题blur保存答案
         if (editor_blur == true) {
             var questionsData = {
+                "exam_id": getParam('exam_id'),
                 "test_id": questionsId,
                 "test_ans": keyList,
                 "exam_results_id": exam_results_id,
                 "exam_info_id": exam_info_id
             };
+            console.log(questionsData);
+            result.add(questionsData);
+            //ajax_post("/exam/post_result",questionsData );
             answered_multi_all.push(questionsData);
             commitProcess(questionsId, true);
             saveAnswerFn_timeout(isForce);
@@ -601,11 +607,15 @@ $(function () {
             }
         });
         var questionsData = {
+            "exam_id": getParam('exam_id'),
             "test_id": questionsId,
             "test_ans": keyList,
             "exam_results_id": exam_results_id,
             "exam_info_id": exam_info_id
         };
+        console.log(questionsData);
+        result.add(questionsData);
+        //ajax_post("/exam/post_result",questionsData );
         if (!hasSave) {
             answered_multi_all.push(questionsData);
             if (questionsData.test_ans == '') {
@@ -797,8 +807,9 @@ $(function () {
                         if (loadingProgress >= 100) {
                             clearInterval(progress);
                             clearInterval(time);
-                            ajax_post("/exam/post_result", answered_multi_all);
-                            window.location.href = "/exam_result?examResultsId=" + exam_results_id;
+                            console.log(Array.from(result));
+                            ajax_post("/exam/post_result" ,Array.from(result));
+                            //window.location.href = "/exam_result?examResultsId=" + exam_results_id;
                         }
                     }, 120);
                 } else {
