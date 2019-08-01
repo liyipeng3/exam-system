@@ -361,9 +361,15 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/post_result",method=RequestMethod.POST)
 	@ResponseBody
-	public String postResult(@RequestBody List<JSONObject> jsonObjects){
+	public String postResult(@RequestBody List<JSONObject> jsonObjects, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String date = df.format(time);
 		for(JSONObject json:jsonObjects){
-			System.out.println(json.toJSONString());
+			json.put("username", username);
+			json.put("date", date);
 		}
 		return "ok";
 	}
