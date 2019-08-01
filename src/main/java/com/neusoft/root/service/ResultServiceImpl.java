@@ -15,6 +15,7 @@ import com.neusoft.root.dao.AdminMapper;
 import com.neusoft.root.dao.StudentMapper;
 import com.neusoft.root.dao.TeacherMapper;
 import com.neusoft.root.domain.Exam;
+import com.neusoft.root.domain.PaperChecking;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.ParsedResult;
@@ -35,8 +36,10 @@ public class ResultServiceImpl implements ResultService{
 	ItemService ItemService;
 	@Autowired
 	StudentMapper student;
+	@Autowired
+	CheckService check;
 	@Override
-	public void addResult(List<JSONObject> jsonx) {
+	public PaperChecking addResult(List<JSONObject> jsonx) {
 		// TODO Auto-generated method stub
 		
 		String single = "";
@@ -168,5 +171,12 @@ public class ResultServiceImpl implements ResultService{
 		//System.out.println(result);
 		//System.out.println(list.toString());
 		student.addResult(result);
+		//my
+		JSONObject myjson = new JSONObject();
+		myjson.put("studentId", studentId);
+		myjson.put("paperId",paperId);
+		myjson.put("teacherId", teacherId);
+		myjson.put("checkDate", date);
+		return check.queryPaperChecking(myjson).get(0);
 	}	
 }
