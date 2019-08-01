@@ -232,7 +232,7 @@ public class ExamController {
 		return json;
 	}
 	/**
-	 * 获取完整试卷
+	 * 根据试卷获取完整试卷
 	 * 
 	 * @param id 试卷id
 	 * @return
@@ -240,13 +240,28 @@ public class ExamController {
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
 	public String getParsedPaper(int id){
-		//ParsedPaper parsePaper1 = paperService.queryParsedPaper(id);
-		ParsedPaper parsePaper2 = myService.queryParsedPaper(id);
+		ParsedPaper parsePaper = myService.queryParsedPaper(id);
 		Gson gson = new Gson();
-		//System.out.println(gson.toJson(parsePaper1));
-		System.out.println(gson.toJson(parsePaper2));
-		//String json = gson.toJson(parsePaper1);
-		String json = gson.toJson(parsePaper2);
+		System.out.println(gson.toJson(parsePaper));
+		String json = gson.toJson(parsePaper);
+		return json;
+	}
+	/**
+	 * 根据考试获取完整试卷
+	 * 
+	 * @param id 考试id
+	 * @return
+	 */
+	@RequestMapping(value="/get_parsed_paper_exam",method=RequestMethod.GET)
+	@ResponseBody
+	public String getParsedPaperExam(int id){
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("examId", String.valueOf(id));
+		int paperId = examService.queryExam(jsonObject).get(0).getPaperId();
+		ParsedPaper parsePaper = myService.queryParsedPaper(paperId);
+		Gson gson = new Gson();
+		System.out.println(gson.toJson(parsePaper));
+		String json = gson.toJson(parsePaper);
 		return json;
 	}
 	/**
