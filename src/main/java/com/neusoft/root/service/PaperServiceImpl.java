@@ -598,9 +598,9 @@ public class PaperServiceImpl implements PaperService{
 				{
 					fillQuestion = fillQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"填空题"+"???"+"3"+"###";
 				}
-				else if(item.getItemType().equals("主观题"))
+				else if(item.getItemType().equals("问答题"))
 				{
-					subjectiveQuestion = subjectiveQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"主观题"+"???"+"4"+"###";
+					subjectiveQuestion = subjectiveQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"问答题"+"???"+"4"+"###";
 				}
 				else
 				{
