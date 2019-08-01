@@ -52,7 +52,7 @@ public class ResultServiceImpl implements ResultService{
 		String date ="";
 		boolean flag =false;
 		List<Integer> list = new ArrayList<>();
-		System.out.println(jsonx.size());
+	//	System.out.println(jsonx.size());
 		for(int j=jsonx.size()-1;j>=0;j--)
 		{
 			flag=false;
@@ -62,24 +62,24 @@ public class ResultServiceImpl implements ResultService{
 			{
 				if(num==itemId)
 				{
-					System.out.println("num"+num);
+		//			System.out.println("num"+num);
 					flag=true;
-					System.out.println("break");
+			//		System.out.println("break");
 					break;
 				}
 			}
-			System.out.println("flag"+flag);
+			//System.out.println("flag"+flag);
 			if(flag)
 			{
 				flag =false;
-				System.out.println("@@@");
+			//	System.out.println("@@@");
 				continue;
 			}
 			else
 			{
 				list.add(itemId);
 			}
-			System.out.println("!!!");
+		//	System.out.println("!!!");
 			studentId = json.getString("username");
 			Integer examId = Integer.valueOf(json.getString("exam_id"));
 			date = json.getString("date");
@@ -168,8 +168,8 @@ public class ResultServiceImpl implements ResultService{
 		if(!subjective.equals(""))
 		subjective = subjective.substring(0, subjective.length()-3);
 		RawResult result = new RawResult(studentId, paperId, teacherId, single, multi, fill, subjective, date, "yes");
-		System.out.println(result);
-		System.out.println(list.toString());
+		//System.out.println(result);
+		//System.out.println(list.toString());
 		student.addResult(result);
 		//my
 		JSONObject myjson = new JSONObject();
