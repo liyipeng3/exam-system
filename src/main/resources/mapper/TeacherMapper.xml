@@ -530,7 +530,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="examId!=null and examId!=''">
 				and exam_id = #{examId}
 			</if>
-			<if test="paperId!=null and paperId!=''">
+			<!-- <if test="paperId!=null and paperId!=''">
 				and paper_id = #{paperId}
 			</if>
 			<if test="createrId!=null and createrId!=''">
@@ -547,7 +547,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 			<if test="examRemark!=null and examRemark!=''">
 				and exam_remark = #{examRemark}
-			</if>
+			</if> -->
 		</where>
 	</select>
 	

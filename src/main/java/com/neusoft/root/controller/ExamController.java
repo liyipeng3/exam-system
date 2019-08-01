@@ -1,6 +1,7 @@
 ﻿package com.neusoft.root.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -230,22 +232,83 @@ public class ExamController {
 		return json;
 	}
 	/**
-	 * 获取完整试卷
+	 * 根据试卷获取完整试卷
 	 * 
 	 * @param id 试卷id
 	 * @return
 	 */
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
-	public String getParsedPaper(int id){
-		//ParsedPaper parsePaper1 = paperService.queryParsedPaper(id);
-		ParsedPaper parsePaper2 = myService.queryParsedPaper(id);
+	public String getParsedPaper(String id){
+		ParsedPaper parsePaper = myService.queryParsedPaper(Integer.valueOf(id));
 		Gson gson = new Gson();
-		//System.out.println(gson.toJson(parsePaper1));
-		System.out.println(gson.toJson(parsePaper2));
-		//String json = gson.toJson(parsePaper1);
-		String json = gson.toJson(parsePaper2);
+		System.out.println(gson.toJson(parsePaper));
+		String json = gson.toJson(parsePaper);
 		return json;
+	}
+	/**
+	 * 根据考试获取完整试卷
+	 * 
+	 * @param id 考试id
+	 * @return
+	 */
+	@RequestMapping(value="/get_parsed_paper_exam",method=RequestMethod.GET)
+	@ResponseBody
+	public String getParsedPaperExam(Integer examId){;
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("examId", String.valueOf(examId));
+		Integer paperId = examService.queryExam(jsonObject).get(0).getPaperId();
+		ParsedPaper parsedPaper = myService.queryParsedPaper(paperId);
+		List<List<ParsedItem>> ITEMS = parsedPaper.getItems();
+		List<String> itemsScore = new ArrayList<>();
+		itemsScore.add("");
+		System.out.println(ITEMS.size());
+		for(int i = 1; i <= ITEMS.size()-1; i++){
+			Double score = 0.0;
+			for(int j = 0; j < ITEMS.get(i).size(); j++){
+				score += ITEMS.get(i).get(j).getItemScore();
+			}
+			itemsScore.add(String.valueOf(score));
+		}
+		Gson gson = new Gson();
+		String json = gson.toJson(parsedPaper);
+		String postJson = gson.toJson(itemsScore);
+		System.out.println(postJson);
+		json = json.substring(0,json.length()-1);
+		postJson = "\"itemsScore\":"+postJson+"}";
+		json = json+","+postJson;
+		return json;
+	}
+	/**
+	 * 获取结束时间json串
+	 * 
+	 * @param id
+	 * @return
+	 */
+	//{"success":true,"code":10000,"desc":null,"englishDesc":null,"bizContent":{"code":0}}
+	@RequestMapping(value="/getExamEndTime",method=RequestMethod.POST)
+	@ResponseBody
+	public String getExamEndTime(String id){
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("examId", id);
+		long time = System.currentTimeMillis();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String time1 = sdf.format(time);
+		String time2 = examService.queryExam(jsonObject).get(0).getExamEnd();
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		int code = 0;
+        try {
+            Date dt1 = df.parse(time1);//系统时间
+            Date dt2 = df.parse(time2);//结束时间
+            if (dt1.getTime() > dt2.getTime()) {
+                code = 2;
+            } else {
+            	code = 0;
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return "{\"success\":true,\"code\":10000,\"desc\":null,\"englishDesc\":null,\"bizContent\":{\"code\":"+code+"}}";
 	}
 	/**
 	 * 随机组卷
@@ -297,11 +360,12 @@ public class ExamController {
 	 * @param paperId
 	 * @return
 	 */
-	@RequestMapping(value="/get_paper_checking",method=RequestMethod.GET)
+	@RequestMapping(value="/result_inquire",method=RequestMethod.POST)
 	@ResponseBody
-	public String getPaperChecking(String studentId, String paperId){
-		
-		return "ok";
+	public String getPaperChecking(int id){
+		JSONObject json = new JSONObject();
+		json.put("success", true);
+		return json.toJSONString();
 	}
 	/**
 	 * 提交批改结果

@@ -36,7 +36,6 @@ public class RawPaper
 	}
 	public RawPaper() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Integer getPaperId() {
 		return paperId;

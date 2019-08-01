@@ -18,7 +18,7 @@ import com.neusoft.root.domain.Teacher;
 public class ExamServiceImpl implements ExamService
 {
 	@Autowired 
-	TeacherMapper teachermapper;
+	private TeacherMapper teachermapper;
 	
 	@Override
 	public Integer addExam(JSONObject json)
@@ -51,6 +51,7 @@ public class ExamServiceImpl implements ExamService
 	@Override
 	public List<Exam> queryExam(JSONObject json) 
 	{
+		
 		String examId = json.getString("examId");
 		if (examId==null||examId.equals("")) 
 		{
@@ -60,6 +61,7 @@ public class ExamServiceImpl implements ExamService
 		{
 			Exam exam = new Exam();
 			exam.setExamId(Integer.valueOf(examId));
+			Exam exam1 = teachermapper.queryExam(exam).get(0);
 			return teachermapper.queryExam(exam);
 		}
 	}
