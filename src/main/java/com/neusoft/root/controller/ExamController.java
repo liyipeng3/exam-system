@@ -23,6 +23,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.neusoft.root.domain.Exam;
+import com.neusoft.root.domain.PaperChecking;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
@@ -361,8 +362,11 @@ public class ExamController {
 			json.put("date", date);
 			System.out.println(json.toJSONString());
 		}
-		resultService.addResult(jsonObjects);
-		return "ok";
+		PaperChecking checking = resultService.addResult(jsonObjects);
+		Gson gson = new Gson();
+		System.out.println(gson.toJson(checking));
+		return gson.toJson(checking);
+		//return "ok";
 	}
 	/**
 	 * 获取批改结果
