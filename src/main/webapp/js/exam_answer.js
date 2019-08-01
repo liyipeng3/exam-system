@@ -809,7 +809,7 @@ $(function () {
                             clearInterval(time);
                             console.log(Array.from(result));
                             ajax_post("/exam/post_result" ,Array.from(result));
-                            //window.location.href = "/exam_result?examResultsId=" + exam_results_id;
+                            window.location.href = "/exam_result?score=" + e.studentScore + "&sumScore="+ e.sumScore;
                         }
                     }, 120);
                 } else {
