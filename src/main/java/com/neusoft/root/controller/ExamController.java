@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.neusoft.root.domain.Exam;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
@@ -242,7 +243,9 @@ public class ExamController {
 	public String getParsedPaperExam(Integer examId){;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("examId", String.valueOf(examId));
-		Integer paperId = examService.queryExam(jsonObject).get(0).getPaperId();
+		Exam exam = examService.queryExam(jsonObject).get(0);
+		Integer paperId = exam.getPaperId();
+		Integer time = Integer.valueOf(exam.getExamLast().toString());
 		ParsedPaper parsedPaper = myService.queryParsedPaper(paperId);
 		List<List<ParsedItem>> ITEMS = parsedPaper.getItems();
 		List<String> itemsScore = new ArrayList<>();
@@ -261,7 +264,7 @@ public class ExamController {
 		System.out.println(postJson);
 		json = json.substring(0,json.length()-1);
 		postJson = "\"itemsScore\":"+postJson+"}";
-		json = json+","+postJson;
+		json = json+","+"\"examTime\":"+"\""+time+"\""+","+postJson;
 		return json;
 	}
 	/**
@@ -361,7 +364,7 @@ public class ExamController {
 	@RequestMapping(value="/post_result",method=RequestMethod.POST)
 	@ResponseBody
 	public String postResult(@RequestBody JSONObject jsonObject){
-		System.out.println();
+		System.out.println(jsonObject.toJSONString());
 		return "ok";
 	}
 	/**
