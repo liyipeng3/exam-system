@@ -329,21 +329,6 @@ public class ExamController {
 		return "ok";
 	}
 	/**
-	 * 获得学生答卷列表
-	 * 
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value="/get_raw_result",method=RequestMethod.GET)
-	@ResponseBody
-	public String getRawResult(HttpServletRequest request){
-		HttpSession session = request.getSession();
-		String username = session.getAttribute("username").toString();
-		/*Gson gson = new Gson();
-		String json = gson.toJson();*/
-		return "ok";
-	}
-	/**
 	 * 获得学生答卷
 	 * 
 	 * @param studentId
@@ -603,10 +588,5 @@ public class ExamController {
 		}
 		json.addProperty("itemsNumber", String.valueOf(num));
 		return json.toString();
-	}
-	@RequestMapping(value="/add_course", method=RequestMethod.POST)
-	@ResponseBody
-	public String addCourse(@RequestBody JSONObject jsonObject){
-		return "ok";
 	}
 }

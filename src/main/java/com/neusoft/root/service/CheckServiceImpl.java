@@ -124,6 +124,7 @@ public class CheckServiceImpl implements CheckService{
 		checkings.add(pc);
 		
 		RawCheck rc = paperCheckingToRawCheck(pc);
+		rc.setCheckDate(json.getString("checkDate"));
 		mapper.addCheck(rc);
 		return checkings;
 	}

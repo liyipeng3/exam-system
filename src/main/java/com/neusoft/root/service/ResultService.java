@@ -3,6 +3,7 @@ package com.neusoft.root.service;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
+import com.neusoft.root.domain.PaperChecking;
 import com.neusoft.root.domain.ParsedResult;
 import com.neusoft.root.domain.RawResult;
 
@@ -16,6 +17,6 @@ public interface ResultService {
 	 * 增加答题结果
 	 * @param json result串
 	 */
-	public void addResult(List<JSONObject> json);
+	public PaperChecking addResult(List<JSONObject> json);
 	
 }
