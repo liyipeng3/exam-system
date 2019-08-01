@@ -239,7 +239,7 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
-	public String getParsedPaper(int id){
+	public String getParsedPaper(Integer id){
 		ParsedPaper parsePaper = myService.queryParsedPaper(id);
 		Gson gson = new Gson();
 		System.out.println(gson.toJson(parsePaper));
@@ -254,10 +254,10 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/get_parsed_paper_exam",method=RequestMethod.GET)
 	@ResponseBody
-	public String getParsedPaperExam(int id){
+	public String getParsedPaperExam(Integer id){
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("examId", String.valueOf(id));
-		int paperId = examService.queryExam(jsonObject).get(0).getPaperId();
+		Integer paperId = examService.queryExam(jsonObject).get(0).getPaperId();
 		ParsedPaper parsePaper = myService.queryParsedPaper(paperId);
 		Gson gson = new Gson();
 		System.out.println(gson.toJson(parsePaper));
@@ -273,7 +273,7 @@ public class ExamController {
 	//{"success":true,"code":10000,"desc":null,"englishDesc":null,"bizContent":{"code":0}}
 	@RequestMapping(value="/getExamEndTime",method=RequestMethod.POST)
 	@ResponseBody
-	public String getExamEndTime(int id){
+	public String getExamEndTime(Integer id){
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("examId", String.valueOf(id));
 		long time = System.currentTimeMillis();
