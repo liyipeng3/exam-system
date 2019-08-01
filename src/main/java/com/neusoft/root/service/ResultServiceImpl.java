@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.filter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.login.FailedLoginException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,8 +47,11 @@ public class ResultServiceImpl implements ResultService{
 		String studentId ="";
 		String teacherId = "";
 		String date ="";
-		
-			JSONObject json = jsonx.get(jsonx.size()-1);
+		boolean flag =false;
+		List<Integer> list = new ArrayList<>();
+		for(int j=jsonx.size()-1;j<0;j--)
+		{
+			JSONObject json = jsonx.get(j);
 			studentId = json.getString("username");
 			Integer examId = Integer.valueOf(json.getString("exam_id"));
 			date = json.getString("date");
@@ -58,10 +63,21 @@ public class ResultServiceImpl implements ResultService{
 				System.out.println("examid不唯一！！！");
 				System.exit(0);
 			}
-			else
-			{
 				Exam exam = examlist.get(0);
 				paperId = exam.getPaperId();
+				for(Integer num:list)
+				{
+					if(num==paperId)
+					{
+						flag=true;
+						break;
+					}
+				}
+				if(flag)
+				{
+					flag =false;
+					continue;
+				}
 				ParsedPaper paperlist = myService.queryParsedPaper(paperId);
 				teacherId = paperlist.getCreaterId();
 				 Integer itemId = Integer.valueOf(json.getString("test_id"));
@@ -84,9 +100,7 @@ public class ResultServiceImpl implements ResultService{
 						 {
 							 if(answer[i].equals("key"+k))
 							 {
-								 List<String> itemanswer = itemlist.get(0).getItemOption();
-								 System.out.println(itemanswer+"k="+k);
-								 System.out.println(answer);
+								 List<String> itemanswer = itemlist.get(0).getItemAnswer();
 								 endanswer.add(itemanswer.get(k-1 ));
 							 }
 						 }
@@ -127,7 +141,6 @@ public class ResultServiceImpl implements ResultService{
 					}
 				 }
 				 
-			
 			
 		}
 		if(!single.equals(""))
