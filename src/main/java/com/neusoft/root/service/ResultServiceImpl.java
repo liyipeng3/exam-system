@@ -77,7 +77,7 @@ public class ResultServiceImpl implements ResultService{
 					 List<String> endanswer = new ArrayList<>();
 					 for(int i=0;i<answer.length-1;i++)
 					 {
-						 for(int k=0;k<20;k++)
+						 for(int k=1;k<=20;k++)
 						 {
 							 if(answer[i].equals("key"+k))
 							 {
