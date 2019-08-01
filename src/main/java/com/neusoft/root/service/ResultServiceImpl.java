@@ -49,6 +49,7 @@ public class ResultServiceImpl implements ResultService{
 		String date ="";
 		boolean flag =false;
 		List<Integer> list = new ArrayList<>();
+		System.out.println(jsonx.size());
 		for(int j=jsonx.size()-1;j>=0;j--)
 		{
 			flag=false;
@@ -60,6 +61,7 @@ public class ResultServiceImpl implements ResultService{
 				{
 					System.out.println("num"+num);
 					flag=true;
+					System.out.println("break");
 					break;
 				}
 			}
@@ -67,12 +69,14 @@ public class ResultServiceImpl implements ResultService{
 			if(flag)
 			{
 				flag =false;
+				System.out.println("@@@");
 				continue;
 			}
 			else
 			{
 				list.add(itemId);
 			}
+			System.out.println("!!!");
 			studentId = json.getString("username");
 			Integer examId = Integer.valueOf(json.getString("exam_id"));
 			date = json.getString("date");
