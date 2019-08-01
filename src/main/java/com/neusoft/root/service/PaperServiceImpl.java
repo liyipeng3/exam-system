@@ -38,6 +38,8 @@ public class PaperServiceImpl implements PaperService{
 	PaperService service2;
 	@Autowired
 	AdminMapper AdminMapper;
+	@Autowired
+	MyService MyService;
 	@Override
 	public Integer addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
@@ -631,7 +633,7 @@ public class PaperServiceImpl implements PaperService{
 		List<RawPaper>  paper2=  mapper.queryRawPaper(paper3);
 		Integer  PaperId = paper2.get(0).getPaperId();
 	//	System.out.println("PaperID"+PaperId);
-		ParsedPaper list3 = service2.queryParsedPaper(PaperId);
+		ParsedPaper list3 = MyService.queryParsedPaper(PaperId);
 				
 			//	System.out.println("最终"+list3.get(0));
 		return list3;
