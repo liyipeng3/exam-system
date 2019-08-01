@@ -258,9 +258,25 @@ public class ExamController {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("examId", String.valueOf(examId));
 		Integer paperId = examService.queryExam(jsonObject).get(0).getPaperId();
-		ParsedPaper parsePaper = myService.queryParsedPaper(paperId);
+		ParsedPaper parsedPaper = myService.queryParsedPaper(paperId);
+		List<List<ParsedItem>> ITEMS = parsedPaper.getItems();
+		List<String> itemsScore = new ArrayList<>();
+		itemsScore.add("");
+		System.out.println(ITEMS.size());
+		for(int i = 1; i <= ITEMS.size()-1; i++){
+			Double score = 0.0;
+			for(int j = 0; j < ITEMS.get(i).size(); j++){
+				score += ITEMS.get(i).get(j).getItemScore();
+			}
+			itemsScore.add(String.valueOf(score));
+		}
 		Gson gson = new Gson();
-		String json = gson.toJson(parsePaper);
+		String json = gson.toJson(parsedPaper);
+		String postJson = gson.toJson(itemsScore);
+		System.out.println(postJson);
+		json = json.substring(0,json.length()-1);
+		postJson = "\"itemsScore\":"+postJson+"}";
+		json = json+","+postJson;
 		return json;
 	}
 	/**
