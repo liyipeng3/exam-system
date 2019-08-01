@@ -1,5 +1,7 @@
 package com.neusoft.root.service;
 
+import static org.assertj.core.api.Assertions.filter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,15 +103,16 @@ public class ResultServiceImpl implements ResultService{
 					 else if(itemtype.equals("填空题"))
 					 {
 						 fill = fill+itemId+"???";
-						 for(String ans:endanswer)
-						 {
-							 fill = fill+ans+"!!!";
-						 }
+						String an[] = answerx.split("||");
+						for(int l=0;l<an.length;l++)
+						{
+							fill = fill+an[l]+"!!!";
+						}
 						 fill = fill.substring(0, fill.length()-3)+"###";
 					 }
 					 else if(itemtype.equals("问答题"))
 					 {
-						 subjective = subjective+itemId+"???"+endanswer.get(0)+"###";
+						 subjective = subjective+itemId+"???"+answerx+"###";
 					 }
 					 else {
 						 System.out.println("无效题目类型！！！");
