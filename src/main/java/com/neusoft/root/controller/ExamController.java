@@ -361,8 +361,8 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/post_result",method=RequestMethod.POST)
 	@ResponseBody
-	public String postResult(@RequestBody JSONObject jsonObject){
-		System.out.println(jsonObject.toJSONString());
+	public String postResult(@RequestBody JsonObject jsonObject){
+		System.out.println(jsonObject.toString());
 		return "ok";
 	}
 	/**
