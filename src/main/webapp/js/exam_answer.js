@@ -579,6 +579,7 @@ $(function () {
         //问答题blur保存答案
         if (editor_blur == true) {
             var questionsData = {
+                "exam_id": getParam('exam_id'),
                 "test_id": questionsId,
                 "test_ans": keyList,
                 "exam_results_id": exam_results_id,
@@ -606,6 +607,7 @@ $(function () {
             }
         });
         var questionsData = {
+            "exam_id": getParam('exam_id'),
             "test_id": questionsId,
             "test_ans": keyList,
             "exam_results_id": exam_results_id,
