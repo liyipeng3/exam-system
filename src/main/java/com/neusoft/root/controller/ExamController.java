@@ -559,7 +559,8 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/get_paper_info",method=RequestMethod.GET)
 	@ResponseBody
-	public String getPaperInfo(int id){
+	public String getPaperInfo(int id)
+	{
 		ParsedPaper paper = myService.queryParsedPaper(id);
 		JsonObject json = new JsonObject();
 		json.addProperty("paperName", paper.getPaperName());

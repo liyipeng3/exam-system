@@ -10,30 +10,21 @@ import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawResult;
-import com.neusoft.root.domain.StudentResult;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class testMyServiceImpl {
+public class testMyCheckServiceImpl {
 
 	@Autowired
-	private MyService test;
+	private CheckService test;
 	
-	/*@Test
+	@Test
 	public void queryPaperChecking()
 	{
 		JSONObject json = new JSONObject();
 		json.put("studentId", 117371);
 		json.put("paperId", 1);
 		json.put("teacherId", 227371);
-	}*/
-	
-	@Test
-	public void queryStudentResult()
-	{
-		for (StudentResult sr : test.queryStudentResult(1)) 
-		{
-			System.out.println(sr);
-		}
+		test.queryPaperChecking(json);
 	}
 }

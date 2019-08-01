@@ -6,24 +6,17 @@ import java.util.List;
 public class PaperChecking
 {
 	private String studentId;
-	private String paperId;
+	private Integer paperId;
 	private String teacherId;
 	private List<ItemChecking> singleItem;
 	private List<ItemChecking> multiItem;
 	private List<ItemChecking> fillItem;
 	private List<ItemChecking> subjectiveItem;
 	private Double studentScore;
-	
-	public void init()
-	{
-		singleItem = new ArrayList<ItemChecking>();
-		multiItem = new ArrayList<ItemChecking>();
-		fillItem = new ArrayList<ItemChecking>();
-		subjectiveItem = new ArrayList<ItemChecking>();
-	}
-	public PaperChecking(String studentId, String paperId, String teacherId, List<ItemChecking> singleItem,
+	private Double sumScore;
+	public PaperChecking(String studentId, Integer paperId, String teacherId, List<ItemChecking> singleItem,
 			List<ItemChecking> multiItem, List<ItemChecking> fillItem, List<ItemChecking> subjectiveItem,
-			Double studentScore) {
+			Double studentScore, Double sumScore) {
 		super();
 		this.studentId = studentId;
 		this.paperId = paperId;
@@ -33,9 +26,14 @@ public class PaperChecking
 		this.fillItem = fillItem;
 		this.subjectiveItem = subjectiveItem;
 		this.studentScore = studentScore;
+		this.sumScore = sumScore;
 	}
 	public PaperChecking() {
 		super();
+		this.singleItem = new ArrayList<>();
+		this.multiItem = new ArrayList<>();
+		this.fillItem = new ArrayList<>();
+		this.subjectiveItem = new ArrayList<>();
 	}
 	public String getStudentId() {
 		return studentId;
@@ -43,10 +41,10 @@ public class PaperChecking
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	public String getPaperId() {
+	public Integer getPaperId() {
 		return paperId;
 	}
-	public void setPaperId(String paperId) {
+	public void setPaperId(Integer paperId) {
 		this.paperId = paperId;
 	}
 	public String getTeacherId() {
@@ -85,6 +83,12 @@ public class PaperChecking
 	public void setStudentScore(Double studentScore) {
 		this.studentScore = studentScore;
 	}
+	public Double getSumScore() {
+		return sumScore;
+	}
+	public void setSumScore(Double sumScore) {
+		this.sumScore = sumScore;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -96,6 +100,7 @@ public class PaperChecking
 		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
 		result = prime * result + ((studentScore == null) ? 0 : studentScore.hashCode());
 		result = prime * result + ((subjectiveItem == null) ? 0 : subjectiveItem.hashCode());
+		result = prime * result + ((sumScore == null) ? 0 : sumScore.hashCode());
 		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
 		return result;
 	}
@@ -143,6 +148,11 @@ public class PaperChecking
 				return false;
 		} else if (!subjectiveItem.equals(other.subjectiveItem))
 			return false;
+		if (sumScore == null) {
+			if (other.sumScore != null)
+				return false;
+		} else if (!sumScore.equals(other.sumScore))
+			return false;
 		if (teacherId == null) {
 			if (other.teacherId != null)
 				return false;
@@ -154,6 +164,7 @@ public class PaperChecking
 	public String toString() {
 		return "PaperChecking [studentId=" + studentId + ", paperId=" + paperId + ", teacherId=" + teacherId
 				+ ", singleItem=" + singleItem + ", multiItem=" + multiItem + ", fillItem=" + fillItem
-				+ ", subjectiveItem=" + subjectiveItem + ", studentScore=" + studentScore + "]";
+				+ ", subjectiveItem=" + subjectiveItem + ", studentScore=" + studentScore + ", sumScore=" + sumScore
+				+ "]";
 	}
 }

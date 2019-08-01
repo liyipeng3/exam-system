@@ -1,12 +1,15 @@
-/*package com.neusoft.root.service;
+package com.neusoft.root.service;
 
 import static org.assertj.core.api.Assertions.setAllowComparingPrivateFields;
 
+import java.awt.color.ICC_ColorSpace;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import org.apache.ibatis.reflection.wrapper.BaseWrapper;
@@ -35,80 +38,6 @@ public class CheckServiceImpl implements CheckService{
 			"R","S","T","U","V","W","X","Y","Z"};
 	
 	@Override
-	public void addCheck(JSONObject json) {
-		int count =1;
-		String singleQuestion ="";
-		while(json.getString("singlechoiceScore"+count)!=null)
-		{
-			singleQuestion = singleQuestion+json.getString("singlechoiceScore"+count)+"###";
-			count++;
-		}
-		if(count!=1)
-		{
-			singleQuestion = singleQuestion.substring(0, singleQuestion.length()-3);
-		}
-		count =1;
-		String multiQuestion ="";
-		while(json.getString("multichoiceScore"+count)!=null)
-		{
-			multiQuestion = multiQuestion+json.getString("multichoiceScore"+count)+"###";
-			count++;
-		}
-		if(count!=1)
-		{
-			multiQuestion = multiQuestion.substring(0, multiQuestion.length()-3);
-		}
-		count =1;
-		String fillQuestion ="";
-		while(json.getString("fillScore")!=null)
-		{
-			fillQuestion = fillQuestion+json.getString("fillScore"+count)+"###";
-			count++;
-		}
-		if(count!=1)
-		{
-			fillQuestion = fillQuestion.substring(0, fillQuestion.length()-3);
-		}	
-		count =1;
-		String subQuestion ="";
-		while(json.getString("subjectiveScore")!=null)
-		{
-			subQuestion = subQuestion+json.getString("subjectiveScore"+count)+"###";
-			count++;
-		}
-		if(count!=1)
-		{
-			subQuestion = subQuestion.substring(0, subQuestion.length()-3);
-		}
-		RawCheck check = new RawCheck(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), singleQuestion, multiQuestion, fillQuestion, subQuestion, json.getDouble("sumScore"), json.getString("checkDate"));
-		mapper.addCheck(check);
-	}
-
-	@Override
-	public void deleteCheck(JSONObject json) {
-		RawCheck check = new RawCheck(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));	
-		mapper.deleteCheck(check);
-	}
-
-	@Override
-	public void updateCheck(JSONObject json) {
-		//Check check = new Check(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));		
-		//mapper.updateCheck(check);
-	}
-
-	@Override
-	public List<ParsedCheck> queryParsedCheck(JSONObject json) {
-		//Check check = new Check(json.getString("studentId"), json.getString("paperId"), json.getString("teacherId"), json.getString("singlechoiceScore"), json.getString("multichoiceScore"), json.getString("fillScore"), json.getString("subjectiveScore"), json.getDouble("sumScore"), json.getString("checkDate"));
-		//List<Check> list= mapper.queryCheck(check);
-		return null;
-	}
-
-	@Override
-	public List<RawCheck> queryRawCheck(JSONObject json) {
-		return null;
-	}
-
-	@Override
 	public List<PaperChecking> queryPaperChecking(JSONObject json) 
 	{
 		List<PaperChecking> checkings = new ArrayList<>(); //新建一张paperchecking用于页面显示 
@@ -116,7 +45,7 @@ public class CheckServiceImpl implements CheckService{
 		//查出学生答题结果
 		RawResult rr = new RawResult();
 		rr.setStudentId(json.getString("studentId"));
-		rr.setPaperId(json.getString("paperId"));
+		rr.setPaperId(Integer.valueOf(json.getString("paperId")));
 		rr.setTeacherId(json.getString("teacherId"));
 		List<RawResult> rawResults = mapper.queryResult(rr);
 		if (rawResults.size()==0) 
@@ -128,13 +57,18 @@ public class CheckServiceImpl implements CheckService{
 		
 		//查询出试卷
 		RawPaper rawPaper = new RawPaper();
-		rawPaper.setPaperId(json.getString("paperId"));
+		rawPaper.setPaperId(Integer.valueOf(json.getString("paperId")));
 		List<RawPaper> list = mapper.queryRawPaper(rawPaper);
-		PaperHelper ph = new PaperHelper(list.get(0));
+		RawPaper targetRawPaper = list.get(0);
+		PaperHelper ph = new PaperHelper(targetRawPaper);
 		
 		//创建解析试卷
 		PaperChecking pc = new PaperChecking();
-		
+		pc.setStudentId(json.getString("studentId"));
+		pc.setPaperId(Integer.valueOf(json.getString("paperId")));
+		pc.setTeacherId(json.getString("teacherId"));
+		pc.setSumScore(targetRawPaper.getPaperScore());
+		pc.setStudentScore(0.0);
 		//解析单选题
 		parse(ph.getSingleQuestion(), pc.getSingleItem(), "单选题", result.getSinglechoiceResult());
 		
@@ -160,19 +94,37 @@ public class CheckServiceImpl implements CheckService{
 			toAlpha(itemChecking.getItemOption(), itemChecking.getRightAnswer());
 		}
 		
+		System.out.println(1);
 		//选择题自动评分
 		for (ItemChecking itemChecking : pc.getSingleItem()) 
 		{
 			autoScore(itemChecking);
+			pc.setStudentScore(pc.getStudentScore()+itemChecking.getStudentScore());
 		}
 		
 		for (ItemChecking itemChecking : pc.getMultiItem()) 
 		{
 			autoScore(itemChecking);
+			pc.setStudentScore(pc.getStudentScore()+itemChecking.getStudentScore());
+		}
+		
+		//字符串自动评分
+		for (ItemChecking itemChecking : pc.getFillItem()) 
+		{
+			autoScoreString(itemChecking);
+			pc.setStudentScore(pc.getStudentScore()+itemChecking.getStudentScore());
+		}
+		
+		for (ItemChecking itemChecking : pc.getSubjectiveItem()) 
+		{
+			autoScoreString(itemChecking);
+			pc.setStudentScore(pc.getStudentScore()+itemChecking.getStudentScore());
 		}
 		
 		checkings.add(pc);
 		
+		RawCheck rc = paperCheckingToRawCheck(pc);
+		mapper.addCheck(rc);
 		return checkings;
 	}
 
@@ -197,16 +149,22 @@ public class CheckServiceImpl implements CheckService{
 				searchRawItem.setItemId(itemId);
 				//从题库中获取题目
 				targetRawItem = mapper.queryRawItem(searchRawItem).get(0);
+				ic.setItemId(itemId);
 				ic.setItemType(type);
 				ic.setItemQuestion(targetRawItem.getItemQuestion());
-				ic.setItemOption(new ArrayList<>(Arrays.asList(targetRawItem.getItemOption().split("###"))));
+				ic.setItemOption(new ArrayList<>(Arrays.asList(targetRawItem.getItemOption().split("\\#\\#\\#"))));
 				ic.setStudentAnswer(new ArrayList<>(Arrays.asList(studentAnswer)));
-				ic.setRightAnswer(new ArrayList<>(Arrays.asList(targetRawItem.getItemAnswer().split("###"))));
+				ic.setRightAnswer(new ArrayList<>(Arrays.asList(targetRawItem.getItemAnswer().split("\\#\\#\\#"))));
 				ic.setRemark(targetRawItem.getItemParse());
 				ic.setItemScore(score.get(itemId));
 				list.add(ic);
 			}
 		}
+	}
+	
+	private void autoScoreString(ItemChecking item)
+	{
+		item.setStudentScore(new Random(System.currentTimeMillis()).nextDouble()*item.getItemScore());
 	}
 	
 	private void autoScore(ItemChecking item)
@@ -266,16 +224,38 @@ public class CheckServiceImpl implements CheckService{
 		return true; 
 	}
 	
-	public static void main(String[] args) 
+	private RawCheck paperCheckingToRawCheck(PaperChecking pc)
 	{
-		List<String> list1 = new ArrayList<>();
-		list1.add("A");
-		list1.add("B");
-		List<String> list2 = new ArrayList<>();
-		list2.add("B");
-		list2.add("C");
-		System.out.println(isListEqual(list1, list2));
-		
+		DecimalFormat df = new DecimalFormat("#.00");
+		RawCheck rawCheck = new RawCheck();
+		rawCheck.setStudentId(pc.getStudentId());
+		rawCheck.setPaperId(pc.getPaperId());
+		rawCheck.setTeacherId(pc.getTeacherId());
+		String singlechoiceScore = "";
+		String multichoiceScore = "";
+		String fillScore = "";
+		String subjectiveScore = "";
+		for (ItemChecking ic : pc.getSingleItem()) 
+		{
+			singlechoiceScore += ic.getItemId()+","+df.format(ic.getStudentScore())+"###";
+		}
+		for (ItemChecking ic : pc.getMultiItem()) 
+		{
+			multichoiceScore += ic.getItemId()+","+df.format(ic.getStudentScore())+"###";
+		}
+		for (ItemChecking ic : pc.getFillItem()) 
+		{
+			fillScore += ic.getItemId()+","+df.format(ic.getStudentScore())+"###";
+		}
+		for (ItemChecking ic : pc.getSubjectiveItem()) 
+		{
+			subjectiveScore += ic.getItemId()+","+df.format(ic.getStudentScore())+"###";
+		}
+		rawCheck.setSinglechoiceScore(singlechoiceScore);
+		rawCheck.setMultichoiceScore(multichoiceScore);
+		rawCheck.setFillScore(fillScore);
+		rawCheck.setSubjectiveScore(subjectiveScore);
+		rawCheck.setSumScore(Double.valueOf(df.format(pc.getStudentScore())));
+		return rawCheck;
 	}
 }
-*/

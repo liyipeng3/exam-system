@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ItemChecking
 {
+	private Integer itemId;
 	private String itemType;
 	private String itemQuestion;
 	private List<String> itemOption; 
@@ -15,9 +16,11 @@ public class ItemChecking
 	private Double itemScore;
 	private Double studentScore;
 	private String isRight;
-	public ItemChecking(String itemType, String itemQuestion, List<String> itemOption, List<String> studentAnswer,
-			List<String> rightAnswer, String remark, Double itemScore, Double studentScore, String isRight) {
+	public ItemChecking(Integer itemId, String itemType, String itemQuestion, List<String> itemOption,
+			List<String> studentAnswer, List<String> rightAnswer, String remark, Double itemScore, Double studentScore,
+			String isRight) {
 		super();
+		this.itemId = itemId;
 		this.itemType = itemType;
 		this.itemQuestion = itemQuestion;
 		this.itemOption = itemOption;
@@ -30,9 +33,13 @@ public class ItemChecking
 	}
 	public ItemChecking() {
 		super();
-		itemOption = new ArrayList<>();
-		studentAnswer = new ArrayList<>();
-		rightAnswer = new ArrayList<>();
+		// TODO Auto-generated constructor stub
+	}
+	public Integer getItemId() {
+		return itemId;
+	}
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
 	}
 	public String getItemType() {
 		return itemType;
@@ -93,6 +100,7 @@ public class ItemChecking
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((isRight == null) ? 0 : isRight.hashCode());
+		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		result = prime * result + ((itemOption == null) ? 0 : itemOption.hashCode());
 		result = prime * result + ((itemQuestion == null) ? 0 : itemQuestion.hashCode());
 		result = prime * result + ((itemScore == null) ? 0 : itemScore.hashCode());
@@ -116,6 +124,11 @@ public class ItemChecking
 			if (other.isRight != null)
 				return false;
 		} else if (!isRight.equals(other.isRight))
+			return false;
+		if (itemId == null) {
+			if (other.itemId != null)
+				return false;
+		} else if (!itemId.equals(other.itemId))
 			return false;
 		if (itemOption == null) {
 			if (other.itemOption != null)
@@ -160,10 +173,11 @@ public class ItemChecking
 		return true;
 	}
 	@Override
-	public String toString() {
-		return "ItemChecking [itemType=" + itemType + ", itemQuestion=" + itemQuestion + ", itemOption=" + itemOption
-				+ ", studentAnswer=" + studentAnswer + ", rightAnswer=" + rightAnswer + ", remark=" + remark
-				+ ", itemScore=" + itemScore + ", studentScore=" + studentScore + ", isRight=" + isRight + "]";
-	}
-	
+	public String toString() 
+	{
+		return "ItemChecking [itemId=" + itemId + ", itemType=" + itemType + ", itemQuestion=" + itemQuestion
+				+ ", itemOption=" + itemOption + ", studentAnswer=" + studentAnswer + ", rightAnswer=" + rightAnswer
+				+ ", remark=" + remark + ", itemScore=" + itemScore + ", studentScore=" + studentScore + ", isRight="
+				+ isRight + "]";
+	}	
 }
