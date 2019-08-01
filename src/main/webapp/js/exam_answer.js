@@ -24,23 +24,6 @@ $(function () {
         });
     }
 
-    //显示水印
-    if(typeof isWatermark != 'undefined' && isWatermark == '1'){
-        $.ajax({
-            type: "GET",
-            cache: false,
-            headers: {"cache-control": "no-cache"},
-            dataType: "json",
-            url: "/course/get_watermark",
-            success: function (msg) {
-                if(msg.success){
-                    $(".questions-content").css({
-                        'background-image': 'url('+msg.bizContent+')'
-                    });
-                }
-            }
-        });
-    }
     //计时
 
     // 交卷时间
@@ -742,7 +725,7 @@ $(function () {
 
         $.each(data,function(index,value){
             var questionsId = value.test_id;
-            commitProcess(questionsId, false);
+            //commitProcess(questionsId, false);
 
         });
         console.log("网络连接不稳定，请您刷新页面重试。");
@@ -1000,7 +983,7 @@ $(function () {
         var webcam_json = {};
         var capture_id;
 
-        // 开启摄像头，拍照防作弊
+       /* // 开启摄像头，拍照防作弊
         if(capture==1){
             $("#webcam").webcam({
                 width: 320,
@@ -1034,32 +1017,9 @@ $(function () {
                             $("#webCamBar, #webcam").addClass("folded");
                         }, 10000)
                     }
-                }
+                }*/
             });
 
-            //点击试题拍照
-            $("body").on("click", ".question-content", function () {
-                //组合题题干排除
-                if(!$(this).hasClass("question-comb")){
-                    var questionId = $(this).attr("data-id");
-
-                    if(typeof(webcam_json[questionId])!='undefined' && webcam_json[questionId]==0) {
-                        webcam_json[questionId] = 1;
-                        $("#captureForm input[name=questionId]").val(questionId);
-                        webcam.capture(0);
-                    }
-                }
-            });
-        }
-
-        //显示摄像头
-        $("#webCamBar").click(function(e) {
-            $("#webCamBar, #webcam").removeClass("folded");
-        });
-        //隐藏摄像头
-        $("#webCamFold").click(function(e) {
-            $("#webCamBar, #webcam").addClass("folded");
-        });
 
         //获取随机试题
         function getRandom(min, max) {
@@ -1248,11 +1208,11 @@ $(function () {
                 restTime = parseInt(d.getTime()/1000) + maxTime;
             });
         }
-    })
+    });
 
     //**************************************防作弊**************************************
 
-});
+
 
 //提示弹窗
 function showSuccessTip(text){

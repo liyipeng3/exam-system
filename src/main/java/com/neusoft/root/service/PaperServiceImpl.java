@@ -38,6 +38,8 @@ public class PaperServiceImpl implements PaperService{
 	PaperService service2;
 	@Autowired
 	AdminMapper AdminMapper;
+	@Autowired
+	MyService MyService;
 	@Override
 	public Integer addRawPaper(JSONObject json) {
 		// TODO Auto-generated method stub
@@ -261,10 +263,10 @@ public class PaperServiceImpl implements PaperService{
 			}
 			else if(json.getString("testType"+x).equals("5"))//主观
 			{
-				String testid4 = json.getString("testIds4");
+				String testid4 = json.getString("testIds"+x);
 				testid4 = testid4.substring(0, testid4.length()-1);
 				String line4[] = testid4.split(",");
-				String querstionscores4 = json.getString("questionScores4");
+				String querstionscores4 = json.getString("questionScores"+x);
 				querstionscores4 = querstionscores4.substring(0,  querstionscores4.length()-1);
 				String scores4[] = querstionscores4.split(",");
 				for(int i=0;i<line4.length;i++)
@@ -631,7 +633,7 @@ public class PaperServiceImpl implements PaperService{
 		List<RawPaper>  paper2=  mapper.queryRawPaper(paper3);
 		Integer  PaperId = paper2.get(0).getPaperId();
 	//	System.out.println("PaperID"+PaperId);
-		ParsedPaper list3 = service2.queryParsedPaper(PaperId);
+		ParsedPaper list3 = MyService.queryParsedPaper(PaperId);
 				
 			//	System.out.println("最终"+list3.get(0));
 		return list3;
