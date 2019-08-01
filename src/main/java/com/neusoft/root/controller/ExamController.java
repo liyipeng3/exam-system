@@ -250,7 +250,6 @@ public class ExamController {
 		List<List<ParsedItem>> ITEMS = parsedPaper.getItems();
 		List<String> itemsScore = new ArrayList<>();
 		itemsScore.add("");
-		System.out.println(ITEMS.size());
 		for(int i = 1; i <= ITEMS.size()-1; i++){
 			Double score = 0.0;
 			for(int j = 0; j < ITEMS.get(i).size(); j++){
@@ -261,7 +260,6 @@ public class ExamController {
 		Gson gson = new Gson();
 		String json = gson.toJson(parsedPaper);
 		String postJson = gson.toJson(itemsScore);
-		System.out.println(postJson);
 		json = json.substring(0,json.length()-1);
 		postJson = "\"itemsScore\":"+postJson+"}";
 		json = json+","+"\"examTime\":"+time+","+postJson;
@@ -363,8 +361,8 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/post_result",method=RequestMethod.POST)
 	@ResponseBody
-	public String postResult(@RequestBody JSONObject jsonObject){
-		System.out.println(jsonObject.toJSONString());
+	public String postResult(@RequestBody JsonObject jsonObject){
+		System.out.println(jsonObject.toString());
 		return "ok";
 	}
 	/**
