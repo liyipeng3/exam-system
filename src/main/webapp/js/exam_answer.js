@@ -205,7 +205,7 @@ $(function () {
             }
         }
 
-        //console.log(e);
+        console.log(e);
     });
 
     // 是否强制交卷
