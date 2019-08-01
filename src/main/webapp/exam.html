@@ -89,7 +89,7 @@
     </div>
     <div class="body-wrapper">
         <div class="body paper">
-            <div class="questions">
+<!--            <div class="questions">
                 <div class="questions-title" id="">单选题(共10题，合计30.0分)</div>
                 <div class="questions-content">
                     <div class="question-content" id="5d3586c94cc11672dd3ad53b" data-id="5d3586c94cc11672dd3ad53b"
@@ -940,7 +940,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
+
         </div>
         <div class="tech-support"><span class="company-name"></span>
             提供技术支持
@@ -1018,7 +1019,7 @@
                     <div class="title_content">答题卡</div>
                 </div>
                 <div class="card-content-list">
-                    <div class="card-content">
+<!--                    <div class="card-content">
                         <div class="card-content-title">单选题(共10题，合计30.0分)</div>
                         <div class="box-list">
                             <div class="box normal-box question_cbox s1"><a
@@ -1185,7 +1186,7 @@
                             </div>
                         </div>
                         <div class="split"></div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="modal-footer"><span class="box icon-box s2"></span>
@@ -1272,6 +1273,16 @@
     var exam_results_id = "15230004"; //考试关联ID
 </script>
 <script type="text/javascript" src="/js/exam-base.js"></script>
+
+<script type="text/javascript" src="/js/wangEditor.js"></script>
+<script type="text/javascript" src="/js/uploadFile.js"></script>
+<script type="text/javascript" src="/js/basic.js"></script>
+<script type="text/javascript" src="/js/swfobject.js"></script>
+<script type="text/javascript" src="/js/recorder.js"></script>
+<script type="text/javascript" src="/js/expanding.js"></script>
+<script type="text/javascript" src="/js/stickUp.min.js"></script>
+<script type="text/javascript" src="/js/screenfull.js"></script>
+<script type="text/javascript" src="/js/exam_answer.js"></script>
 <script type="text/javascript">
     //提示弹窗
     function showSuccessTip(text) {
@@ -1292,15 +1303,6 @@
         $(".ksx-warn").fadeOut(3000);
     }
 </script>
-<script type="text/javascript" src="/js/wangEditor.js"></script>
-<script type="text/javascript" src="/js/uploadFile.js"></script>
-<script type="text/javascript" src="/js/basic.js"></script>
-<script type="text/javascript" src="/js/swfobject.js"></script>
-<script type="text/javascript" src="/js/recorder.js"></script>
-<script type="text/javascript" src="/js/expanding.js"></script>
-<script type="text/javascript" src="/js/stickUp.min.js"></script>
-<script type="text/javascript" src="/js/screenfull.js"></script>
-<script type="text/javascript" src="/js/exam_answer.js"></script>
 <script type="text/javascript">
     //考试计时
     var timeDownInterval;
@@ -1341,124 +1343,7 @@
         return (false);
     }
 
-    $.getJSON("/exam/get_parsed_paper_exam", "examId=" + getParam("exam_id"), function (e) {
-        var len = e.items.length - 1;
-        var bigItem = '';
 
-        for(var i = 1; i <= len; i++){
-            if(e.itemsType[i]=='单选题'){
-                bigItem+='<div class="questions">'
-                +           '<div class="questions-title" id="">单选题(共' +  e.items[i].length + '题，合计' + 'e.itemsScore[i]' + '分)</div>'
-                +        '</div>';
-
-                $bigItem = $(bigItem);
-                $.each(e.items[i], function (ind, ele) {
-                    var smallItem = '<div class="questions-content">'
-                                 +      '<div class="question-content" id="'+ele.itemId+'" data-id="'+ele.itemId+'" data-commit="false">'
-                                 +            '<div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"'
-                                 +                   ' data-placement="top" data-container="body" title="" data-original-title="标记本题"><i '
-                                 +                      ' class="icon icon-p_exam_tag_de"></i>'
-                                 +              '</div>'
-                                 +              '<div class="exam-question"><span class="question-index ellipsis">'+(ind + 1)+'.</span>'
-                                 +               ele.itemQuestion
-                                 +              '</div>'
-                                 +              '<div class="answers">'
-                                 +              '</div>'
-                                 +          '</div>'
-                                 +      '</div>';
-                    $smallItem = $(smallItem);
-                    $.each(ele.itemOption, function (index, element) {
-                        var answer =                '<div class="select single-select '+String.fromCharCode(97 + index)+'. ">'
-                                   +                      '<input type="radio" class="radioOrCheck hidden" data-type="1"'
-                                   +                             ' id="'+ele.itemId+(index + 1)+'" name="keyChk_questions_'+ele.itemId+'"'
-                                   +                             ' data-name="key'+(index + 1)+'">'
-                                   +                      '<label for="'+ele.itemId+(index + 1)+'"> <span class="select-icon"><i'
-                                   +                              ' class="icon icon-m_exam_correct"></i></span>'
-                                   +                        '<span class="words">'+String.fromCharCode(65 + index) +'. '+element  +' </span>'
-                                   +                      '</label>'
-                                   +                  '</div>';
-                        $smallItem.find('.answers').append($(answer));
-                    })
-                    $bigItem.append($smallItem);
-                    console.log($bigItem.html());
-                });
-            }
-            if(e.itemsType[i]=='多选题'){
-
-
-
-
-
-
-            }
-            if(e.itemsType[i]=='填空题'){
-
-
-
-
-
-
-            }
-            if(e.itemsType[i]=='问答题'){
-
-
-
-
-
-
-            }
-        }
-
-
-
-   bigItem+='<div class="questions">'
-          +      '<div class="questions-title" id="">单选题(共10题，合计30.0分)</div>'
-          +      '<div class="questions-content">'
-          +          '<div class="question-content" id="5d3586c94cc11672dd3ad53b" data-id="5d3586c94cc11672dd3ad53b" data-commit="false">'
-          +              '<div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" '
-          +                   ' data-placement="top" data-container="body" title="" data-original-title="标记本题"><i '
-          +                      ' class="icon icon-p_exam_tag_de"></i>'
-          +              '</div>'
-          +              '<div class="exam-question"><span class="question-index ellipsis">1.</span>'
-          +                  '在机场、商厦、地铁等公共场所乘自动扶梯时应靠（）站立,另一侧供有急事赶路的人快行。(3.0分)'
-          +              '</div>'
-          +              '<div class="answers">'
-          +                  '<div class="select single-select a. ">'
-          +                      '<input type="radio" class="radioOrCheck hidden" data-type="1"'
-          +                             ' id="5d3586c94cc11672dd3ad53b1" name="keyChk_questions_5d3586c94cc11672dd3ad53b"'
-          +                             ' data-name="key1">'
-          +                      '<label for="5d3586c94cc11672dd3ad53b1"> <span class="select-icon"><i'
-          +                              ' class="icon icon-m_exam_correct"></i></span>'
-          +                        '  <span class="words">A. 左侧 </span>'
-          +                      '</label>'
-          +                  '</div>'
-          +                  '<div class="select single-select b. ">'
-          +                      '<input type="radio" class="radioOrCheck hidden" data-type="1"'
-          +                             ' id="5d3586c94cc11672dd3ad53b2" name="keyChk_questions_5d3586c94cc11672dd3ad53b"'
-          +                             ' data-name="key2">'
-          +                      '<label for="5d3586c94cc11672dd3ad53b2"> <span class="select-icon">'
-          +                          '<i class="icon icon-m_exam_correct"></i></span>'
-          +                          '<span class="words">B. 右侧 </span>'
-          +                      '</label>'
-          +                  '</div>'
-          +                  '<div class="select single-select c. ">'
-          +                      '<input type="radio" class="radioOrCheck hidden" data-type="1"'
-          +                             ' id="5d3586c94cc11672dd3ad53b3" name="keyChk_questions_5d3586c94cc11672dd3ad53b"'
-          +                             ' data-name="key3">'
-          +                      '<label for="5d3586c94cc11672dd3ad53b3"> <span class="select-icon">'
-          +                          '<i class="icon icon-m_exam_correct"></i></span>'
-          +                          '<span class="words">C. 中间  </span>'
-          +                      '</label>'
-          +                  '</div>'
-          +              '</div>'
-          +          '</div>'
-          +      '</div>'
-          +  '</div>';
-
-
-
-        console.log(e);
-    });
 </script>
 </body>
 

@@ -106,6 +106,10 @@ public class WebController {
 	public String course_mgr() {
 		return "/html/study/course_mgr.html";
 	}
+	@RequestMapping("/html/study/course_add")
+	public String course_add() {
+		return "/html/study/course_add.html";
+	}
 	@RequestMapping("/html/study/study_record_mgr")
 	public String study_record_mgr() {
 		return "/html/study/study_record_mgr.html";
