@@ -586,7 +586,7 @@ $(function () {
                 "exam_info_id": exam_info_id
             };
             console.log(questionsData);
-            result.add(questionsData);
+            result.push(questionsData);
             //ajax_post("/exam/post_result",questionsData );
             answered_multi_all.push(questionsData);
             commitProcess(questionsId, true);
@@ -614,7 +614,7 @@ $(function () {
             "exam_info_id": exam_info_id
         };
         console.log(questionsData);
-        result.add(questionsData);
+        result.push(questionsData);
         //ajax_post("/exam/post_result",questionsData );
         if (!hasSave) {
             answered_multi_all.push(questionsData);
