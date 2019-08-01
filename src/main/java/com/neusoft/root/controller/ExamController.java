@@ -27,6 +27,7 @@ import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
 import com.neusoft.root.domain.RawPaper;
+import com.neusoft.root.domain.StudentResult;
 import com.neusoft.root.domain.Subjects;
 import com.neusoft.root.service.CourseServiceImpl;
 import com.neusoft.root.service.ExamServiceImpl;
@@ -328,21 +329,6 @@ public class ExamController {
 		return "ok";
 	}
 	/**
-	 * 获得学生答卷列表
-	 * 
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value="/get_raw_result",method=RequestMethod.GET)
-	@ResponseBody
-	public String getRawResult(HttpServletRequest request){
-		HttpSession session = request.getSession();
-		String username = session.getAttribute("username").toString();
-		/*Gson gson = new Gson();
-		String json = gson.toJson();*/
-		return "ok";
-	}
-	/**
 	 * 获得学生答卷
 	 * 
 	 * @param studentId
@@ -386,8 +372,31 @@ public class ExamController {
 	@RequestMapping(value="/pull_results",method=RequestMethod.GET)
 	@ResponseBody
 	public String pullResults(Integer examId){
-		
-		return "ok";
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("examId", examId);
+		List<StudentResult> results = myService.queryStudentResult(examId);
+		Exam exam = examService.queryExam(jsonObject).get(0);
+		String jsons = "[";
+		for(int i = 0; i < results.size(); i++){
+			JSONObject json = new JSONObject();
+			json.put("studentId", results.get(i).getStudentId());
+			json.put("studentName", results.get(i).getStudentName());
+			json.put("studentSchool", results.get(i).getStudentSchool());
+			json.put("submitDate", results.get(i).getSubmitDate());
+			json.put("examScore", results.get(i).getExamScore());
+			Double sco = results.get(i).getExamScore();
+			Double pass = exam.getPassScore();
+			if(sco >= pass){
+				json.put("pass", true);
+			}
+			else{
+				json.put("pass", false);
+			}
+			jsons += json.toJSONString()+",";
+		}
+		jsons = jsons.substring(0, jsons.length()-1)+"]";
+		System.out.println(jsons);
+		return jsons;
 	}
 	/**
 	 * 提交批改结果
@@ -579,10 +588,5 @@ public class ExamController {
 		}
 		json.addProperty("itemsNumber", String.valueOf(num));
 		return json.toString();
-	}
-	@RequestMapping(value="/add_course", method=RequestMethod.POST)
-	@ResponseBody
-	public String addCourse(@RequestBody JSONObject jsonObject){
-		return "ok";
 	}
 }

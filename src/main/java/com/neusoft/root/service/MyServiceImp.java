@@ -152,6 +152,7 @@ public class MyServiceImp implements MyService
 	@Override
 	public List<StudentResult> queryStudentResult(Integer examId) 
 	{
+		System.out.println(examId);
 		//新建立返回结果
 		 List<StudentResult> studentResults = new ArrayList<>();
 		

@@ -20,7 +20,7 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public void addCourse(JSONObject json) {
 		// TODO Auto-generated method stub
-		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"),json.getString("courseBegin"),json.getString("courseEnd"),json.getString("courseRemark"),json.getString("courseStatus"));
+		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseDesc"),json.getString("courseStartTime"),json.getString("courseEndTime"),json.getString("courseRemark"),json.getString("status"));
 		mapper.addCource(course);
 	}
 
@@ -34,15 +34,15 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public void updateCourse(JSONObject json) {
 		// TODO Auto-generated method stub
-		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseType"),json.getString("courseBegin"),json.getString("courseEnd"),json.getString("courseRemark"),json.getString("courseStatus"));
+		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseDesc"),json.getString("courseStartTime"),json.getString("courseEndTime"),json.getString("courseRemark"),json.getString("status"));
 		Map<String, Object> map = new HashMap<>();
-		map.put("ids",course.getCourseId());
+		map.put("courseId",course.getCourseId());
 		map.put("courseName",course.getCourseName());
-		map.put("courseType",course.getCourseType());
-		map.put("courseBegin", course.getCourseBegin());
-		map.put("courseEnd", course.getCourseEnd());
+		map.put("courseDesc",course.getCourseType());
+		map.put("courseStartTime", course.getCourseBegin());
+		map.put("courseEndTime", course.getCourseEnd());
 		map.put("courseRemark", course.getCourseRemark());
-		map.put("courseStatus", course.getCourseStatus());
+		map.put("status", course.getCourseStatus());
 		mapper.updateCourse(map);
 	}
 

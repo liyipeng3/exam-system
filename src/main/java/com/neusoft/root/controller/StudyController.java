@@ -16,12 +16,17 @@ import com.alibaba.fastjson.JSONObject;
 @Controller
 @RequestMapping("/study")
 public class StudyController {
-	@RequestMapping(value="/add_course",method=RequestMethod.POST)
+
+	/**
+	 * 添加课程
+	 * 
+	 * @param jsonObject
+	 * @return
+	 */
+	@RequestMapping(value="/add_course", method=RequestMethod.POST)
 	@ResponseBody
 	public String addCourse(@RequestBody JSONObject jsonObject){
-		System.out.println(jsonObject.toJSONString());
-		 return "ok";
-	 }
-
-
+		
+		return "ok";
+	}
 }
