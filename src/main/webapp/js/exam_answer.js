@@ -806,7 +806,7 @@ $(function () {
                             clearInterval(progress);
                             clearInterval(time);
                             console.log(Array.from(result));
-                            ajax_post("/exam/post_result" ,Array.from(result).toString());
+                            ajax_post("/exam/post_result" ,Array.from(result));
                             //window.location.href = "/exam_result?examResultsId=" + exam_results_id;
                         }
                     }, 120);
