@@ -49,9 +49,30 @@ public class ResultServiceImpl implements ResultService{
 		String date ="";
 		boolean flag =false;
 		List<Integer> list = new ArrayList<>();
-		for(int j=jsonx.size()-1;j<0;j--)
+		for(int j=jsonx.size()-1;j>=0;j--)
 		{
+			flag=false;
 			JSONObject json = jsonx.get(j);
+			 Integer itemId = Integer.valueOf(json.getString("test_id"));
+			for(Integer num:list)
+			{
+				if(num==itemId)
+				{
+					System.out.println("num"+num);
+					flag=true;
+					break;
+				}
+			}
+			System.out.println("flag"+flag);
+			if(flag)
+			{
+				flag =false;
+				continue;
+			}
+			else
+			{
+				list.add(itemId);
+			}
 			studentId = json.getString("username");
 			Integer examId = Integer.valueOf(json.getString("exam_id"));
 			date = json.getString("date");
@@ -65,22 +86,10 @@ public class ResultServiceImpl implements ResultService{
 			}
 				Exam exam = examlist.get(0);
 				paperId = exam.getPaperId();
-				for(Integer num:list)
-				{
-					if(num==paperId)
-					{
-						flag=true;
-						break;
-					}
-				}
-				if(flag)
-				{
-					flag =false;
-					continue;
-				}
+				
 				ParsedPaper paperlist = myService.queryParsedPaper(paperId);
 				teacherId = paperlist.getCreaterId();
-				 Integer itemId = Integer.valueOf(json.getString("test_id"));
+				
 				 List<ParsedItem> itemlist= ItemService.queryParsedItem(itemId);
 				 if(itemlist.size()!=1)
 				 {
@@ -153,6 +162,7 @@ public class ResultServiceImpl implements ResultService{
 		subjective = subjective.substring(0, subjective.length()-3);
 		RawResult result = new RawResult(studentId, paperId, teacherId, single, multi, fill, subjective, date, "yes");
 		System.out.println(result);
+		System.out.println(list.toString());
 		student.addResult(result);
 	}	
 }
