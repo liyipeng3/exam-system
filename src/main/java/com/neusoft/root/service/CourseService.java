@@ -16,16 +16,7 @@ public interface CourseService {
 	 * @param json course串
 	 */
 	public void addCourse(JSONObject json);
-	/**
-	 * 删除课程
-	 * @param json course串
-	 */
-	public void deleteCourse(String courseId);
-	/**
-	 * 更新课程
-	 * @param json course串
-	 */
-	public void updateCourse(JSONObject json);
+	
 	/**
 	 * 查询课程
 	 * @param json course串

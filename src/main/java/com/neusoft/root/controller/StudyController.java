@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import com.neusoft.root.service.CourseService;
 /**
  * 
@@ -31,5 +32,17 @@ public class StudyController {
 	public String addCourse(@RequestBody JSONObject jsonObject){
 		courseService.addCourse(jsonObject);
 		return "ok";
+	}
+	/**
+	 * 查询课程
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/query_course",method=RequestMethod.GET)
+	@ResponseBody
+	public String queryCourse(){
+		Gson gson = new Gson();
+		System.out.println(gson.toJson(courseService.queryCourse(null)));
+		return gson.toJson(courseService.queryCourse(null));
 	}
 }

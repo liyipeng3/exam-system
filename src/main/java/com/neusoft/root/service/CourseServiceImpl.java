@@ -20,39 +20,27 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public void addCourse(JSONObject json) {
 		// TODO Auto-generated method stub
-		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseDesc"),json.getString("courseStartTime"),json.getString("courseEndTime"),json.getString("courseRemark"),json.getString("status"));
+		Course course = new Course(1,json.getString("courseName"), json.getString("courseDesc"),json.getString("courseStartTime"),json.getString("courseEndTime"),json.getString("courseRemark"),json.getString("status"));
 		mapper.addCource(course);
 	}
 
-	@Override
-	public void deleteCourse(String courseId) {
-		// TODO Auto-generated method stub
-		Course course = new Course();
-		course.setCourseId(courseId);
-		mapper.deleteCourse(course);
-	}
-	@Override
-	public void updateCourse(JSONObject json) {
-		// TODO Auto-generated method stub
-		Course course = new Course(json.getString("courseId"),json.getString("courseName"), json.getString("courseDesc"),json.getString("courseStartTime"),json.getString("courseEndTime"),json.getString("courseRemark"),json.getString("status"));
-		Map<String, Object> map = new HashMap<>();
-		map.put("courseId",course.getCourseId());
-		map.put("courseName",course.getCourseName());
-		map.put("courseDesc",course.getCourseType());
-		map.put("courseStartTime", course.getCourseBegin());
-		map.put("courseEndTime", course.getCourseEnd());
-		map.put("courseRemark", course.getCourseRemark());
-		map.put("status", course.getCourseStatus());
-		mapper.updateCourse(map);
-	}
+	
 
 	@Override
 	public List<Course> queryCourse(String id) {
 		// TODO Auto-generated method stub
-		Course course = new Course();
-		course.setCourseId(id);
-		List<Course> list = mapper.queryCourse(course);
-		return list;
+		if(id==null||id.equals(""))
+		{
+			List<Course> list = mapper.queryCourse(null);
+			return list;
+		}
+		else
+		{
+			Course course = new Course();
+			course.setCourseId(Integer.valueOf(id));
+			List<Course> list = mapper.queryCourse(course);
+			return list;
+		}
 	}
 
 	@Override
