@@ -31,6 +31,7 @@ import com.neusoft.root.domain.Subjects;
 import com.neusoft.root.service.CourseServiceImpl;
 import com.neusoft.root.service.ExamServiceImpl;
 import com.neusoft.root.service.PaperServiceImpl;
+import com.neusoft.root.service.ResultService;
 import com.neusoft.root.service.ItemServiceImpl;
 import com.neusoft.root.service.MyServiceImp;
 
@@ -53,6 +54,8 @@ public class ExamController {
 	private ExamServiceImpl examService;
 	@Autowired
 	private MyServiceImp myService;
+	@Autowired
+	private ResultService resultService;
 	/**
 	 * 获得所有试卷
 	 * 
@@ -370,7 +373,20 @@ public class ExamController {
 		for(JSONObject json:jsonObjects){
 			json.put("username", username);
 			json.put("date", date);
+			System.out.println(json.toJSONString());
 		}
+		resultService.addResult(jsonObjects);
+		return "ok";
+	}
+	/**
+	 * 获取批改结果
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/pull_results",method=RequestMethod.GET)
+	@ResponseBody
+	public String pullResults(Integer examId){
+		
 		return "ok";
 	}
 	/**
