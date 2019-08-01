@@ -109,7 +109,7 @@ public class ResultServiceImpl implements ResultService{
 						 {
 							 if(answer[i].equals("key"+k))
 							 {
-								 List<String> itemanswer = itemlist.get(0).getItemAnswer();
+								 List<String> itemanswer = itemlist.get(0).getItemOption();
 								 endanswer.add(itemanswer.get(k-1 ));
 							 }
 						 }
