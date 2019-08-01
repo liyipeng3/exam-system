@@ -41,7 +41,7 @@ $(function () {
                             show: data.allowPaperMgr
                         },
                         {
-                            title: '成绩查询批改',
+                            title: '成绩查询',
                             id: 'ResultMgr',
                             url: getAdminUrlPrefix + '/admin/result/mgr_new',
                             show: data.allowResultMgr

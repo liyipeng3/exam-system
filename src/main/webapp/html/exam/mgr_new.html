@@ -31,7 +31,6 @@
     <style type="text/css">
     </style>
     <link rel="stylesheet" href="../../css/laydate.css" id="layuicss-laydate">
-    <style></style>
 </head>
 
 <body class="">
@@ -46,37 +45,7 @@
             <div class="body-toolbar clearfix">
                 <div class="body-toolbar-left pull-left toolbar-left-operation">
                     <button type="button" class="btn btn-default" id="selTypeLink"><i
-                            class="icon-a_btn_select btn-icon-left"></i>选择考试
-                    </button>
-                    <div class="btn-group customer-btn-group">
-                        <a class="btn btn-default dropdown-toggle  " data-toggle="dropdown"
-                           href="/html/exam/mgr_new#"
-                           style="line-height: 24px;padding: 0;" aria-expanded="false"> <i
-                                class="icon-a_btn_derivation btn-icon-left"></i>
-                            导出</a>
-                        <ul class="dropdown-menu page-dropdown-menu"><span class="horn"></span>
-
-                            <li><a href="/html/exam/mgr_new#" class="exportBtn_results">考生成绩</a>
-                            </li>
-                            <li><a href="/html/exam/mgr_new#" class="exportBtn_answer">考生答案</a>
-                            </li>
-                            <li><a href="/html/exam/mgr_new#" class="exportBtn_paper">考生答卷</a>
-                            </li>
-                            <li><a href="/html/exam/mgr_new#" class="exportBtn_absence">未参考人员</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn btn-default" id="forceSubmitBtn"><i
-                            class="icon btn-icon-left icon-a_btn_batch"></i>
-                        批量交卷
-                    </button>
-                    <button type="button" class="btn btn-default addsexit disable" disabled="" id="addexitBtn"><i
-                            class="icon btn-icon-left  icon-a_operate_retake"></i>
-                        批量补考
-                    </button>
-                    <button type="button" class="btn btn-default" id="moreOpt"><i
-                            class="icon-a_btn_custom_column icon btn-icon-left"></i>
-                        更多
+                            class="icon-a_btn_select btn-icon-left"></i>查询
                     </button>
                     <ul data-show="0" class="el-dropdown-menu el-popper ksx-dropdown check" id="moreOptList"
                         style="position: absolute; top: 52px; left: 604px; display: none;" x-placement="bottom-end">
@@ -215,7 +184,7 @@
                                 </div>
                                 <span class="nav-title">考试管理</span>
                             </a>
-                            <ul class="sub-menu animate" style="height: 150px;">
+                            <ul class="sub-menu animate" style="height: 157px;">
                                 <li class="nav-item sub-nav-item" id="subNavItemExamMgr"><a
                                         href="/html/exam/exam_mgr_new"><span class="nav-title">考试信息管理</span></a>
                                 </li>
@@ -228,7 +197,7 @@
                                 </li>
                                 <li class="nav-item sub-nav-item nav-item-active" id="subNavItemResultMgr"><a
                                         href="/html/exam/mgr_new"><span
-                                        class="nav-title">成绩查询批改</span></a>
+                                        class="nav-title">成绩查询</span></a>
                                 </li>
                                 <!-- <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
                                         href="/html/exam/exam_analysis"><span
@@ -271,7 +240,7 @@
                                 </li>
                             </ul>
                         </li>
-                      
+
                         <li class="nav-item has-sub-menu" id="navItemSystem">
                             <a href="/html/exam/mgr_new#" class="menu-title"
                                data-toggle="tooltip" data-placement="right" data-container="body" title="系统管理">
@@ -284,7 +253,7 @@
                                         href="/html/system/sub_admin_mgr"><span
                                         class="nav-title">子管理员设置</span></a>
                                 </li>
-                                
+
                                 <li class="nav-item sub-nav-item" id="subNavItemOpRecord"><a
                                         href="/html/system/admin_op_record"><span
                                         class="nav-title">管理员操作记录</span></a>
@@ -383,69 +352,539 @@
             </div>
             <div class="body-wrapper">
                 <div class="body-content">
-                    <div class="cont-r">
-                        <ul class="ksx-tabs-card" role="tablist">
-                            <li class="ksx-tab-item active"><a
-                                    href="https://admin..com/admin/result/mgr_new/">
-                                按考试查询批改
-                            </a>
-
-                            </li>
-                            <li class="ksx-tab-item" aria-controls="manual" role="tab"><a
-                                    href="https://admin..com/admin/result/user_mgr_new/">
-                                按考生查询批改
-                            </a>
-
-                            </li>
-                            <li class="ksx-item-right "><span class="islook">考生信息对子管理员可见</span>
-
-                                <div id="islook_box"><i class="icons8-help " id="islook_tips" data-container="body"
-                                                        data-toggle="popover" data-placement="top" data-trigger="hover"
-                                                        data-content="关闭后，所有子管理员不可见考生相关信息，同时无法进行导出、下载、按考生查询批改等相关功能"
-                                                        data-original-title="" title=""></i>
-                                    <span class="switch-hidden switch-wechatSkipLogin-copy switch-on"
-                                          islook="0">
-                        <span class="slider"></span>
-</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="byTest">
                             <div class="tab-wrap1">
-                                <div class="rqm-table1"></div>
-                                <div class="devide-line"></div>
-                                <div class="rqm-table2 com-drop">
-                                    <table id="grid-data" class="table">
-                                        <thead>
-                                        <tr>
-                                            <th data-column-id="id" data-visible="false" data-type="numeric"
-                                                data-identifier="true" data-formatter="id"></th>
-                                            <th data-column-id="userName" data-formatter="userName" data-type="numeric"
-                                                data-width="10%">账号
-                                            </th>
-                                            <th data-column-id="surname" data-sortable="false" data-width="10%">用户名</th>
-                                            <th data-column-id="examVerifyStatus" data-formatter="verify"
-                                                data-sortable="false" data-width="12%">身份认证状态
-                                            </th>
-                                            <th data-column-id="depName" data-sortable="false" data-width="10%">所属部门
-                                            </th>
-                                            <th data-column-id="results" data-width="6%">分数</th>
-                                            <th data-column-id="isPass" data-sortable="false" data-width="8%">及格</th>
-                                            <th data-column-id="isMakeup" data-formatter="isMakeup"
-                                                data-sortable="false" data-width="8%">是否为补考
-                                            </th>
-                                            <th data-column-id="isForce" data-formatter="isForce" data-sortable="false"
-                                                data-width="8%">强制交卷
-                                            </th>
-                                            <th data-column-id="commitTime" data-width="13%">交卷时间</th>
-                                            <th data-column-id="sender" data-formatter="link" data-sortable="false">操作
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                    </table>
+                                <div class="tab-wrap1">
+                                    <div class="body-content">
+                                        <div class="table-responsive">
+                                            <div class="JCLRgrips" style="width: 1650px;">
+                                                <div class="JCLRgrip" style="left: 60px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip" style="left: 268px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip" style="left: 407px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip" style="left: 546px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip" style="left: 754px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip" style="left: 962px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip" style="left: 1133px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip" style="left: 1341px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip" style="left: 1549px; height: 99px;">
+                                                    <div class="JColResizer"></div>
+                                                </div>
+                                                <div class="JCLRgrip JCLRLastGrip"
+                                                     style="left: 1686px; height: 99px;"></div>
+                                            </div>
+                                            <table id="m-data" class="table text-nowrap bootgrid-table JColResizer"
+                                                   aria-busy="false">
+                                                <thead>
+                                                <tr id="select_all">
+                                                    <th class="select-cell" style="width: 3.5%;">
+                                                    </th>
+                                                    <th data-column-id="examName" class="text-left"
+                                                        style="width: 12.3%;"><a href="javascript:void(0);"
+                                                                                 class="column-header-anchor "><span
+                                                            class="text">考试名称</span><span
+                                                            class="icon glyphicon "></span></a>
+                                                    </th>
+                                                    <th data-column-id="examStyleName" class="text-left"
+                                                        style="width: 8.2%;"><a href="javascript:void(0);"
+                                                                                class="column-header-anchor "><span
+                                                            class="text">&nbsp;&nbsp;科目</span><span class="icon glyphicon "></span></a>
+                                                    </th>
+                                                    <th data-column-id="paperTotalScore" class="text-left"
+                                                        style="width: 8.2%;"><a href="javascript:void(0);"
+                                                                                class="column-header-anchor "><span
+                                                            class="text">总分</span><span class="icon glyphicon "></span></a>
+                                                    </th>
+                                                    <th data-column-id="examStartTime" class="text-left"
+                                                        style="width: 12.3%;"><a href="javascript:void(0);"
+                                                                                 class="column-header-anchor sortable"><span
+                                                            class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开始时间</span><span
+                                                            class="icon glyphicon "></span></a>
+                                                    </th>
+                                                    <th data-column-id="examEndTime" class="text-left"
+                                                        style="width: 12.4%;"><a href="javascript:void(0);"
+                                                                                 class="column-header-anchor sortable"><span
+                                                            class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结束时间</span><span
+                                                            class="icon glyphicon "></span></a>
+                                                    </th>
+                                                    <th data-column-id="createUserName" class="text-left"
+                                                        style="width: 10.2%;"><a href="javascript:void(0);"
+                                                                                 class="column-header-anchor "><span
+                                                            class="text">&nbsp;创建人</span><span class="icon glyphicon "></span></a>
+                                                    </th>
+                                                    <th data-column-id="createTime" class="text-left"
+                                                        style="width: 12.4%;"><a href="javascript:void(0);"
+                                                                                 class="column-header-anchor sortable"><span
+                                                            class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间</span><span
+                                                            class="icon glyphicon "></span></a>
+                                                    </th>
+                                                    <th data-column-id="setProcess" class="text-left"
+                                                        style="width: 2.4%;"><a href="javascript:void(0);"
+                                                                                class="column-header-anchor sortable"><span
+                                                            class="text"></span><span
+                                                            class="icon glyphicon "></span></a>
+                                                    </th>
+                                                    <th data-column-id="sender" class="text-left" style="width: 18.2%;">
+                                                        <a href="javascript:void(0);"
+                                                           class="column-header-anchor "><span
+                                                                class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作</span><span
+                                                                class="icon glyphicon icons8-settings"></span></a>
+
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="exams">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="data-footer" class="bootgrid-footer container-fluid">
+                                            <div class="row">
+                                                <div class="col-sm-6 infoBar">
+                                                    <div class="infos">共0项记录</div>
+                                                    <div class="actions btn-group">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-default dropdown-toggle"
+                                                                    type="button" data-toggle="dropdown"><span
+                                                                    class="dropdown-text page-count-span">每页10项</span>
+                                                                <span class="caret"></span>
+                                                            </button>
+                                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                                <li aria-selected="false"><a
+                                                                        href="../../html/exam/exam_mgr_new.html#10"
+                                                                        class="dropdown-item dropdown-item-button">10</a>
+                                                                </li>
+                                                                <li aria-selected="false"><a
+                                                                        href="../../html/exam/exam_mgr_new.html#20"
+                                                                        class="dropdown-item dropdown-item-button">20</a>
+                                                                </li>
+                                                                <li aria-selected="false"><a
+                                                                        href="../../html/exam/exam_mgr_new.html#50"
+                                                                        class="dropdown-item dropdown-item-button">50</a>
+                                                                </li>
+                                                                <li aria-selected="false"><a
+                                                                        href="../../html/exam/exam_mgr_new.html#100"
+                                                                        class="dropdown-item dropdown-item-button">100</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-default dropdown-toggle"
+                                                                    type="button" data-toggle="dropdown"><span
+                                                                    class="dropdown-text"><span
+                                                                    class="icon glyphicon icons8-settings"></span>自定义设置</span>
+                                                                <span class="caret"></span>
+                                                            </button>
+                                                            <ul class="dropdown-menu pull-right custom-settings"
+                                                                role="menu">
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="id" type="checkbox" value="1"
+                                                                               class="dropdown-item-checkbox">
+                                                                    </label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="examName" type="checkbox" value="1"
+                                                                               class="dropdown-item-checkbox"
+                                                                               checked="checked">考试名称</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="examStyleName" type="checkbox"
+                                                                               value="1" class="dropdown-item-checkbox"
+                                                                               checked="checked">科目</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="paperTotalScore" type="checkbox"
+                                                                               value="1" class="dropdown-item-checkbox"
+                                                                               checked="checked">总分</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="examStartTime" type="checkbox"
+                                                                               value="1" class="dropdown-item-checkbox"
+                                                                               checked="checked">开始时间</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="examEndTime" type="checkbox"
+                                                                               value="1" class="dropdown-item-checkbox"
+                                                                               checked="checked">结束时间</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="createUserName" type="checkbox"
+                                                                               value="1" class="dropdown-item-checkbox"
+                                                                               checked="checked">创建人</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="createTime" type="checkbox"
+                                                                               value="1" class="dropdown-item-checkbox"
+                                                                               checked="checked">创建时间</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="modifier" type="checkbox" value="1"
+                                                                               class="dropdown-item-checkbox">修改人</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="modifiedTime" type="checkbox"
+                                                                               value="1" class="dropdown-item-checkbox">修改时间</label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="setProcess" type="checkbox"
+                                                                               value="1" class="dropdown-item-checkbox"
+                                                                               checked="checked"></label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="dropdown-item">
+                                                                        <input name="sender" type="checkbox" value="1"
+                                                                               class="dropdown-item-checkbox"
+                                                                               checked="checked">操作</label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <ul class="pagination">
+                                                        <li class="first disabled" aria-disabled="true"><a
+                                                                href="../../html/exam/exam_mgr_new.html#first"
+                                                                class="button"><i class="icons8-icon"></i></a>
+                                                        </li>
+                                                        <li class="prev disabled" aria-disabled="true"><a
+                                                                href="../../html/exam/exam_mgr_new.html#prev"
+                                                                class="button"><i class="icons8-back-filled"></i></a>
+                                                        </li>
+                                                        <li class="page-1 disabled active" aria-disabled="true"
+                                                            aria-selected="true"><a
+                                                                href="../../html/exam/exam_mgr_new.html#1"
+                                                                class="button">1</a>
+                                                        </li>
+                                                        <li class="next disabled" aria-disabled="true"><a
+                                                                href="../../html/exam/exam_mgr_new.html#next"
+                                                                class="button"><i class="icons8-forward-filled"></i></a>
+                                                        </li>
+                                                        <li class="last disabled" aria-disabled="true"><a
+                                                                href="../../html/exam/exam_mgr_new.html#last"
+                                                                class="button"><i class="icons8-icon-3"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="devide-line"></div>
+                                    <div class="rqm-table2 com-drop">
+
+                                        <div class="JCLRgrips" style="width: 1670px;">
+                                            <div class="JCLRgrip" style="left: 47px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 113px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 179px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 258px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 323px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 360px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 411px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 462px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 513px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip" style="left: 599px; height: 147px;">
+                                                <div class="JColResizer"></div>
+                                            </div>
+                                            <div class="JCLRgrip JCLRLastGrip"
+                                                 style="left: 680px; height: 147px;"></div>
+                                        </div>
+                                        <table id="my-data" class="table bootgrid-table JColResizer"
+                                               aria-busy="false">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-left" style="width: 5%;"></th>
+                                                <th data-column-id="userName" class="text-left" style="width: 15%;"><a
+                                                        href="javascript:void(0);"
+                                                        class="column-header-anchor sortable"><span
+                                                        class="text">&nbsp;&nbsp;&nbsp;账号ID</span><span class="icon glyphicon "></span></a>
+                                                </th>
+                                                <th data-column-id="surname" class="text-left" style="width: 10%;"><a
+                                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                                        class="text">&nbsp;用户名</span><span class="icon glyphicon "></span></a>
+                                                </th>
+                                                <th data-column-id="examVerifyStatus" class="text-left"
+                                                    style="width: 0%;"><a href="javascript:void(0);"
+                                                                             class="column-header-anchor "><span
+                                                        class="text"></span><span class="icon glyphicon "></span></a>
+                                                </th>
+                                                <th data-column-id="depName" class="text-left" style="width: 10%;"><a
+                                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                                        class="text">&nbsp;&nbsp;所属学校</span><span
+                                                        class="icon glyphicon "></span></a></th>
+                                                <th data-column-id="results" class="text-left" style="width: 15%;"><a
+                                                        href="javascript:void(0);"
+                                                        class="column-header-anchor sortable"><span
+                                                        class="text">&nbsp;分数</span><span class="icon glyphicon "></span></a>
+                                                </th>
+                                                <th data-column-id="isPass" class="text-left" style="width: 15%;"><a
+                                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                                        class="text">是否及格</span><span class="icon glyphicon "></span></a>
+                                                </th>
+                                                <th data-column-id="isMakeup" class="text-left" style="width: 0%;"><a
+                                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                                        class="text"></span><span
+                                                        class="icon glyphicon "></span></a></th>
+                                                <th data-column-id="isForce" class="text-left" style="width: 0%;"><a
+                                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                                        class="text"></span><span
+                                                        class="icon glyphicon "></span></a></th>
+                                                <th data-column-id="commitTime" class="text-left" style="width: 20%;">
+                                                    <a href="javascript:void(0);" class="column-header-anchor sortable"><span
+                                                            class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交卷时间</span><span
+                                                            class="icon glyphicon "></span></a></th>
+                                                <th data-column-id="sender" class="text-left" style="width: 12.5%;"><a
+                                                        href="javascript:void(0);" class="column-header-anchor "><span
+                                                        class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作
+                            </span><span class="icon glyphicon icons8-settings"></span></a></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="">
+                                                <td  class="text-left" style="width:0%;" style=""></td>
+                                                <td class="text-left" style="width:10%;">18912366782<input
+                                                        class="user_id_hidden" type="hidden" value="7835047"></td>
+                                                <td class="text-left" style="width:10%;">试试</td>
+                                                <td class="text-left" style="width:1%;"></td>
+                                                <td class="text-left" style="width:20%;">部门分类</td>
+                                                <td class="text-left" style="width:20%;">20</td>
+                                                <td class="text-left" style="width:15%;">否</td>
+                                                <td class="text-left" style="width:1%;"></td>
+                                                <td class="text-left" style="width:1%;"></td>
+                                                <td class="text-left" style="width:13%;">2019-08-01 10:28:20</td>
+                                                <td class="text-left" style=""><a href="#"
+                                                                                  data-growing-title="markPaper"
+                                                                                  class="icon-a_operate_mark markExam"
+                                                                                  data-toggle="tooltip"
+                                                                                  data-placement="top"
+                                                                                  data-container="body" title=""
+                                                                                  examresultid="15286470"
+                                                                                  user_name="18912366782"
+                                                                                  data-original-title="判分"></a><a
+                                                        href="#" data-growing-title="addexit"
+                                                        class="icon-a_operate_retake addexit disabled"
+                                                        data-toggle="tooltip" data-placement="top" data-container="body"
+                                                        title="" examresultid="15286470" status="0"
+                                                        data-original-title="补考"></a><a href="#"
+                                                                                        data-growing-title="download"
+                                                                                        class="icon-a_operate_download download"
+                                                                                        data-toggle="tooltip"
+                                                                                        data-placement="top"
+                                                                                        data-container="body" title=""
+                                                                                        examresultid="15286470"
+                                                                                        data-original-title="下载"></a><a
+                                                        href="#" data-growing-title="removeExamGrade"
+                                                        class="icon-a_operate_delete removeExamGrade"
+                                                        data-toggle="tooltip" data-placement="top" data-container="body"
+                                                        title="" examresultid="15286470" data-original-title="删除"></a>
+                                                </td>
+                                            </tr>
+                                            <tr class="">
+                                                <td  class="text-left" style="width:0%;" style=""></td>
+                                                <td class="text-left" style="width:10%;">18912366782<input
+                                                        class="user_id_hidden" type="hidden" value="7835047"></td>
+                                                <td class="text-left" style="width:10%;">试试</td>
+                                                <td class="text-left" style="width:12%;"></td>
+                                                <td class="text-left" style="width:10%;">部门分类</td>
+                                                <td class="text-left" style="width:6%;">30</td>
+                                                <td class="text-left" style="width:8%;">否</td>
+                                                <td class="text-left" style="width:8%;"></td>
+                                                <td class="text-left" style="width:8%;"></td>
+                                                <td class="text-left" style="width:13%;">2019-08-01 09:37:50</td>
+                                                <td class="text-left" style=""><a href="#"
+                                                                                  data-growing-title="markPaper"
+                                                                                  class="icon-a_operate_mark markExam"
+                                                                                  data-toggle="tooltip"
+                                                                                  data-placement="top"
+                                                                                  data-container="body" title=""
+                                                                                  examresultid="15253960"
+                                                                                  user_name="18912366782"
+                                                                                  data-original-title="判分"></a><a
+                                                        href="#" data-growing-title="addexit"
+                                                        class="icon-a_operate_retake addexit disabled"
+                                                        data-toggle="tooltip" data-placement="top" data-container="body"
+                                                        title="" examresultid="15253960" status="0"
+                                                        data-original-title="补考"></a><a href="#"
+                                                                                        data-growing-title="download"
+                                                                                        class="icon-a_operate_download download"
+                                                                                        data-toggle="tooltip"
+                                                                                        data-placement="top"
+                                                                                        data-container="body" title=""
+                                                                                        examresultid="15253960"
+                                                                                        data-original-title="下载"></a><a
+                                                        href="#" data-growing-title="removeExamGrade"
+                                                        class="icon-a_operate_delete removeExamGrade"
+                                                        data-toggle="tooltip" data-placement="top" data-container="body"
+                                                        title="" examresultid="15253960" data-original-title="删除"></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <div id="grid-data-footer" class="bootgrid-footer container-fluid">
+                                            <div class="row">
+                                                <div class="col-sm-6 infoBar">
+                                                    <div class="infos">共2项记录</div>
+                                                    <div class="actions btn-group">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-default dropdown-toggle"
+                                                                    type="button" data-toggle="dropdown"><span
+                                                                    class="dropdown-text page-count-span">每页10项</span>
+                                                                <span class="caret"></span></button>
+                                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                                <li class="active" aria-selected="true"><a href="#10"
+                                                                                                           class="dropdown-item dropdown-item-button">10</a>
+                                                                </li>
+                                                                <li aria-selected="false"><a href="#20"
+                                                                                             class="dropdown-item dropdown-item-button">20</a>
+                                                                </li>
+                                                                <li aria-selected="false"><a href="#50"
+                                                                                             class="dropdown-item dropdown-item-button">50</a>
+                                                                </li>
+                                                                <li aria-selected="false"><a href="#100"
+                                                                                             class="dropdown-item dropdown-item-button">100</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-default dropdown-toggle"
+                                                                    type="button" data-toggle="dropdown"><span
+                                                                    class="dropdown-text"><span
+                                                                    class="icon glyphicon icons8-settings"></span>自定义设置</span>
+                                                                <span class="caret"></span></button>
+                                                            <ul class="dropdown-menu pull-right custom-settings"
+                                                                role="menu">
+                                                                <li><label class="dropdown-item"><input name="id"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox">
+                                                                </label></li>
+                                                                <li><label class="dropdown-item"><input name="userName"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox"
+                                                                                                        checked="checked">
+                                                                    账号</label></li>
+                                                                <li><label class="dropdown-item"><input name="surname"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox"
+                                                                                                        checked="checked">
+                                                                    用户名</label></li>
+                                                                <li><label class="dropdown-item"><input
+                                                                        name="examVerifyStatus" type="checkbox"
+                                                                        value="1" class="dropdown-item-checkbox"
+                                                                        checked="checked"> </label></li>
+                                                                <li><label class="dropdown-item"><input name="depName"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox"
+                                                                                                        checked="checked">
+                                                                    所属部门</label></li>
+                                                                <li><label class="dropdown-item"><input name="results"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox"
+                                                                                                        checked="checked">
+                                                                    分数</label></li>
+                                                                <li><label class="dropdown-item"><input name="isPass"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox"
+                                                                                                        checked="checked">
+                                                                    及格</label></li>
+                                                                <li><label class="dropdown-item"><input name="isMakeup"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox"
+                                                                                                        checked="checked">
+                                                                    </label></li>
+                                                                <li><label class="dropdown-item"><input name="isForce"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox"
+                                                                                                        checked="checked">
+                                                                    </label></li>
+                                                                <li><label class="dropdown-item"><input
+                                                                        name="commitTime" type="checkbox" value="1"
+                                                                        class="dropdown-item-checkbox"
+                                                                        checked="checked"> 交卷时间</label></li>
+                                                                <li><label class="dropdown-item"><input name="sender"
+                                                                                                        type="checkbox"
+                                                                                                        value="1"
+                                                                                                        class="dropdown-item-checkbox"
+                                                                                                        checked="checked">
+                                                                    操作
+                                                                </label></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <ul class="pagination">
+                                                        <li class="first disabled" aria-disabled="true"><a href="#first"
+                                                                                                           class="button"><i
+                                                                class="icons8-icon"></i></a></li>
+                                                        <li class="prev disabled" aria-disabled="true"><a href="#prev"
+                                                                                                          class="button"><i
+                                                                class="icons8-back-filled"></i></a></li>
+                                                        <li class="page-1 active" aria-disabled="false"
+                                                            aria-selected="true"><a href="#1" class="button">1</a></li>
+                                                        <li class="next disabled" aria-disabled="true"><a href="#next"
+                                                                                                          class="button"><i
+                                                                class="icons8-forward-filled"></i></a></li>
+                                                        <li class="last disabled" aria-disabled="true"><a href="#last"
+                                                                                                          class="button"><i
+                                                                class="icons8-icon-3"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="devide-line"></div>
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="byPerson">......</div>
@@ -493,73 +932,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-export" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-                        class="icon icon-a_close"></i></span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h4 class="modal-title">请选择导出方式</h4>
 
-                <div class="choose-style">
-                    <div class="all-result export-style">
-                        <p><i class="icon icon-a_export_all_text"></i>
-                        </p>
-                        <p class="export-title">全部成绩</p>
-                    </div>
-                    <div class="high-score export-style">
-                        <p><i class="icon icon-a_export_highest_text"></i>
-                        </p>
-                        <p class="export-title">最高分</p>
-                    </div>
-                    <div class="prompt-wrapper">
-                        <p class="export-prompt" style="display: none">请先选择导出方式</p>
-                        <p class="all-result-prompt export-style-prompt" style="display: none;">如果考生进行多次考试，将全部导出</p>
-                        <p class="high-score-prompt export-style-prompt" style="display: none;">取考生多次考试中的最高分导出</p>
-                    </div>
-                </div>
-                <div class="export-footer"><a href="https://admin..com/admin/result/mgr_new#"
-                                              class="export-btn">导出</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="typeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     style="display: none;">
-    <div class="modal-dialog modal-large modal-iframe" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">选择考试</h4>
-
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="100%" name="selTypeModal" id="selTypeModal"
-                        src="./select_exam.html"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="deptModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">修改部门</h4>
-
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="518px" name="updateDeptModal" id="updateDeptModal"
-                        src="../../html/saved_resource(1).html"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
 <!--Modal-->
 <div class="modal fade" id="gradeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document" style="margin-left:25%;">
@@ -584,88 +957,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="depModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">选择部门</h4>
 
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="518px" style="border:0px" name="selDepModal" id="selDepModal"
-                        src="../../html/saved_resource(2).html"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-<!--导出考生成绩提示 Modal -->
-<div class="modal fade" id="result-exportPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">导出中...</h4>
-
-            </div>
-            <div class="modal-body text-center">正在导出考生成绩单
-                <br>成功后即可进入"消息中心"下载
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal">知道了</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--导出考生答案提示 Modal -->
-<div class="modal fade" id="answer-exportPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">导出中...</h4>
-
-            </div>
-            <div class="modal-body text-center">正在导出考生答案
-                <br>成功后即可进入"消息中心"下载
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal">知道了</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--导出考生答卷提示 Modal -->
-<div class="modal fade" id="paper-exportPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">导出中...</h4>
-
-            </div>
-            <div class="modal-body text-center">正在导出考生答卷,预计需要<span class="export-minutes"></span>
-                <br>成功后即可进入"消息中心"下载
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal">知道了</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--导出未参考人员提示 Modal -->
-<div class="modal fade" id="people-exportPaperModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">导出中...</h4>
-
-            </div>
-            <div class="modal-body text-center">正在导出未参考人员
-                <br>成功后即可进入"消息中心"下载
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal">知道了</button>
-            </div>
-        </div>
-    </div>
-</div>
 <!--重置考试时间 Modal -->
 <div class="modal fade" id="resetTimeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-600 modal-reset-time" role="document">
@@ -838,31 +1130,6 @@
 
     var activeNavItem = 'subNavItemResultMgr';
 
-    // gio 在线咨询
-    $("body").on('click', '.gio-inquire-position', function () {
-        //推送咨询事件
-        ksxProbe.gioTrack('onlineInquire', 1, {
-            'inquireFromPage_var': window.location.href,
-            'inquireFromPageName_var': '管理员端',
-            'inquireFromPosition_var': $(this).attr('data-gio-position')
-        });
-    });
-
-
-    //智齿 官网右下角图标
-    $("body").on('click', '#zhichiBtnBox', function () {
-        var title = $(this).find('.zc-advice-icon-btn-title').text();
-
-        if (title == '收起') {
-            //推送咨询事件
-            ksxProbe.gioTrack('onlineInquire', 1, {
-                'inquireFromPage_var': window.location.href,
-                'inquireFromPageName_var': '管理员端',
-                'inquireFromPosition_var': '管理员端右下角咨询'
-            });
-        }
-    });
-
     $(function () {
 
 
@@ -934,342 +1201,7 @@
         storageLock = false;
     }
     var lock = storageLock;
-    if (document.location.href.match(/examInfoId/)) {
-        $("#grid-data").bootgrid({
-            ajax: true,
-            ajaxSettings: {
-                method: "POST",
-                cache: false
-            },
-            post: function () {
-                var sortOrder = $("#grid-data").bootgrid("getSortDictionary");
-                var sort_key, sort_order;
-                var exam_info_id = 1;
-                var user_name = $("input[name=name_search]").val();
-                var dep_id = $("input[name=dep_search]").val();
-                var is_grade = $("input[name=grade_search]").val();
-                var score_left = $("input[name=min_score_search]").val();
-                var score_right = $("input[name=max_score_search]").val();
-                var is_pass = $("input[name=pass_search]").val();
-                var start_time = $("input[name=start_time_search]").val();
-                var end_time = $("input[name=end_time_search]").val();
-                var verify_status = $("input[name=verify_status_search]").val();
 
-                $.each(sortOrder, function (name, value) {
-                    sort_key = name;
-                    sort_order = value;
-                });
-                return {
-                    "sortKey": sort_key,
-                    "sortOrder": sort_order,
-                    "examInfoId": exam_info_id,
-                    "userName": user_name,
-                    "depIds": dep_id,
-                    "isGrade": is_grade,
-                    "scoreLeft": score_left,
-                    "scoreRight": score_right,
-                    "isPass": is_pass,
-                    "startTime": start_time,
-                    "endTime": end_time,
-                    "examVerifyStatus": verify_status
-                };
-            },
-            url: "/admin/result/mgr_grid/",
-            selection: true,
-            multiSelect: true,
-            // rowSelect: true,
-            navigation: 2,
-            formatters: {
-                "userName": function (column, row) {
-                    return row.userName + "<input class='user_id_hidden' type='hidden' value='" + row.userId + "'>";
-                },
-                "link": function (column, row) {
-                    var grade_class = 'markExam';
-                    var title_tip = '判分';
-                    var reset_time_html = "";
-                    var exam_verify_html = "";
-                    var is_look_disabled = "";
-
-                    if (row.grade) {
-                        grade_class = 'markExam markedExam';
-                        title_tip = '已判分';
-                    }
-                    //examVerifyStatus  1：已通过 2:认证失败
-                    // 3:无认证信息（指考试未设置身份认证）
-                    // 4：通过,与用户姓名不一致（通过认证，但是身份证上姓名与填写的不相符合）
-
-                    if (USER_ROLE == "sub_admin" && '1' == '0') {
-                        is_look_disabled = " disabled";
-                    }
-                    if (row.examVerifyStatus == 1 || row.examVerifyStatus == 2 || row.examVerifyStatus == 4) {
-                        exam_verify_html = "<a href='#' data-growing-title='viewVerifyInfo' class='icon-a_operate_identity_information viewVerifyInfo" + is_look_disabled + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='身份认证信息' examResultId='" + row.id + "'></a>";
-                    }
-
-                    if (row.examVerifyStatus == 2) {
-                        return "<a href='#' data-growing-title='removeExamGrade' class='icons8-trash-can removeExamGrade' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除' examResultId='" + row.id + "'></a>" +
-                            "<a href='#' data-growing-title='verifyEdit' class='icons8-edit verifyEdit' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='编辑认证状态' examResultId='" + row.id + "' surname='" + row.surname + "'></a>" + exam_verify_html;
-                    }
-
-                    if (row.commitTime == "答题中") {
-                        reset_time_html = "<a href='#' data-growing-title='resetTime' class='icons8-alarm-clock resetTime' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='交卷时间设置' examResultId='" + row.id +
-                            "' userName='" + row.userName + "' surname='" + row.surname + "' userId='" + row.userId + "' startTime='" + row.startTime + "' endTime='" + row.endTime + "'></a>";
-                    } else if ((row.examVerifyStatus == 1 || row.examVerifyStatus == 4) && row.commitTime == "未开始答题") {
-                        return "<a href='#' data-growing-title='removeExamGrade' class='icons8-trash-can removeExamGrade' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除' examResultId='" + row.id + "'></a>" + exam_verify_html;
-                    }
-
-                    var linkStr = "";
-                    linkStr += "<a href='#' data-growing-title='markPaper' class='icon-a_operate_mark " + grade_class + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='" + title_tip + "' examResultId='" + row.id + "' user_name='" + row.userName + "'></a>";
-                    if (row.status == '1' || !lock) {
-                        linkStr += "<a href='#' data-growing-title='addexit' class='icon-a_operate_retake addexit disabled' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='补考' examResultId='" + row.id + "' status='" + row.status + "'></a>";
-                    } else {
-                        linkStr += "<a href='#' data-growing-title='addexit' class='icon-a_operate_retake addexit' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='补考' examResultId='" + row.id + "' status='" + row.status + "'></a>";
-                    }
-                    if (USER_ROLE == "sub_admin" && 1 == '0') {
-                        linkStr += "<a href='#' data-growing-title='removeExamGrade' class='icon-a_operate_delete removeExamGrade' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除' examResultId='" + row.id + "'></a>" + reset_time_html + exam_verify_html;
-                    } else {
-                        linkStr += "<a href='#' data-growing-title='download' class='icon-a_operate_download download' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='下载' examResultId='" + row.id + "'></a>" +
-                            "<a href='#' data-growing-title='removeExamGrade' class='icon-a_operate_delete removeExamGrade' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='删除' examResultId='" + row.id + "'></a>" + reset_time_html + exam_verify_html;
-
-                    }
-                    return linkStr;
-
-                },
-                "verify": function (column, row) {
-
-                    var examVerifyStatus;
-
-                    if (USER_ROLE == "sub_admin" && 1 == '0') {
-                        examVerifyStatus = "-";
-                    } else {
-                        switch (row.examVerifyStatus) {
-                            case 0:
-                                examVerifyStatus = '-';
-                                break;
-                            case 1:
-                                examVerifyStatus = '已通过';
-                                break;
-                            case 2:
-                                examVerifyStatus = '认证失败';
-                                break;
-                            case 3:
-                                examVerifyStatus = '无认证信息';
-                                break;
-                            case 4:
-                                examVerifyStatus = '通过,与用户姓名不一致';
-                                break;
-                        }
-                    }
-                    return examVerifyStatus
-                },
-                'isMakeup': function (column, row) {
-                    return row.isMakeup == 0 ? '否' : '是';
-                },
-                'isForce': function (column, row) {
-                    var forceStr = "否";
-                    // isForce--是否强制交卷，强制交卷方式 //0--否 1--是 2--切屏防作弊 3--x秒不动自动交卷 4--闯关失败 5--答题时间或者考试时间已到
-                    switch (row.isForce) {
-                        case '0':
-                            forceStr = "否";
-                            break;
-                        case '1':
-                            forceStr = "是";
-                            break;
-                        case '2':
-                            forceStr = row.switchScreen ? "是（切屏" + row.switchScreen + "次）" : "是（切屏）";
-                            break;
-                        case '3':
-                            forceStr = row.noOpsAutoCommit ? "是（" + row.noOpsAutoCommit + "秒无操作）" : "是（无操作）";
-                            break;
-                        case '4':
-                            forceStr = "是（闯关失败）";
-                            break;
-                        case '5':
-                            forceStr = "是（时间已到）";
-                            break;
-                        case '6':
-                            forceStr = "是（管理员）";
-                            break;
-                        default:
-                            forceStr = "否";
-                            break;
-                    }
-                    return forceStr;
-                }
-            }
-        }).on("loaded.rs.jquery.bootgrid", function (e) {
-            // initial tooltip
-            $('#grid-data [data-toggle="tooltip"]').tooltip();
-            $("#grid-data").colResizable({
-                fixed: false,
-                liveDrag: true,
-                draggingClass: "dragging"
-            });
-            //单条删除
-            $("#grid-data").bootgrid().find(".removeExamGrade").on("click", function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var id = $(this).attr("examResultId") + ",";
-                delDate(id);
-            });
-            // 单条补考
-            $("#grid-data").bootgrid().find(".addexit").on("click", function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var examResultId = $(this).attr("examResultId") + ",";
-                addExit(examResultId);
-            });
-
-            //单条编辑认证状态
-            $("#grid-data").bootgrid().find(".verifyEdit").on("click", function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var id = $(this).attr("examResultId");
-                var surname = $(this).attr("surname");
-
-                verifyStatusEdit(id, surname);
-            });
-
-            //查看身份认证信息
-            $("#grid-data").bootgrid().find(".viewVerifyInfo").on("click", function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var id = $(this).attr("examResultId");
-
-                $.ajax({
-                    type: "get",
-                    cache: false,
-                    headers: {
-                        "cache-control": "no-cache"
-                    },
-                    dataType: "json",
-                    url: "/admin/get/exam_verify_info/",
-                    data: "examResultsId=" + id,
-                    success: function (msg) {
-                        if (msg.success) {
-                            $("#verifyInfoModal .id-card").text(msg.bizContent.userCardCode);
-                            $("#verifyInfoModal .surname").text(msg.bizContent.userCardName);
-                            $("#verifyInfoModal").modal();
-                        } else {
-                            $("#verifyInfoModal .id-card").text("");
-                            $("#verifyInfoModal .surname").text("暂无身份认证信息");
-                            $("#verifyInfoModal").modal();
-                        }
-                    }
-                })
-            });
-
-            // 单个试卷下载
-            $("#grid-data").bootgrid().find(".download").on("click", function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var result_id = $(this).attr("examResultId");
-                if ($(this).parent().prev().text() == '答题中' || $(this).parent().prev().text() == '系统交卷中') {
-                    alert('试卷未提交');
-                } else {
-                    window.open("/html/exam/result/export_pdf/?resultId=" + result_id, "_blank");
-                }
-            });
-
-            //单个考试设置时间
-            $("#grid-data").bootgrid().find(".resetTime").on("click", function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var exam_info_id = $(this).attr("examInfoId");
-                var user_id = $(this).attr("userId");
-                var user_name = $(this).attr("userName");
-                var surname = $(this).attr("surname");
-                var start_time = $(this).attr("startTime");
-                var end_time = $(this).attr("endTime");
-                var exam_result_id = $(this).attr("examResultId");
-
-                $.ajax({
-                    type: 'POST',
-                    cache: false,
-                    headers: {
-                        "cache-control": "no-cache"
-                    },
-                    async: false,
-                    dataType: "json",
-                    url: '/admin/html/exam/getExamEndTime',
-                    data: "examResultId=" + exam_result_id + "&userId=" + user_id,
-                    success: function (msg) {
-                        if (msg.success) {
-                            end_time = msg.bizContent.modifiedExamEndTime;
-                        }
-                    }
-                });
-
-                $("#resetTimeModal .user-name").text(user_name);
-                $("#resetTimeModal .surname").text(surname);
-                $("#resetTimeModal .start-time").text(start_time);
-                $("#resetTimeModal input[name=delayTime]").val(end_time);
-                $("#resetTimeModal input[name=examResultId]").val(exam_result_id);
-                $("#resetTimeModal .confirm-time").text(end_time.replace(/^(\d{4})-(\d{2})-(\d{2})([\s\S]+)$/, "$1年$2月$3日$4"));
-
-                $("#resetTimeModal").modal({
-                    backdrop: "static",
-                    keyboard: false
-                });
-            });
-
-            //单个批改  判分
-            $("#grid-data").bootgrid().find(".markExam").on("click", function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var id = $(this).attr("examResultId");
-                var user_name = $(this).attr("user_name");
-                if ($(this).parent().prev().text() == '答题中')
-                    alert('考生正在答题中');
-                else {
-                    var tempwindow = window.open();
-                    tempwindow.location = "/html/exam/manmade_exam_check?examInfoId=" + exam_info_id + "&examResultsId=" + id + "&userName=" + user_name + "&isLook=" + 1;
-                }
-            });
-        }).on("selected.rs.jquery.bootgrid", function (e, rows) {
-            $('#addexitBtn').removeClass('disable').removeAttr("disabled");
-            lock = storageLock;
-            $("#grid-data tbody input.select-box").each(function (index, element) {
-                if ($(this).is(":checked")) {
-                    if ($(this).parents("tr").find(".addexit").attr("status") == "1") {
-                        lock = false;
-                    }
-                }
-            });
-            var selectList = $("#grid-data").bootgrid("getSelectedRows");
-            if (selectList.length == 0) {
-                lock = false;
-            }
-            if (lock) {
-                $('#addexitBtn').removeClass('disable').removeAttr("disabled");
-            } else {
-                $('#addexitBtn').addClass('disable').prop('disabled', true);
-            }
-            for (var i = 0; i < rows.length; i++) {
-                usersArray.unshift(rows[i].userId);
-            }
-        }).on("deselected.rs.jquery.bootgrid", function (e, rows) {
-            lock = storageLock;
-            $("#grid-data tbody input.select-box").each(function (index, element) {
-                if ($(this).is(":checked")) {
-                    if ($(this).parents("tr").find(".addexit").attr("status") == "1") {
-                        lock = false;
-                    }
-                }
-            });
-            var selectList = $("#grid-data").bootgrid("getSelectedRows");
-            if (selectList.length == 0) {
-                lock = false;
-            }
-            if (lock) {
-                $('#addexitBtn').removeClass('disable').removeAttr("disabled");
-            } else {
-                $('#addexitBtn').addClass('disable').prop('disabled', true);
-            }
-            for (var j = 0; j < rows.length; j++) {
-                usersArray.remove(rows[j].userId);
-            }
-        });
-    }
     Array.prototype.indexOf = function (val) {
         for (var i = 0; i < this.length; i++) {
             if (this[i] == val) return i;
@@ -1294,38 +1226,59 @@
 
         }
 
-        if (USER_ROLE == "admin") {
-            // 考试信息是否对子管理员可见
+        $.getJSON("/exam/get_exams", function (result) {
+            $.each(result, function (index, e) {
 
-            $('span.switch-hidden.switch-wechatSkipLogin-copy').click(function () {
-                var isLook = $(this).attr('isLook');
-                $.ajax({
-                    url: '/admin/subadmin_islook',
-                    type: 'get',
-                    data: "isLook=" + isLook,
-                    dataType: 'json',
-                    success: function (msg) {
-                        if (msg.success == true) {
+                var exam = '<tr class="select-item">'
+                    + '<td class="select-cell" style="">'
+                    + '<label class="select-label">'
+                    + '<input name="select" type="checkbox" class="select-box" value="300397">'
+                    + '<span class="select-box"><i class="icons8-checked-checkbox"></i></span>'
+                    + '</label>'
+                    + '</td>'
+                    + '<td class="text-left" style="">' + e.examName + '</td>'
+                    + '<td class="text-left" style="">' + e.examType + '</td>'
+                    + '<td class="text-left" style="">' + e.sumScore + '</td>'
+                    + '<td class="text-left" style="">' + e.examBegin + '</td>'
+                    + '<td class="text-left" style="">' + e.examEnd + '</td>'
+                    + '<td class="text-left" style="">' + e.createrId + '</td>'
+                    + '<td class="text-left" style="">' + e.createDate + '</td>'
+                    + '<td class="text-left" style=""></td>'
+                    + '<td class="text-left" style="">'
+                    + '<a href="#" data-growing-title="updateExam" class="icon-a_operate_edit updateExam" examid="300397" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="编辑"></a>'
+                    + '<a href="#" data-growing-title="linkExam" class="icon-a_operate_link linkExam" examid="300397" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="考试链接"></a>'
+                    + '<a href="#" data-growing-title="linkScore" class="icon-a_operate_mark linkScore" data-toggle="tooltip" data-placement="top" data-container="body" title="" examid="300397" data-original-title="成绩查询"></a>'
+                    + '<a href="#" data-growing-title="searchState" class="icon-a_operate_dspmsg searchState" data-toggle="tooltip" data-placement="top" data-container="body" title="" examid="300397" data-original-title="考生答题状态查询"></a>'
+                    + '</td>'
+                    + '</tr>';
+                $('#exams').append($(exam));
+            });
+            $('input.select-box, td.text-left').click(function (e) {
 
-                            if (isLook == '1') {
-                                $('span.switch-hidden.switch-wechatSkipLogin-copy').removeClass('switch-off').addClass('switch-on').attr('isLook', 0)
-                            } else {
-                                $('span.switch-hidden.switch-wechatSkipLogin-copy').removeClass('switch-on').addClass('switch-off').attr('isLook', 1)
-                            }
-                        }
-                    }
-                })
-            })
-        }
-    });
+                if ($(e.target).parents().parents().parents("tr").hasClass("active")) {
+                    $(e.target).parents().parents().parents("tr")
+                        .removeClass("active");
+                } else {
+                    $(e.target).parents().parents().parents("tr")
+                        .addClass("active");
+                }
+            });
+            $("#select_all").click(function () {
+                if ($(this).hasClass("active")) {
+                    $(this).removeClass("active");
+                    $('.select-item').removeClass("active");
+                } else {
+                    $(this).addClass("active");
+                    $('.select-item').addClass("active");
+                }
+            });
+        });
 
-    //导出附件链接弹窗
-    $('#exportFile').click(function () {
-        $("#exportFileModal").modal('show');
+
     });
 
 </script>
-<script type="text/javascript" src="../../js/admin_mark_paper.js"></script>
+<!--<script type="text/javascript" src="../../js/admin_mark_paper.js"></script>-->
 </body>
 
 </html>

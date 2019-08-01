@@ -1,6 +1,6 @@
 $(function () {
     var getExamEndTimeInterval; //获取考试时间的定时器，在交卷后需要清除该定时器
-    var result = new Set();
+    var result = new Array();
 
     $.ajaxSettings.async = false;
     $.getJSON("/exam/get_parsed_paper_exam", "examId=" + getParam("exam_id"), function (e) {

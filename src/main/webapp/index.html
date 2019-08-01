@@ -174,7 +174,7 @@
                                 </li>
                                 <li class="nav-item sub-nav-item" id="subNavItemResultMgr"><a
                                         href="/html/exam/mgr_new"><span
-                                        class="nav-title">成绩查询批改</span></a></li>
+                                        class="nav-title">成绩查询</span></a></li>
                                 <!-- <li class="nav-item sub-nav-item" id="subNavItemResultAnalysis"><a
                                         href="/html/exam/exam_analysis"><span
                                         class="nav-title">分析考试</span></a></li>
@@ -210,7 +210,7 @@
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item has-sub-menu" id="navItemSystem"><a
                                 href="/index#" class="menu-title"
                                 data-toggle="tooltip" data-placement="right" data-container="body" title="系统管理">
@@ -399,54 +399,7 @@
                                 <div class="divide_line"></div>
                             </div>
 
-
-                            <div class="item-wrapper clearfix">
-
-                                <div class="page_item animate">
-                                    <div class="page_item_main">
-                                        <div class="page_item_title">
-                                            <span class="common-title">考试示例</span>
-                                            <div class="user-handle disInBlock">
-                                                <span class="disInBlock">操作</span>
-                                                <span class="disInBlock icon-a_arrow_down handle-arrow-bottom"></span>
-                                                <div class="user-handle-menu drop-menu menu-hide">
-                                                    <p onclick="editExamLink('/admin/exam/update/293974&#39')">
-                                                        <a href="javascript:void(0);">
-                                                            <span class="disInBlock l icons8-edit"></span>
-                                                            <span>编辑考试</span>
-                                                        </a>
-                                                    </p>
-                                                    <p class="linkExam">
-                                                        <a href="https://admi.com/account/admin/index#"
-                                                           examid="293974" examname="考试示例" setprocess="0">
-                                                            <span class="disInBlock l icons8-attach"></span>
-                                                            <span>分享链接</span>
-                                                        </a>
-                                                    </p>
-                                                    <p>
-                                                        <a href="https://admi.com/admin/result/mgr_new?examInfoId=293974">
-																	<span class="disInBlock l icon-a_operate_mark"
-                                                                          style="margin-top: 7px;"></span>
-                                                            <span>成绩查询批改</span>
-                                                        </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="page_item_time">2019-07-22 17:50 至 2019-07-25 17:50</p>
-                                        <ul class="page_item_information">
-                                            <li>分数：100.0</li>
-                                            <li>方式：登录考试</li>
-                                            <li>类型：选题组卷</li>
-
-                                            <li>时长：60分钟</li>
-
-
-                                        </ul>
-                                        <p class="examer_total"><span style="color:#1A8CFE">0人</span>正在考试</p>
-                                    </div>
-                                    <img class="page-rect-icon" src="/img/rect_00.png" alt="">
-                                </div>
+                            <div class="item-wrapper clearfix" id="exams">
 
                             </div>
 
@@ -477,11 +430,9 @@
                                 <div class="divide_line"></div>
                             </div>
 
-
                             <div class="placeholder">
                                 还没有正在进行的课程，快去创建一堂课程吧～
                             </div>
-
 
                         </div>
 
@@ -489,36 +440,11 @@
 
                         <!-- 正在进行的任务 开始 -->
 
-                        <div class="exam_near_wrapper">
-                            <div class="top_wrapper">
-                                <div class="exam_near_top">
-                                    <h1 class="exam_near_title">正在进行的任务（0）</h1>
-                                    <span class="see_all">
-											<a data-toggle="collapse"
-                                               href="https://admi.com/account/admin/index#collapseTask"
-                                               aria-expanded="false" aria-controls="collapseTask" id="collapseTaskBtn">
-											展开<i class="icon-a_arrow_down"></i>
-										</a>
-									</span>
-                                </div>
-                                <div class="divide_line"></div>
-                            </div>
-
-
-                            <div class="placeholder">
-                                还没有正在进行的任务，快去创建一个自定义任务吧～
-                            </div>
-
-
-                        </div>
-
-                        <!-- 最近添加 结束 -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 <!--超管后台新版本通知-->
@@ -789,6 +715,97 @@
 <script src="/js/clipboard.min.js"></script>
 <script type="text/javascript">
     $(function () {
+        $.getJSON("/exam/get_exams", function (result) {
+
+            $.each(result, function (index, e) {
+                var exam = '<div class="page_item animate">'
+                    + '<div class="page_item_main">'
+                    + '<div class="page_item_title">'
+                    + '<span class="common-title">' + e.examName + '</span>'
+                    + '<div class="user-handle disInBlock">'
+                    + '<span class="disInBlock">操作</span>'
+                    + '<span class="disInBlock icon-a_arrow_down handle-arrow-bottom"></span>'
+                    + '<div class="user-handle-menu drop-menu menu-hide">'
+                    + '<p class="linkExam">'
+                    + '<a href="/exam?exam_id=' + e.examId + '"'
+                    + ' examid="' + e.examId + '" examname="' + e.examName + '" setprocess="0">'
+                    + '<span class="disInBlock l icons8-attach"></span>'
+                    + '<span>试一试</span>'
+                    + '</a>'
+                    + '</p>'
+                    + '</div>'
+                    + '</div>'
+                    + '</div>'
+                    + '<p class="page_item_time">' + e.examBegin + ' 至 ' + e.examEnd + '</p>'
+                    + '<ul class="page_item_information">'
+                    + '<li>分数：' + e.sumScore + '</li>'
+                    + '<li>科目：' + e.examType + '</li>'
+                    + '<li>时长：' + e.examLast + '</li>'
+                    + '</ul>'
+                    + '</div>'
+                    + '<img class="page-rect-icon" src="/img/rect_00.png" alt="">'
+                    + '</div>';
+                $('#exams').append($(exam));
+
+
+                /*
+
+                   <div class="page_item animate">
+                                    <div class="page_item_main">
+                                        <div class="page_item_title">
+                                            <span class="common-title">考试示例</span>
+                                            <div class="user-handle disInBlock">
+                                                <span class="disInBlock">操作</span>
+                                                <span class="disInBlock icon-a_arrow_down handle-arrow-bottom"></span>
+                                                <div class="user-handle-menu drop-menu menu-hide">
+                                                    <p onclick="editExamLink('/admin/exam/update/293974&#39')">
+                                                        <a href="javascript:void(0);">
+                                                            <span class="disInBlock l icons8-edit"></span>
+                                                            <span>编辑考试</span>
+                                                        </a>
+                                                    </p>
+                                                    <p class="linkExam">
+                                                        <a href="https://admi.com/account/admin/index#"
+                                                           examid="293974" examname="考试示例" setprocess="0">
+                                                            <span class="disInBlock l icons8-attach"></span>
+                                                            <span>分享链接</span>
+                                                        </a>
+                                                    </p>
+                                                    <p>
+                                                        <a href="https://admi.com/admin/result/mgr_new?examInfoId=293974">
+																	<span class="disInBlock l icon-a_operate_mark"
+                                                                          style="margin-top: 7px;"></span>
+                                                            <span>成绩查询批改</span>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+                 */
+            });
+            //首页修改
+            $('.user-handle').hover(function () {
+
+                $(this).find('.user-handle-menu').removeClass('menu-hide')
+
+            }, function () {
+
+                $(this).find('.user-handle-menu').addClass('menu-hide')
+            });
+
+            $('.user-handle-menu p').click(function (e) {
+                e.stopPropagation();
+                $(this).parent().addClass('menu-hide')
+
+            });
+        });
+
         //系统公告
         $(".alert-close").click(function () {
             $(".page_wrapper").removeClass("alert-content");
@@ -817,13 +834,6 @@
             window.location.href = './html/exam/paper_add_new';
         });
 
-
-        // 生成二维码
-        $("#mobile_url_qrcode").qrcode({
-            size: 100,
-            text: "https://ww.com/account/login/140092",
-            background: "#FFF"
-        });
 
         //显示考试链接
         $(".linkExam").on("click", function (e) {
@@ -966,21 +976,7 @@
     }
 
 
-    //首页修改
-    $('.user-handle').hover(function () {
 
-        $(this).find('.user-handle-menu').removeClass('menu-hide')
-
-    }, function () {
-
-        $(this).find('.user-handle-menu').addClass('menu-hide')
-    });
-
-    $('.user-handle-menu p').click(function (e) {
-        e.stopPropagation();
-        $(this).parent().addClass('menu-hide')
-
-    });
 
     //编辑考试跳转
     function editExamLink(url) {

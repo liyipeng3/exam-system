@@ -382,11 +382,11 @@ table#grid-data tbody{
 table#grid-data tbody tr td{
     line-height: 48px;
 }
-table#grid-data thead span.select-box,
-table#grid-data tbody span.select-box{
-    height: 14px;
-    width: 14px;
-}
+/*table#grid-data thead span.select-box,*/
+/*table#grid-data tbody span.select-box{*/
+/*    height: 14px;*/
+/*    width: 14px;*/
+/*}*/
 .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>th, .table>caption+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>td, .table>thead:first-child>tr:first-child>td {
     border-top: 0;
     padding-left: 0;
@@ -584,24 +584,24 @@ div#grid-data-footer {
 }
 
 /********** 覆盖样式  选中后复选框变大 *************/
-.bootgrid-table th.select-cell .select-box:checked + span.select-box .icons8-checked-checkbox, .bootgrid-table tr.active td.select-cell span.select-box .icons8-checked-checkbox {
+/*.bootgrid-table th.select-cell .select-box:checked + span.select-box .icons8-checked-checkbox, .bootgrid-table tr.active td.select-cell span.select-box .icons8-checked-checkbox {
     display: inline;
     position: absolute;
-    font-size: 16px;
+    font-size: 100%;
     color: #1A8CFE;
     left: -2px;
     top: -2px;
     line-height: 1;
-}
+}*/
 .bootgrid-table th.select-cell, .bootgrid-table td.select-cell {
     text-align: center;
     width: 45px !important;
     padding: 6px 0;
 }
 /** 隐藏账号左边的复选框 **/
-/*#grid-data th.select-cell span.select-box{*/
-    /*display: none;*/
-/*}*/
+/*#grid-data th.select-cell span.select-box{
+    display: none;
+}*/
 /*导出考试*/
 .export-style-active{
     border-color: #1A8CFE !important;
