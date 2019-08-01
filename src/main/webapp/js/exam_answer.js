@@ -797,6 +797,7 @@ $(function () {
                         if (loadingProgress >= 100) {
                             clearInterval(progress);
                             clearInterval(time);
+                            ajax_post("/exam/post_result", answered_multi_all);
                             window.location.href = "/exam_result?examResultsId=" + exam_results_id;
                         }
                     }, 120);
@@ -808,6 +809,22 @@ $(function () {
 
                 resultTimeout();
 
+            }
+        });
+    }
+
+    function ajax_post(url, data) {
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: JSON.stringify(data),
+            dataType: 'text',
+            contentType: "application/json;charset=UTF-8",
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (msg) {
+                console.log(msg);
             }
         });
     }
