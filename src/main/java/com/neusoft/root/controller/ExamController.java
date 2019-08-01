@@ -330,11 +330,12 @@ public class ExamController {
 	 * @param paperId
 	 * @return
 	 */
-	@RequestMapping(value="/get_paper_checking",method=RequestMethod.GET)
+	@RequestMapping(value="/result_inquire",method=RequestMethod.GET)
 	@ResponseBody
-	public String getPaperChecking(String studentId, String paperId){
-		
-		return "ok";
+	public String getPaperChecking(int id){
+		JSONObject json = new JSONObject();
+		json.put("success", true);
+		return json.toJSONString();
 	}
 	/**
 	 * 提交批改结果
