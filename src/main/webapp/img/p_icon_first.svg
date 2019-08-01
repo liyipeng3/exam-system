@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="25px" viewBox="0 0 18 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>p_icon_first</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F9A400" offset="0%"></stop>
+            <stop stop-color="#EE8400" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFDA00" offset="0%"></stop>
+            <stop stop-color="#FFC300" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FDBA00" offset="0%"></stop>
+            <stop stop-color="#EC8400" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="考试结果页-copy-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-479.000000, -494.000000)">
+        <g id="Group-6" transform="translate(448.000000, 427.000000)">
+            <g id="Group-13" transform="translate(30.000000, 67.000000)">
+                <g id="p_icon_first" transform="translate(1.000000, 0.000000)">
+                    <polygon id="Path-4" fill="url(#linearGradient-1)" points="4 17 4 24.2274499 8.94600193 21.5346309 13.8920039 24.2274499 13.8920039 17"></polygon>
+                    <polygon id="Rectangle-9" fill="url(#linearGradient-2)" points="0 4.83420324 9 0 18 4.83420324 18 14.9447344 9 20 0 14.9447344"></polygon>
+                    <polygon id="Rectangle-9" fill="url(#linearGradient-3)" points="2.5 6.41316132 9 2.95996094 15.5 6.41316132 15.5 13.6353835 9 17.2464947 2.5 13.6353835"></polygon>
+                    <path d="M9.22795117,7.29003906 L9.88395117,7.29003906 L9.88395117,13.0020391 L9.01195117,13.0020391 L9.01195117,8.33803906 C8.66795117,8.66603906 8.22795117,8.90603906 7.69995117,9.05803906 L7.69995117,8.19403906 C7.95595117,8.13003906 8.21995117,8.01803906 8.50795117,7.85803906 C8.79595117,7.68203906 9.03595117,7.49803906 9.22795117,7.29003906 Z" id="1" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

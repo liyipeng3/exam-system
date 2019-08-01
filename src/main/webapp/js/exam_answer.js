@@ -1,5 +1,214 @@
 $(function () {
     var getExamEndTimeInterval; //获取考试时间的定时器，在交卷后需要清除该定时器
+    var result = new Array();
+
+    $.ajaxSettings.async = false;
+    $.getJSON("/exam/get_parsed_paper_exam", "examId=" + getParam("exam_id"), function (e) {
+        answer_time_left = parseInt(e.examTime)*60;
+        var len = e.items.length - 1;
+        for(var i = 1; i <= len; i++){
+            var bigItem = '';
+            var card_content = '';
+            var flag = '';
+            if(e.itemsType[i]=='单选题'){
+                bigItem+='<div class="questions">'
+                    +           '<div class="questions-title" id="">'+e.itemsTitle[i]+'(共' +  e.items[i].length + '题，合计' + e.itemsScore[i] + '分)</div>'
+                    +           '<div class="questions-content"></div>'
+                    +     '</div>';
+
+                card_content = '<div class="card-content">'
+                    + '<div class="card-content-title">'+e.itemsTitle[i]+'(共' + e.items[i].length + '题，合计' +e.itemsScore[i] + '分)</div>'
+                    + '<div class="box-list">'
+                    + '</div><div class="split"></div></div>';
+                $card_content = $(card_content);
+                $bigItem = $(bigItem);
+                $.each(e.items[i], function (ind, ele) {
+                    var smallItem = '<div class="question-content" id="'+ele.itemId+'" data-id="'+ele.itemId+'" data-commit="false">'
+                        +            '<div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip"'
+                        +                   ' data-placement="top" data-container="body" title="" data-original-title="标记本题"><i '
+                        +                      ' class="icon icon-p_exam_tag_de"></i>'
+                        +              '</div>'
+                        +              '<div class="exam-question"><span class="question-index ellipsis">'+(ind + 1)+'.</span>'
+                        +               ele.itemQuestion + ' (' + ele.itemScore + '分)'
+                        +              '</div>'
+                        +              '<div class="answers">'
+                        +              '</div>'
+                        +  '</div>';
+                    $smallItem = $(smallItem);
+                    flag = '<div class="box normal-box question_cbox s1">'
+                        +       '<a class="iconBox questions_'+ele.itemId+'" href="'+String(window.location.href).split("#")[0]+'#'+ele.itemId+'" questionsid="'+ele.itemId+'" num="questions_'+ele.itemId+'" perscore="3.0">'+(ind +1) +'</a>'
+                        +       '<span class="box icon-box question_marked"></span>'
+                        + '</div>';
+                    $card_content.find('.box-list').append($(flag));
+                    $.each(ele.itemOption, function (index, element) {
+                        var answer =                '<div class="select single-select '+String.fromCharCode(97 + index)+'. ">'
+                            +                      '<input type="radio" class="radioOrCheck hidden" data-type="1"'
+                            +                             ' id="'+ele.itemId+(index + 1)+'" name="keyChk_questions_'+ele.itemId+'"'
+                            +                             ' data-name="key'+(index + 1)+'">'
+                            +                      '<label for="'+ele.itemId+(index + 1)+'"> <span class="select-icon"><i'
+                            +                              ' class="icon icon-m_exam_correct"></i></span>'
+                            +                        '<span class="words">'+String.fromCharCode(65 + index) +'. '+element  +' </span>'
+                            +                      '</label>'
+                            +                  '</div>';
+                        $smallItem.find('.answers').append($(answer));
+                    });
+                    $bigItem.find('.questions-content').append($smallItem);
+                });
+                //console.log($bigItem.html());
+                $('.paper').append($bigItem);
+                $('.card-content-list').append($card_content);
+
+            }
+            else if(e.itemsType[i]=='多选题'){
+                bigItem+='<div class="questions">'
+                    +           '<div class="questions-title" id="">'+e.itemsTitle[i]+'(共' +  e.items[i].length + '题，合计' + e.itemsScore[i] + '分，漏选错选不得分)</div>'
+                    +           '<div class="questions-content"></div>'
+                    +     '</div>';
+
+                card_content = '<div class="card-content">'
+                    + '<div class="card-content-title">'+e.itemsTitle[i]+'(共' + e.items[i].length + '题，合计' +e.itemsScore[i] + '分，漏选错选不得分)</div>'
+                    + '<div class="box-list">'
+                    + '</div><div class="split"></div></div>';
+                $card_content = $(card_content);
+                $bigItem = $(bigItem);
+                $.each(e.items[i], function (ind, ele) {
+                    var smallItem = '<div class="question-content" id="'+ele.itemId+'" data-id="'+ele.itemId+'" data-commit="false">'
+                        +            '<div class="question-operation operation-icon icon-mark" data-type="2" data-toggle="tooltip"'
+                        +                   ' data-placement="top" data-container="body" title="" data-original-title="标记本题"><i '
+                        +                      ' class="icon icon-p_exam_tag_de"></i>'
+                        +              '</div>'
+                        +              '<div class="exam-question"><span class="question-index ellipsis">'+(ind + 1)+'.</span>'
+                        +               ele.itemQuestion + ' (' + ele.itemScore + '分)'
+                        +              '</div>'
+                        +              '<div class="answers">'
+                        +              '</div>'
+                        +  '</div>';
+                    $smallItem = $(smallItem);
+                    flag = '<div class="box normal-box question_cbox s1">'
+                        +       '<a class="iconBox questions_'+ele.itemId+'" href="'+String(window.location.href).split("#")[0]+'#'+ele.itemId+'" questionsid="'+ele.itemId+'" num="questions_'+ele.itemId+'" perscore="'+ele.itemScore+'">'+(ind +1) +'</a>'
+                        +       '<span class="box icon-box question_marked"></span>'
+                        + '</div>';
+                    $card_content.find('.box-list').append($(flag));
+                    $.each(ele.itemOption, function (index, element) {
+                        var answer =                '<div class="select multi-select '+String.fromCharCode(97 + index)+'. ">'
+                            +                      '<input type="checkbox" class="radioOrCheck hidden" data-type="2"'
+                            +                             ' id="'+ele.itemId+(index + 1)+'" name="keyChk_questions_'+ele.itemId+'"'
+                            +                             ' data-name="key'+(index + 1)+'">'
+                            +                      '<label for="'+ele.itemId+(index + 1)+'"> <span class="select-icon"><i'
+                            +                              ' class="icon icon-m_exam_correct2"></i></span>'
+                            +                        '<span class="words">'+String.fromCharCode(65 + index) +'. '+element  +' </span>'
+                            +                      '</label>'
+                            +                  '</div>';
+                        $smallItem.find('.answers').append($(answer));
+                    });
+                    $bigItem.find('.questions-content').append($smallItem);
+                });
+                //console.log($bigItem.html());
+                $('.paper').append($bigItem);
+                $('.card-content-list').append($card_content);
+            }
+            else if(e.itemsType[i]=='填空题'){
+                bigItem+='<div class="questions">'
+                    +           '<div class="questions-title" id="">'+e.itemsTitle[i]+'(共' +  e.items[i].length + '题，合计' + e.itemsScore[i] + '分，漏选错选不得分)</div>'
+                    +           '<div class="questions-content"></div>'
+                    +     '</div>';
+
+                card_content = '<div class="card-content">'
+                    + '<div class="card-content-title">'+e.itemsTitle[i]+'(共' + e.items[i].length + '题，合计' +e.itemsScore[i] + '分)</div>'
+                    + '<div class="box-list">'
+                    + '</div><div class="split"></div></div>';
+                $card_content = $(card_content);
+                $bigItem = $(bigItem);
+                $.each(e.items[i], function (ind, ele) {
+                    var smallItem = '<div class="question-content" id="'+ele.itemId+'" data-id="'+ele.itemId+'" data-commit="false">'
+                        +            '<div class="question-operation operation-icon icon-mark" data-type="2" data-toggle="tooltip"'
+                        +                   ' data-placement="top" data-container="body" title="" data-original-title="标记本题"><i '
+                        +                      ' class="icon icon-p_exam_tag_de"></i>'
+                        +              '</div>'
+                        +              '<div class="exam-question"><span class="question-index ellipsis">'+(ind + 1)+'.</span>'
+                        +               ele.itemQuestion + ' (' + ele.itemScore + '分)'
+                        +              '</div>'
+                        +              '<div class="answers">'
+                        +              '</div>'
+                        +  '</div>';
+                    $smallItem = $(smallItem);
+                    flag = '<div class="box normal-box question_cbox s1">'
+                        +       '<a class="iconBox questions_'+ele.itemId+'" href="'+String(window.location.href).split("#")[0]+'#'+ele.itemId+'" questionsid="'+ele.itemId+'" num="questions_'+ele.itemId+'" perscore="'+ele.itemScore+'">'+(ind +1) +'</a>'
+                        +       '<span class="box icon-box question_marked"></span>'
+                        + '</div>';
+                    $card_content.find('.box-list').append($(flag));
+                    $.each(ele.itemAnswer, function (index, element) {
+                        var answer =                '<dd class="filled">'
+                            +    '<div class="input-group"><span class="input-group-addon">'+(index+1)+'</span>'
+                            +       '<div class="expanding-wrapper" style="position:relative">'
+                            +            '<div class="expanding-wrapper" style="position:relative">'
+                            +                '<textarea name="key'+(index + 1)+'" data-type="4" class="keyFill form-control expanding" onpaste="return false" oncopy="return false" style="margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; height: 100%; resize: none; overflow: auto;"></textarea>'
+                            +                '<pre class="expanding-clone" style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 39px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 4px 10px;"><span></span><br></pre>'
+                            +            '</div>'
+                            +        '</div>'
+                            +    '</div>'
+                            +'</dd>';
+                        $smallItem.find('.answers').append($(answer));
+                    });
+                    $bigItem.find('.questions-content').append($smallItem);
+                });
+                //console.log($bigItem.html());
+                $('.paper').append($bigItem);
+                $('.card-content-list').append($card_content);
+            }
+            else if(e.itemsType[i]=='问答题'){
+                bigItem+='<div class="questions">'
+                    +           '<div class="questions-title" id="">'+e.itemsTitle[i]+'(共' +  e.items[i].length + '题，合计' + e.itemsScore[i] + '分，漏选错选不得分)</div>'
+                    +           '<div class="questions-content"></div>'
+                    +     '</div>';
+
+                card_content = '<div class="card-content">'
+                    + '<div class="card-content-title">'+e.itemsTitle[i]+'(共' + e.items[i].length + '题，合计' +e.itemsScore[i] + '分)</div>'
+                    + '<div class="box-list">'
+                    + '</div><div class="split"></div></div>';
+                $card_content = $(card_content);
+                $bigItem = $(bigItem);
+                $.each(e.items[i], function (ind, ele) {
+                    var smallItem = '<div class="question-content" id="'+ele.itemId+'" data-id="'+ele.itemId+'" data-commit="false">'
+                        +            '<div class="question-operation operation-icon icon-mark" data-type="2" data-toggle="tooltip"'
+                        +                   ' data-placement="top" data-container="body" title="" data-original-title="标记本题"><i '
+                        +                      ' class="icon icon-p_exam_tag_de"></i>'
+                        +              '</div>'
+                        +              '<div class="exam-question"><span class="question-index ellipsis">'+(ind + 1)+'.</span>'
+                        +               ele.itemQuestion + ' (' + ele.itemScore + '分)'
+                        +              '</div>'
+                        +              '<div class="answers">'
+                        +              '</div>'
+                        +  '</div>';
+                    $smallItem = $(smallItem);
+                    flag = '<div class="box normal-box question_cbox s1">'
+                        +       '<a class="iconBox questions_'+ele.itemId+'" href="'+String(window.location.href).split("#")[0]+'#'+ele.itemId+'" questionsid="'+ele.itemId+'" num="questions_'+ele.itemId+'" perscore="'+ele.itemScore+'">'+(ind +1) +'</a>'
+                        +       '<span class="box icon-box question_marked"></span>'
+                        + '</div>';
+                    $card_content.find('.box-list').append($(flag));
+                        var answer = '<div class="filled">'
+                            +   '<div class="wangEditor-container">'
+                            +        '<div class="wangEditor-container">'
+                            +            '<div class="keyCloze wangEditor-txt" data-type="5" id="keyCloze_'+ele.itemId+'" style="min-height: 250px; height: 250px;" contenteditable="true">'
+                            +                '<p><br></p>'
+                            +            '</div>'
+                            +        '</div>'
+                            +    '</div>'
+                            +    '<input type="hidden" name="key1" value="<p><br></p>">'
+                            +    '<input type="file" name="uploadFile" class="wang-upload-file hidden">'
+                            +    '<div class="file-list"></div>'
+                            +'</div>';
+                        $smallItem.find('.answers').append($(answer));
+                    $bigItem.find('.questions-content').append($smallItem);
+                });
+                //console.log($bigItem.html());
+                $('.paper').append($bigItem);
+                $('.card-content-list').append($card_content);
+            }
+        }
+
+        console.log(e);
+    });
 
     // 是否强制交卷
     var isForce;
@@ -196,96 +405,6 @@ $(function () {
     });
 
 
-    var isUploading = 0; // 1为附件正在上传中；0为附件已经上传完成（附件上传完成后，才可以交卷）
-    //问答题上传附件
-    $(".question-content .wang-upload-file").change(function () {
-        isUploading = 1;
-        var _this = $(this);
-
-        if ($(_this).value == '') {
-            return false;
-        }
-
-        var question_index = $(_this).parents(".question-content").find(".question-index").text().replace('.', "");
-        var question_id = $(_this).parents(".question-content").attr("data-id");
-        var uploadUrl = '/exam/attachment_operate/?method=upload&platform=pc&uploadType=uploadFile';
-        var formHtml = '<form id="fileupForm" class="hidden" action="' + uploadUrl + '" method="post" enctype="multipart/form-data" target="fileupIframe"></form>';
-        var iframeHtml = '<iframe name="fileupIframe" id="fileupIframe" class="append"></iframe>';
-        var inputHmtl = '<input type="text" class="append" name="questionId" value="' + question_id + '">' +
-            '<input type="text" class="append" name="examInfoId" value="' + exam_info_id + '">' +
-            '<input type="text" class="append" name="questionIndex" value="' + question_index + '">' +
-            '<input type="text" class="append" name="userId" value="' + examUserId + '">' +
-            '<input type="text" class="append" name="examResultsId" value="' + exam_results_id + '">';
-
-        $(_this).wrap(formHtml);
-        $('#fileupForm').append(iframeHtml + inputHmtl);
-        $('#fileupForm').submit();
-
-
-        //上传回调
-        $("#fileupIframe").load(function () {
-            var msg = $(this).contents().find('body').text();
-            var _parent = $(this).parents(".question-content");
-            var questionId = $(_parent).attr("data-id");
-            isUploading = 0;
-            if (msg != '') {
-                $('#fileupForm')[0].reset();
-                $('#fileupForm .append').remove();
-                $('#fileupForm .wang-upload-file').unwrap();
-
-                msg = JSON.parse(msg);
-                if (msg.success) {
-                    var file_row = '<div class="file-row">' +
-                        '<a class="file ellipsis" href="' + aliyunEncodeURI(msg.bizContent.audioUrl) + '">' + msg.bizContent.filename + '</a>' +
-                        '<i class="icon icon-m_exam_error2 icon-file-delete"></i>' +
-                        '</div>';
-                    $(_parent).find('.file-list').append(file_row);
-                    commitProcess(questionId, true);
-                    showSuccessTip("附件上传成功");
-                } else if (msg.code == 33000) {
-                    showErrorTip("文件大小超限");
-                } else {
-                    showErrorTip('上传失败，请重试');
-                }
-            }
-        });
-
-    });
-
-    //问答题上传附件删除
-    $("body").on("click", ".file-list .icon-file-delete", function () {
-        var _this = $(this);
-        var _row = $(_this).parent(".file-row");
-        var _parent = $(_this).parents(".question-content");
-        var fileUrl = $(_row).find(".file").attr("href");
-        var filename = $(_row).find(".file").text();
-        var questionId = $(_parent).attr("data-id");
-        var dataJson = {
-            examResultsId: exam_results_id,
-            questionId: questionId,
-            audioUrl: fileUrl,
-            filename: filename
-        };
-
-        $.ajax({
-            url: '/exam/attachment_operate/?method=remove&removeType=uploadFile',
-            type: 'post',
-            data: dataJson,
-            dataType: 'json',
-            success: function (msg) {
-                if (msg.success) {
-                    $(_row).remove();
-                } else {
-                    alert('删除失败');
-                }
-            },
-            error: function () {
-                alert('服务器异常，稍后再试');
-            }
-        })
-    });
-
-
     //单选，多选，判断
     //之所以将事件绑定至label而不是.select，是因为select内同时包含input和label，
     //而label又指向input，这会导致点击select，click被触发两次
@@ -330,8 +449,6 @@ $(function () {
         saveQuestionsCatch(questionsId, keyList.join("||"));
 
     });
-
-    //todo 被删除的试题当作已答？？？
 
     //交卷
     $("#endExamBtn").click(function (e) {
@@ -417,35 +534,6 @@ $(function () {
     // isForce--是否强制交卷，强制交卷方式 //0--否 1--是 2--切屏防作弊 3--x秒不动自动交卷 4--闯关失败 5--答题时间或者考试时间已到 6-批量交卷3秒后交卷
     function saveExamFn(isForce) {
         //如果附件正在上传中 //非强制交卷
-        if (isUploading == 1) {
-            if (isForce == 0) {
-                BootstrapDialog.show({
-                    title: "",
-                    message: "附件正在上传中，请您耐心等候。上传完成后是否自动为您交卷？",
-                    buttons: [{
-                        label: "否",
-                        action: function (dialogItself) {
-                            dialogItself.close();
-                            $("#endExamModal").modal("hide");
-                            $("#spinnerLoading").addClass("hidden");
-                        }
-                    }, {
-                        label: "是",
-                        cssClass: 'btn-primary',
-                        action: function (dialogItself) {
-                            dialogItself.close();
-                            $("#spinnerLoading").removeClass("hidden hide");
-                            setInterval(function () {
-                                if (isUploading == 0) {
-                                    saveExamFn(isForce);
-                                }
-                            }, 1000);
-                        }
-                    }]
-                });
-            }
-            return false;
-        }
 
 
         $(".had-save-mark").addClass("had-confirm-save");//作为是否已经触发交卷操作的标记
@@ -456,12 +544,6 @@ $(function () {
         // 非"不限时长"类的考试，获取倒计时
         if (examTimeRestrict != 0) {
             clearInterval(timeDownInterval);
-        }
-        // 若开启拍照防作弊功能，则在交卷之前再拍一次，确保至少有一张
-        if (capture == 1) {
-            var questionId = $("#numberCardModal .modal-body .iconBox:last").attr("questionsId");
-            $("#captureForm input[name=questionId]").val(questionId);
-            webcam.capture(0);
         }
 
         //判断是否有未保存的考题
@@ -497,11 +579,15 @@ $(function () {
         //问答题blur保存答案
         if (editor_blur == true) {
             var questionsData = {
+                "exam_id": getParam('exam_id'),
                 "test_id": questionsId,
                 "test_ans": keyList,
                 "exam_results_id": exam_results_id,
                 "exam_info_id": exam_info_id
             };
+            console.log(questionsData);
+            result.add(questionsData);
+            //ajax_post("/exam/post_result",questionsData );
             answered_multi_all.push(questionsData);
             commitProcess(questionsId, true);
             saveAnswerFn_timeout(isForce);
@@ -521,11 +607,15 @@ $(function () {
             }
         });
         var questionsData = {
+            "exam_id": getParam('exam_id'),
             "test_id": questionsId,
             "test_ans": keyList,
             "exam_results_id": exam_results_id,
             "exam_info_id": exam_info_id
         };
+        console.log(questionsData);
+        result.add(questionsData);
+        //ajax_post("/exam/post_result",questionsData );
         if (!hasSave) {
             answered_multi_all.push(questionsData);
             if (questionsData.test_ans == '') {
@@ -717,7 +807,9 @@ $(function () {
                         if (loadingProgress >= 100) {
                             clearInterval(progress);
                             clearInterval(time);
-                            window.location.href = "/exam_result?examResultsId=" + exam_results_id;
+                            console.log(Array.from(result));
+                            ajax_post("/exam/post_result" ,Array.from(result));
+                            //window.location.href = "/exam_result?examResultsId=" + exam_results_id;
                         }
                     }, 120);
                 } else {
@@ -728,6 +820,22 @@ $(function () {
 
                 resultTimeout();
 
+            }
+        });
+    }
+
+    function ajax_post(url, data) {
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: JSON.stringify(data),
+            dataType: 'text',
+            contentType: "application/json;charset=UTF-8",
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (msg) {
+                console.log(msg);
             }
         });
     }

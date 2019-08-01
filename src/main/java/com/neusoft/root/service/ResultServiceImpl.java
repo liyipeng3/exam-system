@@ -1,4 +1,6 @@
-/*package com.neusoft.root.service;
+package com.neusoft.root.service;
+
+import static org.assertj.core.api.Assertions.filter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +10,14 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.neusoft.root.dao.AdminMapper;
+import com.neusoft.root.dao.StudentMapper;
 import com.neusoft.root.dao.TeacherMapper;
+import com.neusoft.root.domain.Exam;
+import com.neusoft.root.domain.ParsedItem;
+import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.ParsedResult;
 import com.neusoft.root.domain.RawResult;
+import com.neusoft.root.domain.Student;
 
 @Service
 public class ResultServiceImpl implements ResultService{
@@ -18,182 +25,121 @@ public class ResultServiceImpl implements ResultService{
 	AdminMapper mapper;
 	@Autowired 
 	TeacherMapper teachermapper;
+	@Autowired
+	ExamService service;
+	@Autowired
+	MyService myService;
+	@Autowired
+	ItemService ItemService;
+	@Autowired
+	StudentMapper student;
 	@Override
-	public void addResult(JSONObject json) {
+	public void addResult(List<JSONObject> jsonx) {
 		// TODO Auto-generated method stub
-		int i=1;
-		int j=1;
-		String singlechoiceResult ="";
-		while(json.getString("singleId"+i)!=null&&(!json.getString("singleId"+i).equals("")))
-		{
-			String singleanswer = "";
-			  j=1;
-			while(json.getString("single"+i+"answer"+j)!=null)
+		
+		String single = "";
+		String multi = "";
+		String fill = "";
+		String subjective = "";
+		Integer paperId =0;
+		String studentId ="";
+		String teacherId = "";
+		String date ="";
+		
+			JSONObject json = jsonx.get(jsonx.size()-1);
+			studentId = json.getString("username");
+			Integer examId = Integer.valueOf(json.getString("exam_id"));
+			date = json.getString("date");
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("examId",examId );
+			List<Exam> examlist = service.queryExam(jsonObject);
+			if(examlist.size()!=1)
 			{
-				singleanswer = singleanswer + json.getString("single"+i+"answer"+j)+"!!!";
-				j++;
+				System.out.println("examid不唯一！！！");
+				System.exit(0);
 			}
-			if(!singleanswer.equals(""))
+			else
 			{
-				singleanswer = singleanswer.substring(0, singleanswer.length()-3);
-			}
-			singlechoiceResult = singlechoiceResult+json.getString("singleId"+i)+"???"+singleanswer+"###";
-			i++;
-		}
-		if(!singlechoiceResult.equals(""))
-		{
-			singlechoiceResult = singlechoiceResult.substring(0, singlechoiceResult.length()-3);
-		}
-		i=1;
-		String multichoiceResult ="";
-		while(json.getString("multiId"+i)!=null&&(!json.getString("multiId"+i).equals("")))
-		{
-			String multianswer = "";
-			  j=1;
-			while(json.getString("multi"+i+"answer"+j)!=null)
-			{
-				multianswer = multianswer + json.getString("multi"+i+"answer"+j)+"!!!";
-				j++;
-			}
-			if(!multianswer.equals(""))
-			{
-				multianswer = multianswer.substring(0, multianswer.length()-3);
-			}
-			multichoiceResult = multichoiceResult+json.getString("multiId"+i)+"???"+multianswer+"###";
-			i++;
-		}
-		if(multichoiceResult!="")
-			multichoiceResult = multichoiceResult.substring(0,multichoiceResult.length()-3);
-		i=0;
-		String fillResult ="";
-		while(json.getString("fillId"+i)!=null&&(!json.getString("fillId"+i).equals("")))
-		{
-			String fillanswer = "";
-			  j=1;
-			while(json.getString("fill"+i+"answer"+j)!=null)
-			{
-				fillanswer = fillanswer + json.getString("fill"+i+"answer"+j)+"!!!";
-				j++;
-			}
-			if(!fillanswer.equals(""))
-			{
-				fillanswer = fillanswer.substring(0, fillanswer.length()-3);
-			}
-			fillResult = fillResult+json.getString("fillId"+i)+"???"+fillanswer+"###";
-			i++;
-		}
-		if(fillResult!="")
-			fillResult = fillResult.substring(0,fillResult.length()-3);
-		i=0;
-		String subResult ="";
-		while(json.getString("subjectiveId"+i)!=null&&(!json.getString("subjectiveId"+i).equals("")))
-		{
-			String subanswer = "";
-			  j=1;
-			while(json.getString("sub"+i+"answer"+j)!=null)
-			{
-				subanswer = subanswer + json.getString("sub"+i+"answer"+j)+"!!!";
-				j++;
-			}
-			if(!subanswer.equals(""))
-			{
-				subanswer = subanswer.substring(0, subanswer.length()-3);
-			}
-			subResult = subResult+json.getString("subjectiveId"+i)+"???"+subanswer+"###";
-			i++;
-		}
-		if(subResult!="")
-			subResult = subResult.substring(0,subResult.length()-3);
-		RawResult result = new RawResult(json.getString("studentId"), json.getInteger("paperId"),json.getString("teacherId"), singlechoiceResult, multichoiceResult, fillResult, subResult, json.getString("submitDate"),"no");
-		mapper.addResult(result);
-	}
-
-
-	@Override
-	public List<RawResult> queryRawResult(String teacherId) {
-		// TODO Auto-generated method stub
-		RawResult result = new RawResult();
-		result.setTeacherId("ccc");
-		List<RawResult> list = teachermapper.queryResult(result);
-		return list;
-	}
-
-	@Override
-	public List<ParsedResult> queryParsedResult(String teacherId) {
-		// TODO Auto-generated method stub
-		RawResult resultx = new RawResult();
-		resultx.setTeacherId(teacherId);
-		List<RawResult> list = teachermapper.queryResult(resultx);
-		List<ParsedResult> result = new ArrayList<>(); 
-		for(RawResult result1:list)
-		{
-			List<String> singleList = new ArrayList<>();
-			List<String> multiList = new ArrayList<>();
-			List<String> fillList = new ArrayList<>();
-			List<String> subjectList = new ArrayList<>();
-			ParsedResult re = new ParsedResult();
-			re.setStudentId(result1.getStudentId());
-			re.setPaperId(result1.getPaperId());
-			re.setTeacherId(result1.getTeacherId());
-			re.setSubmitDate(result1.getSubmitDate());
-			re.setChecked(result1.getChecked());
+				Exam exam = examlist.get(0);
+				paperId = exam.getPaperId();
+				ParsedPaper paperlist = myService.queryParsedPaper(paperId);
+				teacherId = paperlist.getCreaterId();
+				 Integer itemId = Integer.valueOf(json.getString("test_id"));
+				 List<ParsedItem> itemlist= ItemService.queryParsedItem(itemId);
+				 if(itemlist.size()!=1)
+				 {
+					 System.out.println("itemid不唯一！！！");
+					System.exit(0);
+				 }
+				 else
+				 {
+					 String answerx = json.getString("test_ans");
+					// System.out.println("answerx"+answerx);
+					 String answer[] = answerx.split(",");
+					 List<String> endanswer = new ArrayList<>();
+					// System.out.println(answer.length);
+					 for(int i=0;i<answer.length;i++)
+					 {
+						 for(int k=1;k<=20;k++)
+						 {
+							 if(answer[i].equals("key"+k))
+							 {
+								 List<String> itemanswer = itemlist.get(0).getItemOption();
+								 System.out.println(itemanswer+"k="+k);
+								 System.out.println(answer);
+								 endanswer.add(itemanswer.get(k-1 ));
+							 }
+						 }
+					 }
+					 String itemtype = itemlist.get(0).getItemType();
+					 if(itemtype.equals("单选题"))
+					 {
+					//	 System.out.println(answer[0]);
+						 single = single+itemId+"???"+endanswer.get(0)+"###";
+					 }
+					 else if(itemtype.equals("多选题"))
+					 {
+						 multi = multi +itemId+"???";
+						 for(String ans:endanswer)
+						 {
+							 multi = multi+ans+"!!!";
+						 }
+						 multi = multi.substring(0, multi.length()-3)+"###";
+					 }
+					 else if(itemtype.equals("填空题"))
+					 {
+						 fill = fill+itemId+"???";
+						String an[] = answerx.split("\\|\\|");
+					//	System.out.println(answerx.length());
+						for(int l=0;l<an.length;l++)
+						{
+							fill = fill+an[l]+"!!!";
+						}
+						 fill = fill.substring(0, fill.length()-3)+"###";
+					 }
+					 else if(itemtype.equals("问答题"))
+					 {
+						 subjective = subjective+itemId+"???"+answerx+"###";
+					 }
+					 else {
+						 System.out.println("无效题目类型！！！");
+							System.exit(0);
+					}
+				 }
+				 
 			
-			String singleline[] = result1.getSinglechoiceResult().split("###");
-			for(int i=0;i<singleline.length;i++)
-			{
-				String line[] = singleline[i].split("\\?\\?\\?");
-				singleList.add(line[1]);
-				re.getSinglechoiceResult().put(line[0],singleList);
-			}
-			String multiline[] = result1.getMultichoiceResult().split("###");
-			for(int i=0;i<multiline.length;i++)
-			{
-				String line1[] = multiline[i].split("\\?\\?\\?");
-				String line11[] = line1[1].split("!!!");
-				for(int j=0;j<line11.length;j++)
-				{
-					multiList.add(line11[j]);
-				}
-				re.getMultichoiceResult().put(line1[0], multiList);
-			}
-			String fillline[] = result1.getFillResult().split("###");
-			for(int i=0;i<fillline.length;i++)
-			{
-				String line2[] = fillline[i].split("\\?\\?\\?");
-				String line21[] = line2[1].split("!!!");
-				for(int j=0;j<line21.length;j++)
-				{
-					fillList.add(line21[j]);
-				}
-				re.getFillResult().put(line2[0], fillList);
-			}
-			String subjectline[] = result1.getSubjectiveResult().split("###");
-			for(int i=0;i<subjectline.length;i++)
-			{
-				String line3[] = subjectline[i].split("\\?\\?\\?");
-				String line31[] = line3[1].split("!!!");
-				for(int j=0;j<line31.length;j++)
-				{
-					subjectList.add(line31[j]);
-				}
-				re.getSubjectiveResult().put(line3[0], subjectList);
-			}
-			result.add(re);
 			
 		}
-		
-		
-		
-		return result;
-	}
-
-
-	@Override
-	public void update(String studentId, String paperId, String teacherId) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	
-}*/
+		if(!single.equals(""))
+		single = single.substring(0, single.length()-3);
+		if(!multi.equals(""))
+		multi = multi.substring(0, multi.length()-3);
+		if(!fill.equals(""))
+		fill = fill.substring(0, fill.length()-3);
+		if(!subjective.equals(""))
+		subjective = subjective.substring(0, subjective.length()-3);
+		RawResult result = new RawResult(studentId, paperId, teacherId, single, multi, fill, subjective, date, "yes");
+		System.out.println(result);
+		student.addResult(result);
+	}	
+}

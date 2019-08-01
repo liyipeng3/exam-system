@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.neusoft.root.domain.Exam;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.RawItem;
@@ -30,11 +31,12 @@ import com.neusoft.root.domain.Subjects;
 import com.neusoft.root.service.CourseServiceImpl;
 import com.neusoft.root.service.ExamServiceImpl;
 import com.neusoft.root.service.PaperServiceImpl;
+import com.neusoft.root.service.ResultService;
 import com.neusoft.root.service.ItemServiceImpl;
 import com.neusoft.root.service.MyServiceImp;
 
 /**
- * 
+ * 考试控制器
  * 
  * @author 何时谷雨
  *
@@ -52,21 +54,8 @@ public class ExamController {
 	private ExamServiceImpl examService;
 	@Autowired
 	private MyServiceImp myService;
-	private String subject;
-	/**
-	 * 
-	 * 
-	 * @param paper_name
-	 * @param subject
-	 * @param method
-	 * @return
-	 */
-	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
-	@ResponseBody
-	public String paperSettings(String paper_name, String subject, String method) {
-		this.subject = subject;
-		return null;
-	}
+	@Autowired
+	private ResultService resultService;
 	/**
 	 * 获得所有试卷
 	 * 
@@ -257,12 +246,13 @@ public class ExamController {
 	public String getParsedPaperExam(Integer examId){;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("examId", String.valueOf(examId));
-		Integer paperId = examService.queryExam(jsonObject).get(0).getPaperId();
+		Exam exam = examService.queryExam(jsonObject).get(0);
+		Integer paperId = exam.getPaperId();
+		Double time = exam.getExamLast();
 		ParsedPaper parsedPaper = myService.queryParsedPaper(paperId);
 		List<List<ParsedItem>> ITEMS = parsedPaper.getItems();
 		List<String> itemsScore = new ArrayList<>();
 		itemsScore.add("");
-		System.out.println(ITEMS.size());
 		for(int i = 1; i <= ITEMS.size()-1; i++){
 			Double score = 0.0;
 			for(int j = 0; j < ITEMS.get(i).size(); j++){
@@ -273,10 +263,9 @@ public class ExamController {
 		Gson gson = new Gson();
 		String json = gson.toJson(parsedPaper);
 		String postJson = gson.toJson(itemsScore);
-		System.out.println(postJson);
 		json = json.substring(0,json.length()-1);
 		postJson = "\"itemsScore\":"+postJson+"}";
-		json = json+","+postJson;
+		json = json+","+"\"examTime\":"+time+","+postJson;
 		return json;
 	}
 	/**
@@ -362,10 +351,43 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/result_inquire",method=RequestMethod.POST)
 	@ResponseBody
-	public String getPaperChecking(int id){
+	public String getPaperChecking(Integer examId){
 		JSONObject json = new JSONObject();
 		json.put("success", true);
 		return json.toJSONString();
+	}
+	/**
+	 * 上交学生答卷
+	 * 
+	 * @param jsonObject
+	 * @return
+	 */
+	@RequestMapping(value="/post_result",method=RequestMethod.POST)
+	@ResponseBody
+	public String postResult(@RequestBody List<JSONObject> jsonObjects, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		long time = System.currentTimeMillis();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String date = df.format(time);
+		for(JSONObject json:jsonObjects){
+			json.put("username", username);
+			json.put("date", date);
+			System.out.println(json.toJSONString());
+		}
+		resultService.addResult(jsonObjects);
+		return "ok";
+	}
+	/**
+	 * 获取批改结果
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/pull_results",method=RequestMethod.GET)
+	@ResponseBody
+	public String pullResults(Integer examId){
+		
+		return "ok";
 	}
 	/**
 	 * 提交批改结果
