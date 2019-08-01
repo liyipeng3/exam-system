@@ -19,7 +19,7 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 @Aspect
 @Component
 public class LogAspect {
-  /*  //设置切点表达式
+   /* //设置切点表达式
     @Pointcut("@annotation(com.nuesoft.root.log.Logger)")
     public void logPointcut(){}
     //环绕通知
@@ -50,7 +50,7 @@ public class LogAspect {
         System.out.println(path);
         System.out.println(operation);
         System.out.println(username);
-        MyLog result = new MyLog);
-        return result;
-    }*/
+        MyLog result = new MyLog();
+        return result;*/
+    //}
 }
