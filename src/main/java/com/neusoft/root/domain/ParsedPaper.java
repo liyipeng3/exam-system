@@ -6,18 +6,19 @@ import java.util.List;
 //解析后的试卷
 public class ParsedPaper 
 {
-	private Integer paperId; //试卷ID，唯一
-	private String paperName; //试卷名称，唯一
-	private String createrId; //创造者ID
-	private String createDate; //创造日期
-	private String paperType; //试卷科目类型，例如JAVA, C++
-	private Double paperIndex; //试卷难度,由题目平均难度决定
-	private List<List<ParsedItem>> items;  // 选择题,格式为:ID1,分数1# ID2,分数2#
-	private List<String> itemsTitle;  // 选择题,格式为:ID1,单选题# ID2,分数2#
-	private List<String> itemsType;  // 选择题,格式为:ID1,11# ID2,分数2#
-	private Double paperScore; //试卷总分 
-	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
-	private String paperRemark; // 试卷备注
+	private Integer paperId; 				//试卷ID，唯一
+	private String paperName; 				//试卷名称，唯一
+	private String createrId; 				//创造者ID
+	private String createDate; 				//创造日期
+	private String paperType; 				//试卷科目类型，例如JAVA, C++
+	private Double paperIndex; 				//试卷难度,由题目平均难度决定
+	private List<List<ParsedItem>> items;  	// 选择题,格式为:ID1,分数1# ID2,分数2#
+	private List<String> itemsTitle;  		// 选择题,格式为:ID1,单选题# ID2,分数2#
+	private List<String> itemsType;  		// 选择题,格式为:ID1,11# ID2,分数2#
+	private Double paperScore; 				//试卷总分 
+	private String paperSecrecy; 			//试卷保密级别，二值性：保密，公开
+	private String paperRemark; 			// 试卷备注
+	
 	public ParsedPaper(Integer paperId, String paperName, String createrId, String createDate, String paperType,
 			Double paperIndex, List<List<ParsedItem>> items, List<String> itemsTitle, List<String> itemsType,
 			Double paperScore, String paperSecrecy, String paperRemark) {
