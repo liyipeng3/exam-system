@@ -250,7 +250,6 @@ public class ExamController {
 		List<List<ParsedItem>> ITEMS = parsedPaper.getItems();
 		List<String> itemsScore = new ArrayList<>();
 		itemsScore.add("");
-		System.out.println(ITEMS.size());
 		for(int i = 1; i <= ITEMS.size()-1; i++){
 			Double score = 0.0;
 			for(int j = 0; j < ITEMS.get(i).size(); j++){
