@@ -177,6 +177,8 @@ public class ResultServiceImpl implements ResultService{
 		myjson.put("paperId",paperId);
 		myjson.put("teacherId", teacherId);
 		myjson.put("checkDate", date);
+		result.setStudentId(null);
+		
 		return check.queryPaperChecking(myjson).get(0);
 	}	
 }
