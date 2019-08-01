@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.filter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.login.FailedLoginException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import com.neusoft.root.dao.AdminMapper;
 import com.neusoft.root.dao.StudentMapper;
 import com.neusoft.root.dao.TeacherMapper;
 import com.neusoft.root.domain.Exam;
+import com.neusoft.root.domain.PaperChecking;
 import com.neusoft.root.domain.ParsedItem;
 import com.neusoft.root.domain.ParsedPaper;
 import com.neusoft.root.domain.ParsedResult;
@@ -33,8 +36,10 @@ public class ResultServiceImpl implements ResultService{
 	ItemService ItemService;
 	@Autowired
 	StudentMapper student;
+	@Autowired
+	CheckService check;
 	@Override
-	public void addResult(List<JSONObject> jsonx) {
+	public PaperChecking addResult(List<JSONObject> jsonx) {
 		// TODO Auto-generated method stub
 		
 		String single = "";
@@ -45,8 +50,36 @@ public class ResultServiceImpl implements ResultService{
 		String studentId ="";
 		String teacherId = "";
 		String date ="";
-		
-			JSONObject json = jsonx.get(jsonx.size()-1);
+		boolean flag =false;
+		List<Integer> list = new ArrayList<>();
+	//	System.out.println(jsonx.size());
+		for(int j=jsonx.size()-1;j>=0;j--)
+		{
+			flag=false;
+			JSONObject json = jsonx.get(j);
+			 Integer itemId = Integer.valueOf(json.getString("test_id"));
+			for(Integer num:list)
+			{
+				if(num==itemId)
+				{
+		//			System.out.println("num"+num);
+					flag=true;
+			//		System.out.println("break");
+					break;
+				}
+			}
+			//System.out.println("flag"+flag);
+			if(flag)
+			{
+				flag =false;
+			//	System.out.println("@@@");
+				continue;
+			}
+			else
+			{
+				list.add(itemId);
+			}
+		//	System.out.println("!!!");
 			studentId = json.getString("username");
 			Integer examId = Integer.valueOf(json.getString("exam_id"));
 			date = json.getString("date");
@@ -58,13 +91,12 @@ public class ResultServiceImpl implements ResultService{
 				System.out.println("examid不唯一！！！");
 				System.exit(0);
 			}
-			else
-			{
 				Exam exam = examlist.get(0);
 				paperId = exam.getPaperId();
+				
 				ParsedPaper paperlist = myService.queryParsedPaper(paperId);
 				teacherId = paperlist.getCreaterId();
-				 Integer itemId = Integer.valueOf(json.getString("test_id"));
+				
 				 List<ParsedItem> itemlist= ItemService.queryParsedItem(itemId);
 				 if(itemlist.size()!=1)
 				 {
@@ -85,8 +117,6 @@ public class ResultServiceImpl implements ResultService{
 							 if(answer[i].equals("key"+k))
 							 {
 								 List<String> itemanswer = itemlist.get(0).getItemOption();
-								 System.out.println(itemanswer+"k="+k);
-								 System.out.println(answer);
 								 endanswer.add(itemanswer.get(k-1 ));
 							 }
 						 }
@@ -128,7 +158,6 @@ public class ResultServiceImpl implements ResultService{
 				 }
 				 
 			
-			
 		}
 		if(!single.equals(""))
 		single = single.substring(0, single.length()-3);
@@ -139,7 +168,17 @@ public class ResultServiceImpl implements ResultService{
 		if(!subjective.equals(""))
 		subjective = subjective.substring(0, subjective.length()-3);
 		RawResult result = new RawResult(studentId, paperId, teacherId, single, multi, fill, subjective, date, "yes");
-		System.out.println(result);
+		//System.out.println(result);
+		//System.out.println(list.toString());
 		student.addResult(result);
+		//my
+		JSONObject myjson = new JSONObject();
+		myjson.put("studentId", studentId);
+		myjson.put("paperId",paperId);
+		myjson.put("teacherId", teacherId);
+		myjson.put("checkDate", date);
+		result.setStudentId(null);
+		
+		return check.queryPaperChecking(myjson).get(0);
 	}	
 }

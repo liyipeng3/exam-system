@@ -2695,7 +2695,7 @@ webpackJsonp([1], {
                     url: a.apiBase("admin") + "/admin/paper_mgr_new",
                     show: n.allowPaperMgr
                 }, {
-                    title: "成绩查询批改",
+                    title: "成绩查询",
                     id: "ResultMgr",
                     url: a.apiBase("admin") + "/admin/result/mgr_new",
                     show: n.allowResultMgr

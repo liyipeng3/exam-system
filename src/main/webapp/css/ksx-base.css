@@ -104,11 +104,7 @@ form {
     color: #d8d8d8;
 }
 
-.search-section .search-section-normal .search-section-area::-moz-input-placeholder {
-    color: #d8d8d8;
-}
-
-.search-section .search-section-normal .search-section-area:-moz-input-placeholder {
+.search-section .search-section-normal .search-section-area {
     color: #d8d8d8;
 }
 
@@ -647,7 +643,7 @@ i[class^="icons8-us-"] {
 /*.modal-unify .modal-footer .btn + .btn {margin-left: 40px;}*/
 /*calendar*/
 .calendar em {
-    background: url(../images/icon.gif) no-repeat
+    background: url(/img/logo.png) no-repeat
 }
 
 .calendar {
@@ -658,7 +654,7 @@ i[class^="icons8-us-"] {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    background: url(../images/icon.gif) repeat-x 0 -92px;
+    background: url(/img/logo.png) repeat-x 0 -92px;
     font-size: 12px;
     border: #1A8CFE 1px solid;
     border-color: transparent;
@@ -1007,7 +1003,7 @@ i.icon.icon-ksx-支付.icon-pay {
     color: #FFF;
     letter-spacing: 2px;
     text-align: center;
-    background-image: url("../images/modal-header-bg.png");
+    background-image: url("/img/login-bg-small.jpg");
     background-repeat: no-repeat;
     background-position: top center;
     background-size: contain;

@@ -1,5 +1,7 @@
 package com.neusoft.root.service;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,8 @@ public class testMyServiceImpl {
 	@Test
 	public void queryStudentResult()
 	{
-		for (StudentResult sr : test.queryStudentResult(1)) 
+		List<StudentResult> ss = test.queryStudentResult(5);
+		for (StudentResult sr : ss) 
 		{
 			System.out.println(sr);
 		}

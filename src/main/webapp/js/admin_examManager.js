@@ -127,7 +127,7 @@ $(document).ready(function () {
                 return "<a href='#' data-growing-title='updateExam' class='icon-a_operate_edit updateExam' examId='" + row.id + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='编辑'></a>" +
                     "<a href='#' data-growing-title='linkExam' class='icon-a_operate_link linkExam' examId='" + row.id + "' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='考试链接'></a>" +
                     // "<a href='#' data-growing-title='linkTest' class='icons8-purchase-order linkTest' data-toggle=\"tooltip\" data-container=\"body\" data-placement=\"top\" title='考一下' examId='"+row.id+"'></a>"+
-                    "<a href='#' data-growing-title='linkScore' class='icon-a_operate_mark linkScore' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='成绩查询批改' examId='" + row.id + "'></a>" +
+                    "<a href='#' data-growing-title='linkScore' class='icon-a_operate_mark linkScore' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='成绩查询' examId='" + row.id + "'></a>" +
                     "<a href='#' data-growing-title='linkAnalysis' class='icon-a_operate_analysis linkAnalysis' data-toggle=\"tooltip\" data-container=\"body\" data-placement=\"top\" title='统计分析' examId='" + row.id + "' examName='" + row.examName + "'></a>" +
                     "<a href='#' data-growing-title='searchState' class='icon-a_operate_dspmsg searchState' data-toggle=\"tooltip\" data-placement=\"top\" data-container=\"body\" title='考生答题状态查询' examId='" + row.id + "'></a>";
             }

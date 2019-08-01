@@ -586,7 +586,7 @@ $(function () {
                 "exam_info_id": exam_info_id
             };
             console.log(questionsData);
-            result.add(questionsData);
+            result.push(questionsData);
             //ajax_post("/exam/post_result",questionsData );
             answered_multi_all.push(questionsData);
             commitProcess(questionsId, true);
@@ -614,7 +614,7 @@ $(function () {
             "exam_info_id": exam_info_id
         };
         console.log(questionsData);
-        result.add(questionsData);
+        result.push(questionsData);
         //ajax_post("/exam/post_result",questionsData );
         if (!hasSave) {
             answered_multi_all.push(questionsData);
@@ -809,7 +809,7 @@ $(function () {
                             clearInterval(time);
                             console.log(Array.from(result));
                             ajax_post("/exam/post_result" ,Array.from(result));
-                            //window.location.href = "/exam_result?examResultsId=" + exam_results_id;
+                            window.location.href = "/exam_result?score=" + String(msg.studentScore) + "&sumScore="+ String(msg.sumScore);
                         }
                     }, 120);
                 } else {
