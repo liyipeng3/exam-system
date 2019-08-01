@@ -234,8 +234,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 管理课程 -->
 	<insert id="addCource" parameterType="Course">
-		insert into course_table 
-		values(#{courseId},#{courseName},#{courseType},#{courseBegin},#{courseEnd},#{courseRemark},#{courseStatus})
+		insert into course_table(course_name,course_type,course_begin,course_end,course_remark,course_status)
+		values(#{courseName},#{courseType},#{courseBegin},#{courseEnd},#{courseRemark},#{courseStatus})
 	</insert>
 	
 	<delete id="deleteCourse" parameterType="Course">
