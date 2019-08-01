@@ -34,13 +34,13 @@ public class PaperHelper
 	
 	private void parseQuestion(Map<Integer, Double> map, String question)
 	{
-		String[] splited = question.split("###");
+		String[] splited = question.split("\\#\\#\\#");
 		Integer itemId;
 		Double itemScore;
 		String[] temp;
 		for (int i = 0; i < splited.length; i++) 
 		{
-			temp = splited[i].split(",");
+			temp = splited[i].split("\\?\\?\\?");
 			itemId = Integer.valueOf(temp[0]);
 			itemScore = Double.valueOf(temp[1]);
 			map.put(itemId, itemScore);

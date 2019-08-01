@@ -13,8 +13,12 @@ import com.neusoft.root.domain.ParsedPaper;
  * @author Warriors
  *
  */
-public interface MyService {
+import com.neusoft.root.domain.Student;
+import com.neusoft.root.domain.StudentResult;
+public interface MyService 
+{
 	
 	public ParsedPaper queryParsedPaper(Integer paperId);
 	
+	public List<StudentResult> queryStudentResult(Integer examId);
 }
