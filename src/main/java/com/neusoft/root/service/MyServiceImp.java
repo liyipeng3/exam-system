@@ -90,6 +90,10 @@ public class MyServiceImp implements MyService
 	
 	private void parse(String question, ParsedPaper parsedPaper)
 	{
+		if(question==null||question.equals(""))
+		{
+			return;
+		}
 		String[] line = question.split("\\#\\#\\#");
 		String[] detail;
 		Integer itemId;

@@ -130,10 +130,10 @@ public class PaperServiceImpl implements PaperService{
 			else if(json.getString("testType"+x).equals("5"))//主观
 			{
 				
-				String testid4 = json.getString("testIds4");
+				String testid4 = json.getString("testIds"+x);
 				testid4 = testid4.substring(0, testid4.length()-1);
 				String line4[] = testid4.split(",");
-				String querstionscores4 = json.getString("questionScores4");
+				String querstionscores4 = json.getString("questionScores"+x);
 				querstionscores4 = querstionscores4.substring(0,  querstionscores4.length()-1);
 				String scores4[] = querstionscores4.split(",");
 				for(int i=0;i<line4.length;i++)
