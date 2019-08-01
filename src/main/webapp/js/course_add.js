@@ -216,7 +216,7 @@ $(document).ready(function () {
             isNewCourse = true;
             $(this).attr("disabled", "disabled");
             $("#loading").show();
-            saveCourse(false, '', 'course');
+            saveCourse(false, '/study/course_mgr', 'course');
         }
     });
 
@@ -470,11 +470,12 @@ function saveCourse(nextStep, jump_url, type) {
 
     var dataForm = $('#courseForm').serializeArray();
     var data = {};
-    $(dataForm).each(function(index, obj){
+    $(dataForm).each(function (index, obj) {
         data[obj.name] = obj.value;
     });
 
     ajax_post("/study/add_course", data);
+    window.location.href = jump_url;
 }
 
 $("#cannotLinkModal .btn").click(function () {
