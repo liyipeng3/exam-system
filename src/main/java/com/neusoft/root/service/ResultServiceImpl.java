@@ -45,9 +45,8 @@ public class ResultServiceImpl implements ResultService{
 		String studentId ="";
 		String teacherId = "";
 		String date ="";
-		for(int j=0;j<jsonx.size();j++)
-		{
-			JSONObject json = jsonx.get(j);
+		
+			JSONObject json = jsonx.get(jsonx.size()-1);
 			studentId = json.getString("username");
 			Integer examId = Integer.valueOf(json.getString("exam_id"));
 			date = json.getString("date");
@@ -126,7 +125,7 @@ public class ResultServiceImpl implements ResultService{
 					}
 				 }
 				 
-			}
+			
 			
 		}
 		if(!single.equals(""))
