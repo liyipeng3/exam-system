@@ -474,7 +474,8 @@ public class ExamController {
 	@RequestMapping(value="/get_paper_info",method=RequestMethod.GET)
 	@ResponseBody
 	public String getPaperInfo(int id){
-		/*ParsedPaper paper = paperService.queryParsedPaper(id);
+		System.out.println(id);
+		ParsedPaper paper = myService.queryParsedPaper(id);
 		System.out.println(paper);
 		JsonObject json = new JsonObject();
 		json.addProperty("paperName", paper.getPaperName());
@@ -491,15 +492,20 @@ public class ExamController {
 				num++;
 			}
 		}
-		json.addProperty("itemsNumber", String.valueOf(num));*/
-		JsonObject json = new JsonObject();
+		json.addProperty("itemsNumber", String.valueOf(num));
+		/*JsonObject json = new JsonObject();
 		json.addProperty("paperName", "语文期末");
 		json.addProperty("paperSubject", "语文");
 		json.addProperty("score", "100");
 		json.addProperty("createrId", "teacher");
 		json.addProperty("createDate", "2019-11-11 11:11");
 		json.addProperty("paperRemark", "请勿作弊");
-		json.addProperty("itemsNumber", "20");
+		json.addProperty("itemsNumber", "20");*/
 		return json.toString();
+	}
+	@RequestMapping(value="/add_course", method=RequestMethod.POST)
+	@ResponseBody
+	public String addCourse(@RequestBody JSONObject jsonObject){
+		return "ok";
 	}
 }

@@ -130,10 +130,10 @@ public class PaperServiceImpl implements PaperService{
 			else if(json.getString("testType"+x).equals("5"))//主观
 			{
 				
-				String testid4 = json.getString("testIds4");
+				String testid4 = json.getString("testIds"+x);
 				testid4 = testid4.substring(0, testid4.length()-1);
 				String line4[] = testid4.split(",");
-				String querstionscores4 = json.getString("questionScores4");
+				String querstionscores4 = json.getString("questionScores"+x);
 				querstionscores4 = querstionscores4.substring(0,  querstionscores4.length()-1);
 				String scores4[] = querstionscores4.split(",");
 				for(int i=0;i<line4.length;i++)
@@ -586,19 +586,19 @@ public class PaperServiceImpl implements PaperService{
 				item = list.get(x);
 				if(item.getItemType().equals("单选题"))
 				{
-					singlechoiceQuestion = singlechoiceQuestion+item.getItemId()+","+item.getItemScore()+"###";
+					singlechoiceQuestion = singlechoiceQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"单选题"+"???"+"1"+"###";
 				}
 				else if(item.getItemType().equals("多选题"))
 				{
-					multichoiceQuestion = multichoiceQuestion+item.getItemId()+","+item.getItemScore()+"###";
+					multichoiceQuestion = multichoiceQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"多选题"+"???"+"2"+"###";
 				}
 				else if(item.getItemType().equals("填空题"))
 				{
-					fillQuestion = fillQuestion+item.getItemId()+","+item.getItemScore()+"###";
+					fillQuestion = fillQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"填空题"+"???"+"3"+"###";
 				}
 				else if(item.getItemType().equals("主观题"))
 				{
-					subjectiveQuestion = subjectiveQuestion+item.getItemId()+","+item.getItemScore()+"###";
+					subjectiveQuestion = subjectiveQuestion+item.getItemId()+"???"+item.getItemScore()+"???"+"主观题"+"???"+"4"+"###";
 				}
 				else
 				{
