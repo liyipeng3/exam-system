@@ -1,6 +1,7 @@
 ﻿package com.neusoft.root.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -246,6 +248,37 @@ public class ExamController {
 		//String json = gson.toJson(parsePaper1);
 		String json = gson.toJson(parsePaper2);
 		return json;
+	}
+	/**
+	 * 获取结束时间json串
+	 * 
+	 * @param id
+	 * @return
+	 */
+	//{"success":true,"code":10000,"desc":null,"englishDesc":null,"bizContent":{"code":0}}
+	@RequestMapping(value="/getExamEndTime",method=RequestMethod.POST)
+	@ResponseBody
+	public String getExamEndTime(int id){
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("examId", String.valueOf(id));
+		long time = System.currentTimeMillis();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String time1 = sdf.format(time);
+		String time2 = examService.queryExam(jsonObject).get(0).getExamEnd();
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		int code = 0;
+        try {
+            Date dt1 = df.parse(time1);//系统时间
+            Date dt2 = df.parse(time2);//结束时间
+            if (dt1.getTime() > dt2.getTime()) {
+                code = 0;
+            } else {
+            	code = 2;
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return "{\"success\":true,\"code\":10000,\"desc\":null,\"englishDesc\":null,\"bizContent\":{\"code\":"+code+"}}";
 	}
 	/**
 	 * 随机组卷
