@@ -245,7 +245,7 @@ public class ExamController {
 		jsonObject.put("examId", String.valueOf(examId));
 		Exam exam = examService.queryExam(jsonObject).get(0);
 		Integer paperId = exam.getPaperId();
-		Integer time = Integer.valueOf(exam.getExamLast().toString());
+		Double time = exam.getExamLast();
 		ParsedPaper parsedPaper = myService.queryParsedPaper(paperId);
 		List<List<ParsedItem>> ITEMS = parsedPaper.getItems();
 		List<String> itemsScore = new ArrayList<>();
@@ -264,7 +264,7 @@ public class ExamController {
 		System.out.println(postJson);
 		json = json.substring(0,json.length()-1);
 		postJson = "\"itemsScore\":"+postJson+"}";
-		json = json+","+"\"examTime\":"+"\""+time+"\""+","+postJson;
+		json = json+","+"\"examTime\":"+time+","+postJson;
 		return json;
 	}
 	/**
