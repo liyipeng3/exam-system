@@ -239,8 +239,8 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/get_parsed_paper",method=RequestMethod.GET)
 	@ResponseBody
-	public String getParsedPaper(Integer id){
-		ParsedPaper parsePaper = myService.queryParsedPaper(id);
+	public String getParsedPaper(String id){
+		ParsedPaper parsePaper = myService.queryParsedPaper(Integer.valueOf(id));
 		Gson gson = new Gson();
 		System.out.println(gson.toJson(parsePaper));
 		String json = gson.toJson(parsePaper);
@@ -254,9 +254,9 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/get_parsed_paper_exam",method=RequestMethod.GET)
 	@ResponseBody
-	public String getParsedPaperExam(Integer id){
+	public String getParsedPaperExam(String id){
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("examId", String.valueOf(id));
+		jsonObject.put("examId", id);
 		Integer paperId = examService.queryExam(jsonObject).get(0).getPaperId();
 		ParsedPaper parsePaper = myService.queryParsedPaper(paperId);
 		Gson gson = new Gson();
@@ -273,9 +273,9 @@ public class ExamController {
 	//{"success":true,"code":10000,"desc":null,"englishDesc":null,"bizContent":{"code":0}}
 	@RequestMapping(value="/getExamEndTime",method=RequestMethod.POST)
 	@ResponseBody
-	public String getExamEndTime(Integer id){
+	public String getExamEndTime(String id){
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("examId", String.valueOf(id));
+		jsonObject.put("examId", id);
 		long time = System.currentTimeMillis();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String time1 = sdf.format(time);
@@ -390,7 +390,7 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/load_data",method=RequestMethod.GET)
 	@ResponseBody
-	public String loadData(HttpServletRequest request, Integer id){
+	public String loadData(HttpServletRequest request, String id){
 		ParsedItem item = itemService.queryParsedItem(id).get(0);
 		String json = "{\"_id\":{\"timestamp\":1563789001,\"machineIdentifier\":5030166,\"processIdentifier\":29405,\"counter\":3855673,\"timeSecond\":1563789001,\"date\":1563789001000,\"time\":1563789001000},\"status\":\"enable\"";
 		json += ",\"classification\":\"514885\",\"cop_id\":\"140092\",\"label\":\"\",\"classificatonName\":\"示例\",\"encrypt\":\"0\"";
