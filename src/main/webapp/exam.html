@@ -1341,327 +1341,62 @@
         return (false);
     }
 
-    $.getJSON("/exam/get_parsed_paper_exam", "examId=" + getParam("exam_id"), function (e) {
+    $.getJSON("/exam/get_parsed_paper_exam", "examId=" + parseInt(getParam("exam_id")), function (e) {
         var len = e.items.length - 1;
 
-/*
-
-    '<div class="questions">'
-            '<div class="questions-title" id="">单选题(共10题，合计30.0分)</div>'
-        '<div class="questions-content">'
-            '<div class="question-content" id="5d3586c94cc11672dd3ad53b" data-id="5d3586c94cc11672dd3ad53b" data-commit="false">'
-            '<div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>'
-            '</div>'
-            '<div class="exam-question"><span class="question-index ellipsis">1.</span>'
-        '在机场、商厦、地铁等公共场所乘自动扶梯时应靠（）站立,另一侧供有急事赶路的人快行。(3.0分)</div>'
-        '<div class="answers">'
-            '<div class="select single-select a. ">'
-            '<input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad53b1" name="keyChk_questions_5d3586c94cc11672dd3ad53b" data-name="key1">'
-            '<label for="5d3586c94cc11672dd3ad53b1"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>'
-        '<span class="words">A. 左侧 </span>'
-
-            '</label>'
-            '</div>'
-            '<div class="select single-select b. ">'
-            '<input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad53b2" name="keyChk_questions_5d3586c94cc11672dd3ad53b" data-name="key2">'
-            '<label for="5d3586c94cc11672dd3ad53b2"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>'
-        '<span class="words">B. 右侧 </span>'
-
-            '</label>'
-            '</div>'
-            '<div class="select single-select c. ">'
-            '<input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad53b3" name="keyChk_questions_5d3586c94cc11672dd3ad53b" data-name="key3">'
-            <label for="5d3586c94cc11672dd3ad53b3"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 中间  </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="question-content" id="5d3586c94cc11672dd3ad53a" data-id="5d3586c94cc11672dd3ad53a" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">2.</span>
-        一般性的拜访多以（）为最佳交往时间。(3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad53a1" name="keyChk_questions_5d3586c94cc11672dd3ad53a" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad53a1"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 1小时左右 </span>
-
-        </label>
-        </div>
-        <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad53a2" name="keyChk_questions_5d3586c94cc11672dd3ad53a" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad53a2"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 半小时左右 </span>
-
-            </label>
-            </div>
-            <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad53a3" name="keyChk_questions_5d3586c94cc11672dd3ad53a" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad53a3"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 十分钟左右  </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="question-content" id="5d3586c94cc11672dd3ad539" data-id="5d3586c94cc11672dd3ad539" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">3.</span>
-        拜访他人应选择（）,并应提前打招呼。(3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5391" name="keyChk_questions_5d3586c94cc11672dd3ad539" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad5391"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 清晨 </span>
-
-            </label>
-            </div>
-            <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5392" name="keyChk_questions_5d3586c94cc11672dd3ad539" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad5392"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 用餐时间 </span>
-
-            </label>
-            </div>
-            <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5393" name="keyChk_questions_5d3586c94cc11672dd3ad539" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad5393"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 节假日的下午或平日的晚饭后  </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="question-content" id="5d3586c94cc11672dd3ad538" data-id="5d3586c94cc11672dd3ad538" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">4.</span>
-        在参加各种社交宴请宾客中,要注意从座椅的（）侧入座,动作应轻而缓,轻松自然。(3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5381" name="keyChk_questions_5d3586c94cc11672dd3ad538" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad5381"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 前侧 </span>
-
-            </label>
-            </div>
-            <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5382" name="keyChk_questions_5d3586c94cc11672dd3ad538" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad5382"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 左侧 </span>
-
-            </label>
-            </div>
-            <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5383" name="keyChk_questions_5d3586c94cc11672dd3ad538" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad5383"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 右侧  </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="question-content" id="5d3586c94cc11672dd3ad52a" data-id="5d3586c94cc11672dd3ad52a" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">5.</span>
-        日常生活中邻里之间应。 (3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad52a1" name="keyChk_questions_5d3586c94cc11672dd3ad52a" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad52a1"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 互尊互谅 </span>
-
-            </label>
-            </div>
-            <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad52a2" name="keyChk_questions_5d3586c94cc11672dd3ad52a" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad52a2"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 互不来往 </span>
-
-            </label>
-            </div>
-            <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad52a3" name="keyChk_questions_5d3586c94cc11672dd3ad52a" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad52a3"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 不必考虑邻里关系
-            </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="question-content" id="5d3586c94cc11672dd3ad529" data-id="5d3586c94cc11672dd3ad529" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">6.</span>
-        做客时入座动作要。 (3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5291" name="keyChk_questions_5d3586c94cc11672dd3ad529" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad5291"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 快捷 </span>
-
-            </label>
-            </div>
-            <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5292" name="keyChk_questions_5d3586c94cc11672dd3ad529" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad5292"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 轻稳 </span>
-
-            </label>
-            </div>
-            <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5293" name="keyChk_questions_5d3586c94cc11672dd3ad529" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad5293"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 缓慢
-            </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="question-content" id="5d3586c94cc11672dd3ad528" data-id="5d3586c94cc11672dd3ad528" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">7.</span>
-        正式交往场合我们的仪表仪容要给人()的感觉。 (3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5281" name="keyChk_questions_5d3586c94cc11672dd3ad528" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad5281"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 随意、整齐、干净 </span>
-
-        </label>
-        </div>
-        <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5282" name="keyChk_questions_5d3586c94cc11672dd3ad528" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad5282"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 漂亮、美观、时髦 </span>
-
-        </label>
-        </div>
-        <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5283" name="keyChk_questions_5d3586c94cc11672dd3ad528" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad5283"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 端庄、大方、美观
-        </span>
-
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="question-content" id="5d3586c94cc11672dd3ad527" data-id="5d3586c94cc11672dd3ad527" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">8.</span>
-        客人来访时,我们要为客人打开房门。当房门向外开时()进。 (3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5271" name="keyChk_questions_5d3586c94cc11672dd3ad527" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad5271"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 客人先进 </span>
-
-            </label>
-            </div>
-            <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5272" name="keyChk_questions_5d3586c94cc11672dd3ad527" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad5272"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 我们先进 </span>
-
-            </label>
-            </div>
-            <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5273" name="keyChk_questions_5d3586c94cc11672dd3ad527" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad5273"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 同时进门
-            </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="question-content" id="5d3586c94cc11672dd3ad526" data-id="5d3586c94cc11672dd3ad526" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">9.</span>
-        与他人在正式场合交谈时要严肃认真,还要注意语言的。 (3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5261" name="keyChk_questions_5d3586c94cc11672dd3ad526" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad5261"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 准确规范 </span>
-
-            </label>
-            </div>
-            <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5262" name="keyChk_questions_5d3586c94cc11672dd3ad526" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad5262"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 慢条斯理 </span>
-
-            </label>
-            </div>
-            <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5263" name="keyChk_questions_5d3586c94cc11672dd3ad526" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad5263"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 声音洪亮
-            </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="question-content" id="5d3586c94cc11672dd3ad525" data-id="5d3586c94cc11672dd3ad525" data-commit="false">
-            <div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="标记本题"><i class="icon icon-p_exam_tag_de"></i>
-
-            </div>
-            <div class="exam-question"><span class="question-index ellipsis">10.</span>
-        递接文件或名片时应当注意字体的。 (3.0分)</div>
-        <div class="answers">
-            <div class="select single-select a. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5251" name="keyChk_questions_5d3586c94cc11672dd3ad525" data-name="key1">
-            <label for="5d3586c94cc11672dd3ad5251"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">A. 正面朝向对方 </span>
-
-            </label>
-            </div>
-            <div class="select single-select b. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5252" name="keyChk_questions_5d3586c94cc11672dd3ad525" data-name="key2">
-            <label for="5d3586c94cc11672dd3ad5252"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">B. 侧面朝向对方 </span>
-
-            </label>
-            </div>
-            <div class="select single-select c. ">
-            <input type="radio" class="radioOrCheck hidden" data-type="1" id="5d3586c94cc11672dd3ad5253" name="keyChk_questions_5d3586c94cc11672dd3ad525" data-name="key3">
-            <label for="5d3586c94cc11672dd3ad5253"> <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
-        <span class="words">C. 反面朝向对方
-            </span>
-
-            </label>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-*/
+        /*
 
 
 
+        ' <div class="questions">'
+                '<div class="questions-title" id="">单选题(共10题，合计30.0分)</div>'
+                '<div class="questions-content">'
+                    '<div class="question-content" id="5d3586c94cc11672dd3ad53b" data-id="5d3586c94cc11672dd3ad53b" data-commit="false">'
+                        '<div class="question-operation operation-icon icon-mark" data-type="1" data-toggle="tooltip" '
+                             'data-placement="top" data-container="body" title="" data-original-title="标记本题"><i '
+                                'class="icon icon-p_exam_tag_de"></i>'
 
+                        </div>
+                        <div class="exam-question"><span class="question-index ellipsis">1.</span>
+                            在机场、商厦、地铁等公共场所乘自动扶梯时应靠（）站立,另一侧供有急事赶路的人快行。(3.0分)
+                        </div>
+                        <div class="answers">
+                            <div class="select single-select a. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53b1" name="keyChk_questions_5d3586c94cc11672dd3ad53b"
+                                       data-name="key1">
+                                <label for="5d3586c94cc11672dd3ad53b1"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">A. 左侧 </span>
 
+                                </label>
+                            </div>
+                            <div class="select single-select b. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53b2" name="keyChk_questions_5d3586c94cc11672dd3ad53b"
+                                       data-name="key2">
+                                <label for="5d3586c94cc11672dd3ad53b2"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">B. 右侧 </span>
+
+                                </label>
+                            </div>
+                            <div class="select single-select c. ">
+                                <input type="radio" class="radioOrCheck hidden" data-type="1"
+                                       id="5d3586c94cc11672dd3ad53b3" name="keyChk_questions_5d3586c94cc11672dd3ad53b"
+                                       data-name="key3">
+                                <label for="5d3586c94cc11672dd3ad53b3"> <span class="select-icon"><i
+                                        class="icon icon-m_exam_correct"></i></span>
+                                    <span class="words">C. 中间  </span>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        */
 
         console.log(e);
     });
