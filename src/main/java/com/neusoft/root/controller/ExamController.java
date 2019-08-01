@@ -34,7 +34,7 @@ import com.neusoft.root.service.ItemServiceImpl;
 import com.neusoft.root.service.MyServiceImp;
 
 /**
- * 
+ * 考试控制器
  * 
  * @author 何时谷雨
  *
@@ -52,21 +52,6 @@ public class ExamController {
 	private ExamServiceImpl examService;
 	@Autowired
 	private MyServiceImp myService;
-	private String subject;
-	/**
-	 * 
-	 * 
-	 * @param paper_name
-	 * @param subject
-	 * @param method
-	 * @return
-	 */
-	@RequestMapping(value="/add_paper", method=RequestMethod.GET)
-	@ResponseBody
-	public String paperSettings(String paper_name, String subject, String method) {
-		this.subject = subject;
-		return null;
-	}
 	/**
 	 * 获得所有试卷
 	 * 
@@ -362,7 +347,7 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/result_inquire",method=RequestMethod.POST)
 	@ResponseBody
-	public String getPaperChecking(int id){
+	public String getPaperChecking(Integer examId){
 		JSONObject json = new JSONObject();
 		json.put("success", true);
 		return json.toJSONString();
