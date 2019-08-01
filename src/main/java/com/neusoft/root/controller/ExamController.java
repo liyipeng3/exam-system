@@ -254,10 +254,14 @@ public class ExamController {
 	 */
 	@RequestMapping(value="/get_parsed_paper_exam",method=RequestMethod.GET)
 	@ResponseBody
-	public String getParsedPaperExam(String id){
+	public String getParsedPaperExam(Integer examId){
+		System.out.println(examId);
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("examId", id);
+		jsonObject.put("examId", String.valueOf(examId));
+		System.out.println(jsonObject.getString("examId"));
+		System.out.println("in");
 		Integer paperId = examService.queryExam(jsonObject).get(0).getPaperId();
+		System.out.println("out");
 		System.out.println(paperId);
 		ParsedPaper parsePaper = myService.queryParsedPaper(paperId);
 		Gson gson = new Gson();
