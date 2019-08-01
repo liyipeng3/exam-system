@@ -17,6 +17,7 @@ public class ParsedItem
 	private String itemPicture; //试题路径
 	private Double itemScore; //试题分数
 	private String itemParse; //题目解析 
+	
 	public Integer getItemId() {
 		return itemId;
 	}
