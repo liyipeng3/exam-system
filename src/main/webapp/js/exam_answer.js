@@ -807,9 +807,22 @@ $(function () {
                         if (loadingProgress >= 100) {
                             clearInterval(progress);
                             clearInterval(time);
+                            var url = "/exam/post_result";
                             console.log(Array.from(result));
-                            ajax_post("/exam/post_result" ,Array.from(result));
-                            window.location.href = "/exam_result?score=" + String(msg.studentScore) + "&sumScore="+ String(msg.sumScore);
+                            $.ajax({
+                                url: url,
+                                method: "POST",
+                                data: JSON.stringify(Array.from(result)),
+                                dataType: 'json',
+                                contentType: "application/json;charset=UTF-8",
+                                success: function (res) {
+                                    console.log(res.studentScore);
+                                    window.location.href = "/exam_result?score=" + String(res.studentScore) + "&sumScore="+ String(res.sumScore) + "&studentId=" + res.studentId;
+                                },
+                                error: function (res) {
+                                    console.log(res);
+                                }
+                            });
                         }
                     }, 120);
                 } else {
@@ -820,22 +833,6 @@ $(function () {
 
                 resultTimeout();
 
-            }
-        });
-    }
-
-    function ajax_post(url, data) {
-        $.ajax({
-            url: url,
-            method: "POST",
-            data: JSON.stringify(data),
-            dataType: 'text',
-            contentType: "application/json;charset=UTF-8",
-            success: function (msg) {
-                console.log(msg);
-            },
-            error: function (msg) {
-                console.log(msg);
             }
         });
     }
