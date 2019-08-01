@@ -9,10 +9,10 @@ public class RawPaper
 	private String createDate; //创作日期
 	private String paperType; //试卷科目类型，例如JAVA, C++
 	private Double paperIndex; //试卷难度,由题目平均难度决定
-	private String singlechoiceQuestion;  // 选择题,格式为:ID1,分数1,大题名称,大题顺序
-	private String multichoiceQuestion;  // 选择题,格式为:ID1,分数1,大题名称,大题顺序
-	private String fillQuestion; //填空题,ID1,分数1,大题名称,大题顺序
-	private String subjectiveQuestion; //主观题格式为ID1,分数1,大题名称,大题顺序
+	private String singlechoiceQuestion;  // 选择题,格式为:ID1？？？分数1？？？大题名称？？？大题顺序###
+	private String multichoiceQuestion;  // 选择题,格式为:ID1？？？分数1？？？大题名称？？？大题顺序###
+	private String fillQuestion; //填空题,格式：ID1？？？分数1？？？大题名称？？？大题顺序###
+	private String subjectiveQuestion; //主观题格式为ID1？？？分数1？？？大题名称？？？大题顺序###
 	private Double paperScore; //试卷总分 
 	private String paperSecrecy; //试卷保密级别，二值性：保密，公开
 	private String paperRemark; // 试卷备注
