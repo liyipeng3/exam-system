@@ -6,8 +6,8 @@ public class RawResult {
 	private String studentId; //学生ID
 	private Integer paperId; //试卷ID
 	private String teacherId;
-	private String singlechoiceResult; //单选题结果，格式：ID1，分数1###ID2，分数2###
-	private String multichoiceResult; //多选题结果，格式：ID1，分数1###ID2，分数2###
+	private String singlechoiceResult; //单选题结果，格式：ID1???答案1!!!答案2###ID2???分数2###
+	private String multichoiceResult; //多选题结果，格式：ID1???分数1###ID2???分数2###
 	private String fillResult; //填空题结果，格式：ID1，分数1###ID2，分数2###
 	private String subjectiveResult; // 主观题结果，格式：ID1，分数1###ID2，分数2###
 	private String submitDate; //答题日期
