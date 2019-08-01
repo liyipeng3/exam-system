@@ -286,9 +286,9 @@ public class ExamController {
             Date dt1 = df.parse(time1);//系统时间
             Date dt2 = df.parse(time2);//结束时间
             if (dt1.getTime() > dt2.getTime()) {
-                code = 0;
+                code = 2;
             } else {
-            	code = 2;
+            	code = 0;
             }
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -345,7 +345,7 @@ public class ExamController {
 	 * @param paperId
 	 * @return
 	 */
-	@RequestMapping(value="/result_inquire",method=RequestMethod.GET)
+	@RequestMapping(value="/result_inquire",method=RequestMethod.POST)
 	@ResponseBody
 	public String getPaperChecking(int id){
 		JSONObject json = new JSONObject();
