@@ -3,15 +3,16 @@ package com.neusoft.root.domain;
 //课程表
 public class Course 
 {
-	private String courseId;  // 课程ID
+	private Integer courseId;  // 课程ID
 	private String courseName; //课程名称
  	private String courseType;  //课程类型
  	private String courseBegin;  // 开始时间
  	private String courseEnd;  // 结束时间
  	private String courseRemark; // 描述
  	private String courseStatus; // 状态
-	public Course(String courseId, String courseName, String courseType, String courseBegin, String courseEnd,
-			String courseRemark, String courseStatus) {
+	public Course(Integer courseId, String courseName, String courseType, String courseBegin, String courseEnd,
+			String courseRemark, String courseStatus) 
+	{
 		super();
 		this.courseId = courseId;
 		this.courseName = courseName;
@@ -24,10 +25,10 @@ public class Course
 	public Course() {
 		super();
 	}
-	public String getCourseId() {
+	public Integer getCourseId() {
 		return courseId;
 	}
-	public void setCourseId(String courseId) {
+	public void setCourseId(Integer courseId) {
 		this.courseId = courseId;
 	}
 	public String getCourseName() {

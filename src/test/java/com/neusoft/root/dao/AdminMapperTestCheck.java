@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neusoft.root.domain.Admin;
+import com.neusoft.root.domain.Course;
 import com.neusoft.root.domain.RawCheck;
 import com.neusoft.root.domain.Managestudent;
 import com.neusoft.root.domain.Manageteacher;
@@ -29,7 +30,7 @@ public class AdminMapperTestCheck
 	@Test
 	public void testQueryCheck()
 	{
-		try 
+		/*try 
 		{
 			List<RawCheck> list = am.queryCheck(null);
 			for (RawCheck mt : list) 
@@ -40,6 +41,18 @@ public class AdminMapperTestCheck
 		catch (Exception e) 
 		{
 			System.out.println(e);
+		}*/
+	}
+	
+	@Test
+	public void testAddCourse()
+	{
+		try {
+			Course course = new Course(1, "1", "1", "1", "1", "1", "1");
+			am.addCource(course);
+		} catch (Exception e) {
+			System.out.println(e);
 		}
+		
 	}
 }

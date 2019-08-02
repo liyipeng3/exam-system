@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)https://admin.kaoshixing.com/course/course_add/# -->
 <html lang="zh-CN">
 
 <head>
@@ -135,16 +134,12 @@
                                 </div>
                                 <span class="nav-title">学习</span>
                             </a>
-                            <ul class="sub-menu animate" style="height: 124px;">
+                            <ul class="sub-menu animate" style="height: 82px;">
                                 <li class="nav-item sub-nav-item" id="subNavItemFileMgr"><a
                                         href="/html/study/manager"><span class="nav-title">知识库</span></a>
                                 </li>
                                 <li class="nav-item sub-nav-item nav-item-active" id="subNavItemCourseMgr"><a
                                         href="/html/study/course_mgr"><span class="nav-title">课程管理</span></a>
-                                </li>
-                                <li class="nav-item sub-nav-item" id="subNavItemCourseRecord"><a
-                                        href="/html/study/study_record_mgr"><span
-                                        class="nav-title">学习记录</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -278,12 +273,7 @@
 
                                             <div class="col-md-10">
                                                 <div class="expanding-wrapper" style="position:relative">
-                                                    <textarea name="courseDesc"
-                                                              class="form-control form-text1 expanding"
-                                                              style="height: 100%; margin: 0px; box-sizing: border-box; width: 100%; position: absolute; top: 0px; left: 0px; resize: none; overflow: auto;"></textarea>
-                                                    <pre class="expanding-clone"
-                                                         style="margin: 0px; box-sizing: border-box; width: 100%; display: block; border: 1px solid; visibility: hidden; min-height: 37px; white-space: pre-wrap; line-height: 20px; text-decoration: none solid rgb(155, 155, 155); font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; word-break: normal; padding: 6px
-                                                    12px;"><span> </span><br></pre>
+                                                    <input name="courseRemark" type="text" class="form-control form-text1">
                                                 </div>
                                             </div>
                                         </div>
@@ -369,7 +359,7 @@
                                         <div class="form-row save-row">
                                             <input type="hidden" name="courseId">
                                         </div>
-                                    </div>
+
                                 </form>
                             </div>
                         </div>
@@ -476,10 +466,6 @@
                 </button>
                 <h4 class="modal-title">选择考试</h4>
 
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="620px" src="../../html/saved_resource(5).html" style="border:0px"
-                        name="selPaperModal" id="selPaperModal"></iframe>
             </div>
         </div>
     </div>
@@ -724,6 +710,23 @@
 
 
     });
+
+
+    function ajax_post(url, data) {
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: JSON.stringify(data),
+            dataType: 'text',
+            contentType: "application/json;charset=UTF-8",
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (msg) {
+                console.log(msg);
+            }
+        });
+    }
 </script>
 </body>
 
