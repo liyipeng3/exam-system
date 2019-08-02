@@ -216,7 +216,7 @@ $(document).ready(function () {
             isNewCourse = true;
             $(this).attr("disabled", "disabled");
             $("#loading").show();
-            saveCourse(false, '/study/course_mgr', 'course');
+            saveCourse(false, '/html/study/course_mgr', 'course');
         }
     });
 
@@ -479,7 +479,7 @@ function saveCourse(nextStep, jump_url, type) {
 }
 
 $("#cannotLinkModal .btn").click(function () {
-    window.location.href = "/course/course_mgr";
+    window.location.href = "/html/course/course_mgr";
 })
 
 //计算课件id

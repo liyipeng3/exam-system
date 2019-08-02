@@ -457,7 +457,7 @@ webpackJsonp([1], {
                     }
                 }, [a("el-row", [a("i", {staticClass: "icon icon-a_help_document"}), e._v(" "), a("a", {
                     staticClass: "content jump",
-                    attrs: {href: "https://www.kancloud.cn/exam-star/ksxhelp_1/974046", target: "_blank"}
+                    attrs: {href: "#", target: "_blank"}
                 }, [e._v("帮助文档")])]), e._v(" "), a("el-row", [a("i", {staticClass: "icon icon-a_help_service"}), e._v(" "), a("div", {staticClass: "content"}, [e._v("\n                  人工客服\n                  "), a("div", [e._v("可"), a("a", {
                     staticClass: "link",
                     attrs: {href: "javascript:;", "data-gio-position": "管理端帮助在线咨询", target: "_blank"},

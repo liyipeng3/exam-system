@@ -47,6 +47,7 @@ public class PaperServiceImpl implements PaperService{
 		String date = df.format(new Date());// new Date()为获取当前系统时间
 		String current = String.valueOf(System.currentTimeMillis());
 		String courseid = json.getString("paperType");
+		System.out.println(courseid);
 		Course course = new Course();
 		course.setCourseId(Integer.valueOf(courseid));
 		List<Course> list = AdminMapper.queryCourse(course);
@@ -200,8 +201,9 @@ public class PaperServiceImpl implements PaperService{
 
 
 	@Override
-	public void updateRawPaper(JSONObject json) {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
+	public void updateRawPaper(JSONObject json) 
+	{
+		/*SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
 		String date = df.format(new Date());// new Date()为获取当前系统时间
 		String current = String.valueOf(System.currentTimeMillis());
 		String courseid = json.getString("paperType");
@@ -284,7 +286,7 @@ public class PaperServiceImpl implements PaperService{
 			x++;
 		}
 		RawPaper rawPaper = new RawPaper((Integer)0, json.getString("paperName"),json.getString("createrId"), date, paperType, 3.0, singlequestion, mutiquestion, fillquestion, subjectivequestion, json.getDouble("totalScore"), "保密", current);
-		mapper.updateRawPaper(rawPaper);
+		mapper.updateRawPaper(rawPaper);*/
 	}
 
 

@@ -1122,6 +1122,7 @@ function asyncPaperSub(obj) {
     $(dataForm).each(function(index, obj){
         data[obj.name] = obj.value;
     });
+    data['subject'] = getParam('subject');
     console.log(data);
     $.ajax({
         type: "POST",
