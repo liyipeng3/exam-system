@@ -421,10 +421,6 @@
                         <i class="icons8-trash-can btn-icon-left"></i>
                         删除
                     </button>
-                    <button type="button" class="btn btn-default" id="courseClassify">
-                        <i class="icon icon-a_btn_classify"></i>
-                        管理课程分类
-                    </button>
                 </div>
 
                 <div class="body-toolbar-right pull-right toolbar-right-operation">
@@ -565,7 +561,7 @@
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item has-sub-menu" id="navItemSystem"><a
                                 href="/html/study/course_mgr#" class="menu-title" data-toggle="tooltip"
                                 data-placement="right" data-container="body" title="系统管理">
@@ -731,10 +727,10 @@
                                         class="text">分类</span><span class="icon glyphicon "></span></a></th>
                                 <th data-column-id="status" class="text-left" style="width: 128px;"><a
                                         href="javascript:void(0);" class="column-header-anchor "><span
-                                        class="text">状态</span><span class="icon glyphicon "></span></a></th>
+                                        class="text"></span><span class="icon glyphicon "></span></a></th>
                                 <th data-column-id="relateExam" class="text-left" style="width: 184px;"><a
                                         href="javascript:void(0);" class="column-header-anchor "><span
-                                        class="text">关联考试</span><span class="icon glyphicon "></span></a></th>
+                                        class="text"></span><span class="icon glyphicon "></span></a></th>
                                 <th data-column-id="courseStartTime" class="text-left" style="width: 184px;"><a
                                         href="javascript:void(0);" class="column-header-anchor sortable"><span
                                         class="text">开始时间</span><span class="icon glyphicon "></span></a></th>
@@ -743,13 +739,13 @@
                                         class="text">结束时间</span><span class="icon glyphicon "></span></a></th>
                                 <th data-column-id="createUserName" class="text-left" style="width: 156px;"><a
                                         href="javascript:void(0);" class="column-header-anchor "><span
-                                        class="text">创建人</span><span class="icon glyphicon "></span></a></th>
+                                        class="text"></span><span class="icon glyphicon "></span></a></th>
                                 <th data-column-id="createTime" class="text-left" style="width: 185px;"><a
                                         href="javascript:void(0);" class="column-header-anchor sortable"><span
                                         class="text">创建时间</span><span class="icon glyphicon "></span></a></th>
                                 <th data-column-id="setProcess" class="text-left" style="width: 185px;"><a
                                         href="javascript:void(0);" class="column-header-anchor sortable"><span
-                                        class="text">关联任务</span><span class="icon glyphicon "></span></a></th>
+                                        class="text"></span><span class="icon glyphicon "></span></a></th>
                                 <th data-column-id="sender" class="text-left" style="width: 129px;"><a
                                         href="javascript:void(0);" class="column-header-anchor "><span
                                         class="text">操作</span><span class="icon glyphicon icons8-settings"></span></a>
@@ -757,37 +753,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr data-row-id="6640">
-                                <td class="select-cell" style=""><label class="select-label"><input
-                                        name="select" type="checkbox" class="select-box" value="6640"><span
-                                        class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>
-                                <td class="text-left" style="">语文</td>
-                                <td class="text-left" style="">新分类1</td>
-                                <td class="text-left" style="">正常</td>
-                                <td class="text-left" style="">-</td>
-                                <td class="text-left" style="">2019-05-30 00:00</td>
-                                <td class="text-left" style="">2019-07-11 00:00</td>
-                                <td class="text-left" style="">试试</td>
-                                <td class="text-left" style="">2019-07-31 22:32</td>
-                                <td class="text-left" style="">否</td>
-                                <td class="text-left" style=""><a href="#" data-growing-title="updateCourse"
-                                                                  class="icons8-edit table-oper-edit updateCourse"
-                                                                  courseid="6640" data-toggle="tooltip"
-                                                                  data-placement="top" data-container="body" title=""
-                                                                  data-original-title="编辑"></a><a href="#"
-                                                                                                  data-growing-title="linkCourse"
-                                                                                                  class="icons8-attach linkCourse"
-                                                                                                  courseid="6640"
-                                                                                                  data-toggle="tooltip"
-                                                                                                  data-placement="top"
-                                                                                                  data-container="body"
-                                                                                                  title=""
-                                                                                                  data-original-title="课程链接"></a><a
-                                        href="#" data-growing-title="removeCourse"
-                                        class="icons8-trash-can table-oper-del removeCourse" courseid="6640"
-                                        data-toggle="tooltip" data-placement="top" data-container="body" title=""
-                                        data-original-title="删除"></a></td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -836,11 +801,11 @@
                                             <li><label class="dropdown-item"><input name="status" type="checkbox"
                                                                                     value="1"
                                                                                     class="dropdown-item-checkbox"
-                                                                                    checked="checked"> 状态</label></li>
+                                                                                    checked="checked"></label></li>
                                             <li><label class="dropdown-item"><input name="relateExam" type="checkbox"
                                                                                     value="1"
                                                                                     class="dropdown-item-checkbox"
-                                                                                    checked="checked"> 关联考试</label></li>
+                                                                                    checked="checked"> </label></li>
                                             <li><label class="dropdown-item"><input name="courseStartTime"
                                                                                     type="checkbox" value="1"
                                                                                     class="dropdown-item-checkbox"
@@ -852,7 +817,7 @@
                                             <li><label class="dropdown-item"><input name="createUserName"
                                                                                     type="checkbox" value="1"
                                                                                     class="dropdown-item-checkbox"
-                                                                                    checked="checked"> 创建人</label></li>
+                                                                                    checked="checked"></label></li>
                                             <li><label class="dropdown-item"><input name="createTime" type="checkbox"
                                                                                     value="1"
                                                                                     class="dropdown-item-checkbox"
@@ -868,7 +833,7 @@
                                             <li><label class="dropdown-item"><input name="setProcess" type="checkbox"
                                                                                     value="1"
                                                                                     class="dropdown-item-checkbox"
-                                                                                    checked="checked"> 关联任务</label></li>
+                                                                                    checked="checked"></label></li>
                                             <li><label class="dropdown-item"><input name="sender" type="checkbox"
                                                                                     value="1"
                                                                                     class="dropdown-item-checkbox"
@@ -941,20 +906,6 @@
 
 
 <!-- Modal -->
-<div class="modal fade modal-unify" id="manageTypeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-small" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title exam-classify">管理课程分类</h4>
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="400px" style="border:0px" name="manageTypeFrame" id="manageTypeFrame"
-                        src="#"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="modal fade" id="okModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-share" role="document">
         <div class="modal-content">
@@ -1112,6 +1063,45 @@
         // });
 
         //    自管理员点击添加考生，添加试题，创建考试时的权限判断
+        $.getJSON("/study/query_course", function (result) {
+            $.each(result, function (index, e) {
+                var course = '<tr id=id-"' + e.courseId + '">' +
+                    '                                <td class="select-cell" style=""><label class="select-label"><input' +
+                    '                                        name="select" type="checkbox" class="select-box" value="6640"><span' +
+                    '                                        class="select-box"><i class="icons8-checked-checkbox"></i></span></label></td>' +
+                    '                                <td class="text-left" style="">' + e.courseName + '</td>' +
+                    '                                <td class="text-left" style="">' + e.courseType + '</td>' +
+                    '                                <td class="text-left" style=""></td>' +
+                    '                                <td class="text-left" style="">-</td>' +
+                    '                                <td class="text-left" style="">' + e.courseBegin + '</td>' +
+                    '                                <td class="text-left" style="">' + e.courseEnd + '</td>' +
+                    '                                <td class="text-left" style=""></td>' +
+                    '                                <td class="text-left" style="">' + e.courseBegin + '</td>' +
+                    '                                <td class="text-left" style=""></td>' +
+                    '                                <td class="text-left" style=""><a href="#" data-growing-title="updateCourse"' +
+                    '                                                                  class="icons8-edit table-oper-edit updateCourse"' +
+                    '                                                                  courseid="6640" data-toggle="tooltip"' +
+                    '                                                                  data-placement="top" data-container="body" title=""' +
+                    '                                                                  data-original-title="编辑"></a><a href="#"' +
+                    '                                                                                                  data-growing-title="linkCourse"' +
+                    '                                                                                                  class="icons8-attach linkCourse"' +
+                    '                                                                                                  courseid="6640"' +
+                    '                                                                                                  data-toggle="tooltip"' +
+                    '                                                                                                  data-placement="top"' +
+                    '                                                                                                  data-container="body"' +
+                    '                                                                                                  title=""' +
+                    '                                                                                                  data-original-title="课程链接"></a><a' +
+                    '                                        href="#" data-growing-title="removeCourse"' +
+                    '                                        class="icons8-trash-can table-oper-del removeCourse" courseid="6640"' +
+                    '                                        data-toggle="tooltip" data-placement="top" data-container="body" title=""' +
+                    '                                        data-original-title="删除"></a></td>' +
+                    '                            </tr>';
+                $('tbody').append($(course));
+            });
+
+        });
+
+
         $("#staff,#test,#exam").on("click", function (e) {
             e.stopPropagation();
             e.preventDefault();
