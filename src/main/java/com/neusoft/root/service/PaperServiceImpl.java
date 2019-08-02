@@ -48,7 +48,7 @@ public class PaperServiceImpl implements PaperService{
 		String current = String.valueOf(System.currentTimeMillis());
 		String courseid = json.getString("paperType");
 		Course course = new Course();
-		//course.setCourseId(courseid);
+		course.setCourseId(Integer.valueOf(courseid));
 		List<Course> list = AdminMapper.queryCourse(course);
 		String paperType = list.get(0).getCourseType();
 		int x = 1;
@@ -206,7 +206,7 @@ public class PaperServiceImpl implements PaperService{
 		String current = String.valueOf(System.currentTimeMillis());
 		String courseid = json.getString("paperType");
 		Course course = new Course();
-		//course.setCourseId(courseid);
+		course.setCourseId(Integer.valueOf(courseid));
 		List<Course> list = AdminMapper.queryCourse(course);
 		String paperType = list.get(0).getCourseType();
 		int x = 1;
