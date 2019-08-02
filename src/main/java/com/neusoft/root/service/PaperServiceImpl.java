@@ -46,11 +46,8 @@ public class PaperServiceImpl implements PaperService{
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
 		String date = df.format(new Date());// new Date()为获取当前系统时间
 		String current = String.valueOf(System.currentTimeMillis());
-		String courseid = json.getString("paperType");
-		Course course = new Course();
-		course.setCourseId(courseid);
-		List<Course> list = AdminMapper.queryCourse(course);
-		String paperType = list.get(0).getCourseType();
+		System.out.println("json"+json);
+		String paperType = json.getString("subject");
 		int x = 1;
 		String subjectivequestion = "";
 		String singlequestion = "";
