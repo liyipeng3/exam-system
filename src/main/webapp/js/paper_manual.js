@@ -1132,6 +1132,7 @@ function asyncPaperSub(obj) {
         contentType: 'application/json;charset=UTF-8',
         success: function (msg) {
             if (msg.status == 'ok') {
+                //console.log(ajaxUrl);
                 if ($("#savePaperBtn").hasClass('addPaperOnly')) {
                     // 只创建试卷
                     window.location.href = '/html/exam/paper_mgr_new.html';
