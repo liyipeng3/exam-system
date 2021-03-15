@@ -1,32 +1,13 @@
 package com.neusoft.root.service;
 
-import static org.assertj.core.api.Assertions.setAllowComparingPrivateFields;
-
-import java.awt.color.ICC_ColorSpace;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-
-import org.apache.ibatis.reflection.wrapper.BaseWrapper;
-import org.hamcrest.core.IsEqual;
+import com.alibaba.fastjson.JSONObject;
+import com.neusoft.root.dao.TeacherMapper;
+import com.neusoft.root.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.alibaba.fastjson.JSONObject;
-import com.neusoft.root.dao.TeacherMapper;
-import com.neusoft.root.domain.ItemChecking;
-import com.neusoft.root.domain.PaperChecking;
-import com.neusoft.root.domain.PaperHelper;
-import com.neusoft.root.domain.ParsedCheck;
-import com.neusoft.root.domain.RawCheck;
-import com.neusoft.root.domain.RawItem;
-import com.neusoft.root.domain.RawPaper;
-import com.neusoft.root.domain.RawResult;
+import java.text.DecimalFormat;
+import java.util.*;
 
 @Service
 public class CheckServiceImpl implements CheckService{

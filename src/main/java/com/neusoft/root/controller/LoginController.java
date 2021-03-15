@@ -1,4 +1,4 @@
-﻿package com.neusoft.root.controller;
+package com.neusoft.root.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
